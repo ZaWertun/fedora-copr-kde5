@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'net/http'
+require 'nokogiri'
+
 name = File.basename(Dir.pwd)
 version = ARGV[0]
 unless version
@@ -17,6 +20,23 @@ def done?
     else
         puts "\e[41m\e[30mERROR\e[0m\n\n"; exit 2
     end
+end
+
+def last_ver(name)
+    uri = URI.parse("https://cgit.kde.org/#{name}.git/refs/")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = uri.scheme == 'https'
+    res = http.get(uri.request_uri).body
+    doc = Nokogiri::HTML(res)
+    tags = doc.css('tr th:contains("Tag")').first.parent
+    last = tags.next_element
+    last.css('td:first-child').first.text
+rescue
+    nil
+end
+
+if (last = last_ver(name))
+    puts "\e[92mLatest version: #{last}\e[0m\n\n"
 end
 
 old_version = `grep Version: *.spec`
