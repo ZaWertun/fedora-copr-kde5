@@ -1,0 +1,24 @@
+diff -up konsole-4.14.3/src/Profile.cpp.xterm-256color konsole-4.14.3/src/Profile.cpp
+--- konsole-4.14.3/src/Profile.cpp.xterm-256color	2014-10-31 23:17:02.000000000 -0500
++++ konsole-4.14.3/src/Profile.cpp	2014-12-23 09:16:18.242526791 -0600
+@@ -150,7 +150,7 @@ FallbackProfile::FallbackProfile()
+     setProperty(Command, qgetenv("SHELL"));
+     setProperty(Arguments, QStringList() << qgetenv("SHELL"));
+     setProperty(Icon, "utilities-terminal");
+-    setProperty(Environment, QStringList() << "TERM=xterm");
++    setProperty(Environment, QStringList() << "TERM=xterm-256color");
+     setProperty(LocalTabTitleFormat, "%d : %n");
+     setProperty(RemoteTabTitleFormat, "(%u) %H");
+     setProperty(ShowTerminalSizeHint, true);
+diff -up konsole-4.14.3/src/Pty.cpp.xterm-256color konsole-4.14.3/src/Pty.cpp
+--- konsole-4.14.3/src/Pty.cpp.xterm-256color	2014-10-31 23:17:02.000000000 -0500
++++ konsole-4.14.3/src/Pty.cpp	2014-12-23 09:16:43.828569726 -0600
+@@ -218,7 +218,7 @@ void Pty::addEnvironmentVariables(const
+ 
+     // extra safeguard to make sure $TERM is always set
+     if (!isTermEnvAdded) {
+-        setEnv("TERM", "xterm");
++        setEnv("TERM", "xterm-256color");
+     }
+ }
+ 
