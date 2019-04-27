@@ -11,7 +11,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 18.12.2
+Version: 19.04.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -187,6 +187,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
+- 19.04.0
+
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
 
