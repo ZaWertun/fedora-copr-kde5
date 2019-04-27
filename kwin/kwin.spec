@@ -280,6 +280,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwineffects.so.*
 %{_libdir}/libkwinglutils.so.*
 %{_libdir}/libkwin4_effect_builtins.so.*
+%{_libdir}/libkcmkwincommon.so.*
+%{_kf5_qtplugindir}/kcms/kcm_kwin_virtualdesktops.so
+%{_kf5_datadir}/kpackage/kcms/kcm_kwin_virtualdesktops/*
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
