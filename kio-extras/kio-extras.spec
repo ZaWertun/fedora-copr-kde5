@@ -54,6 +54,7 @@ BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-kpty-devel
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-solid-devel
+BuildRequires:  kf5-syntax-highlighting-devel
 
 BuildRequires:  libjpeg-devel
 BuildRequires:  libmtp-devel
