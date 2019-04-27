@@ -35,7 +35,7 @@ rescue
     nil
 end
 
-if (last = last_ver(name))
+if (last = last_ver name.gsub(/^kf5-/, ''))
     puts "\e[92mLatest version: #{last}\e[0m\n\n"
 end
 
