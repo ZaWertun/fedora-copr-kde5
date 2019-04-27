@@ -1,7 +1,7 @@
 Name:    gwenview 
 Summary: An image viewer
 Epoch:   1
-Version: 18.12.2
+Version: 19.04.0
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -117,6 +117,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.04.0-1
+- 19.04.0
+
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 1:18.12.2-1
 - 18.12.2
 
