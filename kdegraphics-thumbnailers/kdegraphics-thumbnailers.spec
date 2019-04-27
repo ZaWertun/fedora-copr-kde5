@@ -20,6 +20,7 @@ BuildRequires: kf5-rpm-macros
 BuildRequires: cmake(KF5KDcraw)
 BuildRequires: cmake(KF5KExiv2)
 BuildRequires: cmake(KF5KIO)
+BuildRequires: cmake(KF5Archive)
 BuildRequires: cmake(Qt5Gui)
 
 %description
@@ -49,6 +50,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kservices5/gsthumbnail.desktop
 %{_kf5_qtplugindir}/rawthumbnail.so
 %{_kf5_datadir}/kservices5/rawthumbnail.desktop
+%{_kf5_qtplugindir}/blenderthumbnail.so
+%{_kf5_datadir}/kservices5/blenderthumbnail.desktop
 
 
 %changelog
