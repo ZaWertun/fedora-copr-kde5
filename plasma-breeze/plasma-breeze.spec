@@ -6,13 +6,14 @@
 %global         build_kde4  1
 
 Name:    plasma-breeze
-Version: 5.15.4
+Version: 5.15.4.1
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
 
+%global majminpatch %(echo %{version} | cut -d. -f1,2,3)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
 %global majmin_ver %(echo %{version} | cut -d. -f1,2).50
@@ -21,7 +22,7 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{majminpatch}/%{base_name}-%{version}.tar.xz
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kde4_libdir}/kde4/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -192,6 +193,12 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 
 
 %changelog
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4.1-1
+- 5.15.4.1
+
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4.1-1
+- 5.15.4.1
+
 * Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
 - 5.15.4
 
