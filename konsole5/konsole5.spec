@@ -10,8 +10,8 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 18.12.3
-Release: 2%{?dist}
+Version: 19.04.0
+Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
 License: GPLv2 and GFDL
@@ -166,6 +166,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
+- 19.04.0
+
 * Thu Apr 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-2
 - Crashes When Logging Out All Tabs in a Window Using "Copy Input To" Feature (#1657013,kde#405158)
 
