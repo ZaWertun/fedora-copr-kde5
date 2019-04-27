@@ -1,7 +1,7 @@
 %global framework kxmlgui
 
 Name:    kf5-%{framework}
-Version: 5.55.0
+Version: 5.57.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for user-configurable main windows
 
@@ -16,11 +16,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
+Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-attica-devel >= %{majmin}
-BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kconfigwidgets-devel >= %{majmin}
 BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
@@ -95,6 +94,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kxmlgui5/
 
 
 %changelog
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+- 5.57.0
+
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0
 
