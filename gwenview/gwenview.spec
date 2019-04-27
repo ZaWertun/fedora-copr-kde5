@@ -30,7 +30,7 @@ BuildRequires: gettext
 BuildRequires: kf5-rpm-macros
 BuildRequires: kf5-baloo-devel
 BuildRequires: kf5-kactivities-devel
-buildRequires: kf5-kdelibs4support-devel
+BuildRequires: kf5-kdelibs4support-devel
 BuildRequires: kf5-kio-devel
 #if "%{?copr_projectname}" == "digikam"
 BuildRequires: kf5-libkdcraw-devel

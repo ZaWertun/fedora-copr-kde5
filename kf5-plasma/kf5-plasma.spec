@@ -28,7 +28,6 @@ Source10: fedora-plasma-cache.sh.in
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kactivities-devel >= %{majmin}
-BuildRequires:  kf5-kactivities-devel >= %{majmin}
 BuildRequires:  kf5-karchive-devel >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kconfigwidgets-devel >= %{majmin}

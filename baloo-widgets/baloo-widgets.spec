@@ -74,6 +74,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKF5BalooWidgets.so.*
 %{_kf5_bindir}/baloo_filemetadata_temp_extractor
 %{_kf5_qtplugindir}/baloofilepropertiesplugin.so
+%{_kf5_qtplugindir}/kf5/kfileitemaction/tagsfileitemaction.so
 %{_kf5_datadir}/kservices5/baloofilepropertiesplugin.desktop
 
 %files devel

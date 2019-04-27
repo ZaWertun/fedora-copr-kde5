@@ -30,7 +30,6 @@ Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{base_na
 
 ## upstream patches
 # master branch
-Patch122: 0122-Fixes-crash-when-using-the-Copy-Input-To-All-Tabs-fe.patch
 
 ## downstream patches
 Patch200: konsole-history_location_default.patch
