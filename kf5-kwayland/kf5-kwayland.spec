@@ -13,20 +13,21 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.55.0
+Version: 5.57.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
 
+%global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
 %global stable unstable
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules >= %{version}
 BuildRequires:  kf5-rpm-macros >= %{version}
@@ -113,6 +114,12 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+- 5.57.0
+
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
+- 5.15.4
+
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0
 
