@@ -11,8 +11,8 @@
 #global tests 1
 
 Name:    konqueror
-Version: 18.12.2
-Release: 2%{?dist}
+Version: 19.04.0
+Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
 License: GPLv2+ and LGPLv2+ and GFDL
@@ -230,6 +230,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
+- 19.04.0
+
 * Thu Feb 21 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-2
 - AlwaysHavePreloaded => false default (#1523082, kde#398996)
 
