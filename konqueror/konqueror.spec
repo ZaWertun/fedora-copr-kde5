@@ -223,7 +223,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %files -n kwebenginepart
 %{_kf5_datadir}/kxmlgui5/webenginepart/
 %{_kf5_datadir}/webenginepart/
-%{_kf5_libdir}/libkwebenginepartlib.so
+%{_kf5_libdir}/libkwebenginepart.so
 %dir %{_kf5_plugindir}/parts/
 %{_kf5_plugindir}/parts/webenginepart.so
 %endif
