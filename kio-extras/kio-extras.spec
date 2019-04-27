@@ -163,6 +163,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kio/sftp.so
 %{_kf5_plugindir}/kio/smb.so
 %{_kf5_plugindir}/kio/thumbnail.so
+%{_kf5_plugindir}/kio/about.so
+%{_kf5_plugindir}/kio/activities.so
+%{_kf5_plugindir}/parts/kmanpart.so
 %{_kf5_qtplugindir}/audiothumbnail.so
 %{_kf5_qtplugindir}/comicbookthumbnail.so
 %{_kf5_qtplugindir}/djvuthumbnail.so
@@ -171,15 +174,13 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_qtplugindir}/jpegthumbnail.so
 %{_kf5_qtplugindir}/kactivitymanagerd_fileitem_linking_plugin.so
 %{_kf5_qtplugindir}/kfileaudiopreview.so
-%{_kf5_qtplugindir}/libkio_about.so
-%{_kf5_qtplugindir}/kio_activities.so
 %{_kf5_qtplugindir}/kritathumbnail.so
-%{_kf5_qtplugindir}/libkmanpart.so
 %{_kf5_qtplugindir}/opendocumentthumbnail.so
 %{_kf5_qtplugindir}/svgthumbnail.so
 %{_kf5_qtplugindir}/textthumbnail.so
 %{_kf5_qtplugindir}/windowsexethumbnail.so
 %{_kf5_qtplugindir}/windowsimagethumbnail.so
+%{_kf5_qtplugindir}/ebookthumbnail.so
 %{_datadir}/kio_docfilter/
 %{_datadir}/kio_bookmarks/
 %dir %{_datadir}/konqsidebartng/
