@@ -22,7 +22,7 @@ end
 old_version = `grep Version: *.spec`
 unless old_version.include?(version)
     show "Removing old sources"
-    system "rm -v *.tar.*"; done?
+    system "rm -v *.tar.*"
 
     show "Bumping version"
     system "rpmdev-bumpspec -n #{version} --comment=\"#{version}\" *.spec"; done?
