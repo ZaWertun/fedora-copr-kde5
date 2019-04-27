@@ -1,0 +1,9 @@
+diff -up konqueror-18.12.0/webenginepart/src/webenginepart.desktop.priority konqueror-18.12.0/webenginepart/src/webenginepart.desktop
+--- konqueror-18.12.0/webenginepart/src/webenginepart.desktop.priority	2018-11-20 04:15:47.000000000 -0600
++++ konqueror-18.12.0/webenginepart/src/webenginepart.desktop	2018-12-29 08:40:48.825838738 -0600
+@@ -82,4 +82,4 @@ Name[zh_TW]=WebEngine
+ X-KDE-Default-UserAgent=Mozilla/5.0 (%PLATFORM%; %SECURITY%; %OSNAME% %OSVERSION% %SYSTYPE%; %LANGUAGE%) AppleWebKit/534.34 (KHTML, like Gecko) %APPVERSION% Safari/534.34
+ X-KDE-ServiceTypes=KParts/ReadOnlyPart,Browser/View
+ X-KDE-Library=kf5/parts/webenginepart
+-InitialPreference=12
++InitialPreference=10

@@ -1,0 +1,12 @@
+diff -up konqueror-18.12.2/src/konqueror.kcfg.preloaded konqueror-18.12.2/src/konqueror.kcfg
+--- konqueror-18.12.2/src/konqueror.kcfg.preloaded	2019-01-28 01:30:22.000000000 -0600
++++ konqueror-18.12.2/src/konqueror.kcfg	2019-02-21 16:49:29.489860255 -0600
+@@ -463,7 +463,7 @@ PATH_JAVA
+ 
+   <group name="Reusing" >
+     <entry key="AlwaysHavePreloaded" type="Bool">
+-      <default>true</default>
++      <default>false</default>
+       <label></label>
+       <whatsthis></whatsthis>
+     </entry>
