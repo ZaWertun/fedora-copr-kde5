@@ -1,7 +1,7 @@
 diff -ur kio-extras-17.12.0/CMakeLists.txt kio-extras-17.12.0-nfs-libtirpc/CMakeLists.txt
 --- kio-extras-17.12.0/CMakeLists.txt	2017-12-08 02:00:30.000000000 +0100
 +++ kio-extras-17.12.0-nfs-libtirpc/CMakeLists.txt	2018-01-10 19:56:58.179385571 +0100
-@@ -177,9 +177,11 @@
+@@ -175,9 +175,11 @@
     if(Gperf_FOUND AND KF5KHtml_FOUND)
       add_subdirectory( man )
     endif()
@@ -35,4 +35,4 @@ diff -ur kio-extras-17.12.0/nfs/CMakeLists.txt kio-extras-17.12.0-nfs-libtirpc/n
 +target_link_libraries(kio_nfs KF5::KIOCore KF5::I18n Qt5::Network ${TIRPC_LIBRARIES})
  set_target_properties(kio_nfs PROPERTIES OUTPUT_NAME "nfs")
  
- install(TARGETS kio_nfs DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
+ install(TARGETS kio_nfs DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
