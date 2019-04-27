@@ -1,0 +1,33 @@
+diff -up baloo-4.14.3/BalooConfig.cmake.in.no_tools baloo-4.14.3/BalooConfig.cmake.in
+--- baloo-4.14.3/BalooConfig.cmake.in.no_tools	2014-11-06 06:03:28.000000000 -0600
++++ baloo-4.14.3/BalooConfig.cmake.in	2017-03-24 11:20:31.869000147 -0500
+@@ -22,9 +22,9 @@ set(Baloo_FOUND true)
+ include(${_currentDir}/BalooTargetsWithPrefix.cmake)
+ 
+ set(BALOO_CORE_LIBRARY baloocore)
+-set(BALOO_FILE_LIBRARY baloofiles)
++#set(BALOO_FILE_LIBRARY baloofiles)
+ set(BALOO_PIM_LIBRARY baloopim)
+-set(BALOO_QUERYPARSER_LIBRARY balooqueryparser)
++#set(BALOO_QUERYPARSER_LIBRARY balooqueryparser)
+ #set(BALOO_TAG_LIBRARY balootags)
+ 
+ # Set the library variable
+diff -up baloo-4.14.3/src/CMakeLists.txt.no_tools baloo-4.14.3/src/CMakeLists.txt
+--- baloo-4.14.3/src/CMakeLists.txt.no_tools	2014-11-06 06:03:28.000000000 -0600
++++ baloo-4.14.3/src/CMakeLists.txt	2017-03-24 11:20:05.851773670 -0500
+@@ -1,8 +1,8 @@
+ add_subdirectory(core)
+-add_subdirectory(xapian)
+-add_subdirectory(file)
++#add_subdirectory(xapian)
++#add_subdirectory(file)
+ add_subdirectory(pim)
+-add_subdirectory(kioslaves)
+-add_subdirectory(tools)
+-add_subdirectory(runner)
+-add_subdirectory(queryparser)
++#add_subdirectory(kioslaves)
++#add_subdirectory(tools)
++#add_subdirectory(runner)
++#add_subdirectory(queryparser)

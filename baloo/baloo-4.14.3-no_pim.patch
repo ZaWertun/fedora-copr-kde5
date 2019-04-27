@@ -1,0 +1,32 @@
+diff -up baloo-4.14.3/CMakeLists.txt.no_pim baloo-4.14.3/CMakeLists.txt
+--- baloo-4.14.3/CMakeLists.txt.no_pim	2014-11-06 06:03:28.000000000 -0600
++++ baloo-4.14.3/CMakeLists.txt	2017-03-24 11:12:44.977735815 -0500
+@@ -28,7 +28,7 @@ find_package(KFileMetaData CONFIG)
+ set_package_properties(KFileMetaData PROPERTIES
+     DESCRIPTION "A library for extracting file metadata"
+     URL "https://projects.kde.org/kfilemetadata"
+-    TYPE REQUIRED
++    TYPE OPTIONAL 
+ )
+ 
+ find_package(QJSON)
+@@ -41,7 +41,7 @@ set_package_properties(QJSON PROPERTIES
+ find_package(Akonadi 1.12.90 CONFIG)
+ set_package_properties(Akonadi PROPERTIES
+     URL "http://akonadi-project.org"
+-    TYPE REQUIRED
++    TYPE OPTIONAL 
+ )
+ 
+ include(ConfigureChecks.cmake)
+diff -up baloo-4.14.3/src/pim/CMakeLists.txt.no_pim baloo-4.14.3/src/pim/CMakeLists.txt
+--- baloo-4.14.3/src/pim/CMakeLists.txt.no_pim	2014-11-06 06:03:28.000000000 -0600
++++ baloo-4.14.3/src/pim/CMakeLists.txt	2017-03-24 11:11:40.591140315 -0500
+@@ -1,4 +1,4 @@
+-add_subdirectory(agent)
++#add_subdirectory(agent)
+ add_subdirectory(lib)
+-add_subdirectory(search)
+-add_subdirectory(akonadiplugin)
++#add_subdirectory(search)
++#add_subdirectory(akonadiplugin)
