@@ -1,0 +1,13 @@
+diff --git a/icons-dark/index.theme b/icons-dark/index.theme
+index 61660ba..d2f6767 100644
+--- a/icons-dark/index.theme
++++ b/icons-dark/index.theme
+@@ -62,7 +62,7 @@ Comment[x-test]=xxDefault Plasma 5 Theme for Dark themesxx
+ 
+ DisplayDepth=32
+ 
+-Inherits=hicolor
++Inherits=breeze
+ 
+ Example=folder
+ 
