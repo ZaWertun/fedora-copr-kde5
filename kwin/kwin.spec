@@ -291,7 +291,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_includedir}/kwin*.h
 
 %files doc -f %{name}-doc.lang
-%doc COMPLIANCE HACKING README
+%doc HACKING.md README.md
 %license COPYING*
 
 
