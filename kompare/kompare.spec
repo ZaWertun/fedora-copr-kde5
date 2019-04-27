@@ -93,14 +93,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 %doc README
 %license COPYING*
 %{_bindir}/kompare
-%{_datadir}/kxmlgui5/kompare/
 %{_datadir}/kservicetypes5/kompare*.desktop
 %{_datadir}/applications/org.kde.kompare.desktop
 %{_kf5_metainfodir}/org.kde.kompare.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/kompare.*
 %{_datadir}/kservices5/komparenavtreepart.desktop
 %{_datadir}/kservices5/komparepart.desktop
-%{_kf5_datadir}/kxmlgui5/komparepart/
 %{_kf5_datadir}/kservices5/ServiceMenus/kompare.desktop
 
 %ldconfig_scriptlets libs
@@ -108,8 +106,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 %files libs
 %{_libdir}/libkomparedialogpages.so.*
 %{_libdir}/libkompareinterface.so.*
-%{_kf5_qtplugindir}/komparenavtreepart.so
-%{_kf5_qtplugindir}/komparepart.so
+%{_kf5_plugindir}/parts/komparenavtreepart.so
+%{_kf5_plugindir}/parts/komparepart.so
 
 %files devel
 %{_includedir}/kompare/
