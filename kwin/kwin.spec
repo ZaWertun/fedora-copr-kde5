@@ -31,8 +31,6 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# See: https://phabricator.kde.org/D19867
-Patch0: x11_force_glXSwapBuffers_block.patch
 
 # Base
 BuildRequires:  extra-cmake-modules

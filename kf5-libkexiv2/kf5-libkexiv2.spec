@@ -17,7 +17,6 @@ URL:     https://cgit.kde.org/%{framework}
 Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{framework}-%{version}.tar.xz
 
 ## upstream patches (master branch)
-Patch1: 0001-Fix-building-against-exiv2-0.27.patch
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
