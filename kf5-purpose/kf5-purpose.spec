@@ -108,7 +108,6 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 %{_kf5_libexecdir}/purposeprocess
 %{_kf5_datadir}/purpose/
 %{_kf5_plugindir}/purpose/
-%{_kf5_plugindir}/kfileitemaction/
 %{_kf5_qmldir}/org/kde/purpose/
 # this conditional may require adjusting too (e.g. wrt %%twitter)
 %if 0%{?fedora}

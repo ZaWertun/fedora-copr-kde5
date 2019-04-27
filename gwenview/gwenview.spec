@@ -19,8 +19,6 @@ Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 
 ## upstream patches (master branch)
-Patch7: 0007-Use-forward-declaration-for-Exiv2-Image-port-to-std-.patch
-Patch8: 0008-Compile-more-files-with-enabled-exceptions-required-.patch
 
 ## upstreamable patches
 
