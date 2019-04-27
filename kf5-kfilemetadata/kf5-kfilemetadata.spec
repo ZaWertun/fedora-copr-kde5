@@ -33,6 +33,8 @@ Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framewo
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-karchive-devel >= %{majmin}
 BuildRequires:  kf5-ki18n-devel >= %{majmin}
+BuildRequires:  kf5-kconfig-devel >= %{majmin}
+BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 
 BuildRequires:  qt5-qtbase-devel
