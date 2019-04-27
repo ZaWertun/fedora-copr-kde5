@@ -76,6 +76,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_metainfodir}/org.kde.filelight.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/*/*filelight.*
 %{_sysconfdir}/xdg/filelightrc
+%{_sysconfdir}/xdg/filelight.categories
 %{_kf5_datadir}/kxmlgui5/filelight/
 
 
