@@ -44,6 +44,7 @@ BuildRequires: kf5-kwallet-devel
 BuildRequires: kf5-kwidgetsaddons
 BuildRequires: kf5-kxmlgui-devel
 BuildRequires: kf5-rpm-macros
+BuildRequires: kf5-kwindowsystem-devel
 
 BuildRequires: freerdp >= %{freerdp_ver}
 BuildRequires: libvncserver-devel
