@@ -2,7 +2,7 @@
 
 Name:    plasma-drkonqi
 Summary: DrKonqi crash handler for KF5/Plasma5
-Version: 5.14.5
+Version: 5.15.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -93,6 +93,9 @@ fi
 %{_sysconfdir}/xdg/drkonqi.categories
 
 %changelog
+* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
+- 5.15.4
+
 * Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
 - 5.14.5
 
