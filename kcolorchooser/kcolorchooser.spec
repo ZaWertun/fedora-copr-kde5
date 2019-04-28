@@ -58,6 +58,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_bindir}/%{name}
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/kcolorchooser.*
+%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
 %changelog
