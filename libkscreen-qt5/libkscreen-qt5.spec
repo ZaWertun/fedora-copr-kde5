@@ -2,7 +2,7 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.14.5
+Version: 5.15.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -95,6 +95,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
+- 5.15.4
+
 * Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
 - 5.14.5
 
