@@ -1,0 +1,60 @@
+diff -up libkscreen-5.6.4/autotests/CMakeLists.txt.than libkscreen-5.6.4/autotests/CMakeLists.txt
+--- libkscreen-5.6.4/autotests/CMakeLists.txt.than	2016-05-24 17:08:06.186036831 +0200
++++ libkscreen-5.6.4/autotests/CMakeLists.txt	2016-05-24 17:08:28.144385812 +0200
+@@ -1,7 +1,5 @@
+ add_definitions(-DTEST_DATA="${CMAKE_CURRENT_SOURCE_DIR}/configs/")
+ 
+-include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR}/tests/kwayland/)
+-
+ macro(KSCREEN_ADD_TEST)
+     foreach(_testname ${ARGN})
+         set(test_SRCS ${_testname}.cpp ${KSCREEN_WAYLAND_SRCS})
+@@ -25,16 +23,6 @@ set(KSCREEN_WAYLAND_LIBS
+     KF5::WaylandServer KF5::WaylandClient
+ )
+ 
+-# For WaylandConfigReader and TestServer
+-set(KSCREEN_WAYLAND_SRCS
+-    ${CMAKE_SOURCE_DIR}/tests/kwayland/waylandconfigreader.cpp
+-    ${CMAKE_SOURCE_DIR}/tests/kwayland/waylandtestserver.cpp
+-)
+-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../backends/kwayland)
+-
+-kscreen_add_test(testkwaylandbackend)
+-kscreen_add_test(testkwaylandconfig)
+-
+ set(KSCREEN_WAYLAND_LIBS "")
+ set(KSCREEN_WAYLAND_SRCS "")
+ 
+diff -up libkscreen-5.6.4/backends/CMakeLists.txt.than libkscreen-5.6.4/backends/CMakeLists.txt
+--- libkscreen-5.6.4/backends/CMakeLists.txt.than	2016-05-24 17:02:59.142120753 +0200
++++ libkscreen-5.6.4/backends/CMakeLists.txt	2016-05-24 17:03:05.579930820 +0200
+@@ -1,6 +1,5 @@
+ add_subdirectory(fake)
+ add_subdirectory(qscreen)
+-add_subdirectory(kwayland)
+ 
+ if(${XCB_RANDR_FOUND})
+     message(STATUS "Will build xrandr backend.")
+diff -up libkscreen-5.6.4/CMakeLists.txt.than libkscreen-5.6.4/CMakeLists.txt
+--- libkscreen-5.6.4/CMakeLists.txt.than	2016-05-24 17:03:58.179375794 +0200
++++ libkscreen-5.6.4/CMakeLists.txt	2016-05-24 17:04:13.841911809 +0200
+@@ -19,10 +19,6 @@ include(CheckCXXCompilerFlag)
+ set(REQUIRED_QT_VERSION 5.2.0)
+ find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core DBus Gui Test X11Extras)
+ 
+-# Wayland backend
+-find_package(KF5Wayland CONFIG REQUIRED)
+-add_feature_info("KF5Wayland" KF5Wayland_FOUND "Required for building libkscreen's KWayland backend")
+-
+ # xrandr backend
+ 
+ find_package(XCB COMPONENTS XCB RANDR)
+diff -up libkscreen-5.6.4/tests/CMakeLists.txt.than libkscreen-5.6.4/tests/CMakeLists.txt
+--- libkscreen-5.6.4/tests/CMakeLists.txt.than	2016-05-24 17:07:03.588887505 +0200
++++ libkscreen-5.6.4/tests/CMakeLists.txt	2016-05-24 17:07:11.074666792 +0200
+@@ -1,4 +1,2 @@
+ add_executable(printconfig testplugandplay.cpp testpnp.cpp)
+ target_link_libraries(printconfig Qt5::Gui KF5::Screen)
+-
+-add_subdirectory(kwayland)
