@@ -91,7 +91,6 @@ BuildRequires: kf5-libksieve-devel >= %{majmin_ver}, cmake(KF5SyntaxHighlighting
 BuildRequires: kf5-mailcommon-devel >= %{majmin_ver}
 BuildRequires: kf5-pimcommon-devel >= %{majmin_ver}
 BuildRequires: kf5-messagelib-devel >= %{majmin_ver}
-BuildRequires: kf5-pimcommon-devel >= %{majmin_ver}
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -203,6 +202,7 @@ end
 %{_kf5_sysconfdir}/xdg/ktnef*.*
 %{_kf5_bindir}/ktnef
 %{_kf5_datadir}/applications/org.kde.ktnef.desktop
+%{_kf5_qtplugindir}/akonadi/config/*.so
 ## covered by hicolor glob above -- rex
 #{_kf5_datadir}/icons/*/*/actions/ktnef_extract_all_to.png
 #{_kf5_datadir}/icons/*/*/actions/ktnef_extract_to.png

@@ -84,6 +84,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKF5Screen.so.7*
 %{_kf5_plugindir}/kscreen/
 %{_datadir}/dbus-1/services/org.kde.kscreen.service
+%{_kf5_sysconfdir}/xdg/%{base_name}.categories
 
 %files devel
 %{_kf5_includedir}/KScreen/
