@@ -129,8 +129,8 @@ BuildRequires:  libwayland-client-devel >= 1.3.0
 BuildRequires:  libwayland-server-devel >= 1.3.0
 BuildRequires:  libkscreen-qt5-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
-
 BuildRequires:  kwin-devel >= %{majmin_ver}
+BuildRequires:  kf5-kded-devel >= %{majmin_ver}
 
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
