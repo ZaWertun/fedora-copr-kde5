@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 18.12.2
+Version: 19.04.0
 Release: 1%{?dist}
 Summary: The Akonadi Contacts Library
 
@@ -141,6 +141,9 @@ xvfb-run -a \
 
 
 %changelog
+* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
+- 19.04.0
+
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
 
