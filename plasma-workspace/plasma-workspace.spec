@@ -37,8 +37,6 @@ Source20:       breeze-fedora-0.2.tar.gz
 ## downstream Patches
 Patch100:       plasma-workspace-5.12.5-konsole-in-contextmenu.patch
 Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
-# remove stuff we don't want or need, plus a minor bit of customization --rex
-Patch102:       startkde.patch
 # default to folderview (instead of desktop) containment, see also
 # https://mail.kde.org/pipermail/distributions/2016-July/000133.html
 # and example,
@@ -376,7 +374,6 @@ BuildArch: noarch
 sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfeel:org.kde.breeze.desktop}|g" \
   shell/packageplugins/lookandfeel/lookandfeel.cpp
 %endif
-%patch102 -p1 -b .startkde
 %patch105 -p1
 
 %if 0%{?fedora}
