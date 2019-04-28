@@ -104,7 +104,6 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 %{_kf5_datadir}/applications/org.kde.kcachegrind.desktop
 %{_kf5_metainfodir}/org.kde.kcachegrind.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kcachegrind.*
-%{_kf5_datadir}/kxmlgui5/kcachegrind/
 
 %files converters
 %doc converters/README

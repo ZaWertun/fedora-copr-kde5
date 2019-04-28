@@ -259,6 +259,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 # note: these are for reference (to express config defaults), they are
 # not config files themselves (so don't use %%config tag)
 %{_sysconfdir}/xdg/*.knsrc
+%{_kf5_qtplugindir}/kcms/kcm_kwin_virtualdesktops.so
+%{_kf5_datadir}/kpackage/kcms/kcm_kwin_virtualdesktops/*
 
 %files wayland
 %{_kf5_bindir}/kwin_wayland
@@ -281,8 +283,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwinglutils.so.*
 %{_libdir}/libkwin4_effect_builtins.so.*
 %{_libdir}/libkcmkwincommon.so.*
-%{_kf5_qtplugindir}/kcms/kcm_kwin_virtualdesktops.so
-%{_kf5_datadir}/kpackage/kcms/kcm_kwin_virtualdesktops/*
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
