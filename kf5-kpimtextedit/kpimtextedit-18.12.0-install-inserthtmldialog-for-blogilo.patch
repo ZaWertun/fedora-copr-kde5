@@ -1,17 +1,6 @@
-diff -ur kpimtextedit-18.12.0/src/CMakeLists.txt kpimtextedit-18.12.0-install-inserthtmldialog-for-blogilo/src/CMakeLists.txt
---- kpimtextedit-18.12.0/src/CMakeLists.txt	2018-12-06 08:11:12.000000000 +0100
-+++ kpimtextedit-18.12.0-install-inserthtmldialog-for-blogilo/src/CMakeLists.txt	2019-01-03 19:18:03.379127273 +0100
-@@ -103,6 +103,7 @@
-     HEADER_NAMES
-     EditorUtil
-     EmoticonTextEditAction
-+    InsertHtmlDialog
-     InsertImageWidget
-     InsertTableDialog
-     InsertTableWidget
 diff -ur kpimtextedit-18.12.0/src/emoticontexteditaction.h kpimtextedit-18.12.0-install-inserthtmldialog-for-blogilo/src/emoticontexteditaction.h
---- kpimtextedit-18.12.0/src/emoticontexteditaction.h	2018-12-06 08:11:12.000000000 +0100
-+++ kpimtextedit-18.12.0-install-inserthtmldialog-for-blogilo/src/emoticontexteditaction.h	2019-01-03 19:17:19.409789838 +0100
+--- kpimtextedit-18.12.0/src/emoticon/emoticontexteditaction.h	2018-12-06 08:11:12.000000000 +0100
++++ kpimtextedit-18.12.0-install-inserthtmldialog-for-blogilo/src/emoticon/emoticontexteditaction.h	2019-01-03 19:17:19.409789838 +0100
 @@ -26,7 +26,7 @@
  #include <KActionMenu>
  
