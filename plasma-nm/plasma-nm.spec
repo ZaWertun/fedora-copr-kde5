@@ -185,6 +185,13 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       NetworkManager-fortisslvpn
 %description    fortisslvpn
 %{summary}.
+
+%package        wireguard
+Summary:        Wireguard support for %{name}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       NetworkManager-wireguard
+%description    wireguard
+%{summary}.
 %endif
 
 
@@ -219,6 +226,7 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 %find_lang plasmanetworkmanagement_sstpui
 %find_lang plasmanetworkmanagement_iodineui
 %find_lang plasmanetworkmanagement_fortisslvpnui
+%find_lang plasmanetworkmanagement_wireguardui
 
 
 %ldconfig_scriptlets
@@ -291,6 +299,10 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 %files fortisslvpn -f plasmanetworkmanagement_fortisslvpnui.lang
 %{_kf5_qtplugindir}/libplasmanetworkmanagement_fortisslvpnui.so
 %{_kf5_datadir}/kservices5/plasmanetworkmanagement_fortisslvpnui.desktop
+
+%files wireguard -f plasmanetworkmanagement_wireguardui.lang
+%{_kf5_qtplugindir}/plasmanetworkmanagement_wireguardui.so
+%{_kf5_datadir}/kservices5/plasmanetworkmanagement_wireguardui.desktop
 %endif
 
 
