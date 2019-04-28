@@ -13,7 +13,7 @@
 Name:    oxygen-icon-theme
 Summary: Oxygen icon theme
 Epoch:   1
-Version: 5.55.0
+Version: 5.57.0
 Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
@@ -161,6 +161,9 @@ fi
 
 
 %changelog
+* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.57.0-1
+- 5.57.0
+
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 1:5.55.0-1
 - 5.55.0
 
