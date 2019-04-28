@@ -76,6 +76,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.des
 %{_datadir}/applications/org.kde.kmenuedit.desktop
 %{_datadir}/icons/hicolor/*/apps/kmenuedit.*
 %{_kf5_datadir}/kxmlgui5/kmenuedit/
+%{_kf5_sysconfdir}/xdg/%{name}.categories
 
 
 %changelog

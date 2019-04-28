@@ -73,12 +73,13 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 %files -f kactivities5.lang
 %license COPYING*
 %doc README.md
-%{_kf5_bindir}/kactivitymanagerd
+%{_libexecdir}/kactivitymanagerd
 %{_kf5_libdir}/libkactivitymanagerd_plugin.so
 %{_kf5_qtplugindir}/kactivitymanagerd/
 %{_kf5_datadir}/dbus-1/services/org.kde.activitymanager.service
 %{_kf5_datadir}/kservices5/kactivitymanagerd.desktop
 %{_kf5_datadir}/kservicetypes5/kactivitymanagerd-plugin.desktop
+%{_kf5_sysconfdir}/xdg/%{name}.categories
 
 
 %changelog
