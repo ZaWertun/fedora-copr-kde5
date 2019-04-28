@@ -52,4 +52,4 @@ show "Downloading new sources"
 system "spectool -g *.spec"; done?
 
 show "Commiting to GIT"
-system "git add . && git commit -m #{name}-#{version}"; done?
+system "git add . && git commit -m \"#{name} updated to #{version}\""; done?
