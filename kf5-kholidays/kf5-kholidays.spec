@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.55.0
+Version: 5.57.0
 Release: 1%{?dist}
 Summary: The KHolidays Library
 
@@ -96,6 +96,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.57.0-1
+- 5.57.0
+
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 1:5.55.0-1
 - 5.55.0
 
