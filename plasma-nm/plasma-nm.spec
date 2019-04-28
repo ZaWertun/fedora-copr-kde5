@@ -211,6 +211,8 @@ popd
 %install
 make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
+%find_lang kcm_mobile_broadband
+%find_lang kcm_mobile_wifi
 %find_lang plasma_applet_org.kde.plasma.networkmanagement
 %find_lang plasmanetworkmanagement-kded
 %find_lang plasmanetworkmanagement-kcm
@@ -231,7 +233,7 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 %ldconfig_scriptlets
 
-%files -f plasma_applet_org.kde.plasma.networkmanagement.lang -f plasmanetworkmanagement-kded.lang -f plasmanetworkmanagement-libs.lang -f plasmanetworkmanagement-kcm.lang
+%files -f plasma_applet_org.kde.plasma.networkmanagement.lang -f plasmanetworkmanagement-kded.lang -f plasmanetworkmanagement-libs.lang -f plasmanetworkmanagement-kcm.lang -f kcm_mobile_broadband.lang -f kcm_mobile_wifi
 %{_libdir}/libplasmanm_internal.so
 %{_libdir}/libplasmanm_editor.so
 # plasma-nm applet
@@ -301,7 +303,7 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kservices5/plasmanetworkmanagement_fortisslvpnui.desktop
 
 %files wireguard -f plasmanetworkmanagement_wireguardui.lang
-%{_kf5_qtplugindir}/plasmanetworkmanagement_wireguardui.so
+%{_kf5_qtplugindir}/libplasmanetworkmanagement_wireguardui.so
 %{_kf5_datadir}/kservices5/plasmanetworkmanagement_wireguardui.desktop
 %endif
 
