@@ -71,6 +71,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/user_manager.so
 %{_kf5_datadir}/kservices5/user_manager.desktop
 %{_kf5_datadir}/user-manager/
+%{_kf5_sysconfdir}/xdg/%{base_name}.categories
 
 
 %changelog
