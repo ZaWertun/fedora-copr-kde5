@@ -80,7 +80,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %ldconfig_scriptlets
 
 %files -f libkgapi_qt.lang
-%doc README
+%doc README*
 %license LICENSE
 %{_sysconfdir}/xdg/libkgapi.categories
 %{_kf5_libdir}/libKPimGAPIBlogger.so.5*
