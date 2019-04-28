@@ -1,0 +1,43 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 17c7a0b..0768319 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,6 +17,12 @@ include(KDECompilerSettings)
+ 
+ include_directories(${PWQUALITY_INCLUDE_DIR})
+ 
++if (NOT APPLE)
++include(FindPkgConfig)
++pkg_check_modules(LIBXCRYPT REQUIRED libxcrypt)
++include_directories(${LIBXCRYPT_INCLUDE_DIRS})
++endif()
++
+ # Set KI18n translation domain
+ add_definitions(-DTRANSLATION_DOMAIN=\"user_manager\")
+ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index a23584e..236059b 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -55,7 +55,7 @@ target_link_libraries(user_manager
+ )
+ 
+ if (NOT APPLE)
+-target_link_libraries(user_manager crypt)
++target_link_libraries(user_manager ${LIBXCRYPT_LIBRARIES})
+ endif()
+ 
+ install(TARGETS user_manager DESTINATION ${PLUGIN_INSTALL_DIR})
+diff --git a/src/lib/accountmodel.cpp b/src/lib/accountmodel.cpp
+index e15a657..bab4686 100644
+--- a/src/lib/accountmodel.cpp
++++ b/src/lib/accountmodel.cpp
+@@ -38,6 +38,8 @@
+ #include <KConfig>
+ #include <KConfigGroup>
+ 
++#include <crypt.h>
++
+ #define SDDM_CONFIG_FILE    "/etc/sddm.conf"
+ 
+ AutomaticLoginSettings::AutomaticLoginSettings()
