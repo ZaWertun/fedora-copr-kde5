@@ -233,7 +233,7 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 %ldconfig_scriptlets
 
-%files -f plasma_applet_org.kde.plasma.networkmanagement.lang -f plasmanetworkmanagement-kded.lang -f plasmanetworkmanagement-libs.lang -f plasmanetworkmanagement-kcm.lang -f kcm_mobile_broadband.lang -f kcm_mobile_wifi
+%files -f plasma_applet_org.kde.plasma.networkmanagement.lang -f plasmanetworkmanagement-kded.lang -f plasmanetworkmanagement-libs.lang -f plasmanetworkmanagement-kcm.lang -f kcm_mobile_broadband.lang -f kcm_mobile_wifi.lang
 %{_libdir}/libplasmanm_internal.so
 %{_libdir}/libplasmanm_editor.so
 # plasma-nm applet
