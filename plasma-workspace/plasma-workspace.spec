@@ -499,6 +499,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %exclude %{_kf5_datadir}/kservices5/plasma-geolocation-gps.desktop
 %exclude %{_kf5_datadir}/kservices5/plasma-geolocation-ip.desktop
 %exclude %{_kf5_datadir}/kservicetypes5/plasma-geolocationprovider.desktop
+# KCM
+%{_kf5_datadir}/kpackage/kcms/*
+%{_kf5_qtplugindir}/kcms/*.so
 
 %files doc -f %{name}-doc.lang
 
