@@ -1,0 +1,13 @@
+diff --git a/shell/packageplugins/lookandfeel/lookandfeel.cpp b/shell/packageplugins/lookandfeel/lookandfeel.cpp
+index a6cef04..82c6d36 100644
+--- a/shell/packageplugins/lookandfeel/lookandfeel.cpp
++++ b/shell/packageplugins/lookandfeel/lookandfeel.cpp
+@@ -23,7 +23,7 @@
+ #include <KLocalizedString>
+ #include <KPackage/PackageLoader>
+ 
+-#define DEFAULT_LOOKANDFEEL "org.kde.breeze.desktop"
++#define DEFAULT_LOOKANDFEEL "@DEFAULT_LOOKANDFEEL@"
+ 
+ void LookAndFeelPackage::initPackage(KPackage::Package *package)
+ {
