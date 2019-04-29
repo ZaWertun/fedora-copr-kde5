@@ -148,6 +148,7 @@ fi
 %{_kf5_datadir}/knotifications5/kdenlive.notifyrc
 %{_kf5_datadir}/kservices5/mltpreview.desktop
 %{_kf5_datadir}/kxmlgui5/kdenlive/
+%{_kf5_sysconfdir}/xdg/kdenlive_keyboardschemes.knsrc
 %{_kf5_sysconfdir}/xdg/kdenlive_renderprofiles.knsrc
 %{_kf5_sysconfdir}/xdg/kdenlive_titles.knsrc
 %{_kf5_sysconfdir}/xdg/kdenlive_wipes.knsrc
