@@ -71,7 +71,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/icons/hicolor/*/*/*
-%{_kf5_datadir}/kxmlgui5/%{name}
 %{_mandir}/man1/*.1*
 
 
