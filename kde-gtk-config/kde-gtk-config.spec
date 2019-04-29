@@ -19,6 +19,7 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/kde-gtk-config-%{ve
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtsvg-devel
 
 BuildRequires:  kf5-ki18n-devel
 BuildRequires:  kf5-kiconthemes-devel
