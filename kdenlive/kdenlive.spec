@@ -134,7 +134,7 @@ fi
 %endif
 
 %files -f %{name}.lang
-%doc AUTHORS README
+%doc AUTHORS README*
 %license COPYING
 %{_kf5_bindir}/kdenlive_render
 %{_kf5_bindir}/%{name}
