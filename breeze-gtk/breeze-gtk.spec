@@ -25,6 +25,9 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  kf5-kcoreaddons-devel
 BuildRequires:  kf5-kconfig-devel
 
+BuildRequires:  rubygem-sass
+BuildRequires:  python3-cairo
+
 Requires:       kf5-filesystem
 
 %description
@@ -42,7 +45,7 @@ pushd %{_target_platform}
   -DWITH_GTK3_VERSION:STRING="$(pkg-config --modversion gtk+-3.0)"
 popd
 
-make %{?_smp_mflags} -C %{_target_platform}
+LANG=en_US.UTF-8 make %{?_smp_mflags} -C %{_target_platform}
 
 
 %install
