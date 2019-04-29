@@ -15,8 +15,7 @@ URL:     http://www.kdenlive.org
 Source0: http://download.kde.org/%{stable}/applications/%{version}/src/kdenlive-%{version}.tar.xz
 Source100: kdenlive-find-lang.sh
 
-## backport from master branch
-Patch100: kdenlive-18.12.3-mlt_melt.patch
+Patch100: kdenlive-19.04.0-mlt_melt.patch
 
 # Add support for finding html files with find-lang.sh --with-html on epel
 # https://github.com/rpm-software-management/rpm/commit/0c42871ff407a3eeb1e8b8c1de9395f35659c987
