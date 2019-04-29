@@ -27,6 +27,7 @@ BuildRequires:  kf5-kconfig-devel
 
 BuildRequires:  rubygem-sass
 BuildRequires:  python3-cairo
+BuildRequires:  plasma-breeze
 
 Requires:       kf5-filesystem
 
