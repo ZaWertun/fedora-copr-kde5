@@ -34,6 +34,7 @@ BuildRequires:  kf5-kdesu-devel
 BuildRequires:  kf5-kdelibs4support-devel
 BuildRequires:  kf5-kwindowsystem-devel
 BuildRequires:  kf5-kactivities-devel
+BuildRequires:  kf5-kdeclarative-devel
 # todo: consider adjusting things to allow majmin
 BuildRequires:  plasma-workspace-devel >= %{version}
 Requires: libkworkspace5%{?_isa} >= %{version}
