@@ -50,6 +50,7 @@ BuildRequires: cmake(KF5TextWidgets)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5FileMetaData)
+BuildRequires: cmake(KF5Declarative)
 BuildRequires: libappstream-glib
 
 BuildRequires: pkgconfig(libv4l2)
@@ -65,6 +66,7 @@ BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5WebKitWidgets)
+BuildRequires: pkgconfig(Qt5Multimedia)
 
 ## workaround for missing dependency in kf5-kio, can remove
 ## once kf5-kio-5.24.0-2 (or newer is available)
