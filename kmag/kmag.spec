@@ -1,5 +1,5 @@
 Name:    kmag
-Version: 18.12.2
+Version: 19.04.0
 Release: 1%{?dist}
 Summary: A screen magnifier
 
@@ -76,6 +76,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Mon Apr 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
+- 19.04.0
+
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
 
