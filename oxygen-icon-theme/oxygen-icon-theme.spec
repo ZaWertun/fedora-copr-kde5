@@ -27,7 +27,7 @@ URL:     https://techbase.kde.org/Projects/Oxygen
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/src/oxygen-icons5-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/oxygen-icons5-%{version}.tar.xz
 BuildArch: noarch
 
 # we are noarch, skip trying to find debuginfo
