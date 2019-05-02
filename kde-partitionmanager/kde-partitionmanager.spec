@@ -1,8 +1,8 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        3.3.1
-Release:        3%{?dist}
+Version:        4.0.0
+Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
 License:        GPLv3+
@@ -88,6 +88,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu May 02 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.0.0-1
+- 4.0.0
+
 * Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.3.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
