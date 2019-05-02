@@ -1,8 +1,8 @@
 %global unstable 0
 
 Name:           kpmcore
-Version:        3.3.0
-Release:        4%{?dist}
+Version:        4.0.0
+Release:        1%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
 URL:            https://github.com/KDE/kpmcore
@@ -86,6 +86,9 @@ make install/fast -C %{_target_platform} DESTDIR=%{buildroot}
 
 
 %changelog
+* Thu May 02 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.0.0-1
+- 4.0.0
+
 * Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.3.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
