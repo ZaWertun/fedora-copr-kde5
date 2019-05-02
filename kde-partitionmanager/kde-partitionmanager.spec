@@ -29,6 +29,7 @@ BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-kservice-devel
 BuildRequires:  kf5-kxmlgui-devel
 BuildRequires:  kf5-kwidgetsaddons-devel
+BuildRequires:  kf5-kdbusaddons-devel
 BuildRequires:  kpmcore-devel >= 3.3.0
 BuildRequires:  qt5-qtbase-devel
 
@@ -79,7 +80,7 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 
 
 %files -f partitionmanager.lang
-%license COPYING.GPL3
+%license COPYING.md
 %{_kf5_bindir}/partitionmanager
 %{_kf5_datadir}/applications/*partitionmanager.desktop
 %{_kf5_datadir}/kxmlgui5/partitionmanager/
