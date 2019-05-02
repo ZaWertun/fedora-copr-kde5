@@ -18,8 +18,10 @@ BuildRequires:  gettext
 BuildRequires:  kf5-kcoreaddons-devel
 BuildRequires:  kf5-ki18n-devel
 BuildRequires:  kf5-kwidgetsaddons-devel
+BuildRequires:  kf5-kauth-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  qca-qt5-devel
 
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(blkid)
@@ -54,9 +56,11 @@ developing applications that use %{name}
 
 
 %prep
-%setup
+%setup -q
 
 %build
+sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMakeLists.txt
+
 mkdir -p %{_target_platform}
 pushd %{_target_platform}
 %{cmake_kf5} ..
@@ -72,11 +76,14 @@ make install/fast -C %{_target_platform} DESTDIR=%{buildroot}
 
 
 %files -f %{name}.lang
-%license COPYING.GPL3
+%license COPYING.md
 %{_kf5_libdir}/libkpmcore.so.*
 %{_kf5_qtplugindir}/libpm*.so
-%{_kf5_datadir}/kservices5/pm*backendplugin.desktop
-%{_kf5_datadir}/kservicetypes5/pm*backendplugin.desktop
+%{_kf5_sysconfdir}/dbus-1/system.d/*.conf
+%{_kf5_datadir}/polkit-1/actions/*.policy
+%{_kf5_datadir}/dbus-1/system-services/*.service
+%{_kf5_libexecdir}/kauth/kpmcore_externalcommand
+
 
 %files devel
 %{_includedir}/%{name}/
@@ -98,7 +105,7 @@ make install/fast -C %{_target_platform} DESTDIR=%{buildroot}
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.3.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
-* Mon Dec 26 2017 Mattia Verga <mattia.verga@tiscali.it> - 3.3.0-1
+* Tue Dec 26 2017 Mattia Verga <mattia.verga@tiscali.it> - 3.3.0-1
 - Update to stable release 3.3.0
 - Soname bump to libkpmcore.so.7
 
