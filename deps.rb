@@ -100,17 +100,22 @@ end
 workers.each(&:join)
 
 $deps = Hash[$deps.sort]
-#export_deps($deps)
+
+# Filtering out other deps:
+$deps.each do |_, deps|
+    deps.select!{|d| $deps.key?(d)}
+end
 
 rest = []
 stage = 0
+PREFIX='kde/'
 loop do
     deps = filter_deps($deps, rest)
     break if deps.empty?
 
     puts if stage > 0
     specs = deps.map{|d| $alias[d]}.uniq.sort
-    puts "### Build stage #{stage}:\n\n#{specs.map{|s| "+ #{s}"}.join("\n")}"
+    puts "### Build stage #{stage}:\n\n#{specs.map{|s| PREFIX+s}.join("\n")}"
     rest += deps
     stage += 1
 end
