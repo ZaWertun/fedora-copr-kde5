@@ -46,7 +46,8 @@ pushd %{_target_platform}
   -DWITH_GTK3_VERSION:STRING="$(pkg-config --modversion gtk+-3.0)"
 popd
 
-LANG=en_US.UTF-8 make %{?_smp_mflags} -C %{_target_platform}
+export LANG=en_US.UTF-8
+make %{?_smp_mflags} -C %{_target_platform}
 
 
 %install
