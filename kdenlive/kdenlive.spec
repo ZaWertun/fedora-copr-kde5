@@ -12,8 +12,11 @@ URL:     http://www.kdenlive.org
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/kdenlive-%{version}.tar.xz
+Source0:   http://download.kde.org/%{stable}/applications/%{version}/src/kdenlive-%{version}.tar.xz
+Source1:   https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Source100: kdenlive-find-lang.sh
+
+Patch1:   rttr_cmakelists.patch
 
 Patch100: kdenlive-19.04.0-mlt_melt.patch
 
@@ -94,6 +97,8 @@ recent video technologies.
 %build
 mkdir %{_target_platform}
 pushd %{_target_platform}
+mkdir -p rttr/src
+cp -v %{SOURCE1} rttr/src
 %{cmake_kf5} .. \
   -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 popd
