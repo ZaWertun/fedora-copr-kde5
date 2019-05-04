@@ -110,7 +110,7 @@ loop do
 
     puts if stage > 0
     specs = deps.map{|d| $alias[d]}.uniq.sort
-    puts "Build stage #{stage}:\n#{specs.join("\n")}"
+    puts "### Build stage #{stage}:\n\n#{specs.map{|s| "+ #{s}"}.join("\n")}"
     rest += deps
     stage += 1
 end
