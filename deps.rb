@@ -11,13 +11,13 @@ SQL
 def resolve_dep(name)
     rows = $db.execute('select resolved from DEPS where name = ?', [name])
     return rows[0][0] unless rows.empty?
-    
+
     provides = `dnf -C -q provides "#{name}" |head -n1`.split(/\n/).first
     unless provides
         puts "Error: #{name}"
         return nil
     end
-    
+
     provides.gsub!(/-\d.+/, '')
 
     $db.execute('insert into DEPS(name, resolved) values(?, ?)', name, provides)
@@ -28,6 +28,15 @@ def esc(name)
     name.gsub(/[-+]/, '_')
 end
 
+def filter_deps(deps, rest)
+    res = []
+    deps.each do |key, value|
+        next if rest.include?(key)
+        res << key if !value.find {|v| deps.key?(v) && !rest.include?(v)}
+    end
+    res
+end
+
 def export_deps(deps)
     puts 'digraph D {'
     # Write human readable names:
@@ -35,40 +44,44 @@ def export_deps(deps)
         puts "  #{esc(key)} [label=\"#{key}\"];"
     end
     puts
+    # Write graph:
     deps.each do |key, value|
         puts
-        value.sort.each do |v|
+        value.each do |v|
             next unless deps.key?(v)
             puts "  #{esc(key)} -> #{esc(v)};"
         end
     end
-    # Write graph:
     puts '}'
 end
 
 $deps = {}
+$alias = {}
 specs = Dir.glob("*/*.spec")
 workers = []
 specs.each_slice((specs.size/4)+1) do |slice|
     workers << Thread.new do
-        slice.each do |p|          
-            spec = `rpmspec -P #{p} 2>/dev/null`.split(/\n/)
-        
-            name = spec.grep(/Name:/).first.gsub(/Name:\s+(.+)/, '\1').strip
-            pack = spec.grep(/%package/)
+        slice.each do |path|
+            src = `rpmspec -P #{path} 2>/dev/null`.split(/\n/)
+            spec = File.basename(path, '.spec')
+
+            name = src.grep(/Name:/).first.gsub(/Name:\s+(.+)/, '\1').strip
+            pack = src.grep(/%package/)
                        .map {|s| s.gsub(/^%package\s+/, '')}
                        .select {|s| !s.start_with? 'debug'}
                        .map {|s| (s =~ /-n\s+(.+)/) ? $1 : "#{name}-#{s}"}
             pack = [name] + pack
 
+            pack.each {|p| $alias[p] = spec}
+
             deps = []
-            spec.grep(/BuildRequires:/).each do |str|
+            src.grep(/BuildRequires:/).each do |str|
                 str.gsub!(/BuildRequires:\s+(.+)/, '\1').strip
                 br = str.split(/\s+/)
                 rm = []
-                br.each_with_index {|v, i| rm += [i, i+1] if v[0] == '>' }
+                br.each_with_index {|v, i| rm += [i, i+1] if v[0] == '>'}
                 br.select!.each_with_index {|_, i| !rm.include?(i)}
-                
+
                 br.each do |r|
                     if r =~ /[a-z]+\(.+\)/
                         deps << resolve_dep(r)
@@ -79,7 +92,7 @@ specs.each_slice((specs.size/4)+1) do |slice|
             end
 
             pack.each do |p|
-                $deps[p] = deps
+                $deps[p] = deps.sort
             end
         end
     end
@@ -87,4 +100,17 @@ end
 workers.each(&:join)
 
 $deps = Hash[$deps.sort]
-export_deps($deps)
+#export_deps($deps)
+
+rest = []
+stage = 0
+loop do
+    deps = filter_deps($deps, rest)
+    break if deps.empty?
+
+    puts if stage > 0
+    specs = deps.map{|d| $alias[d]}.uniq.sort
+    puts "Build stage #{stage}:\n#{specs.join("\n")}"
+    rest += deps
+    stage += 1
+end
