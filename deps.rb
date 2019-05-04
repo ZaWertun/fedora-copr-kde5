@@ -106,6 +106,21 @@ $deps.each do |_, deps|
     deps.select!{|d| $deps.key?(d)}
 end
 
+# Checking for circular deps:
+$circular = {}
+$deps.each do |name, deps|
+    next if $circular.values.include?(name)
+
+    deps.each do |dep|
+        if $deps[dep].include?(name)
+            $circular[name] = dep
+        end
+    end
+end
+$circular.each do |name, dep|
+    STDERR.puts "\e[30m\e[43mWARNING\e[0m: Circular dependency detected #{name} <=> #{dep} !!!"
+end
+
 rest = []
 stage = 0
 PREFIX='kde/'
