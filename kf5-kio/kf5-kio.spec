@@ -74,13 +74,6 @@ BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  zlib-devel
 
-%if ! 0%{?bootstrap}
-# (apparently?) requires org.kde.klauncher5 service provided by kf5-kinit -- rex
-# not versioned to allow update without bootstrap
-# <skip!>
-BuildRequires:  kf5-kinit-devel
-%endif
-
 Requires:       %{name}-core%{?_isa} = %{version}-%{release}
 Requires:       %{name}-widgets%{?_isa} = %{version}-%{release}
 Requires:       %{name}-file-widgets%{?_isa} = %{version}-%{release}
