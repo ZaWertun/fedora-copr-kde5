@@ -108,6 +108,7 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 %{_includedir}/KPim/
 %{_kf5_libdir}/libKPimItinerary.so
 %{_kf5_libdir}/cmake/KPimItinerary/
+%{_kf5_libexecdir}/%{name}*
 
 
 %changelog
