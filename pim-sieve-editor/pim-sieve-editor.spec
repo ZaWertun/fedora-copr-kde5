@@ -8,7 +8,7 @@
 
 Name:    pim-sieve-editor
 Summary: Sieve Editor
-Version: 18.12.2
+Version: 19.04.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -111,6 +111,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon May 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
+- 19.04.0
+
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
 
