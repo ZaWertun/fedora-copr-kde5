@@ -184,6 +184,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libmaildir.so.5*
 %{_kf5_plugindir}/kio/akonadi.so
 %{_kf5_plugindir}/kio/pop3.so
+%{_kf5_qtplugindir}/akonadi/config/*.so
 
 
 %changelog

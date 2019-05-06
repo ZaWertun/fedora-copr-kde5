@@ -1,4 +1,4 @@
-Name:    svgpart 
+Name:    svgpart
 Summary: SVG KPart
 Version: 19.04.0
 Release: 1%{?dist}
@@ -48,9 +48,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING
-%{_qt5_plugindir}/svgpart.so
 %{_kf5_datadir}/kservices5/svgpart.desktop
-%{_kf5_datadir}/kxmlgui5/svgpart/
+%{_kf5_plugindir}/parts/%{name}.so
 
 
 %changelog
