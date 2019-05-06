@@ -1,5 +1,5 @@
 Name:    ffmpegthumbs
-Version: 18.12.3
+Version: 19.04.0
 Release: 1%{?dist}
 Summary: KDE ffmpegthumbnailer service
 
@@ -57,6 +57,9 @@ make install/fast -C %{_target_platform} DESTDIR=%{buildroot}
 
 
 %changelog
+* Mon May 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
+- 19.04.0
+
 * Thu Mar 14 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-1
 - 18.12.3
 
