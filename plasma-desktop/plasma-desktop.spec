@@ -3,7 +3,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.15.4
+Version: 5.15.5
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -310,6 +310,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+- 5.15.5
+
 * Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
 - 5.15.4
 
