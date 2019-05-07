@@ -12,7 +12,9 @@ def resolve_dep(name)
     rows = $db.execute('select resolved from DEPS where name = ?', [name])
     return rows[0][0] unless rows.empty?
 
-    provides = `dnf -C -q provides "#{name}" |head -n1`.split(/\n/).first
+    cmd = "dnf -y -C -q provides \"#{name}\" 2>/dev/null |head -n1"
+    STDERR.puts(cmd) if ENV['DEBUG'] == '1'
+    provides = `#{cmd}`.split(/\n/).first
     unless provides
         puts "Error: #{name}"
         return nil
@@ -22,6 +24,8 @@ def resolve_dep(name)
 
     $db.execute('insert into DEPS(name, resolved) values(?, ?)', name, provides)
     provides
+rescue SQLite3::ConstraintException
+    # ignore
 end
 
 def esc(name)
