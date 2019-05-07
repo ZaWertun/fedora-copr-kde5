@@ -22,6 +22,10 @@ URL:     https://cgit.kde.org/?p=%{base_name}.git
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz
 
+%if "%{version}" == "5.15.5"
+Patch0:  fix_appdata_releases.patch
+%endif
+
 ## upstream patches (in lookaside cache)
 
 BuildRequires: appstream-qt-devel >= 0.11.1
@@ -115,7 +119,7 @@ Supplements: (%{name} and snapd)
 
 
 %prep
-%setup -q -n discover-%{version}
+%autosetup -p1 -n discover-%{version}
 
 # disable update notifier applet by default, since fedora uses plasma-pk-updates
 sed -i \

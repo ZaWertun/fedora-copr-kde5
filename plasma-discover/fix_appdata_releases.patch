@@ -1,0 +1,11 @@
+diff -r -U3 discover-5.15.5.orig/discover/org.kde.discover.appdata.xml discover-5.15.5/discover/org.kde.discover.appdata.xml
+--- discover-5.15.5.orig/discover/org.kde.discover.appdata.xml	2019-05-07 17:59:29.993027878 +0300
++++ discover-5.15.5/discover/org.kde.discover.appdata.xml	2019-05-07 18:00:13.534172270 +0300
+@@ -217,7 +217,6 @@
+     <binary>plasma-discover</binary>
+   </provides>
+   <releases>
+-    <release version="5.15.4" date="2019-04-02"/>
+     <release version="5.15.5" date="2019-05-07"/>
+   </releases>
+ </component>
