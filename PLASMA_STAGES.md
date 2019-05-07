@@ -1,23 +1,52 @@
 ### Build stage 0:
 
-plasma-breeze
-plasma-browser-integration
-plasma-discover
-plasma-nm
-plasma-pa
-xdg-desktop-portal-kde
+kde/kactivitymanagerd
+kde/kde-gtk-config
+kde/kdecoration
+kde/kinfocenter
+kde/kscreenlocker
+kde/ksshaskpass
+kde/kwayland-integration
+kde/libkscreen-qt5
+kde/libksysguard
+kde/pam-kwallet
+kde/plasma-browser-integration
+kde/plasma-discover
+kde/plasma-drkonqi
+kde/plasma-milou
+kde/plasma-nm
+kde/plasma-pa
+kde/plasma-user-manager
+kde/polkit-kde
+kde/sddm-kcm
+kde/xdg-desktop-portal-kde
 
 ### Build stage 1:
 
-breeze-gtk
-kwin
+kde/kscreen
+kde/ksysguard
+kde/plasma-breeze
+kde/plasma-oxygen
 
 ### Build stage 2:
 
-plasma-workspace
+kde/breeze-gtk
+kde/kwin
+kde/plasma-integration
 
 ### Build stage 3:
 
-kdeplasma-addons
-plasma-desktop
-plasma-systemsettings
+kde/plasma-workspace
+
+### Build stage 4:
+
+kde/kde-cli-tools
+kde/kdeplasma-addons
+kde/khotkeys
+kde/plasma-desktop
+kde/plasma-systemsettings
+kde/powerdevil
+
+### Build stage 5:
+
+kde/kmenuedit
