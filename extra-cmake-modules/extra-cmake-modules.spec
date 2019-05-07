@@ -48,7 +48,11 @@ BuildRequires: kf5-rpm-macros
 BuildRequires: qt5-qttools-devel
 # sphinx-build
 %if 0%{?fedora} || 0%{?rhel} > 7
+%if 0%{?fedora} > 28
+BuildRequires: python3-sphinx
+%else
 BuildRequires: python2-sphinx
+%endif
 %else
 BuildRequires: python-sphinx
 %endif

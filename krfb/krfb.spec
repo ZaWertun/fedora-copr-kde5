@@ -46,7 +46,6 @@ BuildRequires: pkgconfig(xcb-xfixes)
 
 
 BuildRequires: pkgconfig(xtst)
-BuildRequires: python2
 BuildRequires: libjpeg-devel
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}

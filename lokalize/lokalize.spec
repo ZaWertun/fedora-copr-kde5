@@ -48,7 +48,11 @@ BuildRequires: pkgconfig(Qt5Widgets) pkgconfig(Qt5DBus) pkgconfig(Qt5Script) pkg
 BuildRequires: libappstream-glib
 %endif
 
+%if 0%{?fedora} > 28
+Requires: python3-dbus
+%else
 Requires: python2-dbus
+%endif
 Requires: gettext
 # odf2xliff
 Requires: translate-toolkit

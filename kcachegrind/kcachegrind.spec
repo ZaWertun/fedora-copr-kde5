@@ -18,7 +18,11 @@ Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%
 
 BuildRequires: desktop-file-utils
 BuildRequires: perl-generators
+%if 0%{?fedora} > 28
+BuildRequires: python3-rpm-macros
+%else
 BuildRequires: python2-rpm-macros
+%endif
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -65,7 +69,11 @@ QT-based browser for data produced by profiling tools (e.g. cachegrind).
 %autosetup -p1
 
 # Avoid use of #!/usr/bin/env as interpeter
+%if 0%{?fedora} > 28
+sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python3}|g" converters/hotshot2calltree.cmake
+%else
 sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python2}|g" converters/hotshot2calltree.cmake
+%endif
 sed -i.env -e "s|^#!/usr/bin/env php$|#!%{_bindir}/php|g"  converters/pprof2calltree
 
 

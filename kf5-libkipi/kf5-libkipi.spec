@@ -24,7 +24,6 @@ BuildRequires: kf5-kxmlgui-devel
 BuildRequires: kf5-kservice-devel
 BuildRequires: kf5-rpm-macros
 BuildRequires: pkgconfig(Qt5Gui)
-BuildRequires: python2
 
 %if 0%{?fedora} > 23
 Recommends: kf5-kipi-plugins

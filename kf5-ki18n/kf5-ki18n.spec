@@ -17,6 +17,10 @@ URL:            https://cgit.kde.org/%{framework}.git
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
+%if 0%{?fedora} > 28
+Patch0:         python3.patch
+%endif
+
 ## upstream patches
 
 # filter plugin provides
@@ -27,7 +31,11 @@ BuildRequires:  gettext
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  perl-interpreter
 # FindPythonInterp.cmake , can find/use multiple versions, rely on the default for now
+%if 0%{?fedora} > 28
+BuildRequires:  python3
+%else
 BuildRequires:  python2
+%endif
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtscript-devel
@@ -41,7 +49,11 @@ KDE Frameworks 5 Tier 1 addon for localization.
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       gettext
+%if 0%{?fedora} > 28
+Requires:       python3
+%else
 Requires:       python2
+%endif
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -52,9 +64,15 @@ developing applications that use %{name}.
 
 
 %build
+%if 0%{?fedora} > 28
+export PY_VER=3
+%else
+export PY_VER=2
+%endif
+
 mkdir %{_target_platform}
 pushd %{_target_platform}
-%{cmake_kf5} ..
+%{cmake_kf5} -DPYTHON_EXECUTABLE=/usr/bin/python${PY_VER} ..
 popd
 
 %make_build -C %{_target_platform}

@@ -19,7 +19,11 @@ BuildRequires:  cmake(KF5DocTools)
 
 BuildRequires:  perl-generators
 # for python2-rpm-macros
+%if 0%{?fedora} > 28
+BuildRequires:  python3-devel
+%else
 BuildRequires:  python2-devel
+%endif
 # for env replacement in %%install
 BuildRequires:  sed
 

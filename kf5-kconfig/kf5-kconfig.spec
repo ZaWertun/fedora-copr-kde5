@@ -60,8 +60,12 @@ BuildRequires:  python2-clang
 %endif
 BuildRequires:  clang
 BuildRequires:  clang-devel
+%if 0%{?fedora} > 28
+BuildRequires:  python3-PyQt5-devel
+%else
 BuildRequires:  python2-PyQt5-devel
 BuildRequires:  python3-PyQt5-devel
+%endif
 %else
 Obsoletes: python2-pykf5-%{framework} < %{version}-%{release}
 Obsoletes: python3-pykf5-%{framework} < %{version}-%{release}
