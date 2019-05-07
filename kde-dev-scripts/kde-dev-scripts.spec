@@ -66,8 +66,13 @@ sed -i \
   -e "s|^#! /usr/bin/env bash|#!/bin/bash|g" \
   -e "s|^#!/usr/bin/env perl|#!/usr/bin/perl|g" \
   -e "s|^#! /usr/bin/env perl|#!/usr/bin/perl|g" \
+%if 0%{?fedora} > 28
+  -e "s|^#!/usr/bin/env python$|#!%{__python3}|g" \
+  -e "s|^#! /usr/bin/env python$|#!%{__python3}|g" \
+%else
   -e "s|^#!/usr/bin/env python$|#!%{__python2}|g" \
   -e "s|^#! /usr/bin/env python$|#!%{__python2}|g" \
+%endif
   %{buildroot}%{_kf5_bindir}/*
 
 # unpackaged files
