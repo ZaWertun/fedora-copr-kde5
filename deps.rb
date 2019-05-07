@@ -57,9 +57,15 @@ end
 
 $deps = {}
 $alias = {}
-specs = Dir.glob("*/*.spec")
+
+SPECS = if ARGV.size > 0
+  File.readlines(ARGV[0]).map {|l| Dir.glob("#{l.chop}/*.spec").first}
+else
+    Dir.glob("*/*.spec")
+end.freeze
+
 workers = []
-specs.each_slice((specs.size/4)+1) do |slice|
+SPECS.each_slice((SPECS.size/4)+1) do |slice|
     workers << Thread.new do
         slice.each do |path|
             src = `rpmspec -P #{path} 2>/dev/null`.split(/\n/)
@@ -123,7 +129,7 @@ end
 
 rest = []
 stage = 0
-PREFIX='kde/'
+PREFIX = ENV['PREFIX'] || ''
 loop do
     deps = filter_deps($deps, rest)
     break if deps.empty?
