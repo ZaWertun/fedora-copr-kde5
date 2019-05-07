@@ -7,6 +7,7 @@ kde/kinfocenter
 kde/kscreenlocker
 kde/ksshaskpass
 kde/kwayland-integration
+kde/kwrited
 kde/libkscreen-qt5
 kde/libksysguard
 kde/pam-kwallet
