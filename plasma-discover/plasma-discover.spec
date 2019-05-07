@@ -22,9 +22,7 @@ URL:     https://cgit.kde.org/?p=%{base_name}.git
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz
 
-%if "%{version}" == "5.15.5"
 Patch0:  fix_appdata_releases.patch
-%endif
 
 ## upstream patches (in lookaside cache)
 
