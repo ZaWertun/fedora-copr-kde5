@@ -14,6 +14,10 @@ URL:     https://cgit.kde.org/%{name}.git
 %endif
 Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 
+%if 0%{?fedora} > 28
+Patch0:  python3.patch
+%endif
+
 BuildRequires:  extra-cmake-modules
 BuildRequires:  cmake(KF5DocTools)
 
@@ -29,6 +33,11 @@ BuildRequires:  sed
 
 Requires:       advancecomp
 Requires:       optipng
+%if 0%{?fedora} > 28
+Requires:       python3
+%else
+Requires:       python2
+%endif
 
 BuildArch:      noarch
 
@@ -43,7 +52,7 @@ KDE SDK scripts
 
 
 %prep
-%autosetup
+%autosetup -p1
 
 
 %build

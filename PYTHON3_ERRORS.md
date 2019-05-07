@@ -14,3 +14,14 @@ kf5-ki18n-devel
     TypeError: write() argument must be str, not bytes
 
 + ts-pmap-compile.py - no shebang
+
+kde-dev-scripts
+===============
+
++ Errors in kde-systemsettings-tree.py:
+
+    > python3 kde-systemsettings-tree.py                                                           0.038s (1) 15:26:23
+      File "kde-systemsettings-tree.py", line 50
+        print "*** Current organization:"
+                                        ^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print("*** Current organization:")?
