@@ -82,6 +82,11 @@ SPECS.each_slice((SPECS.size/4)+1) do |slice|
                        .map {|s| (s =~ /-n\s+(.+)/) ? $1 : "#{name}-#{s}"}
             pack = [name] + pack
 
+            provides = src.grep(/^Provides:/)
+                          .grep_v(/plasma-packagestructure/) # fuck it
+                          .map {|s| s.gsub(/^Provides:\s+([^\s]+)\s?.*/, '\1')}
+            pack += provides
+            
             pack.each {|p| $alias[p] = spec}
 
             deps = []

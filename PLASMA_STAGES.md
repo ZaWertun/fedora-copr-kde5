@@ -1,20 +1,23 @@
 ### Build stage 0:
 
-kde/kwin
-kde/plasma-breeze
-kde/plasma-browser-integration
-kde/plasma-discover
-kde/plasma-nm
-kde/plasma-pa
-kde/xdg-desktop-portal-kde
+plasma-breeze
+plasma-browser-integration
+plasma-discover
+plasma-nm
+plasma-pa
+xdg-desktop-portal-kde
 
 ### Build stage 1:
 
-kde/breeze-gtk
-kde/plasma-workspace
+breeze-gtk
+kwin
 
 ### Build stage 2:
 
-kde/kdeplasma-addons
-kde/plasma-desktop
-kde/plasma-systemsettings
+plasma-workspace
+
+### Build stage 3:
+
+kdeplasma-addons
+plasma-desktop
+plasma-systemsettings
