@@ -1,0 +1,54 @@
+From eb3c5872d370c7435109fa4c49c19db48640b59d Mon Sep 17 00:00:00 2001
+From: Wolfgang Bauer <wbauer@tmo.at>
+Date: Thu, 2 May 2019 17:57:57 +0200
+Subject: [PATCH] Revert "It seems that this hack is not necessary with qt5.13"
+
+This reverts commit 1ccd68157a1309a2b11f3cece420bb2df6da2e02.
+It causes crashes when tabs are closed.
+And even though the workaround is not necessary with Qt 5.13, it
+shouldn't harm either.
+
+BUG: 371511
+---
+ src/articleviewer-ng/webengine/articleviewerwebengine.cpp | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/src/articleviewer-ng/webengine/articleviewerwebengine.cpp b/src/articleviewer-ng/webengine/articleviewerwebengine.cpp
+index e3f50311..4c5ce450 100644
+--- a/src/articleviewer-ng/webengine/articleviewerwebengine.cpp
++++ b/src/articleviewer-ng/webengine/articleviewerwebengine.cpp
+@@ -26,7 +26,6 @@
+ #include "akregatorconfig.h"
+ #include "actions/actions.h"
+ #include "urlhandler/webengine/urlhandlerwebengine.h"
+-#include <QtWebEngineWidgetsVersion>
+ #include <WebEngineViewer/InterceptorManager>
+ #include <WebEngineViewer/WebEngineAccessKey>
+ #include <KPIMTextEdit/TextToSpeech>
+@@ -79,18 +78,20 @@ ArticleViewerWebEngine::ArticleViewerWebEngine(KActionCollection *ac, QWidget *p
+     , mLastButtonClicked(LeftButton)
+     , mViewerPluginToolManager(nullptr)
+ {
++    mNetworkAccessManager = new WebEngineViewer::InterceptorManager(this, ac, this);
+ 
+     QWebEngineProfile *profile = QWebEngineProfile::defaultProfile();
+     mPageEngine = new ArticleViewerWebEnginePage(profile, this);
+     profile->setPersistentCookiesPolicy(QWebEngineProfile::ForcePersistentCookies);
+ 
+-#if QTWEBENGINEWIDGETS_VERSION < QT_VERSION_CHECK(5, 13, 0)
+     // Needed to workaround crash in webengine, see https://bugreports.qt.io/browse/QTBUG-72260
+     auto webEngineUrlInterceptor = new AkregatorRequestInterceptor();
+-    connect(profile, &QObject::destroyed, webEngineUrlInterceptor, &AkregatorRequestInterceptor::deleteLater);
++#if QT_VERSION < QT_VERSION_CHECK(5, 13, 0)
+     profile->setRequestInterceptor(webEngineUrlInterceptor);
++#else
++   page()->setUrlRequestInterceptor(webEngineUrlInterceptor);
+ #endif
+-    mNetworkAccessManager = new WebEngineViewer::InterceptorManager(this, ac, this);
++    connect(profile, &QObject::destroyed, webEngineUrlInterceptor, &AkregatorRequestInterceptor::deleteLater);
+ 
+     setPage(mPageEngine);
+ 
+-- 
+2.16.4
+

@@ -9,7 +9,7 @@
 Name:    akregator
 Summary: Feed Reader
 Version: 19.04.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -22,6 +22,9 @@ URL:     https://www.kde.org/applications/internet/akregator/
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+
+# Fix for KDE bug 371511:
+Patch0:  371511_fix_crash_on_link_open.patch
 
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
@@ -87,7 +90,7 @@ Requires: %{name} = %{version}-%{release}
 
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -p1 -n %{name}-%{version} -p1
 
 
 %build
@@ -154,6 +157,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-2
+- added patch to fix KDE bug 371511
+
 * Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
 - 19.04.0
 
