@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.57.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -22,6 +22,7 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches (using lookaside cache)
+Patch28: 0028-Window-Thumbnail-Also-monitor-scene-visibility-and-c.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -168,6 +169,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Thu Apr 25 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-2
+- pull in upstream fix for leaked thumbnail file handles (kde#406303)
+
 * Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
 - 5.57.0
 
