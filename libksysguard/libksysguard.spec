@@ -1,7 +1,7 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
 Version: 5.15.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -28,6 +28,7 @@ BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qttools-devel
 BuildRequires:  qt5-qtwebkit-devel
 BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  qt5-qtwebengine-devel
 BuildRequires:  zlib-devel
 
 Requires:       kf5-filesystem
@@ -109,6 +110,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed May 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-2
+- qt5-qtwebengine-devel added to BR
+
 * Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
 - 5.15.5
 
