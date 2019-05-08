@@ -169,7 +169,7 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
-* Thu Apr 25 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-2
+* Wed May 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-2
 - pull in upstream fix for leaked thumbnail file handles (kde#406303)
 
 * Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
