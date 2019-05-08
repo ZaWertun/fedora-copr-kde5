@@ -52,6 +52,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING.LGPL3
 %{_datadir}/wallpapers/Autumn/
 %{_datadir}/wallpapers/BytheWater/
+%{_datadir}/wallpapers/Canopee/
+%{_datadir}/wallpapers/Cascade/
 %{_datadir}/wallpapers/ColdRipple/
 %{_datadir}/wallpapers/ColorfulCups/
 %{_datadir}/wallpapers/DarkestHour/
@@ -60,9 +62,12 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_datadir}/wallpapers/FlyingKonqui/
 %{_datadir}/wallpapers/Grey/
 %{_datadir}/wallpapers/Kite/
+%{_datadir}/wallpapers/Kokkini/
 %{_datadir}/wallpapers/OneStandsOut/
+%{_datadir}/wallpapers/Opal/
 %{_datadir}/wallpapers/PastelHills/
 %{_datadir}/wallpapers/Path/
+%{_datadir}/wallpapers/summer_1am/
 
 
 %changelog
