@@ -1,6 +1,6 @@
 Name:    bluedevil
 Summary: Bluetooth stack for KDE
-Version: 5.14.5
+Version: 5.15.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.bluedevil
 
 
 %changelog
+* Wed May 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+- 5.15.5
+
 * Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
 - 5.14.5
 
