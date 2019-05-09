@@ -1,7 +1,7 @@
 %global framework grantleetheme
 
 Name:    kf5-%{framework}
-Version: 19.04.0
+Version: 19.04.1
 Release: 1%{?dist}
 Summary: KDE PIM library for Grantlee template system
 
@@ -88,6 +88,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+- 19.04.1
+
 * Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
 - 19.04.0
 
