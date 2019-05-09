@@ -1,7 +1,7 @@
 
 Name:    kompare
 Summary: Diff tool
-Version: 19.04.0
+Version: 19.04.1
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -115,6 +115,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 
 %changelog
+* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+- 19.04.1
+
 * Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
 - 19.04.0
 
