@@ -3,12 +3,13 @@
 require 'net/http'
 require 'nokogiri'
 
-name = File.basename(Dir.pwd)
-version = ARGV[0]
-unless version
-    STDERR.puts "Usage: #{__FILE__} <VERSION>"
+if ARGV.size < 2
+    STDERR.puts "Usage: #{__FILE__} <DIR> <VERSION>"
     exit 1
 end
+
+name = File.basename(ARGV[0])
+version = ARGV[1]
 
 def show(str)
     puts "\e[93m#{str}:\e[0m"
@@ -39,17 +40,19 @@ if (last = last_ver name.gsub(/^kf5-/, ''))
     puts "\e[92mLatest version: #{last}\e[0m\n\n"
 end
 
-old_version = `grep Version: *.spec`
-unless old_version.include?(version)
-    show "Removing old sources"
-    system "rm -v *.tar.*"
+Dir.chdir(name) do
+    old_version = `grep Version: *.spec`
+    unless old_version.include?(version)
+        show "Removing old sources"
+        system "rm -v *.tar.*"
 
-    show "Bumping version"
-    system "rpmdev-bumpspec -n #{version} --comment=\"#{version}\" *.spec"; done?
+        show "Bumping version"
+        system "rpmdev-bumpspec -n #{version} --comment=\"#{version}\" *.spec"; done?
+    end
+
+    show "Downloading new sources"
+    system "spectool -g *.spec"; done?
+
+    show "Commiting to GIT"
+    system "git add . && git commit -m \"#{name} updated to #{version}\""; done?
 end
-
-show "Downloading new sources"
-system "spectool -g *.spec"; done?
-
-show "Commiting to GIT"
-system "git add . && git commit -m \"#{name} updated to #{version}\""; done?
