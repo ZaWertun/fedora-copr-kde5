@@ -1,0 +1,15 @@
+diff -r -U3 kwin-lowlatency-5.15.5.orig/CMakeLists.txt kwin-lowlatency-5.15.5/CMakeLists.txt
+--- kwin-lowlatency-5.15.5.orig/CMakeLists.txt	2019-05-10 00:05:42.604655535 +0300
++++ kwin-lowlatency-5.15.5/CMakeLists.txt	2019-05-10 00:05:51.981686486 +0300
+@@ -726,3 +726,11 @@
+     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR})
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/KWinDBusInterfaceConfig.cmake
+     DESTINATION ${CMAKECONFIG_INSTALL_DIR})
++
++find_package(KF5I18n CONFIG REQUIRED)
++ki18n_install(po)
++
++  find_package(KF5DocTools CONFIG)
++  if(KF5DocTools_FOUND)
++    kdoctools_install(po)
++  endif()

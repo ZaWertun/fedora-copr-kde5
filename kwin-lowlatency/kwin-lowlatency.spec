@@ -26,6 +26,8 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 %endif
 Source0: https://github.com/tildearrow/kwin-lowlatency/archive/v%{version}/%{name}-%{version}.tar.gz
 
+Patch0:  CMakeLists.patch
+
 ## upstream patches
 
 # Base
