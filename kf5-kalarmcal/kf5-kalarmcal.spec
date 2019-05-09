@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 19.04.0
+Version: 19.04.1
 Release: 1%{?dist}
 Summary: The KAlarmCal Library
 
@@ -105,6 +105,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+- 19.04.1
+
 * Sun May 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
 - 19.04.0
 
