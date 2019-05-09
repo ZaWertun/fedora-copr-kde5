@@ -235,7 +235,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %find_lang %{name} --with-html --all-name
 grep "%{_kf5_docdir}" %{name}.lang > %{name}-doc.lang
-cat %{name}.lang %{name}-doc.lang | sort | uniq -u > %{name}.lang
+cat %{name}.lang %{name}-doc.lang | sort | uniq -u > kwin5.lang
 
 # temporary(?) hack to allow initial-setup to use /usr/bin/kwin too
 ln -s kwin_x11 %{buildroot}%{_bindir}/kwin
@@ -255,7 +255,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_bindir}/kwin_x11
 %{_kf5_libdir}/libkdeinit5_kwin_x11.so
 
-%files common -f %{name}.lang
+%files common -f kwin5.lang
 %{_kf5_libdir}/libkdeinit5_kwin_rules_dialog.so
 %{_datadir}/kwin
 %{_kf5_qtplugindir}/*.so
