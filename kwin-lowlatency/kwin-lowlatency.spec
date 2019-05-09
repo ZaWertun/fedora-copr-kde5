@@ -233,9 +233,9 @@ popd
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
-%find_lang %{name} --with-html --all-name
-grep "%{_kf5_docdir}" %{name}.lang > %{name}-doc.lang
-cat %{name}.lang %{name}-doc.lang | sort | uniq -u > kwin5.lang
+%find_lang kwin --with-html --all-name
+grep "%{_kf5_docdir}" kwin.lang > %{name}-doc.lang
+cat kwin.lang %{name}-doc.lang | sort | uniq -u > kwin5.lang
 
 # temporary(?) hack to allow initial-setup to use /usr/bin/kwin too
 ln -s kwin_x11 %{buildroot}%{_bindir}/kwin
