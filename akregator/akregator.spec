@@ -8,8 +8,8 @@
 
 Name:    akregator
 Summary: Feed Reader
-Version: 19.04.0
-Release: 2%{?dist}
+Version: 19.04.1
+Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -157,6 +157,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+- 19.04.1
+
 * Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-2
 - added patch to fix KDE bug 371511
 
