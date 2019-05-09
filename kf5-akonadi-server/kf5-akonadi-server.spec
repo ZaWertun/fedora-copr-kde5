@@ -21,7 +21,7 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 19.04.0
+Version: 19.04.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -304,6 +304,9 @@ fi
 
 
 %changelog
+* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+- 19.04.1
+
 * Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
 - 19.04.0
 
