@@ -1,7 +1,7 @@
 
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 19.04.0
+Version: 19.04.1
 Release: 1%{?dist}
 
 License: GPLv2
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 
 
 %changelog
+* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+- 19.04.1
+
 * Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
 - 19.04.0
 
