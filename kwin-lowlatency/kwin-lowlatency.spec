@@ -24,9 +24,9 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: https://github.com/tildearrow/kwin-lowlatency/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/kwin-%{version}.tar.xz
 
-Patch0:  CMakeLists.patch
+Patch0:  kwin-lowlatency-5.15.5.patch
 
 ## upstream patches
 
@@ -214,7 +214,7 @@ Obsoletes:      kwin-doc <= %{version}
 
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n kwin-%{version} -p1
 
 sed -i \
   -e 's|^find_package(Breeze ${PROJECT_VERSION} CONFIG)|find_package(Breeze 5.9 CONFIG)|' \
