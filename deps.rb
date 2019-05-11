@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'json'
 require 'sqlite3'
 
 $db = SQLite3::Database.new 'deps.db'
@@ -86,7 +87,7 @@ SPECS.each_slice((SPECS.size/4)+1) do |slice|
                           .grep_v(/plasma-packagestructure/) # fuck it
                           .map {|s| s.gsub(/^Provides:\s+([^\s]+)\s?.*/, '\1')}
             pack += provides
-            
+
             pack.each {|p| $alias[p] = spec}
 
             deps = []
@@ -136,6 +137,7 @@ $circular.each do |name, dep|
     STDERR.puts "\e[30m\e[43mWARNING\e[0m: Circular dependency detected #{name} <=> #{dep} !!!"
 end
 
+res = {}
 rest = []
 stage = 0
 PREFIX = ENV['PREFIX'] || ''
@@ -143,9 +145,9 @@ loop do
     deps = filter_deps($deps, rest)
     break if deps.empty?
 
-    puts if stage > 0
-    specs = deps.map{|d| $alias[d]}.uniq.sort
-    puts "### Build stage #{stage}:\n\n#{specs.map{|s| PREFIX+s}.join("\n")}"
+    res[stage] = deps.map{|d| $alias[d]}.uniq.sort
     rest += deps
     stage += 1
 end
+
+puts JSON.pretty_generate(res)
