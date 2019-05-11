@@ -18,6 +18,8 @@ Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 
+Patch0:  imagemetainfomodel_exiv2.patch
+
 ## upstream patches (master branch)
 
 ## upstreamable patches

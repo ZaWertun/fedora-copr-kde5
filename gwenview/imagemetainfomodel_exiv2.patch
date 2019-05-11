@@ -1,0 +1,11 @@
+diff -r -U3 gwenview-19.04.1.orig/lib/imagemetainfomodel.cpp gwenview-19.04.1/lib/imagemetainfomodel.cpp
+--- gwenview-19.04.1.orig/lib/imagemetainfomodel.cpp	2019-05-02 13:46:30.000000000 +0300
++++ gwenview-19.04.1/lib/imagemetainfomodel.cpp	2019-05-11 13:33:54.010622286 +0300
+@@ -36,6 +36,7 @@
+ #include <exiv2/exif.hpp>
+ #include <exiv2/image.hpp>
+ #include <exiv2/iptc.hpp>
++#include <exiv2/error.hpp>
+ 
+ // Local
+ #ifdef HAVE_FITS
