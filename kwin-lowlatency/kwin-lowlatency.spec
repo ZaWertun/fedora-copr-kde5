@@ -8,7 +8,6 @@ Summary: KDE Window manager
 
 Provides:  kwin = %{version}
 Conflicts: kwin
-Obsoletes: kwin = %{version}
 
 # all sources are effectively GPLv2+, except for:
 # scripts/enforcedeco/contents/code/main.js
@@ -154,7 +153,6 @@ Requires:       xorg-x11-server-Xwayland
 # kwin-lowlatency <\>
 Provides:       kwin-wayland = %{version}
 Conflicts:      kwin-wayland
-Obsoletes:      kwin-wayland <= %{version}
 # </>
 %description    wayland
 %{summary}.
@@ -166,7 +164,6 @@ Requires:       kf5-kwayland%{?_isa} >= %{_kf5_version}
 # kwin-lowlatency <\>
 Provides:       kwin-common = %{version}
 Conflicts:      kwin-common
-Obsoletes:      kwin-common <= %{version}
 # </>
 %description    common
 %{summary}.
@@ -178,7 +175,6 @@ Conflicts:      kde-workspace-libs%{?_isa} < 4.11.14-2
 # kwin-lowlatency <\>
 Provides:       kwin-libs = %{version}
 Conflicts:      kwin-libs
-Obsoletes:      kwin-libs <= %{version}
 # </>
 %description    libs
 %{summary}.
@@ -194,7 +190,6 @@ Conflicts:      kde-workspace-devel < 5.0.0-1
 # kwin-lowlatency <\>
 Provides:       kwin-libs = %{version}
 Conflicts:      kwin-libs
-Obsoletes:      kwin-libs <= %{version}
 # </>
 %description    devel
 The %{name}-devel package contains libraries and header files for
