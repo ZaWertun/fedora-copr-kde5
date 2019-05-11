@@ -121,6 +121,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING*
 %{_kf5_sysconfdir}/xdg/kdepim-addons.*
 
+%{_kf5_libdir}/libgrammarcommon.so.5*
+%{_kf5_libdir}/libkmailgrammalecte.so.5*
+%{_kf5_libdir}/libkmaillanguagetool.so.5*
 %{_kf5_libdir}/libadblocklibprivate.so.5*
 
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
@@ -169,6 +172,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/kmail/kmail_confirmaddresseditorplugin.so
 %{_kf5_qtplugindir}/kmail/kmail_logactivitiesplugin.so
 %{_kf5_qtplugindir}/kmail/kmail_sharetexteditorplugin.so
+%{_kf5_qtplugindir}/kmail/kmail_grammalecteplugin.so
+%{_kf5_qtplugindir}/kmail/kmail_languagetoolplugin.so
 %{_kf5_sysconfdir}/xdg/kmail.antispamrc
 %{_kf5_sysconfdir}/xdg/kmail.antivirusrc
 %{_kf5_datadir}/kmail2/pics/*
@@ -223,6 +228,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/messageviewer/messageviewer_grantleeheaderstyleplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_longheaderstyleplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_standardsheaderstyleplugin.so
+%{_kf5_qtplugindir}/messageviewer/messageviewer_gravatarconfigplugin.so
 
 # MessageViewer
 %{_kf5_qtplugindir}/messageviewer/grantlee/
