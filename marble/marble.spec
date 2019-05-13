@@ -53,6 +53,8 @@ BuildRequires: pkgconfig(Qt5Sql)
 BuildRequires: pkgconfig(Qt5Concurrent)
 BuildRequires: pkgconfig(Qt5PrintSupport)
 BuildRequires: pkgconfig(Qt5Location) pkgconfig(Qt5Positioning)
+BuildRequires: pkgconfig(Qt5WebEngine)
+BuildRequires: pkgconfig(Qt5WebEngineWidgets)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: pkgconfig(shapelib)
 BuildRequires: pkgconfig(shared-mime-info)
@@ -170,6 +172,7 @@ cat marble_qt.lang >> %{name}.lang
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.marble.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.plasma.worldmap.appdata.xml ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.plasma.worldclock.appdata.xml ||:
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble.desktop
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.desktop
@@ -179,6 +182,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_bindir}/marble
 %{_datadir}/kxmlgui5/marble/
 %{_kf5_metainfodir}/org.kde.marble.appdata.xml
+%{_kf5_metainfodir}/org.kde.plasma.worldmap.appdata.xml
 %{_kf5_metainfodir}/org.kde.plasma.worldclock.appdata.xml
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.worldclock.desktop
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.plasma.worldmap.desktop
