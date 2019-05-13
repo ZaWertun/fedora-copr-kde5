@@ -2,7 +2,7 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 18.12.2
+Version: 19.04.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -251,6 +251,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Mon May 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.04.1-1
+- 19.04.1
+
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 1:18.12.2-1
 - 18.12.2
 
