@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Qt;KDE;Graphics;Photography;
+Exec=digikam --download-from %f
+GenericName=Photo Management Program
+Icon=digikam
+MimeType=x-content/image-dcf;x-content/image-picturecd;
+Name=digiKam
+NoDisplay=true
+Terminal=false
+Type=Application
