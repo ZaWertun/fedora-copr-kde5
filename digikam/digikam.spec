@@ -1,12 +1,12 @@
 
 Name:    digikam
 Summary: A digital camera accessing & photo management application
-Version: 5.9.0
-Release: 2%{?dist}
+Version: 6.1.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     http://www.digikam.org/
-Source0: http://download.kde.org/%{?beta:un}stable/digikam/digikam-%{version}%{?beta:-%{beta}}.tar.xz
+Source0: http://download.kde.org/%{?beta:un}stable/digikam/%{version}/digikam-%{version}%{?beta:-%{beta}}.tar.xz
 
 # digiKam not listed as a media handler for pictures in Nautilus (#516447)
 # TODO: upstream me
@@ -312,6 +312,9 @@ gtk-update-icon-cache %{_kf5_datadir}/icons/hicolor >& /dev/null ||:
 
 
 %changelog
+* Mon May 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.1.0-1
+- 6.1.0
+
 * Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 5.9.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
