@@ -1,8 +1,8 @@
 %global framework plasma
 
 Name:    kf5-%{framework}
-Version: 5.57.0
-Release: 2%{?dist}
+Version: 5.58.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -169,6 +169,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+- 5.58.0
+
 * Wed May 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-2
 - pull in upstream fix for leaked thumbnail file handles (kde#406303)
 
