@@ -1,7 +1,7 @@
 %global framework qqc2-desktop-style
 
 Name:    %{framework}
-Version: 5.57.0
+Version: 5.58.0
 Release: 1%{?dist}
 Summary: QtQuickControls2 style for consistency between QWidget and QML apps 
 
@@ -87,6 +87,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+- 5.58.0
+
 * Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
 - 5.57.0
 
