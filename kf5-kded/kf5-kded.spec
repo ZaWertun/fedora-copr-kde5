@@ -81,6 +81,7 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 %{_kf5_libdir}/libkdeinit5_kded5.so
 %{_kf5_datadir}/dbus-1/services/*.service
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_datadir}/applications/org.kde.kded5.desktop
 %{_kf5_mandir}/man8/kded5.8*
 %dir %{_kf5_plugindir}/kded/
 

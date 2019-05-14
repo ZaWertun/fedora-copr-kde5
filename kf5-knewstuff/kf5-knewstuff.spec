@@ -83,7 +83,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_sysconfdir}/xdg/knewstuff.*
 %{_kf5_libdir}/libKF5NewStuff.so.*
 %{_kf5_libdir}/libKF5NewStuffCore.so.*
-%{_kf5_datadir}/kf5/knewstuff/
 %{_kf5_datadir}/kf5/kmoretools/
 %dir %{_kf5_qmldir}/org/
 %dir %{_kf5_qmldir}/org/kde

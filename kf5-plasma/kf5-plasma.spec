@@ -22,7 +22,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches (using lookaside cache)
-Patch28: 0028-Window-Thumbnail-Also-monitor-scene-visibility-and-c.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
