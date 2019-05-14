@@ -16,7 +16,6 @@ Source10: digikam-import.desktop
 
 ## upstreamable patches
 # doc-translated FTBFS, https://bugs.kde.org/show_bug.cgi?id=377597
-Patch100: digikam-5.9.0-doc_translated.patch
 Patch101: digikam-5.7.0-glibc_powf64.patch
 
 BuildRequires: boost-devel
@@ -46,6 +45,7 @@ BuildRequires: pkgconfig(Qt5WebKit)
 BuildRequires: pkgconfig(Qt5XmlPatterns)
 BuildRequires: pkgconfig(Qt5X11Extras)
 BuildRequires: pkgconfig(x11) pkgconfig(xproto)
+BuildRequires: pkgconfig(Qt5WebView)
 # fixme: f24's qt-5.6.x currently does not yet define qt5_qtwebengine_arches macro -- rex
 %if 0%{?qt5_qtwebengine_arches:1}
 %ifarch %{?qt5_qtwebengine_arches}
@@ -99,7 +99,6 @@ BuildRequires: pkgconfig(libpgf) >= 6.12.24
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 %if 0%{?fedora} > 21
-Recommends: %{name}-doc = %{version}-%{release}
 # expoblending assistant
 Recommends: hugin-base
 Recommends: kf5-kipi-plugins = %{version}-%{release}
@@ -141,44 +140,10 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 This package contains the libraries, include files and other resources
 needed to develop applications using %{name}.
 
-%package doc
-Summary: Application handbooks
-Requires:  %{name} = %{version}-%{release}
-BuildArch: noarch
-%description doc
-%{summary}.
-
-%package -n kf5-kipi-plugins
-Summary: Plugins to use with kf5-libkipi applications
-# upgrade path
-Obsoletes: kipi-plugins < 5.0.0-0.9
-Requires: kf5-kipi-plugins-libs%{?_isa} = %{version}-%{release}
-# drop empty kipi-plugins-doc (at least until content returns)
-Obsoletes: kipi-plugins-doc  < 5.7.0-2
-%description -n kf5-kipi-plugins
-This package contains plugins to use with Kipi, the KDE Image Plugin
-Interface.
-
-%package -n kf5-kipi-plugins-libs
-Summary: Runtime libraries for kf5-kipi-plugins
-# upgrade path
-Obsoletes: kipi-plugins-libs < 5.0.0-0.9
-Requires: kf5-kipi-plugins = %{version}-%{release}
-%description -n kf5-kipi-plugins-libs
-%{summary}.
-
-%package -n kipi-plugins-doc
-Summary: Application handbooks
-Requires:  kf5-kipi-plugins = %{version}-%{release}
-BuildArch: noarch
-%description -n kipi-plugins-doc
-%{summary}.
-
 
 %prep
 %setup -q -n %{name}-%{version}%{?beta:-%{beta}}
 
-%patch100 -p1 -b .doc_translated
 #patch101 -p1 -b .glibc_powf64
 
 # EVIV2_MIN_VERSION
@@ -198,11 +163,11 @@ pushd %{_target_platform}
   %{?opencv3}
 popd
 
-%make_build -C %{_target_platform} VERBOSE=1
+%make_build -C %{_target_platform}
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%make_install -C %{_target_platform}
 
 desktop-file-install --vendor="" \
   --dir=%{buildroot}%{_datadir}/applications/ \
@@ -211,8 +176,6 @@ desktop-file-install --vendor="" \
 %find_lang all --all-name --with-html
 
 grep digikam.mo all.lang > digikam.lang
-grep HTML all.lang > digikam-doc.lang
-grep kipiplugin all.lang > kipiplugin.lang
 
 ## unpackaged files
 rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/libkvkontakte.mo
@@ -240,9 +203,9 @@ update-desktop-database -q &> /dev/null
 %endif
 
 %files -f digikam.lang
-%doc core/AUTHORS core/ChangeLog
-%doc core/NEWS core/README.md core/TODO
-%license core/COPYING
+%doc AUTHORS ChangeLog
+%doc NEWS README.*
+%license COPYING*
 %{_kf5_bindir}/digikam
 %{_kf5_bindir}/digitaglinktree
 %{_kf5_bindir}/cleanup_digikamdb
@@ -264,11 +227,7 @@ update-desktop-database -q &> /dev/null
 %{_kf5_datadir}/applications/org.kde.showfoto.desktop
 %{_mandir}/man1/digitaglinktree.1*
 %{_mandir}/man1/cleanup_digikamdb.1*
-%{_kf5_datadir}/icons/hicolor/*/actions/*
-%{_kf5_datadir}/icons/hicolor/*/apps/digikam*
-%{_kf5_datadir}/icons/hicolor/*/apps/showfoto*
-
-%files doc -f digikam-doc.lang
+%{_kf5_datadir}/icons/hicolor/*
 
 %ldconfig_scriptlets libs
 
@@ -276,39 +235,13 @@ update-desktop-database -q &> /dev/null
 %{_kf5_libdir}/libdigikamcore.so*
 %{_kf5_libdir}/libdigikamdatabase.so*
 %{_kf5_libdir}/libdigikamgui.so*
+%{_kf5_qtplugindir}/digikam/bqm/Bqm_*.so
+%{_kf5_qtplugindir}/digikam/editor/Editor_*.so
+%{_kf5_qtplugindir}/digikam/generic/Generic_*.so
 
-%post -n kf5-kipi-plugins
-touch --no-create %{_kf5_datadir}/icons/hicolor &> /dev/null  ||:
-
-%postun -n kf5-kipi-plugins
-if [ $1 -eq 0 ] ; then
-  touch --no-create %{_kf5_datadir}/icons/hicolor &> /dev/null ||:
-  gtk-update-icon-cache %{_kf5_datadir}/icons/hicolor >& /dev/null ||:
-fi
-
-%posttrans -n kf5-kipi-plugins
-gtk-update-icon-cache %{_kf5_datadir}/icons/hicolor >& /dev/null ||:
-
-%files -n kf5-kipi-plugins -f kipiplugin.lang
-%doc extra/kipi-plugins/AUTHORS extra/kipi-plugins/ChangeLog
-%doc extra/kipi-plugins/README extra/kipi-plugins/TODO extra/kipi-plugins/NEWS
-%license extra/kipi-plugins/COPYING
-%{_kf5_datadir}/applications/kipiplugins.desktop
-%{_kf5_datadir}/kxmlgui5/kipi/
-%{_kf5_datadir}/icons/hicolor/*/apps/kipi-*
-%{_kf5_datadir}/icons/hicolor/*/apps/expoblending.*
-%{_kf5_datadir}/icons/hicolor/*/apps/panorama.*
-%{_kf5_datadir}/kservices5/kipiplugin_*.desktop
-%{_kf5_datadir}/kipiplugin_*/
-
-#files -n kipi-plugins-doc
-#{_kf5_docdir}/HTML/en/kipi-plugins/
-
-%ldconfig_scriptlets -n kf5-kipi-plugins-libs
-
-%files -n kf5-kipi-plugins-libs
-%{_kf5_libdir}/libKF5kipiplugins.so*
-%{_kf5_qtplugindir}/kipiplugin_*.so
+%files devel
+%{_includedir}/digikam/*.h
+%{_kf5_libdir}/cmake/digikam/*.cmake
 
 
 %changelog
