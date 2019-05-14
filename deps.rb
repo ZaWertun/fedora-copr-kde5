@@ -17,16 +17,19 @@ def resolve_dep(name)
     STDERR.puts(cmd) if ENV['DEBUG'] == '1'
     provides = `#{cmd}`.split(/\n/).first
     unless provides
-        puts "Error: #{name}"
+        STDERR.puts "Error: #{name}"
         return nil
     end
 
     provides.gsub!(/-\d.+/, '')
 
-    $db.execute('insert into DEPS(name, resolved) values(?, ?)', name, provides)
+    begin
+        $db.execute('insert into DEPS(name, resolved) values(?, ?)', name, provides)
+    rescue SQLite3::ConstraintException
+        # ignore
+    end
+
     provides
-rescue SQLite3::ConstraintException
-    # ignore
 end
 
 def esc(name)
@@ -108,7 +111,7 @@ SPECS.each_slice((SPECS.size/4)+1) do |slice|
             end
 
             pack.each do |p|
-                $deps[p] = deps.sort
+                $deps[p] = deps.compact.sort
             end
         end
     end
