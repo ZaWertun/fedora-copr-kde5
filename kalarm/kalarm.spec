@@ -8,7 +8,7 @@
 
 Name:    kalarm
 Summary: Personal Alarm Scheduler
-Version: 19.04.1
+Version: 19.04.2
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -143,6 +143,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+- 19.04.2
+
 * Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
 - 19.04.1
 
