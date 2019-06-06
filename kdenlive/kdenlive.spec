@@ -1,7 +1,7 @@
 
 Name:    kdenlive
 Summary: Non-linear video editor
-Version: 19.04.1
+Version: 19.04.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -167,6 +167,9 @@ fi
 
 
 %changelog
+* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+- 19.04.2
+
 * Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
 - 19.04.1
 
