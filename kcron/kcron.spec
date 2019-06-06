@@ -1,6 +1,6 @@
 Name:    kcron
 Summary: Cron KDE configuration module
-Version: 19.04.1
+Version: 19.04.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -61,6 +61,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+- 19.04.2
+
 * Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
 - 19.04.1
 
