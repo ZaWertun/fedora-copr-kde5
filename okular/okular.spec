@@ -14,7 +14,7 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 19.04.1
+Version: 19.04.2
 Release: 1%{?dist}
 
 License: GPLv2
@@ -230,6 +230,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+- 19.04.2
+
 * Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
 - 19.04.1
 
