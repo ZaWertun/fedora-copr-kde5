@@ -23,9 +23,6 @@ URL:     https://www.kde.org/applications/internet/akregator/
 %endif
 Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 
-# Fix for KDE bug 371511:
-Patch0:  371511_fix_crash_on_link_open.patch
-
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
