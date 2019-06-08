@@ -128,7 +128,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_datadir}/kservices5/katepart.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/katepart5/
-%{_kf5_sysconfdir}/dbus-1/system.d/org.kde.ktexteditor.katetextbuffer.conf
+%{_kf5_datadir}/dbus-1/system.d/org.kde.ktexteditor.katetextbuffer.conf
 %{_kf5_libexecdir}/kauth/kauth_ktexteditor_helper
 %{_kf5_datadir}/dbus-1/system-services/org.kde.ktexteditor.katetextbuffer.service
 %{_kf5_datadir}/polkit-1/actions/org.kde.ktexteditor.katetextbuffer.policy
