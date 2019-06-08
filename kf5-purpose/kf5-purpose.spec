@@ -3,7 +3,7 @@
 
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
-Version: 5.58.0
+Version: 5.59.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -134,6 +134,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+- 5.59.0
+
 * Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
 - 5.58.0
 
