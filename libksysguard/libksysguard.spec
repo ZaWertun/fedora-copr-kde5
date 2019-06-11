@@ -1,7 +1,7 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.15.5
-Release: 2%{?dist}
+Version: 5.16.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -95,7 +95,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files common
 %{_kf5_libexecdir}/kauth/ksysguardprocesslist_helper
-%{_sysconfdir}/dbus-1/system.d/org.kde.ksysguard.processlisthelper.conf
+%{_datadir}/dbus-1/system.d/org.kde.ksysguard.processlisthelper.conf
 %{_datadir}/dbus-1/system-services/org.kde.ksysguard.processlisthelper.service
 %{_datadir}/polkit-1/actions/org.kde.ksysguard.processlisthelper.policy
 
@@ -110,6 +110,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+- 5.16.0
+
 * Wed May 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-2
 - qt5-qtwebengine-devel added to BR
 

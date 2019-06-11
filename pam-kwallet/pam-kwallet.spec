@@ -8,7 +8,7 @@
 
 Name:    pam-kwallet
 Summary: PAM module for KWallet
-Version: 5.15.5
+Version: 5.16.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -30,6 +30,7 @@ BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
 BuildRequires: libgcrypt-devel >= 1.5.0
 BuildRequires: pam-devel
+BuildRequires: cmake(KF5Wallet)
 %if ! 0%{?bootstrap}
 BuildRequires: socat
 %endif
@@ -90,6 +91,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}-5
 
 
 %changelog
+* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+- 5.16.0
+
 * Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
 - 5.15.5
 

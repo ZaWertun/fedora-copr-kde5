@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.15.5
+Version: 5.16.0
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -102,9 +102,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kxmlgui5/kinfocenter/
 %{_kf5_datadir}/kpackage/kcms/kcm_energyinfo/
 %{_kf5_datadir}/kpackage/kcms/kcm_fileindexermonitor/
+%{_kf5_datadir}/metainfo/org.kde.kinfocenter.appdata.xml
 
 
 %changelog
+* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+- 5.16.0
+
 * Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
 - 5.15.5
 

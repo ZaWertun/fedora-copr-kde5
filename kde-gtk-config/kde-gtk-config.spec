@@ -1,6 +1,6 @@
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
-Version: 5.15.5
+Version: 5.16.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -66,7 +66,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %doc ChangeLog
 %license COPYING COPYING.LIB
 %{_kf5_qtplugindir}/kcm_kdegtkconfig.so
-%{_sysconfdir}/xdg/*.knsrc
+%{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/kservices5/kde-gtk-config.desktop
 %{_libexecdir}/reload_gtk_apps
 %{_libexecdir}/gtk_preview
@@ -76,6 +76,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+- 5.16.0
+
 * Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
 - 5.15.5
 
