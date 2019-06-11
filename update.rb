@@ -54,5 +54,5 @@ Dir.chdir(name) do
     system "spectool -g *.spec"; done?
 
     show "Commiting to GIT"
-    system "git add . && git commit -m \"#{name} updated to #{version}\""; done?
+    system "git add ."; done?
 end
