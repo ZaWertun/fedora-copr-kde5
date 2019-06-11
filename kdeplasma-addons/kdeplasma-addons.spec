@@ -111,7 +111,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %ifarch %{qt5_qtwebengine_arches}
 %{_datadir}/icons/hicolor/*/apps/accessories-dictionary.svgz
 %endif
-%{_sysconfdir}/xdg/comic.knsrc
+%{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_libdir}/libplasmacomicprovidercore.so.*
 %{_kf5_libdir}/libplasmapotdprovidercore.so*
 %{_kf5_qtplugindir}/kpackage/packagestructure/plasma_packagestructure_comic.so

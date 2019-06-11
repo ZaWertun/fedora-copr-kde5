@@ -76,7 +76,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_kf5_libdir}/libkdeinit5_ksysguard.so
 %{_datadir}/ksysguard
 %{_datadir}/metainfo/org.kde.ksysguard.appdata.xml
-%config %{_sysconfdir}/xdg/ksysguard.knsrc
+%{_datadir}/knsrcfiles/ksysguard.knsrc
 %{_datadir}/applications/org.kde.ksysguard.desktop
 %{_datadir}/icons/hicolor/*/apps/*
 %{_kf5_datadir}/knotifications5/ksysguard.notifyrc

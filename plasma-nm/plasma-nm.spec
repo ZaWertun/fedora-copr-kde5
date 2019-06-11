@@ -228,7 +228,6 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 %find_lang plasmanetworkmanagement_sstpui
 %find_lang plasmanetworkmanagement_iodineui
 %find_lang plasmanetworkmanagement_fortisslvpnui
-%find_lang plasmanetworkmanagement_wireguardui
 
 
 %ldconfig_scriptlets
@@ -267,7 +266,7 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files openconnect -f plasmanetworkmanagement_openconnectui.lang
 %{_kf5_qtplugindir}/libplasmanetworkmanagement_openconnectui.so
-%{_kf5_datadir}/kservices5/plasmanetworkmanagement_openconnectui.desktop
+%{_kf5_datadir}/kservices5/plasmanetworkmanagement_openconnect*.desktop
 %{_kf5_datadir}/kservices5/plasmanetworkmanagement_openconnect_juniperui.desktop
 
 %files openswan -f plasmanetworkmanagement_openswanui.lang
@@ -301,10 +300,6 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 %files fortisslvpn -f plasmanetworkmanagement_fortisslvpnui.lang
 %{_kf5_qtplugindir}/libplasmanetworkmanagement_fortisslvpnui.so
 %{_kf5_datadir}/kservices5/plasmanetworkmanagement_fortisslvpnui.desktop
-
-%files wireguard -f plasmanetworkmanagement_wireguardui.lang
-%{_kf5_qtplugindir}/libplasmanetworkmanagement_wireguardui.so
-%{_kf5_datadir}/kservices5/plasmanetworkmanagement_wireguardui.desktop
 %endif
 
 

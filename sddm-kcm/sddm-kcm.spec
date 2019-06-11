@@ -71,8 +71,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kservices5/kcm_sddm.desktop
 %{_kf5_datadir}/sddm-kcm
 %{_kf5_libexecdir}/kauth/kcmsddm_authhelper
-%config %{_sysconfdir}/dbus-1/system.d/org.kde.kcontrol.kcmsddm.conf
-%config %{_sysconfdir}/xdg/sddmtheme.knsrc
+%{_kf5_datadir}/dbus-1/system.d/org.kde.kcontrol.kcmsddm.conf
+%{_kf5_datadir}/knsrcfiles/sddmtheme.knsrc
 %{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmsddm.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmsddm.policy
 

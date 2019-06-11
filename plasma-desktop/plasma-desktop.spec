@@ -285,9 +285,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_kf5_datadir}/kf5/kactivitymanagerd/workspace/
 %{_kf5_datadir}/kcmsolidactions/
 %{_kf5_datadir}/solid/devices/*.desktop
-%config %{_sysconfdir}/dbus-1/system.d/*.conf
-%config %{_sysconfdir}/xdg/*.categories
-%config %{_sysconfdir}/xdg/*.knsrc
+%{_kf5_datadir}/dbus-1/system.d/*.conf
+%{_sysconfdir}/xdg/*.categories
+%{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/ServiceMenus/installfont.desktop
 %{_kf5_datadir}/kservices5/fonts.protocol

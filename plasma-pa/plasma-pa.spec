@@ -32,6 +32,7 @@ BuildRequires:  perl-generators
 BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
+BuildRequires:  cmake(KF5Notifications)
 %if ! 0%{?bootstrap}
 # required kpackage plugins (-packagestructure comes from plasma-workspace)
 BuildRequires:  plasma-packagestructure

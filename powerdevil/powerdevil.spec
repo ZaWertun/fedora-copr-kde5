@@ -90,8 +90,8 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 %files -f powerdevil5.lang
 %license COPYING*
-%{_sysconfdir}/dbus-1/system.d/org.kde.powerdevil.backlighthelper.conf
-%{_sysconfdir}/dbus-1/system.d/org.kde.powerdevil.discretegpuhelper.conf
+%{_datadir}/dbus-1/system.d/org.kde.powerdevil.backlighthelper.conf
+%{_datadir}/dbus-1/system.d/org.kde.powerdevil.discretegpuhelper.conf
 %{_datadir}/dbus-1/system-services/org.kde.powerdevil.backlighthelper.service
 %{_datadir}/dbus-1/system-services/org.kde.powerdevil.discretegpuhelper.service
 %{_datadir}/polkit-1/actions/org.kde.powerdevil.backlighthelper.policy

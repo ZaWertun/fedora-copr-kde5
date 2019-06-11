@@ -22,8 +22,6 @@ URL:     https://cgit.kde.org/?p=%{base_name}.git
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz
 
-Patch0:  fix_appdata_releases.patch
-
 ## upstream patches (in lookaside cache)
 
 BuildRequires: appstream-qt-devel >= 0.11.1
@@ -146,13 +144,13 @@ cat plasma_applet_org.kde.discovernotifier.lang >> plasma-discover-notifier.lang
 
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.appdata.xml
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.flatpak.appdata.xml
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml 
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.appdata.xml ||:
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.flatpak.appdata.xml ||:
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml ||:
 ## discovernotifier currently fails, fixme
 ## ? tag-invalid           : stock icon is not valid [update-none]
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discovernotifier.appdata.xml ||:
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.snap.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.snap.appdata.xml ||:
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desktop
 
 
@@ -181,7 +179,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %files libs -f libdiscover.lang
 %license COPYING COPYING.LIB
 %{_kf5_sysconfdir}/xdg/discover.categories
-%{_kf5_sysconfdir}/xdg/discover_ktexteditor_codesnippets_core.knsrc
+%{_datadir}/knsrcfiles/discover_ktexteditor_codesnippets_core.knsrc
 %dir %{_libdir}/plasma-discover/
 %{_libdir}/plasma-discover/libDiscoverNotifiers.so
 %{_libdir}/plasma-discover/libDiscoverCommon.so
@@ -202,7 +200,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %{_datadir}/libdiscover/categories/flatpak-backend-categories.xml
 
 %files snap
-%{_sysconfdir}/dbus-1/system.d/org.kde.discover.libsnapclient.conf
+%{_datadir}/dbus-1/system.d/org.kde.discover.libsnapclient.conf
 %{_libexecdir}/discover/SnapMacaroonDialog
 %{_kf5_libexecdir}/kauth/libsnap_helper
 %{_kf5_metainfodir}/org.kde.discover.snap.appdata.xml
