@@ -48,9 +48,8 @@ BuildRequires: cmake(Qt5Widgets)
 
 BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: kf5-kirigami2-devel >= 2.1
-# todo: consider adjusting to use  majmin instead
-BuildRequires: plasma-workspace-devel >= %{version}
-Requires:      libkworkspace5%{?_isa} >= %{version}
+BuildRequires: plasma-workspace-devel >= %{majmin_ver}
+Requires:      libkworkspace5%{?_isa} >= %{majmin_ver}
 Requires:      kf5-kirigami2%{?_isa} >= 2.1
 
 # kde-cli-tools provides kcmshell5, which is not directly needed by
@@ -96,8 +95,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kdesystemsettings.des
 desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.desktop
 
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%ldconfig_scriptlets
 
 %files -f systemsettings5.lang
 %license COPYING*

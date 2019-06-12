@@ -32,8 +32,10 @@ Patch100: plasma-desktop-5.8-default_favorites.patch
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
 
 BuildRequires:  libusb-devel
+BuildRequires:  freetype-devel
 BuildRequires:  fontconfig-devel
 BuildRequires:  libX11-devel
+BuildRequires:  libXft-devel
 BuildRequires:  libxkbfile-devel
 BuildRequires:  libxcb-devel
 BuildRequires:  xcb-util-keysyms-devel
