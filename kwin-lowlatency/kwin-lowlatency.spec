@@ -187,8 +187,8 @@ Requires:       kf5-kservice-devel
 Requires:       kf5-kwindowsystem-devel
 Conflicts:      kde-workspace-devel < 5.0.0-1
 # kwin-lowlatency <\>
-Provides:       kwin-libs = %{version}
-Conflicts:      kwin-libs
+Provides:       kwin-devel = %{version}
+Conflicts:      kwin-devel
 # </>
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -201,7 +201,6 @@ BuildArch:      noarch
 # kwin-lowlatency <\>
 Provides:       kwin-doc = %{version}
 Conflicts:      kwin-doc
-Obsoletes:      kwin-doc <= %{version}
 # </>
 %description    doc
 %{summary}.
