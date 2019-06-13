@@ -2,7 +2,7 @@
 #global bootstrap 1
 
 Name:    kwin-lowlatency
-Version: 5.15.5
+Version: 5.16.0
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -25,7 +25,7 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/kwin-%{version}.tar.xz
 
-Patch0:  kwin-lowlatency-5.15.5.patch
+Patch0:  kwin-lowlatency-%{version}.patch
 
 ## upstream patches
 
@@ -59,18 +59,17 @@ BuildRequires:  xcb-util-wm-devel
 BuildRequires:  xcb-util-image-devel
 BuildRequires:  xcb-util-keysyms-devel
 BuildRequires:  xcb-util-cursor-devel
+BuildRequires:  xcb-util-devel
 BuildRequires:  libepoxy-devel
 BuildRequires:  libcap-devel
 
 # Wayland
 BuildRequires:  kf5-kwayland-devel
-BuildRequires:  libwayland-client-devel
-BuildRequires:  libwayland-server-devel
-BuildRequires:  libwayland-cursor-devel
-BuildRequires:  mesa-libwayland-egl-devel
+BuildRequires:  wayland-devel
 BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
+BuildRequires:  pkgconfig(wayland-eglstream)
 
 # KF5
 BuildRequires:  kf5-kcompletion-devel
@@ -255,6 +254,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kwin
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kwin/
+%{_kf5_qtplugindir}/kcms/
+%{_kf5_qtplugindir}/kf5/
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
 %{_kf5_qtplugindir}/org.kde.kwin.platforms/
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_packagestructure*.so
@@ -263,21 +264,17 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
 %{_libexecdir}/kwin_killer_helper
 %{_libexecdir}/kwin_rules_dialog
-%{_libexecdir}/org_kde_kwin_xclipboard_syncer
-%{_datadir}/kwincompositing
 %{_datadir}/kconf_update/kwin.upd
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_datadir}/kpackage/kcms/kcm_kwin_virtualdesktops/*
+%{_kf5_datadir}/kpackage/kcms/kcm_*
 %{_kf5_datadir}/knotifications5/kwin.notifyrc
 %{_kf5_datadir}/config.kcfg/kwin.kcfg
 %{_kf5_datadir}/config.kcfg/kwin_colorcorrect.kcfg
 %{_datadir}/icons/hicolor/*/apps/kwin.*
-# note: these are for reference (to express config defaults), they are
-# not config files themselves (so don't use %%config tag)
-%{_sysconfdir}/xdg/*.knsrc
-%{_kf5_qtplugindir}/kcms/kcm_kwin_virtualdesktops.so
-%{_kf5_datadir}/kpackage/kcms/kcm_kwin_virtualdesktops/*
+%{_datadir}/knsrcfiles/*.knsrc
 
 %files wayland
 %{_kf5_bindir}/kwin_wayland
@@ -300,6 +297,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwinglutils.so.*
 %{_libdir}/libkwin4_effect_builtins.so.*
 %{_libdir}/libkcmkwincommon.so.*
+%{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
@@ -311,11 +309,13 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_includedir}/kwin*.h
 
 %files doc -f %{name}-doc.lang
-%doc HACKING.md README.md
 %license COPYING*
 
 
 %changelog
+* Thu Jun 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+- 5.16.0
+
 * Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
 - 5.15.5
 
