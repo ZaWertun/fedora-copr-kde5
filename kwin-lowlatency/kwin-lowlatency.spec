@@ -2,7 +2,7 @@
 #global bootstrap 1
 
 Name:    kwin-lowlatency
-Version: 5.16.0
+Version: 5.16.1
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -25,7 +25,7 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/kwin-%{version}.tar.xz
 
-Patch0:  kwin-lowlatency-%{version}.patch
+Patch0:  kwin-lowlatency-%{version}-1.patch
 
 ## upstream patches
 
@@ -312,6 +312,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jun 18 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.1-1
+- 5.16.1
+
 * Thu Jun 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
 - 5.16.0
 
