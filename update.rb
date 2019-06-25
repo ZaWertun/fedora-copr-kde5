@@ -43,16 +43,10 @@ end
 Dir.chdir(name) do
     old_version = `grep Version: *.spec`
     unless old_version.include?(version)
-        show "Removing old sources"
-        system "rm -v *.tar.*"
-
         show "Bumping version"
         system "rpmdev-bumpspec -n #{version} --comment=\"#{version}\" *.spec"; done?
     end
 
-    show "Downloading new sources"
-    system "spectool -g *.spec"; done?
-
-    show "Commiting to GIT"
+    show "Adding to GIT"
     system "git add ."; done?
 end
