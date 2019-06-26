@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>KDE Connect</short>
+  <description>KDE Connect allows intercommunicating with mobile devices to receive messages and notifications.</description>
+  <port protocol="tcp" port="1714-1764"/>
+  <port protocol="udp" port="1714-1764"/>
+</service>
