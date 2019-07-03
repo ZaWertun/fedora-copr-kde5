@@ -15,14 +15,14 @@
 %if !0%{?bootstrap}
 # skip slow(er) archs, for now -- rex
 %ifnarch %{arm}
-%global tests 1
+%global tests 0
 %endif
 %endif
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
 Version: 19.04.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -304,6 +304,9 @@ fi
 
 
 %changelog
+* Wed Jul 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-2
+- rebuild with new qt5
+
 * Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
 - 19.04.2
 

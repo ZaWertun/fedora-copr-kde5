@@ -3,7 +3,7 @@
 
 Name:    kwin-lowlatency
 Version: 5.16.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Provides:  kwin = %{version}
@@ -312,6 +312,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Jul 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-2
+- rebuild with new qt5
+
 * Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
 - 5.16.2
 
