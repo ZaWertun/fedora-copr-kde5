@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.16.2
+Version: 5.16.3
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -106,6 +106,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
+- 5.16.3
+
 * Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
 - 5.16.2
 

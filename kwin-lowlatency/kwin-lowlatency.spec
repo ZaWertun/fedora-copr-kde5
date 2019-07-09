@@ -2,8 +2,8 @@
 #global bootstrap 1
 
 Name:    kwin-lowlatency
-Version: 5.16.2
-Release: 2%{?dist}
+Version: 5.16.3
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Provides:  kwin = %{version}
