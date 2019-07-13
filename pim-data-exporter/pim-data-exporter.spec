@@ -8,7 +8,7 @@
 
 Name:    pim-data-exporter
 Summary: Pim Data Exporter
-Version: 19.04.2
+Version: 19.04.3
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -40,6 +40,7 @@ BuildRequires: kf5-rpm-macros
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5DocTools)
+BuildRequires: cmake(KF5AkonadiNotes)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
@@ -120,6 +121,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+- 19.04.3
+
 * Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
 - 19.04.2
 

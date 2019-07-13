@@ -8,7 +8,7 @@
 
 Name:    kalarm
 Summary: Personal Alarm Scheduler
-Version: 19.04.2
+Version: 19.04.3
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -134,7 +134,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/config.kcfg/kalarmconfig.kcfg
 %{_kf5_datadir}/kalarm/
 %{_kf5_datadir}/kconf_update/kalarm*
-%{_sysconfdir}/dbus-1/system.d/org.kde.kalarm.rtcwake.conf
+%{_kf5_datadir}/dbus-1/system.d/org.kde.kalarm.rtcwake.conf
 %{_datadir}/dbus-1/system-services/org.kde.kalarm.rtcwake.service
 %{_datadir}/polkit-1/actions/org.kde.kalarm.rtcwake.policy
 %{_datadir}/dbus-1/interfaces/org.kde.kalarm.kalarm.xml
@@ -143,6 +143,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+- 19.04.3
+
 * Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
 - 19.04.2
 
