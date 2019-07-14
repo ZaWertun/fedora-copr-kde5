@@ -1,7 +1,7 @@
 %global framework kcodecs
 
 Name:           kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with string manipulation methods
 
@@ -62,8 +62,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f kcodecs5_qt.lang
 %doc README.md
 %license COPYING COPYING.LIB
-%{_sysconfdir}/xdg/%{framework}*
 %{_kf5_libdir}/libKF5Codecs.so.*
+%{_kf5_datadir}/qlogging-categories5/kcodecs.categories
 
 %files devel
 %{_kf5_includedir}/kcodecs_version.h
@@ -74,6 +74,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

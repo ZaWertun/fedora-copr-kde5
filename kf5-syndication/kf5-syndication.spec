@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary: The Syndication Library
 
@@ -83,8 +83,8 @@ make test/fast -C %{_target_platform}
 
 %files
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5Syndication.so.*
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %files devel
 %{_kf5_includedir}/syndication_version.h
@@ -95,6 +95,9 @@ make test/fast -C %{_target_platform}
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.59.0-1
 - 5.59.0
 

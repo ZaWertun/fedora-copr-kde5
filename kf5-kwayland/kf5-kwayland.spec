@@ -13,8 +13,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.59.0
-Release: 2%{?dist}
+Version: 5.60.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
 License: GPLv2+
@@ -97,11 +97,11 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files
 %license COPYING.LIB
-%{_sysconfdir}/xdg/org_kde_kwayland.categories
 %{_kf5_libdir}/libKF5WaylandClient.so.5*
 %{_kf5_libdir}/libKF5WaylandServer.so.5*
 # not sure if this belongs here or in -devel --rex
 %{_libexecdir}/org-kde-kf5-kwayland-testserver
+%{_kf5_datadir}/qlogging-categories5/org_kde_kwayland.categories
 
 %files devel
 %{_kf5_includedir}/KWayland/
@@ -114,6 +114,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Wed Jul 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-2
 - rebuild with new qt5
 

@@ -1,7 +1,7 @@
 %global framework kio
 
 Name:    kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
@@ -187,7 +187,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files core
 %{_kf5_sysconfdir}/xdg/accept-languages.codes
-%{_kf5_sysconfdir}/xdg/%{framework}.categories
 %{_kf5_libexecdir}/kio_http_cache_cleaner
 %{_kf5_libexecdir}/kpac_dhcp_helper
 %{_kf5_libexecdir}/kioexec
@@ -216,6 +215,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/applications/*.desktop
 %{_kf5_datadir}/kconf_update/*
 %{_datadir}/dbus-1/services/org.kde.*.service
+%{_kf5_datadir}/qlogging-categories5/kio.categories
 
 ## omitted since 5.45, security concerns? -- rex
 %if 0
@@ -285,6 +285,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

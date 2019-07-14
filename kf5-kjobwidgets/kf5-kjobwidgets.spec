@@ -1,7 +1,7 @@
 %global framework kjobwidgets
 
 Name:           kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 2 addon for KJobs
 
@@ -63,8 +63,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f kjobwidgets5_qt.lang
 %doc README.md
 %license COPYING.LIB
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5JobWidgets.so.*
+%{_kf5_datadir}/qlogging-categories5/kjobwidgets.categories
 
 %files devel
 %{_kf5_includedir}/kjobwidgets_version.h
@@ -76,6 +76,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

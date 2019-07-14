@@ -1,7 +1,7 @@
 %global framework solid
 
 Name:    kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module that provides hardware information
 
@@ -89,11 +89,11 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f solid5_qt.lang
 %doc README.md TODO
 %license COPYING.LIB
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_bindir}/solid-hardware5
 #files libs
 %{_kf5_qmldir}/org/kde/solid/
 %{_kf5_libdir}/libKF5Solid.so.*
+%{_kf5_datadir}/qlogging-categories5/solid.categories
 
 %files devel
 %{_kf5_includedir}/solid_version.h
@@ -104,6 +104,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

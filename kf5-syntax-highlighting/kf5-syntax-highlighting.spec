@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Syntax highlighting engine for Kate syntax definitions
 
@@ -81,9 +81,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %files -f syntaxhighlighting5_qt.lang
 %doc README.md
 %license COPYING
-%{_kf5_sysconfdir}/xdg/org_kde_ksyntaxhighlighting.categories
 %{_kf5_bindir}/kate-syntax-highlighter
 %{_kf5_libdir}/libKF5SyntaxHighlighting.so.*
+%{_kf5_datadir}/qlogging-categories5/org_kde_ksyntaxhighlighting.categories
 
 %files devel
 %{_kf5_libdir}/libKF5SyntaxHighlighting.so
@@ -94,6 +94,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

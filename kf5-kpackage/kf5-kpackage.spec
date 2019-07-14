@@ -8,7 +8,7 @@
 %endif
 
 Name:           kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 2 library to load and install packages as plugins
 
@@ -85,13 +85,13 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README.md
 %license COPYING.LIB
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5Package.so.*
 %{_kf5_qtplugindir}/kpackage/
 %{_kf5_datadir}/kpackage/
 %{_kf5_datadir}/kservicetypes5/kpackage-*.desktop
 %{_kf5_bindir}/kpackagetool5
 %{_mandir}/man1/kpackagetool5.1*
+%{_kf5_datadir}/qlogging-categories5/kpackage.categories
 
 %files devel
 %{_kf5_includedir}/kpackage_version.h
@@ -101,6 +101,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

@@ -1,7 +1,7 @@
 %global framework kded
 
 Name:    kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon with extensible daemon for system-level services
 
@@ -76,7 +76,6 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 %files -f kded5.lang
 %doc README.md
 %license COPYING.LIB
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_bindir}/kded5
 %{_kf5_libdir}/libkdeinit5_kded5.so
 %{_kf5_datadir}/dbus-1/services/*.service
@@ -84,6 +83,7 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 %{_kf5_datadir}/applications/org.kde.kded5.desktop
 %{_kf5_mandir}/man8/kded5.8*
 %dir %{_kf5_plugindir}/kded/
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %files devel
 %{_kf5_libdir}/cmake/KDED/
@@ -91,6 +91,9 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

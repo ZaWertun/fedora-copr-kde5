@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 1 barcode library
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 
 License: BSD 
@@ -61,8 +61,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files
 %doc README* 
 %license LICENSE 
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5Prison.so.5*
+%{_kf5_datadir}/qlogging-categories5/prison.categories
 
 %files devel
 %{_kf5_includedir}/prison_version.h
@@ -73,6 +73,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 

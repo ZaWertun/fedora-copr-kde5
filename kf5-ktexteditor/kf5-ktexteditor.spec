@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.59.0
+Version: 5.60.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 with advanced embeddable text editor
 
@@ -120,7 +120,6 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README.md
 %license COPYING.LIB
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5TextEditor.so.*
 %dir %{_kf5_plugindir}/parts/
 %{_kf5_plugindir}/parts/katepart.so
@@ -132,6 +131,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libexecdir}/kauth/kauth_ktexteditor_helper
 %{_kf5_datadir}/dbus-1/system-services/org.kde.ktexteditor.katetextbuffer.service
 %{_kf5_datadir}/polkit-1/actions/org.kde.ktexteditor.katetextbuffer.policy
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %files devel
 %{_kf5_libdir}/libKF5TextEditor.so
@@ -146,6 +146,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+- 5.60.0
+
 * Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
 - 5.59.0
 
