@@ -72,10 +72,10 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files
 %doc README.md
 %license COPYING.LIB
-%{_kf5_sysconfdir}/xdg/%{framework}*
 %{_kf5_libdir}/libKF5Runner.so.*
 %{_kf5_qmldir}/org/kde/runnermodel/
 %{_kf5_datadir}/kservicetypes5/plasma-runner.desktop
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %files devel
 %{_kf5_includedir}/krunner_version.h

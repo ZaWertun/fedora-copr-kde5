@@ -36,6 +36,7 @@ BuildRequires: kf5-kcoreaddons-devel >= %{majmin}
 BuildRequires: kf5-kdeclarative-devel >= %{majmin}
 BuildRequires: kf5-ki18n-devel >= %{majmin}
 BuildRequires: kf5-kio-devel >= %{majmin}
+BuildRequires: kf5-kirigami2-devel >= %{majmin}
 BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(Qt5Qml)
 

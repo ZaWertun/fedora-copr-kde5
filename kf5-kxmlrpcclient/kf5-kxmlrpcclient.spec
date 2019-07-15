@@ -60,7 +60,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %doc README.md
 %license COPYING.BSD
 %{_kf5_libdir}/libKF5XmlRpcClient.so.*
-%{_kf5_datadir}/qlogging-categories5/kxmlrpcclient.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/kxmlrpcclient_version.h
