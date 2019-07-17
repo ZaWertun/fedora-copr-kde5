@@ -1,0 +1,178 @@
+From 25ca4298a9ce0124d658cf89b28c346e9340432f Mon Sep 17 00:00:00 2001
+From: Vlad Zagorodniy <vladzzag@gmail.com>
+Date: Wed, 8 May 2019 21:30:30 +0300
+Subject: [PATCH] Implement _GTK_FRAME_EXTENTS
+
+---
+ src/netwm_def.h             |  2 ++
+ src/platforms/xcb/atoms_p.h |  3 +++
+ src/platforms/xcb/netwm.cpp | 45 +++++++++++++++++++++++++++++++++++++
+ src/platforms/xcb/netwm.h   | 14 ++++++++++++
+ src/platforms/xcb/netwm_p.h |  1 +
+ 5 files changed, 65 insertions(+)
+
+diff --git a/src/netwm_def.h b/src/netwm_def.h
+index 0740b9a..02daa16 100644
+--- a/src/netwm_def.h
++++ b/src/netwm_def.h
+@@ -706,6 +706,7 @@ public:
+         @li WM2IconPixmap icon pixmap and mask in WM_HINTS (see ICCCM 4.1.2.4)
+         @li WM2OpaqueRegion
+         @li WM2DesktopFileName the base name of the desktop file name or the full path to the desktop file
++        @li WM2GTKFrameExtents extents of the shadow drawn by the client
+     **/
+     enum Property2 {
+         WM2UserTime            = 1u << 0,
+@@ -736,6 +737,7 @@ public:
+         WM2IconPixmap          = 1u << 25, // @since 5.7
+         WM2OpaqueRegion        = 1u << 25, // @since 5.7
+         WM2DesktopFileName     = 1u << 26, // NOT STANDARD @since 5.28
++        WM2GTKFrameExtents     = 1u << 27, // NOT STANDARD @since 5.XX
+         WM2AllProperties       = ~0u
+     };
+     Q_DECLARE_FLAGS(Properties2, Property2)
+diff --git a/src/platforms/xcb/atoms_p.h b/src/platforms/xcb/atoms_p.h
+index f7ef339..1106faf 100644
+--- a/src/platforms/xcb/atoms_p.h
++++ b/src/platforms/xcb/atoms_p.h
+@@ -160,6 +160,9 @@ ENUM_BEGIN(KwsAtom)
+     // deprecated and naming convention violation
+     ENUM(_NET_WM_STATE_STAYS_ON_TOP),
+ 
++    // GTK extensions
++    ENUM(_GTK_FRAME_EXTENTS),
++
+     // application protocols
+     ENUM(WM_PROTOCOLS),
+     ENUM(WM_TAKE_FOCUS),
+diff --git a/src/platforms/xcb/netwm.cpp b/src/platforms/xcb/netwm.cpp
+index 2fc6225..4f50b0a 100644
+--- a/src/platforms/xcb/netwm.cpp
++++ b/src/platforms/xcb/netwm.cpp
+@@ -1146,6 +1146,10 @@ void NETRootInfo::setSupported()
+         atoms[pnum++] = p->atom(_NET_WM_OPAQUE_REGION);
+     }
+ 
++    if (p->properties2 & WM2GTKFrameExtents) {
++        atoms[pnum++] = p->atom(_GTK_FRAME_EXTENTS);
++    }
++
+     xcb_change_property(p->conn, XCB_PROP_MODE_REPLACE, p->root, p->atom(_NET_SUPPORTED),
+                         XCB_ATOM_ATOM, 32, pnum, (const void *) atoms);
+ 
+@@ -1446,6 +1450,10 @@ void NETRootInfo::updateSupportedProperties(xcb_atom_t atom)
+     else if (atom == p->atom(_NET_WM_OPAQUE_REGION)) {
+         p->properties2 |= WM2OpaqueRegion;
+     }
++
++    else if (atom == p->atom(_GTK_FRAME_EXTENTS)) {
++        p->properties2 |= WM2GTKFrameExtents;
++    }
+ }
+ 
+ void NETRootInfo::setActiveWindow(xcb_window_t window)
+@@ -3502,6 +3510,25 @@ NETStrut NETWinInfo::frameOverlap() const
+     return p->frame_overlap;
+ }
+ 
++void NETWinInfo::setGtkFrameExtents(NETStrut strut)
++{
++    p->gtk_frame_extents = strut;
++
++    uint32_t d[4];
++    d[0] = strut.left;
++    d[1] = strut.right;
++    d[2] = strut.top;
++    d[3] = strut.bottom;
++
++    xcb_change_property(p->conn, XCB_PROP_MODE_REPLACE, p->window, p->atom(_GTK_FRAME_EXTENTS),
++                        XCB_ATOM_CARDINAL, 32, 4, (const void *) d);
++}
++
++NETStrut NETWinInfo::gtkFrameExtents() const
++{
++    return p->gtk_frame_extents;
++}
++
+ void NETWinInfo::kdeGeometry(NETRect &frame, NETRect &window)
+ {
+     if (p->win_geom.size.width == 0 || p->win_geom.size.height == 0) {
+@@ -3820,6 +3847,8 @@ void NETWinInfo::event(xcb_generic_event_t *event, NET::Properties *properties,
+             dirty2 = WM2DesktopFileName;
+         } else if (pe->atom == p->atom(_NET_WM_FULLSCREEN_MONITORS)) {
+             dirty2 = WM2FullscreenMonitors;
++        } else if (pe->atom == p->atom(_GTK_FRAME_EXTENTS)) {
++            dirty2 |= WM2GTKFrameExtents;
+         }
+ 
+         do_update = true;
+@@ -4011,6 +4040,10 @@ void NETWinInfo::update(NET::Properties dirtyProperties, NET::Properties2 dirtyP
+         cookies[c++] = xcb_get_property(p->conn, false, p->window, p->atom(_KDE_NET_WM_DESKTOP_FILE), p->atom(UTF8_STRING), 0, MAX_PROP_SIZE);
+     }
+ 
++    if (dirty2 & WM2GTKFrameExtents) {
++        cookies[c++] = xcb_get_property(p->conn, false, p->window, p->atom(_GTK_FRAME_EXTENTS), XCB_ATOM_CARDINAL, 0, 4);
++    }
++
+     c = 0;
+ 
+     if (dirty & XAWMState) {
+@@ -4596,6 +4629,18 @@ void NETWinInfo::update(NET::Properties dirtyProperties, NET::Properties2 dirtyP
+             p->desktop_file = nstrndup(id.constData(), id.length());
+         }
+     }
++
++    if (dirty2 & WM2GTKFrameExtents) {
++        p->gtk_frame_extents = NETStrut();
++
++        QVector<uint32_t> data = get_array_reply<uint32_t>(p->conn, cookies[c++], XCB_ATOM_CARDINAL);
++        if (data.count() == 4) {
++            p->gtk_frame_extents.left   = data[0];
++            p->gtk_frame_extents.right  = data[1];
++            p->gtk_frame_extents.top    = data[2];
++            p->gtk_frame_extents.bottom = data[3];
++        }
++    }
+ }
+ 
+ NETRect NETWinInfo::iconGeometry() const
+diff --git a/src/platforms/xcb/netwm.h b/src/platforms/xcb/netwm.h
+index 5598ec5..a675dca 100644
+--- a/src/platforms/xcb/netwm.h
++++ b/src/platforms/xcb/netwm.h
+@@ -1308,6 +1308,20 @@ public:
+     **/
+     NETStrut frameOverlap() const;
+ 
++    /**
++       Sets the extents of the shadow drawn by the client.
++
++       @since 5.XX
++    **/
++    void setGtkFrameExtents(NETStrut strut);
++
++    /**
++       Returns the extents of the shadow drawn by a GTK client.
++
++       @since 5.XX
++    **/
++    NETStrut gtkFrameExtents() const;
++
+     /**
+        Returns an icon.  If width and height are passed, the icon returned will be
+        the closest it can find (the next biggest).  If width and height are omitted,
+diff --git a/src/platforms/xcb/netwm_p.h b/src/platforms/xcb/netwm_p.h
+index 5d3dac9..c83c64f 100644
+--- a/src/platforms/xcb/netwm_p.h
++++ b/src/platforms/xcb/netwm_p.h
+@@ -171,6 +171,7 @@ struct NETWinInfoPrivate {
+     NETStrut strut;
+     NETStrut frame_strut; // strut?
+     NETStrut frame_overlap;
++    NETStrut gtk_frame_extents;
+     NETRArray<NET::WindowType> types;
+     char *name, *visible_name, *icon_name, *visible_icon_name;
+     int desktop;
+-- 
+2.22.0
+

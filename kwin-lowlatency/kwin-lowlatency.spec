@@ -3,7 +3,7 @@
 
 Name:    kwin-lowlatency
 Version: 5.16.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Provides:  kwin = %{version}
@@ -26,6 +26,10 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/kwin-%{version}.tar.xz
 
 Patch0:  kwin-lowlatency-%{version}-1.patch
+
+# _GTK_FRAME_EXTENTS support for KWin/X11,
+#   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
+Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
 
 ## upstream patches
 
@@ -207,7 +211,7 @@ Conflicts:      kwin-doc
 
 
 %prep
-%autosetup -n kwin-%{version} -p1
+%autosetup -p1 -n kwin-%{version}
 
 sed -i \
   -e 's|^find_package(Breeze ${PROJECT_VERSION} CONFIG)|find_package(Breeze 5.9 CONFIG)|' \
@@ -312,6 +316,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Jul 17 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-2
+- applied patch to support _GTK_FRAME_EXTENTS
+
 * Wed Jul 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-2
 - rebuild with new qt5
 

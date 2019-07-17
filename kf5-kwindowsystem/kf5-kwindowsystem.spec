@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.60.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module with classes for windows management
 
 License: LGPLv2+ and MIT
@@ -24,6 +24,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+# _GTK_FRAME_EXTENTS support for KWin/X11,
+#   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
+Patch0: 0001-Implement-_GTK_FRAME_EXTENTS.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_plugindir}/.*\\.so)$
@@ -63,7 +67,7 @@ developing applications that use %{name}.
 
 
 %prep
-%autosetup -n %{framework}-%{version}
+%autosetup -p1 -n %{framework}-%{version}
 
 
 %build
@@ -110,6 +114,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Jul 17 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-2
+- applied patch to support _GTK_FRAME_EXTENTS
+
 * Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
 - 5.60.0
 
