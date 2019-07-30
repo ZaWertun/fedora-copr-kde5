@@ -1,5 +1,5 @@
 Name:    ksshaskpass
-Version: 5.16.3
+Version: 5.16.4
 Release: 1%{?dist}
 Summary: A ssh-add helper that uses kwallet and kpassworddialog
 
@@ -63,6 +63,9 @@ EOF
 
 
 %changelog
+* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+- 5.16.4
+
 * Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
 - 5.16.3
 

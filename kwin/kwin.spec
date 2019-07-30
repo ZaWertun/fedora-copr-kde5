@@ -9,8 +9,8 @@
 %endif
 
 Name:    kwin
-Version: 5.16.3
-Release: 2%{?dist}
+Version: 5.16.4
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 # all sources are effectively GPLv2+, except for:
@@ -300,6 +300,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+- 5.16.4
+
 * Wed Jul 17 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-2
 - applied patch to support _GTK_FRAME_EXTENTS
 

@@ -1,7 +1,7 @@
 %global         base_name oxygen
 
 Name:    plasma-%{base_name}
-Version: 5.16.3
+Version: 5.16.4
 Release: 1%{?dist}
 Summary: Plasma and Qt widget style and window decorations for Plasma 5 and KDE 4
 
@@ -214,6 +214,9 @@ fi
 
 
 %changelog
+* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+- 5.16.4
+
 * Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
 - 5.16.3
 
