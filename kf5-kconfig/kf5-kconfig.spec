@@ -21,7 +21,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.60.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 
 License: GPLv2+ and LGPLv2+ and MIT
@@ -35,6 +35,8 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+Patch0:  D22979.diff
 
 ## upstream patches
 
@@ -215,6 +217,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Wed Aug 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-2
+- fix for security vulnerability when parsing Icon[$e]
+
 * Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
 - 5.60.0
 
