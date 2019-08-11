@@ -1,7 +1,7 @@
-diff -ur kio-extras-17.12.0/CMakeLists.txt kio-extras-17.12.0-nfs-libtirpc/CMakeLists.txt
---- kio-extras-17.12.0/CMakeLists.txt	2017-12-08 02:00:30.000000000 +0100
-+++ kio-extras-17.12.0-nfs-libtirpc/CMakeLists.txt	2018-01-10 19:56:58.179385571 +0100
-@@ -175,9 +175,11 @@
+diff -up kio-extras-19.04.2/CMakeLists.txt.nfs kio-extras-19.04.2/CMakeLists.txt
+--- kio-extras-19.04.2/CMakeLists.txt.nfs	2019-06-03 19:13:48.000000000 -0500
++++ kio-extras-19.04.2/CMakeLists.txt	2019-06-05 14:02:00.219046753 -0500
+@@ -175,9 +175,11 @@ if(NOT WIN32)
     if(Gperf_FOUND AND KF5KHtml_FOUND)
       add_subdirectory( man )
     endif()
@@ -16,10 +16,10 @@ diff -ur kio-extras-17.12.0/CMakeLists.txt kio-extras-17.12.0-nfs-libtirpc/CMake
       add_subdirectory( nfs )
     endif()
  endif()
-diff -ur kio-extras-17.12.0/nfs/CMakeLists.txt kio-extras-17.12.0-nfs-libtirpc/nfs/CMakeLists.txt
---- kio-extras-17.12.0/nfs/CMakeLists.txt	2017-12-05 00:08:51.000000000 +0100
-+++ kio-extras-17.12.0-nfs-libtirpc/nfs/CMakeLists.txt	2018-01-10 19:56:58.179385571 +0100
-@@ -10,6 +10,7 @@
+diff -up kio-extras-19.04.2/nfs/CMakeLists.txt.nfs kio-extras-19.04.2/nfs/CMakeLists.txt
+--- kio-extras-19.04.2/nfs/CMakeLists.txt.nfs	2019-05-31 05:33:44.000000000 -0500
++++ kio-extras-19.04.2/nfs/CMakeLists.txt	2019-06-05 14:02:33.321631526 -0500
+@@ -10,6 +10,7 @@ if (NOT HAVE_XDR_U_INT64_T AND NOT HAVE_
      message(FATAL_ERROR "Could not find 64-bit XDR datatype functions!")
  endif (NOT HAVE_XDR_U_INT64_T AND NOT HAVE_XDR_UINT64_T AND NOT HAVE_XDR_U_HYPER AND NOT HAVE_XDR_U_LONGLONG_T)
  
@@ -27,12 +27,13 @@ diff -ur kio-extras-17.12.0/nfs/CMakeLists.txt kio-extras-17.12.0-nfs-libtirpc/n
  if (HAVE_XDR_U_INT64_T)
      add_definitions(-DHAVE_XDR_U_INT64_T)
  endif (HAVE_XDR_U_INT64_T)
-@@ -26,7 +27,7 @@
+@@ -26,7 +27,8 @@ endif (HAVE_XDR_U_LONGLONG_T)
  add_definitions(-DTRANSLATION_DOMAIN=\"kio5_nfs\")
  
  add_library(kio_nfs MODULE kio_nfs.cpp nfsv2.cpp nfsv3.cpp rpc_nfs3_prot_xdr.c rpc_nfs2_prot_xdr.c)
 -target_link_libraries(kio_nfs KF5::KIOCore KF5::I18n Qt5::Network)
 +target_link_libraries(kio_nfs KF5::KIOCore KF5::I18n Qt5::Network ${TIRPC_LIBRARIES})
++
  set_target_properties(kio_nfs PROPERTIES OUTPUT_NAME "nfs")
  
  install(TARGETS kio_nfs DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)

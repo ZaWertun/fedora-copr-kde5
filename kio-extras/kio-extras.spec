@@ -8,7 +8,7 @@
 
 Name:    kio-extras
 Version: 19.04.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -26,7 +26,7 @@ Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%
 # patch to use libtirpc for RPC, from Cygwin Ports
 # should be upstreamable, considering that glibc's builtin RPC is obsolete
 # https://github.com/cygwinports/kf5-kio-extras/blob/master/16.08.3-nfs-libtirpc.patch
-Patch1000: kio-extras-17.12.0-nfs-libtirpc.patch
+Patch1000: kio-extras-19.04-nfs-libtirpc.patch
 
 ## upstream patches
 
@@ -54,7 +54,7 @@ BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-kpty-devel
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-solid-devel
-BuildRequires:  kf5-syntax-highlighting-devel
+BuildRequires:  cmake(KF5SyntaxHighlighting)
 
 BuildRequires:  libjpeg-devel
 BuildRequires:  libmtp-devel
@@ -95,8 +95,18 @@ Obsoletes: kio-extras-htmlthumbnail < 18.08.3
 # helpful for  imagethumbnail plugin
 Recommends:     qt5-qtimageformats %{?_isa}
 
+# when -info was split out
+Obsoletes: kio-extras < 19.04.1-1
+
 %description
 %{summary}.
+
+%package info
+Summary: Info kioslave
+# when -info was split out
+Obsoletes: kio-extras < 19.04.1-1
+%description info
+Kioslave for reading info pages.
 
 %package        devel
 Summary:        Development files for %{name}
@@ -106,7 +116,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 
 %prep
-%autosetup  -p1
+%autosetup -p1
 
 
 %build
@@ -147,12 +157,13 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kded/recentdocumentsnotifier.so
 %dir %{_kf5_plugindir}/kio/
 %dir %{_kf5_plugindir}/kiod/
+%{_kf5_plugindir}/kio/about.so
+%{_kf5_plugindir}/kio/activities.so
 %{_kf5_plugindir}/kio/archive.so
 %{_kf5_plugindir}/kio/bookmarks.so
 %{_kf5_plugindir}/kio/filenamesearch.so
 %{_kf5_plugindir}/kio/filter.so
 %{_kf5_plugindir}/kio/fish.so
-%{_kf5_plugindir}/kio/info.so
 %{_kf5_plugindir}/kio/man.so
 %{_kf5_plugindir}/kiod/kmtpd.so
 %{_kf5_plugindir}/kio/mtp.so
@@ -163,8 +174,6 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kio/sftp.so
 %{_kf5_plugindir}/kio/smb.so
 %{_kf5_plugindir}/kio/thumbnail.so
-%{_kf5_plugindir}/kio/about.so
-%{_kf5_plugindir}/kio/activities.so
 %{_kf5_plugindir}/parts/kmanpart.so
 %{_kf5_qtplugindir}/audiothumbnail.so
 %{_kf5_qtplugindir}/comicbookthumbnail.so
@@ -174,13 +183,13 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_qtplugindir}/jpegthumbnail.so
 %{_kf5_qtplugindir}/kactivitymanagerd_fileitem_linking_plugin.so
 %{_kf5_qtplugindir}/kfileaudiopreview.so
+%{_kf5_qtplugindir}/ebookthumbnail.so
 %{_kf5_qtplugindir}/kritathumbnail.so
 %{_kf5_qtplugindir}/opendocumentthumbnail.so
 %{_kf5_qtplugindir}/svgthumbnail.so
 %{_kf5_qtplugindir}/textthumbnail.so
 %{_kf5_qtplugindir}/windowsexethumbnail.so
 %{_kf5_qtplugindir}/windowsimagethumbnail.so
-%{_kf5_qtplugindir}/ebookthumbnail.so
 %{_datadir}/kio_docfilter/
 %{_datadir}/kio_bookmarks/
 %dir %{_datadir}/konqsidebartng/
@@ -202,28 +211,38 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_datadir}/mime/packages/kf5_network.xml
 %{_datadir}/config.kcfg/jpegcreatorsettings5.kcfg
 
+%files info
+%{_kf5_plugindir}/kio/info.so
+# perl deps, but required at runtime for the info kioslave to actually work:
+%dir %{_datadir}/kio_info/
+%{_datadir}/kio_info/kde-info2html*
+
 %files devel
 %{_kf5_includedir}/*.h
 # no soname symlink? --rex
 #{_kf5_libdir}/libkioarchive.so
 %{_kf5_libdir}/cmake/KioArchive/
-%dir %{_datadir}/kio_info/
-# perl deps
-%{_datadir}/kio_info/kde-info2html*
 
 
 %changelog
-* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+* Sun Aug 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-2
 - 19.04.3
 
-* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+* Tue Jun 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.2-1
 - 19.04.2
 
-* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+* Wed May 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.1-1
 - 19.04.1
+- -info subpkg (#1697318)
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
-- 19.04.0
+* Thu Apr 11 2019 Richard Shaw <hobbes1069@gmail.com> - 18.12.3-3
+- Rebuild for OpenEXR 2.3.0.
+
+* Tue Apr 09 2019 Kevin Kofler <Kevin@tigcc.ticalc.org> - 18.12.3-2
+- move kio_info/kde-info2html perl script back to the main package (#1697318)
+
+* Fri Mar 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-1
+- 18.12.3
 
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
