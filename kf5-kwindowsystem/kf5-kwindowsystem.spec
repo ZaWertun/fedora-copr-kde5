@@ -9,8 +9,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.60.0
-Release: 2%{?dist}
+Version: 5.61.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module with classes for windows management
 
 License: LGPLv2+ and MIT
@@ -36,6 +36,7 @@ BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(xcb-icccm)
 BuildRequires:  pkgconfig(xcb-keysyms)
 BuildRequires:  pkgconfig(xfixes)
 BuildRequires:  pkgconfig(xrender)
@@ -114,6 +115,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+- 5.61.0
+
 * Wed Jul 17 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-2
 - applied patch to support _GTK_FRAME_EXTENTS
 

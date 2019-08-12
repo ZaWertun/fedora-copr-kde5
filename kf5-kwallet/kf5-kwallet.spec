@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.60.0
+Version: 5.61.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for password management
 
@@ -110,7 +110,6 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %doc README.md
 %license COPYING.LIB
 %{_kf5_datadir}/dbus-1/services/org.kde.kwalletd5.service
-%{_kf5_datadir}/dbus-1/services/org.kde.kwalletd.service
 %{_kf5_bindir}/kwalletd5
 %{_kf5_datadir}/kservices5/kwalletd5.desktop
 %{_kf5_datadir}/knotifications5/kwalletd.notifyrc
@@ -135,6 +134,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+- 5.61.0
+
 * Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
 - 5.60.0
 

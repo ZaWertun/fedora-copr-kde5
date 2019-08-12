@@ -1,7 +1,7 @@
 %global framework kdewebkit
 
 Name:    kf5-%{framework}
-Version: 5.60.0
+Version: 5.61.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for QtWebKit
 
@@ -29,6 +29,7 @@ BuildRequires:  kf5-rpm-macros >= %{majmin}
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtwebkit-devel
+BuildRequires:  cmake(Qt5UiPlugin)
 
 %description
 KDE Frameworks 5 Tier 3 integration module for the HTML rendering engine WebKit.
@@ -70,11 +71,15 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_includedir}/kdewebkit_version.h
 %{_kf5_includedir}/KDEWebKit/
 %{_kf5_libdir}/libKF5WebKit.so
+%{_libdir}/qt5/plugins/designer/kdewebkit5widgets.so
 %{_kf5_libdir}/cmake/KF5WebKit/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KDEWebKit.pri
 
 
 %changelog
+* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+- 5.61.0
+
 * Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
 - 5.60.0
 
