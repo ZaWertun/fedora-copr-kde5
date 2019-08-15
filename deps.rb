@@ -12,13 +12,18 @@ SQL
 def resolve_dep(name)
     rows = $db.execute('select resolved from DEPS where name = ?', [name])
     return rows[0][0] unless rows.empty?
-
-    cmd = "dnf -y -C -q provides \"#{name}\" 2>/dev/null |head -n1"
+    
+    cmd = "rpm -q --whatprovides \"#{name}\" 2>/dev/null"
     STDERR.puts(cmd) if ENV['DEBUG'] == '1'
     provides = `#{cmd}`.split(/\n/).first
-    unless provides
-        STDERR.puts "Error: #{name}"
-        return nil
+    unless $?.success?
+      cmd = "dnf -y -C -q provides \"#{name}\" 2>/dev/null |head -n1"
+      STDERR.puts(cmd) if ENV['DEBUG'] == '1'
+      provides = `#{cmd}`.split(/\n/).first
+      unless provides
+          STDERR.puts "Error: #{name}"
+          return nil
+      end
     end
 
     provides.gsub!(/-\d.+/, '')
