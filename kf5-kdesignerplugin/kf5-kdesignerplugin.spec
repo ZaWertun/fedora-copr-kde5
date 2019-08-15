@@ -87,9 +87,6 @@ cat kdesignerplugin5_qt.lang %{name}-man.lang > %{name}.lang
 %license COPYING.LIB
 %{_kf5_bindir}/kgendesignerplugin
 %{_kf5_qtplugindir}/designer/kf5widgets.so
-%if !0%{?bootstrap}
-%{_kf5_qtplugindir}/designer/kdewebkit5widgets.so
-%endif
 %dir %{_kf5_datadir}/kf5/widgets/
 %{_kf5_datadir}/kf5/widgets/*
 %{_kf5_mandir}/man1/kgendesignerplugin.1*
