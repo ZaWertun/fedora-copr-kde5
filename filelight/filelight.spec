@@ -1,7 +1,7 @@
 Name:    filelight 
 Summary: Graphical disk usage statistics 
 Epoch:   1
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -76,11 +76,14 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_metainfodir}/org.kde.filelight.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/*/*filelight.*
 %{_sysconfdir}/xdg/filelightrc
-%{_sysconfdir}/xdg/filelight.categories
 %{_kf5_datadir}/kxmlgui5/filelight/
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.04.3-1
 - 19.04.3
 

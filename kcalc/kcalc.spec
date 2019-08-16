@@ -1,6 +1,6 @@
 Name:    kcalc 
 Summary: Scientific Calculator 
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -47,6 +47,7 @@ BuildRequires: kf5-kxmlgui-devel
 BuildRequires: kf5-kcrash-devel
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: libappstream-glib
+BuildRequires: mpfr-devel
 
 %{?kf5_kinit_requires}
 
@@ -105,6 +106,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

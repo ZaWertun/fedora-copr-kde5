@@ -7,8 +7,8 @@
 %endif
 
 Name:    kio-extras
-Version: 19.04.3
-Release: 2%{?dist}
+Version: 19.08.0
+Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -148,7 +148,6 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %files -f %{name}.lang
 # include *a* copy, others are in mtp/
 %license fish/COPYING
-%{_kf5_sysconfdir}/xdg/%{name}*
 %{_kf5_libdir}/libkioarchive.so.5*
 %{_kf5_libdir}/libmolletnetwork5.so.*
 %dir %{_kf5_plugindir}/kded
@@ -210,6 +209,8 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_datadir}/dbus-1/services/org.kde.kmtp.daemon.service
 %{_datadir}/mime/packages/kf5_network.xml
 %{_datadir}/config.kcfg/jpegcreatorsettings5.kcfg
+%{_kf5_datadir}/qlogging-categories5/*.categories
+
 
 %files info
 %{_kf5_plugindir}/kio/info.so
@@ -225,6 +226,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Sun Aug 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-2
 - 19.04.3
 

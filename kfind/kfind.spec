@@ -1,7 +1,7 @@
 
 Name:    kfind
 Summary: KDE Find File Utility
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 # Documentation is GFDL, rest GPLv2+
@@ -66,15 +66,18 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kfind.*
 %{_kf5_bindir}/%{name}
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/kfind.*
 %{_mandir}/man1/kfind.1*
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

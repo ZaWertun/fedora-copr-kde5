@@ -1,7 +1,7 @@
 
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -38,7 +38,7 @@ BuildRequires: kf5-kdoctools-devel
 
 BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Screen)
-
+BuildRequires: cmake(KF5GlobalAccel)
 BuildRequires: cmake(KF5Kipi)
 BuildRequires: kf5-libkipi-devel
 
@@ -92,17 +92,22 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 %files -f %{name}.lang
 %license COPYING
 %{_kf5_bindir}/spectacle
-%{_kf5_sysconfdir}/xdg/spectacle*
 %{_kf5_metainfodir}/org.kde.spectacle.appdata.xml
+%{_kf5_libdir}/kconf_update_bin/spectacle-migrate-shortcuts
 %{_kf5_datadir}/applications/org.kde.spectacle.desktop
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.Spectacle.xml
 %{_kf5_datadir}/dbus-1/services/org.kde.Spectacle.service
 %{_kf5_datadir}/icons/hicolor/*/apps/spectacle.*
-%{_kf5_datadir}/khotkeys/spectacle.khotkeys
 %{_kf5_datadir}/knotifications5/spectacle.notifyrc
+%{_kf5_datadir}/kconf_update/spectacle_shortcuts.upd
+%{_kf5_datadir}/kglobalaccel/*.desktop
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

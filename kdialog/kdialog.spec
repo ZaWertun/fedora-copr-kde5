@@ -1,6 +1,6 @@
 Name:    kdialog
 Summary: Nice dialog boxes from shell scripts
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -56,10 +56,14 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %doc README 
 %{_kf5_bindir}/kdialog
 %{_kf5_bindir}/kdialog_progress_helper
+%{_kf5_metainfodir}/org.kde.kdialog.metainfo.xml
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.kdialog.ProgressDialog.xml
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

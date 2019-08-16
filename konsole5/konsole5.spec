@@ -10,7 +10,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -141,7 +141,6 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 %files -f konsole.lang
 %doc README
-%{_kf5_sysconfdir}/xdg/konsole.*
 %{_kf5_bindir}/konsole
 %{_kf5_bindir}/konsoleprofile
 %{_kf5_libdir}/libkdeinit5_konsole.so
@@ -152,6 +151,8 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 %{_kf5_datadir}/kservices5/ServiceMenus/konsolehere.desktop
 %{_kf5_datadir}/kservices5/ServiceMenus/konsolerun.desktop
 %{_kf5_datadir}/kservicetypes5/terminalemulator.desktop
+%{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %ldconfig_scriptlets part
 
@@ -165,6 +166,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

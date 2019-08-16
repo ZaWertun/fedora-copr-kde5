@@ -21,7 +21,7 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -227,8 +227,6 @@ fi
 %dir %{_sysconfdir}/xdg/akonadi/
 %ghost %config(missingok,noreplace) %{_sysconfdir}/xdg/akonadi/akonadiserverrc
 %config(noreplace) %{_sysconfdir}/xdg/akonadi/akonadiserverrc.sqlite
-%{_sysconfdir}/xdg/akonadi.categories
-%{_sysconfdir}/xdg/akonadi.renamecategories
 %{_kf5_bindir}/akonadi_agent_launcher
 %{_kf5_bindir}/akonadi_agent_server
 %{_kf5_bindir}/akonadi_control
@@ -253,6 +251,7 @@ fi
 %{_kf5_libdir}/libKF5AkonadiXml.so.5*
 # let newer %%trigger-based scriptlets catch this -- rex
 %{_kf5_datadir}/icons/hicolor/*/apps/akonadi.*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 # akonadi_knut_resource
 %{_kf5_bindir}/akonadi_knut_resource
@@ -304,6 +303,9 @@ fi
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

@@ -1,7 +1,7 @@
 
 Name:    libkdegames
 Summary: Common code and data for many KDE games
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 # libKF5KDEGames is LGPLv2, libKF5KDEGamesPrivate is GPLv2+
@@ -38,7 +38,7 @@ BuildRequires: kf5-kiconthemes-devel
 BuildRequires: kf5-kio-devel
 BuildRequires: kf5-kitemviews-devel
 BuildRequires: kf5-kjobwidgets-devel
-BuildREquires: kf5-knewstuff-devel
+BuildRequires: kf5-knewstuff-devel
 BuildRequires: kf5-kservice-devel
 BuildRequires: kf5-ktextwidgets-devel
 BuildRequires: kf5-kwidgetsaddons-devel
@@ -98,13 +98,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f %{name}.lang
 %doc README TODO
 %license COPYING
-%{_kf5_sysconfdir}/xdg/libkdegames*
 %{_kf5_libdir}/libKF5KDEGames.so.7*
 %{_kf5_libdir}/libKF5KDEGamesPrivate.so.*
 %{_qt5_archdatadir}/qml/org/kde/games/
 %{_kf5_datadir}/kconf_update/kgthemeprovider-migration.upd
 # consider common/noarch subpkg
 %{_kf5_datadir}/carddecks/
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %files devel
 %{_kf5_libdir}/libKF5KDEGames.so
@@ -114,6 +114,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

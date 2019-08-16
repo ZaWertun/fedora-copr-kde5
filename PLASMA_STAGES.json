@@ -1,0 +1,52 @@
+{
+  "0": [
+    "bluedevil",
+    "kactivitymanagerd",
+    "kde-gtk-config",
+    "kdecoration",
+    "kinfocenter",
+    "kscreenlocker",
+    "ksshaskpass",
+    "kwayland-integration",
+    "kwrited",
+    "libkscreen-qt5",
+    "libksysguard",
+    "pam-kwallet",
+    "plasma-browser-integration",
+    "plasma-discover",
+    "plasma-drkonqi",
+    "plasma-milou",
+    "plasma-nm",
+    "plasma-pa",
+    "plasma-sdk",
+    "plasma-user-manager",
+    "polkit-kde",
+    "sddm-kcm",
+    "xdg-desktop-portal-kde"
+  ],
+  "1": [
+    "kscreen",
+    "ksysguard",
+    "plasma-breeze",
+    "plasma-oxygen"
+  ],
+  "2": [
+    "breeze-gtk",
+    "kwin",
+    "plasma-integration"
+  ],
+  "3": [
+    "plasma-workspace"
+  ],
+  "4": [
+    "kde-cli-tools",
+    "kdeplasma-addons",
+    "khotkeys",
+    "plasma-desktop",
+    "plasma-systemsettings",
+    "powerdevil"
+  ],
+  "5": [
+    "kmenuedit"
+  ]
+}

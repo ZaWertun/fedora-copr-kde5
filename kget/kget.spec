@@ -1,7 +1,7 @@
 
 Name:    kget
 Summary: Download manager
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -111,7 +111,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %files -f %{name}.lang
 %doc AUTHORS README TODO
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/%{name}*
 %{_kf5_bindir}/kget
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
@@ -128,6 +127,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/kservices5/ServiceMenus/kget*
 %{_kf5_datadir}/kservicetypes5/kget*
 %{_kf5_datadir}/kxmlgui5/kget/
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %ldconfig_scriptlets libs
 
@@ -139,6 +139,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

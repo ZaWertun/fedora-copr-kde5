@@ -8,7 +8,7 @@
 
 Name:    kmail
 Summary: Mail client
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -221,6 +221,9 @@ end
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

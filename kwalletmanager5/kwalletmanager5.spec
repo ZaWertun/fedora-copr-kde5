@@ -8,7 +8,7 @@
 
 Name:    kwalletmanager5
 Summary: Manage KDE passwords
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -81,7 +81,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %files -f %{name}.lang
 %license COPYING
-%{_kf5_sysconfdir}/xdg/kwalletmanager*
 %{_kf5_bindir}/kwalletmanager5
 %{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmkwallet5.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmkwallet5.policy
@@ -95,9 +94,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/kxmlgui5/kwalletmanager5/
 %{_kf5_libexecdir}/kauth/kcm_kwallet_helper5
 %{_kf5_qtplugindir}/kcm_kwallet5.so
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

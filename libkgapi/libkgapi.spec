@@ -3,7 +3,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 Summary:        Library to access to Google services
 
@@ -82,7 +82,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f libkgapi_qt.lang
 %doc README*
 %license LICENSE
-%{_sysconfdir}/xdg/libkgapi.categories
 %{_kf5_libdir}/libKPimGAPIBlogger.so.5*
 %{_kf5_libdir}/libKPimGAPICalendar.so.*
 %{_kf5_libdir}/libKPimGAPIContacts.so.*
@@ -92,6 +91,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKPimGAPIMaps.so.*
 %{_kf5_libdir}/libKPimGAPITasks.so.*
 %{_libdir}/sasl2/libkdexoauth2.so*
+%{_kf5_datadir}/qlogging-categories5/*.categories
+
 
 %files devel
 %{_kf5_libdir}/libKPimGAPIBlogger.so
@@ -117,6 +118,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

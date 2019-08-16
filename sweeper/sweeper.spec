@@ -1,6 +1,6 @@
 Name:    sweeper 
 Summary: Clean unwanted traces the user leaves on the system 
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -78,6 +78,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.sweeper.d
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

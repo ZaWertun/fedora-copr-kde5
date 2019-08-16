@@ -11,7 +11,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -180,8 +180,6 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %files -f %{name}.lang
 %license COPYING*
 %doc AUTHORS ChangeLog
-%{_kf5_sysconfdir}/xdg/akregatorplugin.*
-%{_kf5_sysconfdir}/xdg/konqueror.*
 %{_kf5_bindir}/fsview
 %{_kf5_bindir}/kfmclient
 %{_kf5_bindir}/konqueror
@@ -202,6 +200,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_datadir}/kwebkitpart/
 %{_kf5_sysconfdir}/xdg/autostart/konqy_preload.desktop
 %{_kf5_sysconfdir}/xdg/translaterc
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %ldconfig_scriptlets libs
 
@@ -230,6 +229,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

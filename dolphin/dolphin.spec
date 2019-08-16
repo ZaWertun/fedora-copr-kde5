@@ -8,7 +8,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -44,6 +44,7 @@ BuildRequires:  cmake(KF5Completion)
 BuildRequires:  cmake(KF5TextWidgets)
 BuildRequires:  cmake(KF5Notifications)
 BuildRequires:  cmake(KF5Crash)
+BuildRequires:  cmake(KF5WindowSystem)
 
 BuildRequires:  phonon-qt5-devel
 
@@ -104,6 +105,7 @@ popd
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %find_lang dolphin --with-html
+%find_lang dolphin_servicemenuinstaller -f dolphin_servicemenuinstaller.lang
 
 
 %check
@@ -116,23 +118,22 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %endif
 
 
-%files -f dolphin.lang
+%files -f dolphin.lang -f dolphin_servicemenuinstaller.lang
 %license COPYING*
 %doc README
-%{_kf5_sysconfdir}/xdg/dolphin.*
 %{_kf5_bindir}/dolphin
-%{_kf5_bindir}/servicemenuinstallation
-%{_kf5_bindir}/servicemenudeinstallation
+%{_kf5_bindir}/servicemenuinstaller
 %{_sysconfdir}/xdg/servicemenu.knsrc
 %{_kf5_libdir}/libkdeinit5_dolphin.so
 %{_kf5_datadir}/kservices5/kcmdolphin*.desktop
 %{_kf5_datadir}/config.kcfg/dolphin_*
+%{_kf5_datadir}/kglobalaccel/*.desktop
 %{_datadir}/dbus-1/services/org.kde.dolphin.FileManager1.service
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/kservicetypes5/fileviewversioncontrolplugin.desktop
-#{_kf5_datadir}/kxmlgui5/%{name}/
 %lang(fi) %{_datadir}/locale/fi/LC_SCRIPTS/dolphin/
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %ldconfig_scriptlets libs
 
@@ -140,7 +141,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_libdir}/libdolphinprivate.so.*
 %{_kf5_libdir}/libdolphinvcs.so.*
 %{_kf5_qtplugindir}/kcm_*.so
-#{_kf5_datadir}/kxmlgui5/dolphinpart/
 %{_kf5_qtplugindir}/dolphinpart.so
 %{_kf5_datadir}/kservices5/dolphinpart.desktop
 
@@ -153,6 +153,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

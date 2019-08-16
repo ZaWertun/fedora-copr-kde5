@@ -1,6 +1,6 @@
 Name:    kcron
 Summary: Cron KDE configuration module
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -55,12 +55,15 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f %{name}.lang
 %license COPYING*
 %doc README
-%{_kf5_sysconfdir}/xdg/kcron*
 %{_kf5_qtplugindir}/kcm_cron.so
 %{_kf5_datadir}/kservices5/kcm_cron.desktop
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

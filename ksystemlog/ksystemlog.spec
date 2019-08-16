@@ -1,6 +1,6 @@
 Name:    ksystemlog
 Summary: System Log Viewer for KDE
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -77,10 +77,14 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %license COPYING
 %{_kf5_bindir}/ksystemlog
 %{_kf5_datadir}/kxmlgui5/ksystemlog/
+%{_kf5_metainfodir}/org.kde.ksystemlog.appdata.xml
 %{_kf5_datadir}/applications/org.kde.ksystemlog.desktop
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

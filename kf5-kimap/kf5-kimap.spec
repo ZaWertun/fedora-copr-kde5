@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 Summary: The KIMAP Library
 
@@ -96,8 +96,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5IMAP.so.*
+%{_kf5_datadir}/qlogging-categories5/*categories
+
 
 %files devel
 %{_kf5_includedir}/kimap_version.h
@@ -110,6 +111,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

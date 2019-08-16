@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Mime Library
 
@@ -98,12 +98,13 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5AkonadiMime.so.*
 %{_kf5_datadir}/config.kcfg/specialmailcollections.kcfg
 %{_kf5_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
 %{_kf5_qtplugindir}/akonadi_serializer_mail.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
+%{_kf5_datadir}/qlogging-categories5/*.categories
+
 
 %files devel 
 %if 0%{?tests}
@@ -118,6 +119,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

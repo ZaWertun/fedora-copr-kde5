@@ -1,0 +1,112 @@
+{
+  "0": [
+    "kf5"
+  ],
+  "1": [
+    "extra-cmake-modules",
+    "kf5-kapidox"
+  ],
+  "2": [
+    "breeze-icon-theme",
+    "kf5-attica",
+    "kf5-bluez-qt",
+    "kf5-karchive",
+    "kf5-kcodecs",
+    "kf5-kconfig",
+    "kf5-kcoreaddons",
+    "kf5-kdbusaddons",
+    "kf5-kdnssd",
+    "kf5-kguiaddons",
+    "kf5-kholidays",
+    "kf5-ki18n",
+    "kf5-kidletime",
+    "kf5-kimageformats",
+    "kf5-kirigami2",
+    "kf5-kitemmodels",
+    "kf5-kitemviews",
+    "kf5-kplotting",
+    "kf5-kwayland",
+    "kf5-kwidgetsaddons",
+    "kf5-kwindowsystem",
+    "kf5-modemmanager-qt",
+    "kf5-networkmanager-qt",
+    "kf5-prison",
+    "kf5-solid",
+    "kf5-sonnet",
+    "kf5-syntax-highlighting",
+    "kf5-threadweaver",
+    "oxygen-icon-theme"
+  ],
+  "3": [
+    "kf5-kauth",
+    "kf5-kcompletion",
+    "kf5-kcrash",
+    "kf5-kdoctools",
+    "kf5-kfilemetadata",
+    "kf5-kjobwidgets",
+    "kf5-knotifications",
+    "kf5-kpty",
+    "kf5-kunitconversion"
+  ],
+  "4": [
+    "kf5-kconfigwidgets",
+    "kf5-kjs",
+    "kf5-kpackage",
+    "kf5-kservice"
+  ],
+  "5": [
+    "kf5-kdesu",
+    "kf5-kemoticons",
+    "kf5-kglobalaccel",
+    "kf5-kiconthemes",
+    "kf5-kjsembed",
+    "kf5-kpeople"
+  ],
+  "6": [
+    "kf5-ktextwidgets",
+    "kf5-kwallet",
+    "qqc2-desktop-style"
+  ],
+  "7": [
+    "kf5-kxmlgui"
+  ],
+  "8": [
+    "kf5-kbookmarks"
+  ],
+  "9": [
+    "kf5-kio"
+  ],
+  "10": [
+    "kf5-baloo",
+    "kf5-kdeclarative",
+    "kf5-kinit",
+    "kf5-knewstuff",
+    "kf5-knotifyconfig",
+    "kf5-kparts",
+    "kf5-kxmlrpcclient",
+    "kf5-syndication"
+  ],
+  "11": [
+    "kf5-frameworkintegration",
+    "kf5-kcmutils",
+    "kf5-kded",
+    "kf5-kdewebkit",
+    "kf5-khtml",
+    "kf5-kmediaplayer",
+    "kf5-kross",
+    "kf5-ktexteditor",
+    "kf5-purpose"
+  ],
+  "12": [
+    "kf5-kactivities",
+    "kf5-kdesignerplugin"
+  ],
+  "13": [
+    "kf5-kactivities-stats",
+    "kf5-kdelibs4support",
+    "kf5-plasma"
+  ],
+  "14": [
+    "kf5-krunner"
+  ]
+}

@@ -3,7 +3,7 @@
 
 Name:    kde-print-manager
 Summary: Printer management for KDE
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+
@@ -114,6 +114,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

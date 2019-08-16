@@ -1,7 +1,7 @@
 
 Name:    krfb
 Summary: Desktop sharing
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -33,6 +33,7 @@ BuildRequires: kf5-kxmlgui-devel
 
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
+BuildRequires: cmake(KF5WindowSystem)
 
 BuildRequires: pkgconfig(libvncserver)
 BuildRequires: pkgconfig(x11)
@@ -103,6 +104,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.desk
 %{_kf5_metainfodir}/org.kde.krfb.appdata.xml
 %{_kf5_datadir}/kservicetypes5/krfb-framebuffer.desktop
 %{_datadir}/icons/hicolor/*/apps/krfb.*
+%{_kf5_datadir}/kservicetypes5/*.desktop
 
 %ldconfig_scriptlets libs
 
@@ -112,6 +114,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.desk
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 

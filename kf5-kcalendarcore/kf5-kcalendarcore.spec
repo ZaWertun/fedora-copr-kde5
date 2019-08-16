@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-kcalendarcore
-Version: 19.04.3
+Version: 19.08.0
 Release: 1%{?dist}
 Summary: The KCalendarCore Library
 
@@ -86,18 +86,22 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files
 %license COPYING
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5CalendarCore.so.*
+%{_kf5_datadir}/qlogging-categories5/*categories
+
 
 %files devel
-%{_kf5_includedir}/kcalcore_version.h
-%{_kf5_includedir}/KCalCore/
+%{_kf5_includedir}/KCalendarCore/*
+%{_kf5_includedir}/kcalendarcore_version.h
+%{_kf5_archdatadir}/mkspecs/modules/qt_KCalendarCore.pri
 %{_kf5_libdir}/libKF5CalendarCore.so
 %{_kf5_libdir}/cmake/KF5CalendarCore/
-%{_kf5_archdatadir}/mkspecs/modules/qt_KCalCore.pri
 
 
 %changelog
+* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
 - 19.04.3
 
