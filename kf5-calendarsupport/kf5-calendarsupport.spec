@@ -97,9 +97,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/calendarsupport.*
 %{_kf5_libdir}/libKF5CalendarSupport.so.*
 %{_kf5_datadir}/kservicetypes5/calendarplugin.desktop
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/CalendarSupport/

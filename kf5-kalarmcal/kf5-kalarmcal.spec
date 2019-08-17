@@ -91,10 +91,10 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kalarmcal.*
 %{_kf5_libdir}/libKF5AlarmCalendar.so.*
 %{_kf5_qtplugindir}/akonadi_serializer_kalarm.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/kalarmcal_version.h

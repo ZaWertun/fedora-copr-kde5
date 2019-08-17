@@ -101,8 +101,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/incidenceeditor.*
 %{_kf5_libdir}/libKF5IncidenceEditor.so.*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/IncidenceEditor/

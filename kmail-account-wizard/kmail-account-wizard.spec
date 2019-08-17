@@ -114,7 +114,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/accountwizard.*
 %{_kf5_bindir}/accountwizard
 %{_kf5_bindir}/ispdb
 %{_kf5_datadir}/akonadi/accountwizard/
@@ -122,6 +121,8 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/mime/packages/accountwizard-mime.xml
 # subpkg to be multilib-friendly?
 %{_qt5_plugindir}/accountwizard_plugin.so
+%{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog

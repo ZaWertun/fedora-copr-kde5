@@ -136,15 +136,12 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/korganizer.*
 %{_kf5_bindir}/korganizer
-#{_kf5_bindir}/ical2vcal
 %{_kf5_datadir}/config.kcfg/korganizer.kcfg
 %{_kf5_datadir}/kconf_update/korganizer*
 %{_kf5_datadir}/kservices5/webcal.protocol
 %{_datadir}/dbus-1/interfaces/org.kde.Korganizer.*.xml
 %{_datadir}/dbus-1/interfaces/org.kde.korganizer.*.xml
-%{_sysconfdir}/xdg/korganizer.knsrc
 %{_kf5_metainfodir}/org.kde.korganizer.appdata.xml
 %{_kf5_datadir}/applications/org.kde.korganizer.desktop
 %{_kf5_datadir}/applications/korganizer-import.desktop
@@ -156,9 +153,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/icons/oxygen/*/actions/smallclock.png
 %{_kf5_datadir}/icons/oxygen/*/actions/upindicator.png
 %{_kf5_datadir}/icons/oxygen/*/actions/checkmark.png
-#{_kf5_datadir}/kservices5/korganizer/
 %{_kf5_datadir}/kservices5/korganizer_*.desktop
-%{_kf5_datadir}/kservicetypes5/dbuscalendar.desktop
 # Kontact integration
 %{_kf5_datadir}/kontact/ksettingsdialog/*.setdlg
 %{_kf5_datadir}/kservices5/kontact/korganizerplugin.desktop
@@ -168,12 +163,14 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kservices5/kcmapptsummary.desktop
 %{_kf5_datadir}/kservices5/kcmsdsummary.desktop
 %{_kf5_datadir}/kservices5/kcmtodosummary.desktop
-#{_kf5_docdir}/HTML/en/korganizer/
-#{_kf5_datadir}/kxmlgui5/korganizer/
 # korgac
 %{_kf5_bindir}/korgac
 %{_sysconfdir}/xdg/autostart/org.kde.korgac.desktop
 %{_kf5_datadir}/korgac
+%{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_datadir}/dbus-1/services/*.service
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

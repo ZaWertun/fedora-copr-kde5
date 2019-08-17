@@ -160,7 +160,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license COPYING*
 %{_kf5_bindir}/akonadi_*
 %{_kf5_bindir}/gidmigrator
-%{_sysconfdir}/xdg/kdepim-runtime.*
 %{_kf5_datadir}/akonadi/accountwizard/*
 %{_kf5_datadir}/akonadi/agents/*
 %{_kf5_datadir}/akonadi/firstrun/*
@@ -173,6 +172,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
 %{_kf5_datadir}/kservices5/pop3.protocol
 %{_kf5_datadir}/kservices5/pop3s.protocol
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

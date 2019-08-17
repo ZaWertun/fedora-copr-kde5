@@ -58,6 +58,7 @@ BuildRequires:  cmake(KF5MessageList)
 BuildRequires:  cmake(KF5MessageViewer)
 BuildRequires:  cmake(KF5PimCommon)
 BuildRequires:  cmake(KF5Tnef)
+BuildRequires:  cmake(KF5KontactInterface)
 
 #global majmin_ver %%(echo %%{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
@@ -119,8 +120,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kdepim-addons.*
-
 %{_kf5_libdir}/libgrammarcommon.so.5*
 %{_kf5_libdir}/libkmailgrammalecte.so.5*
 %{_kf5_libdir}/libkmaillanguagetool.so.5*
@@ -130,8 +129,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents/
 %{_kf5_qtplugindir}/webengineviewer/webengineviewer_adblockplugin.so
 %{_kf5_qtplugindir}/webengineviewer/webengineviewer_donottrackplugin.so
-%{_kf5_datadir}/kconf_update/webengineurlinterceptoradblock.upd
+%{_kf5_datadir}/kconf_update/*.upd
 %{_kf5_qmldir}/org/kde/plasma/PimCalendars/
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 # TODO: Split to per-app subpackages?
 # KAddressBook
@@ -201,13 +201,11 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 # PimCommon
 %dir %{_kf5_qtplugindir}/pimcommon/
-#{_kf5_qtplugindir}/pimcommon/pimcommon_shorturlplugin.so
 %{_kf5_libdir}/libshorturlpluginprivate.so*
 %{_kf5_qtplugindir}/pimcommon/pimcommon_translatorplugin.so
 %{_kf5_qtplugindir}/pimcommon/pimcommon_isgdshorturlengineplugin.so
 %{_kf5_qtplugindir}/pimcommon/pimcommon_tinyurlengineplugin.so
 %{_kf5_qtplugindir}/pimcommon/pimcommon_triopabshorturlengineplugin.so
-#{_kf5_qtplugindir}/pimcommon/pimcommon_ur1cashorturlengineplugin.so
 
 # BodyPartFormatter
 %dir %{_kf5_qtplugindir}/messageviewer/bodypartformatter/
@@ -221,9 +219,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 # MessageViewer headers
 %dir %{_kf5_qtplugindir}/messageviewer/
-#{_kf5_qtplugindir}/messageviewer/messageviewer_allheaderstyleplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_briefheaderstyleplugin.so
-#{_kf5_qtplugindir}/messageviewer/messageviewer_enterpriseheaderstyleplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_fancyheaderstyleplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_grantleeheaderstyleplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_longheaderstyleplugin.so

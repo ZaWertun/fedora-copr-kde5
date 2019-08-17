@@ -64,6 +64,7 @@ BuildRequires: cmake(KF5TextWidgets)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
+BuildRequires: cmake(KF5GrantleeTheme)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-akonadi-notes-devel >= %{majmin_ver}
@@ -134,8 +135,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/knotes.*
-%{_kf5_sysconfdir}/xdg/knotes_printing_theme.knsrc
 %{_kf5_bindir}/akonadi_notes_agent
 %{_kf5_bindir}/knotes
 %{_kf5_datadir}/kservices5/knote_*.desktop
@@ -155,8 +154,8 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/knotes.upd
 %{_kf5_datadir}/knotifications5/akonadi_notes_agent.notifyrc
 %{_kf5_datadir}/kxmlgui5/knotes/
-#{_kf5_docdir}/HTML/en/knotes/
-#{_kf5_docdir}/HTML/en/akonadi_notes_agent/
+%{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

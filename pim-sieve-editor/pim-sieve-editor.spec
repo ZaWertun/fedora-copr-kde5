@@ -99,7 +99,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/sieveeditor.*
 %{_kf5_bindir}/sieveeditor
 %{_kf5_datadir}/kconf_update/sieveeditor-15.08-kickoff.sh
 %{_kf5_datadir}/kconf_update/sieveeditor.upd
@@ -108,6 +107,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/config.kcfg/sieveeditorglobalconfig.kcfg
 # -libs?
 %{_kf5_libdir}/libsieveeditor.so.5*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog

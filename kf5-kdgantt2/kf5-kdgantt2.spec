@@ -1,8 +1,8 @@
 %global framework kdgantt2
 
 Name:    kf5-%{framework}
-Version: 16.08.3
-Release: 6%{?dist}
+Version: 19.08.0
+Release: 1%{?dist}
 Summary: KDE PIM library for rendering Gantt graphs
 
 License: GPLv2
@@ -78,6 +78,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Aug 17 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+- 19.08.0
+
 * Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 16.08.3-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 

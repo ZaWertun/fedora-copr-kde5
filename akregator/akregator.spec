@@ -122,7 +122,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/akregator.*
 %{_kf5_bindir}/akregatorstorageexporter
 %{_kf5_bindir}/akregator
 %{_kf5_datadir}/kservices5/akregator_*.desktop
@@ -141,6 +140,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kservices5/kontact/akregatorplugin.desktop
 %{_kf5_datadir}/kontact/ksettingsdialog/akregator.setdlg
 %{_kf5_datadir}/knotifications5/akregator.notifyrc
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

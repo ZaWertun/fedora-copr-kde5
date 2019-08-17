@@ -96,9 +96,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%config(noreplace) %{_kf5_sysconfdir}/xdg/eventviews.*
 %{_kf5_libdir}/libKF5EventViews.so.*
 %{_kf5_datadir}/kservicetypes5/calendardecoration.desktop
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/EventViews/

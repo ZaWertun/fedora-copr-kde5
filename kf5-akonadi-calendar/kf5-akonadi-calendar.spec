@@ -98,10 +98,10 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/%{framework}.*
 %{_kf5_libdir}/libKF5AkonadiCalendar.so.*
 %{_kf5_qtplugindir}/akonadi_serializer_kcalcore.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/akonadi-calendar_version.h

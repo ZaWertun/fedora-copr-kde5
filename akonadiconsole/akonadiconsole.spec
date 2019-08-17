@@ -117,7 +117,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/akonadiconsole.*
 %{_kf5_bindir}/akonadiconsole
 %{_kf5_datadir}/kconf_update/akonadiconsole.upd
 %{_kf5_datadir}/applications/org.kde.akonadiconsole.desktop
@@ -125,6 +124,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/akonadiconsole-15.08-kickoff.sh
 # -libs ?
 %{_kf5_libdir}/libakonadiconsole.so.*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog

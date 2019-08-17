@@ -75,8 +75,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/libgravatar.*
 %{_kf5_libdir}/libKF5Gravatar.so.5*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/libKF5Gravatar.so

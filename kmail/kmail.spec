@@ -168,15 +168,12 @@ end
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kmail.*
 %{_kf5_bindir}/kmail
 %{_kf5_metainfodir}/org.kde.kmail2.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kmail2.desktop
 %{_kf5_datadir}/config.kcfg/kmail.kcfg
 %{_kf5_datadir}/kmail2/
 %{_kf5_datadir}/kservices5/kmail_*.desktop
-%{_kf5_datadir}/kservicetypes5/dbusmail.desktop
-#{_kf5_datadir}/kservices5/ServiceMenus/kmail_addattachmentservicemenu.desktop
 %{_datadir}/dbus-1/interfaces/org.kde.kmail.*.xml
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/icons/breeze-dark/*/*/*
@@ -199,14 +196,15 @@ end
 %{_kf5_datadir}/knotifications5/akonadi_mailfilter_agent.notifyrc
 %{_kf5_datadir}/knotifications5/akonadi_sendlater_agent.notifyrc
 # ktnef
-%{_kf5_sysconfdir}/xdg/ktnef*.*
 %{_kf5_bindir}/ktnef
 %{_kf5_datadir}/applications/org.kde.ktnef.desktop
 %{_kf5_qtplugindir}/akonadi/config/*.so
-## covered by hicolor glob above -- rex
-#{_kf5_datadir}/icons/*/*/actions/ktnef_extract_all_to.png
-#{_kf5_datadir}/icons/*/*/actions/ktnef_extract_to.png
-#{_kf5_datadir}/icons/*/*/apps/ktnef.png
+# kmail-refresh-settings
+%{_kf5_bindir}/kmail-refresh-settings
+%{_kf5_datadir}/applications/org.kde.kmail-refresh-settings.desktop
+# common
+%{_kf5_datadir}/dbus-1/services/*.service
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

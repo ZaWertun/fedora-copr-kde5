@@ -117,8 +117,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %files -f %{name}.lang
-%{_kf5_sysconfdir}/xdg/kaddressbook.*
-#{_kf5_sysconfdir}/xdg/kaddressbook_themes.knsrc
 %{_kf5_bindir}/kaddressbook
 %{_kf5_datadir}/kservices5/kaddressbookpart.desktop
 %{_kf5_metainfodir}/org.kde.kaddressbook.appdata.xml
@@ -129,10 +127,10 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/kaddressbook-15.08-kickoff.sh
 %{_kf5_datadir}/kconf_update/kaddressbook.upd
 %{_kf5_datadir}/kservices5/kaddressbook_config_plugins.desktop
-#{_kf5_datadir}/kxmlgui5/kaddressbook/
 # Kontact integration
 %{_kf5_datadir}/kservices5/kontact/kaddressbookplugin.desktop
 %{_kf5_datadir}/kontact/ksettingsdialog/kaddressbook.setdlg
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

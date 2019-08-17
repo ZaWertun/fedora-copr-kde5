@@ -48,6 +48,7 @@ BuildRequires:  kf5-kwidgetsaddons-devel >= %{kf5_ver}
 BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
 BuildRequires:  kf5-kxmlgui-devel >= %{kf5_ver}
 BuildRequires:  cmake(KF5SyntaxHighlighting)
+BuildRequires:  cmake(KF5NewStuff)
 
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
@@ -117,8 +118,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%config(noreplace) %{_kf5_sysconfdir}/xdg/messagelib.*
-%{_kf5_sysconfdir}/xdg/messageviewer_header_themes.knsrc
 %{_kf5_libdir}/libKF5MessageComposer.so.*
 %{_kf5_libdir}/libKF5MessageCore.so.*
 %{_kf5_libdir}/libKF5MessageList.so.*
@@ -139,6 +138,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 ## check this -- rex
 %dir %{_kf5_datadir}/org.kde.syntax-highlighting/
 %{_kf5_datadir}/org.kde.syntax-highlighting/syntax/kmail-template.xml
+%{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/libKF5MessageComposer.so

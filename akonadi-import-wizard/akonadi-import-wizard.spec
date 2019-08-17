@@ -108,7 +108,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/importwizard.*
 %{_kf5_bindir}/akonadiimportwizard
 %{_kf5_datadir}/applications/org.kde.akonadiimportwizard.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/kontact-import-wizard.*
@@ -117,6 +116,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 # -libs?
 %{_kf5_libdir}/libKPimImportWizard.so.5*
 %{_kf5_qtplugindir}/importwizard/
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/libKPimImportWizard.so

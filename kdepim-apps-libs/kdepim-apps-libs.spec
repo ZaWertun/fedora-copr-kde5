@@ -93,12 +93,12 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%config(noreplace) %{_kf5_sysconfdir}/xdg/kdepim-apps-lib.*
 %{_kf5_libdir}/libKF5FollowupReminder.so.*
 %{_kf5_libdir}/libKF5KaddressbookImportExport.so.*
 %{_kf5_libdir}/libKF5KaddressbookGrantlee.so.*
 %{_kf5_libdir}/libKF5KdepimDBusInterfaces.so.*
 %{_kf5_libdir}/libKF5SendLater.so.*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 # FollowupReminder

@@ -114,20 +114,17 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kontact.*
 %{_kf5_bindir}/kontact
 %{_kf5_metainfodir}/org.kde.kontact.appdata.xml
-#{_kf5_datadir}/applications/kontact-admin.desktop
 %{_kf5_datadir}/applications/org.kde.kontact.desktop
 %{_kf5_datadir}/config.kcfg/kontact.kcfg
 %{_kf5_datadir}/kconf_update/kontact*
 %{_kf5_datadir}/kservices5/kontactconfig.desktop
-#{_kf5_datadir}/kxmlgui5/kontact/
 %{_kf5_datadir}/messageviewer/about/default/introduction_kontact.html
 %{_kf5_datadir}/messageviewer/about/default/loading_kontact.html
 %{_kf5_datadir}/icons/hicolor/*/apps/kontact.*
-#{_kf5_docdir}/HTML/en/kontact-admin/
-#{_kf5_docdir}/HTML/en/kontact/
+%{_kf5_datadir}/dbus-1/services/*.service
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

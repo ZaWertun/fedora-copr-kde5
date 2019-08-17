@@ -95,12 +95,12 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/libkdepim.*
 %{_kf5_libdir}/libKF5Libkdepim.so.5*
 %{_kf5_datadir}/kdepimwidgets/
 %{_qt5_plugindir}/designer/kdepimwidgets.so
 %{_kf5_datadir}/kservices5/kcmldap.desktop
 %{_qt5_plugindir}/kcm_ldap.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets akonadi
 

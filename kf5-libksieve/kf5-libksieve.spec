@@ -90,14 +90,14 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%config(noreplace) %{_kf5_sysconfdir}/xdg/libksieve.*
-%{_kf5_sysconfdir}/xdg/ksieve_script.knsrc
 %{_kf5_libdir}/libKF5KManageSieve.so.*
 %{_kf5_libdir}/libKF5KSieve.so.*
 %{_kf5_libdir}/libKF5KSieveUi.so.*
 %{_kf5_datadir}/sieve/
 %{_kf5_plugindir}/kio/sieve.so
 %{_kf5_datadir}/kservices5/sieve.protocol
+%{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/cmake/KF5LibKSieve/

@@ -101,9 +101,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%config(noreplace) %{_kf5_sysconfdir}/xdg/mailcommon.*
 %{_kf5_libdir}/libKF5MailCommon.so.*
 %{_qt5_plugindir}/designer/mailcommonwidgets.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/libKF5MailCommon.so

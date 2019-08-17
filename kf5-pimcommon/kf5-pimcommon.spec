@@ -45,6 +45,7 @@ BuildRequires:  cmake(KF5Wallet)
 BuildRequires:  cmake(KF5WidgetsAddons)
 BuildRequires:  cmake(KF5WindowSystem)
 BuildRequires:  cmake(KF5XmlGui)
+BuildRequires:  cmake(KF5Purpose)
 # qt5
 BuildRequires:  cmake(Qt5Designer)
 BuildRequires:  cmake(Qt5DBus)
@@ -121,9 +122,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/pimcommon.*
 %{_kf5_libdir}/libKF5PimCommon.so.5*
 %{_qt5_plugindir}/designer/pimcommonwidgets.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets akonadi
 

@@ -116,7 +116,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/grantleeditor.*
 %{_kf5_bindir}/contactprintthemeeditor
 %{_kf5_bindir}/contactthemeeditor
 %{_kf5_bindir}/headerthemeeditor
@@ -124,6 +123,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/org.kde.contactprintthemeeditor.desktop
 %{_kf5_datadir}/applications/org.kde.contactthemeeditor.desktop
 %{_kf5_datadir}/applications/org.kde.headerthemeeditor.desktop
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

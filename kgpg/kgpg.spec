@@ -108,7 +108,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %doc AUTHORS
 %license COPYING
 %{_kf5_bindir}/kgpg
-%{_kf5_sysconfdir}/xdg/kgpg*
 %{_kf5_sysconfdir}/xdg/autostart/org.kde.kgpg.desktop
 %{_kf5_metainfodir}/org.kde.kgpg.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kgpg.desktop
@@ -119,6 +118,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kde4_datadir}/kde4/services/ServiceMenus/*.desktop
 %{_kf5_datadir}/kxmlgui5/kgpg/
 %{_kf5_datadir}/icons/hicolor/*/*/*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog

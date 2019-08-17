@@ -94,8 +94,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %check
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.pimsettingexporter.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.pimsettingexporter.appdata.xml
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
@@ -106,18 +104,18 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/pimsettingexporter.*
-%{_kf5_bindir}/pimsettingexporter
-%{_kf5_bindir}/pimsettingexporterconsole
-%{_kf5_datadir}/applications/org.kde.pimsettingexporter.desktop
-%{_kf5_metainfodir}/org.kde.pimsettingexporter.appdata.xml
-%{_kf5_datadir}/config.kcfg/pimsettingexporterglobalconfig.kcfg
+%{_kf5_bindir}/pimdataexporter
+%{_kf5_bindir}/pimdataexporterconsole
+%{_kf5_datadir}/applications/*.desktop
+%{_kf5_metainfodir}/*.appdata.xml
+%{_kf5_datadir}/config.kcfg/*.kcfg
 %{_kf5_datadir}/kconf_update/pimsettingexporter*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 
 %files libs
-%{_kf5_libdir}/libpimsettingexporterprivate.so.*
+%{_kf5_libdir}/*.so.*
 
 
 %changelog

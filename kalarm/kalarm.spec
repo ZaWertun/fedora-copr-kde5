@@ -124,7 +124,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kalarm.*
 %{_kf5_bindir}/kalarm
 %{_kf5_bindir}/kalarmautostart
 %{_kf5_libexecdir}/kauth/kalarm_helper
@@ -140,6 +139,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_datadir}/dbus-1/interfaces/org.kde.kalarm.kalarm.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kalarm.*
 %{_kf5_datadir}/kxmlgui5/kalarm/kalarmui.rc
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
