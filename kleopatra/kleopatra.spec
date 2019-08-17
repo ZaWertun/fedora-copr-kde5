@@ -84,7 +84,6 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kleopatra.*
 %{_kf5_bindir}/kleopatra
 %{_kf5_bindir}/kwatchgnupg
 %{_kf5_metainfodir}/org.kde.kleopatra.appdata.xml
@@ -95,6 +94,7 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 %{_kf5_datadir}/kleopatra/
 %{_kf5_datadir}/kwatchgnupg/
 %{_kf5_datadir}/icons/hicolor/*/apps/kleopatra.*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 

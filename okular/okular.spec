@@ -66,10 +66,6 @@ BuildRequires: cmake(Qt5Svg)
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(Qt5Quick)
 
-# okular-mobile
-#BuildRequires: kf5-purpose-devel
-#Requires: kf5-purpose%{?_isa}
-
 BuildRequires: pkgconfig(phonon4qt5)
 BuildRequires: cmake(Qca-qt5)
 
@@ -195,6 +191,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/kconf_update/okular.upd
 %{_mandir}/man1/okular.1*
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %if 0%{?mobile}
 %files mobile

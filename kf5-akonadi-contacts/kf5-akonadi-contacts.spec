@@ -111,8 +111,6 @@ xvfb-run -a \
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%{_kf5_sysconfdir}/xdg/%{framework}.*
-#{_kf5_sysconfdir}/xdg/contact-editor.*
 %{_kf5_libdir}/libKF5AkonadiContact.so.*
 %{_kf5_libdir}/libKF5ContactEditor.so.*
 %{_kf5_qtplugindir}/kcm_akonadicontact_actions.so
@@ -120,11 +118,8 @@ xvfb-run -a \
 %{_kf5_qtplugindir}/akonadi_serializer_*.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
 %{_kf5_datadir}/kservices5/akonadicontact_actions.desktop
-%dir %{_kf5_datadir}/kf5/akonadi/
 %{_kf5_datadir}/kf5/akonadi/contact/
-%dir %{_kf5_datadir}/kservices5/akonadi/
-%{_kf5_datadir}/kservices5/akonadi/contact/
-%{_kf5_datadir}/kservicetypes5/kaddressbookimprotocol.desktop
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/cmake/KF5AkonadiContact/

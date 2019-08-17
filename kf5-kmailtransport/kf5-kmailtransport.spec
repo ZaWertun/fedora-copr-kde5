@@ -115,13 +115,12 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kmailtransport.categories
-%{_kf5_sysconfdir}/xdg/kmailtransport.renamecategories
 %{_kf5_libdir}/libKF5MailTransport.so.*
 %{_kf5_datadir}/config.kcfg/mailtransport.kcfg
 %{_kf5_qtplugindir}/kcm_mailtransport.so
 %{_kf5_qtplugindir}/mailtransport/
 %{_kf5_datadir}/kservices5/kcm_mailtransport.desktop
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets akonadi
 

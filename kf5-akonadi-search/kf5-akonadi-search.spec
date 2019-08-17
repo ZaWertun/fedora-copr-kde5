@@ -96,13 +96,10 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_sysconfdir}/xdg/akonadi-search.categories
-%{_sysconfdir}/xdg/akonadi-search.renamecategories
 %{_kf5_libdir}/libKF5AkonadiSearchPIM.so.*
 %{_kf5_libdir}/libKF5AkonadiSearchCore.so.*
 %{_kf5_libdir}/libKF5AkonadiSearchXapian.so.*
 %{_kf5_libdir}/libKF5AkonadiSearchDebug.so.*
-
 %{_kf5_bindir}/akonadi_indexing_agent
 %{_kf5_datadir}/akonadi/agents/akonadiindexingagent.desktop
 %{_kf5_datadir}/kservices5/plasma-krunner-pimcontacts.desktop
@@ -110,6 +107,7 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/akonadi/
 %{_kf5_qtplugindir}/kcm_krunner_pimcontacts.so
 %{_kf5_qtplugindir}/krunner_pimcontacts.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/libKF5AkonadiSearchPIM.so

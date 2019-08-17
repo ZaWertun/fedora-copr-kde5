@@ -94,12 +94,11 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_sysconfdir}/xdg/kldap.*
 %{_kf5_libdir}/libKF5Ldap.so.*
 %{_kf5_plugindir}/kio/ldap.so
 %{_kf5_datadir}/kservices5/ldap.protocol
 %{_kf5_datadir}/kservices5/ldaps.protocol
-#{_kf5_docdir}/HTML/en/kioslave5/ldap/
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/kldap_version.h
