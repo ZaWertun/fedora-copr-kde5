@@ -109,6 +109,7 @@
     "kf5-messagelib"
   ],
   "7": [
+    "akonadi-calendar-tools",
     "akonadiconsole",
     "akregator",
     "grantlee-editor",
