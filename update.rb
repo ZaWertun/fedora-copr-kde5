@@ -16,11 +16,7 @@ def show(str)
 end
 
 def done?
-    if $?.success?
-        puts "\e[42m\e[30mDONE\e[0m\n\n"
-    else
-        puts "\e[41m\e[30mERROR\e[0m\n\n"; exit 2
-    end
+    exit(2) unless $?.success?
 end
 
 def last_ver(name)
@@ -37,16 +33,15 @@ rescue
 end
 
 if (last = last_ver name.gsub(/^kf5-/, ''))
-    puts "\e[92mLatest version: #{last}\e[0m\n\n"
+    padded = '%26s' % name
+    puts "#{padded} \e[92m#{last}\e[0m\n"
 end
 
 Dir.chdir(name) do
     old_version = `grep Version: *.spec`
     unless old_version.include?(version)
-        show "Bumping version"
         system "rpmdev-bumpspec -n #{version} --comment=\"#{version}\" *.spec"; done?
     end
 
-    show "Adding to GIT"
     system "git add ."; done?
 end
