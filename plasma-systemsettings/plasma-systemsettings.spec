@@ -111,6 +111,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 %dir %{_kf5_datadir}/kpackage/genericqml/
 %{_kf5_datadir}/kpackage/genericqml/org.kde.systemsettings.*/
 %{_sysconfdir}/xdg/systemsettings.categories
+%{_kf5_metainfodir}/*.metainfo.xml
 
 %files devel
 %{_includedir}/systemsettingsview/
