@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-kcalendarcore
-Version: 19.08.0
+Version: 19.08.1
 Release: 1%{?dist}
 Summary: The KCalendarCore Library
 
@@ -92,6 +92,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files devel
 %{_kf5_includedir}/KCalendarCore/*
+%{_kf5_includedir}/kcalcore_version.h
 %{_kf5_includedir}/kcalendarcore_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_KCalendarCore.pri
 %{_kf5_libdir}/libKF5CalendarCore.so
@@ -99,6 +100,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
+- 19.08.1
+
 * Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
 - 19.08.0
 

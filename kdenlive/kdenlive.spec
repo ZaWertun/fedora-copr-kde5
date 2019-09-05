@@ -1,7 +1,7 @@
 
 Name:    kdenlive
 Summary: Non-linear video editor
-Version: 19.08.0
+Version: 19.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -57,7 +57,7 @@ BuildRequires: cmake(KF5Declarative)
 BuildRequires: libappstream-glib
 
 BuildRequires: pkgconfig(libv4l2)
-BuildRequires: pkgconfig(mlt++) >= 6.6.0
+BuildRequires: pkgconfig(mlt++) >= 6.16.0
 %global mlt_version %(pkg-config --modversion mlt++ 2>/dev/null || echo 6.6.0)
 
 BuildRequires: pkgconfig(Qt5Concurrent)
@@ -159,14 +159,17 @@ fi
 %{_kf5_sysconfdir}/xdg/kdenlive_renderprofiles.knsrc
 %{_kf5_sysconfdir}/xdg/kdenlive_titles.knsrc
 %{_kf5_sysconfdir}/xdg/kdenlive_wipes.knsrc
-%{_kf5_sysconfdir}/xdg/kdenlive.categories
 %{_kf5_mandir}/man1/kdenlive.1*
 %{_kf5_mandir}/man1/kdenlive_render.1*
 # consider subpkg for multilib
 %{_kf5_qtplugindir}/mltpreview.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
+- 19.08.1
+
 * Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
 - 19.08.0
 

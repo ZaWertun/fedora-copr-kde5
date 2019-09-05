@@ -1,7 +1,7 @@
 %global framework libksieve
 
 Name:    kf5-%{framework}
-Version: 19.08.0
+Version: 19.08.1
 Release: 1%{?dist}
 Summary: Sieve support library
 
@@ -118,6 +118,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
+- 19.08.1
+
 * Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
 - 19.08.0
 
