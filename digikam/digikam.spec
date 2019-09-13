@@ -1,12 +1,24 @@
 
+# use ninja or not
+#global ninja 1
+
 Name:    digikam
 Summary: A digital camera accessing & photo management application
-Version: 6.1.0
+Version: 6.2.0
 Release: 1%{?dist}
 
 License: GPLv2+
 URL:     http://www.digikam.org/
 Source0: http://download.kde.org/%{?beta:un}stable/digikam/%{version}/digikam-%{version}%{?beta:-%{beta}}.tar.xz
+
+# workaround ppc64le FTBFS
+# https://bugs.kde.org/show_bug.cgi?id=404853
+%ifarch ppc64le
+%global facesengine -DENABLE_FACESENGINE_DNN:BOOL=OFF
+%endif
+
+# rawhide s390x is borked recently
+ExcludeArch: s390x
 
 # digiKam not listed as a media handler for pictures in Nautilus (#516447)
 # TODO: upstream me
@@ -15,8 +27,11 @@ Source10: digikam-import.desktop
 ## upstream patches
 
 ## upstreamable patches
-# doc-translated FTBFS, https://bugs.kde.org/show_bug.cgi?id=377597
-Patch101: digikam-5.7.0-glibc_powf64.patch
+Patch100: digikam-6.2.0-Wall.patch
+
+%if 0%{?ninja}
+BuildRequires: ninja-build
+%endif
 
 BuildRequires: boost-devel
 BuildRequires: eigen3-devel
@@ -25,6 +40,7 @@ BuildRequires: doxygen
 BuildRequires: extra-cmake-modules
 BuildRequires: gettext
 BuildRequires: gcc-c++
+BuildRequires: ImageMagick-devel ImageMagick-c++-devel
 BuildRequires: libjpeg-devel
 BuildRequires: libtiff-devel
 BuildRequires: marble-astro-devel
@@ -38,21 +54,22 @@ BuildRequires: pkgconfig(libgphoto2_port) pkgconfig(libusb-1.0) pkgconfig(libusb
 BuildRequires: pkgconfig(libpng) >= 1.2.7
 BuildRequires: pkgconfig(phonon4qt5)
 ## uses QtAv now (not available in fedora)
-#BuildRequires: pkgconfig(Qt5Multimedia) >= 5.6
 BuildRequires: pkgconfig(Qt5OpenGL)
 BuildRequires: pkgconfig(Qt5Svg)
-BuildRequires: pkgconfig(Qt5WebKit)
 BuildRequires: pkgconfig(Qt5XmlPatterns)
 BuildRequires: pkgconfig(Qt5X11Extras)
+BuildRequires: pkgconfig(Qt5WebKit)
 BuildRequires: pkgconfig(x11) pkgconfig(xproto)
-BuildRequires: pkgconfig(Qt5WebView)
-# fixme: f24's qt-5.6.x currently does not yet define qt5_qtwebengine_arches macro -- rex
 %if 0%{?qt5_qtwebengine_arches:1}
 %ifarch %{?qt5_qtwebengine_arches}
+%global qwebengine -DENABLE_QWEBENGINE:BOOL=ON
 BuildRequires: cmake(KF5AkonadiContact)
+BuildRequires: pkgconfig(Qt5WebEngine)
+%else
+BuildRequires: pkgconfig(Qt5WebKit)
 %endif
 %endif
-BuildRequires: kf5-libkipi-devel >= 16.03
+#BuildRequires: kf5-libkipi-devel >= 16.03
 BuildRequires: kf5-libksane-devel >= 16.03
 BuildRequires: kf5-kconfig-devel
 BuildRequires: kf5-kdoctools-devel
@@ -82,12 +99,7 @@ BuildRequires: expat-devel
 ## htmlexport plugin
 BuildRequires: pkgconfig(libxslt)
 ## RemoveRedeye
-%if 0%{?fedora} > 24
-%global opencv3 -DENABLE_OPENCV3:BOOL=ON
-BuildRequires: pkgconfig(opencv) >= 3
-%else
-BuildRequires: pkgconfig(opencv) >= 2.4.9
-%endif
+BuildRequires: pkgconfig(opencv) >= 3.1
 # Panorama plugin requires flex and bison
 BuildRequires: flex
 BuildRequires: bison
@@ -99,9 +111,10 @@ BuildRequires: pkgconfig(libpgf) >= 6.12.24
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 %if 0%{?fedora} > 21
+Recommends: %{name}-doc = %{version}-%{release}
 # expoblending assistant
 Recommends: hugin-base
-Recommends: kf5-kipi-plugins = %{version}-%{release}
+#Recommends: kf5-kipi-plugins
 # thumbnailers, better default access to mtp-enabled devices
 Recommends: kio-extras
 Recommends: qt5-qtbase-mysql%{?_isa}
@@ -118,18 +131,10 @@ An easy to use interface is provided to connect to your digital camera,
 preview the images and download and/or delete them.
 
 digiKam built-in image editor makes the common photo correction a simple task.
-The image editor is extensible via plugins, can also make use of the KIPI image
-handling plugins to extend its capabilities even further for photo
-manipulations, import and export, etc. Install the kf5-kipi-plugins packages
-to use them.
 
 %package libs
 Summary: Runtime libraries for %{name}
-%if 0%{?fedora} > 21
-Recommends: %{name} = %{version}-%{release}
-%else
 Requires: %{name} = %{version}-%{release}
-%endif
 %description libs
 %{summary}.
 
@@ -140,42 +145,61 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 This package contains the libraries, include files and other resources
 needed to develop applications using %{name}.
 
+%package doc
+Summary: Application handbooks
+Requires:  %{name} = %{version}-%{release}
+BuildArch: noarch
+%description doc
+%{summary}.
+
 
 %prep
 %setup -q -n %{name}-%{version}%{?beta:-%{beta}}
 
-#patch101 -p1 -b .glibc_powf64
-
 # EVIV2_MIN_VERSION
 sed -i -e "s|0.26|0.25|g" core/CMakeLists.txt
+
+%patch100 -p1 -b .Wall
 
 
 %build
 mkdir %{_target_platform}
 pushd %{_target_platform}
 %{cmake_kf5} .. \
+  %{?ninja:-G Ninja} \
   -DENABLE_AKONADICONTACTSUPPORT:BOOL=ON \
   -DENABLE_APPSTYLES:BOOL=ON \
   -DENABLE_KFILEMETADATASUPPORT:BOOL=ON \
   -DENABLE_MEDIAPLAYER:BOOL=OFF \
   -DENABLE_MYSQLSUPPORT:BOOL=ON \
   -DENABLE_INTERNALMYSQL:BOOL=ON \
-  %{?opencv3}
+  %{?facesengine} \
+  %{?qwebengine}
 popd
 
-%make_build -C %{_target_platform}
+%if 0%{?ninja}
+%ninja_build -C %{_target_platform}
+%else
+%make_build -C %{_target_platform} VERBOSE=
+%endif
 
 
 %install
-%make_install -C %{_target_platform}
+%if 0%{?ninja}
+%ninja_install -C %{_target_platform}
+%else
+make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%endif
 
 desktop-file-install --vendor="" \
   --dir=%{buildroot}%{_datadir}/applications/ \
   %{SOURCE10}
 
-%find_lang all --all-name --with-html
+%find_lang all --all-name --with-html || touch all.lang
 
-grep digikam.mo all.lang > digikam.lang
+grep digikam.mo all.lang > digikam.lang ||:
+grep HTML all.lang > digikam-doc.lang ||:
+grep kipiplugin all.lang > kipiplugin.lang ||:
 
 ## unpackaged files
 rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/libkvkontakte.mo
@@ -186,7 +210,7 @@ for i in %{buildroot}%{_kf5_datadir}/applications/*.desktop ; do
 desktop-file-validate $i ||:
 done
 
-%if 0%{?rhel} < 8
+%if 0%{?rhel} && 0%{?rhel} < 8
 %post
 touch --no-create %{_kf5_datadir}/icons/hicolor &> /dev/null || :
 
@@ -204,8 +228,8 @@ update-desktop-database -q &> /dev/null
 
 %files -f digikam.lang
 %doc AUTHORS ChangeLog
-%doc NEWS README.*
-%license COPYING*
+%doc NEWS README.md
+%license COPYING
 %{_kf5_bindir}/digikam
 %{_kf5_bindir}/digitaglinktree
 %{_kf5_bindir}/cleanup_digikamdb
@@ -213,13 +237,9 @@ update-desktop-database -q &> /dev/null
 %{_kf5_datadir}/kxmlgui5/digikam/
 %{_kf5_datadir}/kxmlgui5/showfoto/
 %{_kf5_datadir}/knotifications5/digikam.notifyrc
-#{_kf5_datadir}/kconf_update/adjustlevelstool.upd
-#{_kf5_datadir}/kservices5/digikamimageplugin_*.desktop
-#{_kf5_datadir}/kservicetypes5/digikamimageplugin.desktop
 %{_kf5_datadir}/digikam/
 %{_kf5_datadir}/showfoto/
 %{_kf5_datadir}/solid/actions/digikam*.desktop
-#{_kf5_metainfodir}/digiKam-ImagePlugin*xml
 %{_kf5_metainfodir}/org.kde.digikam.appdata.xml
 %{_kf5_metainfodir}/org.kde.showfoto.appdata.xml
 %{_kf5_datadir}/applications/digikam-import.desktop
@@ -227,26 +247,54 @@ update-desktop-database -q &> /dev/null
 %{_kf5_datadir}/applications/org.kde.showfoto.desktop
 %{_mandir}/man1/digitaglinktree.1*
 %{_mandir}/man1/cleanup_digikamdb.1*
-%{_kf5_datadir}/icons/hicolor/*
+%{_kf5_datadir}/icons/hicolor/*/*/*
+
+%files doc
+#-f digikam-doc.lang
 
 %ldconfig_scriptlets libs
 
 %files libs
-%{_kf5_libdir}/libdigikamcore.so*
-%{_kf5_libdir}/libdigikamdatabase.so*
-%{_kf5_libdir}/libdigikamgui.so*
-%{_kf5_qtplugindir}/digikam/bqm/Bqm_*.so
-%{_kf5_qtplugindir}/digikam/editor/Editor_*.so
-%{_kf5_qtplugindir}/digikam/generic/Generic_*.so
+%{_kf5_libdir}/libdigikamcore.so.*
+%{_kf5_libdir}/libdigikamdatabase.so.*
+%{_kf5_libdir}/libdigikamgui.so.*
+%{_kf5_qtplugindir}/digikam/
 
 %files devel
-%{_includedir}/digikam/*.h
-%{_kf5_libdir}/cmake/digikam/*.cmake
+%{_kf5_libdir}/libdigikamcore.so
+%{_kf5_libdir}/libdigikamdatabase.so
+%{_kf5_libdir}/libdigikamgui.so
+%{_kf5_libdir}/cmake/digikam/
+%{_includedir}/digikam/
 
 
 %changelog
-* Mon May 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.1.0-1
-- 6.1.0
+* Wed Jul 31 2019 Rex Dieter <rdieter@fedoraproject.org> - 6.2.0-1
+- digikam-6.2.0
+
+* Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 6.1.0-8
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Thu Jul 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 6.1.0-7
+- enable qwebengine support where available (#1728036)
+
+* Fri May 10 2019 Rex Dieter <rdieter@fedoraproject.org> - 6.1.0-6
+- digikam-6.1.0
+- drop kf5-kipi-plugins (now packaged separately
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> -  6.0.0-5
+- ExcludeArch: ppc64le (#1674809)
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 6.0.0-5
+- digikam-6.0.0
+- include kipi-plugins-5.9.0 here (for now)
+- %build: use ninja
+
+* Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.9.0-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Wed Jan 30 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.9.0-3
+- rebuild (exiv2)
 
 * Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 5.9.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
