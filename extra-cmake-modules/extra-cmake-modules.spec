@@ -48,9 +48,10 @@ BuildRequires: kf5-rpm-macros
 BuildRequires: qt5-qttools-devel
 # sphinx-build
 %if 0%{?fedora} || 0%{?rhel} > 7
-BuildRequires: python2-sphinx
+BuildRequires: python3-sphinx
+%global sphinx_build -DSphinx_BUILD_EXECUTABLE:PATH=%{_bindir}/sphinx-build-3
 %else
-BuildRequires: python-sphinx
+BuildRequires: python2-sphinx
 %endif
 %endif
 
@@ -88,10 +89,11 @@ pushd %{_target_platform}
 %{cmake_kf5} .. \
   -DBUILD_HTML_DOCS:BOOL=%{?docs:ON}%{!?docs:OFF} \
   -DBUILD_MAN_DOCS:BOOL=%{?docs:ON}%{!?docs:OFF} \
-  -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
+  -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF} \
+  %{?sphinx_build}
 popd
 
-make %{?_smp_mflags} -C %{_target_platform}
+%make_build -C %{_target_platform}
 
 
 %install
@@ -128,6 +130,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %changelog
 * Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
 - 5.62.0
+- Some changes has been taken from upstream spec, thanks to the Rex Dieter
 
 * Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
 - 5.61.0
