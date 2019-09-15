@@ -77,7 +77,7 @@ pushd %{_target_platform}
 %{cmake_kf5} ..
 popd
 
-make %{?_smp_mflags} -C %{_target_platform}
+%make_build -C %{_target_platform}
 
 
 %install
@@ -87,7 +87,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 #du -s  .
 #time optimizegraphics ||:
 du -s .
-/usr/sbin/hardlink -c -v %{buildroot}%{_datadir}/icons/
+hardlink -c -v %{buildroot}%{_datadir}/icons/
 du -s .
 
 # %%ghost icon.cache
@@ -101,47 +101,34 @@ test "$(grep '^Inherits=' %{buildroot}%{_datadir}/icons/breeze-dark/index.theme)
 
 %if 0%{?fedora} > 25 || 0%{?rhel} > 7
 ## trigger-based scriptlets
-%filetriggerin -- %{_datadir}/icons/breeze
-touch %{_datadir}/icons/breeze &> /dev/null || :
-
-%filetriggerin -- %{_datadir}/icons/breeze-dark
-touch %{_datadir}/icons/breeze-dark &> /dev/null || :
-
 %transfiletriggerin -- %{_datadir}/icons/breeze
-gtk-update-icon-cache %{_datadir}/icons/breeze &>/dev/null || :
+gtk-update-icon-cache --force %{_datadir}/icons/breeze &>/dev/null || :
 
 %transfiletriggerin -- %{_datadir}/icons/breeze-dark
-gtk-update-icon-cache %{_datadir}/icons/breeze-dark &>/dev/null || :
-
-# arg, looks like this case cannot be handled by triggers? -- rex
-%postun
-if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/breeze &> /dev/null || :
-touch --no-create %{_datadir}/icons/breeze-dark &> /dev/null || :
-fi
+gtk-update-icon-cache --force %{_datadir}/icons/breeze-dark &>/dev/null || :
 
 %transfiletriggerpostun -- %{_datadir}/icons/breeze
-gtk-update-icon-cache %{_datadir}/icons/breeze &>/dev/null || :
+gtk-update-icon-cache --force %{_datadir}/icons/breeze &>/dev/null || :
 
 %transfiletriggerpostun -- %{_datadir}/icons/breeze-dark
-gtk-update-icon-cache %{_datadir}/icons/breeze-dark &>/dev/null || :
+gtk-update-icon-cache --force %{_datadir}/icons/breeze-dark &>/dev/null || :
 
 %else
 ## classic scriptlets
 %post
-touch --no-create %{_kf5_datadir}/icons/breeze &> /dev/null || :
-touch --no-create %{_kf5_datadir}/icons/breeze-dark &> /dev/null || :
+touch --no-create %{_datadir}/icons/breeze &> /dev/null || :
+touch --no-create %{_datadir}/icons/breeze-dark &> /dev/null || :
 
 %posttrans
-gtk-update-icon-cache %{_kf5_datadir}/icons/breeze &> /dev/null || :
-gtk-update-icon-cache %{_kf5_datadir}/icons/breeze-dark &> /dev/null || :
+gtk-update-icon-cache %{_datadir}/icons/breeze &> /dev/null || :
+gtk-update-icon-cache %{_datadir}/icons/breeze-dark &> /dev/null || :
 
 %postun
 if [ $1 -eq 0 ] ; then
-  touch --no-create %{_kf5_datadir}/icons/breeze &> /dev/null || :
-  gtk-update-icon-cache %{_kf5_datadir}/icons/breeze &> /dev/null || :
-  touch --no-create %{_kf5_datadir}/icons/breeze-dark &> /dev/null || :
-  gtk-update-icon-cache %{_kf5_datadir}/icons/breze-dark &> /dev/null || :
+  touch --no-create %{_datadir}/icons/breeze &> /dev/null || :
+  gtk-update-icon-cache %{_datadir}/icons/breeze &> /dev/null || :
+  touch --no-create %{_datadir}/icons/breeze-dark &> /dev/null || :
+  gtk-update-icon-cache %{_datadir}/icons/breze-dark &> /dev/null || :
 fi
 %endif
 
@@ -164,20 +151,29 @@ fi
 * Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
 - 5.62.0
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+* Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
 - 5.60.0
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Sat Apr 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-2
+- simplify scriptlets (bug #1699280)
+
+* Mon Apr 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

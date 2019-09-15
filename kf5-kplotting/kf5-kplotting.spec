@@ -22,6 +22,7 @@ BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  pcre-devel
 BuildRequires:  perl-interpreter
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  cmake(Qt5UiPlugin)
 
 Requires:       kf5-filesystem >= %{majmin}
 
