@@ -1,7 +1,7 @@
 %global framework kxmlgui
 
 Name:    kf5-%{framework}
-Version: 5.61.0
+Version: 5.62.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for user-configurable main windows
 
@@ -94,6 +94,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kxmlgui5/
 
 
 %changelog
+* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+- 5.62.0
+
 * Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
 - 5.61.0
 

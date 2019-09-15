@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A KDE Frameworks 5 Tier 3 to organize user work into separate activities
-Version: 5.61.0
+Version: 5.62.0
 Release: 1%{?dist}
 
 License:        GPLv2+ and LGPLv2+
@@ -89,6 +89,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+- 5.62.0
+
 * Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
 - 5.61.0
 
