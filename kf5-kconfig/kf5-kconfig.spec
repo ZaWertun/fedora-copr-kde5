@@ -186,6 +186,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_libdir}/libKF5ConfigCore.so.*
 %{_kf5_libexecdir}/kconfig_compiler_kf5
 %{_kf5_libexecdir}/kconf_update
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets gui
 
