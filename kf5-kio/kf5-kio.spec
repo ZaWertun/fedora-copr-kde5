@@ -73,6 +73,7 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  zlib-devel
+BuildRequires:  cmake(Qt5UiPlugin)
 
 Requires:       %{name}-core%{?_isa} = %{version}-%{release}
 Requires:       %{name}-widgets%{?_isa} = %{version}-%{release}
@@ -190,7 +191,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libexecdir}/kio_http_cache_cleaner
 %{_kf5_libexecdir}/kpac_dhcp_helper
 %{_kf5_libexecdir}/kioexec
-%{_kf5_libexecdir}/kioslave
+%{_kf5_libexecdir}/kioslave5
 %{_kf5_libexecdir}/kiod5
 %{_kf5_bindir}/ktelnetservice5
 %{_kf5_bindir}/kcookiejar5
@@ -216,6 +217,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kconf_update/*
 %{_datadir}/dbus-1/services/org.kde.*.service
 %{_kf5_datadir}/qlogging-categories5/kio.categories
+%{_kf5_qtplugindir}/designer/*.so
 
 ## omitted since 5.45, security concerns? -- rex
 %if 0

@@ -29,6 +29,7 @@ BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtsvg-devel
+BuildRequires:  cmake(Qt5UiPlugin)
 
 Requires:       hicolor-icon-theme
 
@@ -72,6 +73,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKF5IconThemes.so.*
 %{_kf5_qtplugindir}/iconengines/KIconEnginePlugin.so
 %{_kf5_datadir}/qlogging-categories5/kiconthemes.categories
+%{_kf5_qtplugindir}/designer/*.so
 
 %files devel
 %{_kf5_includedir}/kiconthemes_version.h

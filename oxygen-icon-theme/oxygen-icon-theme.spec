@@ -93,7 +93,7 @@ pushd %{buildroot}%{_kf5_datadir}/icons/oxygen
 
 du -s  .
 
-/usr/sbin/hardlink -c -v %{buildroot}%{_kf5_datadir}/icons/oxygen
+hardlink -c -v %{buildroot}%{_kf5_datadir}/icons/oxygen
 
 du -s .
 
@@ -109,7 +109,7 @@ du -s .
 #Comparisons 901
 #Linked 901
 #saved 7737344
-/usr/sbin/hardlink -c -v %{buildroot}%{_kf5_datadir}/icons/oxygen
+hardlink -c -v %{buildroot}%{_kf5_datadir}/icons/oxygen
 
 du -s .
 %endif
@@ -120,20 +120,12 @@ mkdir -p %{buildroot}%{_kf5_datadir}/icons/oxygen/{16x16,22x22,24x24,32x32,36x36
 
 
 %if 0%{?fedora} > 25
-%filetriggerin -- %{_datadir}/icons/oxygen
-touch %{_datadir}/icons/oxygen &> /dev/null || :
-
+## trigger-based scriptlets
 %transfiletriggerin -- %{_datadir}/icons/oxygen
-gtk-update-icon-cache %{_datadir}/icons/oxygen &>/dev/null || :
-
-# arg, looks like this case cannot be handled by triggers? -- rex
-%postun
-if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/oxygen &> /dev/null || :
-fi
+gtk-update-icon-cache --force %{_datadir}/icons/oxygen &>/dev/null || :
 
 %transfiletriggerpostun -- %{_datadir}/icons/oxygen
-gtk-update-icon-cache %{_datadir}/icons/oxygen &>/dev/null || :
+gtk-update-icon-cache --force %{_datadir}/icons/oxygen &>/dev/null || :
 
 %else
 # classic scriptlets

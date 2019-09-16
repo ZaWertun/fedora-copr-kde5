@@ -35,6 +35,7 @@ BuildRequires:  kf5-rpm-macros
 BuildRequires:  libX11-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtbase-private-devel
+BuildRequires:  cmake(Qt5UiPlugin)
 %{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 %description
@@ -84,6 +85,8 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kxmlgui5/
 %{_kf5_libexecdir}/ksendbugmail
 %dir %{_kf5_datadir}/kxmlgui5/
 %{_kf5_datadir}/qlogging-categories5/kxmlgui.categories
+%{_kf5_qtplugindir}/designer/*.so
+
 
 %files devel
 %{_kf5_includedir}/kxmlgui_version.h

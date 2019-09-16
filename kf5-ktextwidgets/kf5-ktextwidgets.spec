@@ -29,6 +29,7 @@ BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-sonnet-devel >= %{majmin}
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  cmake(Qt5UiPlugin)
 
 %if !0%{?bootstrap}
 %if 0%{?fedora}
@@ -76,6 +77,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5TextWidgets.so.*
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_qtplugindir}/designer/*.so
 
 %files devel
 %{_kf5_includedir}/ktextwidgets_version.h

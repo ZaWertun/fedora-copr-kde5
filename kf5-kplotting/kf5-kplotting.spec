@@ -68,6 +68,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKF5Plotting.so
 %{_kf5_libdir}/cmake/KF5Plotting/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KPlotting.pri
+%{_kf5_qtplugindir}/designer/*.so
 
 
 %changelog

@@ -62,6 +62,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %doc README.md
 %license COPYING COPYING.LIB
 %{_kf5_libdir}/libKF5ItemViews.so.*
+%{_kf5_qtplugindir}/designer/*.so
 
 %files devel
 %{_kf5_includedir}/kitemviews_version.h
@@ -69,7 +70,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKF5ItemViews.so
 %{_kf5_libdir}/cmake/KF5ItemViews/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KItemViews.pri
-%{_kf5_qtplugindir}/*.so
 
 
 %changelog

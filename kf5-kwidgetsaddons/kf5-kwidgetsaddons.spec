@@ -63,6 +63,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5WidgetsAddons.so.*
 %{_kf5_datadir}/kf5/kcharselect/
+%{_kf5_qtplugindir}/designer/*.so
+
 
 %files devel
 %{_kf5_includedir}/kwidgetsaddons_version.h

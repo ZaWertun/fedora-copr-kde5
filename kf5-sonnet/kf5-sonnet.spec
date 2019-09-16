@@ -112,6 +112,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_bindir}/gentrigrams
 %dir %{_kf5_datadir}/kf5/sonnet/
 %{_kf5_datadir}/kf5/sonnet/trigrams.map
+%{_kf5_qtplugindir}/designer/*.so
 
 %ldconfig_scriptlets ui
 

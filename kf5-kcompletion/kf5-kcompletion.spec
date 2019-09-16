@@ -21,6 +21,7 @@ BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  cmake(Qt5UiPlugin)
 
 BuildRequires:  pkgconfig(Qt5Widgets)
 
@@ -63,6 +64,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %doc README.md
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5Completion.so.*
+%{_kf5_qtplugindir}/designer/*.so
 
 %files devel
 %{_kf5_includedir}/kcompletion_version.h

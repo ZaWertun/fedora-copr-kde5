@@ -28,6 +28,7 @@ BuildRequires:  kf5-ki18n-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  cmake(Qt5UiPlugin)
 
 %description
 KConfigWidgets provides easy-to-use classes to create configuration dialogs, as
@@ -73,6 +74,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 ## fixme: %%lang'ify these -- rex
 %{_kf5_datadir}/locale/*/kf5_entry.desktop
 %{_kf5_datadir}/qlogging-categories5/kconfigwidgets.categories
+%{_kf5_qtplugindir}/designer/*.so
 
 %files devel
 %{_kf5_bindir}/preparetips5
