@@ -98,7 +98,8 @@
     "kf5-purpose"
   ],
   "12": [
-    "kf5-kactivities"
+    "kf5-kactivities",
+    "kf5-kdesignerplugin"
   ],
   "13": [
     "kf5-kactivities-stats",
