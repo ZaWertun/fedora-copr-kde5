@@ -1,5 +1,5 @@
 Name:    plasma-workspace-wallpapers
-Version: 5.15.5
+Version: 5.16.5
 Release: 1%{?dist}
 Summary: Additional wallpapers for Plasma workspace
 License: LGPLv3
@@ -54,9 +54,11 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_datadir}/wallpapers/BytheWater/
 %{_datadir}/wallpapers/Canopee/
 %{_datadir}/wallpapers/Cascade/
+%{_datadir}/wallpapers/Cluster/
 %{_datadir}/wallpapers/ColdRipple/
 %{_datadir}/wallpapers/ColorfulCups/
 %{_datadir}/wallpapers/DarkestHour/
+%{_datadir}/wallpapers/Elarun/
 %{_datadir}/wallpapers/EveningGlow/
 %{_datadir}/wallpapers/FallenLeaf/
 %{_datadir}/wallpapers/FlyingKonqui/
@@ -67,10 +69,14 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_datadir}/wallpapers/Opal/
 %{_datadir}/wallpapers/PastelHills/
 %{_datadir}/wallpapers/Path/
+%{_datadir}/wallpapers/SafeLanding/
 %{_datadir}/wallpapers/summer_1am/
 
 
 %changelog
+* Sun Sep 22 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+- 5.16.5
+
 * Wed May 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
 - 5.15.5
 

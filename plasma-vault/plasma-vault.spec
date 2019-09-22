@@ -2,7 +2,7 @@
 
 Name:    plasma-vault
 Summary: Plasma Vault offers strong encryption features in a user-friendly way
-Version: 5.15.5
+Version: 5.16.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -64,14 +64,36 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.vault/
 %{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.vault.desktop
 %{_kf5_metainfodir}/org.kde.plasma.vault.appdata.xml
+%{_kf5_plugindir}/kfileitemaction/*.so
 
 
 %changelog
-* Wed May 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+* Sun Sep 22 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+- 5.16.5
+
+* Thu May 09 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.5-1
 - 5.15.5
 
-* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
-- 5.14.5
+* Wed Apr 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4-1
+- 5.15.4
+
+* Tue Mar 12 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3-1
+- 5.15.3
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-1
+- 5.15.2
+
+* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.1-1
+- 5.15.1
+
+* Wed Feb 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.0-1
+- 5.15.0
+
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sun Jan 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.14.90-1
+- 5.14.90
 
 * Tue Nov 27 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.14.4-1
 - 5.14.4

@@ -20,6 +20,7 @@
     "plasma-pa",
     "plasma-sdk",
     "plasma-user-manager",
+    "plasma-workspace-wallpapers",
     "polkit-kde",
     "sddm-kcm",
     "xdg-desktop-portal-kde"
@@ -28,7 +29,8 @@
     "kscreen",
     "ksysguard",
     "plasma-breeze",
-    "plasma-oxygen"
+    "plasma-oxygen",
+    "plasma-vault"
   ],
   "2": [
     "breeze-gtk",

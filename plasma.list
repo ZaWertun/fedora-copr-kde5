@@ -2,8 +2,8 @@ bluedevil
 breeze-gtk
 kactivitymanagerd
 kde-cli-tools
-kdecoration
 kde-gtk-config
+kdecoration
 kdeplasma-addons
 khotkeys
 kinfocenter
@@ -31,7 +31,9 @@ plasma-pa
 plasma-sdk
 plasma-systemsettings
 plasma-user-manager
+plasma-vault
 plasma-workspace
+plasma-workspace-wallpapers
 polkit-kde
 powerdevil
 sddm-kcm
