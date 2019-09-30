@@ -1,7 +1,7 @@
 
 Name:           kde-connect
-Version:        1.3.4
-Release:        3%{?dist}
+Version:        1.3.5
+Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -115,12 +115,12 @@ install -m644 -p -D %{SOURCE2} %{buildroot}%{_prefix}/lib/firewalld/services/kde
 %find_lang %{name} --all-name --with-html
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1296523
-desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autostart/kdeconnectd.desktop
+desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 
 
 %check
-desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kdeconnect.kcm.desktop
-desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kdeconnect.nonplasma.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
+desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop
 
 
 %files -f %{name}.lang
@@ -135,9 +135,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kdeconnect.no
 %{_datadir}/icons/hicolor/*/apps/kdeconnect.*
 %{_datadir}/icons/hicolor/*/status/*
 %{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml
-%{_datadir}/applications/org.kde.kdeconnect.kcm.desktop
-%{_datadir}/applications/org.kde.kdeconnect.nonplasma.desktop
-%{_datadir}/applications/org.kde.kdeconnect.telhandler.desktop
+%{_datadir}/applications/*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
 
 %post -n kdeconnectd
@@ -149,7 +147,7 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %files -n kdeconnectd
-%{_sysconfdir}/xdg/autostart/kdeconnectd.desktop
+%{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_libexecdir}/kdeconnectd
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 %{_prefix}/lib/firewalld/services/kde-connect.xml
@@ -168,6 +166,9 @@ fi
 
 
 %changelog
+* Mon Sep 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.5-1
+- 1.3.5
+
 * Wed Jun 26 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.4-3
 - 1.3.4
 
