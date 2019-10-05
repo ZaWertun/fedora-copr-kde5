@@ -1,5 +1,5 @@
 Name:           kio-gdrive
-Version:        1.2.6
+Version:        1.2.7
 Release:        1%{?dist}
 Summary:        An Google Drive KIO slave for KDE
 
@@ -56,8 +56,20 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.appdata
 %{_kf5_datadir}/metainfo/org.kde.kio-gdrive.appdata.xml
 
 %changelog
-* Fri May 24 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.2.6-1
-- 1.2.6
+* Fri Sep 06 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.7-1
+- Update to 1.2.7
+
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.6-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Mon Jun 24 2019 Vasiliy N. Glazov <vascom2@gmail.com> 1.2.6-2
+- Rebuild
+
+* Mon May 20 2019 Vasiliy N. Glazov <vascom2@gmail.com> 1.2.6-1
+- Update to 1.2.6
+
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
 * Wed Oct 24 2018 Vasiliy N. Glazov <vascom2@gmail.com> 1.2.5-1
 - Update to 1.2.5
