@@ -1,0 +1,18 @@
+{
+  "0": [
+    "kf5-kwayland",
+    "kf5-kxmlgui"
+  ],
+  "1": [
+    "kf5-akonadi-server",
+    "kf5-frameworkintegration",
+    "kf5-kdeclarative"
+  ],
+  "2": [
+    "kwin",
+    "plasma-desktop",
+    "kwin-lowlatency",
+    "plasma-integration",
+    "xdg-desktop-portal-kde"
+  ]
+}
