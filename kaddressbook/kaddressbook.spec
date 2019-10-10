@@ -8,7 +8,7 @@
 
 Name:    kaddressbook
 Summary: Contact Manager
-Version: 19.08.1
+Version: 19.08.2
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -143,6 +143,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
+- 19.08.2
+
 * Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
 - 19.08.1
 

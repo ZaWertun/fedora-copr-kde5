@@ -2,7 +2,7 @@ Name:    khelpcenter
 Summary: Show documentation for KDE applications
 # Override khelpcenter subpackage from kde-runtime-15.04 (no longer built)
 Epoch:   1
-Version: 19.08.1
+Version: 19.08.2
 Release: 1%{?dist}
 
 License: GPLv2 or GPLv3
@@ -102,6 +102,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop
 
 
 %changelog
+* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.08.2-1
+- 19.08.2
+
 * Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.08.1-1
 - 19.08.1
 

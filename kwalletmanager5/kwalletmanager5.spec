@@ -8,7 +8,7 @@
 
 Name:    kwalletmanager5
 Summary: Manage KDE passwords
-Version: 19.08.1
+Version: 19.08.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
+- 19.08.2
+
 * Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
 - 19.08.1
 
