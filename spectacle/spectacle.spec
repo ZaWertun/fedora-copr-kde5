@@ -35,6 +35,7 @@ BuildRequires: kf5-kio-devel
 BuildRequires: kf5-kxmlgui-devel
 BuildRequires: kf5-kwindowsystem-devel
 BuildRequires: kf5-kdoctools-devel
+BuildRequires: kf5-kwayland-devel
 
 BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Screen)
