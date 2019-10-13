@@ -116,6 +116,7 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_includedir}/Kirigami2/
 %{_kf5_archdatadir}/mkspecs/modules/qt_Kirigami2.pri
 %{_kf5_libdir}/cmake/KF5Kirigami2/
+%{_kf5_datadir}/kdevappwizard/templates/kirigami.tar.bz2
 
 
 %changelog
