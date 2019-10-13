@@ -8,7 +8,7 @@
 
 Name:    extra-cmake-modules
 Summary: Additional modules for CMake build system
-Version: 5.62.0
+Version: 5.63.0
 Release: 1%{?dist}
 
 License: BSD
@@ -128,6 +128,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+- 5.63.0
+
 * Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
 - 5.62.0
 - Some changes has been taken from upstream spec, thanks to the Rex Dieter

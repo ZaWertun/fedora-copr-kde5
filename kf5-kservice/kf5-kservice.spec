@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 3 solution for advanced plugin and service introspection
-Version: 5.62.0
+Version: 5.63.0
 Release: 1%{?dist}
 
 # mixture of LGPLv2 and LGPLv2+ (mostly the latter)
@@ -109,6 +109,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kservicetypes5
 
 
 %changelog
+* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+- 5.63.0
+
 * Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
 - 5.62.0
 
