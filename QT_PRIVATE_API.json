@@ -10,9 +10,11 @@
   ],
   "2": [
     "kwin",
-    "plasma-desktop",
     "kwin-lowlatency",
     "plasma-integration",
     "xdg-desktop-portal-kde"
+  ],
+  "3": [
+    "plasma-desktop"
   ]
 }
