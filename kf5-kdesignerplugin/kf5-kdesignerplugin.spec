@@ -18,7 +18,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/portingAids/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
@@ -86,9 +86,6 @@ cat kdesignerplugin5_qt.lang %{name}-man.lang > %{name}.lang
 %doc README.md
 %license COPYING.LIB
 %{_kf5_bindir}/kgendesignerplugin
-%{_kf5_qtplugindir}/designer/kf5widgets.so
-%dir %{_kf5_datadir}/kf5/widgets/
-%{_kf5_datadir}/kf5/widgets/*
 %{_kf5_mandir}/man1/kgendesignerplugin.1*
 # runtime config, no need for -devel pkg
 %{_kf5_libdir}/cmake/KF5DesignerPlugin/

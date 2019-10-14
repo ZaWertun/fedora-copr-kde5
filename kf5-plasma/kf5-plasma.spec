@@ -150,6 +150,7 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_mandir}/man1/plasmapkg2.1.*
+%{_kf5_datadir}/qlogging-categories5/*categories
 # can find_lang handle this too somehow? -- rex
 %lang(lt) %{_datadir}/locale/lt/LC_SCRIPTS/libplasma5/
 

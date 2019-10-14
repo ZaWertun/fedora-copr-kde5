@@ -70,7 +70,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKF5People.so.*
 %{_kf5_libdir}/libKF5PeopleWidgets.so.*
 %{_kf5_libdir}/libKF5PeopleBackend.so.*
-%{_kf5_datadir}/kf5/kpeople/
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_qmldir}/org/kde/people/
 %{_kf5_datadir}/qlogging-categories5/kpeople.categories

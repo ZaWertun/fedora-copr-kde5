@@ -68,7 +68,6 @@ make test -C %{_target_platform}
 %files
 %doc MAINTAINER README.developers TODO
 %license COPYING*
-%{_sysconfdir}/xdg/*.categories
 %{_kf5_libdir}/libKF5ActivitiesStats.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
