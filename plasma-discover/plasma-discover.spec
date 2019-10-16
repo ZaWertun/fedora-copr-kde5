@@ -6,7 +6,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -118,9 +118,9 @@ Supplements: (%{name} and snapd)
 %autosetup -p1 -n discover-%{version}
 
 # disable update notifier applet by default, since fedora uses plasma-pk-updates
-sed -i \
-  -e 's|X-KDE-PluginInfo-EnabledByDefault=.*|X-KDE-PluginInfo-EnabledByDefault=false|g' \
-  notifier/plasmoid/metadata.desktop
+#sed -i \
+#  -e 's|X-KDE-PluginInfo-EnabledByDefault=.*|X-KDE-PluginInfo-EnabledByDefault=false|g' \
+#  notifier/plasmoid/metadata.desktop
 
 
 %build
@@ -138,9 +138,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %find_lang libdiscover
 %find_lang plasma-discover --with-html
 %find_lang plasma-discover-notifier
-%find_lang plasma_applet_org.kde.discovernotifier
-
-cat plasma_applet_org.kde.discovernotifier.lang >> plasma-discover-notifier.lang
 
 
 %check
@@ -168,17 +165,15 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %dir %{_libexecdir}/discover
 
 %files notifier -f plasma-discover-notifier.lang
-%{_datadir}/plasma/plasmoids/org.kde.discovernotifier/
-%{_datadir}/kservices5/plasma-applet-org.kde.discovernotifier.desktop
-%{_qt5_qmldir}/org/kde/discovernotifier/
 %{_datadir}/knotifications5/discoverabstractnotifier.notifyrc
-%{_kf5_metainfodir}/org.kde.discovernotifier.appdata.xml
+%{_sysconfdir}/xdg/autostart/org.kde.discover.notifier.desktop
+%{_datadir}/applications/org.kde.discover.notifier.desktop
+%{_libexecdir}/DiscoverNotifier
 
 %ldconfig_scriptlets libs
 
 %files libs -f libdiscover.lang
 %license COPYING COPYING.LIB
-%{_kf5_sysconfdir}/xdg/discover.categories
 %{_datadir}/knsrcfiles/discover_ktexteditor_codesnippets_core.knsrc
 %dir %{_libdir}/plasma-discover/
 %{_libdir}/plasma-discover/libDiscoverNotifiers.so
@@ -191,6 +186,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %dir %{_datadir}/libdiscover
 %dir %{_datadir}/libdiscover/categories
 %{_datadir}/libdiscover/categories/packagekit-backend-categories.xml
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files flatpak
 %{_datadir}/applications/org.kde.discover-flatpak.desktop
@@ -212,6 +208,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

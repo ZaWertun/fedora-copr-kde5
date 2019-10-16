@@ -2,7 +2,7 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -84,7 +84,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libKF5Screen.so.7*
 %{_kf5_plugindir}/kscreen/
 %{_datadir}/dbus-1/services/org.kde.kscreen.service
-%{_kf5_sysconfdir}/xdg/%{base_name}.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
+
 
 %files devel
 %{_kf5_includedir}/KScreen/
@@ -96,6 +97,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

@@ -6,7 +6,7 @@
 %global         build_kde4  1
 
 Name:    plasma-breeze
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
@@ -151,7 +151,6 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 %{_kf5_libdir}/kconf_update_bin/kde4breeze
 # used by breezedecoration
 %{_libdir}/libbreezecommon5.so.5*
-%{_kf5_qmldir}/QtQuick/Controls/Styles/Breeze
 %{_bindir}/breeze-settings5
 %{_datadir}/icons/hicolor/*/apps/breeze-settings.*
 %{_kf5_datadir}/kservices5/breezedecorationconfig.desktop
@@ -193,6 +192,9 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

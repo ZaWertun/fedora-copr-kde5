@@ -34,9 +34,9 @@ diff -up plasma-workspace-5.12.5/containmentactions/contextmenu/menu.cpp.konsole
 +        m_runKonsoleAction->setIcon(QIcon::fromTheme("utilities-terminal"));
 +        connect(m_runKonsoleAction, &QAction::triggered, this, &ContextMenu::runKonsole);
 +
-         m_runCommandAction = new QAction(i18nc("plasma_containmentactions_contextmenu", "Run Command..."), this);
-         m_runCommandAction->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
-         m_runCommandAction->setShortcut(KGlobalAccel::self()->globalShortcut(QStringLiteral("krunner"), QStringLiteral("run command")).value(0));
+         m_runCommandAction = new QAction(i18nc("plasma_containmentactions_contextmenu", "Show KRunner"), this);
+         m_runCommandAction->setIcon(QIcon::fromTheme(QStringLiteral("plasma-search")));
+         m_runCommandAction->setShortcut(KGlobalAccel::self()->globalShortcut(QStringLiteral("krunner.desktop"), QStringLiteral("_launch")).value(0));
 @@ -165,6 +171,8 @@ QAction *ContextMenu::action(const QStri
          if (c->corona() && c->corona()->immutability() == Plasma::Types::Mutable) {
              return c->corona()->actions()->action(QStringLiteral("add panel"));

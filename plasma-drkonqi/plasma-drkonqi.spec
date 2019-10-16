@@ -2,7 +2,7 @@
 
 Name:    plasma-drkonqi
 Summary: DrKonqi crash handler for KF5/Plasma5
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -90,9 +90,12 @@ fi
 %{_libexecdir}/installdbgsymbols.sh
 %{_kf5_datadir}/drkonqi/
 %{_kf5_datadir}/applications/org.kde.*.desktop
-%{_sysconfdir}/xdg/drkonqi.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

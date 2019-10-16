@@ -2,7 +2,7 @@
 
 Name:    plasma-user-manager
 Summary: Manage the users of your system
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -71,10 +71,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/user_manager.so
 %{_kf5_datadir}/kservices5/user_manager.desktop
 %{_kf5_datadir}/user-manager/
-%{_kf5_sysconfdir}/xdg/%{base_name}.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

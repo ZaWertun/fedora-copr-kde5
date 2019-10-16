@@ -2,7 +2,7 @@
 
 Name:    plasma-browser-integration
 Summary: %{base_name} provides components necessary to integrate browsers into the Plasma Desktop
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -35,6 +35,9 @@ BuildRequires:  cmake(KF5Notifications)
 BuildRequires:  cmake(KF5Runner)
 BuildRequires:  cmake(KF5WindowSystem)
 BuildRequires:  cmake(KF5Activities)
+BuildRequires:  cmake(KF5Crash)
+BuildRequires:  cmake(KF5Purpose)
+BuildRequires:  cmake(KF5FileMetaData)
 
 Supplements: (plasma-workspace and chromium)
 Supplements: (plasma-workspace and firefox)
@@ -78,6 +81,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

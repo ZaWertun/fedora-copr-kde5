@@ -9,8 +9,8 @@
 %endif
 
 Name:    kwin
-Version: 5.16.5
-Release: 2%{?dist}
+Version: 5.17.0
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 # all sources are effectively GPLv2+, except for:
@@ -30,9 +30,9 @@ URL:     https://userbase.kde.org/KWin
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
-# _GTK_FRAME_EXTENTS support for KWin/X11,
-#   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
-Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
+## _GTK_FRAME_EXTENTS support for KWin/X11,
+##   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
+#Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
 
 ## upstream patches
 
@@ -234,6 +234,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files
 %{_bindir}/kwin
 %{_bindir}/kwin_x11
+%{_kf5_datadir}/kconf_update/kwin*.sh
 %{_kf5_libdir}/libkdeinit5_kwin_x11.so
 
 %files common -f kwin5.lang
@@ -277,7 +278,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %ldconfig_scriptlets libs
 
 %files libs
-%{_sysconfdir}/xdg/org_kde_kwin.categories
 %{_libdir}/libkwin.so.*
 %{_libdir}/libkwinxrenderutils.so.*
 %{_libdir}/libkwineffects.so.*
@@ -285,6 +285,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwin4_effect_builtins.so.*
 %{_libdir}/libkcmkwincommon.so.*
 %{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
@@ -300,6 +301,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Sun Oct 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-2
 - rebuild with new qt5
 

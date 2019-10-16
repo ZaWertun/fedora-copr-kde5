@@ -1,6 +1,6 @@
 Name:           kactivitymanagerd
 Summary:        Plasma service to manage user's activities
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 License:        GPLv2+
@@ -79,10 +79,13 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 %{_kf5_datadir}/dbus-1/services/org.kde.activitymanager.service
 %{_kf5_datadir}/kservices5/kactivitymanagerd.desktop
 %{_kf5_datadir}/kservicetypes5/kactivitymanagerd-plugin.desktop
-%{_kf5_sysconfdir}/xdg/%{name}.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

@@ -1,6 +1,6 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -91,7 +91,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libksignalplotter.so.*
 %{_kf5_libdir}/libksgrd.so.*
 %{_kf5_datadir}/ksysguard
-%{_sysconfdir}/xdg/libksysguard.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files common
 %{_kf5_libexecdir}/kauth/ksysguardprocesslist_helper
@@ -110,6 +110,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

@@ -1,7 +1,7 @@
 %global         base_name oxygen
 
 Name:    plasma-%{base_name}
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 Summary: Plasma and Qt widget style and window decorations for Plasma 5 and KDE 4
 
@@ -198,6 +198,7 @@ fi
 %{_kf5_datadir}/kservices5/oxygenstyleconfig.desktop
 %{_kf5_datadir}/kstyle/themes/oxygen.themerc
 %{_kf5_datadir}/icons/hicolor/*/apps/oxygen-settings.*
+%{_kf5_datadir}/color-schemes/*.colors
 
 %if 0%{?fedora}
 %files -n   oxygen-cursor-themes
@@ -214,6 +215,9 @@ fi
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

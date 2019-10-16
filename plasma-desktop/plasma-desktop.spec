@@ -3,8 +3,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.16.5
-Release: 2%{?dist}
+Version: 5.17.0
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -273,13 +273,11 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_kf5_datadir}/kcmmouse/
 %endif
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_kimpanel.so
-%{_kf5_datadir}/color-schemes
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kdisplay
 %{_kf5_datadir}/kcontrol
 %{_kf5_datadir}/kcmkeys
 %{_kf5_datadir}/kcm_componentchooser
-%{_kf5_datadir}/kcm_phonon
 %{_kf5_datadir}/kfontinst
 %{_kf5_datadir}/kcmkeyboard
 %{_kf5_datadir}/kpackage/kcms/*
@@ -288,7 +286,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_kf5_datadir}/kcmsolidactions/
 %{_kf5_datadir}/solid/devices/*.desktop
 %{_kf5_datadir}/dbus-1/system.d/*.conf
-%{_sysconfdir}/xdg/*.categories
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/ServiceMenus/installfont.desktop
@@ -312,6 +309,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Sun Oct 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-2
 - rebuild with new qt5
 

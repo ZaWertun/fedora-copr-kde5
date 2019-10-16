@@ -1,7 +1,7 @@
 %global  wayland_min_version 1.3
 
 Name:    kwayland-integration
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 Summary: Provides integration plugins for various KDE Frameworks for Wayland
 
@@ -24,6 +24,7 @@ BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-kidletime-devel
 BuildRequires:  kf5-kwindowsystem-devel
 BuildRequires:  kf5-kwayland-devel
+BuildRequires:  kf5-kguiaddons-devel
 
 Requires:       kf5-filesystem
 
@@ -53,12 +54,16 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files
 %license COPYING.LIB
+%{_kf5_plugindir}/kguiaddons/kmodifierkey/kmodifierkey_wayland.so
 %{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeKWaylandPlugin.so
 %{_kf5_plugindir}/org.kde.kwindowsystem.platforms/KF5WindowSystemKWaylandPlugin.so
-%{_sysconfdir}/xdg/kwindowsystem.kwayland.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

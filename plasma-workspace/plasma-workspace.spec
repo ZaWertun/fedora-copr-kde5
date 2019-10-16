@@ -6,8 +6,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.16.5
-Release: 1%{?dist}
+Version: 5.17.0
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -54,7 +54,6 @@ BuildRequires:  zlib-devel
 BuildRequires:  dbusmenu-qt5-devel
 BuildRequires:  libGL-devel
 BuildRequires:  mesa-libGLES-devel
-#BuildRequires:  wayland-devel
 BuildRequires:  libSM-devel
 BuildRequires:  libX11-devel
 BuildRequires:  libXau-devel
@@ -129,7 +128,9 @@ BuildRequires:  wayland-devel >= 1.3.0
 BuildRequires:  libkscreen-qt5-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  kwin-devel >= %{majmin_ver}
-BuildRequires:  kf5-kded-devel >= %{majmin_ver}
+BuildRequires:  kf5-kactivities-stats-devel >= %{kf5_version_min}
+BuildRequires:  kf5-kpeople-devel >= %{kf5_version_min}
+BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
 
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
@@ -140,6 +141,49 @@ BuildRequires:  cmake(AppStreamQt) >= 0.10.4
 
 # when kded_desktopnotifier.so moved here
 Conflicts:      kio-extras < 5.4.0
+
+# Conflict with /usr/share/locale/ru/LC_MESSAGES/libkicker.mo
+#   and maybe some other files
+Conflicts:      kde-i18n-Czech
+Conflicts:      kde-i18n-Dutch
+Conflicts:      kde-i18n-Greek
+Conflicts:      kde-i18n-Hindi
+Conflicts:      kde-i18n-Tamil
+Conflicts:      kde-i18n-Arabic
+Conflicts:      kde-i18n-Brazil
+Conflicts:      kde-i18n-Danish
+Conflicts:      kde-i18n-French
+Conflicts:      kde-i18n-German
+Conflicts:      kde-i18n-Hebrew
+Conflicts:      kde-i18n-Korean
+Conflicts:      kde-i18n-Polish
+Conflicts:      kde-i18n-Slovak
+Conflicts:      kde-i18n-Russian
+Conflicts:      kde-i18n-Bengali
+Conflicts:      kde-i18n-British
+Conflicts:      kde-i18n-Catalan
+Conflicts:      kde-i18n-Chinese
+Conflicts:      kde-i18n-Finnish
+Conflicts:      kde-i18n-Italian
+Conflicts:      kde-i18n-Punjabi
+Conflicts:      kde-i18n-Russian
+Conflicts:      kde-i18n-Serbian
+Conflicts:      kde-i18n-Spanish
+Conflicts:      kde-i18n-Swedish
+Conflicts:      kde-i18n-Turkish
+Conflicts:      kde-i18n-Estonian
+Conflicts:      kde-i18n-Japanese
+Conflicts:      kde-i18n-Romanian
+Conflicts:      kde-i18n-Bulgarian
+Conflicts:      kde-i18n-Hungarian
+Conflicts:      kde-i18n-Icelandic
+Conflicts:      kde-i18n-Norwegian
+Conflicts:      kde-i18n-Slovenian
+Conflicts:      kde-i18n-Ukrainian
+Conflicts:      kde-i18n-Lithuanian
+Conflicts:      kde-i18n-Portuguese
+Conflicts:      kde-i18n-Chinese-Big5
+Conflicts:      kde-i18n-Norwegian-Nynorsk
 
 %if 0%{?fedora} > 21
 Recommends:     %{name}-geolocation = %{version}-%{release}
@@ -381,7 +425,7 @@ EOL
 
 
 # highlight the use of wayland
-sed -i.plasmawayland -e "s|Plasma|Plasma (Wayland)|g" plasmawayland.desktop.cmake
+sed -i.plasmawayland -e "s|Plasma|Plasma (Wayland)|g" login-sessions/plasmawayland.desktop.cmake
 
 
 %build
@@ -438,20 +482,19 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 %files -f %{name}.lang
 %{_kf5_bindir}/gmenudbusmenuproxy
-%{_kf5_bindir}/kcheckrunning
 %{_kf5_bindir}/kcminit
 %{_kf5_bindir}/kcminit_startup
-%{_kf5_bindir}/kdostartupconfig5
 %{_kf5_bindir}/klipper
 %{_kf5_bindir}/krunner
 %{_kf5_bindir}/ksmserver
 %{_kf5_bindir}/ksplashqml
-%{_kf5_bindir}/kstartupconfig5
 %{_kf5_bindir}/plasmashell
 %{_kf5_bindir}/plasmawindowed
-%{_kf5_bindir}/startkde
 %{_kf5_bindir}/systemmonitor
 %{_kf5_bindir}/xembedsniproxy
+%{_kf5_bindir}/plasma_session
+%{_kf5_bindir}/plasma_waitforname
+%{_kf5_bindir}/startplasma-x11
 %{_kf5_libdir}/libkdeinit5_*.so
 %{_kf5_qmldir}/org/kde/*
 %{_libexecdir}/baloorunner
@@ -460,7 +503,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/ksplash/
 %{_kf5_datadir}/plasma/plasmoids/
 %{_kf5_datadir}/plasma/services/
-%{_kf5_datadir}/plasma/shareprovider/
 %{_kf5_datadir}/plasma/wallpapers/
 %dir %{_kf5_datadir}/plasma/look-and-feel/
 %{_kf5_datadir}/plasma/look-and-feel/org.kde.breeze.desktop/
@@ -485,9 +527,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/applications/org.kde.systemmonitor.desktop
 %{_datadir}/xsessions/plasma.desktop
 %{_kf5_bindir}/plasma_waitforname
-%{_sysconfdir}/xdg/*.categories
 %{_sysconfdir}/xdg/plasmanotifyrc
 %{_kf5_datadir}/kpackage/kcms/kcm_translations/*
+%{_kf5_datadir}/qlogging-categories5/*categories
 # PAM
 %config(noreplace) %{_sysconfdir}/pam.d/kde
 %exclude %{_kf5_datadir}/kservices5/plasma-dataengine-geolocation.desktop
@@ -513,7 +555,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 # multilib'able plugins
 %{_kf5_qtplugindir}/plasma/applets/
 %{_kf5_qtplugindir}/plasma/dataengine/
-%{_kf5_qtplugindir}/plasma/packagestructure/
 %if 0%{?kf5_pim}
 %{_kf5_qtplugindir}/plasmacalendarplugins/
 %endif
@@ -527,6 +568,16 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_plugindir}/kio/*.so
 %{_kf5_plugindir}/kded/*.so
 %{_qt5_plugindir}/kcms/kcm_translations.so
+%{_libdir}/kconf_update_bin/krunnerglobalshortcuts
+%{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_applauncher.so
+%{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_contextmenu.so
+%{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_paste.so
+%{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_switchdesktop.so
+%{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_switchwindow.so
+%{_libexecdir}/plasma-sourceenv.sh
+%{_libexecdir}/startplasma-waylandsession
+%{_datadir}/kconf_update/krunnerglobalshortcuts.upd
+%{_datadir}/kglobalaccel/krunner.desktop
 
 %files geolocation
 %{_kf5_qtplugindir}/plasma-geolocation-gps.so
@@ -570,8 +621,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 #%config(noreplace) %{_datadir}/sddm/themes/01-breeze-fedora/theme.conf.user
 
 %files wayland
-%{_kf5_bindir}/startplasmacompositor
-%{_libexecdir}/startplasma
+%{_kf5_bindir}/startplasma-wayland
 %{_datadir}/wayland-sessions/plasmawayland.desktop
 
 %if 0%{?fedora}
@@ -581,6 +631,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Oct 16 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-2
+- conflict with kde-i18n-*
+
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

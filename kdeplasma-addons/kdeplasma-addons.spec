@@ -1,6 +1,6 @@
 Name:    kdeplasma-addons
 Summary: Additional Plasmoids for Plasma 5
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -94,7 +94,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING COPYING.LIB
 %{_kf5_datadir}/plasma/plasmoids/*
 %{_kf5_datadir}/plasma/desktoptheme/default/widgets/*
-%{_kf5_datadir}/plasma/desktoptheme/default/icons/*
 %{_kf5_datadir}/plasma/desktoptheme/default/weather/*
 %{_kf5_datadir}/plasma/wallpapers/*
 %{_kf5_datadir}/plasma/services/*.operations
@@ -127,6 +126,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_includedir}/plasma/potdprovider/*
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
 - 5.16.5
 

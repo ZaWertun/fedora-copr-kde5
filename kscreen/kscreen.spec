@@ -1,6 +1,6 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.16.5
+Version: 5.17.0
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -38,6 +38,7 @@ BuildRequires:  kf5-kglobalaccel-devel
 BuildRequires:  cmake(KF5Declarative)
 BuildRequires:  cmake(KF5IconThemes)
 BuildRequires:  cmake(KF5Plasma)
+BuildRequires:  cmake(KF5KCMUtils)
 
 Requires:       kf5-filesystem
 Requires:       qt5-qtgraphicaleffects
@@ -66,7 +67,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING
 %{_bindir}/kscreen-console
 %{_kf5_qtplugindir}/plasma/applets/plasma_applet_kscreen.so
-%{_kf5_qtplugindir}/kcm_kscreen.so
 %{_kf5_plugindir}/kded/kscreen.so
 %{_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
 %{_datadir}/metainfo/org.kde.kscreen.appdata.xml
@@ -75,17 +75,21 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.desktop
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.json
-%{_datadir}/kcm_kscreen/
 %{_kf5_datadir}/kded_kscreen/qml/Osd.qml
 %{_kf5_datadir}/kded_kscreen/qml/OsdItem.qml
 %{_kf5_datadir}/kded_kscreen/qml/OsdSelector.qml
 %{_kf5_datadir}/kded_kscreen/qml/OutputIdentifier.qml
 %{_kf5_datadir}/kservices5/kcm_kscreen.desktop
-%{_datadir}/icons/hicolor/*/actions/*
-%{_sysconfdir}/xdg/kscreen.categories
+%{_kf5_qtplugindir}/kcms/kcm_kscreen.so
+%{_kf5_datadir}/kpackage/kcms/kcm_kscreen/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_kscreen/metadata.{desktop,json}
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.17.0-1
+- 5.17.0
+
 * Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.16.5-1
 - 5.16.5
 
