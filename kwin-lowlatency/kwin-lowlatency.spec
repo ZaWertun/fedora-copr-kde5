@@ -27,9 +27,9 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/kwin-%{version}.tar
 
 Patch0:  kwin-lowlatency-%{version}.patch
 
-# _GTK_FRAME_EXTENTS support for KWin/X11,
-#   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
-Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
+## _GTK_FRAME_EXTENTS support for KWin/X11,
+##   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
+#Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
 
 ## upstream patches
 
@@ -250,6 +250,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files
 %{_bindir}/kwin
 %{_bindir}/kwin_x11
+%{_kf5_datadir}/kconf_update/kwin*.sh
 %{_kf5_libdir}/libkdeinit5_kwin_x11.so
 
 %files common -f kwin5.lang
@@ -293,7 +294,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %ldconfig_scriptlets libs
 
 %files libs
-%{_sysconfdir}/xdg/org_kde_kwin.categories
 %{_libdir}/libkwin.so.*
 %{_libdir}/libkwinxrenderutils.so.*
 %{_libdir}/libkwineffects.so.*
@@ -301,6 +301,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwin4_effect_builtins.so.*
 %{_libdir}/libkcmkwincommon.so.*
 %{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
