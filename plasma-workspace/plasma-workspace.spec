@@ -6,8 +6,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.17.0
-Release: 2%{?dist}
+Version: 5.17.1
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -631,6 +631,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+- 5.17.1
+
 * Wed Oct 16 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-2
 - conflict with kde-i18n-*
 

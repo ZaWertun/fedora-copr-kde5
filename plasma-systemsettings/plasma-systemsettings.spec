@@ -2,8 +2,8 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.17.0
-Release: 2%{?dist}
+Version: 5.17.1
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -60,10 +60,6 @@ Requires:       kde-cli-tools
 # doc/HTML/en/systemsettings conflicts
 Conflicts: kde-workspace < 5.0
 
-# Conflict with /usr/share/kservices5/settings-system-administration.desktop
-#   and maybe some other files
-Conflicts: kcm_systemd
-
 %description
 %{summary}.
 
@@ -90,6 +86,11 @@ make %{?_smp_mflags} -C %{_target_platform}
 
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+
+# Get around conflict with same file from kcm_systemd package:
+pushd %{buildroot}%{_kf5_datadir}/kservices5
+mv -v settings-system-administration.desktop settings-system-administration-1.desktop
+popd
 
 %find_lang systemsettings5 --with-qt --with-html --all-name
 
@@ -123,6 +124,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+- 5.17.1
+
+* Thu Oct 17 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-3
+- get around conflict with kcm_systemd package
+
 * Wed Oct 16 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-2
 - conflict with kcm_systemd
 
