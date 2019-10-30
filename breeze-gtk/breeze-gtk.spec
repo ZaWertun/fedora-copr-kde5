@@ -1,5 +1,5 @@
 Name:    breeze-gtk
-Version: 5.17.1
+Version: 5.17.2
 Release: 1%{?dist}
 Summary: Breeze widget theme for Gtk2 and Gtk3
 
@@ -16,10 +16,6 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 
 ## upstream patches (master branch)
 #BuildRequires: git-core
-
-# Reverting commit to deal with #412078
-#  (Hovering on checkboxes or comboboxes changes their color to black)
-Patch0:         revert-7b3d0777ea6c10dd430ed686434d3a4e2d072632.patch
 
 BuildRequires:  gtk3-devel
 BuildRequires:  kf5-rpm-macros
@@ -68,6 +64,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+- 5.17.2
+
 * Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
 - 5.17.1
 

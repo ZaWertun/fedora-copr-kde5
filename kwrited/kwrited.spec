@@ -1,7 +1,7 @@
 
 Name:    kwrited
 Summary: KDE Write Daemon
-Version: 5.17.1
+Version: 5.17.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -69,6 +69,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+- 5.17.2
+
 * Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
 - 5.17.1
 
