@@ -4,7 +4,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.17.2
-Release: 2%{?dist}
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -27,9 +27,6 @@ Patch100: plasma-desktop-5.8-default_favorites.patch
 ## upstream patches
 
 ## upstreamable patches
-
-# Fix for #413005 (Night Color settings break after switching to "Times" operation mode):
-Patch101:         D25047.diff
 
 # filter qmk/plugins provides
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -183,7 +180,6 @@ BuildArch: noarch
 ## upstream patches
 
 ## upstreamable patches
-%patch101 -p1
 
 # FIXME: relax plasma-breeze dep
 sed -i.breeze_ver \
@@ -313,9 +309,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
-* Thu Oct 31 2019 Yaroslav Sidlovsky <zawertun@gmail.com>
-- fix for #413005
-
 * Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
 - 5.17.2
 
