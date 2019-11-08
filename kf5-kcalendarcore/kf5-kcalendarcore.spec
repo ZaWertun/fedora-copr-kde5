@@ -23,6 +23,8 @@ URL:     https://cgit.kde.org/%{framework}.git
 %endif
 Source0:        http://download.kde.org/%{stable}/applications/%{version}/src/%{framework}-%{version}.tar.xz
 
+Patch0:         version_fix.patch
+
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-kdelibs4support-devel >= 5.15
 BuildRequires:  kf5-rpm-macros
@@ -56,7 +58,7 @@ developing applications that use %{name}.
 
 
 %prep
-%autosetup -n %{framework}-%{version}
+%autosetup -p1 -n %{framework}-%{version}
 
 
 %build

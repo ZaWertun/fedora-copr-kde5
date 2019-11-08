@@ -41,6 +41,7 @@ BuildRequires:  cmake(KF5Mime)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5Contacts)
 BuildRequires:  cmake(KPimPkPass)
+BuildRequires:  cmake(KF5CalendarCore)
 
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Qml)

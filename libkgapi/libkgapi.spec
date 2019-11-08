@@ -38,6 +38,8 @@ BuildRequires:  kf5-kcontacts-devel >= %{version}
 
 BuildRequires:  cyrus-sasl-devel
 
+BuildRequires:  cmake(KF5CalendarCore)
+
 Obsoletes:      libkgoogle < 0.3.2
 Provides:       libkgoogle = %{version}-%{release}
 
