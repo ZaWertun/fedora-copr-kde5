@@ -3,7 +3,7 @@
 
 Name:    kf5-libksane
 Summary: SANE Library interface for KDE
-Version: 19.08.2
+Version: 19.08.3
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -78,6 +78,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
+- 19.08.3
+
 * Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
 - 19.08.2
 

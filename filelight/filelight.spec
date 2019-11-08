@@ -1,7 +1,7 @@
 Name:    filelight 
 Summary: Graphical disk usage statistics 
 Epoch:   1
-Version: 19.08.2
+Version: 19.08.3
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -81,6 +81,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.08.3-1
+- 19.08.3
+
 * Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.08.2-1
 - 19.08.2
 
