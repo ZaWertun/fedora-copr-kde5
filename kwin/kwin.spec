@@ -10,7 +10,7 @@
 
 Name:    kwin
 Version: 5.17.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 # all sources are effectively GPLv2+, except for:
@@ -32,7 +32,7 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 
 ## _GTK_FRAME_EXTENTS support for KWin/X11,
 ##   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
-#Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
+Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
 
 ## upstream patches
 
@@ -301,6 +301,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Nov 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-2
+- GTK_FRAME_EXTENTS.patch returned
+
 * Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
 - 5.17.2
 
