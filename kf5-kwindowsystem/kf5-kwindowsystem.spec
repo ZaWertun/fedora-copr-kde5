@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.63.0
+Version: 5.64.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module with classes for windows management
 
@@ -115,6 +115,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+- 5.64.0
+
 * Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
 - 5.63.0
 
