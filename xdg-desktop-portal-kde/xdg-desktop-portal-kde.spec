@@ -69,6 +69,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING
 %{_libexecdir}/xdg-desktop-portal-kde
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
+%{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
 
 
