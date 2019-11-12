@@ -73,6 +73,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5I18n.so.*
 %{_kf5_qtplugindir}/kf5/ktranscript.so
+%{_kf5_datadir}/qlogging-categories5/*categories
 %lang(ca) %{_datadir}/locale/ca/LC_SCRIPTS/ki18n5/
 %lang(ca@valencia) %{_datadir}/locale/ca@valencia/LC_SCRIPTS/ki18n5/
 %lang(fi) %{_datadir}/locale/fi/LC_SCRIPTS/ki18n5/

@@ -9,8 +9,8 @@
 %endif
 
 Name:    kwin
-Version: 5.17.2
-Release: 2%{?dist}
+Version: 5.17.3
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 # all sources are effectively GPLv2+, except for:
@@ -301,6 +301,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
+- 5.17.3
+
 * Sat Nov 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-2
 - GTK_FRAME_EXTENTS.patch returned
 
