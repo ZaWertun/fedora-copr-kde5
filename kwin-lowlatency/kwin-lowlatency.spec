@@ -3,7 +3,7 @@
 
 Name:    kwin-lowlatency
 Version: 5.17.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Provides:  kwin = %{version}
@@ -29,7 +29,7 @@ Patch0:  kwin-lowlatency-%{version}.patch
 
 ## _GTK_FRAME_EXTENTS support for KWin/X11,
 ##   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
-#Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
+Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
 
 ## upstream patches
 
@@ -317,6 +317,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Nov 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-2
+- GTK_FRAME_EXTENTS.patch returned
+
 * Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
 - 5.17.3
 
