@@ -1,8 +1,8 @@
-diff -r -U3 kwin-5.16.3.orig/abstract_client.cpp kwin-5.16.3/abstract_client.cpp
---- kwin-5.16.3.orig/abstract_client.cpp	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/abstract_client.cpp	2019-07-17 13:52:43.318098426 +0300
-@@ -2080,4 +2080,14 @@
-     return nullptr;
+diff -r -U3 kwin-5.17.2.orig/abstract_client.cpp kwin-5.17.2/abstract_client.cpp
+--- kwin-5.17.2.orig/abstract_client.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/abstract_client.cpp	2019-11-09 15:40:02.197445510 +0300
+@@ -1992,4 +1992,14 @@
+     return true;
  }
  
 +QMargins AbstractClient::borderMargins() const
@@ -16,12 +16,12 @@ diff -r -U3 kwin-5.16.3.orig/abstract_client.cpp kwin-5.16.3/abstract_client.cpp
 +}
 +
  }
-diff -r -U3 kwin-5.16.3.orig/abstract_client.h kwin-5.16.3/abstract_client.h
---- kwin-5.16.3.orig/abstract_client.h	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/abstract_client.h	2019-07-17 13:52:43.318098426 +0300
-@@ -817,6 +817,18 @@
-      **/
-     virtual Group *group();
+diff -r -U3 kwin-5.17.2.orig/abstract_client.h kwin-5.17.2/abstract_client.h
+--- kwin-5.17.2.orig/abstract_client.h	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/abstract_client.h	2019-11-09 15:40:02.199445499 +0300
+@@ -834,6 +834,18 @@
+      */
+     virtual bool supportsWindowRules() const;
  
 +    /**
 +     * Returns decoration border margins.
@@ -38,12 +38,10 @@ diff -r -U3 kwin-5.16.3.orig/abstract_client.h kwin-5.16.3/abstract_client.h
  public Q_SLOTS:
      virtual void closeWindow() = 0;
  
-Только в kwin-5.16.3/: .arcconfig
-Только в kwin-5.16.3/: .arclint
-diff -r -U3 kwin-5.16.3.orig/atoms.cpp kwin-5.16.3/atoms.cpp
---- kwin-5.16.3.orig/atoms.cpp	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/atoms.cpp	2019-07-17 13:52:43.318098426 +0300
-@@ -65,7 +65,6 @@
+diff -r -U3 kwin-5.17.2.orig/atoms.cpp kwin-5.17.2/atoms.cpp
+--- kwin-5.17.2.orig/atoms.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/atoms.cpp	2019-11-09 15:40:02.199445499 +0300
+@@ -64,7 +64,6 @@
      , kde_color_sheme(QByteArrayLiteral("_KDE_NET_WM_COLOR_SCHEME"))
      , kde_skip_close_animation(QByteArrayLiteral("_KDE_NET_WM_SKIP_CLOSE_ANIMATION"))
      , kde_screen_edge_show(QByteArrayLiteral("_KDE_NET_WM_SCREEN_EDGE_SHOW"))
@@ -51,10 +49,10 @@ diff -r -U3 kwin-5.16.3.orig/atoms.cpp kwin-5.16.3/atoms.cpp
      , kwin_dbus_service(QByteArrayLiteral("_ORG_KDE_KWIN_DBUS_SERVICE"))
      , utf8_string(QByteArrayLiteral("UTF8_STRING"))
      , text(QByteArrayLiteral("TEXT"))
-diff -r -U3 kwin-5.16.3.orig/atoms.h kwin-5.16.3/atoms.h
---- kwin-5.16.3.orig/atoms.h	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/atoms.h	2019-07-17 13:52:43.319098429 +0300
-@@ -74,7 +74,6 @@
+diff -r -U3 kwin-5.17.2.orig/atoms.h kwin-5.17.2/atoms.h
+--- kwin-5.17.2.orig/atoms.h	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/atoms.h	2019-11-09 15:40:02.200445493 +0300
+@@ -73,7 +73,6 @@
      Xcb::Atom kde_color_sheme;
      Xcb::Atom kde_skip_close_animation;
      Xcb::Atom kde_screen_edge_show;
@@ -62,10 +60,10 @@ diff -r -U3 kwin-5.16.3.orig/atoms.h kwin-5.16.3/atoms.h
      Xcb::Atom kwin_dbus_service;
      Xcb::Atom utf8_string;
      Xcb::Atom text;
-diff -r -U3 kwin-5.16.3.orig/client.cpp kwin-5.16.3/client.cpp
---- kwin-5.16.3.orig/client.cpp	2019-07-17 13:53:31.310289585 +0300
-+++ kwin-5.16.3/client.cpp	2019-07-17 13:52:43.319098429 +0300
-@@ -125,7 +125,6 @@
+diff -r -U3 kwin-5.17.2.orig/client.cpp kwin-5.17.2/client.cpp
+--- kwin-5.17.2.orig/client.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/client.cpp	2019-11-09 15:40:02.202445482 +0300
+@@ -124,7 +124,6 @@
      , needsXWindowMove(false)
      , m_decoInputExtent()
      , m_focusOutTimer(nullptr)
@@ -73,7 +71,7 @@ diff -r -U3 kwin-5.16.3.orig/client.cpp kwin-5.16.3/client.cpp
  {
      // TODO: Do all as initialization
      syncRequest.counter = syncRequest.alarm = XCB_NONE;
-@@ -560,23 +559,6 @@
+@@ -544,23 +543,6 @@
      info->setFrameExtents(strut);
  }
  
@@ -97,7 +95,7 @@ diff -r -U3 kwin-5.16.3.orig/client.cpp kwin-5.16.3/client.cpp
  /**
   * Resizes the decoration, and makes sure the decoration widget gets resize event
   * even if the size hasn't changed. This is needed to make sure the decoration
-@@ -2145,5 +2127,24 @@
+@@ -2125,5 +2107,24 @@
          addRepaintFull();
  }
  
@@ -122,17 +120,17 @@ diff -r -U3 kwin-5.16.3.orig/client.cpp kwin-5.16.3/client.cpp
 +
  } // namespace
  
-diff -r -U3 kwin-5.16.3.orig/client.h kwin-5.16.3/client.h
---- kwin-5.16.3.orig/client.h	2019-07-17 13:53:31.311289589 +0300
-+++ kwin-5.16.3/client.h	2019-07-17 13:52:43.319098429 +0300
-@@ -81,11 +81,6 @@
+diff -r -U3 kwin-5.17.2.orig/client.h kwin-5.17.2/client.h
+--- kwin-5.17.2.orig/client.h	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/client.h	2019-11-09 15:43:55.168145815 +0300
+@@ -80,11 +80,6 @@
       * Use with care!
-      **/
+      */
      Q_PROPERTY(bool blocksCompositing READ isBlockingCompositing WRITE setBlockingCompositing NOTIFY blockingCompositingChanged)
 -    /**
 -     * Whether the Client uses client side window decorations.
 -     * Only GTK+ are detected.
--     **/
+-     */
 -    Q_PROPERTY(bool clientSideDecorated READ isClientSideDecorated NOTIFY clientSideDecoratedChanged)
  public:
      explicit Client();
@@ -146,7 +144,7 @@ diff -r -U3 kwin-5.16.3.orig/client.h kwin-5.16.3/client.h
      static void cleanupX11();
  
  public Q_SLOTS:
-@@ -419,6 +416,7 @@
+@@ -413,6 +410,7 @@
      void setCaption(const QString& s, bool force = false);
      bool hasTransientInternal(const Client* c, bool indirect, ConstClientList& set) const;
      void setShortcutInternal() override;
@@ -154,7 +152,7 @@ diff -r -U3 kwin-5.16.3.orig/client.h kwin-5.16.3/client.h
  
      void configureRequest(int value_mask, int rx, int ry, int rw, int rh, int gravity, bool from_tool);
      NETExtendedStrut strut() const;
-@@ -441,9 +439,6 @@
+@@ -435,9 +433,6 @@
  
      void embedClient(xcb_window_t w, xcb_visualid_t visualid, xcb_colormap_t colormap, uint8_t depth);
      void detectNoBorder();
@@ -164,7 +162,7 @@ diff -r -U3 kwin-5.16.3.orig/client.h kwin-5.16.3/client.h
      void destroyDecoration() override;
      void updateFrameExtents();
  
-@@ -550,11 +545,11 @@
+@@ -543,11 +538,11 @@
  
      Xcb::Window m_decoInputExtent;
      QPoint input_offset;
@@ -177,7 +175,7 @@ diff -r -U3 kwin-5.16.3.orig/client.h kwin-5.16.3/client.h
  
      QMetaObject::Connection m_edgeRemoveConnection;
      QMetaObject::Connection m_edgeGeometryTrackingConnection;
-@@ -565,11 +560,6 @@
+@@ -558,11 +553,6 @@
      return m_wrapper;
  }
  
@@ -189,9 +187,9 @@ diff -r -U3 kwin-5.16.3.orig/client.h kwin-5.16.3/client.h
  inline bool Client::groupTransient() const
  {
      return m_transientForId == rootWindow();
-diff -r -U3 kwin-5.16.3.orig/events.cpp kwin-5.16.3/events.cpp
---- kwin-5.16.3.orig/events.cpp	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/events.cpp	2019-07-17 13:52:43.319098429 +0300
+diff -r -U3 kwin-5.17.2.orig/events.cpp kwin-5.17.2/events.cpp
+--- kwin-5.17.2.orig/events.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/events.cpp	2019-11-09 15:40:02.203445476 +0300
 @@ -473,6 +473,9 @@
          if (dirtyProperties2 & NET::WM2DesktopFileName) {
              setDesktopFileName(QByteArray(info->desktopFileName()));
@@ -211,11 +209,11 @@ diff -r -U3 kwin-5.16.3.orig/events.cpp kwin-5.16.3/events.cpp
          else if (e->atom == atoms->kde_net_wm_appmenu_service_name)
              checkApplicationMenuServiceName();
          else if (e->atom == atoms->kde_net_wm_appmenu_object_path)
-diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
---- kwin-5.16.3.orig/geometry.cpp	2019-07-17 13:53:31.321289629 +0300
-+++ kwin-5.16.3/geometry.cpp	2019-07-17 13:52:43.320098433 +0300
-@@ -459,12 +459,14 @@
-  **/
+diff -r -U3 kwin-5.17.2.orig/geometry.cpp kwin-5.17.2/geometry.cpp
+--- kwin-5.17.2.orig/geometry.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/geometry.cpp	2019-11-09 15:40:02.204445471 +0300
+@@ -456,12 +456,14 @@
+  */
  QPoint Workspace::adjustClientPosition(AbstractClient* c, QPoint pos, bool unrestricted, double snapAdjust)
  {
 +    const QMargins margins = c->contentMargins();
@@ -230,7 +228,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
          if (c->maximizeMode() & MaximizeHorizontal && (geo.x() == maxRect.left() || geo.right() == maxRect.right())) {
              guideMaximized |= MaximizeHorizontal;
              borderSnapZone.setWidth(qMax(borderSnapZone.width() + 2, maxRect.width() / 16));
-@@ -486,10 +488,10 @@
+@@ -483,10 +485,10 @@
          const int ymin = maxRect.top();
          const int ymax = maxRect.bottom() + 1;
  
@@ -245,7 +243,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
          const int rx(cx + cw);
          const int ry(cy + ch);               //these don't change
  
-@@ -560,10 +562,11 @@
+@@ -555,10 +557,11 @@
                  if ((*l)->isDesktop() || (*l)->isSplash())
                      continue;
  
@@ -261,7 +259,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
  
                  if (!(guideMaximized & MaximizeHorizontal) &&
                      (((cy <= lry) && (cy  >= ly)) || ((ry >= ly) && (ry  <= lry)) || ((cy <= ly) && (ry >= lry)))) {
-@@ -636,7 +639,7 @@
+@@ -631,7 +634,7 @@
              }
          }
  
@@ -270,7 +268,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
      }
      return pos;
  }
-@@ -655,10 +658,11 @@
+@@ -650,10 +653,11 @@
          const int ymin = maxRect.top();
          const int ymax = maxRect.bottom();
  
@@ -286,7 +284,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
  
          int newcx(cx), newcy(cy);                         //buffers
          int newrx(rx), newry(ry);
-@@ -746,10 +750,12 @@
+@@ -741,10 +745,12 @@
                  if ((*l)->isOnDesktop(VirtualDesktopManager::self()->current()) &&
                          !(*l)->isMinimized()
                          && (*l) != c) {
@@ -303,7 +301,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
  
  #define WITHIN_HEIGHT ((( newcy <= lry ) && ( newcy  >= ly  ))  || \
                         (( newry >= ly  ) && ( newry  <= lry ))  || \
-@@ -875,7 +881,7 @@
+@@ -870,7 +876,7 @@
          //    // 2) Snap to the horizontal and vertical center lines of the screen
          //    }
  
@@ -312,7 +310,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
      }
      return moveResizeGeom;
  }
-@@ -3258,10 +3264,15 @@
+@@ -3150,10 +3156,15 @@
  void AbstractClient::setElectricBorderMaximizing(bool maximizing)
  {
      m_electricMaximizing = maximizing;
@@ -331,7 +329,7 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
      elevate(maximizing);
  }
  
-@@ -3284,6 +3295,9 @@
+@@ -3176,6 +3187,9 @@
      else if (electricBorderMode() & QuickTileFlag::Bottom)
          ret.setTop(ret.bottom()-(ret.height()-ret.height()/2) + 1);
  
@@ -341,9 +339,9 @@ diff -r -U3 kwin-5.16.3.orig/geometry.cpp kwin-5.16.3/geometry.cpp
      return ret;
  }
  
-diff -r -U3 kwin-5.16.3.orig/manage.cpp kwin-5.16.3/manage.cpp
---- kwin-5.16.3.orig/manage.cpp	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/manage.cpp	2019-07-17 13:52:43.321098437 +0300
+diff -r -U3 kwin-5.17.2.orig/manage.cpp kwin-5.17.2/manage.cpp
+--- kwin-5.17.2.orig/manage.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/manage.cpp	2019-11-09 15:40:02.204445471 +0300
 @@ -95,11 +95,11 @@
          NET::WM2InitialMappingState |
          NET::WM2IconPixmap |
@@ -375,9 +373,9 @@ diff -r -U3 kwin-5.16.3.orig/manage.cpp kwin-5.16.3/manage.cpp
      setupCompositing();
  
      KStartupInfoId asn_id;
-diff -r -U3 kwin-5.16.3.orig/netinfo.cpp kwin-5.16.3/netinfo.cpp
---- kwin-5.16.3.orig/netinfo.cpp	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/netinfo.cpp	2019-07-17 13:52:43.321098437 +0300
+diff -r -U3 kwin-5.17.2.orig/netinfo.cpp kwin-5.17.2/netinfo.cpp
+--- kwin-5.17.2.orig/netinfo.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/netinfo.cpp	2019-11-09 15:40:02.205445465 +0300
 @@ -110,7 +110,8 @@
          NET::WM2FullPlacement |
          NET::WM2FullscreenMonitors |
@@ -388,10 +386,10 @@ diff -r -U3 kwin-5.16.3.orig/netinfo.cpp kwin-5.16.3/netinfo.cpp
  #ifdef KWIN_BUILD_ACTIVITIES
          properties2 |= NET::WM2Activities;
  #endif
-diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
---- kwin-5.16.3.orig/placement.cpp	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/placement.cpp	2019-07-17 13:52:43.321098437 +0300
-@@ -107,25 +107,34 @@
+diff -r -U3 kwin-5.17.2.orig/placement.cpp kwin-5.17.2/placement.cpp
+--- kwin-5.17.2.orig/placement.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/placement.cpp	2019-11-09 15:59:35.429897876 +0300
+@@ -105,25 +105,34 @@
  
      if (options->borderSnapZone()) {
          // snap to titlebar / snap to window borders on inner screen edges
@@ -439,44 +437,43 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
          c->move(corner);
      }
  }
-@@ -142,6 +151,10 @@
- 
-     const QRect maxRect = checkArea(c, area);
+@@ -140,6 +149,10 @@
+     static int py = 2 * step;
+     int tx, ty;
  
 +    const QMargins contentMargins = c->contentMargins();
 +    const int clientWidth = c->width() - contentMargins.left() - contentMargins.right();
 +    const int clientHeight = c->height() - contentMargins.top() - contentMargins.bottom();
 +
-     if (px < maxRect.x())
-         px = maxRect.x();
-     if (py < maxRect.y())
-@@ -156,19 +169,20 @@
-         py =  maxRect.y() + step;
+     if (px < area.x()) {
+         px = area.x();
+     }
+@@ -158,19 +171,19 @@
+     }
      tx = px;
      ty = py;
--    if (tx + c->width() > maxRect.right()) {
--        tx = maxRect.right() - c->width();
-+    if (tx + clientWidth > maxRect.right()) {
-+        tx = maxRect.right() - clientWidth;
+-    if (tx + c->width() > area.right()) {
+-        tx = area.right() - c->width();
++    if (tx + clientWidth > area.right()) {
++        tx = area.right() - clientWidth;
          if (tx < 0)
              tx = 0;
-         px =  maxRect.x();
+         px = area.x();
      }
--    if (ty + c->height() > maxRect.bottom()) {
--        ty = maxRect.bottom() - c->height();
-+    if (ty + clientHeight > maxRect.bottom()) {
-+        ty = maxRect.bottom() - clientHeight;
+-    if (ty + c->height() > area.bottom()) {
+-        ty = area.bottom() - c->height();
++    if (ty + clientHeight > area.bottom()) {
++        ty = area.bottom() - clientHeight;
          if (ty < 0)
              ty = 0;
-         py =  maxRect.y();
+         py = area.y();
      }
 -    c->move(tx, ty);
-+
 +    c->move(tx - contentMargins.left(), ty - contentMargins.top());
  }
  
  // TODO: one day, there'll be C++11 ...
-@@ -225,8 +239,9 @@
+@@ -227,8 +240,9 @@
      x_optimal = x; y_optimal = y;
  
      //client gabarit
@@ -488,7 +485,7 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
  
      bool first_pass = true; //CT lame flag. Don't like it. What else would do?
  
-@@ -248,8 +263,10 @@
+@@ -250,8 +264,10 @@
                  if (isIrrelevant(client, c, desktop)) {
                      continue;
                  }
@@ -501,7 +498,7 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
  
                  //if windows overlap, calc the overall overlapping
                  if ((cxl < xr) && (cxr > xl) &&
-@@ -298,8 +315,9 @@
+@@ -300,8 +316,9 @@
                      continue;
                  }
  
@@ -513,7 +510,7 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
  
                  // if not enough room above or under the current tested client
                  // determine the first non-overlapped x position
-@@ -329,8 +347,9 @@
+@@ -331,8 +348,9 @@
                      continue;
                  }
  
@@ -525,8 +522,8 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
  
                  // if not enough room to the left or right of the current tested client
                  // determine the first non-overlapped y position
-@@ -347,7 +366,10 @@
-         y_optimal = maxRect.top();
+@@ -350,7 +368,10 @@
+     }
  
      // place the window
 -    c->move(x_optimal, y_optimal);
@@ -537,8 +534,8 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
  
  }
  
-@@ -398,8 +420,9 @@
-     QRect maxRect = checkArea(c, area);
+@@ -400,8 +421,9 @@
+     const int dn = c->desktop() == 0 || c->isOnAllDesktops() ? (VirtualDesktopManager::self()->current() - 1) : (c->desktop() - 1);
  
      // initialize often used vars: width and height of c; we gain speed
 -    const int ch = c->height();
@@ -546,10 +543,10 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
 +    const QMargins margins = c->contentMargins();
 +    const int ch = c->height() - margins.top() - margins.bottom();
 +    const int cw = c->width() - margins.left() - margins.right();
-     const int X = maxRect.left();
-     const int Y = maxRect.top();
-     const int H = maxRect.height();
-@@ -454,7 +477,7 @@
+     const int X = area.left();
+     const int Y = area.top();
+     const int H = area.height();
+@@ -456,7 +478,7 @@
      }
  
      // place the window
@@ -558,51 +555,46 @@ diff -r -U3 kwin-5.16.3.orig/placement.cpp kwin-5.16.3/placement.cpp
  
      // new position
      cci[dn].pos = QPoint(xp + delta.x(), yp + delta.y());
-@@ -465,12 +488,15 @@
-  **/
- void Placement::placeCentered(AbstractClient* c, const QRect& area, Policy /*next*/)
+@@ -469,8 +491,12 @@
  {
--
-     // get the maximum allowed windows space and desk's origin
-     const QRect maxRect = checkArea(c, area);
+     Q_ASSERT(area.isValid());
  
--    const int xp = maxRect.left() + (maxRect.width() -  c->width())  / 2;
--    const int yp = maxRect.top()  + (maxRect.height() - c->height()) / 2;
+-    const int xp = area.left() + (area.width() - c->width()) / 2;
+-    const int yp = area.top() + (area.height() - c->height()) / 2;
 +    const QMargins margins = c->contentMargins();
 +    const int width = c->width() - margins.left() - margins.right();
 +    const int height = c->height() - margins.top() - margins.bottom();
 +
-+    const int xp = maxRect.left() + (maxRect.width() -  width)  / 2;
-+    const int yp = maxRect.top()  + (maxRect.height() - height) / 2;
++    const int xp = area.left() + (area.width() -  width)  / 2;
++    const int yp = area.top()  + (area.height() - height) / 2;
  
      // place the window
      c->move(QPoint(xp, yp));
-@@ -482,7 +508,11 @@
- void Placement::placeZeroCornered(AbstractClient* c, const QRect& area, Policy /*next*/)
- {
+@@ -484,7 +510,10 @@
+     Q_ASSERT(area.isValid());
+ 
      // get the maximum allowed windows space and desk's origin
--    c->move(checkArea(c, area).topLeft());
-+    const QRect placementArea = checkArea(c, area);
+-    c->move(area.topLeft());
 +    const QMargins margins = c->contentMargins();
 +    const QPoint offset = QPoint(margins.left(), margins.top());
 +
-+    c->move(placementArea.topLeft() - offset);
++    c->move(area.topLeft() - offset);
  }
  
- void Placement::placeUtility(AbstractClient* c, QRect& area, Policy /*next*/)
-@@ -531,7 +561,7 @@
- void Placement::placeUnderMouse(AbstractClient* c, QRect& area, Policy /*next*/)
+ void Placement::placeUtility(AbstractClient *c, const QRect &area, Policy /*next*/)
+@@ -536,7 +565,7 @@
  {
-     area = checkArea(c, area);
+     Q_ASSERT(area.isValid());
+ 
 -    QRect geom = c->geometry();
 +    QRect geom = c->geometry() - c->contentMargins();
      geom.moveCenter(Cursor::pos());
      c->move(geom.topLeft());
      c->keepInArea(area);   // make sure it's kept inside workarea
-diff -r -U3 kwin-5.16.3.orig/useractions.cpp kwin-5.16.3/useractions.cpp
---- kwin-5.16.3.orig/useractions.cpp	2019-07-09 18:45:19.000000000 +0300
-+++ kwin-5.16.3/useractions.cpp	2019-07-17 13:52:43.321098437 +0300
-@@ -1773,6 +1773,8 @@
+diff -r -U3 kwin-5.17.2.orig/useractions.cpp kwin-5.17.2/useractions.cpp
+--- kwin-5.17.2.orig/useractions.cpp	2019-10-29 21:18:40.000000000 +0300
++++ kwin-5.17.2/useractions.cpp	2019-11-09 15:40:02.206445460 +0300
+@@ -1599,6 +1599,8 @@
      if (!active_client)
          return;
      QPoint pos = active_client->pos() + active_client->clientPos();
