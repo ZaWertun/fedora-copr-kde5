@@ -4,7 +4,7 @@
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
 Version: 5.64.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -39,6 +39,10 @@ BuildRequires: kf5-kio-devel >= %{majmin}
 BuildRequires: kf5-kirigami2-devel >= %{majmin}
 BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(Qt5Qml)
+
+BuildRequires: cmake(KF5KIO)
+BuildRequires: cmake(KF5Kirigami2)
+BuildRequires: cmake(KF5Notifications)
 
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global twitter 1
@@ -109,6 +113,7 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 %{_kf5_datadir}/purpose/
 %{_kf5_plugindir}/purpose/
 %{_kf5_qmldir}/org/kde/purpose/
+%{_kf5_plugindir}/kfileitemaction/sharefileitemaction.so
 # this conditional may require adjusting too (e.g. wrt %%twitter)
 %if 0%{?fedora}
 %{_kf5_datadir}/accounts/services/kde/google-youtube.service
@@ -135,6 +140,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Mon Nov 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-2
+- build deps for sharefile plugin added
+
 * Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
 - 5.64.0
 
