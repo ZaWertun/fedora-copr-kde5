@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.64.0
-Release: 1%{?dist}
+Release: 101%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module with classes for windows management
 
 License: LGPLv2+ and MIT
@@ -115,6 +115,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Nov 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-101
+- bump to release 101
+
 * Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
 - 5.64.0
 
