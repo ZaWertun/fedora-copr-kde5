@@ -1,7 +1,7 @@
 Name:    kcachegrind
 Summary: GUI to profilers such as Valgrind
 Version: 19.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2 and GFDL
 URL:     https://cgit.kde.org/%{name}.git
@@ -135,6 +135,9 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 
 %changelog
+* Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-2
+- rebuild
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

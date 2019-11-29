@@ -1,7 +1,7 @@
 Name:    lokalize
 Summary: Computer-aided translation system
 Version: 19.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and GFDL
 URL:     https://cgit.kde.org/%{name}.git
@@ -120,6 +120,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-2
+- rebuild
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

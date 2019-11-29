@@ -1,7 +1,7 @@
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
 Version: 19.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and GPLv2+ and BSD
 URL:     https://cgit.kde.org/%{name}.git
@@ -174,6 +174,9 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 
 
 %changelog
+* Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-2
+- rebuild
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 
