@@ -1,7 +1,7 @@
 Name:    kcachegrind
 Summary: GUI to profilers such as Valgrind
 Version: 19.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2 and GFDL
 URL:     https://cgit.kde.org/%{name}.git
@@ -18,7 +18,11 @@ Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%
 
 BuildRequires: desktop-file-utils
 BuildRequires: perl-generators
+%if 0%{?fedora} >= 31
+BuildRequires: python3-rpm-macros
+%else
 BuildRequires: python2-rpm-macros
+%endif
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -65,7 +69,11 @@ QT-based browser for data produced by profiling tools (e.g. cachegrind).
 %autosetup -p1
 
 # Avoid use of #!/usr/bin/env as interpeter
+%if 0%{?fedora} >= 31
+sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python3}|g" converters/hotshot2calltree.cmake
+%else
 sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python2}|g" converters/hotshot2calltree.cmake
+%endif
 sed -i.env -e "s|^#!/usr/bin/env php$|#!%{_bindir}/php|g"  converters/pprof2calltree
 
 
@@ -127,6 +135,9 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 
 %changelog
+* Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-2
+- rebuild
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

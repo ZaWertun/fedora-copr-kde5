@@ -2,7 +2,7 @@
 Name:    krfb
 Summary: Desktop sharing
 Version: 19.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and GFDL
 URL:     https://www.kde.org/applications/system/krfb/
@@ -47,7 +47,6 @@ BuildRequires: pkgconfig(xcb-xfixes)
 
 
 BuildRequires: pkgconfig(xtst)
-BuildRequires: python2
 BuildRequires: libjpeg-devel
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
@@ -114,6 +113,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.desk
 
 
 %changelog
+* Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-2
+- rebuild
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 
