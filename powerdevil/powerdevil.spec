@@ -2,7 +2,7 @@
 %global kf5_version 5.42.0
 
 Name:    powerdevil
-Version: 5.17.3
+Version: 5.17.4
 Release: 1%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
@@ -111,6 +111,9 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+- 5.17.4
+
 * Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
 - 5.17.3
 

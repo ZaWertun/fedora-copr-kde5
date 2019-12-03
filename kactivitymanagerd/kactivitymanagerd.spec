@@ -1,6 +1,6 @@
 Name:           kactivitymanagerd
 Summary:        Plasma service to manage user's activities
-Version: 5.17.3
+Version: 5.17.4
 Release: 1%{?dist}
 
 License:        GPLv2+
@@ -83,6 +83,9 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 
 
 %changelog
+* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+- 5.17.4
+
 * Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
 - 5.17.3
 
