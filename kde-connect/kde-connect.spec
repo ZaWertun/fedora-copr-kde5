@@ -1,6 +1,6 @@
 
 Name:           kde-connect
-Version:        1.3.5
+Version:        1.4
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -30,17 +30,24 @@ BuildRequires:  kf5-kconfigwidgets-devel
 BuildRequires:  kf5-kdbusaddons-devel
 BuildRequires:  kf5-ki18n-devel
 BuildRequires:  kf5-kiconthemes-devel
-Buildrequires:  kf5-kio-devel
+BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-knotifications-devel
 BuildRequires:  kf5-kwayland-devel
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
-BUildRequires:  qt5-qtx11extras-devel
+BuildRequires:  qt5-qtx11extras-devel
 
 BuildRequires:  libXtst-devel
 BuildRequires:  pkgconfig(libfakekey)
 BuildRequires:  qca-qt5-devel >= 2.1.0-14
+
+BuildRequires:  cmake(KF5Kirigami2) >= 5.64.0
+BuildRequires:  cmake(KF5People)    >= 5.64.0
+
+BuildRequires:  cmake(Qt5Multimedia)
+BuildRequires:  cmake(KF5PeopleVCard)
+BuildRequires:  cmake(KF5PulseAudioQt)
 
 Obsoletes: kde-connect-kde4-ioslave < %{version}-%{release}
 Obsoletes: kde-connect-kde4-libs < %{version}-%{release}
@@ -119,8 +126,8 @@ desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autosta
 
 
 %check
-desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
-desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop
+#desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
+#desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop
 
 
 %files -f %{name}.lang
@@ -130,10 +137,13 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop
 %{_kf5_datadir}/knotifications5/*
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_datadir}/Thunar/sendto/kdeconnect-thunar.desktop
 %{_qt5_plugindir}/kcm_kdeconnect.so
 %{_kf5_plugindir}/kio/kdeconnect.so
-%{_datadir}/icons/hicolor/*/apps/kdeconnect.*
+%{_datadir}/icons/hicolor/*/apps/kdeconnect*
 %{_datadir}/icons/hicolor/*/status/*
+%{_datadir}/contractor/kdeconnect.contract
+%{_datadir}/zsh/site-functions/_kdeconnect
 %{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/applications/*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
@@ -155,17 +165,22 @@ fi
 %ldconfig_scriptlets libs
 
 %files libs
+%{_libdir}/libkdeconnectsmshelper.so.*
 %{_kf5_libdir}/libkdeconnectpluginkcm.so.1*
 %{_kf5_libdir}/libkdeconnectinterfaces.so.1*
 %{_kf5_libdir}/libkdeconnectcore.so.1*
 %{_qt5_plugindir}/kdeconnect*.so
 %{_qt5_plugindir}/kdeconnect/
+%{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
 
 %files nautilus
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py*
 
 
 %changelog
+* Mon Dec 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.4-1
+- 1.4
+
 * Mon Sep 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.5-1
 - 1.3.5
 
