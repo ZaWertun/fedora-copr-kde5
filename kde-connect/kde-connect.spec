@@ -47,6 +47,8 @@ BuildRequires:  cmake(KF5People)    >= 5.64.0
 
 BuildRequires:  cmake(Qt5Multimedia)
 BuildRequires:  cmake(KF5PeopleVCard)
+
+BuildRequires:  pulseaudio-qt-devel
 BuildRequires:  cmake(KF5PulseAudioQt)
 
 Obsoletes: kde-connect-kde4-ioslave < %{version}-%{release}
