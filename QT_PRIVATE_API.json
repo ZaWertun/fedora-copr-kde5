@@ -1,4 +1,12 @@
 {
-  "0": ["kf5-kxmlgui"],
-  "1": ["kf5-akonadi-server"]
+  "0": [
+    "kf5-kxmlgui"
+  ],
+  "1": [
+    "kf5-akonadi-server",
+    "kwin",
+    "kwin-lowlatency",
+    "plasma-integration",
+    "xdg-desktop-portal-kde"
+  ]
 }
