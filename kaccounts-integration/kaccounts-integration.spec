@@ -1,5 +1,5 @@
 Name:    kaccounts-integration
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
@@ -11,7 +11,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream fixes
 
@@ -88,7 +88,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f %{name}.lang
 %doc README
 %license COPYING*
-%{_kf5_qtplugindir}/kcm_kaccounts.so
+%{_kf5_qtplugindir}/kcms/kcm_kaccounts.so
+%{_kf5_datadir}/kpackage/kcms/kcm_kaccounts/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_kaccounts/metadata.{desktop,json}
 %{_kf5_datadir}/kservices5/kcm_kaccounts.desktop
 %{_kf5_plugindir}/kded/accounts.so
 %{_kf5_libdir}/libkaccounts.so.1
@@ -102,6 +104,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

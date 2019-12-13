@@ -1,6 +1,6 @@
 Name:    kcalc 
 Summary: Scientific Calculator 
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -12,7 +12,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstreamable patches
 # fix arithmetic fault in mod, factorial
@@ -106,6 +106,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

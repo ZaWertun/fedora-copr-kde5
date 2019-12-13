@@ -1,7 +1,7 @@
 
 Name:    kdegraphics-mobipocket 
 Summary: A collection of plugins to handle mobipocket files 
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -12,7 +12,7 @@ URL:     https://www.kde.org/applications/graphics/
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -62,6 +62,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_libdir}/libqmobipocket.so.2*
 %{_qt5_plugindir}/mobithumbnail.so
 %{_kf5_datadir}/kservices5/mobithumbnail.desktop
+%{_kf5_metainfodir}/*.metainfo.xml
 
 %files devel
 %{_libdir}/libqmobipocket.so
@@ -70,6 +71,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

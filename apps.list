@@ -14,6 +14,7 @@ kaccounts-providers
 kaddressbook
 kalarm
 kamera
+kamoso
 kate
 kcachegrind
 kcalc
@@ -46,7 +47,6 @@ kf5-incidenceeditor
 kf5-kalarmcal
 kf5-kcalendarcore
 kf5-kcalendarutils
-kf5-kcontacts
 kf5-kdav
 kf5-kidentitymanagement
 kf5-kimap

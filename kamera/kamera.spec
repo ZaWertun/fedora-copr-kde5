@@ -1,7 +1,7 @@
 
 Name:    kamera
 Summary: Digital camera support for KDE 
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -12,7 +12,7 @@ URL:     https://www.kde.org/applications/graphics/
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/kamera-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/kamera-%{version}.tar.xz
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-kconfig-devel
@@ -64,9 +64,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/solid/actions/solid_camera.desktop
 %{_kf5_datadir}/kservices5/camera.protocol
 %{_kf5_datadir}/kservices5/kamera.desktop
+%{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

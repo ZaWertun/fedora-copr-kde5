@@ -11,7 +11,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -26,7 +26,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/kate-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/kate-%{version}.tar.xz
 
 ## upstream patches
 
@@ -172,10 +172,10 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/ktexteditor/ktexteditorpreviewplugin.so
 %{_kf5_qtplugindir}/ktexteditor/tabswitcherplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katereplicodeplugin.so
-%{_kf5_qtplugindir}/ktexteditor/kterustcompletionplugin.so
-%{_kf5_qtplugindir}/ktexteditor/ktexteditor_lumen.so
 %{_kf5_qtplugindir}/ktexteditor/textfilterplugin.so
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_katesessions.so
+%{_kf5_qtplugindir}/ktexteditor/externaltoolsplugin.so
+%{_kf5_qtplugindir}/ktexteditor/lspclientplugin.so
 %{_kf5_datadir}/kateproject/
 %{_kf5_datadir}/katexmltools/
 
@@ -187,6 +187,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

@@ -3,7 +3,7 @@
 
 Name:    kde-print-manager
 Summary: Printer management for KDE
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+
@@ -15,7 +15,7 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{base_name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{base_name}-%{version}.tar.xz
 
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
@@ -103,6 +103,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 %{_kf5_datadir}/applications/org.kde.ConfigurePrinter.desktop
 %{_kf5_datadir}/applications/org.kde.PrintQueue.desktop
 %{_kf5_metainfodir}/org.kde.plasma.printmanager.appdata.xml
+%{_kf5_metainfodir}/*.metainfo.xml
 
 %ldconfig_scriptlets libs
 
@@ -114,6 +115,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

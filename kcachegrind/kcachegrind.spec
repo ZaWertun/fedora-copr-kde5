@@ -1,7 +1,7 @@
 Name:    kcachegrind
 Summary: GUI to profilers such as Valgrind
-Version: 19.08.3
-Release: 2%{?dist}
+Version: 19.12.0
+Release: 1%{?dist}
 
 License: GPLv2 and GFDL
 URL:     https://cgit.kde.org/%{name}.git
@@ -12,7 +12,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
 
@@ -90,8 +90,8 @@ popd
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 # qcachegrind needs manual installation
-install -p -m 755 %{_target_platform}/qcachegrind/qcachegrind %{buildroot}%{_bindir}/
-install -p -m 755 %{_target_platform}/cgview/cgview %{buildroot}%{_bindir}/
+install -p -m 755 %{_target_platform}/bin/qcachegrind %{buildroot}%{_bindir}/
+install -p -m 755 %{_target_platform}/bin/cgview %{buildroot}%{_bindir}/
 install -p -m 644 qcachegrind/qcachegrind.desktop %{buildroot}%{_datadir}/applications/
 
 
@@ -135,6 +135,9 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-2
 - rebuild
 

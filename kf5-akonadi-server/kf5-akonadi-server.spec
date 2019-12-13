@@ -21,7 +21,7 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -33,7 +33,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/akonadi-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/akonadi-%{version}.tar.xz
 
 ## mysql config
 Source10:       akonadiserverrc.mysql
@@ -51,6 +51,7 @@ BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtxmlpatterns-devel
+BuildRequires:  cmake(AccountsQt5)
 
 BuildRequires:  cmake(KF5ItemViews)
 BuildRequires:  cmake(KF5KIO)
@@ -63,6 +64,7 @@ BuildRequires:  cmake(KF5IconThemes)
 BuildRequires:  cmake(KF5WindowSystem)
 BuildRequires:  cmake(KF5Completion)
 BuildRequires:  cmake(KF5Crash)
+BuildRequires:  cmake(KAccounts)
 
 BuildRequires:  boost-devel
 BuildRequires:  pkgconfig(libxslt)
@@ -193,7 +195,8 @@ install -p -m644 -D akonadiserverrc %{buildroot}%{_sysconfdir}/xdg/akonadi/akona
 rm -fv %{buildroot}%{_sysconfdir}/xdg/akonadi/mysql-global-mobile.conf
 # part of omitting exceptions header hack, drop the custom (no-longer-used) header itself
 rm -fv %{buildroot}%{_kf5_includedir}/AkonadiCore/std_exception.h
-
+# apparmor rules
+rm -fv %{buildroot}%{_sysconfdir}/apparmor.d/*
 
 %check
 %if 0%{?tests}
@@ -241,7 +244,7 @@ fi
 %{_kf5_datadir}/kf5/akonadi/
 %{_kf5_qtplugindir}/akonadi/
 %if ! 0%{?bootstrap}
-%{_kf5_qtplugindir}/designer/akonadi5widgets.so
+%{_kf5_qtplugindir}/designer/akonadiwidgets.so
 %endif
 %{_kf5_qtplugindir}/sqldrivers/libqsqlite3.so
 %{_kf5_libdir}/libKF5AkonadiAgentBase.so.5*
@@ -303,6 +306,9 @@ fi
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

@@ -1,8 +1,8 @@
 
 Name:    krfb
 Summary: Desktop sharing
-Version: 19.08.3
-Release: 2%{?dist}
+Version: 19.12.0
+Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
 URL:     https://www.kde.org/applications/system/krfb/
@@ -13,7 +13,7 @@ URL:     https://www.kde.org/applications/system/krfb/
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
@@ -113,6 +113,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.desk
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-2
 - rebuild
 

@@ -1,8 +1,8 @@
 diff -up kio-extras-19.04.2/CMakeLists.txt.nfs kio-extras-19.04.2/CMakeLists.txt
 --- kio-extras-19.04.2/CMakeLists.txt.nfs	2019-06-03 19:13:48.000000000 -0500
 +++ kio-extras-19.04.2/CMakeLists.txt	2019-06-05 14:02:00.219046753 -0500
-@@ -175,9 +175,11 @@ if(NOT WIN32)
-    if(Gperf_FOUND AND KF5KHtml_FOUND)
+@@ -178,9 +178,11 @@
+    if(Gperf_FOUND)
       add_subdirectory( man )
     endif()
 -   check_include_files(rpc/rpc.h HAVE_RPC_RPC_H)

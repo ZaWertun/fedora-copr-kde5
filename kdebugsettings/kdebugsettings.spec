@@ -1,6 +1,6 @@
 Name:    kdebugsettings
 Summary: Configure debug output from Qt5 applications
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -12,7 +12,7 @@ URL:     https://www.kde.org/applications/utilities/
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 
@@ -65,11 +65,16 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kdebugset
 %files -f %{name}.lang
 %license COPYING
 %{_kf5_bindir}/kdebugsettings
+%{_kf5_libdir}/libkdebugsettings.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_datadir}/applications/org.kde.kdebugsettings.desktop
+%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

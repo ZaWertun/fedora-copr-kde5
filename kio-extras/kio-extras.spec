@@ -7,7 +7,7 @@
 %endif
 
 Name:    kio-extras
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -20,7 +20,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstramable patches
 # patch to use libtirpc for RPC, from Cygwin Ports
@@ -173,7 +173,6 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kio/sftp.so
 %{_kf5_plugindir}/kio/smb.so
 %{_kf5_plugindir}/kio/thumbnail.so
-%{_kf5_plugindir}/parts/kmanpart.so
 %{_kf5_qtplugindir}/audiothumbnail.so
 %{_kf5_qtplugindir}/comicbookthumbnail.so
 %{_kf5_qtplugindir}/djvuthumbnail.so
@@ -226,6 +225,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

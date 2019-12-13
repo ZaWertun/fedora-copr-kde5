@@ -8,10 +8,10 @@ diff -up konqueror-18.12.2/CMakeLists.txt.opt konqueror-18.12.2/CMakeLists.txt
 -find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Widgets WebEngineWidgets)
 +find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Widgets)
 +find_package(Qt5WebEngineWidgets)
- find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Parts KCMUtils KHtml KDELibs4Support Archive Crash)
+ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Parts KCMUtils KHtml Archive Crash WindowSystem Init IconThemes DBusAddons)
+ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KDELibs4Support)
  
- find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS Activities DocTools) # Optional
-@@ -55,7 +56,9 @@ add_subdirectory( client )
+@@ -60,7 +61,9 @@ add_subdirectory( client )
  if(BUILD_TESTING)
      add_subdirectory( autotests )
  endif()

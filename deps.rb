@@ -17,7 +17,7 @@ def resolve_dep(name)
     STDERR.puts(cmd) if ENV['DEBUG'] == '1'
     provides = `#{cmd}`.split(/\n/).first
     unless $?.success?
-      cmd = "dnf -y -C -q provides \"#{name}\" 2>/dev/null |head -n1"
+      cmd = "dnf -y -q provides \"#{name}\" 2>/dev/null |head -n1"
       STDERR.puts(cmd) if ENV['DEBUG'] == '1'
       provides = `#{cmd}`.split(/\n/).first
       unless provides

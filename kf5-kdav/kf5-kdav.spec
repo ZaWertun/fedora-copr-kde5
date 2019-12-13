@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 Summary: A DAV protocol implementation with KJobs
 
@@ -21,7 +21,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{framework}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 
 BuildRequires:  cmake(Qt5Gui)
 BuildRequires:  cmake(Qt5XmlPatterns)
@@ -83,14 +83,12 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%doc README
 %license COPYING*
 %{_kf5_libdir}/libKPimKDAV.so.5*
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %files devel
-#{_kf5_includedir}/kpimkdav_version.h
 %{_includedir}/KPim/
 %{_kf5_libdir}/libKPimKDAV.so
 %{_kf5_libdir}/cmake/KPimKDAV/
@@ -98,6 +96,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 

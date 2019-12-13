@@ -1,6 +1,6 @@
 Name:    kdnssd
 Summary: KDE Network Monitor for DNS-SD services (Zeroconf)
-Version: 19.08.3
+Version: 19.12.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -13,7 +13,7 @@ URL:     https://cgit.kde.org/zeroconf-ioslave.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/zeroconf-ioslave-%{version}.tar.xz
+Source0: https://download.kde.org/stable/release-service/%{version}/src/zeroconf-ioslave-%{version}.tar.xz
 
 # new upstream name in 4.12.95
 Provides: zeroconf-ioslave = %{version}-%{release}
@@ -63,10 +63,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kservices5/kded/dnssdwatcher.desktop
 %dir %{_kf5_datadir}/remoteview/
 %{_kf5_datadir}/remoteview/zeroconf.desktop
-
+%{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
+- 19.12.0
+
 * Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
 - 19.08.3
 
