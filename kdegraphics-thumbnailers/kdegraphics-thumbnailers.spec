@@ -52,6 +52,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kservices5/rawthumbnail.desktop
 %{_kf5_qtplugindir}/blenderthumbnail.so
 %{_kf5_datadir}/kservices5/blenderthumbnail.desktop
+%{_kf5_metainfodir}/org.kde.%{name}.metainfo.xml
 
 
 %changelog

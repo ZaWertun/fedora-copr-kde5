@@ -33,8 +33,8 @@ BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-kwallet-devel
 BuildRequires:  kf5-kwindowsystem-devel
 
-BuildRequires:  kf5-kcalendarcore-devel >= %{version}
-BuildRequires:  kf5-kcontacts-devel >= %{version}
+BuildRequires:  kf5-kcalendarcore-devel
+BuildRequires:  kf5-kcontacts-devel
 
 BuildRequires:  cyrus-sasl-devel
 

@@ -77,6 +77,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kservices5/fileviewgitplugin.desktop
 %{_kf5_datadir}/kservices5/fileviewsvnplugin.desktop
 %{_kf5_datadir}/kservices5/fileviewhgplugin.desktop
+%{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog

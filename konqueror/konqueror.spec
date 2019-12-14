@@ -189,7 +189,6 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_datadir}/config.kcfg/*.kcfg
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
 %{_kf5_datadir}/dolphinpart/kpartplugins/*
-%{_kf5_datadir}/domtreeviewer/domtreeviewerui.rc
 %{_kf5_datadir}/fsview/
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/kcmcss/

@@ -1,4 +1,4 @@
-%global framework kcalcore
+%global framework kcalendarcore
 
 # uncomment to enable bootstrap mode
 #global bootstrap 1
@@ -8,7 +8,8 @@
 %endif
 
 Name:    kf5-kcalendarcore
-Version: 19.12.0
+Epoch:   1
+Version: 5.64.0
 Release: 1%{?dist}
 Summary: The KCalendarCore Library
 
@@ -16,14 +17,13 @@ License: LGPLv2+ and GPLv3+
 URL:     https://cgit.kde.org/%{framework}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
+%global majmin %(echo %{version} | cut -d. -f1,2)
 %if %{revision} >= 50
 %global stable unstable
 %else
 %global stable stable
 %endif
-Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{framework}-%{version}.tar.xz
-
-Patch0:         version_fix.patch
+Source0:        https://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-kdelibs4support-devel >= 5.15
@@ -49,7 +49,7 @@ Provides: kf5-%{framework}%{?_isa} = %{version}-%{release}
 Summary:        Development files for %{name}
 Provides:       kf5-%{framework}-devel = %{version}-%{release}
 Provides:       kf5-%{framework}-devel%{?_isa} = %{version}-%{release}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = 1:%{version}-%{release}
 Requires:       kf5-kdelibs4support-devel
 Requires:       libical-devel
 %description    devel
@@ -102,6 +102,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Dec 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+- 5.64.0
+
 * Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
 - 19.12.0
 

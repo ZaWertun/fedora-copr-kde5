@@ -124,6 +124,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libkmailgrammalecte.so.5*
 %{_kf5_libdir}/libkmaillanguagetool.so.5*
 %{_kf5_libdir}/libadblocklibprivate.so.5*
+%{_kf5_libdir}/libdkimverifyconfigure.so.5*
+%{_kf5_libdir}/libkmailquicktextpluginprivate.so.5*
 
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents/
@@ -138,9 +140,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libkaddressbookimportexportlibprivate.so.*
 %{_kf5_libdir}/libkaddressbookmergelibprivate.so*
 %{_kf5_libdir}/contacteditor/editorpageplugins/cryptopageplugin.so
-%{_kf5_qtplugindir}/contacteditor/addresslocationeditorplugin.so
-%{_kf5_datadir}/contacteditor/grantleetheme/default/addresseslocation.css
-%{_kf5_datadir}/contacteditor/grantleetheme/default/addresseslocation.html
 
 %dir %{_kf5_qtplugindir}/kaddressbook/
 %{_kf5_qtplugindir}/kaddressbook/kaddressbook_checkgravatarplugin.so
@@ -153,6 +152,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/kaddressbook/kaddressbook_searchduplicatesplugin.so
 %{_kf5_qtplugindir}/kaddressbook/kaddressbook_sendmailplugin.so
 %{_kf5_qtplugindir}/kaddressbook/kaddressbook_sendvcardsplugin.so
+
+# Akonadi
+%{_kf5_qtplugindir}/akonadi/emailaddressselectionldapdialogplugin.so
 
 # KMail
 %{_kf5_bindir}/kmail_*.sh
@@ -174,9 +176,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/kmail/kmail_sharetexteditorplugin.so
 %{_kf5_qtplugindir}/kmail/kmail_grammalecteplugin.so
 %{_kf5_qtplugindir}/kmail/kmail_languagetoolplugin.so
+%{_kf5_qtplugindir}/kmail/kmail_quicktextplugin.so
 %{_kf5_sysconfdir}/xdg/kmail.antispamrc
 %{_kf5_sysconfdir}/xdg/kmail.antivirusrc
-%{_kf5_datadir}/kmail2/pics/*
 
 %{_kf5_qtplugindir}/libksieve/emaillineeditplugin.so
 %{_kf5_qtplugindir}/libksieve/imapfoldercompletionplugin.so
@@ -234,6 +236,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/messageviewer/messageviewer_expandurlplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_externalscriptplugin.so
 %{_kf5_qtplugindir}/messageviewer/messageviewer_translatorplugin.so
+%{_kf5_qtplugindir}/messageviewer/messageviewer_dkimconfigplugin.so
 
 # qtcreator templates
 %dir %{_datadir}/qtcreator

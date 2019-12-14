@@ -24,6 +24,7 @@ BuildRequires:  cmake(Qt5Network)
 BuildRequires:  cmake(Qt5Test)
 BuildRequires:  cmake(Qt5UiTools)
 BuildRequires:  cmake(Qt5Widgets)
+BuildRequires:  cmake(Phonon4Qt5)
 
 %global kf5_ver 5.23.0
 BuildRequires:  extra-cmake-modules >= %{kf5_ver}

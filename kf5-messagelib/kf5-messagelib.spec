@@ -31,8 +31,8 @@ BuildRequires:  cmake(Qt5Qml) cmake(Qt5Quick)
 BuildRequires:  cmake(Qt5WebChannel)
 BuildRequires:  cmake(Qt5WebEngine)
 BuildRequires:  cmake(Qt5Widgets)
-
 BuildRequires:  cmake(QGpgme)
+BuildRequires:  cmake(Qca-qt5)
 
 %global kf5_ver 5.28
 BuildRequires:  extra-cmake-modules >= %{kf5_ver}

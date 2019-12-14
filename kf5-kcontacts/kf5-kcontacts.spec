@@ -8,6 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
+Epoch:   1
 Version: 5.64.0
 Release: 1%{?dist}
 Summary: The KContacts Library
@@ -44,7 +45,7 @@ Conflicts: kde-l10n < 17.03
 
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = 1:%{version}-%{release}
 Requires:       kf5-kcoreaddons-devel
 %description    devel
 The %{name}-devel package contains libraries and header files for

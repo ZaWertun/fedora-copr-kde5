@@ -40,6 +40,7 @@ BuildRequires:  kf5-ki18n-devel
 BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-kwidgetsaddons-devel
 BuildRequires:  kf5-solid-devel
+BuildRequires:  cmake(KF5Notifications)
 
 BuildRequires:  kf5-purpose-devel >= 1.1
 BuildRequires:  libappstream-glib
@@ -97,12 +98,14 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %files -f kamoso.lang
 %doc AUTHORS TODO
 %license COPYING
-%{_kf5_metainfodir}/org.kde.kamoso.appdata.xml
-%{_kf5_datadir}/applications/org.kde.kamoso.desktop
 %{_kf5_bindir}/kamoso
-%{_kf5_datadir}/icons/hicolor/*/apps/kamoso.*
-%{_kf5_datadir}/icons/hicolor/*/actions/*
 %{_libdir}/gstreamer-1.0/gstkamosoqt5videosink.so
+%{_kf5_datadir}/icons/hicolor/*/actions/*
+%{_kf5_datadir}/icons/hicolor/*/apps/kamoso.*
+%{_kf5_datadir}/sounds/kamoso-shutter.wav
+%{_kf5_datadir}/knotifications5/%{name}.notifyrc
+%{_kf5_datadir}/applications/org.kde.kamoso.desktop
+%{_kf5_metainfodir}/org.kde.kamoso.appdata.xml
 
 
 %changelog

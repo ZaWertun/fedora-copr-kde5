@@ -25,7 +25,7 @@ Source0:        https://download.kde.org/stable/release-service/%{version}/src/%
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
-
+BuildRequires:  shared-mime-info
 BuildRequires:  cmake(KF5I18n)
 
 # kde-pim pkgs
@@ -103,6 +103,7 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 %doc README.md
 %license COPYING*
 %{_kf5_libdir}/libKPimItinerary.so.5*
+%{_kf5_datadir}/mime/packages/*.xml
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
 
