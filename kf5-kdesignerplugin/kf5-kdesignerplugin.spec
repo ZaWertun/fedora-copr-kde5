@@ -4,7 +4,7 @@
 #global bootstrap 1
 
 Name:    kf5-%{framework}
-Version: 5.64.0
+Version: 5.65.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for Qt Designer
 
@@ -92,6 +92,9 @@ cat kdesignerplugin5_qt.lang %{name}-man.lang > %{name}.lang
 
 
 %changelog
+* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+- 5.65.0
+
 * Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
 - 5.64.0
 

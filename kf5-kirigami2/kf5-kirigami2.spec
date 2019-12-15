@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.64.0
-Release: 2%{?dist}
+Version: 5.65.0
+Release: 1%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 
 # All LGPLv2+ except for src/desktopicons.h (GPLv2+)
@@ -25,8 +25,6 @@ URL:     https://techbase.kde.org/Kirigami
 Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
 
 ## upstream paches
-# Fix for bug #414003:
-Patch0:         4a9820a6df15a55a7d36d343ce70a25ba7d56b79.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -122,6 +120,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+- 5.65.0
+
 * Fri Nov 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-2
 - patch for #414003
 

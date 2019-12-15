@@ -1,7 +1,7 @@
 %global framework qqc2-desktop-style
 
 Name:    %{framework}
-Version: 5.64.0
+Version: 5.65.0
 Release: 1%{?dist}
 Summary: QtQuickControls2 style for consistency between QWidget and QML apps 
 
@@ -83,10 +83,14 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_qt5_qmldir}/QtQuick/Controls.2/org.kde.desktop/
 %{_qt5_qmldir}/org/kde/qqc2desktopstyle/
 # yes, here
-%{_kf5_libdir}/cmake/KF5QQC2DeskopStyle/
+%{_kf5_libdir}/cmake/KF5QQC2DeskopStyle/*.cmake
+%{_kf5_libdir}/cmake/KF5QQC2DesktopStyle/*.cmake
 
 
 %changelog
+* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+- 5.65.0
+
 * Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
 - 5.64.0
 

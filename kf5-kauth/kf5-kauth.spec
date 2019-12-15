@@ -1,7 +1,7 @@
 %global framework kauth
 
 Name:           kf5-%{framework}
-Version: 5.64.0
+Version: 5.65.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 2 integration module to perform actions as privileged user
 
@@ -74,10 +74,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_includedir}/KAuth/
 %{_kf5_libdir}/libKF5Auth*.so
 %{_kf5_libdir}/cmake/KF5Auth/
-%{_kf5_archdatadir}/mkspecs/modules/qt_KAuth.pri
+%{_kf5_archdatadir}/mkspecs/modules/qt_KAuth*.pri
 
 
 %changelog
+* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+- 5.65.0
+
 * Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
 - 5.64.0
 

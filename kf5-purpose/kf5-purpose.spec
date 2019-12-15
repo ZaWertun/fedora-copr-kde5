@@ -3,8 +3,8 @@
 
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
-Version: 5.64.0
-Release: 2%{?dist}
+Version: 5.65.0
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -140,6 +140,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+- 5.65.0
+
 * Mon Nov 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-2
 - build deps for sharefile plugin added
 

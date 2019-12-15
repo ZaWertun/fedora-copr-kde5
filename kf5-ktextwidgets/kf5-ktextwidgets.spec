@@ -1,7 +1,7 @@
 %global framework ktextwidgets
 
 Name:    kf5-%{framework}
-Version: 5.64.0
+Version: 5.65.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon with advanced text editing widgets
 
@@ -76,7 +76,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %doc README.md
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5TextWidgets.so.*
-%{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_qtplugindir}/designer/*.so
 
 %files devel
@@ -88,6 +87,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+- 5.65.0
+
 * Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
 - 5.64.0
 
