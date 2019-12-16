@@ -1,6 +1,6 @@
 Name:    kaccounts-providers
 Version: 19.12.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
 URL:     https://cgit.kde.org/%{name}.git
@@ -25,6 +25,7 @@ BuildRequires:  pkgconfig(libaccounts-glib)
 BuildRequires:  pkgconfig(Qt5Gui)
 
 Requires:       signon-ui
+Requires:       accounts-qml-module%{?_isa}
 
 # switched to arch'd pkg
 Obsoletes: kaccounts-providers < 15.12.0
@@ -64,6 +65,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Dec 16 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-2
+- rebuild
+
 * Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
 - 19.12.0
 
