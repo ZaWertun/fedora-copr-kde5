@@ -21,7 +21,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/stable/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 
 BuildRequires:  cmake(Qt5Gui)
 BuildRequires:  cmake(Qt5XmlPatterns)

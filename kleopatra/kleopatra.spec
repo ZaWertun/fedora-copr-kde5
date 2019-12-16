@@ -15,7 +15,7 @@ URL:     http://projects.kde.org/?p=%{name}.git
 %else
 %global stable stable
 %endif
-Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstreamable patches
 

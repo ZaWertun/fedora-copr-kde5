@@ -14,7 +14,7 @@ URL:     https://www.kde.org/applications/graphics/gwenview/
 %else
 %global stable stable
 %endif 
-Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 

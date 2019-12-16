@@ -12,7 +12,7 @@ URL:     http://www.kdenlive.org
 %else
 %global stable stable
 %endif
-Source0:   https://download.kde.org/stable/release-service/%{version}/src/kdenlive-%{version}.tar.xz
+Source0:   https://download.kde.org/%{stable}/release-service/%{version}/src/kdenlive-%{version}.tar.xz
 Source1:   https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Source100: kdenlive-find-lang.sh
 

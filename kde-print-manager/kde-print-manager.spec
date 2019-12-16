@@ -15,7 +15,7 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/stable/release-service/%{version}/src/%{base_name}-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{base_name}-%{version}.tar.xz
 
 BuildRequires: desktop-file-utils
 BuildRequires: gettext

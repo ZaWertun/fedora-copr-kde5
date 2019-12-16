@@ -13,7 +13,7 @@ URL:     https://cgit.kde.org/zeroconf-ioslave.git
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/stable/release-service/%{version}/src/zeroconf-ioslave-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/zeroconf-ioslave-%{version}.tar.xz
 
 # new upstream name in 4.12.95
 Provides: zeroconf-ioslave = %{version}-%{release}

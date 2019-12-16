@@ -14,7 +14,7 @@ URL:     http://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules >= 5.32.0
 BuildRequires:  kf5-rpm-macros

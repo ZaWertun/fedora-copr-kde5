@@ -11,7 +11,14 @@ Summary:        A drop-down terminal emulator
 License:	GPLv2 or GPLv3
 #URL:		https://projects.kde.org/projects/extragear/utils/yakuake 
 URL:		http://yakuake.kde.org/
-Source0:    https://download.kde.org/stable/release-service/%{version}/src/yakuake-%{version}.tar.xz
+
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
+%else
+%global stable stable
+%endif
+Source0:    https://download.kde.org/%{stable}/release-service/%{version}/src/yakuake-%{version}.tar.xz
 
 ## upstream fixes
 

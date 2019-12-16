@@ -13,7 +13,7 @@ URL:     https://www.kde.org/applications/graphics/
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros

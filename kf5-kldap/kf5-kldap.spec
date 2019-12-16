@@ -21,7 +21,7 @@ URL:     https://api.kde.org/kdepim/kldap/html
 %else
 %global stable stable
 %endif
-Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 
 BuildRequires:  cyrus-sasl-devel
 BuildRequires:  openldap-devel

@@ -33,7 +33,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/stable/release-service/%{version}/src/akonadi-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/akonadi-%{version}.tar.xz
 
 ## mysql config
 Source10:       akonadiserverrc.mysql
