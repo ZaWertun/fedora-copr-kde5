@@ -41,4 +41,11 @@ rm -rfv %{buildroot}%{_datadir}/accounts-qml-module/doc
 
 
 %files
+%license %{name}/trunk/COPYING
 %{_qt5_qmldir}/Ubuntu/OnlineAccounts/*
+
+
+%changelog
+* Mon Dec 16 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.6+17.04.20170405-1
+- version 0.6+17.04.20170405-0ubuntu1 (rev 64)
+
