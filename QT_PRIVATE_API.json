@@ -1,9 +1,14 @@
 {
   "0": [
-    "kf5-kxmlgui"
+    "kf5-kxmlgui",
+    "kf5-akonadi-server"
   ],
   "1": [
-    "kf5-akonadi-server",
+    "kf5-kwayland",
+    "kf5-kdeclarative",
+    "kf5-frameworkintegration"
+  ],
+  "2": [
     "kwin",
     "kwin-lowlatency",
     "plasma-integration",

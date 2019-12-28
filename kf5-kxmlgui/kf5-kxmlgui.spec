@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.65.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for user-configurable main windows
 
 # Library LGPLv2+, ksendbugmail is GPLv2+
@@ -97,6 +97,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kxmlgui5/
 
 
 %changelog
+* Sat Dec 21 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-2
+- rebuild
+
 * Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
 - 5.65.0
 

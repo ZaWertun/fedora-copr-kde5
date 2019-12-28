@@ -47,9 +47,10 @@ make %{?_smp_mflags} -C %{_target_platform}
 
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
-
 %find_lang %{name} --all-name
 
+
+%ldconfig_scriptlets
 
 %files -f %{name}.lang
 %license COPYING

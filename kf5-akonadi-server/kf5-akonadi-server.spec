@@ -22,7 +22,7 @@
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
 Version: 19.12.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -306,6 +306,9 @@ fi
 
 
 %changelog
+* Sat Dec 21 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-2
+- rebuild
+
 * Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
 - 19.12.0
 
