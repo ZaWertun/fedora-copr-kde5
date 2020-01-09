@@ -25,7 +25,6 @@ Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.t
 Patch100: plasma-desktop-5.8-default_favorites.patch
 
 ## upstream patches
-Patch6:   0006-Fix-regression-in-Port-the-pager-applet-away-from-Qt.patch
 
 ## upstreamable patches
 
