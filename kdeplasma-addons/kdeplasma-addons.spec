@@ -1,6 +1,6 @@
 Name:    kdeplasma-addons
 Summary: Additional Plasmoids for Plasma 5
-Version: 5.17.4
+Version: 5.17.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -126,6 +126,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_includedir}/plasma/potdprovider/*
 
 %changelog
+* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+- 5.17.5
+
 * Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
 - 5.17.4
 

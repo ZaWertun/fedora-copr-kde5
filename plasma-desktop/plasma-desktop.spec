@@ -3,7 +3,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.17.4
+Version: 5.17.5
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -25,6 +25,7 @@ Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.t
 Patch100: plasma-desktop-5.8-default_favorites.patch
 
 ## upstream patches
+Patch6:   0006-Fix-regression-in-Port-the-pager-applet-away-from-Qt.patch
 
 ## upstreamable patches
 
@@ -172,14 +173,7 @@ BuildArch: noarch
 
 
 %prep
-%setup -q
-
-## downstream patches
-%patch100 -p1
-
-## upstream patches
-
-## upstreamable patches
+%autosetup -p1
 
 # FIXME: relax plasma-breeze dep
 sed -i.breeze_ver \
@@ -309,6 +303,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+- 5.17.5
+
 * Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
 - 5.17.4
 

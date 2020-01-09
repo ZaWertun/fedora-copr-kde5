@@ -9,8 +9,8 @@
 %endif
 
 Name:    kwin
-Version: 5.17.4
-Release: 2%{?dist}
+Version: 5.17.5
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 # all sources are effectively GPLv2+, except for:
@@ -301,8 +301,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
-* Sat Dec 21 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-2
-- rebuild
+* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+- 5.17.5
 
 * Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
 - 5.17.4
