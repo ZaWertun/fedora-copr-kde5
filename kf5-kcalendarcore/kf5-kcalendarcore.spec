@@ -9,7 +9,7 @@
 
 Name:    kf5-kcalendarcore
 Epoch:   1
-Version: 5.64.0
+Version: 19.12.1
 Release: 1%{?dist}
 Summary: The KCalendarCore Library
 
@@ -102,6 +102,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.12.1-1
+- 19.12.1
+
 * Fri Dec 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
 - 5.64.0
 

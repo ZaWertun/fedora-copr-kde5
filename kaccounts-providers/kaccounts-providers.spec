@@ -1,6 +1,6 @@
 Name:    kaccounts-providers
-Version: 19.12.0
-Release: 2%{?dist}
+Version: 19.12.1
+Release: 1%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
 URL:     https://cgit.kde.org/%{name}.git
@@ -65,6 +65,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+- 19.12.1
+
 * Mon Dec 16 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-2
 - rebuild
 

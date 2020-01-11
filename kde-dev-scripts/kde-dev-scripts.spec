@@ -1,6 +1,6 @@
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
-Version: 19.12.0
+Version: 19.12.1
 Release: 1%{?dist}
 
 License: GPLv2+ and GPLv2+ and BSD
@@ -174,6 +174,9 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 
 
 %changelog
+* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+- 19.12.1
+
 * Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
 - 19.12.0
 

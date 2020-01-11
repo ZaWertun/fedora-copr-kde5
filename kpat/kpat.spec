@@ -1,7 +1,7 @@
 
 Name:    kpat
 Summary: A selection of solitaire card games
-Version: 19.12.0
+Version: 19.12.1
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -105,6 +105,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+- 19.12.1
+
 * Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
 - 19.12.0
 

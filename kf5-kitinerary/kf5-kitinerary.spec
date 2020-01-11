@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 19.12.0
+Version: 19.12.1
 Release: 1%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
@@ -73,6 +73,11 @@ developing applications that use %{name}.
 
 
 %build
+%if 0%{fedora} == 29
+# popplerutils.cpp:88:47: error: passing 'const GfxPath' as 'this' argument discards qualifiers [-fpermissive]
+%global optflags %(echo %{optflags} -fpermissive)
+%endif
+
 mkdir %{_target_platform}
 pushd %{_target_platform}
 %{cmake_kf5} .. \
@@ -115,6 +120,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+- 19.12.1
+
 * Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
 - 19.12.0
 

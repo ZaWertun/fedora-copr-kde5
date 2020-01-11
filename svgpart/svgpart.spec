@@ -1,6 +1,6 @@
 Name:    svgpart
 Summary: SVG KPart
-Version: 19.12.0
+Version: 19.12.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -53,6 +53,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+- 19.12.1
+
 * Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
 - 19.12.0
 
