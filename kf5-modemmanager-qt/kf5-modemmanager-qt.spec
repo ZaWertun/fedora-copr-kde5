@@ -1,7 +1,7 @@
 %global framework modemmanager-qt
 
 Name:    kf5-%{framework}
-Version: 5.65.0
+Version: 5.66.0
 Release: 1%{?dist}
 Summary: A Tier 1 KDE Frameworks module wrapping ModemManager DBus API
 
@@ -72,6 +72,9 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+- 5.66.0
+
 * Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
 - 5.65.0
 

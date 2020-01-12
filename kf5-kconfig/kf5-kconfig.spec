@@ -8,7 +8,7 @@
 %if 0%{?fedora}
 %ifnarch ppc64 s390x
 %if 0%{?fedora} < 29
-%global python 1
+%global has_python 1
 %endif
 %endif
 %endif
@@ -20,7 +20,7 @@
 %global ninja 1
 
 Name:    kf5-%{framework}
-Version: 5.65.0
+Version: 5.66.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 
@@ -52,7 +52,7 @@ BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
 
-%if 0%{?python}
+%if 0%{?has_python}
 %if 0%{?fedora} && 0%{?fedora} < 27
 BuildRequires:  bundled(python2-clang) >= 4.0.1
 %else
@@ -105,7 +105,7 @@ KConfigGui provides a way to hook widgets to the configuration so that they are
 automatically initialized from the configuration and automatically propagate
 their changes to their respective configuration files.
 
-%if 0%{?python}
+%if 0%{?has_python}
 %package -n python2-pykf5-%{framework}
 Summary: Python2 bindings for %{framework}
 Requires: %{name} = %{version}-%{release}
@@ -132,7 +132,7 @@ BuildArch: noarch
 
 %build
 
-%if 0%{?python:1}
+%if 0%{?has_python:1}
 PYTHONPATH=%{_datadir}/ECM/python
 export PYTHONPATH
 %endif
@@ -203,7 +203,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_archdatadir}/mkspecs/modules/qt_KConfigCore.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_KConfigGui.pri
 
-%if 0%{?python}
+%if 0%{?has_python}
 %files -n python2-pykf5-%{framework}
 %{python2_sitearch}/PyKF5/
 
@@ -216,6 +216,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+- 5.66.0
+
 * Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
 - 5.65.0
 

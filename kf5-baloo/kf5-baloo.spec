@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.65.0
+Version: 5.66.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -190,8 +190,6 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_datadir}/kservices5/baloosearch.protocol
 %{_kf5_datadir}/kservices5/tags.protocol
 %{_kf5_datadir}/kservices5/timeline.protocol
-# track icon size too, since it may conflict with baloo-4.x
-%{_kf5_datadir}/icons/hicolor/128x128/apps/baloo.png
 
 %files devel
 %{_kf5_libdir}/libKF5Baloo.so
@@ -205,6 +203,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+- 5.66.0
+
 * Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
 - 5.65.0
 
