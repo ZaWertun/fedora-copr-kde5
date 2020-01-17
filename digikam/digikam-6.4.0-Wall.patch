@@ -1,0 +1,12 @@
+diff -r -U3 digikam-6.4.0.orig/core/libs/facesengine/CMakeLists.txt digikam-6.4.0/core/libs/facesengine/CMakeLists.txt
+--- digikam-6.4.0.orig/core/libs/facesengine/CMakeLists.txt	2019-11-03 12:04:00.000000000 +0300
++++ digikam-6.4.0/core/libs/facesengine/CMakeLists.txt	2020-01-18 00:19:23.452732452 +0300
+@@ -95,7 +95,7 @@
+         # Dlib DNN generate plenty of wrong warnings. Remove these workaround later when code will be ported to OpenCV DNN.
+         REMOVE_GCC_COMPILER_WARNINGS("-Wextra")
+         REMOVE_GCC_COMPILER_WARNINGS("-Wundef")
+-        REMOVE_GCC_COMPILER_WARNINGS("-Wall")
++        #REMOVE_GCC_COMPILER_WARNINGS("-Wall")
+ 
+         DISABLE_CLANG_COMPILER_WARNINGS("3.99.99" "-Wno-cast-align")
+         DISABLE_CLANG_COMPILER_WARNINGS("3.99.99" "-Wno-sign-compare")

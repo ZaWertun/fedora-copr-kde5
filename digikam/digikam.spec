@@ -4,7 +4,7 @@
 
 Name:    digikam
 Summary: A digital camera accessing & photo management application
-Version: 6.3.0
+Version: 6.4.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -27,7 +27,7 @@ Source10: digikam-import.desktop
 ## upstream patches
 
 ## upstreamable patches
-Patch100: digikam-6.2.0-Wall.patch
+Patch100: digikam-6.4.0-Wall.patch
 
 %if 0%{?ninja}
 BuildRequires: ninja-build
@@ -269,6 +269,9 @@ update-desktop-database -q &> /dev/null
 
 
 %changelog
+* Fri Jan 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-1
+- 6.4.0
+
 * Tue Oct 01 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.3.0-1
 - 6.3.0
 
