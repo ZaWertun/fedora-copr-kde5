@@ -5,7 +5,7 @@
 Name:    digikam
 Summary: A digital camera accessing & photo management application
 Version: 6.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     http://www.digikam.org/
@@ -89,6 +89,7 @@ BuildRequires: kf5-knotifications-devel
 BuildRequires: kf5-solid-devel
 BuildRequires: kf5-kitemviews-devel
 BuildRequires: kf5-kbookmarks-devel
+BuildRequires: kf5-kcontacts-devel
 BuildRequires: kf5-rpm-macros
 
 ## not actually checked-for or used -- rex
@@ -269,6 +270,9 @@ update-desktop-database -q &> /dev/null
 
 
 %changelog
+* Sat Jan 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-2
+- rebuild
+
 * Fri Jan 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-1
 - 6.4.0
 
