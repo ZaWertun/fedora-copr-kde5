@@ -5,7 +5,7 @@
 Name:    digikam
 Summary: A digital camera accessing & photo management application
 Version: 6.4.0
-Release: 2%{?dist}
+Release: 100%{?dist}
 
 License: GPLv2+
 URL:     http://www.digikam.org/
@@ -270,6 +270,9 @@ update-desktop-database -q &> /dev/null
 
 
 %changelog
+* Sat Jan 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-100
+- bump build to 100
+
 * Sat Jan 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-2
 - rebuild
 
