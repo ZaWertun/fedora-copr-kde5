@@ -40,6 +40,7 @@
   "3": [
     "kf5-kauth",
     "kf5-kcompletion",
+    "kf5-kcontacts",
     "kf5-kcrash",
     "kf5-kdoctools",
     "kf5-kfilemetadata",
