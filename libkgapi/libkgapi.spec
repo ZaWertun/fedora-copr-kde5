@@ -3,7 +3,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 19.12.1
+Version: 19.12.2
 Release: 1%{?dist}
 Summary:        Library to access to Google services
 
@@ -120,6 +120,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
+- 19.12.2
+
 * Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
 - 19.12.1
 

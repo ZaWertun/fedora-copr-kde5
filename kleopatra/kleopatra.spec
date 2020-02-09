@@ -1,5 +1,5 @@
 Name:    kleopatra
-Version: 19.12.1
+Version: 19.12.2
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -105,6 +105,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
+- 19.12.2
+
 * Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
 - 19.12.1
 

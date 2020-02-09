@@ -1,6 +1,6 @@
 Name:    kdnssd
 Summary: KDE Network Monitor for DNS-SD services (Zeroconf)
-Version: 19.12.1
+Version: 19.12.2
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -67,6 +67,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
+- 19.12.2
+
 * Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
 - 19.12.1
 
