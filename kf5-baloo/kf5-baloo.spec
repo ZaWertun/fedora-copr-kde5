@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.66.0
+Version: 5.67.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -31,7 +31,7 @@ Source1:        97-kde-baloo-filewatch-inotify.conf
 
 ## upstreamable patches
 # http://bugzilla.redhat.com/1235026
-Patch100: baloo-5.45.0-baloofile_config.patch
+Patch100: baloo-5.67.0-baloofile_config.patch
 
 ## upstream patches
 
@@ -203,6 +203,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+- 5.67.0
+
 * Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
 - 5.66.0
 

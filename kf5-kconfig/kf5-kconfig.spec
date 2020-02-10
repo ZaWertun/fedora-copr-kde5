@@ -20,7 +20,7 @@
 %global ninja 1
 
 Name:    kf5-%{framework}
-Version: 5.66.0
+Version: 5.67.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 
@@ -216,6 +216,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+- 5.67.0
+
 * Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
 - 5.66.0
 

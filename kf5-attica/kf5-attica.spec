@@ -1,8 +1,8 @@
 %global framework attica
 
 Name:           kf5-attica
-Version: 5.66.0
-Release: 3%{?dist}
+Version: 5.67.0
+Release: 1%{?dist}
 Summary:        KDE Frameworks Tier 1 Addon with Open Collaboration Services API
 
 License:        LGPLv2+
@@ -70,6 +70,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+- 5.67.0
+
 * Thu Jan 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-3
 - bump release
 
