@@ -2,7 +2,7 @@
 
 Name:    plasma-user-manager
 Summary: Manage the users of your system
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -75,6 +75,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 

@@ -1,6 +1,7 @@
-diff -up khotkeys-5.14.4/libkhotkeysprivate/actions/dbus_action.cpp.qdbus-qt5 khotkeys-5.14.4/libkhotkeysprivate/actions/dbus_action.cpp
---- khotkeys-5.14.4/libkhotkeysprivate/actions/dbus_action.cpp.qdbus-qt5	2018-11-27 10:08:32.000000000 -0600
-+++ khotkeys-5.14.4/libkhotkeysprivate/actions/dbus_action.cpp	2018-12-24 11:52:28.162986974 -0600
+diff --git a/libkhotkeysprivate/actions/dbus_action.cpp b/libkhotkeysprivate/actions/dbus_action.cpp
+index 0a7a1a1..b1b8a74 100644
+--- a/libkhotkeysprivate/actions/dbus_action.cpp
++++ b/libkhotkeysprivate/actions/dbus_action.cpp
 @@ -133,7 +133,7 @@ void DBusAction::execute()
          }
      qDebug() << "D-Bus call:" << _application << ":" << _object << ":" << _function << ":" << args_list;
@@ -10,10 +11,11 @@ diff -up khotkeys-5.14.4/libkhotkeysprivate/actions/dbus_action.cpp.qdbus-qt5 kh
      proc.startDetached();
      }
  
-diff -up khotkeys-5.14.4/test/main.cpp.qdbus-qt5 khotkeys-5.14.4/test/main.cpp
---- khotkeys-5.14.4/test/main.cpp.qdbus-qt5	2018-11-27 10:08:32.000000000 -0600
-+++ khotkeys-5.14.4/test/main.cpp	2018-12-24 11:53:21.975320157 -0600
-@@ -16,10 +16,10 @@ int main(int argc, char** argv)
+diff --git a/test/main.cpp b/test/main.cpp
+index 20409db..e6b7453 100644
+--- a/test/main.cpp
++++ b/test/main.cpp
+@@ -16,7 +16,7 @@ int main(int argc, char** argv)
      if (reply.value().contains("khotkeys")) {
          qDebug() << "The khotkeys module is already running.";
          qDebug() << "To unload it run:";
@@ -22,8 +24,3 @@ diff -up khotkeys-5.14.4/test/main.cpp.qdbus-qt5 khotkeys-5.14.4/test/main.cpp
          exit(-1);
      }
  
-     KHotKeysModule module(&app, QVariantList());
-     return app.exec();
--}
-\ No newline at end of file
-+}

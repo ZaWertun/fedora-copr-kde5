@@ -3,7 +3,7 @@
 
 Name:    kmenuedit
 Summary: KDE menu editor
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -35,6 +35,7 @@ BuildRequires:  kf5-kio-devel >= %{kf5_version}
 BuildRequires:  kf5-kxmlgui-devel >= %{kf5_version}
 BuildRequires:  kf5-sonnet-devel >= %{kf5_version}
 BuildRequires:  khotkeys-devel >= %{majmin_ver}
+BuildRequires:  cmake(KF5GlobalAccel)
 
 # libkdeinit5_*
 %{?kf5_kinit_requires}
@@ -77,9 +78,13 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.des
 %{_datadir}/icons/hicolor/*/apps/kmenuedit.*
 %{_kf5_datadir}/kxmlgui5/kmenuedit/
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_libdir}/kconf_update_bin/kmenuedit_globalaccel
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 

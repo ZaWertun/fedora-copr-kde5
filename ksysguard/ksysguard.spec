@@ -1,5 +1,5 @@
 Name:    ksysguard
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 Summary: KDE Process Management application
 
@@ -81,6 +81,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_datadir}/icons/hicolor/*/apps/*
 %{_kf5_datadir}/knotifications5/ksysguard.notifyrc
 %{_kf5_datadir}/kxmlgui5/ksysguard/
+%{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_nvidia.so
 
 %files -n ksysguardd
 %license COPYING
@@ -89,6 +90,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 

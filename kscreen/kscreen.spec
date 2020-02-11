@@ -1,6 +1,6 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -26,6 +26,7 @@ BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  qt5-qtdeclarative-devel
+BuildRequires:  cmake(Qt5Sensors)
 
 BuildRequires:  libkscreen-qt5-devel >= %{majmin_ver}
 
@@ -87,6 +88,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.17.5-1
 - 5.17.5
 

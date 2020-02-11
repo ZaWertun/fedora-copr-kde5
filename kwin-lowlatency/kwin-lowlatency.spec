@@ -27,10 +27,6 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/kwin-%{version}.tar
 
 Patch0:  kwin-lowlatency-%{version}.patch
 
-## _GTK_FRAME_EXTENTS support for KWin/X11,
-##   see: https://github.com/zzag/arch-kwin-gtk-frame-extents
-Patch1:  0001-Implement-_GTK_FRAME_EXTENTS.patch
-
 ## upstream patches
 
 # Base

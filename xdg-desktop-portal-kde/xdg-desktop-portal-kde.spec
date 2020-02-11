@@ -2,7 +2,7 @@
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -20,6 +20,7 @@ BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtbase-private-devel
+BuildRequires:  cmake(Qt5QuickWidgets)
 # libQt5PrintSupport.so.5(Qt_5_PRIVATE_API)(64bit)
 %{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
@@ -35,6 +36,9 @@ BuildRequires:  cmake(KF5Wayland)
 BuildRequires:  cmake(KF5WidgetsAddons)
 BuildRequires:  cmake(KF5WindowSystem)
 BuildRequires:  cmake(KF5KIO)
+BuildRequires:  cmake(KF5Declarative)
+BuildRequires:  cmake(KF5Kirigami2)
+BuildRequires:  cmake(KF5Plasma)
 
 Requires:   xdg-desktop-portal
 Requires:   flatpak
@@ -71,9 +75,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
 %{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
+%{_kf5_datadir}/xdg-desktop-portal-kde/qml/
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 

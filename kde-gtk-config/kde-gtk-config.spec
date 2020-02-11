@@ -1,6 +1,6 @@
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -28,6 +28,7 @@ BuildRequires:  kf5-kconfigwidgets-devel
 BuildRequires:  kf5-knewstuff-devel
 BuildRequires:  kf5-karchive-devel
 BuildRequires:  kf5-kcmutils-devel
+BuildRequires:  cmake(KF5DBusAddons)
 
 BuildRequires:  gtk3-devel
 BuildRequires:  gtk2-devel
@@ -60,22 +61,22 @@ make %{?_smp_mflags} -C %{_target_platform}
 
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
-%find_lang kcmgtk5_qt --with-qt --all-name
 
-%files -f kcmgtk5_qt.lang
-%doc ChangeLog
+%files
 %license COPYING COPYING.LIB
-%{_kf5_qtplugindir}/kcm_kdegtkconfig.so
-%{_kf5_datadir}/knsrcfiles/*.knsrc
-%{_kf5_datadir}/kservices5/kde-gtk-config.desktop
 %{_libexecdir}/reload_gtk_apps
 %{_libexecdir}/gtk_preview
 %{_libexecdir}/gtk3_preview
 %{_datadir}/kcm-gtk-module/
-%{_datadir}/icons/hicolor/*/apps/kde-gtk-config.*
+%{_kf5_libdir}/kconf_update_bin/gtk_theme
+%{_kf5_datadir}/kconf_update/gtkconfig.upd
+%{_kf5_plugindir}/kded/gtkconfig.so
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 

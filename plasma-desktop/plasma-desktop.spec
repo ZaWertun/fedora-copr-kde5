@@ -3,7 +3,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -231,6 +231,8 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_bindir}/knetattach
 %{_bindir}/solid-action-desktop-gen
 %{_bindir}/lookandfeeltool
+%{_bindir}/ibus-ui-emojier-plasma
+%{_bindir}/tastenbrett
 %{_kf5_libexecdir}/kauth/kcmdatetimehelper
 %{_kf5_libexecdir}/kauth/fontinst
 %{_kf5_libexecdir}/kauth/fontinst_helper
@@ -257,8 +259,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_kf5_datadir}/kservices5/kded/touchpad.desktop
 %{_bindir}/kcm-touchpad-list-devices
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_touchpad.so
-%{_datadir}/config.kcfg/touchpad.kcfg
-%{_datadir}/config.kcfg/touchpaddaemon.kcfg
 %{_datadir}/dbus-1/interfaces/org.kde.touchpad.xml
 %{_datadir}/kservices5/kded/touchpad.desktop
 # kcminput
@@ -294,6 +294,8 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_datadir}/dbus-1/system-services/*.service
 %{_datadir}/polkit-1/actions/org.kde.fontinst.policy
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmclock.policy
+%{_datadir}/config.kcfg/*.kcfg
+%{_datadir}/kglobalaccel/*.desktop
 
 %files kimpanel-scim
 %{_libexecdir}/kimpanel-scim-panel
@@ -302,6 +304,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 

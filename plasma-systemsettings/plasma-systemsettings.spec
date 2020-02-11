@@ -2,7 +2,7 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -40,6 +40,7 @@ BuildRequires: cmake(KF5Declarative)
 BuildRequires: cmake(KF5Activities)
 BuildRequires: cmake(KF5ActivitiesStats)
 BuildRequires: cmake(KF5KHtml)
+BuildRequires: cmake(KF5ItemModels)
 
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(Qt5Quick)
@@ -124,6 +125,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 

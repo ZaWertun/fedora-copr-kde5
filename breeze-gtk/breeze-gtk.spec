@@ -1,5 +1,5 @@
 Name:    breeze-gtk
-Version: 5.17.5
+Version: 5.18.0
 Release: 1%{?dist}
 Summary: Breeze widget theme for Gtk2 and Gtk3
 
@@ -13,6 +13,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+BuildArch: noarch
 
 ## upstream patches (master branch)
 #BuildRequires: git-core
@@ -56,14 +57,15 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files
 %license COPYING.LIB
 %doc README.md
-%{_kf5_libdir}/kconf_update_bin/gtkbreeze5.5
-%{_kf5_datadir}/kconf_update/gtkbreeze5.5.upd
 # consider putting these in some -common/-data noarch subpkg -- rex
 %{_datadir}/themes/Breeze/
 %{_datadir}/themes/Breeze-Dark/
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+- 5.18.0
+
 * Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
 - 5.17.5
 
