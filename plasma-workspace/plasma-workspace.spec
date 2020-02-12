@@ -7,7 +7,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.18.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -138,6 +138,7 @@ BuildRequires:  desktop-file-utils
 # Optional
 BuildRequires:  kf5-kactivities-devel
 BuildRequires:  cmake(AppStreamQt) >= 0.10.4
+BuildRequires:  cmake(KUserFeedback)
 
 # when kded_desktopnotifier.so moved here
 Conflicts:      kio-extras < 5.4.0
@@ -537,6 +538,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %exclude %{_kf5_datadir}/kservices5/plasma-geolocation-gps.desktop
 %exclude %{_kf5_datadir}/kservices5/plasma-geolocation-ip.desktop
 %exclude %{_kf5_datadir}/kservicetypes5/plasma-geolocationprovider.desktop
+# KUserFeedback
+%{_kf5_datadir}/kpackage/kcms/kcm_feedback/*
 
 %files doc -f %{name}-doc.lang
 
@@ -569,6 +572,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_plugindir}/kio/*.so
 %{_kf5_plugindir}/kded/*.so
 %{_qt5_plugindir}/kcms/kcm_translations.so
+%{_qt5_plugindir}/kcms/kcm_feedback.so
 %{_libdir}/kconf_update_bin/krunnerglobalshortcuts
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_applauncher.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_contextmenu.so
@@ -632,6 +636,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Feb 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-3
+- BuildRequires cmake(KUserFeedback) added
+
 * Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-2
 - Added kf5-kquickcharts dependency
 

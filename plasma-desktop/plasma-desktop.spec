@@ -4,7 +4,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.18.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -147,6 +147,9 @@ Conflicts:      kdeplasma-addons < 5.6.0
 
 # kcm_activities.mo moved here (#1325724)
 Conflicts:      kde-l10n < 15.12.3-4
+
+# If we want working emoji picker:
+Recommends:     ibus
 
 %description
 %{summary}.
@@ -304,6 +307,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-2
+- Recommends for ibus added (needed for emoji picker)
+
 * Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
 - 5.18.0
 
