@@ -2,7 +2,7 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.18.0
+Version: 5.18.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -55,7 +55,7 @@ Requires:      kf5-kirigami2%{?_isa} >= 2.1
 
 # kde-cli-tools provides kcmshell5, which is not directly needed by
 # systemsettings, but is an addition expected by users
-Requires:       kde-cli-tools
+Requires:      kde-cli-tools
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1268493
 # doc/HTML/en/systemsettings conflicts
@@ -125,6 +125,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+- 5.18.1
+
+* Sun Feb 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-2
+- Added accounts-qml-module to the Requires
+
 * Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
 - 5.18.0
 

@@ -6,8 +6,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.18.0
-Release: 3%{?dist}
+Version: 5.18.1
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -636,6 +636,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+- 5.18.1
+
 * Wed Feb 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-3
 - BuildRequires cmake(KUserFeedback) added
 

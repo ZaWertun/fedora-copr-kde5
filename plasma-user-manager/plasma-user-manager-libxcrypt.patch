@@ -2,7 +2,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 17c7a0b..0768319 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -21,6 +21,12 @@
+@@ -22,6 +22,12 @@
 
  include_directories(${PWQUALITY_INCLUDE_DIR})
 
@@ -19,7 +19,7 @@ diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
 index a23584e..236059b 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
-@@ -55,7 +55,7 @@ target_link_libraries(user_manager
+@@ -54,7 +54,7 @@ target_link_libraries(user_manager
  )
  
  if (NOT APPLE)
@@ -32,12 +32,12 @@ diff --git a/src/lib/accountmodel.cpp b/src/lib/accountmodel.cpp
 index e15a657..bab4686 100644
 --- a/src/lib/accountmodel.cpp
 +++ b/src/lib/accountmodel.cpp
-@@ -38,6 +38,8 @@
+@@ -40,6 +40,8 @@
  #include <KConfig>
  #include <KConfigGroup>
- 
+
 +#include <crypt.h>
 +
- #define SDDM_CONFIG_FILE    "/etc/sddm.conf"
- 
  AutomaticLoginSettings::AutomaticLoginSettings()
+ {
+     KConfig config(QStringLiteral("/etc/sddm.conf.d/kde_settings.conf"));

@@ -3,8 +3,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.18.0
-Release: 3%{?dist}
+Version: 5.18.1
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -25,8 +25,6 @@ Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.t
 Patch100: plasma-desktop-5.8-default_favorites.patch
 
 ## upstream patches
-# Patch for bug #417424:
-Patch101: plasma-5.18.0_fix-417424.patch
 
 ## upstreamable patches
 
@@ -309,6 +307,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+- 5.18.1
+
 * Wed Feb 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-3
 - Added patch against bug #417424
 

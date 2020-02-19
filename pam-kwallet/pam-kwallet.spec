@@ -8,7 +8,7 @@
 
 Name:    pam-kwallet
 Summary: PAM module for KWallet
-Version: 5.18.0
+Version: 5.18.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -91,6 +91,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}-5
 
 
 %changelog
+* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+- 5.18.1
+
 * Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
 - 5.18.0
 

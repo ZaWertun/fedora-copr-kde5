@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.18.0
+Version: 5.18.1
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -86,7 +86,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %files -f %{name}.lang
-%license COPYING COPYING.DOC
 %{_bindir}/kinfocenter
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kcms/*.so
@@ -106,6 +105,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+- 5.18.1
+
 * Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
 - 5.18.0
 
