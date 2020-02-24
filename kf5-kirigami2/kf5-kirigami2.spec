@@ -15,21 +15,21 @@ Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 # All LGPLv2+ except for src/desktopicons.h (GPLv2+)
 License: GPLv2+
 URL:     https://techbase.kde.org/Kirigami
-%global versiondir %(echo %{version} | cut -d. -f1-2)
+%global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
 %global stable unstable
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
+Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream paches
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
 
-BuildRequires: extra-cmake-modules >= %{version}
+BuildRequires: extra-cmake-modules >= %{majmin}
 BuildRequires: kf5-rpm-macros
 
 BuildRequires: qt5-linguist
@@ -80,7 +80,7 @@ pushd %{_target_platform}
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 popd
 
-make %{?_smp_mflags} -C %{_target_platform}
+%make_build -C %{_target_platform}
 
 
 %install
@@ -116,6 +116,8 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_includedir}/Kirigami2/
 %{_kf5_archdatadir}/mkspecs/modules/qt_Kirigami2.pri
 %{_kf5_libdir}/cmake/KF5Kirigami2/
+%{_kf5_datadir}/kdevappwizard/
+%{_kf5_datadir}/kdevappwizard/templates/
 %{_kf5_datadir}/kdevappwizard/templates/kirigami.tar.bz2
 
 
