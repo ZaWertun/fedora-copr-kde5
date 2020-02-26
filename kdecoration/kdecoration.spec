@@ -11,7 +11,7 @@
 
 Name:    kdecoration
 Summary: A plugin-based library to create window decorations
-Version: 5.18.1
+Version: 5.18.2
 Release: 1%{?dist}
 
 License: LGPLv2
@@ -100,6 +100,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+- 5.18.2
+
 * Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
 - 5.18.1
 

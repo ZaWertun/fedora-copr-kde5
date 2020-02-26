@@ -1,6 +1,6 @@
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/autotests/CMakeLists.txt kwin-lowlatency/autotests/CMakeLists.txt
---- kwin-5.18.1/autotests/CMakeLists.txt	2020-02-18 16:08:46.000000000 +0300
-+++ kwin-lowlatency/autotests/CMakeLists.txt	2020-02-19 10:34:24.077619760 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/autotests/CMakeLists.txt kwin-lowlatency/autotests/CMakeLists.txt
+--- kwin-5.18.2/autotests/CMakeLists.txt	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/autotests/CMakeLists.txt	2020-02-26 16:24:59.152449667 +0300
 @@ -182,6 +182,7 @@
  qt5_add_dbus_adaptor(testScriptedEffectLoader_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../org.kde.kwin.OrientationSensor.xml ${CMAKE_CURRENT_SOURCE_DIR}/../orientation_sensor.h KWin::OrientationSensor)
  add_executable(testScriptedEffectLoader ${testScriptedEffectLoader_SRCS})
@@ -9,9 +9,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/autotests/
  target_link_libraries(testScriptedEffectLoader
      Qt5::Concurrent
      Qt5::Qml
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/composite.cpp kwin-lowlatency/composite.cpp
---- kwin-5.18.1/composite.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/composite.cpp	2020-02-19 10:34:24.102619864 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/composite.cpp kwin-lowlatency/composite.cpp
+--- kwin-5.18.2/composite.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/composite.cpp	2020-02-26 16:24:59.181449770 +0300
 @@ -62,6 +62,7 @@
  #include <xcb/damage.h>
  
@@ -173,9 +173,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/composite.
  WaylandCompositor::WaylandCompositor(QObject *parent)
      : Compositor(parent)
  {
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/composite.h kwin-lowlatency/composite.h
---- kwin-5.18.1/composite.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/composite.h	2020-02-19 10:34:24.103619868 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/composite.h kwin-lowlatency/composite.h
+--- kwin-5.18.2/composite.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/composite.h	2020-02-26 16:24:59.181449770 +0300
 @@ -59,6 +59,13 @@
       * Schedules a new repaint if no repaint is currently scheduled.
       */
@@ -212,9 +212,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/composite.
  };
  
  class KWIN_EXPORT WaylandCompositor : public Compositor
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/deleted.cpp kwin-lowlatency/deleted.cpp
---- kwin-5.18.1/deleted.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/deleted.cpp	2020-02-19 10:34:24.105619877 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/deleted.cpp kwin-lowlatency/deleted.cpp
+--- kwin-5.18.2/deleted.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/deleted.cpp	2020-02-26 16:24:59.184449781 +0300
 @@ -313,5 +313,10 @@
      m_transientFor.removeAll(parent);
  }
@@ -226,9 +226,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/deleted.cp
 +
  } // namespace
  
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/deleted.h kwin-lowlatency/deleted.h
---- kwin-5.18.1/deleted.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/deleted.h	2020-02-19 10:34:24.105619877 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/deleted.h kwin-lowlatency/deleted.h
+--- kwin-5.18.2/deleted.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/deleted.h	2020-02-26 16:24:59.184449781 +0300
 @@ -185,6 +185,7 @@
  
  protected:
@@ -237,9 +237,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/deleted.h 
  
  private Q_SLOTS:
      void mainClientClosed(KWin::Toplevel *client);
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/CMakeLists.txt kwin-lowlatency/effects/CMakeLists.txt
---- kwin-5.18.1/effects/CMakeLists.txt	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/effects/CMakeLists.txt	2020-02-19 10:34:24.122619948 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/CMakeLists.txt kwin-lowlatency/effects/CMakeLists.txt
+--- kwin-5.18.2/effects/CMakeLists.txt	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/effects/CMakeLists.txt	2020-02-26 16:24:59.204449852 +0300
 @@ -91,6 +91,7 @@
      magnifier/magnifier.cpp
      mouseclick/mouseclick.cpp
@@ -264,9 +264,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/CM
  include(screenshot/CMakeLists.txt)
  include(sheet/CMakeLists.txt)
  include(snaphelper/CMakeLists.txt)
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/effect_builtins.cpp kwin-lowlatency/effects/effect_builtins.cpp
---- kwin-5.18.1/effects/effect_builtins.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/effects/effect_builtins.cpp	2020-02-19 10:34:24.130619981 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/effect_builtins.cpp kwin-lowlatency/effects/effect_builtins.cpp
+--- kwin-5.18.2/effects/effect_builtins.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/effects/effect_builtins.cpp	2020-02-26 16:24:59.212449881 +0300
 @@ -54,6 +54,7 @@
  #include "magnifier/magnifier.h"
  #include "mouseclick/mouseclick.h"
@@ -297,9 +297,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/ef
  EFFECT_FALLBACK
      }, {
          QStringLiteral("presentwindows"),
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/effect_builtins.h kwin-lowlatency/effects/effect_builtins.h
---- kwin-5.18.1/effects/effect_builtins.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/effects/effect_builtins.h	2020-02-19 10:34:24.130619981 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/effect_builtins.h kwin-lowlatency/effects/effect_builtins.h
+--- kwin-5.18.2/effects/effect_builtins.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/effects/effect_builtins.h	2020-02-26 16:24:59.212449881 +0300
 @@ -53,6 +53,7 @@
      Magnifier,
      MouseClick,
@@ -308,9 +308,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/ef
      PresentWindows,
      Resize,
      ScreenEdge,
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/CMakeLists.txt kwin-lowlatency/effects/mousepos/CMakeLists.txt
---- kwin-5.18.1/effects/mousepos/CMakeLists.txt	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/CMakeLists.txt	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/CMakeLists.txt kwin-lowlatency/effects/mousepos/CMakeLists.txt
+--- kwin-5.18.2/effects/mousepos/CMakeLists.txt	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/CMakeLists.txt	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,25 @@
 +#######################################
 +# Config
@@ -337,9 +337,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +    DESTINATION
 +        ${PLUGIN_INSTALL_DIR}/kwin/effects/configs
 +)
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/data/1.10/motion.frag kwin-lowlatency/effects/mousepos/data/1.10/motion.frag
---- kwin-5.18.1/effects/mousepos/data/1.10/motion.frag	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/data/1.10/motion.frag	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/data/1.10/motion.frag kwin-lowlatency/effects/mousepos/data/1.10/motion.frag
+--- kwin-5.18.2/effects/mousepos/data/1.10/motion.frag	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.10/motion.frag	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,43 @@
 +#version 140
 +
@@ -384,9 +384,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +// This should be a non-premultiplied alpha value for use with
 +// saturate blending.
 +}
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/data/1.10/motion.vert kwin-lowlatency/effects/mousepos/data/1.10/motion.vert
---- kwin-5.18.1/effects/mousepos/data/1.10/motion.vert	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/data/1.10/motion.vert	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/data/1.10/motion.vert kwin-lowlatency/effects/mousepos/data/1.10/motion.vert
+--- kwin-5.18.2/effects/mousepos/data/1.10/motion.vert	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.10/motion.vert	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,61 @@
 +#version 140
 +
@@ -449,9 +449,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +// the rotation must be correct in world space but is manipulated by the
 +// fragment shader in NDC which requires aspect correction.
 +}
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/data/1.40/motion.frag kwin-lowlatency/effects/mousepos/data/1.40/motion.frag
---- kwin-5.18.1/effects/mousepos/data/1.40/motion.frag	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/data/1.40/motion.frag	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/data/1.40/motion.frag kwin-lowlatency/effects/mousepos/data/1.40/motion.frag
+--- kwin-5.18.2/effects/mousepos/data/1.40/motion.frag	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.40/motion.frag	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,43 @@
 +#version 140
 +
@@ -496,9 +496,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +// This should be a non-premultiplied alpha value for use with
 +// saturate blending.
 +}
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/data/1.40/motion.vert kwin-lowlatency/effects/mousepos/data/1.40/motion.vert
---- kwin-5.18.1/effects/mousepos/data/1.40/motion.vert	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/data/1.40/motion.vert	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/data/1.40/motion.vert kwin-lowlatency/effects/mousepos/data/1.40/motion.vert
+--- kwin-5.18.2/effects/mousepos/data/1.40/motion.vert	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.40/motion.vert	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,61 @@
 +#version 140
 +
@@ -561,9 +561,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +// the rotation must be correct in world space but is manipulated by the
 +// fragment shader in NDC which requires aspect correction.
 +}
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mousepos_config.cpp kwin-lowlatency/effects/mousepos/mousepos_config.cpp
---- kwin-5.18.1/effects/mousepos/mousepos_config.cpp	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mousepos_config.cpp	2020-02-19 10:34:24.141620027 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mousepos_config.cpp kwin-lowlatency/effects/mousepos/mousepos_config.cpp
+--- kwin-5.18.2/effects/mousepos/mousepos_config.cpp	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.cpp	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,123 @@
 +/********************************************************************
 + KWin - the KDE window manager
@@ -688,9 +688,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +} // namespace
 +
 +#include "mousepos_config.moc"
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mousepos_config.desktop kwin-lowlatency/effects/mousepos/mousepos_config.desktop
---- kwin-5.18.1/effects/mousepos/mousepos_config.desktop	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mousepos_config.desktop	2020-02-19 10:34:24.141620027 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mousepos_config.desktop kwin-lowlatency/effects/mousepos/mousepos_config.desktop
+--- kwin-5.18.2/effects/mousepos/mousepos_config.desktop	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.desktop	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,10 @@
 +[Desktop Entry]
 +Type=Service
@@ -702,9 +702,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +Name=Paint cursor
 +Name[es]=Pintar cursor
 +Name[x-test]=xxPaint Cursorxx
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mousepos_config.h kwin-lowlatency/effects/mousepos/mousepos_config.h
---- kwin-5.18.1/effects/mousepos/mousepos_config.h	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mousepos_config.h	2020-02-19 10:34:24.141620027 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mousepos_config.h kwin-lowlatency/effects/mousepos/mousepos_config.h
+--- kwin-5.18.2/effects/mousepos/mousepos_config.h	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.h	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,62 @@
 +/********************************************************************
 + KWin - the KDE window manager
@@ -768,18 +768,18 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +} // namespace
 +
 +#endif
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mouseposconfig.kcfgc kwin-lowlatency/effects/mousepos/mouseposconfig.kcfgc
---- kwin-5.18.1/effects/mousepos/mouseposconfig.kcfgc	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mouseposconfig.kcfgc	2020-02-19 10:34:24.141620027 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mouseposconfig.kcfgc kwin-lowlatency/effects/mousepos/mouseposconfig.kcfgc
+--- kwin-5.18.2/effects/mousepos/mouseposconfig.kcfgc	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mouseposconfig.kcfgc	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,5 @@
 +File=mousepos.kcfg
 +ClassName=MousePosConfig
 +NameSpace=KWin
 +Singleton=true
 +Mutators=true
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mousepos_config.ui kwin-lowlatency/effects/mousepos/mousepos_config.ui
---- kwin-5.18.1/effects/mousepos/mousepos_config.ui	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mousepos_config.ui	2020-02-19 10:34:24.141620027 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mousepos_config.ui kwin-lowlatency/effects/mousepos/mousepos_config.ui
+--- kwin-5.18.2/effects/mousepos/mousepos_config.ui	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.ui	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,25 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<ui version="4.0">
@@ -806,9 +806,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 + <resources/>
 + <connections/>
 +</ui>
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mousepos.cpp kwin-lowlatency/effects/mousepos/mousepos.cpp
---- kwin-5.18.1/effects/mousepos/mousepos.cpp	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mousepos.cpp	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mousepos.cpp kwin-lowlatency/effects/mousepos/mousepos.cpp
+--- kwin-5.18.2/effects/mousepos/mousepos.cpp	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos.cpp	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,236 @@
 +/********************************************************************
 + KWin - the KDE window manager
@@ -1046,9 +1046,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +}
 +
 +} // namespace
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mousepos.h kwin-lowlatency/effects/mousepos/mousepos.h
---- kwin-5.18.1/effects/mousepos/mousepos.h	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mousepos.h	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mousepos.h kwin-lowlatency/effects/mousepos/mousepos.h
+--- kwin-5.18.2/effects/mousepos/mousepos.h	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos.h	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,80 @@
 +/********************************************************************
 + KWin - the KDE window manager
@@ -1130,9 +1130,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +} // namespace
 +
 +#endif
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mousepos/mousepos.kcfg kwin-lowlatency/effects/mousepos/mousepos.kcfg
---- kwin-5.18.1/effects/mousepos/mousepos.kcfg	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/effects/mousepos/mousepos.kcfg	2020-02-19 10:34:24.140620023 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/mousepos/mousepos.kcfg kwin-lowlatency/effects/mousepos/mousepos.kcfg
+--- kwin-5.18.2/effects/mousepos/mousepos.kcfg	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos.kcfg	2020-02-26 16:24:59.223449920 +0300
 @@ -0,0 +1,12 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
@@ -1146,9 +1146,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/mo
 +        </entry>
 +    </group>
 +</kcfg>
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/presentwindows/presentwindows_config.ui kwin-lowlatency/effects/presentwindows/presentwindows_config.ui
---- kwin-5.18.1/effects/presentwindows/presentwindows_config.ui	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/effects/presentwindows/presentwindows_config.ui	2020-02-19 10:34:24.142620031 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/presentwindows/presentwindows_config.ui kwin-lowlatency/effects/presentwindows/presentwindows_config.ui
+--- kwin-5.18.2/effects/presentwindows/presentwindows_config.ui	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/effects/presentwindows/presentwindows_config.ui	2020-02-26 16:24:59.224449924 +0300
 @@ -164,6 +164,11 @@
            <string>(Un-)Minimize window</string>
           </property>
@@ -1161,9 +1161,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/pr
         </widget>
        </item>
        <item row="1" column="0">
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/shaders.qrc kwin-lowlatency/effects/shaders.qrc
---- kwin-5.18.1/effects/shaders.qrc	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/effects/shaders.qrc	2020-02-19 10:34:24.144620040 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects/shaders.qrc kwin-lowlatency/effects/shaders.qrc
+--- kwin-5.18.2/effects/shaders.qrc	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/effects/shaders.qrc	2020-02-26 16:24:59.226449931 +0300
 @@ -6,6 +6,8 @@
    <file alias="cylinder.vert">cube/data/1.10/cylinder.vert</file>
    <file alias="sphere.vert">cube/data/1.10/sphere.vert</file>
@@ -1182,9 +1182,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects/sh
    <file alias="lookingglass.frag">lookingglass/data/1.40/lookingglass.frag</file>
    <file alias="blinking-startup-fragment.glsl">startupfeedback/data/1.40/blinking-startup-fragment.glsl</file>
  </qresource>
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects.cpp kwin-lowlatency/effects.cpp
---- kwin-5.18.1/effects.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/effects.cpp	2020-02-19 10:34:24.121619944 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/effects.cpp kwin-lowlatency/effects.cpp
+--- kwin-5.18.2/effects.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/effects.cpp	2020-02-26 16:24:59.204449852 +0300
 @@ -653,6 +653,7 @@
      }
      const bool activeChanged = (e == nullptr || fullscreen_effect == nullptr);
@@ -1193,9 +1193,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/effects.cp
      emit activeFullScreenEffectChanged();
      if (activeChanged) {
          emit hasActiveFullScreenEffectChanged();
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/HACKING.md kwin-lowlatency/HACKING.md
---- kwin-5.18.1/HACKING.md	2020-02-18 16:08:46.000000000 +0300
-+++ kwin-lowlatency/HACKING.md	2020-02-19 10:34:24.075619751 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/HACKING.md kwin-lowlatency/HACKING.md
+--- kwin-5.18.2/HACKING.md	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/HACKING.md	2020-02-26 16:24:59.149449656 +0300
 @@ -21,13 +21,16 @@
  
  To start a nested KWin Wayland use:
@@ -1231,9 +1231,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/HACKING.md
  
  In this case also the current DBus session should be used and dbus-run-session should not be used. Of course it's only possible to start kwin_x11 in an X session. On Wayland kwin_x11 will refuse to start.
  
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/internal_client.cpp kwin-lowlatency/internal_client.cpp
---- kwin-5.18.1/internal_client.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/internal_client.cpp	2020-02-19 10:34:24.155620086 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/internal_client.cpp kwin-lowlatency/internal_client.cpp
+--- kwin-5.18.2/internal_client.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/internal_client.cpp	2020-02-26 16:24:59.237449970 +0300
 @@ -674,4 +674,9 @@
      commitGeometry(clientRectToFrameRect(m_internalWindow->geometry()));
  }
@@ -1244,9 +1244,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/internal_c
 +}
 +
  }
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/internal_client.h kwin-lowlatency/internal_client.h
---- kwin-5.18.1/internal_client.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/internal_client.h	2020-02-19 10:34:24.155620086 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/internal_client.h kwin-lowlatency/internal_client.h
+--- kwin-5.18.2/internal_client.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/internal_client.h	2020-02-26 16:24:59.237449970 +0300
 @@ -44,6 +44,7 @@
      QPoint clientContentPos() const override;
      QSize clientSize() const override;
@@ -1255,9 +1255,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/internal_c
      QRect transparentRect() const override;
      NET::WindowType windowType(bool direct = false, int supported_types = 0) const override;
      double opacity() const override;
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kwincompositing/compositing.cpp kwin-lowlatency/kcmkwin/kwincompositing/compositing.cpp
---- kwin-5.18.1/kcmkwin/kwincompositing/compositing.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/kcmkwin/kwincompositing/compositing.cpp	2020-02-19 10:34:24.156620090 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/kcmkwin/kwincompositing/compositing.cpp kwin-lowlatency/kcmkwin/kwincompositing/compositing.cpp
+--- kwin-5.18.2/kcmkwin/kwincompositing/compositing.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/kcmkwin/kwincompositing/compositing.cpp	2020-02-26 16:24:59.238449974 +0300
 @@ -41,6 +41,7 @@
      , m_windowThumbnail(0)
      , m_glScaleFilter(0)
@@ -1460,9 +1460,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kw
  bool Compositing::compositingRequired() const
  {
      return m_compositingInterface->platformRequiresCompositing();
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kwincompositing/compositing.h kwin-lowlatency/kcmkwin/kwincompositing/compositing.h
---- kwin-5.18.1/kcmkwin/kwincompositing/compositing.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/kcmkwin/kwincompositing/compositing.h	2020-02-19 10:34:24.156620090 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/kcmkwin/kwincompositing/compositing.h kwin-lowlatency/kcmkwin/kwincompositing/compositing.h
+--- kwin-5.18.2/kcmkwin/kwincompositing/compositing.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/kcmkwin/kwincompositing/compositing.h	2020-02-26 16:24:59.238449974 +0300
 @@ -41,12 +41,18 @@
      Q_PROPERTY(int windowThumbnail READ windowThumbnail WRITE setWindowThumbnail NOTIFY windowThumbnailChanged)
      Q_PROPERTY(int glScaleFilter READ glScaleFilter WRITE setGlScaleFilter NOTIFY glScaleFilterChanged)
@@ -1557,9 +1557,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kw
      bool m_windowsBlockingCompositing;
      OrgKdeKwinCompositingInterface *m_compositingInterface;
      KSharedConfigPtr m_config;
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kwincompositing/compositing.ui kwin-lowlatency/kcmkwin/kwincompositing/compositing.ui
---- kwin-5.18.1/kcmkwin/kwincompositing/compositing.ui	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/kcmkwin/kwincompositing/compositing.ui	2020-02-19 10:34:24.156620090 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/kcmkwin/kwincompositing/compositing.ui kwin-lowlatency/kcmkwin/kwincompositing/compositing.ui
+--- kwin-5.18.2/kcmkwin/kwincompositing/compositing.ui	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/kcmkwin/kwincompositing/compositing.ui	2020-02-26 16:24:59.238449974 +0300
 @@ -6,8 +6,8 @@
     <rect>
      <x>0</x>
@@ -1923,9 +1923,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kw
      </widget>
     </item>
    </layout>
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kwincompositing/main.cpp kwin-lowlatency/kcmkwin/kwincompositing/main.cpp
---- kwin-5.18.1/kcmkwin/kwincompositing/main.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/kcmkwin/kwincompositing/main.cpp	2020-02-19 10:34:24.156620090 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/kcmkwin/kwincompositing/main.cpp kwin-lowlatency/kcmkwin/kwincompositing/main.cpp
+--- kwin-5.18.2/kcmkwin/kwincompositing/main.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/kcmkwin/kwincompositing/main.cpp	2020-02-26 16:24:59.238449974 +0300
 @@ -25,6 +25,7 @@
  #include <QAction>
  #include <QApplication>
@@ -2021,9 +2021,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kcmkwin/kw
      // compositing type
      CompositingType *type = new CompositingType(this);
      m_form.type->setModel(type);
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kwin.kcfg kwin-lowlatency/kwin.kcfg
---- kwin-5.18.1/kwin.kcfg	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/kwin.kcfg	2020-02-19 10:34:24.171620153 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/kwin.kcfg kwin-lowlatency/kwin.kcfg
+--- kwin-5.18.2/kwin.kcfg	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/kwin.kcfg	2020-02-26 16:24:59.257450042 +0300
 @@ -248,12 +248,40 @@
              <min>4</min>
              <max>6</max>
@@ -2065,9 +2065,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/kwin.kcfg 
      </group>
      <group name="TabBox">
          <entry name="ShowDelay" type="Bool">
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/layers.cpp kwin-lowlatency/layers.cpp
---- kwin-5.18.1/layers.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/layers.cpp	2020-02-19 10:34:24.171620153 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/layers.cpp kwin-lowlatency/layers.cpp
+--- kwin-5.18.2/layers.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/layers.cpp	2020-02-26 16:24:59.257450042 +0300
 @@ -731,6 +731,9 @@
      if (m_xStackingDirty) {
          const_cast<Workspace*>(this)->updateXStackingOrder();
@@ -2078,9 +2078,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/layers.cpp
      return x_stacking;
  }
  
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/main_x11.cpp kwin-lowlatency/main_x11.cpp
---- kwin-5.18.1/main_x11.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/main_x11.cpp	2020-02-19 10:34:24.177620178 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/main_x11.cpp kwin-lowlatency/main_x11.cpp
+--- kwin-5.18.2/main_x11.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/main_x11.cpp	2020-02-26 16:24:59.265450071 +0300
 @@ -345,6 +345,7 @@
  {
      KWin::Application::setupMalloc();
@@ -2089,9 +2089,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/main_x11.c
  
      int primaryScreen = 0;
      xcb_connection_t *c = xcb_connect(nullptr, &primaryScreen);
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/options.cpp kwin-lowlatency/options.cpp
---- kwin-5.18.1/options.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/options.cpp	2020-02-19 10:34:24.178620182 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/options.cpp kwin-lowlatency/options.cpp
+--- kwin-5.18.2/options.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/options.cpp	2020-02-26 16:24:59.266450074 +0300
 @@ -74,8 +74,9 @@
      }
  
@@ -2222,9 +2222,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/options.cp
 +}
 +
  } // namespace
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/options.h kwin-lowlatency/options.h
---- kwin-5.18.1/options.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/options.h	2020-02-19 10:34:24.178620182 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/options.h kwin-lowlatency/options.h
+--- kwin-5.18.2/options.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/options.h	2020-02-26 16:24:59.266450074 +0300
 @@ -163,6 +163,7 @@
      Q_PROPERTY(int compositingMode READ compositingMode WRITE setCompositingMode NOTIFY compositingModeChanged)
      Q_PROPERTY(bool useCompositing READ isUseCompositing WRITE setUseCompositing NOTIFY useCompositingChanged)
@@ -2357,9 +2357,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/options.h 
  
      WindowOperation OpTitlebarDblClick;
      WindowOperation opMaxButtonRightClick = defaultOperationMaxButtonRightClick();
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/patch.sh kwin-lowlatency/patch.sh
---- kwin-5.18.1/patch.sh	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/patch.sh	2020-02-19 10:34:24.179620186 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/patch.sh kwin-lowlatency/patch.sh
+--- kwin-5.18.2/patch.sh	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/patch.sh	2020-02-26 16:24:59.267450078 +0300
 @@ -0,0 +1,18 @@
 +#!/bin/bash
 +
@@ -2379,10 +2379,10 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/patch.sh k
 +  else filename="kwin-lowlatency-$version-$minorVer.patch"
 +fi
 +diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-$version $klpath > $filename
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/platforms/x11/standalone/glxbackend.cpp kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.cpp
---- kwin-5.18.1/plugins/platforms/x11/standalone/glxbackend.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.cpp	2020-02-19 10:34:24.198620266 +0300
-@@ -208,6 +208,57 @@
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/plugins/platforms/x11/standalone/glxbackend.cpp kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.cpp
+--- kwin-5.18.2/plugins/platforms/x11/standalone/glxbackend.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.cpp	2020-02-26 16:24:59.285450142 +0300
+@@ -208,6 +208,59 @@
      // Initialize OpenGL
      GLPlatform *glPlatform = GLPlatform::instance();
      glPlatform->detect(GlxPlatformInterface);
@@ -2403,8 +2403,10 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/pl
 +      sscanf(GLPlatform::instance()->glVersionString().data(),"%*s NVIDIA %d.%d",&nvidiaVerMaj,&nvidiaVerMin);
 +      if (nvidiaVerMaj>=435) {
 +        // we don't need to wait for sync anymore. whoop!
-+        useWaitSync=false;
-+        hopeBest=true;
++        //useWaitSync=false;
++        //hopeBest=true;
++        // I am too sad to find a solution...
++        useHorribleHack=true;
 +      } else {
 +        // for old or unknown NVIDIA driver
 +        useWaitSync=true; // issue #17
@@ -2440,7 +2442,7 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/pl
      options->setGlPreferBufferSwap(options->glPreferBufferSwap()); // resolve autosetting
      if (options->glPreferBufferSwap() == Options::AutoSwapStrategy)
          options->setGlPreferBufferSwap('e'); // for unknown drivers - should not happen
-@@ -247,24 +298,21 @@
+@@ -247,24 +300,21 @@
      const bool wantSync = options->glPreferBufferSwap() != Options::NoSwapEncourage;
      if (wantSync && glXIsDirect(display(), ctx)) {
          if (haveSwapInterval) { // glXSwapInterval is preferred being more reliable
@@ -2473,7 +2475,7 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/pl
      } else {
          // disable v-sync (if possible)
          setSwapInterval(0);
-@@ -749,7 +797,6 @@
+@@ -749,7 +799,6 @@
                  }
              }
          } else {
@@ -2481,7 +2483,7 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/pl
              glXSwapBuffers(display(), glxWindow);
          }
          if (supportsBufferAge()) {
-@@ -766,7 +813,27 @@
+@@ -766,7 +815,27 @@
          copyPixels(lastDamage());
          glDrawBuffer(GL_BACK);
      }
@@ -2510,7 +2512,7 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/pl
      setLastDamage(QRegion());
      if (!supportsBufferAge()) {
          glXWaitGL();
-@@ -839,15 +906,9 @@
+@@ -839,15 +908,9 @@
  
      setLastDamage(renderedRegion);
  
@@ -2529,9 +2531,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/pl
  
      if (overlayWindow()->window())  // show the window only after the first pass,
          overlayWindow()->show();   // since that pass may take long
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/platforms/x11/standalone/glxbackend.h kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.h
---- kwin-5.18.1/plugins/platforms/x11/standalone/glxbackend.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.h	2020-02-19 10:34:24.198620266 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/plugins/platforms/x11/standalone/glxbackend.h kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.h
+--- kwin-5.18.2/plugins/platforms/x11/standalone/glxbackend.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.h	2020-02-26 16:24:59.285450142 +0300
 @@ -118,6 +118,9 @@
      bool m_haveINTELSwapEvent = false;
      bool haveSwapInterval = false;
@@ -2542,9 +2544,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/pl
      Display *m_x11Display;
      SwapProfiler m_swapProfiler;
      friend class GlxTexture;
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/scenes/opengl/scene_opengl.cpp kwin-lowlatency/plugins/scenes/opengl/scene_opengl.cpp
---- kwin-5.18.1/plugins/scenes/opengl/scene_opengl.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/plugins/scenes/opengl/scene_opengl.cpp	2020-02-19 10:34:24.203620286 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/plugins/scenes/opengl/scene_opengl.cpp kwin-lowlatency/plugins/scenes/opengl/scene_opengl.cpp
+--- kwin-5.18.2/plugins/scenes/opengl/scene_opengl.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/plugins/scenes/opengl/scene_opengl.cpp	2020-02-26 16:24:59.290450160 +0300
 @@ -2076,6 +2076,7 @@
      return s_instance;
  }
@@ -2553,9 +2555,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/plugins/sc
  DecorationShadowTextureCache::~DecorationShadowTextureCache()
  {
      Q_ASSERT(m_cache.isEmpty());
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/po.sh kwin-lowlatency/po.sh
---- kwin-5.18.1/po.sh	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/po.sh	2020-02-19 10:34:24.205620295 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/po.sh kwin-lowlatency/po.sh
+--- kwin-5.18.2/po.sh	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/po.sh	2020-02-26 16:24:59.292450167 +0300
 @@ -0,0 +1,16 @@
 +#!/bin/bash
 +# make po
@@ -2573,9 +2575,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/po.sh kwin
 +tar -xf kwin-$version.tar.xz
 +
 +cp -r kwin-$version/po $klpath/po
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/README.md kwin-lowlatency/README.md
---- kwin-5.18.1/README.md	2020-02-18 16:08:46.000000000 +0300
-+++ kwin-lowlatency/README.md	2020-02-19 10:34:24.075619751 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/README.md kwin-lowlatency/README.md
+--- kwin-5.18.2/README.md	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/README.md	2020-02-26 16:24:59.149449656 +0300
 @@ -1,48 +1,248 @@
 -# KWin
 +# KWin-lowlatency
@@ -2857,9 +2859,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/README.md 
  
 -The same non functional requirements hold true for any kind of plugins (effects, scripts, etc.). It is suggested to use scripted plugins and distribute them separately.
 +the [hacking documentation](HACKING.md) has information on how to build and start KWin.
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/scripting/scriptedeffect.cpp kwin-lowlatency/scripting/scriptedeffect.cpp
---- kwin-5.18.1/scripting/scriptedeffect.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/scripting/scriptedeffect.cpp	2020-02-19 10:34:24.402621118 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/scripting/scriptedeffect.cpp kwin-lowlatency/scripting/scriptedeffect.cpp
+--- kwin-5.18.2/scripting/scriptedeffect.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/scripting/scriptedeffect.cpp	2020-02-26 16:24:59.494450888 +0300
 @@ -22,6 +22,9 @@
  #include "meta.h"
  #include "scriptingutils.h"
@@ -2899,9 +2901,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/scripting/
      }
  
      QScriptValue type = object.property(QStringLiteral("type"));
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/toplevel.cpp kwin-lowlatency/toplevel.cpp
---- kwin-5.18.1/toplevel.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/toplevel.cpp	2020-02-19 10:34:24.409621147 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/toplevel.cpp kwin-lowlatency/toplevel.cpp
+--- kwin-5.18.2/toplevel.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/toplevel.cpp	2020-02-26 16:24:59.501450914 +0300
 @@ -35,6 +35,8 @@
  
  #include <QDebug>
@@ -2969,9 +2971,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/toplevel.c
 +
  } // namespace
  
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/toplevel.h kwin-lowlatency/toplevel.h
---- kwin-5.18.1/toplevel.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/toplevel.h	2020-02-19 10:34:24.409621147 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/toplevel.h kwin-lowlatency/toplevel.h
+--- kwin-5.18.2/toplevel.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/toplevel.h	2020-02-26 16:24:59.501450914 +0300
 @@ -447,6 +447,9 @@
      bool hasAlpha() const;
      virtual bool setupCompositing();
@@ -3011,9 +3013,78 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/toplevel.h
  inline const ClientMachine *Toplevel::clientMachine() const
  {
      return m_clientMachine;
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/unmanaged.cpp kwin-lowlatency/unmanaged.cpp
---- kwin-5.18.1/unmanaged.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/unmanaged.cpp	2020-02-19 10:34:24.410621152 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/tva.md kwin-lowlatency/tva.md
+--- kwin-5.18.2/tva.md	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/tva.md	2020-02-26 16:24:59.501450914 +0300
+@@ -0,0 +1,65 @@
++# Tilde van Arrow
++
++the ultimate project to optimize KWin and cut the rough edges.
++the compositor should do nothing more than render windows in the exact time.
++it is unknown why do some things take too long to render, such as moving between desktop, using present windows or even switching windows.
++those are detrimental to smoothness and cause stutter.
++
++this document is incomplete.
++
++# possibilities
++
++- too much processing when switching windows
++- the need to recreate every single texture
++- Qt is too high-level
++
++# solutions
++
++## window switch stutter
++
++even after using the most basic theme, switching windows causes stutter.
++maybe the toplevel is doing too much, or some effect...
++
++## texture recreation
++
++certain heavier themes cause more lag spikes. come on why can't we have a cache so we don't have to re-render everything?
++decoration rendering is done in software so yeah...
++
++## Qt is too high-level
++
++...we could replace certain unneeded Qt parts by our own ones, and perhaps improve performance...
++
++## kwin-lowerlatencyandlowpower
++
++what about we go single-buffer, somehow make the card always wait for VBlank (or near-VBlank) and let that be it?
++
++what about we use an hybrid setup?
++
++- single-buffering when the compositor is not doing anything fancy
++- double-buffering when it is
++- clients that want VSync will have a big wait before present
++- clients that don't, will be redrawn immediately (this may cause tearing), Quartz-style
++
++## let's learn OpenGL
++
++because this could allow for further optimizations on lower-end systems.
++
++I just do not think KWin is optimized enough... for them...
++
++## come on let's catch up already
++
++if we do not do anything about this soon, the other guy working at Mutter will destroy KWin in performance.
++
++sadly I think we already lost the race, because GNOME is beginning to run on Pi, and... KDE still does not :<
++
++come on they will defeat us and team uid will get a chance to achieve World Domination!! like this
++
++> Qt is there because Canonical used it to validate their own CLA. Basically “We are happy to sign Qt’s CLA so you should be happy to sign our CLA”. Fortunately that failed as well.
++
++oh come on 144Hz you are SO annoying!
++
++# frequently asked questions
++
++> KDE is a downstream, Qt has CLA and C++ is an unwise choice. GNOME is the Standard-
++
++144Hz. [look here](https://www.youtube.com/watch?v=VZlWCBhoCns&t=56s).
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/unmanaged.cpp kwin-lowlatency/unmanaged.cpp
+--- kwin-5.18.2/unmanaged.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/unmanaged.cpp	2020-02-26 16:24:59.502450917 +0300
 @@ -216,5 +216,35 @@
      return true;
  }
@@ -3050,9 +3121,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/unmanaged.
 +
  } // namespace
  
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/unmanaged.h kwin-lowlatency/unmanaged.h
---- kwin-5.18.1/unmanaged.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/unmanaged.h	2020-02-19 10:34:24.410621152 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/unmanaged.h kwin-lowlatency/unmanaged.h
+--- kwin-5.18.2/unmanaged.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/unmanaged.h	2020-02-26 16:24:59.502450917 +0300
 @@ -57,6 +57,7 @@
      void release(ReleaseReason releaseReason = ReleaseReason::Release);
  protected:
@@ -3061,9 +3132,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/unmanaged.
      void addDamage(const QRegion &damage) override;
  private:
      ~Unmanaged() override; // use release()
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/unredirect.md kwin-lowlatency/unredirect.md
---- kwin-5.18.1/unredirect.md	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/unredirect.md	2020-02-19 10:34:24.410621152 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/unredirect.md kwin-lowlatency/unredirect.md
+--- kwin-5.18.2/unredirect.md	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/unredirect.md	2020-02-26 16:24:59.502450917 +0300
 @@ -0,0 +1,30 @@
 +# fullscreen unredirection
 +
@@ -3095,9 +3166,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/unredirect
 +the following applications may misbehave when unredirection is enabled:
 +
 +- some Wine applications. after switching windows [they may turn black and hang](https://github.com/tildearrow/kwin-lowlatency/issues/25).
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/wayStart kwin-lowlatency/wayStart
---- kwin-5.18.1/wayStart	1970-01-01 03:00:00.000000000 +0300
-+++ kwin-lowlatency/wayStart	2020-02-19 10:34:24.412621160 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/wayStart kwin-lowlatency/wayStart
+--- kwin-5.18.2/wayStart	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/wayStart	2020-02-26 16:24:59.504450924 +0300
 @@ -0,0 +1,248 @@
 +#!/bin/sh
 +# quick-start a Plasma Wayland session with kwin-lowlatency
@@ -3347,9 +3418,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/wayStart k
 +unset KDE_SESSION_UID
 +
 +echo 'startplasmacompositor: Done.'  1>&2
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/workspace.cpp kwin-lowlatency/workspace.cpp
---- kwin-5.18.1/workspace.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/workspace.cpp	2020-02-19 10:34:24.413621164 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/workspace.cpp kwin-lowlatency/workspace.cpp
+--- kwin-5.18.2/workspace.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/workspace.cpp	2020-02-26 16:24:59.505450928 +0300
 @@ -613,6 +613,11 @@
          connect(c, &X11Client::blockingCompositingChanged, compositor, &X11Compositor::updateClientCompositeBlocking);
      }
@@ -3372,9 +3443,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/workspace.
  }
  
  void Workspace::saveOldScreenSizes()
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/x11client.cpp kwin-lowlatency/x11client.cpp
---- kwin-5.18.1/x11client.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/x11client.cpp	2020-02-19 10:34:24.414621168 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/x11client.cpp kwin-lowlatency/x11client.cpp
+--- kwin-5.18.2/x11client.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/x11client.cpp	2020-02-26 16:24:59.506450931 +0300
 @@ -1650,6 +1650,9 @@
          m_decoInputExtent.map();
          updateHiddenPreview();
@@ -3468,9 +3539,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/x11client.
 +
 +
  } // namespace
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/x11client.h kwin-lowlatency/x11client.h
---- kwin-5.18.1/x11client.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/x11client.h	2020-02-19 10:34:24.415621172 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/x11client.h kwin-lowlatency/x11client.h
+--- kwin-5.18.2/x11client.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/x11client.h	2020-02-26 16:24:59.506450931 +0300
 @@ -358,6 +358,7 @@
  
  protected:
@@ -3479,9 +3550,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/x11client.
      void addDamage(const QRegion &damage) override;
      bool belongsToSameApplication(const AbstractClient *other, SameApplicationChecks checks) const override;
      void doSetActive() override;
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/xdgshellclient.cpp kwin-lowlatency/xdgshellclient.cpp
---- kwin-5.18.1/xdgshellclient.cpp	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/xdgshellclient.cpp	2020-02-19 10:34:24.416621176 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/xdgshellclient.cpp kwin-lowlatency/xdgshellclient.cpp
+--- kwin-5.18.2/xdgshellclient.cpp	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/xdgshellclient.cpp	2020-02-26 16:24:59.507450935 +0300
 @@ -2050,4 +2050,9 @@
      m_pingSerials.insert(serial, reason);
  }
@@ -3492,9 +3563,9 @@ diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/xdgshellcl
 +}
 +
  }
-diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.1/xdgshellclient.h kwin-lowlatency/xdgshellclient.h
---- kwin-5.18.1/xdgshellclient.h	2020-02-18 16:08:47.000000000 +0300
-+++ kwin-lowlatency/xdgshellclient.h	2020-02-19 10:34:24.416621176 +0300
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.18.2/xdgshellclient.h kwin-lowlatency/xdgshellclient.h
+--- kwin-5.18.2/xdgshellclient.h	2020-02-25 16:13:44.000000000 +0300
++++ kwin-lowlatency/xdgshellclient.h	2020-02-26 16:24:59.507450935 +0300
 @@ -66,6 +66,7 @@
      QRect transparentRect() const override;
      NET::WindowType windowType(bool direct = false, int supported_types = 0) const override;

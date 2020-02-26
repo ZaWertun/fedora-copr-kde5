@@ -1,6 +1,6 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.18.1
+Version: 5.18.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -110,6 +110,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+- 5.18.2
+
 * Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
 - 5.18.1
 
