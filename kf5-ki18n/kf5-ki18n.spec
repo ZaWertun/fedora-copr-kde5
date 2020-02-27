@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon for localization
 
 License:        LGPLv2+
@@ -26,12 +26,7 @@ BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  gettext
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  perl-interpreter
-# FindPythonInterp.cmake , can find/use multiple versions, rely on the default for now
-%if 0%{?fedora} >= 31
 BuildRequires:  python3
-%else
-BuildRequires:  python2
-%endif
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtscript-devel
@@ -45,11 +40,7 @@ KDE Frameworks 5 Tier 1 addon for localization.
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       gettext
-%if 0%{?fedora} >= 31
 Requires:       python3
-%else
-Requires:       python2
-%endif
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -62,7 +53,8 @@ developing applications that use %{name}.
 %build
 mkdir %{_target_platform}
 pushd %{_target_platform}
-%{cmake_kf5} ..
+%{cmake_kf5} .. \
+   -DPYTHON_EXECUTABLE:PATH=%__python3
 popd
 
 %make_build -C %{_target_platform}
@@ -80,8 +72,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %doc README.md
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5I18n.so.*
+%{_kf5_datadir}/qlogging-categories5/*%{framework}*
 %{_kf5_qtplugindir}/kf5/ktranscript.so
-%{_kf5_datadir}/qlogging-categories5/*categories
 %lang(ca) %{_datadir}/locale/ca/LC_SCRIPTS/ki18n5/
 %lang(ca@valencia) %{_datadir}/locale/ca@valencia/LC_SCRIPTS/ki18n5/
 %lang(fi) %{_datadir}/locale/fi/LC_SCRIPTS/ki18n5/
@@ -106,38 +98,53 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
+- rebuild
+
+* Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0
 
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
 - 5.66.0
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
 - 5.65.0
 
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
 - 5.64.0
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
 - 5.63.0
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+* Mon Sep 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-1
 - 5.62.0
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Thu Sep 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-2
+- use python3
+
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
 - 5.60.0
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Tue Apr 09 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

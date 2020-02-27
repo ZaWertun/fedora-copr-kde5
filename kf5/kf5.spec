@@ -1,6 +1,6 @@
 Name:    kf5
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Filesystem and RPM macros for KDE Frameworks 5
 License: BSD
 URL:     http://www.kde.org
@@ -22,10 +22,10 @@ Filesystem for KDE Frameworks 5.
 Summary: RPM macros for KDE Frameworks 5
 %if 0%{?fedora} || 0%{?rhel} > 7
 Requires: cmake >= 3
-Requires: qt5-rpm-macros
+Requires: qt5-rpm-macros >= 5.11
 %else
 Requires: cmake3
-Requires: qt5-qtbase-devel
+Requires: qt5-qtbase-devel >= 5.11
 %endif
 # misc build environment dependencies
 Requires: gcc-c++
@@ -42,6 +42,8 @@ mkdir -p %{buildroot}%{_includedir}/KF5
 mkdir -p %{buildroot}%{_datadir}/{config.kcfg,kconf_update,kf5,kservicetypes5}
 mkdir -p %{buildroot}%{_datadir}/kpackage/{genericqml,kcms}
 mkdir -p %{buildroot}%{_datadir}/kservices5/ServiceMenus
+mkdir -p %{buildroot}%{_datadir}/knsrcfiles/
+mkdir -p %{buildroot}%{_datadir}/qlogging-categories5/
 mkdir -p %{buildroot}%{_datadir}/solid/{actions,devices}
 mkdir -p %{buildroot}%{_libexecdir}/kf5
 mkdir -p %{buildroot}%{_sysconfdir}/xdg/plasma-workspace/{env,shutdown}
@@ -49,6 +51,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/xdg/plasma-workspace/{env,shutdown}
 install -Dpm644 %{_sourcedir}/macros.kf5 %{buildroot}%{_rpmconfigdir}/macros.d/macros.kf5
 sed -i \
   -e "s|@@KF5_VERSION@@|%{version}|g" \
+%if 0%{?rhel} || 0%{?rhel} > 7
+  -e 's|rhel:%{__cmake3}|rhel:%{__cmake}|' \
+%endif
   %{buildroot}%{_rpmconfigdir}/macros.d/macros.kf5
 
 
@@ -66,6 +71,8 @@ sed -i \
 %{_datadir}/kpackage/
 %{_datadir}/kservices5/
 %{_datadir}/kservicetypes5/
+%{_datadir}/knsrcfiles/
+%{_datadir}/qlogging-categories5/
 %{_datadir}/solid/
 
 %files rpm-macros
@@ -73,38 +80,63 @@ sed -i \
 
 
 %changelog
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
-- 5.67.0
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
+- rebuild
 
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
-- 5.66.0
+* Sun Feb 02 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
+- 5.67
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
-- 5.65.0
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
-- 5.64.0
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
+- 5.66
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
-- 5.63.0
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
+- 5.65
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+* Wed Dec 11 2019 Troy Dawson <tdawson@redhat.com> - 5.64.0-2
+- rhel8 doesn't need cmake3, just cmake
+
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
+- 5.64
+
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
+- 5.63
+
+* Sat Oct 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-2
+- -filesystem: ++%{_kf5_datadir}/knsrcfiles/
+
+* Mon Sep 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-1
 - 5.62.0
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
-- 5.60.0
+* Mon Jul 29 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-3
+- -filesystem: ++%{_kf5_datadir}/qlogging-categories5/
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
+- 5.60.0
+- BR: qt5 >= 5.11
+
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Thu May 23 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-2
+- -rpm-macros: enforce min qt5 dep (5.10)
+
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Mon Apr 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

@@ -9,7 +9,7 @@
 Name:    extra-cmake-modules
 Summary: Additional modules for CMake build system
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: BSD
 URL:     https://api.kde.org/ecm/
@@ -56,7 +56,7 @@ BuildRequires: python2-sphinx
 %endif
 
 Requires: kf5-rpm-macros
-%if 0%{?fedora} || 0%{?rhel} > 7
+%if 0%{?fedora}
 # /usr/share/ECM/kde-modules/appstreamtest.cmake references appstreamcli
 # hard vs soft dep?  --rex
 Requires: appstream
@@ -128,39 +128,60 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
+- rebuild
+
+* Sun Feb 02 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0
 
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
 - 5.66.0
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
 - 5.65.0
 
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+* Wed Dec 11 2019 Troy Dawson <tdawson@redhat.com> - 5.64.0-2
+- Remove appstream dependency for RHEL8; appstream not in RHEL8
+
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
 - 5.64.0
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
 - 5.63.0
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+* Mon Sep 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-1
 - 5.62.0
-- Some changes has been taken from upstream spec, thanks to the Rex Dieter
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
 - 5.60.0
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Mon Apr 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
+
+* Thu Mar 28 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-3
+- re-enable doc generation on rawhide (#1687572)
+
+* Mon Mar 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-2
+- use %%make_build
+- use python3-sphinx (on f30, python-sphinx 2.0b1 busted, #1687572)
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

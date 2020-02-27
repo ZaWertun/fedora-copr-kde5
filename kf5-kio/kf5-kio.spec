@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
@@ -20,12 +20,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{v
 ## upstream patches
 
 ## upstreamable patches
-# revert part of https://cgit.kde.org/kio.git/commit/src/core/slave.cpp?id=e2a4517f099d809bd53c6a10769ebfddc0f28a8b
-# can cause kio to try to use 'kioslave' binary from kdelibs3,
-# https://bugzilla.redhat.com/show_bug.cgi?id=1512418#c16
-# https://bugs.kde.org/show_bug.cgi?id=386859
-# https://phabricator.kde.org/D8810
-Patch100: kio-slave_path.patch
 
 %if 0%{?flatpak}
 # Disable the help: and ghelp: protocol for Flatpak builds, to avoid depending
@@ -69,11 +63,20 @@ BuildRequires:  libacl-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
 %endif
+BuildRequires:  zlib-devel
+
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtx11extras-devel
-BuildRequires:  zlib-devel
 BuildRequires:  cmake(Qt5UiPlugin)
+
+
+%if ! 0%{?bootstrap}
+# (apparently?) requires org.kde.klauncher5 service provided by kf5-kinit -- rex
+# not versioned to allow update without bootstrap
+# <skip!>
+BuildRequires:  kf5-kinit-devel
+%endif
 
 Requires:       %{name}-core%{?_isa} = %{version}-%{release}
 Requires:       %{name}-widgets%{?_isa} = %{version}-%{release}
@@ -188,6 +191,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files core
 %{_kf5_sysconfdir}/xdg/accept-languages.codes
+%{_kf5_datadir}/qlogging-categories5/%{framework}.categories
 %{_kf5_libexecdir}/kio_http_cache_cleaner
 %{_kf5_libexecdir}/kpac_dhcp_helper
 %{_kf5_libexecdir}/kioexec
@@ -216,8 +220,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/applications/*.desktop
 %{_kf5_datadir}/kconf_update/*
 %{_datadir}/dbus-1/services/org.kde.*.service
-%{_kf5_datadir}/qlogging-categories5/kio.categories
-%{_kf5_qtplugindir}/designer/*.so
 
 ## omitted since 5.45, security concerns? -- rex
 %if 0
@@ -262,6 +264,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files widgets-libs
 %{_kf5_libdir}/libKF5KIOWidgets.so.*
+%{_kf5_qtplugindir}/designer/*5widgets.so
 
 %ldconfig_scriptlets file-widgets
 
@@ -287,38 +290,53 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
+- rebuild
+
+* Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0
 
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
 - 5.66.0
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
 - 5.65.0
 
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
 - 5.64.0
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
 - 5.63.0
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
-- 5.62.0
+* Mon Sep 30 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.1-2
+- pull in upstream crash-on-close fix
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Tue Sep 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.1-1
+- 5.62.1
+
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
 - 5.60.0
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Tue Apr 09 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

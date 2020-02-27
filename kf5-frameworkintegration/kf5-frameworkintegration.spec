@@ -2,34 +2,36 @@
 
 Name:    kf5-%{framework}
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 4 workspace and cross-framework integration plugins
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
 
-%global versiondir %(echo %{version} | cut -d. -f1-2)
+%global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
 %global stable unstable
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+## upstream patches (lookaside cache)
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_plugindir}/.*\\.so)$
 
-BuildRequires:  extra-cmake-modules >= %{version}
-BuildRequires:  kf5-kconfig-devel >= %{version}
-BuildRequires:  kf5-kconfigwidgets-devel >= %{version}
-BuildRequires:  kf5-ki18n-devel >= %{version}
-BuildRequires:  kf5-kiconthemes-devel >= %{version}
-BuildRequires:  kf5-kio-devel >= %{version}
-BuildRequires:  kf5-knewstuff-devel >= %{version}
-BuildRequires:  kf5-knotifications-devel >= %{version}
-BuildRequires:  kf5-kpackage-devel >= %{version}
-BuildRequires:  kf5-kwidgetsaddons-devel >= %{version}
-BuildRequires:  kf5-rpm-macros >= %{version}
+BuildRequires:  extra-cmake-modules >= %{majmin}
+BuildRequires:  kf5-kconfig-devel >= %{majmin}
+BuildRequires:  kf5-kconfigwidgets-devel >= %{majmin}
+BuildRequires:  kf5-ki18n-devel >= %{majmin}
+BuildRequires:  kf5-kiconthemes-devel >= %{majmin}
+BuildRequires:  kf5-kio-devel >= %{majmin}
+BuildRequires:  kf5-knewstuff-devel >= %{majmin}
+BuildRequires:  kf5-knotifications-devel >= %{majmin}
+BuildRequires:  kf5-kpackage-devel >= %{majmin}
+BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
+BuildRequires:  kf5-rpm-macros >= %{majmin}
 
 BuildRequires:  libXcursor-devel
 BuildRequires:  qt5-qtbase-devel
@@ -63,8 +65,8 @@ Requires:       %{name} = %{version}-%{release}
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
-Requires:       kf5-kiconthemes-devel >= %{version}
-Requires:       kf5-kconfigwidgets-devel >= %{version}
+Requires:       kf5-kiconthemes-devel >= %{majmin}
+Requires:       kf5-kconfigwidgets-devel >= %{majmin}
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -114,47 +116,74 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
-- 5.67.0
-
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
-- 5.66.0
-
-* Sat Dec 21 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-2
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+* Sun Feb 02 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
+- 5.67.0
+
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
+- 5.66.0
+
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
 - 5.65.0
 
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+* Mon Dec 09 2019 Jan Grulich <jgrulich@redhat.com> - 5.64.0-2
+- rebuild (qt5)
+
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
 - 5.64.0
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
 - 5.63.0
 
-* Sun Oct 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-2
-- rebuild with new qt5
+* Wed Sep 25 2019 Jan Grulich <jgrulich@redhat.com> - 5.62.0-2
+- rebuild (qt5)
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+* Mon Sep 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-1
 - 5.62.0
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
 - 5.60.0
 
-* Wed Jul 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-2
-- rebuild with new qt5
+* Mon Jun 17 2019 Jan Grulich <jgrulich@redhat.com> - 5.59.0-2
+- rebuild (qt5)
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Wed Jun 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.58.2-2
+- rebuild (qt5)
+
+* Fri May 24 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.2-1
+- 5.58.2
+
+* Thu May 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.1-1
+- 5.58.1
+
+* Tue May 14 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-2
+- pull in upstream fix
+
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Tue Apr 09 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
+
+* Mon Feb 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-2
+- rebuild (qt5)
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

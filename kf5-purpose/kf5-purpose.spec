@@ -4,7 +4,7 @@
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -30,6 +30,7 @@ Patch100: purpose-5.47.0-cmake3.patch
 BuildRequires: extra-cmake-modules >= %{majmin}
 BuildRequires: gettext
 BuildRequires: intltool
+
 BuildRequires: kf5-rpm-macros
 BuildRequires: kf5-kconfig-devel >= %{majmin}
 BuildRequires: kf5-kcoreaddons-devel >= %{majmin}
@@ -37,12 +38,15 @@ BuildRequires: kf5-kdeclarative-devel >= %{majmin}
 BuildRequires: kf5-ki18n-devel >= %{majmin}
 BuildRequires: kf5-kio-devel >= %{majmin}
 BuildRequires: kf5-kirigami2-devel >= %{majmin}
+
+BuildRequires: cmake(KF5Kirigami2)
+
+# optional sharefile plugin
+BuildRequires: cmake(KF5KIO)
+BuildRequires: cmake(KF5Notifications)
+
 BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(Qt5Qml)
-
-BuildRequires: cmake(KF5KIO)
-BuildRequires: cmake(KF5Kirigami2)
-BuildRequires: cmake(KF5Notifications)
 
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global twitter 1
@@ -105,6 +109,7 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 %files -f %{name}.lang
 %doc README.md
 %license COPYING.LIB
+%{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_libdir}/libKF5Purpose.so.5*
 %{_kf5_libdir}/libKF5PurposeWidgets.so.5*
 %{_kf5_libdir}/libPhabricatorHelpers.so.5*
@@ -112,10 +117,11 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 %{_kf5_libexecdir}/purposeprocess
 %{_kf5_datadir}/purpose/
 %{_kf5_plugindir}/purpose/
-%{_kf5_qmldir}/org/kde/purpose/
+%dir %{_kf5_plugindir}/kfileitemaction/
 %{_kf5_plugindir}/kfileitemaction/sharefileitemaction.so
+%{_kf5_qmldir}/org/kde/purpose/
 # this conditional may require adjusting too (e.g. wrt %%twitter)
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?rhel} > 7
 %{_kf5_datadir}/accounts/services/kde/google-youtube.service
 %{_kf5_datadir}/accounts/services/kde/nextcloud-upload.service
 %{_kf5_datadir}/accounts/services/kde/twitter-microblog.service
@@ -123,7 +129,6 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 %endif
 %{_datadir}/icons/hicolor/*/apps/*-purpose.*
 #{_datadir}/icons/hicolor/*/actions/google-youtube.*
-%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %if 0%{?twitter}
 %files twitter
@@ -140,41 +145,53 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
+- rebuild
+
+* Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0
 
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
 - 5.66.0
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
 - 5.65.0
 
-* Mon Nov 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-2
-- build deps for sharefile plugin added
-
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
 - 5.64.0
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
 - 5.63.0
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+* Mon Sep 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-1
 - 5.62.0
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
 - 5.60.0
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Fri Jun 21 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-2
+- add builddeps for sharefileitem plugin (#1721808)
+
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Tue Apr 09 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
+
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

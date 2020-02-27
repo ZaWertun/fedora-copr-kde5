@@ -14,34 +14,29 @@
 
 Name:    kf5-%{framework}
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
 
-%global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
 %global stable unstable
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules >= %{version}
 BuildRequires:  kf5-rpm-macros >= %{version}
-BuildRequires:  libwayland-client-devel >= %{wayland_min_version}
-BuildRequires:  libwayland-cursor-devel >= %{wayland_min_version}
-BuildRequires:  libwayland-server-devel >= %{wayland_min_version}
-BuildRequires:  mesa-libwayland-egl-devel
 BuildRequires:  qt5-qtbase-devel
 # https://bugs.kde.org/show_bug.cgi?id=365569#c8 claims this is needed
 BuildRequires:  qt5-qtbase-private-devel
 %{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 BuildRequires:  wayland-devel >= %{wayland_min_version}
-BuildRequires:  qt5-qttools-devel
 BuildRequires:  wayland-protocols-devel
+BuildRequires:  qt5-qttools-devel
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -98,11 +93,11 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files
 %license COPYING.LIB
+%{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_libdir}/libKF5WaylandClient.so.5*
 %{_kf5_libdir}/libKF5WaylandServer.so.5*
 # not sure if this belongs here or in -devel --rex
 %{_libexecdir}/org-kde-kf5-kwayland-testserver
-%{_kf5_datadir}/qlogging-categories5/org_kde_kwayland.categories
 
 %files devel
 %{_kf5_includedir}/KWayland/
@@ -115,50 +110,65 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
-- 5.67.0
-
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
-- 5.66.0
-
-* Sat Dec 21 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-2
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+* Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
+- 5.67.0
+
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
+- 5.66.0
+
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
 - 5.65.0
 
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+* Mon Dec 09 2019 Jan Grulich <jgrulich@redhat.com> - 5.64.0-2
+- rebuild (qt5)
+
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
 - 5.64.0
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
 - 5.63.0
 
-* Sun Oct 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-2
-- rebuild with new qt5
+* Wed Sep 25 2019 Jan Grulich <jgrulich@redhat.com> - 5.62.0-2
+- rebuild (qt5)
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+* Mon Sep 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-1
 - 5.62.0
 
-* Mon Aug 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.61.0-1
+* Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
 - 5.61.0
 
-* Sat Jul 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.60.0-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.60.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sat Jul 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.60.0-1
 - 5.60.0
 
-* Wed Jul 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-2
-- rebuild with new qt5
+* Mon Jun 17 2019 Jan Grulich <jgrulich@redhat.com> - 5.59.0-2
+- rebuild (qt5)
 
-* Sat Jun 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.59.0-1
+* Thu Jun 06 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.59.0-1
 - 5.59.0
 
-* Tue May 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.58.0-1
+* Tue Jun 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-2
+- rebuild (qt5)
+
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.58.0-1
 - 5.58.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.57.0-1
+* Tue Apr 09 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.57.0-1
 - 5.57.0
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
-- 5.15.4
+* Tue Mar 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.56.0-1
+- 5.56.0
+
+* Sun Mar 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-2
+- rebuild (qt5)
 
 * Mon Feb 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.55.0-1
 - 5.55.0

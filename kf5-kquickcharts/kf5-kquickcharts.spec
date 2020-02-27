@@ -10,7 +10,7 @@
 Name:    kf5-%{framework}
 Summary: A QtQuick module providing high-performance charts
 Version: 5.67.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # libs are LGPL, tools are GPL
 # KDE e.V. may determine that future LGPL/GPL versions are accepted
@@ -83,22 +83,23 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %files
 %doc README.md
 %license COPYING
-%dir %{_kf5_qmldir}/org/kde/quickcharts
-%{_kf5_qmldir}/org/kde/quickcharts/qmldir
-%{_kf5_qmldir}/org/kde/quickcharts/*.so
-%dir %{_kf5_qmldir}/org/kde/quickcharts/controls
-%{_kf5_qmldir}/org/kde/quickcharts/controls/qmldir
-%{_kf5_qmldir}/org/kde/quickcharts/controls/styles
-%{_kf5_qmldir}/org/kde/quickcharts/controls/*.qml
-%{_kf5_qmldir}/org/kde/quickcharts/controls/*.so
+%{_kf5_qmldir}/org/kde/quickcharts/
 
 %files devel
-%dir %{_kf5_libdir}/cmake/KF5QuickCharts
-%{_kf5_libdir}/cmake/KF5QuickCharts/*.cmake
+%{_kf5_libdir}/cmake/KF5QuickCharts/
 
 %changelog
-* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
+- rebuild
+
+* Fri Feb 14 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0
+
+* Fri Jan 31 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-3
+- simplify %%files
+
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
 * Mon Jan 20 2020 Martin Kyral <martin.kyral@gmail.com> - 5.66.0-1
 - 5.66.0
