@@ -1,7 +1,7 @@
 %global framework mailcommon
 
 Name:    kf5-%{framework}
-Version: 19.12.2
+Version: 19.12.3
 Release: 1%{?dist}
 Summary: Mail applications support library
 
@@ -116,6 +116,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+- 19.12.3
+
 * Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
 - 19.12.2
 

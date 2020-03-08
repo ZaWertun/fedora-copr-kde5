@@ -3,7 +3,7 @@
 
 Name:    kf5-libkipi
 Summary: Common plugin infrastructure for KDE image applications
-Version: 19.12.2
+Version: 19.12.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -83,6 +83,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+- 19.12.3
+
 * Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
 - 19.12.2
 

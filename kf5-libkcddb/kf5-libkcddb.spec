@@ -2,7 +2,7 @@
 %global framework libkcddb
 
 Name:    kf5-%{framework}
-Version: 19.12.2
+Version: 19.12.3
 Release: 1%{?dist}
 Summary: CDDB retrieval library
 
@@ -110,6 +110,9 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 
 
 %changelog
+* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+- 19.12.3
+
 * Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
 - 19.12.2
 

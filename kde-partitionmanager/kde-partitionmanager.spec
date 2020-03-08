@@ -1,7 +1,7 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        4.0.0
+Version:        4.1.0
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
@@ -89,6 +89,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.1.0-1
+- 4.1.0
+
 * Thu May 02 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.0.0-1
 - 4.0.0
 

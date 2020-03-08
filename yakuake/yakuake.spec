@@ -3,7 +3,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           yakuake
-Version:        19.12.2
+Version:        19.12.3
 Release:        1%{?dist}
 Summary:        A drop-down terminal emulator
 
@@ -94,6 +94,9 @@ desktop-file-validate  %{buildroot}%{_kf5_datadir}/applications/org.kde.yakuake.
 
 
 %changelog
+* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+- 19.12.3
+
 * Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
 - 19.12.2
 

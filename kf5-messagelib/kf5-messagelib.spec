@@ -1,7 +1,7 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 19.12.2
+Version: 19.12.3
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -175,7 +175,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_includedir}/MimeTreeParser/
 %{_kf5_includedir}/mimetreeparser/
 %{_kf5_includedir}/mimetreeparser_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_MimeTreeParser.pri
 
 %{_kf5_libdir}/libKF5TemplateParser.so
 %{_kf5_libdir}/cmake/KF5TemplateParser/
@@ -193,6 +192,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+- 19.12.3
+
 * Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
 - 19.12.2
 
