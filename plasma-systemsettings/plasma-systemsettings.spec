@@ -3,7 +3,7 @@
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
 Version: 5.18.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -53,6 +53,7 @@ BuildRequires: plasma-workspace-devel >= %{majmin_ver}
 Requires:      libkworkspace5%{?_isa} >= %{majmin_ver}
 Requires:      kf5-kirigami2%{?_isa} >= 2.1
 Requires:      kaccounts-providers%{?_isa} >= %{majmin_ver}
+Requires:      kaccounts-integration%{?_isa} >= %{majmin_ver}
 
 # kde-cli-tools provides kcmshell5, which is not directly needed by
 # systemsettings, but is an addition expected by users
@@ -126,6 +127,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Sun Mar 08 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-3
+- rebuild
+
 * Fri Feb 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-2
 - kaccounts-providers added to Requires
 

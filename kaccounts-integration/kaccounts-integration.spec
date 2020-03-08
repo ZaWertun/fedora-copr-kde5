@@ -1,6 +1,6 @@
 Name:    kaccounts-integration
 Version: 19.12.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -41,6 +41,7 @@ BuildRequires:  pkgconfig(libsignon-qt5) >= 8.55
 BuildRequires:  cmake
 
 Requires:       signon-plugin-oauth2%{?_isa}
+Requires:       accounts-qml-module%{?_isa}
 
 Obsoletes:      kaccounts < 15.03
 Provides:       kaccounts = %{version}-%{release}
@@ -104,6 +105,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sun Mar 08 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-2
+- rebuild
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 
