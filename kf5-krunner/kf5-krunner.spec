@@ -15,7 +15,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/portingAids/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
