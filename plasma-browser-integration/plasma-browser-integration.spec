@@ -2,7 +2,7 @@
 
 Name:    plasma-browser-integration
 Summary: %{base_name} provides components necessary to integrate browsers into the Plasma Desktop
-Version: 5.18.2
+Version: 5.18.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -81,6 +81,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+- 5.18.3
+
 * Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
 - 5.18.2
 

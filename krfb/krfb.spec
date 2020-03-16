@@ -44,10 +44,12 @@ BuildRequires: pkgconfig(xcb-render)
 BuildRequires: pkgconfig(xcb-shape)
 BuildRequires: pkgconfig(xcb-shm)
 BuildRequires: pkgconfig(xcb-xfixes)
+BuildRequires: pkgconfig(xdamage)
 
 
 BuildRequires: pkgconfig(xtst)
 BuildRequires: libjpeg-devel
+BuildRequires:  pipewire-devel
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 

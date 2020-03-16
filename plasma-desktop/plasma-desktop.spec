@@ -3,7 +3,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.18.2
+Version: 5.18.3
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -74,6 +74,8 @@ BuildRequires:  kf5-kdeclarative-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kpeople-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kinit-devel >= %{kf5_version_min}
+BuildRequires:  cmake(KF5Kirigami2)
+BuildRequires:  cmake(KF5QQC2DesktopStyle)
 # libkdeinit5_*
 %{?kf5_kinit_requires}
 
@@ -307,6 +309,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+- 5.18.3
+
 * Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
 - 5.18.2
 

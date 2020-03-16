@@ -1,4 +1,3 @@
-
 %global  base_name print-manager
 
 Name:    kde-print-manager
@@ -16,6 +15,8 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{base_name}-%{version}.tar.xz
+
+Patch0:  kde-print-manager-19.12.3-format-security.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: gettext

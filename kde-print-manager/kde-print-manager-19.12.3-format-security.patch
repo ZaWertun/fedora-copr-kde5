@@ -1,0 +1,12 @@
+diff -r -U3 print-manager-19.12.3.orig/libkcups/KIppRequest.cpp print-manager-19.12.3/libkcups/KIppRequest.cpp
+--- print-manager-19.12.3.orig/libkcups/KIppRequest.cpp	2020-03-11 10:51:24.926628557 +0300
++++ print-manager-19.12.3/libkcups/KIppRequest.cpp	2020-03-11 10:51:41.736684714 +0300
+@@ -189,7 +189,7 @@
+     }
+ 
+     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
+-                     ippPort(), destination.toUtf8().constData());
++                     ippPort(), "%s", destination.toUtf8().constData());
+     return QString::fromLatin1(uri);
+ }
+ 

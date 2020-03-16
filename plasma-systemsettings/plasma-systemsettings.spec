@@ -2,8 +2,8 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.18.2
-Release: 3%{?dist}
+Version: 5.18.3
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -127,6 +127,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+- 5.18.3
+
 * Sun Mar 08 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-3
 - rebuild
 
