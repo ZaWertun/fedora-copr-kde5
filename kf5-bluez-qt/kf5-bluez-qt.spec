@@ -2,8 +2,8 @@
 
 Name:           kf5-%{framework}
 Summary:        A Qt wrapper for Bluez
-Version: 5.67.0
-Release: 2%{?dist}
+Version: 5.68.0
+Release: 1%{?dist}
 
 License:        LGPLv2+
 URL:            https://cgit.kde.org/%{framework}.git
@@ -89,6 +89,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+- 5.68.0
+
 * Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 

@@ -1,8 +1,8 @@
 %global framework networkmanager-qt
 
 Name:    kf5-%{framework}
-Version: 5.67.0
-Release: 2%{?dist}
+Version: 5.68.0
+Release: 1%{?dist}
 Summary: A Tier 1 KDE Frameworks 5 module that wraps NetworkManager DBus API
 
 License: LGPLv2+
@@ -65,18 +65,20 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 %files
 %doc README.md
 %license COPYING.LIB
-%{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_libdir}/libKF5NetworkManagerQt.so.*
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/libKF5NetworkManagerQt.so
 %{_kf5_libdir}/cmake/KF5NetworkManagerQt/
 %{_kf5_includedir}/NetworkManagerQt/
 %{_kf5_includedir}/networkmanagerqt_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_NetworkManagerQt.pri
 
 
 %changelog
+* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+- 5.68.0
+
 * Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 

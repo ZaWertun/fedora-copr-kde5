@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.67.0
-Release: 2%{?dist}
+Version: 5.68.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for password management
 
 License: LGPLv2+
@@ -22,7 +22,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches
 
@@ -134,6 +134,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+- 5.68.0
+
 * Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 

@@ -6,8 +6,8 @@
 
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
-Version: 5.67.0
-Release: 2%{?dist}
+Version: 5.68.0
+Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
 License: LGPLv3+
@@ -148,6 +148,9 @@ fi
 
 
 %changelog
+* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+- 5.68.0
+
 * Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 

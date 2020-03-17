@@ -2,8 +2,8 @@
 %global rpm_macros_dir %(d=%{_rpmconfigdir}/macros.d; [ -d $d ] || d=%{_sysconfdir}/rpm; echo $d)
 
 Name:           kf5-%{framework}
-Version: 5.67.0
-Release: 2%{?dist}
+Version: 5.68.0
+Release: 1%{?dist}
 Summary:        KDE Frameworks 5 tier 3 solution for process launching
 
 License:        LGPLv2+ and BSD
@@ -31,6 +31,7 @@ BuildRequires:  kf5-ki18n-devel >= %{version}
 BuildRequires:  kf5-kio-devel >= %{version}
 BuildRequires:  kf5-kservice-devel >= %{version}
 BuildRequires:  kf5-kwindowsystem-devel >= %{version}
+BuildRequires:  cmake(KF5DBusAddons) >= %{version}
 
 BuildRequires:  qt5-qtbase-devel
 
@@ -95,6 +96,9 @@ install -p -m644 -D %{SOURCE10} \
 
 
 %changelog
+* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+- 5.68.0
+
 * Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 

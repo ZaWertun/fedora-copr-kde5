@@ -3,8 +3,8 @@
 
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
-Version: 5.67.0
-Release: 2%{?dist}
+Version: 5.68.0
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -71,15 +71,6 @@ Requires: cmake(KF5CoreAddons)
 %description devel
 %{summary}.
 
-%if 0%{?twitter}
-%package twitter
-Summary: twitter plugin for %{name}
-Requires: %{name}%{?_isa} = %{version}-%{release}
-Supplements: (%{name} and nodejs)
-%description twitter
-%{summary}.
-%endif
-
 
 %prep
 %autosetup -n %{framework}-%{version} -p1
@@ -124,16 +115,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 %if 0%{?fedora} || 0%{?rhel} > 7
 %{_kf5_datadir}/accounts/services/kde/google-youtube.service
 %{_kf5_datadir}/accounts/services/kde/nextcloud-upload.service
-%{_kf5_datadir}/accounts/services/kde/twitter-microblog.service
-%dir %{_kf5_datadir}/kpackage/Purpose/
 %endif
 %{_datadir}/icons/hicolor/*/apps/*-purpose.*
 #{_datadir}/icons/hicolor/*/actions/google-youtube.*
-
-%if 0%{?twitter}
-%files twitter
-%{_kf5_datadir}/kpackage/Purpose/Twitter/
-%endif
 
 %files devel
 %{_kf5_libdir}/libKF5Purpose.so
@@ -145,6 +129,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+- 5.68.0
+
 * Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 

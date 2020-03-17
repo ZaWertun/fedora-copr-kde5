@@ -1,8 +1,8 @@
 %global framework modemmanager-qt
 
 Name:    kf5-%{framework}
-Version: 5.67.0
-Release: 2%{?dist}
+Version: 5.68.0
+Release: 1%{?dist}
 Summary: A Tier 1 KDE Frameworks module wrapping ModemManager DBus API
 
 License: LGPLv2+
@@ -61,17 +61,19 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 %doc README README.md
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5ModemManagerQt.so.*
-%{_kf5_datadir}/qlogging-categories5/modemmanager-qt.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_libdir}/libKF5ModemManagerQt.so
 %{_kf5_libdir}/cmake/KF5ModemManagerQt/
 %{_kf5_includedir}/ModemManagerQt/
 %{_kf5_includedir}/modemmanagerqt_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_ModemManagerQt.pri
 
 
 %changelog
+* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+- 5.68.0
+
 * Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
 - rebuild
 
