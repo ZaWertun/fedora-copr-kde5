@@ -4,7 +4,7 @@
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
 Version: 5.68.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -56,6 +56,9 @@ BuildRequires: kde-connect
 BuildRequires: pkgconfig(accounts-qt5)
 BuildRequires: pkgconfig(libaccounts-glib)
 %endif
+
+# Twitter support has been removed!
+Obsoletes:     kf5-purpose-twitter < 5.68.0
 
 %description
 Purpose offers the possibility to create integrate services and actions on
@@ -129,6 +132,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Thu Mar 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-2
+- kf5-purpose-twitter is obsoleted
+
 * Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
 - 5.68.0
 
