@@ -15,7 +15,7 @@
 Name:    okular 
 Summary: A document viewer
 Version: 19.12.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/okular/
@@ -27,9 +27,10 @@ URL:     https://www.kde.org/applications/graphics/okular/
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
+Patch10: okular-CVE-2020-9359.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -66,6 +67,10 @@ BuildRequires: cmake(Qt5Svg)
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(Qt5Quick)
 
+# okular-mobile
+#BuildRequires: kf5-purpose-devel
+#Requires: kf5-purpose%{?_isa}
+
 BuildRequires: pkgconfig(phonon4qt5)
 BuildRequires: cmake(Qca-qt5)
 
@@ -81,13 +86,15 @@ BuildRequires: ebook-tools-devel
 %endif
 BuildRequires: libjpeg-devel
 BuildRequires: libtiff-devel
-BuildRequires: pkgconfig(ddjvuapi) 
 BuildRequires: pkgconfig(freetype2)
 BuildRequires: pkgconfig(libmarkdown)
 BuildRequires: pkgconfig(libspectre)
 BuildRequires: pkgconfig(poppler-qt5)
+%if 0%{?fedora}
+BuildRequires: pkgconfig(ddjvuapi) 
 BuildRequires: pkgconfig(qca2)
 BuildRequires: pkgconfig(zlib)
+%endif
 
 %if !0%{?bootstrap}
 BuildRequires:  cmake(Qt5TextToSpeech)
@@ -183,6 +190,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 %files -f okular.lang
 %license COPYING
 %{_kf5_bindir}/okular
+#{_kf5_sysconfdir}/xdg/%{name}*
 %{_kf5_datadir}/applications/org.kde.okular.desktop
 %{_kf5_metainfodir}/org.kde.okular.appdata.xml
 %{_kf5_datadir}/applications/okularApplication_*.desktop
@@ -190,8 +198,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 %{_kf5_datadir}/okular/
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/kconf_update/okular.upd
+%{_kf5_datadir}/qlogging-categories5/%{name}*
 %{_mandir}/man1/okular.1*
-%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %if 0%{?mobile}
 %files mobile
@@ -212,8 +220,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 %{_libdir}/libOkular5Core.so.9*
 
 %files part -f okular-part.lang
+%if 0%{?fedora}
 %{_qt5_plugindir}/kio_msits.so
 %{_kf5_datadir}/kservices5/ms-its.protocol
+%endif
 %{_kf5_datadir}/config.kcfg/*.kcfg
 %{_kf5_datadir}/kservices5/okular[A-Z]*.desktop
 %{_kf5_datadir}/kservices5/okular_part.desktop
@@ -226,41 +236,44 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
-* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+* Sun Mar 22 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.3-2
+- Security fix for CVE-2020-9359 (#1815651,1815652)
+
+* Fri Mar 06 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.3-1
 - 19.12.3
 
-* Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
+* Tue Feb 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.2-1
 - 19.12.2
 
-* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+* Thu Jan 30 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.1-1
 - 19.12.1
 
-* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
-- 19.12.0
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 19.08.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
-* Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
+* Fri Jan 17 2020 Marek Kasik <mkasik@redhat.com> - 19.08.3-2
+- Rebuild for poppler-0.84.0
+
+* Tue Nov 12 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.3-1
 - 19.08.3
 
-* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
+* Thu Oct 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.2-1
 - 19.08.2
 
-* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
+* Mon Sep 30 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.1-1
 - 19.08.1
 
-* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
-- 19.08.0
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 19.04.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
-* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+* Fri Jul 12 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.3-1
 - 19.04.3
 
-* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+* Tue Jun 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.2-1
 - 19.04.2
 
-* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
-- 19.04.1
-
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
-- 19.04.0
+* Fri Mar 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-1
+- 18.12.3
 
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
