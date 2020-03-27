@@ -4,7 +4,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.18.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -152,6 +152,9 @@ Conflicts:      kde-l10n < 15.12.3-4
 
 # If we want working emoji picker:
 Recommends:     ibus
+
+# Color emoji font:
+Recommends:     google-noto-emoji-color-fonts
 
 %description
 %{summary}.
@@ -309,6 +312,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Fri Mar 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-2
+- google-noto-emoji-color-fonts added to recommends
+
 * Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
 - 5.18.3
 
