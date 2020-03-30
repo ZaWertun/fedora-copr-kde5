@@ -7,7 +7,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.18.3
-Release: 1%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -288,6 +288,9 @@ Obsoletes: plasma-workspace < 5.3.2-8
 BuildRequires: pkgconfig(iso-codes)
 %endif
 Requires: iso-codes
+
+# user feedback (defaults to off)
+Recommends: kuserfeedback%{?_isa}
 
 %description
 Plasma 5 libraries and runtime components
@@ -636,6 +639,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Mon Mar 30 2020 Сидловский Ярослав - 5.18.3-3
+- bump
+
+* Mon Mar 30 2020 Сидловский Ярослав - 5.18.3-2
+- kuserfeedback added to recommends
+
 * Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
 - 5.18.3
 

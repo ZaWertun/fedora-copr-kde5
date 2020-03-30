@@ -1,6 +1,6 @@
 Name:    ksysguard
 Version: 5.18.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -36,6 +36,7 @@ BuildRequires:  libksysguard-devel >= %{majmin_ver}
 
 BuildRequires:  lm_sensors-devel
 BuildRequires:  desktop-file-utils
+BuildRequires:  pkgconfig(libpcap)
 
 Requires:       ksysguardd = %{version}-%{release}
 
@@ -74,6 +75,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %doc README
 %{_bindir}/ksysguard
 %{_kf5_libdir}/libkdeinit5_ksysguard.so
+%{_libexecdir}/ksysguard/ksgrd_network_helper
 %{_datadir}/ksysguard
 %{_datadir}/metainfo/org.kde.ksysguard.appdata.xml
 %{_datadir}/knsrcfiles/ksysguard.knsrc
@@ -82,6 +84,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_kf5_datadir}/knotifications5/ksysguard.notifyrc
 %{_kf5_datadir}/kxmlgui5/ksysguard/
 %{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_nvidia.so
+%{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_network.so
 
 %files -n ksysguardd
 %license COPYING
@@ -90,6 +93,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Mon Mar 30 2020 Сидловский Ярослав - 5.18.3-2
+- rebuilt with ksgrd_network_helper
+
 * Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
 - 5.18.3
 
