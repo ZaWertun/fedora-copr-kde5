@@ -1,6 +1,6 @@
 Name:    ksysguard
 Version: 5.18.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -75,7 +75,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %doc README
 %{_bindir}/ksysguard
 %{_kf5_libdir}/libkdeinit5_ksysguard.so
-%{_libexecdir}/ksysguard/ksgrd_network_helper
+%caps(cap_net_raw=pe) %{_libexecdir}/ksysguard/ksgrd_network_helper
 %{_datadir}/ksysguard
 %{_datadir}/metainfo/org.kde.ksysguard.appdata.xml
 %{_datadir}/knsrcfiles/ksysguard.knsrc
@@ -93,6 +93,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Tue Mar 31 2020 Сидловский Ярослав - 5.18.3-3
+- caps cap_net_raw+ep added
+
 * Mon Mar 30 2020 Сидловский Ярослав - 5.18.3-2
 - rebuilt with ksgrd_network_helper
 
