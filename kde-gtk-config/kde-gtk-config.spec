@@ -1,6 +1,6 @@
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
-Version: 5.18.3
+Version: 5.18.4.1
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -14,7 +14,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/kde-gtk-config-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/kde-gtk-config-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
@@ -35,6 +35,9 @@ BuildRequires:  gtk2-devel
 
 # need kcmshell5 from kde-cli-tools
 Requires:       kde-cli-tools
+
+# allows GTK Config kded module to apply settings to GTK applications on the fly
+Requires:       xsettingsd%{?_isa}
 
 %if 0%{?fedora} > 23
 Obsoletes:      kcm-gtk < 0.5.3-30
@@ -74,6 +77,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+- 5.18.4.1
+
 * Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
 - 5.18.3
 

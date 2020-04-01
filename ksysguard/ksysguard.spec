@@ -1,6 +1,6 @@
 Name:    ksysguard
-Version: 5.18.3
-Release: 3%{?dist}
+Version: 5.18.4.1
+Release: 1%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -14,7 +14,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
@@ -93,6 +93,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+- 5.18.4.1
+
 * Tue Mar 31 2020 Сидловский Ярослав - 5.18.3-3
 - caps cap_net_raw+ep added
 

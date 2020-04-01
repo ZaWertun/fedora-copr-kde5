@@ -3,7 +3,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.18.3
+Version: 5.18.4.1
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -15,7 +15,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream patches
 
@@ -304,6 +304,9 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+- 5.18.4.1
+
 * Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
 - 5.18.3
 

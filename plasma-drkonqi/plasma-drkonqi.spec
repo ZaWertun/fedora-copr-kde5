@@ -2,7 +2,7 @@
 
 Name:    plasma-drkonqi
 Summary: DrKonqi crash handler for KF5/Plasma5
-Version: 5.18.3
+Version: 5.18.4.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -14,7 +14,7 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
+Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz
 
 ## upstreamable Patches
 # dnf debuginfo-install
@@ -95,6 +95,9 @@ fi
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %changelog
+* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+- 5.18.4.1
+
 * Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
 - 5.18.3
 

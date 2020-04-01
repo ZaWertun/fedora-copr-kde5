@@ -3,8 +3,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.18.3
-Release: 2%{?dist}
+Version: 5.18.4.1
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -312,6 +312,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+- 5.18.4.1
+
 * Fri Mar 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-2
 - google-noto-emoji-color-fonts added to recommends
 

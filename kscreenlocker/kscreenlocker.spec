@@ -1,5 +1,5 @@
 Name:    kscreenlocker
-Version: 5.18.3
+Version: 5.18.4.1
 Release: 1%{?dist}
 Summary: Library and components for secure lock screen architecture
 
@@ -13,7 +13,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%(echo %{version} |cut -d. -f1-3).tar.xz
 
 # help upgrades, split from plasma-workspace since 5.5
 Conflicts: plasma-workspace < 5.5
@@ -104,6 +104,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+- 5.18.4.1
+
 * Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
 - 5.18.3
 
