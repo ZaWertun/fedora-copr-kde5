@@ -1,5 +1,3 @@
-Только в plasma-workspace-5.18.4.1/: build
-Только в plasma-workspace-5.18.4.1/: .clang-format
 diff -r -U3 plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp plasma-workspace-5.18.4.1/startkde/startplasma.cpp
 --- plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp	2020-03-31 17:33:37.000000000 +0300
 +++ plasma-workspace-5.18.4.1/startkde/startplasma.cpp	2020-04-03 16:00:43.722296437 +0300
