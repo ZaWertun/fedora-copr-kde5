@@ -21,7 +21,7 @@ diff -r -U3 plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp plasma-works
 +        for (const auto &value : env) {
 +            int pos = value.indexOf(QStringLiteral("="));
 +            if (pos != -1) {
-+                pEnv.insert(value.left(pos), value.right(pos));
++                pEnv.insert(value.left(pos), value.mid(pos+1));
 +            }
 +        }
 +    }
