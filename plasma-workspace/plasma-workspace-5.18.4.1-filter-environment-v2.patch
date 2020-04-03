@@ -1,0 +1,43 @@
+Только в plasma-workspace-5.18.4.1/: build
+Только в plasma-workspace-5.18.4.1/: .clang-format
+diff -r -U3 plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp plasma-workspace-5.18.4.1/startkde/startplasma.cpp
+--- plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp	2020-03-31 17:33:37.000000000 +0300
++++ plasma-workspace-5.18.4.1/startkde/startplasma.cpp	2020-04-03 16:00:43.722296437 +0300
+@@ -22,6 +22,8 @@
+ #include <QStandardPaths>
+ #include <QTextStream>
+ #include <QDBusConnectionInterface>
++#include <QRegularExpression>
++#include <QProcessEnvironment>
+ #include <KConfig>
+ #include <KConfigGroup>
+ 
+@@ -64,8 +66,26 @@
+ int runSync(const QString& program, const QStringList &args, const QStringList &env)
+ {
+     QProcess p;
+-    if (!env.isEmpty())
+-        p.setEnvironment(QProcess::systemEnvironment() << env);
++    auto pEnv = QProcessEnvironment::systemEnvironment();
++    if (!env.isEmpty()) {
++        for (const auto &value : env) {
++            int pos = value.indexOf(QStringLiteral("="));
++            if (pos != -1) {
++                pEnv.insert(value.left(pos), value.right(pos));
++            }
++        }
++    }
++    if (program.contains(QStringLiteral("dbus-update-activation-environment"))) {
++        const QRegularExpression re(QStringLiteral("[^A-Z0-9_]"));
++        for (const auto &key : pEnv.keys()) {
++            const auto match = re.match(key);
++            if (match.hasMatch()) {
++                pEnv.remove(key);
++                qInfo() << "environment variable removed:" << key;
++            }
++        }
++    }
++    p.setProcessEnvironment(pEnv);
+     p.setProcessChannelMode(QProcess::ForwardedChannels);
+     p.start(program, args);
+ //     qDebug() << "started..." << program << args;

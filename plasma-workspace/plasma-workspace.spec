@@ -7,7 +7,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.18.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -44,6 +44,8 @@ Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
 
 ## upstreamable Patches
+# Filter wrong environment variables (RHBZ#1754395)
+Patch106:       plasma-workspace-5.18.4.1-filter-environment.patch
 
 ## upstream Patches lookaside cache
 
@@ -419,6 +421,7 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
   shell/packageplugins/lookandfeel/lookandfeel.cpp
 %endif
 %patch105 -p1
+%patch106 -p1
 
 %if 0%{?fedora}
 cp -a lookandfeel lookandfeel-fedora
@@ -639,6 +642,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Apr 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-2
+- patch for RHBZ#1754395 added
+
 * Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
 - 5.18.4.1
 
