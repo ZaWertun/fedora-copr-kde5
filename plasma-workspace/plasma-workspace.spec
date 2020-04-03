@@ -7,7 +7,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.18.4.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -45,7 +45,7 @@ Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
 
 ## upstreamable Patches
 # Filter wrong environment variables (RHBZ#1754395)
-Patch106:       plasma-workspace-5.18.4.1-filter-environment.patch
+Patch106:       plasma-workspace-5.18.4.1-filter-environment-v2.patch
 
 ## upstream Patches lookaside cache
 
@@ -642,6 +642,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Apr 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-3
+- plasma-workspace-5.18.4.1-filter-environment-v2.patch
+
 * Fri Apr 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-2
 - patch for RHBZ#1754395 added
 

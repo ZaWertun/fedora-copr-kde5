@@ -1,6 +1,6 @@
 diff -r -U3 plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp plasma-workspace-5.18.4.1/startkde/startplasma.cpp
 --- plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp	2020-03-31 17:33:37.000000000 +0300
-+++ plasma-workspace-5.18.4.1/startkde/startplasma.cpp	2020-04-03 16:00:43.722296437 +0300
++++ plasma-workspace-5.18.4.1/startkde/startplasma.cpp	2020-04-03 20:43:32.178541309 +0300
 @@ -22,6 +22,8 @@
  #include <QStandardPaths>
  #include <QTextStream>
@@ -25,13 +25,13 @@ diff -r -U3 plasma-workspace-5.18.4.1.orig/startkde/startplasma.cpp plasma-works
 +            }
 +        }
 +    }
-+    if (program.contains(QStringLiteral("dbus-update-activation-environment"))) {
++    if (program.endsWith(QStringLiteral("dbus-update-activation-environment"))) {
 +        const QRegularExpression re(QStringLiteral("[^A-Z0-9_]"));
 +        for (const auto &key : pEnv.keys()) {
 +            const auto match = re.match(key);
 +            if (match.hasMatch()) {
 +                pEnv.remove(key);
-+                qInfo() << "environment variable removed:" << key;
++                qInfo() << "program:" << program << "environment variable removed:" << key;
 +            }
 +        }
 +    }
