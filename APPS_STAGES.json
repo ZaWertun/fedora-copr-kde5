@@ -21,9 +21,7 @@
     "kdialog",
     "kdnssd",
     "keditbookmarks",
-    "kf5-akonadi-server",
     "kf5-grantleetheme",
-    "kf5-kcalendarcore",
     "kf5-kdav",
     "kf5-kmime",
     "kf5-kontactinterface",
@@ -49,6 +47,7 @@
     "ksystemlog",
     "kwalletmanager5",
     "libkdegames",
+    "libkgapi",
     "libkomparediff2",
     "lokalize",
     "poxml",
@@ -62,8 +61,7 @@
     "gwenview",
     "kaccounts-providers",
     "kdegraphics-thumbnailers",
-    "kf5-akonadi-mime",
-    "kf5-akonadi-notes",
+    "kf5-akonadi-server",
     "kf5-kidentitymanagement",
     "kf5-kimap",
     "kf5-kitinerary",
@@ -73,42 +71,45 @@
     "kolourpaint",
     "kompare",
     "kpat",
-    "libkgapi",
     "okular",
     "spectacle"
   ],
   "2": [
     "dolphin-plugins",
-    "kf5-akonadi-contacts",
-    "kf5-akonadi-search",
+    "kf5-akonadi-mime",
+    "kf5-akonadi-notes",
     "kf5-kcalendarutils",
     "kf5-kldap",
-    "kf5-kmailtransport",
     "kleopatra"
   ],
   "3": [
-    "kf5-akonadi-calendar",
+    "kf5-akonadi-contacts",
+    "kf5-akonadi-search",
     "kf5-kalarmcal",
-    "kf5-ktnef",
+    "kf5-kmailtransport",
+    "kf5-ktnef"
+  ],
+  "4": [
+    "kf5-akonadi-calendar",
     "kf5-libkdepim",
     "kgpg"
   ],
-  "4": [
+  "5": [
     "kf5-mailimporter",
     "kf5-pimcommon"
   ],
-  "5": [
+  "6": [
     "kdepim-apps-libs",
     "kdepim-runtime",
     "kf5-libgravatar",
     "kf5-libksieve",
     "knotes"
   ],
-  "6": [
+  "7": [
     "kf5-calendarsupport",
     "kf5-messagelib"
   ],
-  "7": [
+  "8": [
     "akonadi-calendar-tools",
     "akonadiconsole",
     "akregator",
@@ -117,7 +118,7 @@
     "kf5-mailcommon",
     "pim-sieve-editor"
   ],
-  "8": [
+  "9": [
     "akonadi-import-wizard",
     "kaddressbook",
     "kalarm",
@@ -127,7 +128,7 @@
     "kontact",
     "pim-data-exporter"
   ],
-  "9": [
+  "10": [
     "kdepim-addons",
     "korganizer"
   ]

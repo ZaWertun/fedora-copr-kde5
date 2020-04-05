@@ -9,24 +9,28 @@
 
 Name:    kf5-kcalendarcore
 Epoch:   1
-Version: 19.12.3
+Version: 5.68.0
 Release: 1%{?dist}
-Summary: The KCalendarCore Library
+Summary: KDE Frameworks 5 Tier 1 KCalendarCore Library
 
 License: LGPLv2+ and GPLv3+
 URL:     https://cgit.kde.org/%{framework}.git
 
+%global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
-%global majmin %(echo %{version} | cut -d. -f1,2)
 %if %{revision} >= 50
 %global stable unstable
 %else
 %global stable stable
 %endif
-Source0:        https://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
-BuildRequires:  extra-cmake-modules
-BuildRequires:  kf5-kdelibs4support-devel >= 5.15
+# libical (and thus kcalendarcore) not on all arches for RHEL8.
+%if 0%{?rhel} == 8
+ExclusiveArch: x86_64 ppc64le %{arm}
+%endif
+
+BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 
 BuildRequires:  bison
@@ -39,18 +43,12 @@ BuildRequires: dbus-x11
 BuildRequires: xorg-x11-server-Xvfb
 %endif
 
-Provides: kf5-%{framework} = %{version}-%{release}
-Provides: kf5-%{framework}%{?_isa} = %{version}-%{release}
-
 %description
 %{summary}.
 
 %package        devel
 Summary:        Development files for %{name}
-Provides:       kf5-%{framework}-devel = %{version}-%{release}
-Provides:       kf5-%{framework}-devel%{?_isa} = %{version}-%{release}
-Requires:       %{name}%{?_isa} = 1:%{version}-%{release}
-Requires:       kf5-kdelibs4support-devel
+Requires:       %{name}%{?_isa} = %{epoch}:%{version}-%{release}
 Requires:       libical-devel
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -58,7 +56,7 @@ developing applications that use %{name}.
 
 
 %prep
-%autosetup -p1 -n %{framework}-%{version}
+%autosetup -n %{framework}-%{version}
 
 
 %build
@@ -74,7 +72,14 @@ popd
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
-
+## TODO: poke upstream about failures seen on f30
+#The following tests FAILED:
+#         39 - testicaltimezones (Failed)
+#        472 - Compat-libical3-AppleICal_1.5.ics (Failed)
+#        473 - Compat-libical3-Evolution_2.8.2_timezone_test.ics (Failed)
+#        475 - Compat-libical3-KOrganizer_3.1a.ics (Failed)
+#        477 - Compat-libical3-MSExchange.ics (Failed)
+#        478 - Compat-libical3-Mozilla_1.0.ics (Failed)
 %check
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
@@ -88,58 +93,57 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files
 %license COPYING
+%{_kf5_datadir}/qlogging-categories5/*kcalendarcore.*
 %{_kf5_libdir}/libKF5CalendarCore.so.*
-%{_kf5_datadir}/qlogging-categories5/*categories
-
 
 %files devel
-%{_kf5_includedir}/KCalendarCore/*
-%{_kf5_includedir}/kcalcore_version.h
-%{_kf5_includedir}/kcalendarcore_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_KCalendarCore.pri
+%{_kf5_includedir}/kcal*core_version.h
+%{_kf5_includedir}/KCalendarCore/
 %{_kf5_libdir}/libKF5CalendarCore.so
 %{_kf5_libdir}/cmake/KF5CalendarCore/
+%{_kf5_archdatadir}/mkspecs/modules/qt_KCalendarCore.pri
 
 
 %changelog
-* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.12.3-1
-- 19.12.3
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.68.0-1
+- 5.68.0
 
-* Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.12.2-1
-- 19.12.2
+* Sun Feb 02 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.67.0-1
+- 5.67.0
 
-* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.12.1-1
-- 19.12.1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1:5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
-* Fri Dec 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
-- 5.64.0
+* Sat Jan 18 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.66.0-1
+- 5.66.0
 
-* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
-- 19.12.0
+* Tue Nov 12 2019 Rex Dieter <rdieter@fedoraproject.org> - 1:5.64.0-2
+- -devel: fix dep on main pkg (add epoch)
 
-* Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
+* Mon Nov 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 1:5.64.0-1
+- move to kde frameworks
+- drop Provides: kf5-kcalcore (not used anywhere)
+
+* Mon Nov 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.3-2
+- CMakeLists.txt: fix PIM_VERSION (wasn't bumped verison 19.08.2)
+
+* Mon Nov 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.3-1
 - 19.08.3
 
-* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
+* Fri Oct 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.2-1
 - 19.08.2
 
-* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
-- 19.08.1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 19.04.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
-* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
-- 19.08.0
-
-* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+* Fri Jul 12 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.3-1
 - 19.04.3
 
-* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+* Wed Jun 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.2-1
 - 19.04.2
 
-* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
-- 19.04.1
-
-* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
-- 19.04.0
+* Fri Mar 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-1
+- 18.12.3
 
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
