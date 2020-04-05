@@ -1,7 +1,7 @@
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
 Version: 5.18.4.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # KDE e.V. may determine that future LGPL versions are accepted
@@ -35,6 +35,9 @@ BuildRequires:  gtk2-devel
 
 # need kcmshell5 from kde-cli-tools
 Requires:       kde-cli-tools
+
+# allows GTK Config kded module to apply settings to GTK applications on the fly
+Requires:       xsettingsd
 
 %if 0%{?fedora} > 23
 Obsoletes:      kcm-gtk < 0.5.3-30
@@ -74,6 +77,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sun Apr 05 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-3
+- rebuild
+
 * Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-2
 - xsettingsd is gone :(
 
