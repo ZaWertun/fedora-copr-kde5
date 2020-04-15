@@ -3,8 +3,8 @@
 
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
-Version: 5.68.0
-Release: 2%{?dist}
+Version: 5.69.0
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -40,6 +40,7 @@ BuildRequires: kf5-kio-devel >= %{majmin}
 BuildRequires: kf5-kirigami2-devel >= %{majmin}
 
 BuildRequires: cmake(KF5Kirigami2)
+BuildRequires: cmake(KF5WindowSystem)
 
 # optional sharefile plugin
 BuildRequires: cmake(KF5KIO)
@@ -132,6 +133,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+- 5.69.0
+
 * Thu Mar 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-2
 - kf5-purpose-twitter is obsoleted
 

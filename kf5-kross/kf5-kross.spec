@@ -1,7 +1,7 @@
 %global framework kross
 
 Name:    kf5-%{framework}
-Version: 5.68.0
+Version: 5.69.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for multi-language application scripting
 
@@ -31,6 +31,7 @@ BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qttools-static
+BuildRequires:  cmake(KF5WindowSystem)
 
 Requires:       %{name}-core%{_isa} = %{version}-%{release}
 Requires:       %{name}-ui%{?_isa} = %{version}-%{release}
@@ -115,6 +116,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+- 5.69.0
+
 * Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
 - 5.68.0
 

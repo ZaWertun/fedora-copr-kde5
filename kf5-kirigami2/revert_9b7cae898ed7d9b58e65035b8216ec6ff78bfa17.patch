@@ -1,0 +1,69 @@
+--- b/src/kirigamiplugin.cpp
++++ a/src/kirigamiplugin.cpp
+@@ -46,33 +46,6 @@
+         }
+ };
+ 
+-// we can't do this in the plugin object directly, as that can live in a different thread
+-// and event filters are only allowed in the same thread as the filtered object
+-class LanguageChangeEventFilter : public QObject
+-{
+-    Q_OBJECT
+-public:
+-    bool eventFilter(QObject *receiver, QEvent *event) override
+-    {
+-        if (event->type() == QEvent::LanguageChange && receiver == QCoreApplication::instance()) {
+-            emit languageChangeEvent();
+-        }
+-        return QObject::eventFilter(receiver, event);
+-    }
+-
+-Q_SIGNALS:
+-    void languageChangeEvent();
+-};
+-
+-KirigamiPlugin::KirigamiPlugin(QObject *parent)
+-    : QQmlExtensionPlugin(parent)
+-{
+-    auto filter = new LanguageChangeEventFilter;
+-    filter->moveToThread(QCoreApplication::instance()->thread());
+-    QCoreApplication::instance()->installEventFilter(filter);
+-    connect(filter, &LanguageChangeEventFilter::languageChangeEvent, this, &KirigamiPlugin::languageChangeEvent);
+-}
+-
+ QUrl KirigamiPlugin::componentUrl(const QString &fileName) const
+ {
+     for (const QString &style : qAsConst(m_stylesFallbackChain)) {
+@@ -248,10 +221,4 @@
+     qmlProtectModule(uri, 2);
+ }
+ 
+-void KirigamiPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
+-{
+-    Q_UNUSED(uri);
+-    connect(this, &KirigamiPlugin::languageChangeEvent, engine, &QQmlEngine::retranslate);
+-}
+-
+ #include "kirigamiplugin.moc"
+--- b/src/kirigamiplugin.h
++++ a/src/kirigamiplugin.h
+@@ -20,9 +20,7 @@
+     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
+ 
+ public:
+-    KirigamiPlugin(QObject *parent = nullptr);
+     void registerTypes(const char *uri) override;
+-    void initializeEngine(QQmlEngine *engine, const char *uri) override;
+ 
+ #ifdef KIRIGAMI_BUILD_TYPE_STATIC
+     static KirigamiPlugin& getInstance()
+@@ -38,9 +36,6 @@
+     }
+ #endif
+ 
+-Q_SIGNALS:
+-    void languageChangeEvent();
+-
+ private:
+     QUrl componentUrl(const QString &fileName) const;
+     QString resolveFilePath(const QString &path) const

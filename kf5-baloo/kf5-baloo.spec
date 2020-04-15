@@ -9,14 +9,13 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.68.0
+Version: 5.69.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
 # KDE e.V. may determine that future LGPL/GPL versions are accepted
 License: (LGPLv2 or LGPLv3) and (GPLv2 or GPLv3)
 URL:     https://community.kde.org/Baloo
-#URL:     https://cgit.kde.org/%{framework}.git
 
 %global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
@@ -46,6 +45,7 @@ BuildRequires:  kf5-kidletime-devel >= %{majmin}
 BuildRequires:  kf5-kio-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  kf5-solid-devel >= %{majmin}
+BuildRequires:  cmake(KF5WindowSystem)
 
 BuildRequires:  lmdb-devel
 BuildRequires:  qt5-qtbase-devel
@@ -203,6 +203,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+- 5.69.0
+
 * Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
 - 5.68.0
 
