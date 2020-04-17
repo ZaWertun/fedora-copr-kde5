@@ -13,6 +13,9 @@ Version: 5.18.4.1
 Release: 1%{?dist}
 Summary: KDE Window manager
 
+Conflicts: kwinft
+Conflicts: kwin-lowlatency
+
 # all sources are effectively GPLv2+, except for:
 # scripts/enforcedeco/contents/code/main.js
 # KDE e.V. may determine that future GPL versions are accepted

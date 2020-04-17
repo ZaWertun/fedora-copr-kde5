@@ -8,6 +8,7 @@ Summary: KDE Window manager with stutter and latency reductions
 
 Provides:  kwin = %{version}
 Conflicts: kwin
+Conflicts: kwinft
 
 # all sources are effectively GPLv2+, except for:
 # scripts/enforcedeco/contents/code/main.js
@@ -269,7 +270,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
-%{_kf5_datadir}/kpackage/kcms/kcm_kwin_virtualdesktops/*
 %{_kf5_datadir}/kpackage/kcms/kcm_*
 %{_kf5_datadir}/knotifications5/kwin.notifyrc
 %{_kf5_datadir}/config.kcfg/*.kcfg
