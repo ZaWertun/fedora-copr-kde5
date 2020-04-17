@@ -2,7 +2,7 @@
 
 Name:    wrapland
 Version: 0.518.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt/C++ library wrapping libwayland
 
 License: LGPLv2+
@@ -54,6 +54,11 @@ Requires:    %{name}-devel%{?_isa} = %{version}-%{release}
 %description server-devel
 %{summary}.
 
+%package     test-server
+Summary:     Test server for %{name}.
+%description test-server
+%{summary}.
+
 
 %prep
 %autosetup -p1 -n %{name}-%{name}@%{version}-%{commit}
@@ -100,7 +105,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %files server
-%{_libexecdir}/org-kde-kf5-wrapland-testserver
 %{_libdir}/libWraplandServer.so.*
 
 
@@ -109,7 +113,14 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_includedir}/Wrapland/Server/
 
 
+%files test-server
+%{_libexecdir}/org-kde-kf5-wrapland-testserver
+
+
 %changelog
+* Fri Apr 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.518.0-2
+- wrapland-testserver moved to separate package
+
 * Fri Apr 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.518.0-1
 - first spec
 
