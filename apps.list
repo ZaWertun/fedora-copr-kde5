@@ -1,6 +1,6 @@
 akonadi-calendar-tools
-akonadi-import-wizard
 akonadiconsole
+akonadi-import-wizard
 akregator
 ark
 baloo-widgets
@@ -21,9 +21,8 @@ kcalc
 kcharselect
 kcolorchooser
 kcron
-kde-dev-scripts
-kde-print-manager
 kdebugsettings
+kde-dev-scripts
 kdegraphics-mobipocket
 kdegraphics-thumbnailers
 kdenetwork-filesharing
@@ -31,6 +30,7 @@ kdenlive
 kdepim-addons
 kdepim-apps-libs
 kdepim-runtime
+kde-print-manager
 kdialog
 kdnssd
 keditbookmarks
