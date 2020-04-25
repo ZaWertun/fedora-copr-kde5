@@ -1,7 +1,7 @@
 
 Name:    keditbookmarks
 Summary: Bookmark organizer and editor
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 
 # Documentation is GFDL, rest GPLv2 and GPLv3 (note: NOT any later version)
@@ -80,6 +80,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/config.kcfg/keditbookmarks.kcfg
 %{_kf5_datadir}/kxmlgui5/keditbookmarks/
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 %{_mandir}/man1/kbookmarkmerger.1*
 
 %ldconfig_scriptlets libs
@@ -89,6 +90,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

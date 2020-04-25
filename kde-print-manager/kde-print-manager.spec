@@ -2,7 +2,7 @@
 
 Name:    kde-print-manager
 Summary: Printer management for KDE
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+
@@ -15,8 +15,6 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{base_name}-%{version}.tar.xz
-
-Patch0:  kde-print-manager-19.12.3-format-security.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
@@ -96,7 +94,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 %{_bindir}/configure-printer
 %{_kf5_qmldir}/org/kde/plasma/printmanager/
 %{_kf5_datadir}/kservices5/kcm_printer_manager.desktop
-%{_kf5_datadir}/kservices5/kded/printmanager.desktop
 %{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.printmanager.desktop
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.printmanager/
 %{_kf5_datadir}/knotifications5/printmanager.notifyrc
@@ -112,10 +109,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 # private unversioned library
 %{_libdir}/libkcupslib.so
 %{_kf5_qtplugindir}/kcm_printer_manager.so
-%{_kf5_qtplugindir}/kded_printmanager.so
+%{_kf5_qtplugindir}/kf5/kded/printmanager.so
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

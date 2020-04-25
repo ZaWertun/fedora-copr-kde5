@@ -1,5 +1,5 @@
 Name:    kaccounts-providers
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
@@ -23,6 +23,7 @@ BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  pkgconfig(libaccounts-glib)
 BuildRequires:  pkgconfig(Qt5Gui)
+BuildRequires:  pkgconfig(Qt5WebEngineWidgets)
 
 Requires:       signon-ui
 Requires:       accounts-qml-module%{?_isa}
@@ -56,15 +57,22 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING
 %config %{_sysconfdir}/signon-ui/webkit-options.d/*
 %{_datadir}/accounts/providers/kde/
+%{_datadir}/accounts/services/kde/*.service
 %dir %{_kf5_datadir}/kpackage/genericqml
 %{_kf5_datadir}/kpackage/genericqml/org.kde.kaccounts.owncloud/
+%{_kf5_datadir}/kpackage/genericqml/org.kde.kaccounts.nextcloud/
 %dir %{_qt5_plugindir}/kaccounts/
 %dir %{_qt5_plugindir}/kaccounts/ui/
 %{_qt5_plugindir}/kaccounts/ui/owncloud_plugin_kaccounts.so
+%{_qt5_plugindir}/kaccounts/ui/nextcloud_plugin_kaccounts.so
 %{_kf5_metainfodir}/org.kde.kaccounts.owncloud.appdata.xml
+%{_kf5_metainfodir}/org.kde.kaccounts.nextcloud.appdata.xml
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

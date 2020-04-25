@@ -1,7 +1,7 @@
 
 Name:    kamera
 Summary: Digital camera support for KDE 
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -68,6 +68,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

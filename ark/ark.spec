@@ -4,7 +4,7 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -40,6 +40,9 @@ BuildRequires: kf5-kpty-devel
 BuildRequires: kf5-kservice-devel
 BuildRequires: kf5-kwidgetsaddons-devel
 BuildRequires: cmake(KF5ItemModels)
+BuildRequires: cmake(KF5Parts)
+BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(KF5KIO)
 
 BuildRequires: libappstream-glib
 BuildRequires: pkgconfig(libarchive)
@@ -128,7 +131,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 %{_kf5_metainfodir}/org.kde.ark.appdata.xml
 %{_kf5_datadir}/applications/org.kde.ark.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/ark.*
-%{_kf5_datadir}/mime/packages/kerfuffle.xml
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_mandir}/man1/ark.1*
 
@@ -146,6 +148,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

@@ -11,7 +11,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -29,7 +29,6 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 ## upstream patches
 
 ## upstreamable patches
-Patch100: konqueror-18.12.2-webengine_optional.patch
 # toggle 'Always try to have one preloaded instance' to default off
 # https://bugzilla.redhat.com/1523082
 # https://bugs.kde.org/398996
@@ -205,7 +204,6 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 %files libs
 %{_kf5_datadir}/kservices5/*
-%{_kf5_datadir}/kservicetypes5/konqaboutpage.desktop
 %{_kf5_libdir}/lib*.so.*
 %{_kf5_libdir}/libkdeinit5*.so
 %{_kf5_qtplugindir}/*.so
@@ -228,6 +226,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

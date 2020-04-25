@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 Summary: A DAV protocol implementation with KJobs
 
@@ -84,18 +84,23 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_libdir}/libKPimKDAV.so.5*
+%{_kf5_libdir}/libKF5DAV.so.5*
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %files devel
-%{_includedir}/KPim/
-%{_kf5_libdir}/libKPimKDAV.so
-%{_kf5_libdir}/cmake/KPimKDAV/
+%{_includedir}/KF5/kdav/
+%{_includedir}/KF5/KDAV/
+%{_includedir}/KF5/kdav_version.h
+%{_kf5_libdir}/libKF5DAV.so
+%{_kf5_libdir}/cmake/KF5DAV/
 %{_kf5_archdatadir}/mkspecs/modules/qt_kdav.pri
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

@@ -1,7 +1,7 @@
 
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -101,11 +101,15 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 %{_kf5_datadir}/icons/hicolor/*/apps/spectacle.*
 %{_kf5_datadir}/knotifications5/spectacle.notifyrc
 %{_kf5_datadir}/kconf_update/spectacle_shortcuts.upd
+%{_kf5_datadir}/kconf_update/spectacle_newConfig.upd
 %{_kf5_datadir}/kglobalaccel/*.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

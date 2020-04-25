@@ -1,7 +1,7 @@
 Name:    gwenview 
 Summary: An image viewer
 Epoch:   1
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -109,12 +109,16 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 %files libs
 %{_kf5_libdir}/libgwenviewlib.so.*
-%{_kf5_qtplugindir}/gvpart.so
+%{_kf5_qtplugindir}/kf5/parts/gvpart.so
 %{_kf5_datadir}/kxmlgui5/gvpart/
 %{_kf5_datadir}/kservices5/gvpart.desktop
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:19.12.3-1
 - 19.12.3
 

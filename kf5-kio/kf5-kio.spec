@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.69.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
@@ -95,6 +95,7 @@ Requires:       kf5-kjobwidgets-devel >= %{majmin}
 Requires:       kf5-kservice-devel >= %{majmin}
 Requires:       kf5-solid-devel >= %{majmin}
 Requires:       kf5-kxmlgui-devel >= %{majmin}
+Requires:       kf5-kwindowsystem-devel >= %{majmin}
 Requires:       qt5-qtbase-devel
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -282,6 +283,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-2
+- added kf5-kwindowsystem-devel dependency for kf5-kio-devel
+
 * Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
 - 5.69.0
 

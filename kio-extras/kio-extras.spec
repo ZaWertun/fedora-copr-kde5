@@ -7,7 +7,7 @@
 %endif
 
 Name:    kio-extras
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -21,12 +21,6 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
-
-## upstramable patches
-# patch to use libtirpc for RPC, from Cygwin Ports
-# should be upstreamable, considering that glibc's builtin RPC is obsolete
-# https://github.com/cygwinports/kf5-kio-extras/blob/master/16.08.3-nfs-libtirpc.patch
-Patch1000: kio-extras-19.04-nfs-libtirpc.patch
 
 ## upstream patches
 
@@ -69,6 +63,7 @@ BuildRequires:  pkgconfig(shared-mime-info)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtsvg-devel
 BuildRequires:  taglib-devel > 1.11
+BuildRequires:  cmake(KDSoap)
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -179,7 +174,7 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_qtplugindir}/exrthumbnail.so
 %{_kf5_qtplugindir}/imagethumbnail.so
 %{_kf5_qtplugindir}/jpegthumbnail.so
-%{_kf5_qtplugindir}/kactivitymanagerd_fileitem_linking_plugin.so
+%{_kf5_qtplugindir}/kf5/kfileitemaction/kactivitymanagerd_fileitem_linking_plugin.so
 %{_kf5_qtplugindir}/kfileaudiopreview.so
 %{_kf5_qtplugindir}/ebookthumbnail.so
 %{_kf5_qtplugindir}/kritathumbnail.so
@@ -225,6 +220,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

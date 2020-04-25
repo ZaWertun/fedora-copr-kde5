@@ -14,8 +14,8 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 19.12.3
-Release: 2%{?dist}
+Version: 20.04.0
+Release: 1%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/okular/
@@ -27,10 +27,9 @@ URL:     https://www.kde.org/applications/graphics/okular/
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
-Patch10: okular-CVE-2020-9359.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -236,6 +235,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Sun Mar 22 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.3-2
 - Security fix for CVE-2020-9359 (#1815651,1815652)
 

@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 Summary: The KMime Library
 
@@ -84,6 +84,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %license COPYING*
 %{_kf5_libdir}/libKF5Mime.so.*
+%{_kf5_datadir}/qlogging-categories5/%{framework}.categories
 
 %files devel
 %{_kf5_includedir}/kmime_version.h
@@ -94,6 +95,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

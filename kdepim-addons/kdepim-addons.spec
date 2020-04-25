@@ -1,5 +1,5 @@
 Name:    kdepim-addons
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -129,8 +129,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents/
-%{_kf5_qtplugindir}/webengineviewer/webengineviewer_adblockplugin.so
-%{_kf5_qtplugindir}/webengineviewer/webengineviewer_donottrackplugin.so
+%{_kf5_qtplugindir}/webengineviewer/urlinterceptor/webengineviewer_adblockplugin.so
+%{_kf5_qtplugindir}/webengineviewer/urlinterceptor/webengineviewer_donottrackplugin.so
 %{_kf5_datadir}/kconf_update/*.upd
 %{_kf5_qmldir}/org/kde/plasma/PimCalendars/
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -142,16 +142,16 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/contacteditor/editorpageplugins/cryptopageplugin.so
 
 %dir %{_kf5_qtplugindir}/kaddressbook/
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_checkgravatarplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_importexportcsvplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_importexportgmxplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_importexportldapplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_importexportldifplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_importexportvcardplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_mergecontactsplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_searchduplicatesplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_sendmailplugin.so
-%{_kf5_qtplugindir}/kaddressbook/kaddressbook_sendvcardsplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportcsvplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportgmxplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportldapplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportldifplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportvcardplugin.so
+%{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_checkgravatarplugin.so
+%{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_mergecontactsplugin.so
+%{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_searchduplicatesplugin.so
+%{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_sendmailplugin.so
+%{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_sendvcardsplugin.so
 
 # Akonadi
 %{_kf5_qtplugindir}/akonadi/emailaddressselectionldapdialogplugin.so
@@ -159,24 +159,25 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 # KMail
 %{_kf5_bindir}/kmail_*.sh
 %dir %{_kf5_qtplugindir}/kmail/
-%{_kf5_qtplugindir}/kmail/kmail_autocorrectioneditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_nonbreakingspaceeditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_changecaseeditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_expertplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_insertemaileditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_insertshorturleditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_insertspecialcharactereditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_zoomtexteditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_antispamplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_antivirusplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_automaticaddcontactseditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_checkbeforesendeditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_confirmaddresseditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_logactivitiesplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_sharetexteditorplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_grammalecteplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_languagetoolplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_quicktextplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_autocorrectioneditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_changecaseeditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_insertemaileditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_insertshorturleditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_insertspecialcharactereditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_nonbreakingspaceeditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_quicktextplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_sharetexteditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditor/kmail_zoomtexteditorplugin.so
+%{_kf5_qtplugindir}/kmail/mainview/kmail_antispamplugin.so
+%{_kf5_qtplugindir}/kmail/mainview/kmail_antivirusplugin.so
+%{_kf5_qtplugindir}/kmail/mainview/kmail_expertplugin.so
+%{_kf5_qtplugindir}/kmail/mainview/kmail_logactivitiesplugin.so
+%{_kf5_qtplugindir}/kmail/plugincheckbeforesend/kmail_automaticaddcontactseditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugincheckbeforesend/kmail_checkbeforesendeditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugincheckbeforesend/kmail_confirmaddresseditorplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditorgrammar/kmail_grammalecteplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditorgrammar/kmail_languagetoolplugin.so
+%{_kf5_qtplugindir}/kmail/plugineditorinit/kmail_externalcomposereditorplugin.so
 %{_kf5_sysconfdir}/xdg/kmail.antispamrc
 %{_kf5_sysconfdir}/xdg/kmail.antivirusrc
 
@@ -188,7 +189,6 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/importwizard/gearyimporterplugin.so
 %{_kf5_qtplugindir}/importwizard/nylasmailimporterplugin.so
 %{_kf5_qtplugindir}/importwizard/operaimporterplugin.so
-%{_kf5_qtplugindir}/kmail/kmail_externalcomposereditorplugin.so
 %{_kf5_qtplugindir}/libksieve/regexpeditorlineeditplugin.so
 %{_kf5_qtplugindir}/mailtransport/mailtransport_sendplugin.so
 %{_kf5_qtplugindir}/templateparser/templateparseraddressrequesterplugin.so
@@ -204,10 +204,10 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 # PimCommon
 %dir %{_kf5_qtplugindir}/pimcommon/
 %{_kf5_libdir}/libshorturlpluginprivate.so*
-%{_kf5_qtplugindir}/pimcommon/pimcommon_translatorplugin.so
-%{_kf5_qtplugindir}/pimcommon/pimcommon_isgdshorturlengineplugin.so
-%{_kf5_qtplugindir}/pimcommon/pimcommon_tinyurlengineplugin.so
-%{_kf5_qtplugindir}/pimcommon/pimcommon_triopabshorturlengineplugin.so
+%{_kf5_qtplugindir}/pimcommon/customtools/pimcommon_translatorplugin.so
+%{_kf5_qtplugindir}/pimcommon/shorturlengine/pimcommon_isgdshorturlengineplugin.so
+%{_kf5_qtplugindir}/pimcommon/shorturlengine/pimcommon_tinyurlengineplugin.so
+%{_kf5_qtplugindir}/pimcommon/shorturlengine/pimcommon_triopabshorturlengineplugin.so
 
 # BodyPartFormatter
 %dir %{_kf5_qtplugindir}/messageviewer/bodypartformatter/
@@ -221,22 +221,22 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 # MessageViewer headers
 %dir %{_kf5_qtplugindir}/messageviewer/
-%{_kf5_qtplugindir}/messageviewer/messageviewer_briefheaderstyleplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_fancyheaderstyleplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_grantleeheaderstyleplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_longheaderstyleplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_standardsheaderstyleplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_gravatarconfigplugin.so
+%{_kf5_qtplugindir}/messageviewer/headerstyle/messageviewer_briefheaderstyleplugin.so
+%{_kf5_qtplugindir}/messageviewer/headerstyle/messageviewer_fancyheaderstyleplugin.so
+%{_kf5_qtplugindir}/messageviewer/headerstyle/messageviewer_grantleeheaderstyleplugin.so
+%{_kf5_qtplugindir}/messageviewer/headerstyle/messageviewer_longheaderstyleplugin.so
+%{_kf5_qtplugindir}/messageviewer/headerstyle/messageviewer_standardsheaderstyleplugin.so
 
 # MessageViewer
 %{_kf5_qtplugindir}/messageviewer/grantlee/
-%{_kf5_qtplugindir}/messageviewer/messageviewer_createeventplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_createnoteplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_createtodoplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_expandurlplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_externalscriptplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_translatorplugin.so
-%{_kf5_qtplugindir}/messageviewer/messageviewer_dkimconfigplugin.so
+%{_kf5_qtplugindir}/messageviewer/viewerplugin/messageviewer_createeventplugin.so
+%{_kf5_qtplugindir}/messageviewer/viewerplugin/messageviewer_createnoteplugin.so
+%{_kf5_qtplugindir}/messageviewer/viewerplugin/messageviewer_createtodoplugin.so
+%{_kf5_qtplugindir}/messageviewer/viewerplugin/messageviewer_externalscriptplugin.so 
+%{_kf5_qtplugindir}/messageviewer/viewercommonplugin/messageviewer_expandurlplugin.so
+%{_kf5_qtplugindir}/messageviewer/viewercommonplugin/messageviewer_translatorplugin.so
+%{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_dkimconfigplugin.so
+%{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_gravatarconfigplugin.so
 
 # qtcreator templates
 %dir %{_datadir}/qtcreator
@@ -246,6 +246,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 

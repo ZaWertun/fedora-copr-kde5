@@ -1,7 +1,7 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 19.12.3
+Version: 20.04.0
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -124,7 +124,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/messagelist/
 %{_kf5_libdir}/libKF5MessageViewer.so.*
 %dir %{_kf5_qtplugindir}/messageviewer/
-%{_kf5_qtplugindir}/messageviewer/messageviewer_defaultgrantleeheaderstyleplugin.so
+%{_kf5_qtplugindir}/messageviewer/headerstyle/messageviewer_defaultgrantleeheaderstyleplugin.so
 %{_kf5_qtplugindir}/messageviewer/grantlee/5.0/messageviewer_grantlee_extension.so
 %{_kf5_datadir}/libmessageviewer/
 %{_kf5_datadir}/messageviewer/
@@ -192,6 +192,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+- 20.04.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
 - 19.12.3
 
