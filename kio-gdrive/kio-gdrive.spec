@@ -1,5 +1,5 @@
 Name:           kio-gdrive
-Version:        1.2.7
+Version:        1.3.0
 Release:        1%{?dist}
 Summary:        An Google Drive KIO slave for KDE
 
@@ -14,6 +14,7 @@ Source0:        http://download.kde.org/stable/%{name}/%{version}/src/%{name}-%{
 
 BuildRequires:  cmake(KF5I18n)
 BuildRequires:  cmake(KF5KIO)
+BuildRequires:  cmake(KF5Notifications)
 BuildRequires:  extra-cmake-modules
 BuildRequires:  desktop-file-utils
 BuildRequires:  kaccounts-integration-devel
@@ -43,19 +44,23 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/remoteview/*.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.metainfo.xml ||:
 
 %files -f kio5_gdrive.lang
 %license COPYING
 %doc HACKING README.md
 %{_qt5_plugindir}/kf5/kio/gdrive.so
 %{_qt5_plugindir}/kaccounts/daemonplugins/gdrive.so
+%{_qt5_plugindir}/kf5/kfileitemaction/copyurlitemaction.so
 %{_kf5_datadir}/accounts/services/kde/google-drive.service
 %{_kf5_datadir}/knotifications5/gdrive.notifyrc
 %{_kf5_datadir}/remoteview/gdrive-network.desktop
-%{_kf5_datadir}/metainfo/org.kde.kio-gdrive.appdata.xml
+%{_kf5_datadir}/metainfo/org.kde.kio_gdrive.metainfo.xml
 
 %changelog
+* Sun Apr 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.0-1
+- 1.3.0
+
 * Fri Sep 06 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.7-1
 - Update to 1.2.7
 

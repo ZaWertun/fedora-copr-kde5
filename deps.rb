@@ -12,7 +12,7 @@ SQL
 def resolve_dep(name)
     rows = $db.execute('select resolved from DEPS where name = ?', [name])
     return rows[0][0] unless rows.empty?
-    
+
     cmd = "rpm -q --whatprovides \"#{name}\" 2>/dev/null"
     STDERR.puts(cmd) if ENV['DEBUG'] == '1'
     provides = `#{cmd}`.split(/\n/).first
@@ -20,8 +20,8 @@ def resolve_dep(name)
       cmd = "dnf -y -q provides \"#{name}\" 2>/dev/null |head -n1"
       STDERR.puts(cmd) if ENV['DEBUG'] == '1'
       provides = `#{cmd}`.split(/\n/).first
-      unless provides
-          STDERR.puts "Error: #{name}"
+      if !$?.success? || !provides
+          STDERR.puts "Error: #{name} (exit status: #{$?.exitstatus})"
           return nil
       end
     end
