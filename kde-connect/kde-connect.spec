@@ -1,55 +1,64 @@
 
+# enable experimental (default off) bluetooth support
+#global bluetooth 1
+
+%global module kdeconnect-kde
+
 Name:           kde-connect
-Version:        1.4
+Version:        20.04.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
-Url:            https://cgit.kde.org/kdeconnect-kde.git
-%if 0%{?_git_describe:1}
-# using releaseme:
-# ./tarme.rb kdeconnect-kde --origin trunk --version 0.8
-# then rename accordingly
-Source0:        kdeconnect-kde-%{_git_describe}.tar.xz
+Url:            https://community.kde.org/KDEConnect
+#Url:            https://cgit.kde.org/kdeconnect-kde.git
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
 %else
-Source0:        http://download.kde.org/stable/kdeconnect/%{version}/kdeconnect-kde-%{version}.tar.xz
+%global stable stable
 %endif
+Source0:        http://download.kde.org/%{stable}/release-service/%{version}/src/%{module}-%{version}.tar.xz
 
 # firewalld service definition, see https://bugzilla.redhat.com/show_bug.cgi?id=1257699#c2
 Source2:        kde-connect.xml
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  firewalld-filesystem
+BuildRequires:  libappstream-glib
 BuildRequires:  gcc-c++
 
 BuildRequires:  extra-cmake-modules >= 5.42
 BuildRequires:  kf5-rpm-macros
-BuildRequires:  kf5-kcmutils-devel
-BuildRequires:  kf5-kdoctools-devel
-BuildRequires:  kf5-kconfigwidgets-devel
-BuildRequires:  kf5-kdbusaddons-devel
-BuildRequires:  kf5-ki18n-devel
-BuildRequires:  kf5-kiconthemes-devel
-BuildRequires:  kf5-kio-devel
-BuildRequires:  kf5-knotifications-devel
-BuildRequires:  kf5-kwayland-devel
+BuildRequires:  cmake(KF5ConfigWidgets)
+BuildRequires:  cmake(KF5DBusAddons)
+BuildRequires:  cmake(KF5DocTools)
+BuildRequires:  cmake(KF5I18n)
+BuildRequires:  cmake(KF5IconThemes)
+BuildRequires:  cmake(KF5KCMUtils)
+BuildRequires:  cmake(KF5KIO)
+BuildRequires:  cmake(KF5Kirigami2)
+BuildRequires:  cmake(KF5Notifications)
+BuildRequires:  cmake(KF5People)
+BuildRequires:  cmake(KF5Service)
+BuildRequires:  cmake(KF5Wayland)
 
-BuildRequires:  qt5-qtbase-devel
-BuildRequires:  qt5-qtdeclarative-devel
-BuildRequires:  qt5-qtx11extras-devel
+%if 0%{?bluetooth}
+BuildRequires:  cmake(Qt5Bluetooth)
+%endif
+BuildRequires:  cmake(Qt5DBus)
+BuildRequires:  cmake(Qt5Multimedia)
+BuildRequires:  cmake(Qt5Network)
+BuildRequires:  cmake(Qt5Quick)
+BuildRequires:  cmake(Qt5Test)
+BuildRequires:  cmake(Qt5X11Extras)
+
+BuildRequires:  cmake(Qca-qt5)
+
+BuildRequires:  cmake(KF5PulseAudioQt)
 
 BuildRequires:  libXtst-devel
 BuildRequires:  pkgconfig(libfakekey)
-BuildRequires:  qca-qt5-devel >= 2.1.0-14
-
-BuildRequires:  cmake(KF5Kirigami2) >= 5.64.0
-BuildRequires:  cmake(KF5People)    >= 5.64.0
-
-BuildRequires:  cmake(Qt5Multimedia)
-BuildRequires:  cmake(KF5PeopleVCard)
-
-BuildRequires:  pulseaudio-qt-devel
-BuildRequires:  cmake(KF5PulseAudioQt)
 
 Obsoletes: kde-connect-kde4-ioslave < %{version}-%{release}
 Obsoletes: kde-connect-kde4-libs < %{version}-%{release}
@@ -104,13 +113,14 @@ Supplements: (kdeconnectd and nautilus)
 
 
 %prep
-%autosetup -n kdeconnect-kde-%{version} -p1
+%autosetup -n %{module}-%{version} -p1
 
 
 %build
 mkdir %{_target_platform}
 pushd %{_target_platform}
-%{cmake_kf5} ..
+%{cmake_kf5} .. \
+  %{?bluetooth:-DBLUETOOTH_ENABLED:BOOL=ON}
 popd
 
 %make_build -C %{_target_platform}
@@ -119,7 +129,10 @@ popd
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
+# firewalld as shipped in f31+ provides it's own kdeconnect.xml
+%if 0%{?fedora} && 0%{?fedora} < 31
 install -m644 -p -D %{SOURCE2} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
+%endif
 
 %find_lang %{name} --all-name --with-html
 
@@ -128,8 +141,10 @@ desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autosta
 
 
 %check
-#desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
-#desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml ||:
+for i in %{buildroot}%{_datadir}/applications/org.kde.kdeconnect*.desktop ; do
+desktop-file-validate $i ||:
+done
 
 
 %files -f %{name}.lang
@@ -139,16 +154,17 @@ desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autosta
 %{_kf5_datadir}/knotifications5/*
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
-%{_kf5_datadir}/Thunar/sendto/kdeconnect-thunar.desktop
 %{_qt5_plugindir}/kcm_kdeconnect.so
+%{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
 %{_kf5_plugindir}/kio/kdeconnect.so
 %{_datadir}/icons/hicolor/*/apps/kdeconnect*
 %{_datadir}/icons/hicolor/*/status/*
-%{_datadir}/contractor/kdeconnect.contract
-%{_datadir}/zsh/site-functions/_kdeconnect
 %{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml
-%{_datadir}/applications/*.desktop
+%{_datadir}/applications/org.kde.kdeconnect*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
+%{_datadir}/contractor/
+%{_datadir}/Thunar/
+%{_datadir}/zsh/
 
 %post -n kdeconnectd
 %{?firewalld_reload}
@@ -160,33 +176,49 @@ fi
 
 %files -n kdeconnectd
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
+%{_datadir}/applications/org.kde.kdeconnect.daemon.desktop
 %{_libexecdir}/kdeconnectd
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
+# firewalld as shipped in f31+ provides it's own kdeconnect.xml
+%if 0%{?fedora} && 0%{?fedora} < 31
 %{_prefix}/lib/firewalld/services/kde-connect.xml
+%endif
 
 %ldconfig_scriptlets libs
 
 %files libs
-%{_libdir}/libkdeconnectsmshelper.so.*
 %{_kf5_libdir}/libkdeconnectpluginkcm.so.1*
 %{_kf5_libdir}/libkdeconnectinterfaces.so.1*
 %{_kf5_libdir}/libkdeconnectcore.so.1*
+%{_kf5_libdir}/libkdeconnectsmshelper.so.1*
 %{_qt5_plugindir}/kdeconnect*.so
 %{_qt5_plugindir}/kdeconnect/
-%{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
 
 %files nautilus
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py*
 
 
 %changelog
-* Mon Dec 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.4-1
+* Thu Apr 23 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.0-1
+- 20.04.0, part of release-service now
+- add .desktop/appstream validation (permissive for now)
+
+* Mon Mar 30 2020 Rex Dieter <rdieter@fedoraproject.org> - 1.4-2
+- f31+ firewalld already supports kdeconnect
+
+* Sun Mar 01 2020 Erich Eickmeyer <erich@ericheickmeyer.com> - 1.4-1
 - 1.4
 
-* Mon Sep 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.5-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jul 30 2019 Rex Dieter <rdieter@fedoraproject.org> - 1.3.5-1
 - 1.3.5
 
-* Wed Jun 26 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.4-3
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Wed Jun 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 1.3.4-1
 - 1.3.4
 
 * Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.3-2

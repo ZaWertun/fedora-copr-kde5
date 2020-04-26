@@ -6,6 +6,8 @@ ark
 baloo-widgets
 dolphin
 dolphin-plugins
+dragon
+elisa-player
 filelight
 grantlee-editor
 gwenview
@@ -22,6 +24,7 @@ kcharselect
 kcolorchooser
 kcron
 kdebugsettings
+kde-connect
 kde-dev-scripts
 kdegraphics-mobipocket
 kdegraphics-thumbnailers

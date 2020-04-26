@@ -2,6 +2,8 @@
   "0": [
     "ark",
     "baloo-widgets",
+    "dragon",
+    "elisa-player",
     "filelight",
     "kaccounts-integration",
     "kamera",
@@ -12,6 +14,7 @@
     "kcharselect",
     "kcolorchooser",
     "kcron",
+    "kde-connect",
     "kde-dev-scripts",
     "kde-print-manager",
     "kdebugsettings",
