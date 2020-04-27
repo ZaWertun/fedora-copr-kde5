@@ -1,0 +1,16 @@
+diff -up cantor-19.08.1/cmake/FindPythonLibs3.cmake.py39 cantor-19.08.1/cmake/FindPythonLibs3.cmake
+--- cantor-19.08.1/cmake/FindPythonLibs3.cmake.py39	2019-08-31 22:28:23.000000000 -0500
++++ cantor-19.08.1/cmake/FindPythonLibs3.cmake	2020-01-16 08:45:07.797263469 -0600
+@@ -6,10 +6,10 @@ find_path(PYTHONLIBS3_INCLUDE_DIR Python
+           HINTS ${PYTHONLIBS3_INCLUDEDIR} ${PYTHONLIBS3_INCLUDE_DIRS})
+ 
+ IF(WIN32)
+-  find_library(PYTHONLIBS3_LIBRARY NAMES python32 python33 python34 python35 python36 python37 python38
++  find_library(PYTHONLIBS3_LIBRARY NAMES python32 python33 python34 python35 python36 python37 python38 python39
+                HINTS ${PYTHONLIBS3_LIBDIR} ${PYTHONLIBS3_LIBRARY_DIRS} )
+ ELSE()
+-  find_library(PYTHONLIBS3_LIBRARY NAMES python3.2m python3.3m python3.4m python3.5m python3.6m python3.7m python3.8
++  find_library(PYTHONLIBS3_LIBRARY NAMES python3.2m python3.3m python3.4m python3.5m python3.6m python3.7m python3.8 python3.9
+                HINTS ${PYTHONLIBS3_LIBDIR} ${PYTHONLIBS3_LIBRARY_DIRS} )
+ ENDIF()
+ 

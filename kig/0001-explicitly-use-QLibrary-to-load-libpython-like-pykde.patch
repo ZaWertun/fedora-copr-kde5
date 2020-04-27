@@ -1,0 +1,53 @@
+From 068bf7f9bf8f34a9f14ed026e6c5c993b7cc80c7 Mon Sep 17 00:00:00 2001
+From: Rex Dieter <rdieter@math.unl.edu>
+Date: Mon, 28 Dec 2015 11:29:59 -0600
+Subject: [PATCH] explicitly use QLibrary to load libpython (like pykde)
+
+BUG: 335965
+---
+ CMakeLists.txt               | 3 +++
+ scripting/python_scripter.cc | 7 +++++++
+ 2 files changed, 10 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d7fffcd..7b93833 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -57,6 +57,9 @@ add_subdirectory( pykig )
+ if(BoostPython_FOUND)
+   add_subdirectory( scripting )
+   add_definitions(-DKIG_ENABLE_PYTHON_SCRIPTING)
++  get_filename_component(PYTHON_LIBRARY_REALPATH "${PYTHON_LIBRARY}" REALPATH)
++  get_filename_component(LIB_PYTHON ${PYTHON_LIBRARY_REALPATH} NAME)
++  add_definitions(-DLIB_PYTHON="${LIB_PYTHON}")
+ endif(BoostPython_FOUND)
+ 
+ set_package_properties(
+diff --git a/scripting/python_scripter.cc b/scripting/python_scripter.cc
+index e60a90c..99c1f1c 100644
+--- a/scripting/python_scripter.cc
++++ b/scripting/python_scripter.cc
+@@ -23,6 +23,8 @@
+ #include <Python.h>
+ #include "python_scripter.h"
+ 
++#include <QLibrary>
++
+ #include <iostream>
+ #include <string>
+ 
+@@ -398,6 +400,11 @@ PythonScripter::PythonScripter()
+   // don't do it..
+   //delete [] s;
+ 
++  QLibrary *pythonLib = new QLibrary();
++  pythonLib->setLoadHints(QLibrary::ExportExternalSymbolsHint);
++  pythonLib->setFileName(LIB_PYTHON);
++  pythonLib->load();
++
+   Py_Initialize();
+ 
+   s = newstring( "import math; from math import *;" );
+-- 
+2.5.0
+
