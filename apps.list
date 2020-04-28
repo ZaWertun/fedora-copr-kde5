@@ -4,6 +4,7 @@ akonadi-import-wizard
 akregator
 ark
 baloo-widgets
+cervisia
 dolphin
 dolphin-plugins
 dragon
@@ -11,6 +12,8 @@ elisa-player
 filelight
 grantlee-editor
 gwenview
+juk
+k3b
 kaccounts-integration
 kaccounts-providers
 kaddressbook
@@ -35,6 +38,7 @@ kdepim-addons
 kdepim-apps-libs
 kdepim-runtime
 kde-print-manager
+kdf
 kdialog
 kdnssd
 keditbookmarks
@@ -77,6 +81,7 @@ kf5-mailimporter
 kf5-messagelib
 kf5-pimcommon
 kfind
+kfloppy
 kget
 kgpg
 khelpcenter
