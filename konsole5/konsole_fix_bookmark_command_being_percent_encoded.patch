@@ -1,0 +1,12 @@
+diff -U3 -r konsole-20.04.0.orig/src/SessionController.cpp konsole-20.04.0/src/SessionController.cpp
+--- konsole-20.04.0.orig/src/SessionController.cpp	2020-04-15 11:59:32.000000000 +0300
++++ konsole-20.04.0/src/SessionController.cpp	2020-04-30 12:31:52.898788186 +0300
+@@ -335,7 +335,7 @@
+     } else if (url.scheme().isEmpty()) {
+         // QUrl couldn't parse what the user entered into the URL field
+         // so just dump it to the shell
+-        QString command = url.toDisplayString();
++        QString command = QUrl::fromPercentEncoding(url.toEncoded());
+         if (!command.isEmpty()) {
+             _session->sendTextToTerminal(command, QLatin1Char('\r'));
+         }

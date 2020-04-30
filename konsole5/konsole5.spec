@@ -11,7 +11,7 @@
 Name:    konsole5
 Summary: KDE Terminal emulator
 Version: 20.04.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
 License: GPLv2 and GFDL
@@ -30,6 +30,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{bas
 
 ## upstream patches
 # master branch
+Patch100: konsole_fix_bookmark_command_being_percent_encoded.patch
 
 ## downstream patches
 Patch200: konsole-history_location_default.patch
@@ -166,6 +167,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Thu Apr 30 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-2
+- fix bookmark command being percent encoded
+
 * Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
 - 20.04.0
 
