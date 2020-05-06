@@ -2,7 +2,7 @@
 #global bootstrap 1
 
 Name:    kwinft
-Version: 5.18.0
+Version: 5.18.1
 Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
@@ -311,6 +311,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+- 5.18.1
+
 * Fri Apr 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
 - spec copied from kwin-lowlatency, changelog trimmed
 

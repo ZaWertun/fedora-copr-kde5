@@ -1,7 +1,7 @@
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
-Version: 5.18.4.1
-Release: 3%{?dist}
+Version: 5.18.5
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # KDE e.V. may determine that future LGPL versions are accepted
@@ -77,6 +77,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
+- 5.18.5
+
 * Sun Apr 05 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-3
 - rebuild
 

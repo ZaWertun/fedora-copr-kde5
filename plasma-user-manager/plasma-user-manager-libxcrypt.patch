@@ -14,7 +14,7 @@ index 17c7a0b..0768319 100644
 +
  # Set KI18n translation domain
  add_definitions(-DTRANSLATION_DOMAIN=\"user_manager\")
- if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
+ 
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
 index a23584e..236059b 100644
 --- a/src/CMakeLists.txt
