@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.69.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon for Qt declarative
 
 License: LGPLv2+
@@ -28,6 +28,7 @@ Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framewo
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
 
 ## upstream patches
+Patch0:         kf5-kdeclarative_fix_417488.patch
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
@@ -132,6 +133,9 @@ make test ARGS="--output-on-failure --timeout 10 --verbose" -C %{_target_platfor
 
 
 %changelog
+* Thu May 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-2
+- fix for 417488
+
 * Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
 - 5.69.0
 
