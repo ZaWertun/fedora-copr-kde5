@@ -1,12 +1,12 @@
 
 # enable experimental (default off) bluetooth support
-#global bluetooth 1
+%global bluetooth 1
 
 %global module kdeconnect-kde
 
 Name:           kde-connect
 Version:        20.04.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -42,6 +42,7 @@ BuildRequires:  cmake(KF5Notifications)
 BuildRequires:  cmake(KF5People)
 BuildRequires:  cmake(KF5Service)
 BuildRequires:  cmake(KF5Wayland)
+BuildRequires:  cmake(KF5PeopleVCard)
 
 %if 0%{?bluetooth}
 BuildRequires:  cmake(Qt5Bluetooth)
@@ -177,8 +178,8 @@ fi
 %files -n kdeconnectd
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/applications/org.kde.kdeconnect.daemon.desktop
-%{_libexecdir}/kdeconnectd
-%{_datadir}/dbus-1/services/org.kde.kdeconnect.service
+%caps(cap_net_admin=pe) %{_libexecdir}/kdeconnectd
+ %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 # firewalld as shipped in f31+ provides it's own kdeconnect.xml
 %if 0%{?fedora} && 0%{?fedora} < 31
 %{_prefix}/lib/firewalld/services/kde-connect.xml
@@ -199,6 +200,9 @@ fi
 
 
 %changelog
+* Fri May 08 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-2
+- bluetooth support enabled
+
 * Thu Apr 23 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.0-1
 - 20.04.0, part of release-service now
 - add .desktop/appstream validation (permissive for now)
