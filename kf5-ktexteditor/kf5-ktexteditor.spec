@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.69.0
-Release: 2%{?dist}
+Version: 5.70.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 with advanced embeddable text editor
 
 License: LGPLv2+
@@ -147,6 +147,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
+- 5.70.0
+
 * Mon Apr 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-2
 - rebuild
 
