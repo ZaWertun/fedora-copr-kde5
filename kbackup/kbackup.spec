@@ -2,7 +2,7 @@
 %global build_ldflags %{build_ldflags} -flto
 
 Name:           kbackup
-Version:        20.04.0
+Version:        20.04.1
 Release:        1%{?dist}
 Summary:        Back up your data in a simple, user friendly way
 Summary(fr):    Sauvegarder vos données de manière simple et conviviale
@@ -102,6 +102,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 
 
 %changelog
+* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+- 20.04.1
+
 * Sun Apr 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
 - 20.04.0
 

@@ -1,5 +1,5 @@
 Name:       elisa-player
-Version:    20.04.0
+Version:    20.04.1
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -92,6 +92,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
 %changelog
+* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+- 20.04.1
+
 * Fri Apr 24 2020 Vasiliy N. Glazov <vascom2@gmail.com> - 20.04.0-1
 - Update to 20.04.0
 

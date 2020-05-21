@@ -1,7 +1,7 @@
 
 Name:    libkdegames
 Summary: Common code and data for many KDE games
-Version: 20.04.0
+Version: 20.04.1
 Release: 1%{?dist}
 
 # libKF5KDEGames is LGPLv2, libKF5KDEGamesPrivate is GPLv2+
@@ -114,6 +114,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+- 20.04.1
+
 * Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
 - 20.04.0
 

@@ -1,6 +1,6 @@
 Name:    kfloppy
 Summary: Floppy formatting tool 
-Version: 20.04.0
+Version: 20.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -74,6 +74,9 @@ desktop-file-validate %{buildroot}%{_kde4_datadir}/applications/org.kde.kfloppy.
 
 
 %changelog
+* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+- 20.04.1
+
 * Tue Apr 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
 - 20.04.0
 

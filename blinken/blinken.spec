@@ -1,6 +1,6 @@
 Name:    blinken 
 Summary: Memory Enhancement Game 
-Version: 20.04.0
+Version: 20.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -80,6 +80,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu May 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+- 20.04.1
+
 * Mon Apr 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
 - 20.04.0
 

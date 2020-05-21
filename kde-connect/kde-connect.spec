@@ -5,8 +5,8 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        20.04.0
-Release:        2%{?dist}
+Version:        20.04.1
+Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -200,6 +200,9 @@ fi
 
 
 %changelog
+* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+- 20.04.1
+
 * Fri May 08 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-2
 - bluetooth support enabled
 

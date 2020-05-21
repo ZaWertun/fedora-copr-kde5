@@ -1,5 +1,5 @@
 Name:    kmag
-Version: 20.04.0
+Version: 20.04.1
 Release: 1%{?dist}
 Summary: A screen magnifier
 
@@ -75,6 +75,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+- 20.04.1
+
 * Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
 - 20.04.0
 
