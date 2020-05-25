@@ -1,0 +1,13 @@
+diff -r -U3 akonadi-20.04.1.orig/src/private/standarddirs.cpp akonadi-20.04.1/src/private/standarddirs.cpp
+--- akonadi-20.04.1.orig/src/private/standarddirs.cpp	2020-05-08 12:49:29.000000000 +0300
++++ akonadi-20.04.1/src/private/standarddirs.cpp	2020-05-26 00:50:20.830849534 +0300
+@@ -49,6 +49,9 @@
+         fullRelPath += QLatin1String("/instance/") + Akonadi::Instance::identifier();
+     }
+     if (!relPath.isEmpty()) {
++        if (relPath.startsWith(QStringLiteral("akonadi/"))) {
++            return QLatin1Char('/') + relPath;
++        }
+         fullRelPath += QLatin1Char('/') + relPath;
+     }
+     return fullRelPath;
