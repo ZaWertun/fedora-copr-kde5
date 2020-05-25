@@ -1,8 +1,10 @@
+%global min_plasma_version 5.19.0
+
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
 Name:    kwinft
-Version: 5.18.1
+Version: 5.19.0~beta.0
 Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
@@ -10,21 +12,13 @@ Provides:  kwin = %{version}
 Conflicts: kwin
 Conflicts: kwin-lowlatency
 
+%global  real_version %(echo %{version} |sed 's/~/-/')
 # all sources are effectively GPLv2+, except for:
 # scripts/enforcedeco/contents/code/main.js
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
 URL:     https://gitlab.com/kwinft/kwinft
-
-%global revision %(echo %{version} | cut -d. -f3)
-%if %{revision} >= 50
-%global majmin_ver %(echo %{version} | cut -d. -f1,2).50
-%global stable unstable
-%else
-%global majmin_ver %(echo %{version} | cut -d. -f1,2)
-%global stable stable
-%endif
-Source0: %{url}/-/archive/%{name}@%{version}/%{name}-%{name}@%{version}.tar.bz2
+Source0: %{url}/-/archive/%{name}@%{real_version}/%{name}-%{name}@%{real_version}.tar.bz2
 
 ## upstream patches
 
@@ -99,9 +93,9 @@ BuildRequires:  kf5-kiconthemes-devel
 BuildRequires:  kf5-kidletime-devel
 BuildRequires:  kf5-ktextwidgets-devel
 
-BuildRequires:  kdecoration-devel >= %{majmin_ver}
-BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
-BuildRequires:  plasma-breeze-devel >= %{majmin_ver}
+BuildRequires:  kdecoration-devel >= %{min_plasma_version}
+BuildRequires:  kscreenlocker-devel >= %{min_plasma_version}
+BuildRequires:  plasma-breeze-devel >= %{min_plasma_version}
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -112,8 +106,8 @@ BuildRequires: xorg-x11-server-Xvfb
 ## Runtime deps
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 Requires:       %{name}-common%{?_isa} = %{version}-%{release}
-Requires:       kdecoration%{?_isa} >= %{majmin_ver}
-Requires:       kscreenlocker%{?_isa} >= %{majmin_ver}
+Requires:       kdecoration%{?_isa} >= %{min_plasma_version}
+Requires:       kscreenlocker%{?_isa} >= %{min_plasma_version}
 
 # Runtime-only dependencies
 %if ! 0%{?bootstrap}
@@ -143,7 +137,7 @@ Provides: firstboot(windowmanager) = kwin
 Summary:        KDE Window Manager with experimental Wayland support
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 Requires:       %{name}-common%{?_isa} = %{version}-%{release}
-Requires:       kwayland-integration%{?_isa} >= %{majmin_ver}
+Requires:       kwayland-integration%{?_isa}
 %if ! 0%{?bootstrap}
 BuildRequires:  xorg-x11-server-Xwayland
 %endif
@@ -210,11 +204,13 @@ Conflicts:      kwin-doc
 
 
 %prep
-%autosetup -p1 -n %{name}-%{name}@%{version}
+%autosetup -p1 -n %{name}-%{name}@%{real_version}
 
 sed -i \
   -e 's|^find_package(Breeze ${PROJECT_VERSION} CONFIG)|find_package(Breeze 5.9 CONFIG)|' \
   CMakeLists.txt
+
+sed -i 's|set(QT_MIN_VERSION "5.14.0")|set(QT_MIN_VERSION "5.13.0")|' CMakeLists.txt
 
 
 %build
@@ -311,6 +307,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon May 25 2020 Yaroslav Sidlovsky <zawertun@gmail.com>
+- version 5.19.0-beta.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
 - 5.18.1
 

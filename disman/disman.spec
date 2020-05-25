@@ -1,5 +1,3 @@
-%global commit 83ff4d593c81b653193af86a71b74463626d5356
-
 Name:    disman
 Version: 0.519.0~beta.0
 Release: 1%{?dist}
@@ -9,7 +7,7 @@ Summary: Qt/C++ display management library
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
 URL:     https://gitlab.com/kwinft/%{name}
-Source0: %{url}/-/archive/%{name}@%{real_version}/%{name}-%{real_version}.tar.bz2
+Source0: %{url}/-/archive/%{name}@%{real_version}/%{name}-%{name}@%{real_version}.tar.bz2
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -33,8 +31,8 @@ BuildRequires:  cmake(KF5Plasma)
 BuildRequires:  cmake(KF5Wayland)
 BuildRequires:  cmake(KF5KCMUtils)
 
-BuildRequires:  wrapland-client-devel
-BuildRequires:  wrapland-server-devel
+BuildRequires:  wrapland-client-devel >= %{version}
+BuildRequires:  wrapland-server-devel >= %{version}
 
 Requires:       kf5-filesystem
 Requires:       qt5-qtgraphicaleffects
@@ -49,7 +47,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Headers, development libraries and documentation for %{name}.
 
 %prep
-%autosetup -p1 -n %{name}-%{name}@%{real_version}-%{commit}
+%autosetup -p1 -n %{name}-%{name}@%{real_version}
 
 sed -i 's|set(QT_MIN_VERSION "5.14.0")|set(QT_MIN_VERSION "5.13.0")|' CMakeLists.txt
 
