@@ -8,6 +8,7 @@ Summary: Qt/C++ display management library
 License: GPLv2 or GPLv3
 URL:     https://gitlab.com/kwinft/%{name}
 Source0: %{url}/-/archive/%{name}@%{real_version}/%{name}-%{name}@%{real_version}.tar.bz2
+Patch0:  disman-0.519.0-beta.0-fix-libDismanWayland-version.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
