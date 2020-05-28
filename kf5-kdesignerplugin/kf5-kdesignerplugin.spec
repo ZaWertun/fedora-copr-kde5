@@ -18,7 +18,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/portingAids/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}

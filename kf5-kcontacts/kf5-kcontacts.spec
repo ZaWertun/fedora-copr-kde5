@@ -23,7 +23,7 @@ URL:     https://projects.kde.org/%{framework}
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/portingAids/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
