@@ -10,7 +10,7 @@
 Name:    kf5-%{framework}
 Epoch:   1
 Version: 5.70.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The KContacts Library
 
 License: LGPLv2+
@@ -23,16 +23,16 @@ URL:     https://projects.kde.org/%{framework}
 %else
 %global stable stable
 %endif
-Source0:        https://download.kde.org/stable/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/portingAids/%{framework}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
-BuildRequires:  kf5-kcoreaddons-devel >= 5.15
-BuildRequires:  kf5-ki18n-devel >= 5.15
-BuildRequires:  kf5-kconfig-devel >= 5.15
-BuildRequires:  kf5-kcodecs-devel >= 5.15
+BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
+BuildRequires:  kf5-ki18n-devel >= %{majmin}
+BuildRequires:  kf5-kconfig-devel >= %{majmin}
+BuildRequires:  kf5-kcodecs-devel >= %{majmin}
 BuildRequires:  qt5-qtbase-devel
-%if 0%{?tests}
+%if 0%{?test}
 BuildRequires: dbus-x11
 BuildRequires: xorg-x11-server-Xvfb
 %endif
@@ -45,7 +45,7 @@ Conflicts: kde-l10n < 17.03
 
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = 1:%{version}-%{release}
+Requires:       %{name}%{?_isa} = %{epoch}:%{version}-%{release}
 Requires:       kf5-kcoreaddons-devel
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -85,9 +85,8 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license COPYING*
+%{_kf5_datadir}/qlogging-categories5/*%{framework}.*
 %{_kf5_libdir}/libKF5Contacts.so.*
-%{_kf5_datadir}/qlogging-categories5/*categories
-
 
 %files devel
 %{_kf5_includedir}/kcontacts_version.h
@@ -98,50 +97,44 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.70.0-1
+* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.70.0-2
+- rebuild
+
+* Mon May 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.70.0-1
 - 5.70.0
 
-* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.69.0-1
+* Tue Apr 21 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.69.0-1
 - 5.69.0
 
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.67.0-1
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.68.0-1
+- 5.68.0
+
+* Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.67.0-1
 - 5.67.0
 
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.66.0-1
-- 5.66.0
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1:5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.65.0-1
-- 5.65.0
+* Sat Jan 18 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.66.0-1
+- 5.66.0, new kde framework
 
-* Fri Dec 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
-- 5.64.0
-
-* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
-- 19.12.0
-
-* Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
+* Mon Nov 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.3-1
 - 19.08.3
 
-* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
+* Fri Oct 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.2-1
 - 19.08.2
 
-* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
-- 19.08.1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 19.04.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
-* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
-- 19.08.0
-
-* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+* Fri Jul 12 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.3-1
 - 19.04.3
 
-* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+* Wed Jun 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.2-1
 - 19.04.2
 
-* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
-- 19.04.1
-
-* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
-- 19.04.0
+* Fri Mar 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-1
+- 18.12.3
 
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2

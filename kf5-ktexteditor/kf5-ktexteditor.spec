@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.70.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 with advanced embeddable text editor
 
 License: LGPLv2+
@@ -42,7 +42,6 @@ BuildRequires:  kf5-kparts-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  kf5-sonnet-devel >= %{majmin}
 BuildRequires:  kf5-syntax-highlighting-devel >= %{majmin}
-BuildRequires:  cmake(KF5WindowSystem)
 
 BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  pkgconfig(Qt5PrintSupport)
@@ -147,23 +146,23 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
-* Thu May 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.1-1
+* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.1-2
+- rebuild
+
+* Fri May 15 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.1-1
 - 5.70.1
 
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
+* Mon May 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-1
 - 5.70.0
 
-* Mon Apr 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-2
-- rebuild
-
-* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+* Tue Apr 21 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.69.0-1
 - 5.69.0
 
-* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
-- 5.68.0
+* Wed Apr 15 2020 Igor Raits <ignatenkobrain@fedoraproject.org> - 5.68.0-2
+- Rebuild for libgit2 1.0.0
 
-* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
-- rebuild
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.68.0-1
+- 5.68.0
 
 * Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0

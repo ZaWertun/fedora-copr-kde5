@@ -4,7 +4,7 @@
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
 Version: 5.70.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -19,6 +19,8 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+Obsoletes:  kf5-purpose-twitter < 5.68.0
 
 ## downstream patches
 # src/quick/CMakeLists.txt calls 'cmake' directly, use 'cmake3' instead (mostly for epel7)
@@ -40,7 +42,6 @@ BuildRequires: kf5-kio-devel >= %{majmin}
 BuildRequires: kf5-kirigami2-devel >= %{majmin}
 
 BuildRequires: cmake(KF5Kirigami2)
-BuildRequires: cmake(KF5WindowSystem)
 
 # optional sharefile plugin
 BuildRequires: cmake(KF5KIO)
@@ -50,16 +51,12 @@ BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(Qt5Qml)
 
 %if 0%{?fedora} || 0%{?rhel} > 7
-%global twitter 1
 BuildRequires: kaccounts-integration-devel
 # runtime dep?
 BuildRequires: kde-connect
 BuildRequires: pkgconfig(accounts-qt5)
 BuildRequires: pkgconfig(libaccounts-glib)
 %endif
-
-# Twitter support has been removed!
-Obsoletes:     kf5-purpose-twitter < 5.68.0
 
 %description
 Purpose offers the possibility to create integrate services and actions on
@@ -133,20 +130,18 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
+* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-2
+- rebuild
+
+* Mon May 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-1
 - 5.70.0
 
-* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+* Tue Apr 21 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.69.0-1
 - 5.69.0
 
-* Thu Mar 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-2
-- kf5-purpose-twitter is obsoleted
-
-* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.68.0-1
 - 5.68.0
-
-* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
-- rebuild
+- drop -twitter subpkg
 
 * Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0

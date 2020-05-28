@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.70.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module for downloading application assets
 
 License: LGPLv2+
@@ -35,11 +35,11 @@ BuildRequires:  kf5-kitemviews-devel >= %{majmin}
 BuildRequires:  kf5-kservice-devel >= %{majmin}
 BuildRequires:  kf5-ktextwidgets-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
+BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
 BuildRequires:  kf5-kxmlgui-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
-BuildRequires:  cmake(KF5WindowSystem)
 
 %description
 KDE Frameworks 5 Tier 3 module for downloading and sharing additional
@@ -104,17 +104,17 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
+* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-2
+- rebuild
+
+* Mon May 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-1
 - 5.70.0
 
-* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+* Tue Apr 21 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.69.0-1
 - 5.69.0
 
-* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.68.0-1
 - 5.68.0
-
-* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-3
-- rebuild
 
 * Fri Feb 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-2
 - respin

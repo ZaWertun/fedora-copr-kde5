@@ -3,7 +3,7 @@
 
 Name:           kf5-%{framework}
 Version: 5.70.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        KDE Frameworks 5 tier 3 solution for process launching
 
 License:        LGPLv2+ and BSD
@@ -26,12 +26,12 @@ BuildRequires:  extra-cmake-modules >= %{version}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-kconfig-devel >= %{version}
 BuildRequires:  kf5-kcrash-devel >= %{version}
+BuildRequires:  kf5-kdbusaddons-devel >= %{version}
 BuildRequires:  kf5-kdoctools-devel >= %{version}
 BuildRequires:  kf5-ki18n-devel >= %{version}
 BuildRequires:  kf5-kio-devel >= %{version}
 BuildRequires:  kf5-kservice-devel >= %{version}
 BuildRequires:  kf5-kwindowsystem-devel >= %{version}
-BuildRequires:  cmake(KF5DBusAddons) >= %{version}
 
 BuildRequires:  qt5-qtbase-devel
 
@@ -96,17 +96,17 @@ install -p -m644 -D %{SOURCE10} \
 
 
 %changelog
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
+* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-2
+- rebuild
+
+* Mon May 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-1
 - 5.70.0
 
-* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+* Tue Apr 21 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.69.0-1
 - 5.69.0
 
-* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.68.0-1
 - 5.68.0
-
-* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
-- rebuild
 
 * Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0

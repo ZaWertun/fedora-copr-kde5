@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.70.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
@@ -70,11 +70,21 @@ BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  cmake(Qt5UiPlugin)
 
+
+%if ! 0%{?bootstrap}
+# (apparently?) requires org.kde.klauncher5 service provided by kf5-kinit -- rex
+# not versioned to allow update without bootstrap
+# <skip!>
+BuildRequires:  kf5-kinit-devel
+%endif
+
 Requires:       %{name}-core%{?_isa} = %{version}-%{release}
 Requires:       %{name}-widgets%{?_isa} = %{version}-%{release}
 Requires:       %{name}-file-widgets%{?_isa} = %{version}-%{release}
 Requires:       %{name}-ntlm%{?_isa} = %{version}-%{release}
 Requires:       %{name}-gui%{?_isa} = %{version}-%{release}
+
+Requires: kf5-kded
 
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global _with_html --with-html
@@ -283,23 +293,29 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Thu May 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.1-1
+* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.1-2
+- rebuild
+
+* Sat May 16 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.1-1
 - 5.70.1
 
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
+* Fri May 15 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-3
+- pull in upstream regression fix, copy dest to symlinked folder (kde#421213)
+
+* Wed May 13 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-2
+- Requires: kf5-kded (#1835467)
+
+* Mon May 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-1
 - 5.70.0
 
-* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-2
-- added kf5-kwindowsystem-devel dependency for kf5-kio-devel
+* Wed Apr 22 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.69.0-2
+- -devel: Requires: kf5-kwindowsystem
 
-* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+* Tue Apr 21 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.69.0-1
 - 5.69.0
 
-* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.68.0-1
 - 5.68.0
-
-* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
-- rebuild
 
 * Mon Feb 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0
