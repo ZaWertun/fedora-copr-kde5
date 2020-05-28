@@ -1,12 +1,12 @@
 
 # enable experimental (default off) bluetooth support
-%global bluetooth 1
+#global bluetooth 1
 
 %global module kdeconnect-kde
 
 Name:           kde-connect
 Version:        20.04.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -200,6 +200,9 @@ fi
 
 
 %changelog
+* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-2
+- bluetooth support disabled
+
 * Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
 - 20.04.1
 
