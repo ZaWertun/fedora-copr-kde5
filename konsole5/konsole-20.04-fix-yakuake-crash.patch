@@ -1,0 +1,20 @@
+diff --git a/src/SessionController.cpp b/src/SessionController.cpp
+index df28e40fe392169dd431f8d4c115878e07c8a892..41b2a7c293f1e4199ddcb43018042efa715ccd01 100644
+--- a/src/SessionController.cpp
++++ b/src/SessionController.cpp
+@@ -1687,11 +1687,13 @@ void SessionController::showDisplayContextMenu(const QPoint& position)
+     if (factory() == nullptr) {
+         if (clientBuilder() == nullptr) {
+             setClientBuilder(new KXMLGUIBuilder(_view));
++
++            // Client builder does not get deleted automatically
++            connect(this, &QObject::destroyed, this, [this]{ delete clientBuilder(); });
+         }
+ 
+-        auto factory = new KXMLGUIFactory(clientBuilder(), this);
++        auto factory = new KXMLGUIFactory(clientBuilder(), _view);
+         factory->addClient(this);
+-        ////qDebug() << "Created xmlgui factory" << factory;
+     }
+ 
+     QPointer<QMenu> popup = qobject_cast<QMenu*>(factory()->container(QStringLiteral("session-popup-menu"), this));
