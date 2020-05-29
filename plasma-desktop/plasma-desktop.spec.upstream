@@ -11,7 +11,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.18.5
-Release: 2%{?dist}
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -162,12 +162,6 @@ Conflicts:      kdeplasma-addons < 5.6.0
 
 # kcm_activities.mo moved here (#1325724)
 Conflicts:      kde-l10n < 15.12.3-4
-
-# If we want working emoji picker:
-Recommends:     ibus
-
-# Color emoji font:
-Recommends:     google-noto-emoji-color-fonts
 
 %description
 %{summary}.
@@ -354,9 +348,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
-* Fri May 29 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-2
-- rebuild
-
 * Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5
 
