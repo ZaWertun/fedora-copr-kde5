@@ -7,7 +7,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.18.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -144,6 +144,7 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  kf5-kactivities-devel
 %if 0%{?fedora}
 BuildRequires:  cmake(AppStreamQt) >= 0.10.4
+BuildRequires:  cmake(KUserFeedback)
 %endif
 
 # when kded_desktopnotifier.so moved here
@@ -515,6 +516,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %exclude %{_kf5_datadir}/kservices5/plasma-geolocation-gps.desktop
 %exclude %{_kf5_datadir}/kservices5/plasma-geolocation-ip.desktop
 %exclude %{_kf5_datadir}/kservicetypes5/plasma-geolocationprovider.desktop
+# KUserFeedback
+%{_kf5_datadir}/kpackage/kcms/kcm_feedback/*
 
 %files doc -f %{name}-doc.lang
 
@@ -547,6 +550,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_plugindir}/kio/*.so
 %{_kf5_plugindir}/kded/*.so
 %{_qt5_plugindir}/kcms/kcm_translations.so
+%{_qt5_plugindir}/kcms/kcm_feedback.so
 %{_libdir}/kconf_update_bin/krunnerglobalshortcuts
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_applauncher.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_contextmenu.so
@@ -610,6 +614,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Mon Jun 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-3
+- kcm_feedback reenabled
+
 * Mon May 18 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.5-2
 - (branch) 5.19 backport "Stop multiplying duration values"
 
