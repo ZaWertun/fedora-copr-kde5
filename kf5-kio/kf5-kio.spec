@@ -18,6 +18,8 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches
+# Fix for https://bugs.kde.org/show_bug.cgi?id=421374
+Patch0:  fix_#421374.patch
 
 ## upstreamable patches
 
