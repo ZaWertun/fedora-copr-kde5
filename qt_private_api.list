@@ -1,6 +1,11 @@
-kf5-kxmlgui
+analitza
 kf5-akonadi-server
-plasma-integration
+kf5-frameworkintegration
+kf5-kdeclarative
+kf5-kwayland
+kf5-kxmlgui
 kwin
+kwinft
 kwin-lowlatency
+plasma-integration
 xdg-desktop-portal-kde
