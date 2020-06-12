@@ -6,8 +6,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.19.0
-Release: 1%{?dist}
+Version: 5.18.5
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -50,6 +50,8 @@ Patch106:	plasma-workspace-5.18.4.1-filter-environment-v2.patch
 ## upstreamable Patches
 
 ## upstream Patches
+# 5.19 branch
+Patch50: 2958702524348e9e4fcbdf490be731e92b353dad.patch
 
 # udev
 BuildRequires:  zlib-devel
@@ -612,9 +614,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
-* Tue Jun 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
-- 5.19.0
-
 * Mon Jun 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-3
 - kcm_feedback reenabled
 
