@@ -10,8 +10,8 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 20.04.1
-Release: 2%{?dist}
+Version: 20.04.2
+Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
 License: GPLv2 and GFDL
@@ -30,9 +30,6 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{bas
 
 ## upstream patches
 # master branch
-# Fix for bug https://bugs.kde.org/show_bug.cgi?id=415762
-#  (Exiting the session in a Yakuake tab sometimes crash Yakuake)
-Patch100: konsole-20.04-fix-yakuake-crash.patch
 
 ## downstream patches
 Patch200: konsole-history_location_default.patch
@@ -169,6 +166,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Fri May 29 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-2
 - patch for #415762 added
 

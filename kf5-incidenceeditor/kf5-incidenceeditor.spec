@@ -1,7 +1,7 @@
 %global framework incidenceeditor
 
 Name:    kf5-%{framework}
-Version: 20.04.1
+Version: 20.04.2
 Release: 1%{?dist}
 Summary: KDE PIM library for creating and editing calendar incidences
 
@@ -114,6 +114,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
 - 20.04.1
 

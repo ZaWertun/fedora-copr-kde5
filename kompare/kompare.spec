@@ -1,7 +1,7 @@
 
 Name:    kompare
 Summary: Diff tool
-Version: 20.04.1
+Version: 20.04.2
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -115,6 +115,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 
 %changelog
+* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
 - 20.04.1
 

@@ -1,7 +1,7 @@
 
 Name:    kqtquickcharts
 Summary: A QtQuick plugin to render beautiful and interactive charts
-Version: 20.04.1
+Version: 20.04.2
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
@@ -58,6 +58,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/cmake/KQtQuickCharts/KQtQuickChartsVersion.cmake
 
 %changelog
+* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Fri May 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
 - 20.04.1
 

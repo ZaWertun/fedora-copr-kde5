@@ -8,7 +8,7 @@
 
 Name:    akonadi-import-wizard
 Summary: Akonadi Import Wizard
-Version: 20.04.1
+Version: 20.04.2
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -129,6 +129,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_includedir}/KPim/importwizard/
 
 %changelog
+* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
 - 20.04.1
 

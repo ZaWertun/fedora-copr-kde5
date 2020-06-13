@@ -21,8 +21,8 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 20.04.1
-Release: 3%{?dist}
+Version: 20.04.2
+Release: 1%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -40,8 +40,6 @@ Source10:       akonadiserverrc.mysql
 Source11:       akonadiserverrc.sqlite
 
 ## upstreamable patches
-# After this patch akonadi can find `mysql-global.conf` at `/etc/xdg/akonadi`.
-Patch0:         akonadi-20.04.1-fix-config-file-path.patch
 
 ## upstream patches (lookaside cache)
 
@@ -308,6 +306,9 @@ fi
 
 
 %changelog
+* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-3
 - rebuild
 

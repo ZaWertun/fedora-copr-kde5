@@ -1,6 +1,6 @@
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
-Version: 20.04.1
+Version: 20.04.2
 Release: 1%{?dist}
 
 License: GPLv2+ and GPLv2+ and BSD
@@ -174,6 +174,9 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 
 
 %changelog
+* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
 - 20.04.1
 
