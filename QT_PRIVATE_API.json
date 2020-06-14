@@ -8,6 +8,7 @@
     "kf5-kxmlgui"
   ],
   "1": [
+    "kwin",
     "kwin-lowlatency",
     "kwinft",
     "plasma-integration",

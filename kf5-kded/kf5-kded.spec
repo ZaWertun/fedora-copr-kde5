@@ -25,6 +25,7 @@ BuildRequires:  kf5-kdbusaddons-devel >= %{majmin}
 BuildRequires:  kf5-kdoctools-devel >= %{majmin}
 BuildRequires:  kf5-kservice-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  systemd
 
 BuildRequires:  qt5-qtbase-devel
 
@@ -79,6 +80,7 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_mandir}/man8/kded5.8*
 %dir %{_kf5_plugindir}/kded/
+%{_userunitdir}/plasma-kded.service
 
 %files devel
 %{_kf5_libdir}/cmake/KDED/
