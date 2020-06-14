@@ -9,8 +9,8 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.70.0
-Release: 2%{?dist}
+Version: 5.71.0
+Release: 1%{?dist}
 Summary: The KContacts Library
 
 License: LGPLv2+
@@ -97,6 +97,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.71.0-1
+- 5.71.0
+
 * Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.70.0-2
 - rebuild
 

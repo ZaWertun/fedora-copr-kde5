@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A QtQuick module providing high-performance charts
-Version: 5.70.0
+Version: 5.71.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -89,6 +89,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libdir}/cmake/KF5QuickCharts/
 
 %changelog
+* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
+- 5.71.0
+
 * Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
 - 5.70.0
 

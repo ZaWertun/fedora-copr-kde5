@@ -3,8 +3,8 @@
 
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
-Version: 5.70.0
-Release: 2%{?dist}
+Version: 5.71.0
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # most files LGPLv2+, configuration.cpp is KDE e.V. GPL variant
@@ -130,6 +130,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
+- 5.71.0
+
 * Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-2
 - rebuild
 

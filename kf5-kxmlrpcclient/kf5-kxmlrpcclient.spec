@@ -1,8 +1,8 @@
 %global framework kxmlrpcclient
 
 Name:    kf5-%{framework}
-Version: 5.70.0
-Release: 2%{?dist}
+Version: 5.71.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 library for interaction with XML RPC services
 
 License: LGPLv2+ and BSD
@@ -72,6 +72,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
+- 5.71.0
+
 * Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-2
 - rebuild
 
