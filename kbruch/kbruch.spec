@@ -1,6 +1,6 @@
 Name:    kbruch
 Summary: Practice Fractions 
-Version: 20.04.1
+Version: 20.04.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -94,6 +94,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Sat Jun 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+- 20.04.2
+
 * Thu May 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
 - 20.04.1
 
