@@ -37,6 +37,7 @@ BuildRequires:  kf5-ktextwidgets-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
 BuildRequires:  kf5-kxmlgui-devel >= %{majmin}
+BuildRequires:  kf5-kpackage-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel

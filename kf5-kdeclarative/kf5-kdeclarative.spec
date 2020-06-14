@@ -28,7 +28,6 @@ Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framewo
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
 
 ## upstream patches
-Patch0:         kf5-kdeclarative_fix_417488.patch
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}

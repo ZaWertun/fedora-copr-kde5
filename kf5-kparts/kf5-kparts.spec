@@ -77,6 +77,7 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/parts/
 %{_kf5_datadir}/kservicetypes5/*.desktop
 # own plugin dir
 %dir %{_kf5_plugindir}/parts/
+%{_kf5_datadir}/qlogging-categories5/*.categories
 
 %files devel
 %{_kf5_includedir}/kparts_version.h
