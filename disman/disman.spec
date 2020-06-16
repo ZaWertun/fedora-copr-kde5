@@ -1,26 +1,25 @@
-%global commit 83ff4d593c81b653193af86a71b74463626d5356
+%global min_qt_version 5.14.0
 
 Name:    disman
-Version: 0.519.0~beta.0
+Version: 0.519.0
 Release: 1%{?dist}
 Summary: Qt/C++ display management library
 
 %global  real_version %(echo %{version} |sed 's/~/-/')
-# KDE e.V. may determine that future GPL versions are accepted
-License: GPLv2 or GPLv3
+License: LGPLv2+
 URL:     https://gitlab.com/kwinft/%{name}
 Source0: %{url}/-/archive/%{name}@%{real_version}/%{name}-%{name}@%{real_version}.tar.bz2
-Patch0:  disman-0.519.0-beta.0-fix-libDismanWayland-version.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
-BuildRequires:  qt5-qtbase-devel
-BuildRequires:  qt5-qtx11extras-devel
-BuildRequires:  qt5-qtdeclarative-devel
-BuildRequires:  cmake(Qt5Sensors)
+
+BuildRequires:  qt5-qtbase-devel        >= %{min_qt_version}
+BuildRequires:  qt5-qtx11extras-devel   >= %{min_qt_version}
+BuildRequires:  qt5-qtdeclarative-devel >= %{min_qt_version}
+BuildRequires:  cmake(Qt5Sensors)       >= %{min_qt_version}
 
 BuildRequires:  kf5-ki18n-devel
 BuildRequires:  kf5-kcoreaddons-devel
@@ -34,8 +33,8 @@ BuildRequires:  cmake(KF5Plasma)
 BuildRequires:  cmake(KF5Wayland)
 BuildRequires:  cmake(KF5KCMUtils)
 
-BuildRequires:  wrapland-client-devel
-BuildRequires:  wrapland-server-devel
+BuildRequires:  wrapland-client-devel >= %{version}
+BuildRequires:  wrapland-server-devel >= %{version}
 
 Requires:       kf5-filesystem
 Requires:       qt5-qtgraphicaleffects
@@ -50,9 +49,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Headers, development libraries and documentation for %{name}.
 
 %prep
-%autosetup -p1 -n %{name}-%{name}@%{real_version}-%{commit}
-
-sed -i 's|set(QT_MIN_VERSION "5.14.0")|set(QT_MIN_VERSION "5.13.0")|' CMakeLists.txt
+%autosetup -p1 -n %{name}-%{name}@%{real_version}
 
 
 %build
@@ -95,6 +92,9 @@ echo >> %{name}.lang
 
 
 %changelog
+* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.519.0-1
+- version 0.519.0
+
 * Mon May 25 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.519.0~beta.0-1
 - first spec for version 0.519.0-beta.0
 

@@ -1,9 +1,12 @@
+%global min_qt_version 5.14.0
+%global min_kf_version 5.70.0
+
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
 Name:    kwinft
-Version: 5.18.1
-Release: 3%{?dist}
+Version: 5.19.1
+Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
 Provides:  kwin = %{version}
@@ -33,15 +36,15 @@ BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 
 # Qt
-BuildRequires:  qt5-qtbase-devel
-BuildRequires:  qt5-qtbase-static
+BuildRequires:  qt5-qtbase-devel         >= %{min_qt_version}
+BuildRequires:  qt5-qtbase-static        >= %{min_qt_version}
 # KWinQpaPlugin (and others?)
-BuildRequires:  qt5-qtbase-private-devel
-BuildRequires:  qt5-qtsensors-devel
-BuildRequires:  qt5-qtscript-devel
-BuildRequires:  qt5-qttools-devel
-BuildRequires:  qt5-qttools-static
-BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  qt5-qtbase-private-devel >= %{min_qt_version}
+BuildRequires:  qt5-qtsensors-devel      >= %{min_qt_version}
+BuildRequires:  qt5-qtscript-devel       >= %{min_qt_version}
+BuildRequires:  qt5-qttools-devel        >= %{min_qt_version}
+BuildRequires:  qt5-qttools-static       >= %{min_qt_version}
+BuildRequires:  qt5-qtx11extras-devel    >= %{min_qt_version}
 
 # Wrapland
 BuildRequires:  wrapland-client-devel
@@ -75,31 +78,32 @@ BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(wayland-eglstream)
 
 # KF5
-BuildRequires:  kf5-kcompletion-devel
-BuildRequires:  kf5-kconfig-devel
-BuildRequires:  kf5-kconfigwidgets-devel
-BuildRequires:  kf5-kcoreaddons-devel
-BuildRequires:  kf5-kcrash-devel
-BuildRequires:  kf5-kglobalaccel-devel
-BuildRequires:  kf5-ki18n-devel
-BuildRequires:  kf5-kinit-devel >= 5.10.0-3
-BuildRequires:  kf5-kio-devel
-BuildRequires:  kf5-knotifications-devel
-BuildRequires:  kf5-kservice-devel
-BuildRequires:  kf5-plasma-devel
-BuildRequires:  kf5-kwidgetsaddons-devel
-BuildRequires:  kf5-kwindowsystem-devel
-BuildRequires:  kf5-kdoctools-devel
-BuildRequires:  kf5-kcmutils-devel
-BuildRequires:  kf5-knewstuff-devel
-BuildRequires:  kf5-kactivities-devel
-BuildRequires:  kf5-kdoctools-devel
-BuildRequires:  kf5-kdeclarative-devel
-BuildRequires:  kf5-kiconthemes-devel
-BuildRequires:  kf5-kidletime-devel
-BuildRequires:  kf5-ktextwidgets-devel
+BuildRequires:  kf5-kcompletion-devel    >= %{min_kf_version}
+BuildRequires:  kf5-kconfig-devel        >= %{min_kf_version}
+BuildRequires:  kf5-kconfigwidgets-devel >= %{min_kf_version}
+BuildRequires:  kf5-kcoreaddons-devel    >= %{min_kf_version}
+BuildRequires:  kf5-kcrash-devel         >= %{min_kf_version}
+BuildRequires:  kf5-kglobalaccel-devel   >= %{min_kf_version}
+BuildRequires:  kf5-ki18n-devel          >= %{min_kf_version}
+BuildRequires:  kf5-kinit-devel          >= %{min_kf_version}
+BuildRequires:  kf5-kio-devel            >= %{min_kf_version}
+BuildRequires:  kf5-knotifications-devel >= %{min_kf_version}
+BuildRequires:  kf5-kservice-devel       >= %{min_kf_version}
+BuildRequires:  kf5-plasma-devel         >= %{min_kf_version}
+BuildRequires:  kf5-kwidgetsaddons-devel >= %{min_kf_version}
+BuildRequires:  kf5-kwindowsystem-devel  >= %{min_kf_version}
+BuildRequires:  kf5-kdoctools-devel      >= %{min_kf_version}
+BuildRequires:  kf5-kcmutils-devel       >= %{min_kf_version}
+BuildRequires:  kf5-knewstuff-devel      >= %{min_kf_version}
+BuildRequires:  kf5-kactivities-devel    >= %{min_kf_version}
+BuildRequires:  kf5-kdoctools-devel      >= %{min_kf_version}
+BuildRequires:  kf5-kdeclarative-devel   >= %{min_kf_version}
+BuildRequires:  kf5-kiconthemes-devel    >= %{min_kf_version}
+BuildRequires:  kf5-kidletime-devel      >= %{min_kf_version}
+BuildRequires:  kf5-ktextwidgets-devel   >= %{min_kf_version}
+BuildRequires:  kf5-kirigami2-devel      >= %{min_kf_version}
 
-BuildRequires:  kdecoration-devel >= %{majmin_ver}
+BuildRequires:  kdecoration-devel  >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  plasma-breeze-devel >= %{majmin_ver}
 
@@ -246,9 +250,11 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %endif
 
 %files
+%doc README.md
+%license COPYING
 %{_bindir}/kwin
 %{_bindir}/kwin_x11
-%{_kf5_datadir}/kconf_update/kwin*.sh
+%{_kf5_datadir}/kconf_update/
 
 %files common
 %{_datadir}/kwin
@@ -311,6 +317,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+- 5.19.1
+
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-3
 - rebuild
 

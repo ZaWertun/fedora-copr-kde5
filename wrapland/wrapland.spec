@@ -1,14 +1,12 @@
-%global commit cc5a598d4e65eb1e0c6ee1942463e5be7daf8746
-
 Name:    wrapland
-Version: 0.519.0~beta.0
+Version: 0.519.0
 Release: 1%{?dist}
 Summary: Qt/C++ library wrapping libwayland
 
 %global  real_version %(echo %{version} |sed 's/~/-/')
 License: LGPLv2+
 URL:     https://gitlab.com/kwinft/%{name}
-Source0: %{url}/-/archive/%{name}@%{real_version}/%{name}-%{real_version}.tar.bz2
+Source0: %{url}/-/archive/%{name}@%{real_version}/%{name}-%{name}@%{real_version}.tar.bz2
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -62,7 +60,7 @@ Summary:     Test server for %{name}.
 
 
 %prep
-%autosetup -p1 -n %{name}-%{name}@%{real_version}-%{commit}
+%autosetup -p1 -n %{name}-%{name}@%{real_version}
 
 
 %build
@@ -119,6 +117,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.519.0-1
+- 0.519.0
+
 * Mon May 25 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.519.0~beta.0-1
 - version 0.519.0-beta.0
 
