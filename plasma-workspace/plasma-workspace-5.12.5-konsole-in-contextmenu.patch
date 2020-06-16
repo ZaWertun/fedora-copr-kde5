@@ -63,15 +63,13 @@ diff --git a/containmentactions/contextmenu/menu.h b/containmentactions/contextm
 index 2b0bbe4..c1f6eb2 100644
 --- a/containmentactions/contextmenu/menu.h
 +++ b/containmentactions/contextmenu/menu.h
-@@ -40,12 +40,14 @@ public:
+@@ -42,10 +42,12 @@ public:
      void save(KConfigGroup &config) override;
  
  public Q_SLOTS:
 +    void runKonsole();
      void runCommand();
-     void lockScreen();
      void startLogout();
-     void logout();
  
  private:
 +    QAction *m_runKonsoleAction;

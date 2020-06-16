@@ -1,7 +1,7 @@
 %global         base_name oxygen
 
 Name:    plasma-%{base_name}
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 Summary: Plasma and Qt widget style and window decorations for Plasma 5 and KDE 4
 
@@ -138,8 +138,6 @@ make install/fast DESTDIR=%{buildroot} -C %{qt5_target_platform}
 # Don't bother with -devel subpackages, there are no headers anyway
 rm -fv %{buildroot}%{_libdir}/liboxygenstyle5.so
 rm -fv %{buildroot}%{_libdir}/liboxygenstyleconfig5.so
-rm -fv %{buildroot}%{_kde4_libdir}/liboxygenstyle.so
-rm -fv %{buildroot}%{_kde4_libdir}/liboxygenstyleconfig.so
 %if ! 0%{?fedora}
 rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/oxygen_kdecoration.mo
 #rm -fv %{buildroot}%{_datadir}/sounds/Oxygen-*
@@ -162,12 +160,9 @@ rm -rfv %{buildroot}%{_kf5_datadir}/plasma/look-and-feel/org.kde.oxygen/
 %postun -n  qt4-style-oxygen -p /sbin/ldconfig
 
 %files -n   qt4-style-oxygen
-%{_kde4_libdir}/liboxygenstyle.so.*
-%{_kde4_libdir}/liboxygenstyleconfig.so.*
-%{_kde4_libdir}/kde4/kstyle_oxygen_config.so
-%{_kde4_libdir}/kde4/plugins/styles/oxygen.so
+%{_kde4_datadir}/kde4/apps/color-schemes/Oxygen*.colors
+%{_kde4_datadir}/kde4/apps/plasma/look-and-feel/org.kde.oxygen/
 %{_kde4_appsdir}/kstyle/themes/oxygen.themerc
-%{_kde4_bindir}/oxygen-demo
 %endif
 
 %post -n qt5-style-oxygen
@@ -215,6 +210,9 @@ fi
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

@@ -9,8 +9,8 @@
 %endif
 
 Name:    kwin
-Version: 5.18.5
-Release: 3%{?dist}
+Version: 5.19.0
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -101,10 +101,12 @@ BuildRequires:  kf5-kdeclarative-devel
 BuildRequires:  kf5-kiconthemes-devel
 BuildRequires:  kf5-kidletime-devel
 BuildRequires:  kf5-ktextwidgets-devel
+BuildRequires:  kf5-kirigami2-devel
 
 BuildRequires:  kdecoration-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  plasma-breeze-devel >= %{majmin_ver}
+BuildRequires:  kwayland-server-devel >= %{majmin_ver}
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -233,11 +235,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files
 %{_bindir}/kwin
 %{_bindir}/kwin_x11
-%{_kf5_datadir}/kconf_update/kwin*.sh
-%{_kf5_libdir}/libkdeinit5_kwin_x11.so
+%{_kf5_datadir}/kconf_update/
 
 %files common -f kwin5.lang
-%{_kf5_libdir}/libkdeinit5_kwin_rules_dialog.so
 %{_datadir}/kwin
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kwin/
@@ -300,6 +300,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-3
 - rebuild
 

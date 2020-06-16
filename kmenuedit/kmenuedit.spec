@@ -3,7 +3,7 @@
 
 Name:    kmenuedit
 Summary: KDE menu editor
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -72,7 +72,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.des
 %files -f kmenuedit5.lang
 %license COPYING*
 %{_bindir}/kmenuedit
-%{_kf5_libdir}/libkdeinit5_kmenuedit.so
 %{_datadir}/kmenuedit/
 %{_datadir}/applications/org.kde.kmenuedit.desktop
 %{_datadir}/icons/hicolor/*/apps/kmenuedit.*
@@ -82,6 +81,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.des
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

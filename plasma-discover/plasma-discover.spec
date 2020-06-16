@@ -6,7 +6,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -153,6 +153,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 %files -f plasma-discover.lang
 %{_bindir}/plasma-discover
+%{_bindir}/plasma-discover-update
 %{_kf5_metainfodir}/org.kde.discover.appdata.xml
 %{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml
 %{_datadir}/applications/org.kde.discover.desktop
@@ -208,6 +209,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

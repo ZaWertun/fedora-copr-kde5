@@ -2,8 +2,8 @@
 #global bootstrap 1
 
 Name:    kwin-lowlatency
-Version: 5.18.5
-Release: 3%{?dist}
+Version: 5.19.0
+Release: 1%{?dist}
 Summary: KDE Window manager with stutter and latency reductions
 
 Provides:  kwin = %{version}
@@ -26,7 +26,7 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/kwin-%{version}.tar.xz
 
-Patch0:  kwin-lowlatency-%{version}.patch
+Patch0:  kwin-lowlatency-%{version}-2.patch
 
 ## upstream patches
 
@@ -96,10 +96,12 @@ BuildRequires:  kf5-kdeclarative-devel
 BuildRequires:  kf5-kiconthemes-devel
 BuildRequires:  kf5-kidletime-devel
 BuildRequires:  kf5-ktextwidgets-devel
+BuildRequires:  kf5-kirigami2-devel
 
 BuildRequires:  kdecoration-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  plasma-breeze-devel >= %{majmin_ver}
+BuildRequires:  kwayland-server-devel >= %{majmin_ver}
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -230,6 +232,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %find_lang kwin --with-html --all-name
 grep "%{_kf5_docdir}" kwin.lang > %{name}-doc.lang
 cat kwin.lang %{name}-doc.lang | sort | uniq -u > kwin5.lang
+echo >> kwin5.lang
 
 # temporary(?) hack to allow initial-setup to use /usr/bin/kwin too
 ln -s kwin_x11 %{buildroot}%{_bindir}/kwin
@@ -247,11 +250,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files
 %{_bindir}/kwin
 %{_bindir}/kwin_x11
-%{_kf5_datadir}/kconf_update/kwin*.sh
-%{_kf5_libdir}/libkdeinit5_kwin_x11.so
+%{_kf5_datadir}/kconf_update/
 
 %files common -f kwin5.lang
-%{_kf5_libdir}/libkdeinit5_kwin_rules_dialog.so
 %{_datadir}/kwin
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kwin/
@@ -313,6 +314,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-3
 - rebuild
 

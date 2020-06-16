@@ -1,5 +1,5 @@
 Name:    khotkeys
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 Summary: Application to configure hotkeys in KDE
 
@@ -17,7 +17,7 @@ Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut 
 
 ## downstream patches
 # kcm_hotkeys, use qdbusviewer-qt5, see also http://bugs.kde.org/329094
-Patch100: khotkeys-5.4.2-qdbusviewer-qt5.patch
+Patch100: khotkeys-5.19.0-qdbusviewer-qt5.patch
 # use qdbus-qt5 instead of hard-coding (unpathed) qdbus
 # FIXME: make upstreamable
 Patch101: khotkeys-5.14.4-qdbus-qt5.patch
@@ -105,6 +105,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

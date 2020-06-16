@@ -8,6 +8,7 @@
     "kscreenlocker",
     "ksshaskpass",
     "kwayland-integration",
+    "kwayland-server",
     "kwrited",
     "libkscreen-qt5",
     "libksysguard",

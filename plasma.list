@@ -13,6 +13,7 @@ kscreenlocker
 ksshaskpass
 ksysguard
 kwayland-integration
+kwayland-server
 kwin
 kwrited
 libkscreen-qt5

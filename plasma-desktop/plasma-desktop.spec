@@ -10,8 +10,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.18.5
-Release: 2%{?dist}
+Version: 5.19.0
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -96,7 +96,7 @@ BuildRequires:  plasma-breeze >= %{majmin_ver}
 BuildRequires:  plasma-workspace-devel >= %{majmin_ver}
 
 # Optional
-%if 0%{?rhel} && 0%{?rhel} > 7
+%if 0%{?fedora}
 BuildRequires:  cmake(AppStreamQt)
 %endif
 BuildRequires:  kf5-kactivities-devel >= %{kf5_version_min}
@@ -163,12 +163,6 @@ Conflicts:      kdeplasma-addons < 5.6.0
 # kcm_activities.mo moved here (#1325724)
 Conflicts:      kde-l10n < 15.12.3-4
 
-# If we want working emoji picker:
-Recommends:     ibus
-
-# Color emoji font:
-Recommends:     google-noto-emoji-color-fonts
-
 %description
 %{summary}.
 
@@ -198,11 +192,11 @@ BuildArch: noarch
 ## upstream patches
 
 ## upstreamable patches
-%patch200 -p1
+#%patch200 -p1
 %if ! 0%{?synaptics}
 install -pD %{SOURCE200} 3rdparty/xorg/synaptics-properties.h
 %endif
-%patch201 -p1 -b .synaptics_includes
+#%patch201 -p1 -b .synaptics_includes
 
 ## downstream patches
 %patch100 -p1
@@ -315,6 +309,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_datadir}/config.kcfg/workspaceoptions_kdeglobalssettings.kcfg
 %{_datadir}/config.kcfg/workspaceoptions_plasmasettings.kcfg
 %{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
+%{_datadir}/qlogging-categories5/kcmkeys.categories
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_kimpanel.so
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kdisplay
@@ -344,6 +339,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_datadir}/dbus-1/system-services/*.service
 %{_datadir}/polkit-1/actions/org.kde.fontinst.policy
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmclock.policy
+%{_sysconfdir}/xdg/autostart/*.desktop
 
 %if 0%{?scim}
 %files kimpanel-scim
@@ -354,8 +350,11 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
-* Fri May 29 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-2
-- rebuild
+* Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
+- 5.19.0
+
+* Fri May 15 2020 Martin Kyral <martin.kyral@gmail.com> - 5.18.90-1
+- 5.18.90
 
 * Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5

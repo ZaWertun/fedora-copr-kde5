@@ -1,5 +1,5 @@
 Name:    plasma-workspace-wallpapers
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 Summary: Additional wallpapers for Plasma workspace
 License: LGPLv3
@@ -72,9 +72,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_datadir}/wallpapers/SafeLanding/
 %{_datadir}/wallpapers/summer_1am/
 %{_datadir}/wallpapers/IceCold/
+%{_datadir}/wallpapers/Volna/
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

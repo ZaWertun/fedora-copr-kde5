@@ -1,6 +1,6 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -22,6 +22,7 @@ BuildRequires:  kf5-knewstuff-devel
 BuildRequires:  kf5-plasma-devel
 BuildRequires:  kf5-kglobalaccel-devel
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  cmake(KF5Declarative)
 BuildRequires:  libXres-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
@@ -90,14 +91,23 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libprocesscore.so.*
 %{_kf5_libdir}/libksignalplotter.so.*
 %{_kf5_libdir}/libksgrd.so.*
+%{_kf5_libdir}/libKSysGuardFormatter.so.*
+%{_kf5_libdir}/libKSysGuardSensorFaces.so.*
+%{_kf5_libdir}/libKSysGuardSensors.so.*
 %{_kf5_datadir}/ksysguard
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_qmldir}/org/kde/ksysguard/faces/
+%{_kf5_qmldir}/org/kde/ksysguard/formatter/
+%{_kf5_qmldir}/org/kde/ksysguard/process/
+%{_kf5_qmldir}/org/kde/ksysguard/sensors/
+%{_kf5_qtplugindir}/kpackage/packagestructure/sensorface_packagestructure.so
 
 %files common
 %{_kf5_libexecdir}/kauth/ksysguardprocesslist_helper
 %{_datadir}/dbus-1/system.d/org.kde.ksysguard.processlisthelper.conf
 %{_datadir}/dbus-1/system-services/org.kde.ksysguard.processlisthelper.service
 %{_datadir}/polkit-1/actions/org.kde.ksysguard.processlisthelper.policy
+%{_datadir}/knsrcfiles/*.knsrc
 
 %files devel
 %{_kf5_includedir}/ksysguard/
@@ -106,10 +116,17 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/libprocesscore.so
 %{_kf5_libdir}/libksignalplotter.so
 %{_kf5_libdir}/libksgrd.so
+%{_kf5_libdir}/libKSysGuardFormatter.so
+%{_kf5_libdir}/libKSysGuardSensorFaces.so
+%{_kf5_libdir}/libKSysGuardSensors.so
 %{_kf5_libdir}/cmake/KF5SysGuard/
+%{_kf5_libdir}/cmake/KSysGuard/KSysGuard*.cmake
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

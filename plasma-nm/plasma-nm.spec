@@ -3,7 +3,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -213,6 +213,7 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 %find_lang kcm_mobile_broadband
 %find_lang kcm_mobile_wifi
+%find_lang kcm_mobile_hotspot
 %find_lang plasma_applet_org.kde.plasma.networkmanagement
 %find_lang plasmanetworkmanagement-kded
 %find_lang plasmanetworkmanagement-kcm
@@ -232,7 +233,7 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 %ldconfig_scriptlets
 
-%files -f plasma_applet_org.kde.plasma.networkmanagement.lang -f plasmanetworkmanagement-kded.lang -f plasmanetworkmanagement-libs.lang -f plasmanetworkmanagement-kcm.lang -f kcm_mobile_broadband.lang -f kcm_mobile_wifi.lang
+%files -f plasma_applet_org.kde.plasma.networkmanagement.lang -f plasmanetworkmanagement-kded.lang -f plasmanetworkmanagement-libs.lang -f plasmanetworkmanagement-kcm.lang -f kcm_mobile_broadband.lang -f kcm_mobile_wifi.lang -f kcm_mobile_hotspot.lang
 %{_libdir}/libplasmanm_internal.so
 %{_libdir}/libplasmanm_editor.so
 # plasma-nm applet
@@ -304,6 +305,9 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

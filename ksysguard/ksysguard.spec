@@ -1,5 +1,5 @@
 Name:    ksysguard
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 Summary: KDE Process Management application
 
@@ -74,6 +74,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %license COPYING*
 %doc README
 %{_bindir}/ksysguard
+%{_bindir}/kstatsviewer
+%{_bindir}/ksystemstats
+%{_kf5_libdir}/libksgrdbackend.so
 %{_kf5_libdir}/libkdeinit5_ksysguard.so
 %caps(cap_net_raw=pe) %{_libexecdir}/ksysguard/ksgrd_network_helper
 %{_datadir}/ksysguard
@@ -83,6 +86,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_datadir}/icons/hicolor/*/apps/*
 %{_kf5_datadir}/knotifications5/ksysguard.notifyrc
 %{_kf5_datadir}/kxmlgui5/ksysguard/
+%{_kf5_datadir}/dbus-1/services/org.kde.ksystemstats.service
+%{_qt5_plugindir}/ksysguard/ksysguard_ksgrd.so
+%{_qt5_plugindir}/ksysguard/ksysguard_plugin_nvidiaglobal.so
 %{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_nvidia.so
 %{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_network.so
 
@@ -93,6 +99,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

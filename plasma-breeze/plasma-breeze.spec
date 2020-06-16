@@ -6,7 +6,7 @@
 %global         build_kde4  1
 
 Name:    plasma-breeze
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
@@ -89,6 +89,7 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 Summary:        KDE 4 version of Plasma 5 artwork, style and assets
 BuildRequires:  kdelibs4-devel
 BuildRequires:  libxcb-devel
+Requires:	qtcurve-qt4%{?_isa}
 ## currently mostly plasma5-specific resources, not needed or useful here really
 Obsoletes:      plasma-breeze-kde4 < 5.1.95
 Provides:       plasma-breeze-kde4%{?_isa} = %{version}-%{release}
@@ -175,9 +176,9 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 %ldconfig_scriptlets -n kde-style-breeze
 
 %files -n kde-style-breeze
-%{_libdir}/libbreezecommon4.so.5*
-%{_kde4_libdir}/kde4/plugins/styles/breeze.so
-%{_kde4_libdir}/kde4/kstyle_breeze_config.so
+%{_kde4_datadir}/kde4/apps/QtCurve/Breeze.qtcurve
+%{_kde4_datadir}/kde4/apps/color-schemes/Breeze*.colors
+%{_kde4_datadir}/kde4/apps/plasma/look-and-feel/org.kde.breezedark.desktop/
 %{_kde4_appsdir}/kstyle/themes/breeze.themerc
 %endif
 
@@ -192,6 +193,9 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 

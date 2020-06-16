@@ -2,8 +2,8 @@
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.18.5
-Release: 3%{?dist}
+Version: 5.19.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -76,9 +76,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
 %{_kf5_datadir}/xdg-desktop-portal-kde/qml/
+%{_kf5_datadir}/knotifications5/xdg-desktop-portal-kde.notifyrc
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-3
 - rebuild
 

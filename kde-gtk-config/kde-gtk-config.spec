@@ -1,6 +1,6 @@
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
-Version: 5.18.5
+Version: 5.19.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -29,6 +29,7 @@ BuildRequires:  kf5-knewstuff-devel
 BuildRequires:  kf5-karchive-devel
 BuildRequires:  kf5-kcmutils-devel
 BuildRequires:  cmake(KF5DBusAddons)
+BuildRequires:  cmake(KF5GuiAddons)
 
 BuildRequires:  gtk3-devel
 BuildRequires:  gtk2-devel
@@ -74,9 +75,13 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/kconf_update_bin/gtk_theme
 %{_kf5_datadir}/kconf_update/gtkconfig.upd
 %{_kf5_plugindir}/kded/gtkconfig.so
+%{_libdir}/gtk-3.0/modules/libcolorreload-gtk-module.so
 
 
 %changelog
+* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+- 5.19.0
+
 * Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
 - 5.18.5
 
