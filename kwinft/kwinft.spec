@@ -103,7 +103,7 @@ BuildRequires:  kf5-kidletime-devel      >= %{min_kf_version}
 BuildRequires:  kf5-ktextwidgets-devel   >= %{min_kf_version}
 BuildRequires:  kf5-kirigami2-devel      >= %{min_kf_version}
 
-BuildRequires:  kdecoration-devel  >= %{majmin_ver}
+BuildRequires:  kdecoration-devel   >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  plasma-breeze-devel >= %{majmin_ver}
 
@@ -114,10 +114,12 @@ BuildRequires: xorg-x11-server-Xvfb
 %endif
 
 ## Runtime deps
-Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
+Requires:       %{name}-libs%{?_isa}   = %{version}-%{release}
 Requires:       %{name}-common%{?_isa} = %{version}-%{release}
-Requires:       kdecoration%{?_isa} >= %{majmin_ver}
+
+Requires:       kdecoration%{?_isa}   >= %{majmin_ver}
 Requires:       kscreenlocker%{?_isa} >= %{majmin_ver}
+Requires:       kdisplay%{?_isa}      >= %{majmin_ver}
 
 # Runtime-only dependencies
 %if ! 0%{?bootstrap}
