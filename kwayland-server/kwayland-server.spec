@@ -1,7 +1,7 @@
 %global  wayland_min_version 1.3
 
 Name:    kwayland-server
-Version: 5.19.0
+Version: 5.19.1
 Release: 1%{?dist}
 Summary: Wayland server components built on KDE Frameworks
 
@@ -72,6 +72,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_libdir}/cmake/KWaylandServer/
 
 %changelog
+* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+- 5.19.1
+
 * Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
 

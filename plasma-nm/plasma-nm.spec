@@ -3,7 +3,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.19.0
+Version: 5.19.1
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -305,6 +305,9 @@ make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+- 5.19.1
+
 * Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
 - 5.19.0
 
