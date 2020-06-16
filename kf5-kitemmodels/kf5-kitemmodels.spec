@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Version: 5.71.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with item models
 
 License:        LGPLv2+
@@ -61,18 +61,21 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING.LIB
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_libdir}/libKF5ItemModels.so.*
+%{_kf5_qmldir}/org/kde/kitemmodels/qmldir
+%{_kf5_qmldir}/org/kde/kitemmodels/libitemmodelsplugin.so
 
 %files devel
 %{_kf5_includedir}/kitemmodels_version.h
 %{_kf5_includedir}/KItemModels/
 %{_kf5_libdir}/libKF5ItemModels.so
 %{_kf5_libdir}/cmake/KF5ItemModels/
-%{_kf5_qmldir}/org/kde/kitemmodels/qmldir
-%{_kf5_qmldir}/org/kde/kitemmodels/libitemmodelsplugin.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KItemModels.pri
 
 
 %changelog
+* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-3
+- qml plugin moved to main package
+
 * Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-2
 - Qt5Qml added to BuildRequires
 
