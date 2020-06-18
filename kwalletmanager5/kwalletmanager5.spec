@@ -9,7 +9,7 @@
 Name:    kwalletmanager5
 Summary: Manage KDE passwords
 Version: 20.04.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -25,6 +25,7 @@ Source0:        https://download.kde.org/%{stable}/release-service/%{version}/sr
 ## upstreamable patches
 # better/sane defaults (no autoclose mostly)
 Patch1: kwalletmanager-15.12.1-defaults.patch
+Patch2: kwalletmanager-20.04.2-kwalletmanager5-not-starting.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  extra-cmake-modules
@@ -98,6 +99,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Jun 18 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.2-2
+- added kwalletmanager-20.04.2-kwalletmanager5-not-starting.patch
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 

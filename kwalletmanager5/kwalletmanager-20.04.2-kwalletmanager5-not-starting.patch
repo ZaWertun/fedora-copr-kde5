@@ -1,0 +1,12 @@
+diff -r -U3 kwalletmanager-20.04.2.orig/src/konfigurator/konfigurator.cpp kwalletmanager-20.04.2/src/konfigurator/konfigurator.cpp
+--- kwalletmanager-20.04.2.orig/src/konfigurator/konfigurator.cpp	2020-06-08 20:54:56.000000000 +0300
++++ kwalletmanager-20.04.2/src/konfigurator/konfigurator.cpp	2020-06-18 15:40:25.655030977 +0300
+@@ -176,7 +176,7 @@
+ void KWalletConfig::launchManager()
+ {
+     if (!QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.kde.kwalletmanager5"))) {
+-        QProcess::startDetached(QStringLiteral("kwalletmanager5 --show"), QStringList());
++        QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList() << QStringLiteral("--show"));
+     } else {
+         QDBusInterface kwalletd(QStringLiteral("org.kde.kwalletmanager5"), QStringLiteral("/kwalletmanager5/MainWindow_1"));
+         kwalletd.call(QStringLiteral("show"));
