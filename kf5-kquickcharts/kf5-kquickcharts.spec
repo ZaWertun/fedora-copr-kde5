@@ -10,7 +10,7 @@
 Name:    kf5-%{framework}
 Summary: A QtQuick module providing high-performance charts
 Version: 5.71.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # libs are LGPL, tools are GPL
 # KDE e.V. may determine that future LGPL/GPL versions are accepted
@@ -27,6 +27,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstreamable patches
+Patch1:         kquickcharts-5.71.0-pi-should-be-constant.patch
 
 ## upstream patches
 
@@ -89,6 +90,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libdir}/cmake/KF5QuickCharts/
 
 %changelog
+* Thu Jun 18 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.71.0-2
+- added kquickcharts-5.71.0-pi-should-be-constant.patch
+
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
 - 5.71.0
 
