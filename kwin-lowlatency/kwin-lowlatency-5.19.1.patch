@@ -1,0 +1,3007 @@
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/autotests/CMakeLists.txt kwin-lowlatency/autotests/CMakeLists.txt
+--- kwin-5.19.1/autotests/CMakeLists.txt	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/autotests/CMakeLists.txt	2020-06-19 23:40:45.458649888 +0300
+@@ -181,6 +181,7 @@
+ kconfig_add_kcfg_files(testScriptedEffectLoader_SRCS ../settings.kcfgc)
+ add_executable(testScriptedEffectLoader ${testScriptedEffectLoader_SRCS})
+ 
++target_compile_definitions(testScriptedEffectLoader PUBLIC KWINLL_NO_OPTIONS)
+ target_link_libraries(testScriptedEffectLoader
+     Qt5::Concurrent
+     Qt5::Qml
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/CMakeLists.txt kwin-lowlatency/CMakeLists.txt
+--- kwin-5.19.1/CMakeLists.txt	2020-06-16 15:45:37.000000000 +0300
++++ kwin-lowlatency/CMakeLists.txt	2020-06-19 23:40:45.456649887 +0300
+@@ -782,11 +782,3 @@
+     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR})
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/KWinDBusInterfaceConfig.cmake
+     DESTINATION ${CMAKECONFIG_INSTALL_DIR})
+-
+-find_package(KF5I18n CONFIG REQUIRED)
+-ki18n_install(po)
+-
+-  find_package(KF5DocTools CONFIG)
+-  if(KF5DocTools_FOUND)
+-    kdoctools_install(po)
+-  endif()
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/colorcorrection/clockskewnotifierengine_linux.cpp kwin-lowlatency/colorcorrection/clockskewnotifierengine_linux.cpp
+--- kwin-5.19.1/colorcorrection/clockskewnotifierengine_linux.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/colorcorrection/clockskewnotifierengine_linux.cpp	2020-06-19 23:40:45.473649891 +0300
+@@ -20,6 +20,7 @@
+ 
+ #include <QSocketNotifier>
+ 
++#include <errno.h>
+ #include <fcntl.h>
+ #include <sys/timerfd.h>
+ #include <unistd.h>
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/composite.cpp kwin-lowlatency/composite.cpp
+--- kwin-5.19.1/composite.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/composite.cpp	2020-06-19 23:40:45.473649891 +0300
+@@ -61,6 +61,7 @@
+ #include <xcb/damage.h>
+ 
+ #include <cstdio>
++#include <unistd.h>
+ 
+ Q_DECLARE_METATYPE(KWin::X11Compositor::SuspendReason)
+ 
+@@ -124,6 +125,7 @@
+     , m_selectionOwner(nullptr)
+     , vBlankInterval(0)
+     , fpsInterval(0)
++    , forceUnredirectCheck(false)
+     , m_timeSinceLastVBlank(0)
+     , m_scene(nullptr)
+     , m_bufferSwapPending(false)
+@@ -132,6 +134,10 @@
+     connect(options, &Options::configChanged, this, &Compositor::configChanged);
+     connect(options, &Options::animationSpeedChanged, this, &Compositor::configChanged);
+ 
++    connect(&unredirectTimer, &QTimer::timeout, this, &Compositor::delayedCheckUnredirect);
++    connect(options, &Options::unredirectFullscreenChanged, this, &Compositor::delayedCheckUnredirect);
++    unredirectTimer.setSingleShot(true);
++    
+     m_monotonicClock.start();
+ 
+     // 2 sec which should be enough to restart the compositor.
+@@ -739,7 +745,24 @@
+     if (m_bufferSwapPending && m_scene->syncsToVBlank()) {
+         m_composeAtSwapCompletion = true;
+     } else {
+-        scheduleRepaint();
++        if (m_bufferSwapPending && m_scene->syncsToVBlank()) {
++          m_composeAtSwapCompletion = true;
++        } else {
++          if (m_idle) {
++            m_idle=false;
++            m_totalSkips--;
++            if (m_totalSkips<0) m_totalSkips=0;
++            // TODO: improve this thing
++            m_lastPaintFree=2000;
++          }
++          if (m_scene->syncsToVBlank()) {
++            usleep(m_lastPaintFree);
++          } else {
++            printf("no vsync\n");
++            usleep(6000);
++          }
++          scheduleRepaint();
++        }
+     }
+ }
+ 
+@@ -855,6 +878,57 @@
+         }
+     }
+     // Force 4fps minimum:
++    if (waitTime<4) waitTime=4;
++    m_totalSkips-=0.004;
++    if (m_totalSkips<0) {
++      m_totalSkips=0;
++    }
++    if ((signed)(m_lastPaintFree-2000)>(signed)((waitTime*1000)-4000)) {
++      m_totalSkips++;
++      switch (options->latencyControl()) {
++        case 0: // favor responsive
++          m_lastPaintFree=(waitTime*1000)-4000;
++          break;
++        case 2: // favor low-latency
++          m_lastPaintFree-=500;
++          break;
++        case 3: // aggressive
++          m_lastPaintFree-=300;
++          break;
++        case 1: default: // balanced
++          m_lastPaintFree-=500;
++          break;
++      }
++      //printf("\x1b[1;31mstutter\x1b[m\n");
++    } else {
++      switch (options->latencyControl()) {
++        case 0: // favor responsive
++          m_lastPaintFree=fmin((waitTime*1000)-4000,m_lastPaintFree+(50-m_totalSkips*5));
++          break;
++        case 2: // favor low-latency
++          m_lastPaintFree=fmin((waitTime*1000)-4000,m_lastPaintFree+(500-m_totalSkips*30));
++          break;
++        case 3: // aggressive
++          m_lastPaintFree=fmin((waitTime*1000)-4000,m_lastPaintFree+(1000-m_totalSkips*30));
++          break;
++        case 1: default: // balanced
++          m_lastPaintFree=fmin((waitTime*1000)-4000,m_lastPaintFree+(200-m_totalSkips*20));
++          break;
++      }
++    }
++    if (m_lastPaintFree<options->minLatency()*1000) {
++      m_lastPaintFree=options->minLatency()*1000;
++    }
++    if (m_lastPaintFree<1) {
++      m_lastPaintFree=1;
++    }
++    if (m_lastPaintFree>options->maxLatency()*1000) {
++      m_lastPaintFree=options->maxLatency()*1000;
++    }
++    if (m_totalSkips>10) {
++      m_totalSkips=10;
++    }
++    waitTime=0;
+     compositeTimer.start(qMin(waitTime, 250u), this);
+ }
+ 
+@@ -863,6 +937,54 @@
+     return m_state == State::On;
+ }
+ 
++void Compositor::checkUnredirect()
++{
++    checkUnredirect(false);
++}
++
++// force is needed when the list of windows changes (e.g. a window goes away)
++void Compositor::checkUnredirect(bool force)
++{
++    if (!isActive() || !m_scene->overlayWindow() || m_scene->overlayWindow()->window() == None || !options->isUnredirectFullscreen())
++        return;
++    if (force)
++        forceUnredirectCheck = true;
++    if (!unredirectTimer.isActive())
++        unredirectTimer.start(0);
++}
++
++void Compositor::delayedCheckUnredirect()
++{
++    if (!isActive() || !m_scene->overlayWindow() || m_scene->overlayWindow()->window() == None || !(options->isUnredirectFullscreen() || sender() == options))
++        return;
++    QList<Toplevel*> list;
++    bool changed = forceUnredirectCheck;
++    foreach (X11Client * c, Workspace::self()->clientList())
++        list.append(c);
++    foreach (Unmanaged * c, Workspace::self()->unmanagedList())
++        list.append(c);
++    foreach (Toplevel * c, list) {
++        if (c->updateUnredirectedState()) {
++            changed = true;
++            break;
++        }
++    }
++    // no desktops, no Deleted ones
++    if (!changed)
++        return;
++    forceUnredirectCheck = false;
++    // Cut out parts from the overlay window where unredirected windows are,
++    // so that they are actually visible.
++    const QSize &s = screens()->size();
++    QRegion reg(0, 0, s.width(), s.height());
++    foreach (Toplevel * c, list) {
++        if (c->unredirected())
++            reg -= c->frameGeometry();
++    }
++    m_scene->overlayWindow()->setShape(reg);
++    addRepaint(reg);
++}
++
+ WaylandCompositor::WaylandCompositor(QObject *parent)
+     : Compositor(parent)
+ {
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/composite.h kwin-lowlatency/composite.h
+--- kwin-5.19.1/composite.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/composite.h	2020-06-19 23:40:45.473649891 +0300
+@@ -59,6 +59,13 @@
+      * Schedules a new repaint if no repaint is currently scheduled.
+      */
+     void scheduleRepaint();
++    
++    /**
++     * Checks for possibly unredirectable windows.
++     */
++    void checkUnredirect();
++    void checkUnredirect(bool force);
++    void delayedCheckUnredirect();
+ 
+     /**
+      * Notifies the compositor that SwapBuffers() is about to be called.
+@@ -161,6 +168,9 @@
+     qint64 vBlankInterval, fpsInterval;
+     QRegion repaints_region;
+ 
++    QTimer unredirectTimer;
++    bool forceUnredirectCheck;
++    
+     qint64 m_timeSinceLastVBlank;
+ 
+     Scene *m_scene;
+@@ -170,6 +180,11 @@
+ 
+     int m_framesToTestForSafety = 3;
+     QElapsedTimer m_monotonicClock;
++    
++    // low-latency stuff
++    int m_lastPaintFree=8000;
++    float m_totalSkips=0;
++    bool m_idle;
+ };
+ 
+ class KWIN_EXPORT WaylandCompositor : public Compositor
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/deleted.cpp kwin-lowlatency/deleted.cpp
+--- kwin-5.19.1/deleted.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/deleted.cpp	2020-06-19 23:40:45.475649891 +0300
+@@ -313,5 +313,10 @@
+     m_transientFor.removeAll(parent);
+ }
+ 
++bool Deleted::shouldUnredirect() const
++{
++    return false;
++}
++
+ } // namespace
+ 
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/deleted.h kwin-lowlatency/deleted.h
+--- kwin-5.19.1/deleted.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/deleted.h	2020-06-19 23:40:45.475649891 +0300
+@@ -185,6 +185,7 @@
+ 
+ protected:
+     void debug(QDebug& stream) const override;
++    bool shouldUnredirect() const override;
+ 
+ private Q_SLOTS:
+     void mainClientClosed(KWin::Toplevel *client);
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/CMakeLists.txt kwin-lowlatency/effects/CMakeLists.txt
+--- kwin-5.19.1/effects/CMakeLists.txt	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/effects/CMakeLists.txt	2020-06-19 23:40:45.487649894 +0300
+@@ -90,6 +90,7 @@
+     magnifier/magnifier.cpp
+     mouseclick/mouseclick.cpp
+     mousemark/mousemark.cpp
++    mousepos/mousepos.cpp
+     presentwindows/presentwindows.cpp
+     presentwindows/presentwindows_proxy.cpp
+     resize/resize.cpp
+@@ -121,6 +122,7 @@
+     magnifier/magnifierconfig.kcfgc
+     mouseclick/mouseclickconfig.kcfgc
+     mousemark/mousemarkconfig.kcfgc
++    mousepos/mouseposconfig.kcfgc
+     presentwindows/presentwindowsconfig.kcfgc
+     resize/resizeconfig.kcfgc
+     showfps/showfpsconfig.kcfgc
+@@ -192,6 +194,7 @@
+ add_subdirectory(magnifier)
+ add_subdirectory(mouseclick)
+ add_subdirectory(mousemark)
++add_subdirectory(mousepos)
+ include(screenshot/CMakeLists.txt)
+ include(sheet/CMakeLists.txt)
+ include(snaphelper/CMakeLists.txt)
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/effect_builtins.cpp kwin-lowlatency/effects/effect_builtins.cpp
+--- kwin-5.19.1/effects/effect_builtins.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/effects/effect_builtins.cpp	2020-06-19 23:40:45.494649895 +0300
+@@ -54,6 +54,7 @@
+ #include "magnifier/magnifier.h"
+ #include "mouseclick/mouseclick.h"
+ #include "mousemark/mousemark.h"
++#include "mousepos/mousepos.h"
+ #include "sheet/sheet.h"
+ #include "snaphelper/snaphelper.h"
+ #include "startupfeedback/startupfeedback.h"
+@@ -381,6 +382,21 @@
+         nullptr,
+         nullptr
+ #endif
++EFFECT_FALLBACK
++    }, {
++        QStringLiteral("mousepos"),
++        i18ndc("kwin_effects", "Name of a KWin Effect", "Paint cursor"),
++        i18ndc("kwin_effects", "Comment describing the KWin Effect", "Redraw the mouse cursor for capturing the display using kmsgrab in FFmpeg"),
++        QStringLiteral("Tools"),
++        QString(),
++        QUrl(),
++        false,
++        false,
++#ifdef EFFECT_BUILTINS
++        &createHelper<MousePosEffect>,
++        nullptr,
++        nullptr
++#endif
+ EFFECT_FALLBACK
+     }, {
+         QStringLiteral("presentwindows"),
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/effect_builtins.h kwin-lowlatency/effects/effect_builtins.h
+--- kwin-5.19.1/effects/effect_builtins.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/effects/effect_builtins.h	2020-06-19 23:40:45.494649895 +0300
+@@ -53,6 +53,7 @@
+     Magnifier,
+     MouseClick,
+     MouseMark,
++    MousePos,
+     PresentWindows,
+     Resize,
+     ScreenEdge,
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/CMakeLists.txt kwin-lowlatency/effects/mousepos/CMakeLists.txt
+--- kwin-5.19.1/effects/mousepos/CMakeLists.txt	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/CMakeLists.txt	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,25 @@
++#######################################
++# Config
++set(kwin_mousepos_config_SRCS mousepos_config.cpp)
++ki18n_wrap_ui(kwin_mousepos_config_SRCS mousepos_config.ui)
++qt5_add_dbus_interface(kwin_mousepos_config_SRCS ${kwin_effects_dbus_xml} kwineffects_interface)
++kconfig_add_kcfg_files(kwin_mousepos_config_SRCS mouseposconfig.kcfgc)
++
++add_library(kwin_mousepos_config MODULE ${kwin_mousepos_config_SRCS})
++
++target_link_libraries(kwin_mousepos_config
++    KF5::ConfigWidgets
++    KF5::GlobalAccel
++    KF5::I18n
++    KF5::Service
++    KF5::XmlGui
++)
++
++kcoreaddons_desktop_to_json(kwin_mousepos_config mousepos_config.desktop SERVICE_TYPES kcmodule.desktop)
++
++install(
++    TARGETS
++        kwin_mousepos_config
++    DESTINATION
++        ${PLUGIN_INSTALL_DIR}/kwin/effects/configs
++)
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/data/1.10/motion.frag kwin-lowlatency/effects/mousepos/data/1.10/motion.frag
+--- kwin-5.19.1/effects/mousepos/data/1.10/motion.frag	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.10/motion.frag	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,43 @@
++#version 140
++
++// thanks Steven Lu
++
++uniform sampler2D sampler;
++in vec2 f_sceneCoord; // this should be pretransformed texcoord to scene tex
++// it is also appropriate to use as a "this pixel" position
++// (in relation to center, etc)
++varying float f_alpha;
++varying vec2 f_center;
++in vec3 f_vel;
++in float samples;
++varying mat2 rot_per_sample;
++
++out vec4 fragColor;
++
++void main (void) {
++vec2 original_center = f_center - f_vel.xy;
++// vel.xy is actually just the dist
++vec4 accum = vec4(0,0,0,0);
++mat2 cumulativeRotation;
++// set identity rotation matrix
++cumulativeRotation[0] = vec2(1,0); cumulativeRotation[1] = vec2(0,
++1);
++float samples_i = ceil(samples);
++for(int i=0;i<samples_i;++i) {
++float fraction = float(i)/samples_i;
++vec2 pos = cumulativeRotation*(f_sceneCoord+f_vel.xy*fraction-f_center)+ f_center;
++if (pos.x>1.0f || pos.x<0.0f || pos.y>1.0f || pos.y<0.0f) continue;
++vec4 col = texture2D(sampler, pos);
++//col=vec4(0.0f,0.0f,0.0f,0.0f);
++// 1: translate to orig ctr 2: rotate by i*rot
++// 3: translate back to origctr+(curctr-origctr)*i
++if (col.a>0.01f) { accum = accum + vec4(col.rgba); }
++cumulativeRotation = cumulativeRotation * rot_per_sample;
++}
++if (accum.a < 1.0/1024.) discard; // prevent divide by zero
++fragColor = vec4(accum.rgb*(1.0/accum.a),accum.a/samples_i);
++//fragColor=vec4(texture2D(sampler, f_sceneCoord));
++//fragColor=vec4(1.0f,1.0f,1.0f,1.0f);
++// This should be a non-premultiplied alpha value for use with
++// saturate blending.
++}
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/data/1.10/motion.vert kwin-lowlatency/effects/mousepos/data/1.10/motion.vert
+--- kwin-5.19.1/effects/mousepos/data/1.10/motion.vert	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.10/motion.vert	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,61 @@
++#version 140
++
++// thanks Steven Lu
++
++// KWin
++uniform mat4 projection;
++uniform mat4 modelview;
++uniform mat4 modelViewProjectionMatrix;
++uniform mat4 textureMatrix;
++
++in vec4 position;
++in vec4 texcoord;
++
++uniform mat4 mvm;
++uniform vec2 viewport;
++uniform vec2 in_pos;
++// this is vertex position
++uniform vec2 in_center;
++uniform vec4 in_vel;
++uniform vec2 in_sizes;
++// those were the per-object velocity related quantities
++// I pack omega*dt into in_vel.z, and in_vel.w is max-displacement
++// for calculating samples
++uniform float in_alpha;
++varying float f_alpha;
++varying vec2 f_center;
++out vec3 f_vel;
++out float samples; // # of samples to blur
++varying mat2 rot_per_sample; // A special scale-rotate matrix
++out vec2 f_sceneCoord; // NDC to tex coord
++varying mat4 f_scale;
++void main (void) {
++mat4 proj_modelview_mat = projection * modelview;
++f_scale[0]=vec4(1.0+abs(in_vel.x),0.0,0.0,-abs(in_vel.x)*(in_pos.x+((sign(in_vel.x)>0.5)?in_sizes.x:0.0)));
++f_scale[1]=vec4(0.0,1.0+abs(in_vel.y),0.0,-abs(in_vel.y)*(in_pos.y+((sign(in_vel.y)>0.5)?in_sizes.y:0.0)));
++f_scale[2]=vec4(0.0,0.0,1.0,0.0);
++f_scale[3]=vec4(0.0,0.0,0.0,1.0);
++/*f_scale[0]=vec4(1.0,0.0,0.0,0.0);
++f_scale[1]=vec4(0.0,1.0,0.0,0.0);
++f_scale[2]=vec4(0.0,0.0,1.0,0.0);
++f_scale[3]=vec4(0.0,0.0,0.0,1.0);*/
++gl_Position = modelViewProjectionMatrix * vec4(position.xyzw*f_scale);
++f_sceneCoord = vec2( texcoord)*(1+abs(in_vel.xy))-max(vec2(0.0,0.0),in_vel.xy);
++f_center = ((modelViewProjectionMatrix * vec4(in_center,0.0,1.0)).xy
+++ vec2(1.0,1.0))*0.5; // transform the center to clip space
++f_vel.xy=in_vel.xy;
++//f_vel.xy = (proj_modelview_mat * vec4(in_vel.xy,0.0,0.0)).xy * 0.5;
++// velocity also need to be in clip space
++// careful! We don't shift this one, only scale
++f_vel.z = in_vel.z; // Store omega in z-comp in radians
++samples = min(50,(modelViewProjectionMatrix * vec4(in_vel.w,0,0,0)).x
++* viewport.x * 2 + 1);
++// w here is not omega it is the max disp value from CPU
++float theta = in_vel.z/(samples);
++float cost = cos(theta); float sint = sin(theta);
++float aspect = viewport.x/viewport.y;
++rot_per_sample[0] = vec2(cost,sint*aspect); rot_per_sample[1] = vec2(-sint/aspect,cost);
++// the rotation matrix is actually a scale and rotate matrix.
++// the rotation must be correct in world space but is manipulated by the
++// fragment shader in NDC which requires aspect correction.
++}
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/data/1.40/motion.frag kwin-lowlatency/effects/mousepos/data/1.40/motion.frag
+--- kwin-5.19.1/effects/mousepos/data/1.40/motion.frag	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.40/motion.frag	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,43 @@
++#version 140
++
++// thanks Steven Lu
++
++uniform sampler2D sampler;
++in vec2 f_sceneCoord; // this should be pretransformed texcoord to scene tex
++// it is also appropriate to use as a "this pixel" position
++// (in relation to center, etc)
++varying float f_alpha;
++varying vec2 f_center;
++in vec3 f_vel;
++in float samples;
++varying mat2 rot_per_sample;
++
++out vec4 fragColor;
++
++void main (void) {
++vec2 original_center = f_center - f_vel.xy;
++// vel.xy is actually just the dist
++vec4 accum = vec4(0,0,0,0);
++mat2 cumulativeRotation;
++// set identity rotation matrix
++cumulativeRotation[0] = vec2(1,0); cumulativeRotation[1] = vec2(0,
++1);
++float samples_i = ceil(samples);
++for(int i=0;i<samples_i;++i) {
++float fraction = float(i)/samples_i;
++vec2 pos = cumulativeRotation*(f_sceneCoord+f_vel.xy*fraction-f_center)+ f_center;
++if (pos.x>1.0f || pos.x<0.0f || pos.y>1.0f || pos.y<0.0f) continue;
++vec4 col = texture2D(sampler, pos);
++//col=vec4(0.0f,0.0f,0.0f,0.0f);
++// 1: translate to orig ctr 2: rotate by i*rot
++// 3: translate back to origctr+(curctr-origctr)*i
++if (col.a>0.01f) { accum = accum + vec4(col.rgba); }
++cumulativeRotation = cumulativeRotation * rot_per_sample;
++}
++if (accum.a < 1.0/1024.) discard; // prevent divide by zero
++fragColor = vec4(accum.rgb*(1.0/accum.a),accum.a/samples_i);
++//fragColor=vec4(texture2D(sampler, f_sceneCoord));
++//fragColor=vec4(1.0f,1.0f,1.0f,1.0f);
++// This should be a non-premultiplied alpha value for use with
++// saturate blending.
++}
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/data/1.40/motion.vert kwin-lowlatency/effects/mousepos/data/1.40/motion.vert
+--- kwin-5.19.1/effects/mousepos/data/1.40/motion.vert	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/data/1.40/motion.vert	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,61 @@
++#version 140
++
++// thanks Steven Lu
++
++// KWin
++uniform mat4 projection;
++uniform mat4 modelview;
++uniform mat4 modelViewProjectionMatrix;
++uniform mat4 textureMatrix;
++
++in vec4 position;
++in vec4 texcoord;
++
++uniform mat4 mvm;
++uniform vec2 viewport;
++uniform vec2 in_pos;
++// this is vertex position
++uniform vec2 in_center;
++uniform vec4 in_vel;
++uniform vec2 in_sizes;
++// those were the per-object velocity related quantities
++// I pack omega*dt into in_vel.z, and in_vel.w is max-displacement
++// for calculating samples
++uniform float in_alpha;
++varying float f_alpha;
++varying vec2 f_center;
++out vec3 f_vel;
++out float samples; // # of samples to blur
++varying mat2 rot_per_sample; // A special scale-rotate matrix
++out vec2 f_sceneCoord; // NDC to tex coord
++varying mat4 f_scale;
++void main (void) {
++mat4 proj_modelview_mat = projection * modelview;
++f_scale[0]=vec4(1.0+abs(in_vel.x),0.0,0.0,-abs(in_vel.x)*(in_pos.x+((sign(in_vel.x)>0.5)?in_sizes.x:0.0)));
++f_scale[1]=vec4(0.0,1.0+abs(in_vel.y),0.0,-abs(in_vel.y)*(in_pos.y+((sign(in_vel.y)>0.5)?in_sizes.y:0.0)));
++f_scale[2]=vec4(0.0,0.0,1.0,0.0);
++f_scale[3]=vec4(0.0,0.0,0.0,1.0);
++/*f_scale[0]=vec4(1.0,0.0,0.0,0.0);
++f_scale[1]=vec4(0.0,1.0,0.0,0.0);
++f_scale[2]=vec4(0.0,0.0,1.0,0.0);
++f_scale[3]=vec4(0.0,0.0,0.0,1.0);*/
++gl_Position = modelViewProjectionMatrix * vec4(position.xyzw*f_scale);
++f_sceneCoord = vec2( texcoord)*(1+abs(in_vel.xy))-max(vec2(0.0,0.0),in_vel.xy);
++f_center = ((modelViewProjectionMatrix * vec4(in_center,0.0,1.0)).xy
+++ vec2(1.0,1.0))*0.5; // transform the center to clip space
++f_vel.xy=in_vel.xy;
++//f_vel.xy = (proj_modelview_mat * vec4(in_vel.xy,0.0,0.0)).xy * 0.5;
++// velocity also need to be in clip space
++// careful! We don't shift this one, only scale
++f_vel.z = in_vel.z; // Store omega in z-comp in radians
++samples = min(50,(modelViewProjectionMatrix * vec4(in_vel.w,0,0,0)).x
++* viewport.x * 2 + 1);
++// w here is not omega it is the max disp value from CPU
++float theta = in_vel.z/(samples);
++float cost = cos(theta); float sint = sin(theta);
++float aspect = viewport.x/viewport.y;
++rot_per_sample[0] = vec2(cost,sint*aspect); rot_per_sample[1] = vec2(-sint/aspect,cost);
++// the rotation matrix is actually a scale and rotate matrix.
++// the rotation must be correct in world space but is manipulated by the
++// fragment shader in NDC which requires aspect correction.
++}
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mousepos_config.cpp kwin-lowlatency/effects/mousepos/mousepos_config.cpp
+--- kwin-5.19.1/effects/mousepos/mousepos_config.cpp	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.cpp	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,123 @@
++/********************************************************************
++ KWin - the KDE window manager
++ This file is part of the KDE project.
++
++Copyright (C) 2007 Rivo Laks <rivolaks@hot.ee>
++Copyright (C) 2010 Jorge Mata <matamax123@gmail.com>
++
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; either version 2 of the License, or
++(at your option) any later version.
++
++This program is distributed in the hope that it will be useful,
++but WITHOUT ANY WARRANTY; without even the implied warranty of
++MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++GNU General Public License for more details.
++
++You should have received a copy of the GNU General Public License
++along with this program.  If not, see <http://www.gnu.org/licenses/>.
++*********************************************************************/
++
++#include <QAction>
++#include <config-kwin.h>
++#include <kwineffects_interface.h>
++
++#include <KLocalizedString>
++#include <KActionCollection>
++#include <KAboutData>
++#include <KGlobalAccel>
++#include <KPluginFactory>
++
++#include <QVBoxLayout>
++#include <QLabel>
++
++#include "mousepos_config.h"
++
++// KConfigSkeleton
++#include "mouseposconfig.h"
++
++K_PLUGIN_FACTORY_WITH_JSON(MousePosEffectConfigFactory,
++                           "mousepos_config.json",
++                           registerPlugin<KWin::MousePosEffectConfig>();)
++
++namespace KWin
++{
++
++MousePosEffectConfigForm::MousePosEffectConfigForm(QWidget* parent) : QWidget(parent)
++{
++    setupUi(this);
++}
++
++MousePosEffectConfig::MousePosEffectConfig(QWidget* parent, const QVariantList& args) :
++    KCModule(KAboutData::pluginData(QStringLiteral("mousepos")), parent, args)
++{
++    MousePosConfig::instance(KWIN_CONFIG);
++    m_ui = new MousePosEffectConfigForm(this);
++    QVBoxLayout* layout = new QVBoxLayout(this);
++    layout->addWidget(m_ui);
++
++    addConfig(MousePosConfig::self(), m_ui);
++
++    m_actionCollection = new KActionCollection(this, QStringLiteral("kwin"));
++    m_actionCollection->setComponentDisplayName(i18n("KWin"));
++    m_actionCollection->setConfigGroup(QStringLiteral("MousePos"));
++    m_actionCollection->setConfigGlobal(true);
++
++    QAction *a = m_actionCollection->addAction(QStringLiteral("MousePos"));
++    a->setText(i18n("Paint cursor"));
++    a->setProperty("isConfigurationAction", true);
++
++    KGlobalAccel::self()->setDefaultShortcut(a, QList<QKeySequence>());
++    KGlobalAccel::self()->setShortcut(a, QList<QKeySequence>());
++
++    connect(m_ui->kcfg_mpMotionBlur, SIGNAL(keySequenceChanged(QKeySequence)),
++                            SLOT(shortcutChanged(QKeySequence)));
++
++    load();
++}
++
++MousePosEffectConfig::~MousePosEffectConfig()
++{
++}
++
++void MousePosEffectConfig::checkModifiers()
++{
++}
++
++void MousePosEffectConfig::load()
++{
++    KCModule::load();
++
++    checkModifiers();
++    emit changed(false);
++}
++
++void MousePosEffectConfig::save()
++{
++    KCModule::save();
++    m_actionCollection->writeSettings();
++    OrgKdeKwinEffectsInterface interface(QStringLiteral("org.kde.KWin"),
++                                         QStringLiteral("/Effects"),
++                                         QDBusConnection::sessionBus());
++    interface.reconfigureEffect(QStringLiteral("mousepos"));
++}
++
++void MousePosEffectConfig::defaults()
++{
++    KCModule::defaults();
++    checkModifiers();
++}
++
++void MousePosEffectConfig::shortcutChanged(const QKeySequence &seq)
++{
++    /*if (QAction *a = m_actionCollection->action(QStringLiteral("MousePos"))) {
++        KGlobalAccel::self()->setShortcut(a, QList<QKeySequence>() << seq, KGlobalAccel::NoAutoloading);
++    }*/
++//     m_actionCollection->writeSettings();
++    emit changed(true);
++}
++
++} // namespace
++
++#include "mousepos_config.moc"
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mousepos_config.desktop kwin-lowlatency/effects/mousepos/mousepos_config.desktop
+--- kwin-5.19.1/effects/mousepos/mousepos_config.desktop	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.desktop	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,10 @@
++[Desktop Entry]
++Type=Service
++X-KDE-ServiceTypes=KCModule
++
++X-KDE-Library=kwin_mousepos_config
++X-KDE-ParentComponents=mousepos
++
++Name=Paint cursor
++Name[es]=Pintar cursor
++Name[x-test]=xxPaint Cursorxx
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mousepos_config.h kwin-lowlatency/effects/mousepos/mousepos_config.h
+--- kwin-5.19.1/effects/mousepos/mousepos_config.h	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.h	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,62 @@
++/********************************************************************
++ KWin - the KDE window manager
++ This file is part of the KDE project.
++
++Copyright (C) 2007 Rivo Laks <rivolaks@hot.ee>
++Copyright (C) 2010 Jorge Mata <matamax123@gmail.com>
++
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; either version 2 of the License, or
++(at your option) any later version.
++
++This program is distributed in the hope that it will be useful,
++but WITHOUT ANY WARRANTY; without even the implied warranty of
++MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++GNU General Public License for more details.
++
++You should have received a copy of the GNU General Public License
++along with this program.  If not, see <http://www.gnu.org/licenses/>.
++*********************************************************************/
++
++#ifndef KWIN_MOUSEPOS_CONFIG_H
++#define KWIN_MOUSEPOS_CONFIG_H
++
++#include <kcmodule.h>
++
++#include "ui_mousepos_config.h"
++
++class KActionCollection;
++
++namespace KWin
++{
++
++class MousePosEffectConfigForm : public QWidget, public Ui::MousePosEffectConfigForm
++{
++    Q_OBJECT
++public:
++    explicit MousePosEffectConfigForm(QWidget* parent);
++};
++
++class MousePosEffectConfig : public KCModule
++{
++    Q_OBJECT
++public:
++    explicit MousePosEffectConfig(QWidget* parent = 0, const QVariantList& args = QVariantList());
++    ~MousePosEffectConfig();
++
++public Q_SLOTS:
++    virtual void save();
++    virtual void load();
++    virtual void defaults();
++private Q_SLOTS:
++    void shortcutChanged(const QKeySequence &seq);
++private:
++    void checkModifiers();
++    MousePosEffectConfigForm* m_ui;
++    KActionCollection* m_actionCollection;
++};
++
++} // namespace
++
++#endif
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mouseposconfig.kcfgc kwin-lowlatency/effects/mousepos/mouseposconfig.kcfgc
+--- kwin-5.19.1/effects/mousepos/mouseposconfig.kcfgc	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mouseposconfig.kcfgc	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,5 @@
++File=mousepos.kcfg
++ClassName=MousePosConfig
++NameSpace=KWin
++Singleton=true
++Mutators=true
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mousepos_config.ui kwin-lowlatency/effects/mousepos/mousepos_config.ui
+--- kwin-5.19.1/effects/mousepos/mousepos_config.ui	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos_config.ui	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<ui version="4.0">
++ <class>KWin::MousePosEffectConfigForm</class>
++ <widget class="QWidget" name="KWin::MousePosEffectConfigForm">
++  <property name="geometry">
++   <rect>
++    <x>0</x>
++    <y>0</y>
++    <width>400</width>
++    <height>36</height>
++   </rect>
++  </property>
++  <layout class="QVBoxLayout" name="verticalLayout">
++   <item>
++    <widget class="QCheckBox" name="kcfg_mpMotionBlur">
++     <property name="text">
++      <string>Motion blur</string>
++     </property>
++    </widget>
++   </item>
++  </layout>
++ </widget>
++ <resources/>
++ <connections/>
++</ui>
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mousepos.cpp kwin-lowlatency/effects/mousepos/mousepos.cpp
+--- kwin-5.19.1/effects/mousepos/mousepos.cpp	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos.cpp	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,236 @@
++/********************************************************************
++ KWin - the KDE window manager
++ This file is part of the KDE project.
++
++Copyright (C) 2006 Lubos Lunak <l.lunak@kde.org>
++Copyright (C) 2010 Jorge Mata <matamax123@gmail.com>
++
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; either version 2 of the License, or
++(at your option) any later version.
++
++This program is distributed in the hope that it will be useful,
++but WITHOUT ANY WARRANTY; without even the implied warranty of
++MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++GNU General Public License for more details.
++
++You should have received a copy of the GNU General Public License
++along with this program.  If not, see <http://www.gnu.org/licenses/>.
++*********************************************************************/
++
++#include "mousepos.h"
++
++// KConfigSkeleton
++#include "mouseposconfig.h"
++
++#include <QAction>
++#include <QPainter>
++#include <QTime>
++#include <QMatrix4x4>
++
++#include <kwinconfig.h>
++#include <kwinglutils.h>
++#include <kwinxrenderutils.h>
++
++#include <KGlobalAccel>
++#include <KLocalizedString>
++
++#include <math.h>
++
++namespace KWin
++{
++
++MousePosEffect::MousePosEffect()
++    : m_active(false)
++    , m_inited(false)
++    , m_valid(true)
++{
++    initConfig<MousePosConfig>();
++    m_mousePolling = false;
++
++    m_action = new QAction(this);
++    m_action->setObjectName(QStringLiteral("MousePos"));
++    m_action->setText(i18n("Paint cursor"));
++    //KGlobalAccel::self()->setDefaultShortcut(m_action, QList<QKeySequence>());
++    //KGlobalAccel::self()->setShortcut(m_action, QList<QKeySequence>());
++    //effects->registerGlobalShortcut(QKeySequence(), m_action);
++
++    connect(m_action, SIGNAL(triggered(bool)), this, SLOT(toggle()));
++
++    connect(effects, SIGNAL(mouseChanged(QPoint,QPoint,Qt::MouseButtons,Qt::MouseButtons,Qt::KeyboardModifiers,Qt::KeyboardModifiers)),
++                     SLOT(slotMouseChanged(QPoint,QPoint,Qt::MouseButtons,Qt::MouseButtons,Qt::KeyboardModifiers,Qt::KeyboardModifiers)));
++    reconfigure(ReconfigureAll);
++    if (!m_mousePolling) {
++      effects->startMousePolling();
++      m_mousePolling = true;
++    }
++}
++
++MousePosEffect::~MousePosEffect()
++{
++    if (m_mousePolling)
++        effects->stopMousePolling();
++}
++
++void MousePosEffect::reconfigure(ReconfigureFlags)
++{
++    MousePosConfig::self()->read();
++}
++
++void MousePosEffect::prePaintScreen(ScreenPrePaintData& data, int time)
++{
++    if (m_active) {
++        QTime t = QTime::currentTime();
++        //m_lastRect[0].moveCenter(cursorPos());
++        //m_lastRect[1].moveCenter(cursorPos());
++        m_union=m_lastRect[0].united(m_lastRect[1]);
++        data.paint |= m_union.adjusted(-1,-1,1,1);
++    }
++    effects->prePaintScreen(data, time);
++}
++
++bool MousePosEffect::loadData()
++{
++    m_inited = true;
++    printf("load data!\n");
++
++    m_shader = ShaderManager::instance()->generateShaderFromResources(ShaderTrait::MapTexture, QString("motion.vert"), QStringLiteral("motion.frag"));
++    if (!m_shader->isValid()) {
++        printf("failure.\n");
++        qCCritical(KWINEFFECTS) << "The shader failed to load!";
++        return false;
++    }
++    printf("shader loaded.\n");
++    return true;
++}
++
++void MousePosEffect::paintScreen(int mask, const QRegion& region, ScreenPaintData& data)
++{
++    effects->paintScreen(mask, region, data);   // paint normal screen
++    if (!m_active)
++        return;
++    auto c = xcbConnection();
++
++    if (m_valid && !m_inited)
++        m_valid = loadData();
++
++    if ( effects->isOpenGLCompositing()) {
++        QScopedPointer<xcb_xfixes_get_cursor_image_reply_t, QScopedPointerPodDeleter> cursor(
++        xcb_xfixes_get_cursor_image_reply(c,
++                                          xcb_xfixes_get_cursor_image_unchecked(c),
++                                          nullptr));
++    if (cursor.isNull()) {
++        return;
++    }       
++            QImage img = QImage((uchar *) xcb_xfixes_get_cursor_image_cursor_image(cursor.data()), cursor->width, cursor->height,
++                      QImage::Format_ARGB32_Premultiplied);
++            
++            if (img.isNull()) {
++                return;
++            }
++            m_cursorTexture.reset(new GLTexture(img));
++    // get cursor position in projection coordinates
++    if (!m_cursorTexture) {
++      return;
++    }
++    const QRect cursorRect(0, 0, m_cursorTexture->width(), m_cursorTexture->height());
++    QMatrix4x4 mvp = data.projectionMatrix();
++    mvp.translate(cursor->x-cursor->xhot, cursor->y-cursor->yhot);
++    
++    // handle transparence
++    glEnable(GL_BLEND);
++    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
++    
++    // paint texture in cursor offset
++    if (MousePosConfig::motionBlur()) {
++      m_cursorTexture->bind();
++      ShaderBinder binder(m_shader);
++      binder.shader()->setUniform(GLShader::ModelViewProjectionMatrix, mvp);
++      binder.shader()->setUniform("viewport",QVector2D(3840,2160));
++      binder.shader()->setUniform("in_center",QVector2D(0.0f,0.0f));
++      binder.shader()->setUniform("in_vel",QVector4D(((float)(cursor->x-cursor->xhot)-m_prevX)/(float)cursorRect.width()
++      ,((float)(cursor->y-cursor->yhot)-m_prevY)/(float)cursorRect.height()
++      ,0.0f,32.0f));
++      //binder.shader()->setUniform("in_pos",QVector2D(cursor->x-cursor->xhot+16, cursor->y-cursor->yhot));
++      binder.shader()->setUniform("in_pos",QVector2D(0,0));
++      binder.shader()->setUniform("in_sizes",QVector2D(cursorRect.width(),cursorRect.height()));
++      m_cursorTexture->render(QRegion(cursorRect), cursorRect);
++      m_cursorTexture->unbind();
++    } else {
++      m_cursorTexture->bind();
++      ShaderBinder obinder(ShaderTrait::MapTexture);
++      obinder.shader()->setUniform(GLShader::ModelViewProjectionMatrix, mvp);
++      m_cursorTexture->render(QRegion(cursorRect), cursorRect);
++      m_cursorTexture->unbind();
++    }
++
++    glDisable(GL_BLEND);
++    m_cursorTexture.reset(NULL);
++    
++    m_prevX=cursor->x-cursor->xhot;
++    m_prevY=cursor->y-cursor->yhot;
++    m_lastRect[1]=m_lastRect[0];
++    m_lastRect[0]=cursorRect;
++    m_lastRect[0].moveTo(m_prevX,m_prevY);
++    }
++}
++
++void MousePosEffect::postPaintScreen()
++{
++    if (m_lastRect[0]!=m_lastRect[1]) {
++      effects->addRepaint(m_lastRect[0].adjusted(-1,-1,1,1));
++    }
++    effects->postPaintScreen();
++}
++
++bool MousePosEffect::init()
++{
++    effects->makeOpenGLContextCurrent();
++    m_lastRect[0].moveCenter(cursorPos());
++    m_lastRect[1].moveCenter(cursorPos());
++    m_active = true;
++    printf("init...\n");
++    return true;
++}
++
++void MousePosEffect::toggle()
++{
++    m_mousePolling=true;
++    m_active=true;
++    printf("toggle\n");
++/*
++    if (m_mousePolling)
++        return;
++
++    if (m_active) {
++        m_active = false;
++    } else if (!init()) {
++        return;
++    }*/
++    effects->addRepaint(m_lastRect[0].adjusted(-1,-1,1,1));
++}
++
++void MousePosEffect::slotMouseChanged(const QPoint&, const QPoint&,
++                                        Qt::MouseButtons, Qt::MouseButtons,
++                                        Qt::KeyboardModifiers modifiers, Qt::KeyboardModifiers)
++{
++  if (!m_mousePolling) // we didn't ask for it but maybe someone else did...
++    return;
++  if (!m_active && !init()) {
++    return;
++  }
++  m_union=m_lastRect[0].united(m_lastRect[1]);
++  effects->addRepaint(m_lastRect[1].adjusted(-1,-1,1,1));
++}
++
++void MousePosEffect::loadTexture()
++{
++}
++
++bool MousePosEffect::isActive() const
++{
++    return m_active;
++}
++
++} // namespace
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mousepos.h kwin-lowlatency/effects/mousepos/mousepos.h
+--- kwin-5.19.1/effects/mousepos/mousepos.h	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos.h	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,80 @@
++/********************************************************************
++ KWin - the KDE window manager
++ This file is part of the KDE project.
++
++Copyright (C) 2006 Lubos Lunak <l.lunak@kde.org>
++Copyright (C) 2010 Jorge Mata <matamax123@gmail.com>
++
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; either version 2 of the License, or
++(at your option) any later version.
++
++This program is distributed in the hope that it will be useful,
++but WITHOUT ANY WARRANTY; without even the implied warranty of
++MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++GNU General Public License for more details.
++
++You should have received a copy of the GNU General Public License
++along with this program.  If not, see <http://www.gnu.org/licenses/>.
++*********************************************************************/
++
++#ifndef KWIN_MOUSEPOS_H
++#define KWIN_MOUSEPOS_H
++
++#include <kwineffects.h>
++
++class QAction;
++
++namespace KWin
++{
++class GLTexture;
++
++class MousePosEffect
++    : public Effect
++{
++    Q_OBJECT
++    Q_PROPERTY(bool mousePolling READ isMousePolling)
++public:
++    MousePosEffect();
++    virtual ~MousePosEffect();
++    virtual void prePaintScreen(ScreenPrePaintData& data, int time);
++    virtual void paintScreen(int mask, const QRegion& region, ScreenPaintData& data);
++    virtual void postPaintScreen();
++    virtual void reconfigure(ReconfigureFlags);
++    virtual bool isActive() const;
++
++    // for properties
++    bool isMousePolling() const {
++        return m_mousePolling;
++    }
++protected:
++    bool loadData();
++private Q_SLOTS:
++    void toggle();
++    void slotMouseChanged(const QPoint& pos, const QPoint& old,
++                              Qt::MouseButtons buttons, Qt::MouseButtons oldbuttons,
++                              Qt::KeyboardModifiers modifiers, Qt::KeyboardModifiers oldmodifiers);
++private:
++    bool init();
++    void loadTexture();
++    QRect m_lastRect[2];
++    QRect m_union;
++    bool m_active, m_mousePolling;
++    float m_angle;
++    float m_angleBase;
++#ifdef KWIN_HAVE_XRENDER_COMPOSITING
++    QSize m_size[2];
++#endif
++    QAction* m_action;
++    QScopedPointer<GLTexture> m_cursorTexture;
++    Qt::KeyboardModifiers m_modifiers;
++    bool m_inited;
++    bool m_valid;
++    GLShader* m_shader;
++    float m_prevX, m_prevY;
++};
++
++} // namespace
++
++#endif
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/mousepos/mousepos.kcfg kwin-lowlatency/effects/mousepos/mousepos.kcfg
+--- kwin-5.19.1/effects/mousepos/mousepos.kcfg	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/effects/mousepos/mousepos.kcfg	2020-06-19 23:40:45.500649896 +0300
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
++      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
++                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
++    <kcfgfile arg="true"/>
++    <group name="Effect-MousePos">
++        <entry name="MotionBlur" type="Bool">
++            <default>false</default>
++        </entry>
++    </group>
++</kcfg>
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/presentwindows/presentwindows_config.ui kwin-lowlatency/effects/presentwindows/presentwindows_config.ui
+--- kwin-5.19.1/effects/presentwindows/presentwindows_config.ui	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/effects/presentwindows/presentwindows_config.ui	2020-06-19 23:40:45.501649896 +0300
+@@ -164,6 +164,11 @@
+           <string>(Un-)Minimize window</string>
+          </property>
+         </item>
++        <item>
++         <property name="text">
++          <string>Close window</string>
++         </property>
++        </item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects/shaders.qrc kwin-lowlatency/effects/shaders.qrc
+--- kwin-5.19.1/effects/shaders.qrc	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/effects/shaders.qrc	2020-06-19 23:40:45.502649897 +0300
+@@ -6,6 +6,8 @@
+   <file alias="cylinder.vert">cube/data/1.10/cylinder.vert</file>
+   <file alias="sphere.vert">cube/data/1.10/sphere.vert</file>
+   <file alias="invert.frag">invert/data/1.10/invert.frag</file>
++  <file alias="motion.vert">mousepos/data/1.10/motion.vert</file>
++  <file alias="motion.frag">mousepos/data/1.10/motion.frag</file>
+   <file alias="lookingglass.frag">lookingglass/data/1.10/lookingglass.frag</file>
+   <file alias="blinking-startup-fragment.glsl">startupfeedback/data/1.10/blinking-startup-fragment.glsl</file>
+ </qresource>
+@@ -16,6 +18,8 @@
+   <file alias="cylinder.vert">cube/data/1.40/cylinder.vert</file>
+   <file alias="sphere.vert">cube/data/1.40/sphere.vert</file>
+   <file alias="invert.frag">invert/data/1.40/invert.frag</file>
++  <file alias="motion.vert">mousepos/data/1.40/motion.vert</file>
++  <file alias="motion.frag">mousepos/data/1.40/motion.frag</file>
+   <file alias="lookingglass.frag">lookingglass/data/1.40/lookingglass.frag</file>
+   <file alias="blinking-startup-fragment.glsl">startupfeedback/data/1.40/blinking-startup-fragment.glsl</file>
+ </qresource>
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/effects.cpp kwin-lowlatency/effects.cpp
+--- kwin-5.19.1/effects.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/effects.cpp	2020-06-19 23:40:45.487649894 +0300
+@@ -656,6 +656,7 @@
+     }
+     const bool activeChanged = (e == nullptr || fullscreen_effect == nullptr);
+     fullscreen_effect = e;
++    m_compositor->checkUnredirect();
+     emit activeFullScreenEffectChanged();
+     if (activeChanged) {
+         emit hasActiveFullScreenEffectChanged();
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/HACKING.md kwin-lowlatency/HACKING.md
+--- kwin-5.19.1/HACKING.md	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/HACKING.md	2020-06-19 23:40:45.456649887 +0300
+@@ -21,13 +21,16 @@
+ 
+ To start a nested KWin Wayland use:
+ 
+-    cd build
+-    cd bin
+-    QT_PLUGIN_PATH=`pwd` dbus-run-session ./kwin_wayland --xwayland --socket=wayland-1
++```
++cd build
++QT_PLUGIN_PATH="$PWD/bin" dbus-run-session ./bin/kwin_wayland --xwayland --socket=wayland-1
++```
+ 
+ The socket option is not required if KWin is started from an X11 session. On Wayland of course a socket not matching the session's socket must be chosen. To show windows in the nested KWin adjust the environment variables DISPLAY (for X11 windows) and WAYLAND_DISPLAY (for Wayland windows). Alternatively it's possible to pass applications to launch as command line arguments to kwin_wayland command. E.g.
+ 
+-    QT_PLUGIN_PATH=`pwd` dbus-run-session ./kwin_wayland --xwayland --socket=wayland-1 konsole
++```
++QT_PLUGIN_PATH="$PWD/bin" dbus-run-session ./bin/kwin_wayland --xwayland --socket=wayland-1 konsole
++```
+ 
+ Will start a konsole in the nested KWin.
+ 
+@@ -47,9 +50,10 @@
+ 
+ KWin for the X11 windowing system cannot be tested with a nested Wayland setup. Instead the common way is to run KWin and replace the existing window manager of the X session:
+ 
+-    cd build
+-    cd bin
+-    QT_PLUGIN_PATH=`pwd` ./kwin_x11 --replace
++```
++cd build
++QT_PLUGIN_PATH="$PWD/bin" ./bin/kwin_x11 --replace
++```
+ 
+ In this case also the current DBus session should be used and dbus-run-session should not be used. Of course it's only possible to start kwin_x11 in an X session. On Wayland kwin_x11 will refuse to start.
+ 
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/internal_client.cpp kwin-lowlatency/internal_client.cpp
+--- kwin-5.19.1/internal_client.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/internal_client.cpp	2020-06-19 23:40:45.508649898 +0300
+@@ -590,4 +590,9 @@
+     commitGeometry(clientRectToFrameRect(m_internalWindow->geometry()));
+ }
+ 
++bool InternalClient::shouldUnredirect() const
++{
++    return false;
++}
++
+ }
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/internal_client.h kwin-lowlatency/internal_client.h
+--- kwin-5.19.1/internal_client.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/internal_client.h	2020-06-19 23:40:45.508649898 +0300
+@@ -46,6 +46,7 @@
+     QSize minSize() const override;
+     QSize maxSize() const override;
+     void debug(QDebug &stream) const override;
++    bool shouldUnredirect() const override;
+     QRect transparentRect() const override;
+     NET::WindowType windowType(bool direct = false, int supported_types = 0) const override;
+     double opacity() const override;
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/kcmkwin/kwincompositing/compositing.ui kwin-lowlatency/kcmkwin/kwincompositing/compositing.ui
+--- kwin-5.19.1/kcmkwin/kwincompositing/compositing.ui	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/kcmkwin/kwincompositing/compositing.ui	2020-06-19 23:40:45.509649898 +0300
+@@ -6,8 +6,8 @@
+    <rect>
+     <x>0</x>
+     <y>0</y>
+-    <width>526</width>
+-    <height>395</height>
++    <width>628</width>
++    <height>581</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+@@ -292,6 +292,159 @@
+      </property>
+     </widget>
+    </item>
++   <item row="14" column="1">
++    <widget class="QCheckBox" name="kcfg_unredirectFullscreen">
++     <property name="toolTip">
++      <string>Applications do not have to set any hint to suspend compositing when the window is full-screen.
++              This delivers lower latency and has no delay when compared to the other option.
++              Some people have reported crashes under Intel, but I am not sure if this is the case.</string>
++     </property>
++     <property name="text">
++      <string>Suspend compositor for full-screen windows</string>
++     </property>
++    </widget>
++   </item>
++   <item row="15" column="0">
++    <widget class="QLabel" name="label_X">
++     <property name="text">
++      <string>Animation curve:</string>
++     </property>
++    </widget>
++   </item>
++   <item row="15" column="1">
++    <widget class="QComboBox" name="kcfg_animationCurve">
++     <item>
++      <property name="text">
++       <string>Linear</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>Quadratic</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>Sine</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>Cubic</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>Quartic</string>
++      </property>
++     </item>
++    </widget>
++   </item>
++   <item row="16" column="0">
++    <widget class="QLabel" name="label_Y">
++     <property name="text">
++      <string>Latency/stutter control:</string>
++     </property>
++    </widget>
++   </item>
++   <item row="16" column="1">
++    <widget class="QComboBox" name="kcfg_latencyControl">
++     <item>
++      <property name="text">
++       <string>Less stutter</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>Balanced</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>Lower latency</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>Even lower latency</string>
++      </property>
++     </item>
++    </widget>
++   </item>
++   <item row="17" column="0">
++    <widget class="QLabel" name="label_9">
++     <property name="text">
++      <string>Maximum latency reduction:</string>
++     </property>
++    </widget>
++   </item>
++   <item row="17" column="1">
++    <widget class="QSpinBox" name="kcfg_maxLatency">
++     <property name="maximum">
++      <number>8</number>
++     </property>
++    </widget>
++   </item>
++   <item row="18" column="0">
++    <widget class="QLabel" name="label_10">
++     <property name="text">
++      <string>Minimum latency reduction:</string>
++     </property>
++    </widget>
++   </item>
++   <item row="18" column="1">
++    <widget class="QSpinBox" name="kcfg_minLatency">
++     <property name="maximum">
++      <number>8</number>
++     </property>
++    </widget>
++   </item>
++   <item row="19" column="1">
++    <widget class="QLabel" name="label_11">
++     <property name="text">
++      <string>(units in milliseconds)</string>
++     </property>
++     <property name="alignment">
++      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
++     </property>
++    </widget>
++   </item>
++   <item row="20" column="1">
++    <widget class="QComboBox" name="kcfg_vsyncMechanism">
++     <item>
++      <property name="text">
++       <string>Automatic</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>None and just hope for the best (NVIDIA 435.17+)</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>SGI video sync (NVIDIA pre-435, recent Mesa/X versions may hang)</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>glFinish (Mesa hang workaround for AMD, maybe works on NVIDIA too)</string>
++      </property>
++     </item>
++     <item>
++      <property name="text">
++       <string>SGI video sync with horrible hack (Mesa hang workaround for Intel)</string>
++      </property>
++     </item>
++    </widget>
++   </item>
++   <item row="20" column="0">
++    <widget class="QLabel" name="label_12">
++     <property name="text">
++      <string>VSync mechanism:</string>
++     </property>
++    </widget>
++   </item>
+   </layout>
+  </widget>
+  <customwidgets>
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/kcmkwin/kwincompositing/kwincompositing_setting.kcfg kwin-lowlatency/kcmkwin/kwincompositing/kwincompositing_setting.kcfg
+--- kwin-5.19.1/kcmkwin/kwincompositing/kwincompositing_setting.kcfg	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/kcmkwin/kwincompositing/kwincompositing_setting.kcfg	2020-06-19 23:40:45.509649898 +0300
+@@ -69,6 +69,43 @@
+            <default>true</default>
+        </entry>
+ 
++       <entry name="unredirectFullscreen" key="UnredirectFullscreen" type="Bool">
++           <default>true</default>
++       </entry>
++
++       <entry name="animationCurve" key="AnimationCurve" type="Int">
++           <default>2</default>
++       </entry>
++
++       <entry name="latencyControl" key="LatencyControl" type="Enum">
++           <default>Balance</default>
++           <choices>
++               <choice name="Responsive" value="0" />
++               <choice name="Balance" value="1" />
++               <choice name="LowLatency" value="2" />
++               <choice name="LowerLatency" value="3" />
++           </choices>
++       </entry>
++
++       <entry name="vsyncMechanism" key="VSyncMechanism" type="Enum">
++           <default>Automatic</default>
++           <choices>
++               <choice name="Automatic" value="0" />
++               <choice name="HopeBest" value="1" />
++               <choice name="SGIVideoSync" value="2" />
++               <choice name="glFinish" value="3" />
++               <choice name="SGIHack" value="4" />
++           </choices>
++       </entry>
++
++       <entry name="maxLatency" key="MaxLatency" type="Int">
++           <default>8</default>
++       </entry>
++
++       <entry name="minLatency" key="MinLatency" type="Int">
++           <default>8</default>
++       </entry>
++
+     </group>
+ 
+ </kcfg>
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/kcmkwin/kwincompositing/main.cpp kwin-lowlatency/kcmkwin/kwincompositing/main.cpp
+--- kwin-5.19.1/kcmkwin/kwincompositing/main.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/kcmkwin/kwincompositing/main.cpp	2020-06-19 23:40:45.509649898 +0300
+@@ -26,6 +26,7 @@
+ #include <QAction>
+ #include <QApplication>
+ #include <QLayout>
++#include <QSpinBox>
+ 
+ #include <kcmodule.h>
+ #include <kservice.h>
+@@ -116,6 +117,7 @@
+ void KWinCompositingKCM::init()
+ {
+     auto currentIndexChangedSignal = static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged);
++    auto valueChangedSignal = static_cast<void(QSpinBox::*)(int)>(&QSpinBox::valueChanged);
+ 
+     // animation speed
+     m_form.animationDurationFactor->setMaximum(s_animationMultipliers.size() - 1);
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/kwin.kcfg kwin-lowlatency/kwin.kcfg
+--- kwin-5.19.1/kwin.kcfg	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/kwin.kcfg	2020-06-19 23:40:45.549649907 +0300
+@@ -248,12 +248,40 @@
+             <min>4</min>
+             <max>6</max>
+         </entry>
++        <entry name="UnredirectFullscreen" type="Bool">
++            <default>false</default>
++        </entry>
+         <entry name="GLPlatformInterface" type="String">
+             <default>glx</default>
+         </entry>
+         <entry name="WindowsBlockCompositing" type="Bool">
+             <default>true</default>
+         </entry>
++        <entry name="AnimationCurve" type="Int">
++            <default>2</default>
++            <min>0</min>
++            <max>4</max>
++        </entry>
++        <entry name="LatencyControl" type="Int">
++            <default>1</default>
++            <min>0</min>
++            <max>3</max>
++        </entry>
++        <entry name="MaxLatency" type="Int">
++            <default>8</default>
++            <min>0</min>
++            <max>8</max>
++        </entry>
++        <entry name="MinLatency" type="Int">
++            <default>0</default>
++            <min>0</min>
++            <max>8</max>
++        </entry>
++        <entry name="VSyncMechanism" type="Int">
++            <default>0</default>
++            <min>0</min>
++            <max>4</max>
++        </entry>
+     </group>
+     <group name="TabBox">
+         <entry name="ShowDelay" type="Bool">
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/layers.cpp kwin-lowlatency/layers.cpp
+--- kwin-5.19.1/layers.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/layers.cpp	2020-06-19 23:40:45.549649907 +0300
+@@ -732,6 +732,9 @@
+     if (m_xStackingDirty) {
+         const_cast<Workspace*>(this)->updateXStackingOrder();
+     }
++    if (m_compositor) {
++        const_cast<Workspace*>(this)->m_compositor->checkUnredirect();
++    }
+     return x_stacking;
+ }
+ 
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/main_x11.cpp kwin-lowlatency/main_x11.cpp
+--- kwin-5.19.1/main_x11.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/main_x11.cpp	2020-06-19 23:40:45.554649908 +0300
+@@ -339,6 +339,7 @@
+ {
+     KWin::Application::setupMalloc();
+     KWin::Application::setupLocalizedString();
++    KCrash::setDrKonqiEnabled(false);
+ 
+     int primaryScreen = 0;
+     xcb_connection_t *c = xcb_connect(nullptr, &primaryScreen);
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/options.cpp kwin-lowlatency/options.cpp
+--- kwin-5.19.1/options.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/options.cpp	2020-06-19 23:40:45.554649908 +0300
+@@ -70,12 +70,17 @@
+                 }
+             }
+         }
++        // wait who in the heck said "50Hz BS"?!
++        // hey come on I still play Turrican or some other Amiga/C64 stuff!
++        // yeah I have not in a while but COME ON THERE IS **NO** REASON to
++        // attack the PAL territory!
+         rate = qRound(Screens::self()->refreshRate(syncScreen)); // TODO forward float precision?
+     }
+ 
+     // 0Hz or less is invalid, so we fallback to a default rate
++    // I play Turrican. ok? so I need my 50Hz back!
+     if (rate <= 0)
+-        rate = 60; // and not shitty 50Hz for sure! *grrr*
++        rate = 300; // and not shitty insults to my 50Hz for sure! *grrr*
+ 
+     // QTimer gives us 1msec (1000Hz) at best, so we ignore anything higher;
+     // however, additional throttling prevents very high rates from taking place anyway
+@@ -109,6 +114,7 @@
+     , m_compositingMode(Options::defaultCompositingMode())
+     , m_useCompositing(Options::defaultUseCompositing())
+     , m_hiddenPreviews(Options::defaultHiddenPreviews())
++    , m_unredirectFullscreen(Options::defaultUnredirectFullscreen())
+     , m_glSmoothScale(Options::defaultGlSmoothScale())
+     , m_xrenderSmoothScale(Options::defaultXrenderSmoothScale())
+     , m_maxFpsInterval(Options::defaultMaxFpsInterval())
+@@ -120,6 +126,11 @@
+     , m_glPreferBufferSwap(Options::defaultGlPreferBufferSwap())
+     , m_glPlatformInterface(Options::defaultGlPlatformInterface())
+     , m_windowsBlockCompositing(true)
++    , m_animationCurve(Options::defaultAnimationCurve())
++    , m_latencyControl(Options::defaultLatencyControl())
++    , m_maxLatency(Options::defaultMaxLatency())
++    , m_minLatency(Options::defaultMinLatency())
++    , m_vsyncMechanism(Options::defaultVsyncMechanism())
+     , OpTitlebarDblClick(Options::defaultOperationTitlebarDblClick())
+     , CmdActiveTitlebar1(Options::defaultCommandActiveTitlebar1())
+     , CmdActiveTitlebar2(Options::defaultCommandActiveTitlebar2())
+@@ -589,6 +600,20 @@
+     emit hiddenPreviewsChanged();
+ }
+ 
++void Options::setUnredirectFullscreen(bool unredirectFullscreen)
++{
++    //if (GLPlatform::instance()->driver() == Driver_Intel)
++        //unredirectFullscreen = false; // bug #252817
++    if (m_unredirectFullscreen == unredirectFullscreen) {
++        return;
++    }
++    //if (GLPlatform::instance()->driver() == Driver_Intel) { // write back the value
++        //KConfigGroup(m_settings->config(), "Compositing").writeEntry("UnredirectFullscreen", false);
++    //}
++    m_unredirectFullscreen = unredirectFullscreen;
++    emit unredirectFullscreenChanged();
++}
++
+ void Options::setGlSmoothScale(int glSmoothScale)
+ {
+     if (m_glSmoothScale == glSmoothScale) {
+@@ -670,6 +695,46 @@
+     emit windowsBlockCompositingChanged();
+ }
+ 
++void Options::setAnimationCurve(int val) {
++  if (m_animationCurve == val) {
++    return;
++  }
++  m_animationCurve = val;
++  emit animationCurveChanged();
++}
++
++void Options::setLatencyControl(int val) {
++  if (m_latencyControl == val) {
++    return;
++  }
++  m_latencyControl = val;
++  emit latencyControlChanged();
++}
++
++void Options::setMaxLatency(int val) {
++  if (m_maxLatency == val) {
++    return;
++  }
++  m_maxLatency = val;
++  emit maxLatencyChanged();
++}
++
++void Options::setMinLatency(int val) {
++  if (m_minLatency == val) {
++    return;
++  }
++  m_minLatency = val;
++  emit minLatencyChanged();
++}
++
++void Options::setVsyncMechanism(int val) {
++  if (m_vsyncMechanism == val) {
++    return;
++  }
++  m_vsyncMechanism = val;
++  emit vsyncMechanismChanged();
++}
++
+ void Options::setGlPreferBufferSwap(char glPreferBufferSwap)
+ {
+     if (glPreferBufferSwap == 'a') {
+@@ -839,6 +904,11 @@
+     setElectricBorderCornerRatio(m_settings->electricBorderCornerRatio());
+     setWindowsBlockCompositing(m_settings->windowsBlockCompositing());
+ 
++    setAnimationCurve(m_settings->animationCurve());
++    setLatencyControl(m_settings->latencyControl());
++    setMaxLatency(m_settings->maxLatency());
++    setMinLatency(m_settings->minLatency());
++    setVsyncMechanism(m_settings->vSyncMechanism());
+ }
+ 
+ bool Options::loadCompositingConfig (bool force)
+@@ -938,6 +1008,8 @@
+     else if (hps == 6)
+         previews = HiddenPreviewsAlways;
+     setHiddenPreviews(previews);
++    
++    setUnredirectFullscreen(config.readEntry("UnredirectFullscreen",Options::defaultUnredirectFullscreen()));
+ 
+     auto interfaceToKey = [](OpenGLPlatformInterface interface) {
+         switch (interface) {
+@@ -1089,4 +1161,9 @@
+     return m_useCompositing || kwinApp()->platform()->requiresCompositing();
+ }
+ 
++bool Options::isUnredirectFullscreen() const
++{
++    return m_unredirectFullscreen && !kwinApp()->platform()->requiresCompositing();
++}
++
+ } // namespace
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/options.h kwin-lowlatency/options.h
+--- kwin-5.19.1/options.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/options.h	2020-06-19 23:40:45.554649908 +0300
+@@ -163,6 +163,7 @@
+     Q_PROPERTY(int compositingMode READ compositingMode WRITE setCompositingMode NOTIFY compositingModeChanged)
+     Q_PROPERTY(bool useCompositing READ isUseCompositing WRITE setUseCompositing NOTIFY useCompositingChanged)
+     Q_PROPERTY(int hiddenPreviews READ hiddenPreviews WRITE setHiddenPreviews NOTIFY hiddenPreviewsChanged)
++    Q_PROPERTY(bool unredirectFullscreen READ isUnredirectFullscreen WRITE setUnredirectFullscreen NOTIFY unredirectFullscreenChanged)
+     /**
+      * 0 = no, 1 = yes when transformed,
+      * 2 = try trilinear when transformed; else 1,
+@@ -535,6 +536,7 @@
+     HiddenPreviews hiddenPreviews() const {
+         return m_hiddenPreviews;
+     }
++    bool isUnredirectFullscreen() const;
+     // OpenGL
+     // 0 = no, 1 = yes when transformed,
+     // 2 = try trilinear when transformed; else 1,
+@@ -579,6 +581,23 @@
+     {
+         return m_windowsBlockCompositing;
+     }
++    
++    int animationCurve() const {
++      return m_animationCurve;
++    }
++    int latencyControl() const {
++      return m_latencyControl;
++    }
++    int maxLatency() const {
++      return m_maxLatency;
++    }
++    int minLatency() const {
++      return m_minLatency;
++    }
++    int vsyncMechanism() const {
++      return m_vsyncMechanism;
++    }
++
+ 
+     QStringList modifierOnlyDBusShortcut(Qt::KeyboardModifier mod) const;
+ 
+@@ -628,6 +647,7 @@
+     void setCompositingMode(int compositingMode);
+     void setUseCompositing(bool useCompositing);
+     void setHiddenPreviews(int hiddenPreviews);
++    void setUnredirectFullscreen(bool unredirectFullscreen);
+     void setGlSmoothScale(int glSmoothScale);
+     void setXrenderSmoothScale(bool xrenderSmoothScale);
+     void setMaxFpsInterval(qint64 maxFpsInterval);
+@@ -639,6 +659,11 @@
+     void setGlPreferBufferSwap(char glPreferBufferSwap);
+     void setGlPlatformInterface(OpenGLPlatformInterface interface);
+     void setWindowsBlockCompositing(bool set);
++    void setAnimationCurve(int curve);
++    void setLatencyControl(int index);
++    void setMaxLatency(int val);
++    void setMinLatency(int val);
++    void setVsyncMechanism(int val);
+ 
+     // default values
+     static WindowOperation defaultOperationTitlebarDblClick() {
+@@ -710,6 +735,9 @@
+     static HiddenPreviews defaultHiddenPreviews() {
+         return HiddenPreviewsShown;
+     }
++    static bool defaultUnredirectFullscreen() {
++        return true;
++    }
+     static int defaultGlSmoothScale() {
+         return 2;
+     }
+@@ -743,6 +771,21 @@
+     static OpenGLPlatformInterface defaultGlPlatformInterface() {
+         return kwinApp()->shouldUseWaylandForCompositing() ? EglPlatformInterface : GlxPlatformInterface;
+     }
++    static int defaultAnimationCurve() {
++      return 2;
++    }
++    static int defaultLatencyControl() {
++      return 1;
++    }
++    static int defaultMaxLatency() {
++      return 8;
++    }
++    static int defaultMinLatency() {
++      return 0;
++    }
++    static int defaultVsyncMechanism() {
++      return 0;
++    }
+     /**
+      * Performs loading all settings except compositing related.
+      */
+@@ -804,6 +847,7 @@
+     void compositingModeChanged();
+     void useCompositingChanged();
+     void hiddenPreviewsChanged();
++    void unredirectFullscreenChanged();
+     void glSmoothScaleChanged();
+     void xrenderSmoothScaleChanged();
+     void maxFpsIntervalChanged();
+@@ -816,6 +860,11 @@
+     void glPlatformInterfaceChanged();
+     void windowsBlockCompositingChanged();
+     void animationSpeedChanged();
++    void animationCurveChanged();
++    void latencyControlChanged();
++    void maxLatencyChanged();
++    void minLatencyChanged();
++    void vsyncMechanismChanged();
+ 
+     void configChanged();
+ 
+@@ -847,6 +896,7 @@
+     CompositingType m_compositingMode;
+     bool m_useCompositing;
+     HiddenPreviews m_hiddenPreviews;
++    bool m_unredirectFullscreen;
+     int m_glSmoothScale;
+     bool m_xrenderSmoothScale;
+     qint64 m_maxFpsInterval;
+@@ -859,6 +909,11 @@
+     GlSwapStrategy m_glPreferBufferSwap;
+     OpenGLPlatformInterface m_glPlatformInterface;
+     bool m_windowsBlockCompositing;
++    int m_animationCurve;
++    int m_latencyControl;
++    int m_maxLatency;
++    int m_minLatency;
++    int m_vsyncMechanism;
+ 
+     WindowOperation OpTitlebarDblClick;
+     WindowOperation opMaxButtonRightClick = defaultOperationMaxButtonRightClick();
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/patch.sh kwin-lowlatency/patch.sh
+--- kwin-5.19.1/patch.sh	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/patch.sh	2020-06-19 23:40:45.555649908 +0300
+@@ -0,0 +1,25 @@
++#!/bin/bash
++
++klpath=${PWD##*/}
++minorVer=1
++tinyPatch=0
++version=$(sed -rn "s/^set\(PROJECT_VERSION \"([0-9.]+)\"\)$/\1/p" CMakeLists.txt)
++
++if [ $tinyPatch -gt 0 ]; then
++  downversion=$version"."$tinyPatch
++else
++  downversion=$version
++fi
++
++cd ..
++if [ ! -e kwin-$downversion.tar.xz ]
++  then wget https://download.kde.org/stable/plasma/$version/kwin-$downversion.tar.xz || exit 1
++fi
++
++tar -xf kwin-$downversion.tar.xz
++
++if [ $minorVer -eq 1 ]
++  then filename="kwin-lowlatency-$version.patch"
++  else filename="kwin-lowlatency-$version-$minorVer.patch"
++fi
++diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-$downversion $klpath > $filename
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/plugins/platforms/x11/standalone/glxbackend.cpp kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.cpp
+--- kwin-5.19.1/plugins/platforms/x11/standalone/glxbackend.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.cpp	2020-06-19 23:40:45.565649910 +0300
+@@ -208,6 +208,61 @@
+     // Initialize OpenGL
+     GLPlatform *glPlatform = GLPlatform::instance();
+     glPlatform->detect(GlxPlatformInterface);
++    
++    //if (GLPlatform::instance()->driver() == Driver_Intel)
++        //options->setUnredirectFullscreen(false); // bug #252817
++    // HACK! please replace with a better solution soon
++    if (GLPlatform::instance()->driver() == Driver_Intel) {
++      useHorribleHack=true; // issue #13
++    }
++    // NVIDIA doesn't freeze on that wait sync function
++    if (GLPlatform::instance()->driver() == Driver_NVidia) {
++      int nvidiaVerMaj=0;
++      int nvidiaVerMin=0;
++      // version 435 blocks without having to wait for sync, issues #36, #39
++      // if the latency increases (it hasn't been the case so far), please open
++      // another bug report. thanks.
++      sscanf(GLPlatform::instance()->glVersionString().data(),"%*s NVIDIA %d.%d",&nvidiaVerMaj,&nvidiaVerMin);
++      if (nvidiaVerMaj>=435) {
++        // we don't need to wait for sync anymore. whoop!
++        useWaitSync=false;
++        hopeBest=true;
++      } else {
++        // for old or unknown NVIDIA driver
++        useWaitSync=true; // issue #17
++      }
++    }
++    // AMDGPU-PRO/Catalyst. SGI VBlank thingy.
++    if (GLPlatform::instance()->driver() == Driver_Catalyst) {
++      useWaitSync=true;
++      hopeBest=false;
++    }
++    // force VSync mechanism code
++    switch (options->vsyncMechanism()) {
++      case 1:
++        useWaitSync=false;
++        hopeBest=true;
++        useHorribleHack=false;
++        break;
++      case 2:
++        useWaitSync=true;
++        hopeBest=false;
++        useHorribleHack=false;
++        break;
++      case 3:
++        useWaitSync=false;
++        hopeBest=false;
++        useHorribleHack=false;
++        break;
++      case 4:
++        useWaitSync=true;
++        hopeBest=false;
++        useHorribleHack=true;
++        break;
++      default:
++        break;
++    }
++    
+     options->setGlPreferBufferSwap(options->glPreferBufferSwap()); // resolve autosetting
+     if (options->glPreferBufferSwap() == Options::AutoSwapStrategy)
+         options->setGlPreferBufferSwap('e'); // for unknown drivers - should not happen
+@@ -247,24 +302,21 @@
+     const bool wantSync = options->glPreferBufferSwap() != Options::NoSwapEncourage;
+     if (wantSync && glXIsDirect(display(), ctx)) {
+         if (haveSwapInterval) { // glXSwapInterval is preferred being more reliable
+-            setSwapInterval(1);
+-            setSyncsToVBlank(true);
+-            const QByteArray tripleBuffer = qgetenv("KWIN_TRIPLE_BUFFER");
+-            if (!tripleBuffer.isEmpty()) {
+-                setBlocksForRetrace(qstrcmp(tripleBuffer, "0") == 0);
+-                gs_tripleBufferUndetected = false;
+-            }
+-            gs_tripleBufferNeedsDetection = gs_tripleBufferUndetected;
+-        } else if (hasExtension(QByteArrayLiteral("GLX_SGI_video_sync"))) {
++          setSwapInterval(1); // but adds latency. see below
++        } else {
++          qCWarning(KWIN_X11STANDALONE) << "TEARING ALERT! unable to set swap interval";
++        }
++        if (hasExtension(QByteArrayLiteral("GLX_SGI_video_sync"))) {
++            // we still need this extension for lowering latency.
+             unsigned int sync;
+             if (glXGetVideoSyncSGI(&sync) == 0 && glXWaitVideoSyncSGI(1, 0, &sync) == 0) {
+                 setSyncsToVBlank(true);
+                 setBlocksForRetrace(true);
+                 haveWaitSync = true;
+             } else
+-                qCWarning(KWIN_X11STANDALONE) << "NO VSYNC! glXSwapInterval is not supported, glXWaitVideoSync is supported but broken";
++              qCWarning(KWIN_X11STANDALONE) << "HIGH LATENCY ALERT! glXWaitVideoSync is supported but broken";
+         } else
+-            qCWarning(KWIN_X11STANDALONE) << "NO VSYNC! neither glSwapInterval nor glXWaitVideoSync are supported";
++          qCWarning(KWIN_X11STANDALONE) << "HIGH LATENCY ALERT! glXWaitVideoSync is not supported";
+     } else {
+         // disable v-sync (if possible)
+         setSwapInterval(0);
+@@ -749,7 +801,6 @@
+                 }
+             }
+         } else {
+-            waitSync();
+             glXSwapBuffers(display(), glxWindow);
+         }
+         if (supportsBufferAge()) {
+@@ -766,7 +817,27 @@
+         copyPixels(lastDamage());
+         glDrawBuffer(GL_BACK);
+     }
+-
++    
++    if (useHorribleHack) {
++      // HACK HACK HACK! please replace with a better solution soon
++      unsigned int oldSync, sync;
++      glXGetVideoSyncSGI(&sync);
++      oldSync=sync;
++      while (1) {
++        glXGetVideoSyncSGI(&sync);
++        if (sync!=oldSync) break;
++        usleep(1000);
++      }
++    } else {
++      if (useWaitSync) {
++        waitSync();
++      } else {
++        if (!hopeBest) {
++          glFinish();
++        }
++      }
++    }
++    
+     setLastDamage(QRegion());
+     if (!supportsBufferAge()) {
+         glXWaitGL();
+@@ -839,15 +910,9 @@
+ 
+     setLastDamage(renderedRegion);
+ 
+-    if (!blocksForRetrace()) {
+-        // This also sets lastDamage to empty which prevents the frame from
+-        // being posted again when prepareRenderingFrame() is called.
+-        present();
+-    } else {
+-        // Make sure that the GPU begins processing the command stream
+-        // now and not the next time prepareRenderingFrame() is called.
+-        glFlush();
+-    }
++    // just present. this is the culprit.
++    // come on Roman Gilg at least acknowledge me for the discovery
++    present();
+ 
+     if (overlayWindow()->window())  // show the window only after the first pass,
+         overlayWindow()->show();   // since that pass may take long
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/plugins/platforms/x11/standalone/glxbackend.h kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.h
+--- kwin-5.19.1/plugins/platforms/x11/standalone/glxbackend.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/plugins/platforms/x11/standalone/glxbackend.h	2020-06-19 23:40:45.566649911 +0300
+@@ -118,6 +118,9 @@
+     bool m_haveINTELSwapEvent = false;
+     bool haveSwapInterval = false;
+     bool haveWaitSync = false;
++    bool useHorribleHack = false;
++    bool useWaitSync = false;
++    bool hopeBest = false;
+     Display *m_x11Display;
+     SwapProfiler m_swapProfiler;
+     friend class GlxTexture;
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/plugins/scenes/opengl/scene_opengl.cpp kwin-lowlatency/plugins/scenes/opengl/scene_opengl.cpp
+--- kwin-5.19.1/plugins/scenes/opengl/scene_opengl.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/plugins/scenes/opengl/scene_opengl.cpp	2020-06-19 23:40:45.568649911 +0300
+@@ -2080,9 +2080,15 @@
+     return s_instance;
+ }
+ 
++// the crash is here but I am not sure what causes it.
+ DecorationShadowTextureCache::~DecorationShadowTextureCache()
+ {
+-    Q_ASSERT(m_cache.isEmpty());
++    // why should we assert anything? why not just empty the cache here?
++    //Q_ASSERT(m_cache.isEmpty());
++    if (!m_cache.isEmpty()) {
++      qWarning() << "the DecorationShadowTextureCache is not empty. clearing it out. hope this doesn't crash :<";
++      m_cache.clear();
++    }
+ }
+ 
+ void DecorationShadowTextureCache::unregister(SceneOpenGLShadow *shadow)
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/po.sh kwin-lowlatency/po.sh
+--- kwin-5.19.1/po.sh	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/po.sh	2020-06-19 23:40:45.569649911 +0300
+@@ -0,0 +1,16 @@
++#!/bin/bash
++# make po
++
++klpath=${PWD##*/}
++version=$(sed -rn "s/^set\(PROJECT_VERSION \"([0-9.]+)\"\)$/\1/p" CMakeLists.txt)
++
++rm -r po
++
++cd ..
++if [ ! -e kwin-$version.tar.xz ]
++  then wget https://download.kde.org/stable/plasma/$version/kwin-$version.tar.xz || exit 1
++fi
++
++tar -xf kwin-$version.tar.xz
++
++cp -r kwin-$version/po $klpath/po
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/README.md kwin-lowlatency/README.md
+--- kwin-5.19.1/README.md	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/README.md	2020-06-19 23:40:45.456649887 +0300
+@@ -1,48 +1,294 @@
+-# KWin
++# HUGE NOTE
+ 
+-KWin is an easy to use, but flexible, composited Window Manager for Xorg windowing systems (Wayland, X11) on Linux. Its primary usage is in conjunction with a Desktop Shell (e.g. KDE Plasma Desktop). KWin is designed to go out of the way; users should not notice that they use a window manager at all. Nevertheless KWin provides a steep learning curve for advanced features, which are available, if they do not conflict with the primary mission. KWin does not have a dedicated targeted user group, but follows the targeted user group of the Desktop Shell using KWin as it's window manager.
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ BELOW.**
+ 
+-## KWin is not...
++# KWin-lowlatency
+ 
+- * a standalone window manager (c.f. openbox, i3) and does not provide any functionality belonging to a Desktop Shell.
+- * a replacement for window managers designed for use with a specific Desktop Shell (e.g. GNOME Shell)
+- * a minimalistic window manager
+- * designed for use without compositing or for X11 network transparency, though both are possible.
++KWin-lowlatency is my attempt to reduce latency and stuttering in the popular KWin compositor used in KDE.
+ 
+-# Contacting KWin development team
++## old background
++
++stock KWin has a major issue regarding stuttering. it stutters heavily, and if you don't want that, then you have the latency problem (of up to 50ms!).
++
++the rationale for such a problem is that KWin uses a weird method to paint the screen.
++instead of simply sync'ing to vblank, it uses a timer. yeah, a **timer** that is off-sync with the vblank interval.
++you can prove this by disabling VSync in the system settings. you'll see just 1 line of tearing in your screen, and well, that's the time it swaps due to the timer.
++
++in order to "fix" this under vanilla KWin, a typical solution is to insert this in kwinrc:
++
++```
++MaxFPS=200
++RefreshRate=200
++```
++
++effectively making the timer faster than the actual screen's rate, forcing VSync at some point.
++
++however, this introduces additional output lag, which varies depending on your driver, but usually it's 50ms (still too high).
++you can prove this by moving a window. you'll see the cursor being ahead of the title bar, or at least so under X.
++
++so, how to fix this? let's ditch the timer and let us access the VBlank interval directly.
++
++but how do we do that? there are several approaches, but they vary between drivers.
++
++1. by using glFinish.
++  - this is a much, **much** better solution over glXWaitVideoSyncSGI for Mesa, as it achieves the same effect and doesn't have a chance of freezing.
++2. by using glXWaitVideoSyncSGI.
++  - this solution works on Catalyst/AMDGPU-PRO. it was used before for Mesa too, but not anymore after Mesa exhibited freezes.
++3. by doing nothing at all.
++  - NVIDIA doesn't require anything in particular for this to work. the buffer swap function seems to wait for VBlank.
++4. by polling the current VBlank interval and waiting until the next one.
++  - sadly, Mesa (Intel) does not obey glFinish correctly. this is a hack, but it works.
++
++now, by doing this, we have a proper desktop without stuttering, but the lag persists...
++
++after digging deep into the code, i found this piece of code in particular, which is pretty much the culprit:
++
++```
++if (!blocksForRetrace()) {
++  // This also sets lastDamage to empty which prevents the frame from
++  // being posted again when prepareRenderingFrame() is called.
++  present();
++} else {
++  // Make sure that the GPU begins processing the command stream
++  // now and not the next time prepareRenderingFrame() is called.
++  glFlush();
++}
++```
++
++by removing this code and simply presenting as soon as possible (we're blocking for retrace anyway due to the wait-for-vblank thingy), we cut off 1 whole frame of lag!
++
++but hey, can we go further? yes, of course!
++
++now, by sleeping for a very few milliseconds (up to 8 in high-end systems) the compositor has more time for user input before rendering, which further reduces latency.
++
++the reason why only up to 8ms is because any further would leave little room for rendering, and that will actually produce more stuttering than fix it.
++
++## KWin-lowlatency is not...
++
++- perfect. it tries its best to deliver low-latency no-stutter video, but I can't promise this is always the case.
++  - as an example, it will stutter if you select another window, or if you have too many windows open.
++- truly designed for low-end systems. if you use KWin-lowlatency in one of them, you may experience stuttering.
++
++# installation
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ BELOW.**
++
++## Arch Linux
++
++[kwin-lowlatency is available in the AUR](https://aur.archlinux.org/packages/kwin-lowlatency).
++
++## Fedora
++
++ZaWertun provides pre-compiled packages [in the Copr](https://copr.fedorainfracloud.org/coprs/zawertun/kde/package/kwin-lowlatency/).
++
++## Gentoo
++
++[an overlay](https://github.com/agates/kwin-lowlatency-overlay) is available, courtesy of agates.
++
++## Manjaro
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD.**
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD.**
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD.**
++
++```
++git clone https://aur.archlinux.org/kwin-lowlatency.git
++cd kwin-lowlatency
++git checkout 16cccd1703d4f6ea8831ee2cc424f218acec95d3
++```
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++## NixOS
++
++check out pasqui23's [kwin-ll](https://github.com/pasqui23/nixpkgs/tree/kwin-ll) branch.
++
++## openSUSE Tumbleweed
++
++kwin-lowlatency can be found at [home:KAMiKAZOW:KDE](https://software.opensuse.org/download.html?project=home%3AKAMiKAZOW%3AKDE&package=kwin-lowlatency) (OBS).
++
++## Ubuntu
++
++[kwin-lowlatency PPA](https://launchpad.net/~maxiberta/+archive/ubuntu/kwin-lowlatency). thanks maxiberta!
++
++## other distributions/manual method
++
++you can compile/install this yourself if your distro isn't listed here, or if you merely want to.
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++### installing dependencies
++
++you may need to install specific dependencies before compiling. [here](https://community.kde.org/Guidelines_and_HOWTOs/Build_from_source/Install_the_dependencies) you can find a list.
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++### acquiring the source
++
++you can get the source code by using any of the following 2 methods:
++
++#### git repo clone
++
++```
++$ git clone https://github.com/tildearrow/kwin-lowlatency.git
++$ cd kwin-lowlatency
++```
++
++if you are not using the latest major version of Plasma (you can check by doing `kwin_x11 --version`), you may want to check out the branch for your version, e.g.:
++
++```
++$ git checkout Plasma/5.19
++```
++
++you may want to check the current stable version out:
++
++```
++$ git checkout v5.19.0
++```
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++#### patch format
++
++download stock KWin source and patch file:
++
++```
++$ wget https://download.kde.org/stable/plasma/5.19.0/kwin-5.19.0.tar.xz
++$ wget https://tildearrow.zapto.org/storage/kwin-lowlatency/kwin-lowlatency-5.19.0.patch
++```
++
++extract:
++
++```
++$ tar -xvf kwin-5.19.0.tar.xz
++```
++
++patch:
++
++```
++$ cd kwin-5.19.0
++$ patch -p1 < ../kwin-lowlatency-5.19.0.patch
++```
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++### building
++
++#### Ubuntu
++
++Ubuntu uses a different library path, which means you'll have to tweak the library dir:
++
++```
++$ mkdir build
++$ cd build
++$ cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib/x86_64-linux-gnu -DCMAKE_INSTALL_LIBEXECDIR=lib/x86_64-linux-gnu -DBUILD_TESTING=OFF ..
++$ make
++```
++
++#### other distros
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++```
++$ mkdir build
++$ cd build
++$ cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_LIBEXECDIR=lib -DBUILD_TESTING=OFF ..
++$ make
++```
++
++### installing
++
++```
++$ sudo make install
++```
++
++# contacting original KWin development team
+ 
+  * mailing list: [kwin@kde.org](https://mail.kde.org/mailman/listinfo/kwin)
+  * IRC: #kwin on freenode
+ 
+-# Support
+-## Application Developer
+-If you are an application developer having questions regarding windowing systems (either X11 or Wayland) please do not hesitate to contact us. Preferable through our mailing list. Ideally subscribe to the mailing list, so that your mail doesn't get stuck in the moderation queue.
++# additional options menu
+ 
+-## End user
+-Please contact the support channels of your Linux distribution for user support. The KWin development team does not provide end user support.
++KWin-lowlatency introduces few extra options in System Settings > Display and Monitor > Compositor. these are:
+ 
+-# Reporting bugs
++- animation curve: allows you to make animations look smoother. I have a gripe with linear animations, hence this option. the following options are available:
++  - Linear: default and only option in stock KWin. ugly.
++  - Quadratic: smooth curve. may cause a nuisance if your animation speed is high.
++  - Sine: smooth curve. default in KWin-lowlatency.
++  - Cubic: smooth curve. may cause an annoyance if your animation speed is high.
++  - Quartic: smoothest curve. you definitely need to lower the animation speed for this one, though.
++- latency/stutter control: use if you have a high-end system and want lower latency, or if you're having stuttering and want to reduce it.
++- minimum/maximum latency reduction: allows you to configure the latency reduction window. examples (min/max): 0/8 default, 0/0 disable latency reduction, and 8/8 lowest latency possible. this is limited to 8ms, since any further would cause major stuttering and slowdowns.
++- VSync mechanism: **use this if you have latency problems or frame rate halving.** allows you to set the mechanism used to detect VSync. the following options are available:
++  - Automatic: auto-detect the VSync mechanism. **default, and recommended.**
++  - None and just hope for the best:
++    - NVIDIA drivers since version 435 wait for VSync on glXSwapBuffers if `__GL_MaxFramesAllowed` is set to 1.
++    - **other drivers may cause latency problems.**
++  - SGI video sync: use `GLX_SGI_video_sync` to wait for VBlank.
++    - default for AMDGPU-PRO.
++    - not recommended on recent Mesa drivers. I've had hangs using it.
++    - not recommended on NVIDIA drivers 435+. causes frame rate halving. see above.
++  - glFinish: use `glFinish` to force waiting for VBlank.
++    - according to this [bug report](https://github.com/tildearrow/kwin-lowlatency/issues/17) this may actually increase latency on NVIDIA cards.
++    - this is more of a workaround to the Mesa hang problem.
++  - SGI video sync with horrible hack: use `GLX_SGI_video_sync` to partially busy-wait for VBlank.
++    - for some reason glFinish doesn't work on Intel cards, and is just skipped without any VBlank waiting.
++    - hence I had to write this dirty hack for such systems because SGI video sync hangs there too.
++    - uses around ~10-20% CPU in my laptop when playing games or some other render activity because it has to poll the current frame number 10-20 times a second.
++  - if none of these options solve any problems, please open a bug report. thanks.
+ 
+-Please use [KDE's bugtracker](https://bugs.kde.org) and report for [product KWin](https://bugs.kde.org/enter_bug.cgi?product=kwin).
++# misc/FAQ
+ 
+-# Developing on KWin
+-Please refer to [hacking documentation](HACKING.md) for how to build and start KWin. Further information about KWin's test suite can be found in [TESTING.md](TESTING.md).
++> I can't build it and it fails on the class ScreenLocker::KSldApp has no member named 'setWaylandFd'
++
++update Plasma to 5.19 before building.
++this might include going back to vanilla KWin for the purpose of building the package.
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++> what's this "Paint cursor" effect in Desktop Effects?
++
++it's an effect I wrote back in 2018 when experimenting with kmsgrab for some private recordings.
++it basically redraws the cursor. this may seem redundant, but actually is helpful for recording with kmsgrab (since it doesn't draw the hardware sprite).
++
++the following applications may benefit from the usage of this effect:
+ 
+-## Guidelines for new features
++- FFmpeg (kmsgrab input device)
++- darmstadt
++- w23's drmtoy/linux-libdrm-grab OBS plugin
+ 
+-A new Feature can only be added to KWin if:
++> will this work under Wayland?
+ 
+- * it does not violate the primary missions as stated at the start of this document
+- * it does not introduce instabilities
+- * it is maintained, that is bugs are fixed in a timely manner (second next minor release) if it is not a corner case.
+- * it works together with all existing features
+- * it supports both single and multi screen (xrandr)
+- * it adds a significant advantage
+- * it is feature complete, that is supports at least all useful features from competitive implementations
+- * it is not a special case for a small user group
+- * it does not increase code complexity significantly
+- * it does not affect KWin's license (GPLv2+)
++no, it won't, but I am working on it. so far using DRM VBlank only showed negative results, with applications running at half speed. now i'm trying again with glFinish and friends...
+ 
+-All new added features are under probation, that is if any of the non-functional requirements as listed above do not hold true in the next two feature releases, the added feature will be removed again.
++> do you have any plans to upstream this?
++
++some. Daniel gets a chance to improve the GNOME side in mainline and reduce lag so I must fight to get our beloved KDE on par with GNOME! however:
++
++- i still can't ensure this will work everywhere (but it should).
++- this patchset brings full-screen unredirection back, which is a feature the KDE devs definitely [don't want to see in upstream](https://blog.martin-graesslin.com/blog/2016/08/opengl-changes-in-kwin-compositing/) since they have another "approach" (allow apps to block compositing).
++  - the problem with their approach is that it means every app must support it in order to work, which is something not every app does. on the other hand, unredirection works for most apps, and doesn't require developers to change their code for it to work.
++  - another problem is that instead of suspending compositing, it **disables** compositing. this means you get to see a few frames of an ugly desktop when the app quits. this doesn't happen with unredirection.
++  - I can try to upstream just the glFinish/notimer/something bits, and have this project for the rest of features.
++- furthermore, this also brings back "close" option in Present Windows, which once again the KDE devs despise.
++  - apparently they officially brought the feature back in Plasma 5.17, but not for left click :(
++- Roman Gilg took my idea away.
++
++> unredirection is not working.
++
++please see [unredirect.md](https://github.com/tildearrow/kwin-lowlatency/blob/Plasma/5.15/unredirect.md) for known issues. you may file a bug report as well.
++
++# Support (bugs?)
++
++use the issues section at the top. **but wait!** before reporting an issue, first test it again on [the official KWin](https://cgit.kde.org/kwin.git/) to determine whether this is really a KWin-lowlatency-only bug.
++
++if the bug also reproduces in official KWin, please file a bug on [their bug tracker](https://bugs.kde.org/enter_bug.cgi?product=kwin) instead.
++
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++**MANJARO HAS NOT UPDATED TO PLASMA 5.19 YET. PLEASE USE THE 5.18 PKGBUILD. READ ABOVE.**
++
++# Developing on KWin
+ 
+-The same non functional requirements hold true for any kind of plugins (effects, scripts, etc.). It is suggested to use scripted plugins and distribute them separately.
+\ В конце файла нет новой строки
++the [hacking documentation](HACKING.md) has information on how to build and start KWin.
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/rules.cpp kwin-lowlatency/rules.cpp
+--- kwin-5.19.1/rules.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/rules.cpp	2020-06-19 23:40:45.719649942 +0300
+@@ -75,6 +75,7 @@
+     , noborderrule(UnusedSetRule)
+     , decocolorrule(UnusedForceRule)
+     , blockcompositingrule(UnusedForceRule)
++    , allowunredirectrule(UnusedForceRule)
+     , fsplevelrule(UnusedForceRule)
+     , fpplevelrule(UnusedForceRule)
+     , acceptfocusrule(UnusedForceRule)
+@@ -173,6 +174,7 @@
+         decocolorrule = UnusedForceRule;
+ 
+     READ_FORCE_RULE(blockcompositing,);
++    READ_FORCE_RULE(allowunredirect,);
+     READ_FORCE_RULE(fsplevel,);
+     READ_FORCE_RULE(fpplevel,);
+     READ_FORCE_RULE(acceptfocus,);
+@@ -254,6 +256,7 @@
+     };
+     WRITE_FORCE_RULE(decocolor, Decocolor, colorToString);
+     WRITE_FORCE_RULE(blockcompositing, Blockcompositing,);
++    WRITE_FORCE_RULE(allowunredirect, Allowunredirect,);
+     WRITE_FORCE_RULE(fsplevel, Fsplevel,);
+     WRITE_FORCE_RULE(fpplevel, Fpplevel,);
+     WRITE_FORCE_RULE(acceptfocus, Acceptfocus,);
+@@ -299,6 +302,7 @@
+            && noborderrule == UnusedSetRule
+            && decocolorrule == UnusedForceRule
+            && blockcompositingrule == UnusedForceRule
++           && allowunredirectrule == UnusedForceRule
+            && fsplevelrule == UnusedForceRule
+            && fpplevelrule == UnusedForceRule
+            && acceptfocusrule == UnusedForceRule
+@@ -615,6 +619,7 @@
+ APPLY_RULE(noborder, NoBorder, bool)
+ APPLY_FORCE_RULE(decocolor, DecoColor, QString)
+ APPLY_FORCE_RULE(blockcompositing, BlockCompositing, bool)
++APPLY_FORCE_RULE(allowunredirect, AllowUnredirect, bool)
+ APPLY_FORCE_RULE(fsplevel, FSP, int)
+ APPLY_FORCE_RULE(fpplevel, FPP, int)
+ APPLY_FORCE_RULE(acceptfocus, AcceptFocus, bool)
+@@ -690,6 +695,7 @@
+     DISCARD_USED_SET_RULE(noborder);
+     DISCARD_USED_FORCE_RULE(decocolor);
+     DISCARD_USED_FORCE_RULE(blockcompositing);
++    DISCARD_USED_FORCE_RULE(allowunredirect);
+     DISCARD_USED_FORCE_RULE(fsplevel);
+     DISCARD_USED_FORCE_RULE(fpplevel);
+     DISCARD_USED_FORCE_RULE(acceptfocus);
+@@ -827,6 +833,7 @@
+ CHECK_RULE(NoBorder, bool)
+ CHECK_FORCE_RULE(DecoColor, QString)
+ CHECK_FORCE_RULE(BlockCompositing, bool)
++CHECK_FORCE_RULE(AllowUnredirect, bool)
+ CHECK_FORCE_RULE(FSP, int)
+ CHECK_FORCE_RULE(FPP, int)
+ CHECK_FORCE_RULE(AcceptFocus, bool)
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/rulesettings.kcfg kwin-lowlatency/rulesettings.kcfg
+--- kwin-5.19.1/rulesettings.kcfg	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/rulesettings.kcfg	2020-06-19 23:40:45.719649942 +0300
+@@ -328,6 +328,15 @@
+       <default code="true">Rules::UnusedForceRule</default>
+     </entry>
+ 
++    <entry name="allowunredirect" type="Bool">
++      <label>Full-screen unredirection</label>
++      <default>false</default>
++    </entry>
++    <entry name="allowunredirectrule" type="Int">
++      <label>Full-screen unredirection rule type</label>
++      <default code="true">Rules::UnusedForceRule</default>
++    </entry>
++
+     <entry name="fsplevel" type="Int">
+       <label>Focus stealing prevention</label>
+       <default>0</default>
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/rules.h kwin-lowlatency/rules.h
+--- kwin-5.19.1/rules.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/rules.h	2020-06-19 23:40:45.719649942 +0300
+@@ -78,6 +78,7 @@
+     bool checkNoBorder(bool noborder, bool init = false) const;
+     QString checkDecoColor(QString schemeFile) const;
+     bool checkBlockCompositing(bool block) const;
++    bool checkAllowUnredirect(bool allow) const;
+     int checkFSP(int fsp) const;
+     int checkFPP(int fpp) const;
+     bool checkAcceptFocus(bool focus) const;
+@@ -173,6 +174,7 @@
+     bool applyNoBorder(bool& noborder, bool init) const;
+     bool applyDecoColor(QString &schemeFile) const;
+     bool applyBlockCompositing(bool& block) const;
++    bool applyAllowUnredirect(bool& allow) const;
+     bool applyFSP(int& fsp) const;
+     bool applyFPP(int& fpp) const;
+     bool applyAcceptFocus(bool& focus) const;
+@@ -262,6 +264,8 @@
+     ForceRule decocolorrule;
+     bool blockcompositing;
+     ForceRule blockcompositingrule;
++    bool allowunredirect;
++    ForceRule allowunredirectrule;
+     int fsplevel;
+     int fpplevel;
+     ForceRule fsplevelrule;
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/scripting/scriptedeffect.cpp kwin-lowlatency/scripting/scriptedeffect.cpp
+--- kwin-5.19.1/scripting/scriptedeffect.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/scripting/scriptedeffect.cpp	2020-06-19 23:40:45.720649943 +0300
+@@ -22,6 +22,9 @@
+ #include "meta.h"
+ #include "scriptingutils.h"
+ #include "workspace_wrapper.h"
++#ifndef KWINLL_NO_OPTIONS
++#include "../options.h"
++#endif
+ #include "../screens.h"
+ #include "../screenedge.h"
+ #include "scripting_logging.h"
+@@ -153,7 +156,27 @@
+         settings.curve = static_cast<QEasingCurve::Type>(curve.toInt32());
+         settings.set |= AnimationSettings::Curve;
+     } else {
+-        settings.curve = QEasingCurve::Linear;
++#ifndef KWINLL_NO_OPTIONS
++      switch (options->animationCurve()) {
++        case 1:
++          settings.curve = QEasingCurve::InOutQuad;
++          break;
++        case 2:
++          settings.curve = QEasingCurve::InOutSine;
++          break;
++        case 3:
++          settings.curve = QEasingCurve::InOutCubic;
++          break;
++        case 4:
++          settings.curve = QEasingCurve::InOutQuart;
++          break;
++        default:
++          settings.curve = QEasingCurve::Linear;
++          break;
++      }
++#else
++      settings.curve = QEasingCurve::InOutSine;
++#endif
+     }
+ 
+     QScriptValue type = object.property(QStringLiteral("type"));
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/toplevel.cpp kwin-lowlatency/toplevel.cpp
+--- kwin-5.19.1/toplevel.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/toplevel.cpp	2020-06-19 23:40:45.725649944 +0300
+@@ -35,6 +35,8 @@
+ 
+ #include <QDebug>
+ 
++#include <unistd.h>
++
+ namespace KWin
+ {
+ 
+@@ -277,6 +279,7 @@
+     effect_window = new EffectWindowImpl(this);
+ 
+     Compositor::self()->scene()->addToplevel(this);
++    Compositor::self()->checkUnredirect(true);
+ 
+     return true;
+ }
+@@ -285,6 +288,7 @@
+ {
+     if (kwinApp()->operationMode() == Application::OperationModeX11 && damage_handle == XCB_NONE)
+         return;
++    Compositor::self()->checkUnredirect(true);
+     if (effect_window->window() == this) { // otherwise it's already passed to Deleted, don't free data
+         discardWindowPixmap();
+         delete effect_window;
+@@ -803,5 +807,41 @@
+     return QMargins();
+ }
+ 
++bool Toplevel::updateUnredirectedState()
++{
++    assert(compositing());
++    bool should = options->isUnredirectFullscreen() && shouldUnredirect() && !unredirectSuspend &&
++                  !shape() && !hasAlpha() && opacity() == 1.0 &&
++                  !static_cast<EffectsHandlerImpl*>(effects)->activeFullScreenEffect();
++    if (should) usleep(50000);
++    if (should == unredirect)
++        return false;
++    static QElapsedTimer lastUnredirect;
++    static const qint64 msecRedirectInterval = 100;
++    if (!lastUnredirect.hasExpired(msecRedirectInterval)) {
++        QTimer::singleShot(msecRedirectInterval, Compositor::self(), static_cast<void (Compositor::*)()>(&Compositor::checkUnredirect));
++        return false;
++    }
++    lastUnredirect.start();
++    unredirect = should;
++    if (unredirect) {
++        qCDebug(KWIN_CORE) << "Unredirecting:" << this;
++        xcb_composite_unredirect_window(connection(), frameId(), XCB_COMPOSITE_REDIRECT_MANUAL);
++    } else {
++        qCDebug(KWIN_CORE) << "Redirecting:" << this;
++        xcb_composite_redirect_window(connection(), frameId(), XCB_COMPOSITE_REDIRECT_MANUAL);
++        discardWindowPixmap();
++    }
++    return true;
++}
++
++void Toplevel::suspendUnredirect(bool suspend)
++{
++    if (unredirectSuspend == suspend)
++        return;
++    unredirectSuspend = suspend;
++    Compositor::self()->checkUnredirect();
++}
++
+ } // namespace
+ 
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/toplevel.h kwin-lowlatency/toplevel.h
+--- kwin-5.19.1/toplevel.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/toplevel.h	2020-06-19 23:40:45.725649944 +0300
+@@ -444,6 +444,9 @@
+     bool hasAlpha() const;
+     virtual bool setupCompositing();
+     virtual void finishCompositing(ReleaseReason releaseReason = ReleaseReason::Release);
++    bool updateUnredirectedState();
++    bool unredirected() const;
++    void suspendUnredirect(bool suspend);
+     Q_INVOKABLE void addRepaint(const QRect& r);
+     Q_INVOKABLE void addRepaint(const QRegion& r);
+     Q_INVOKABLE void addRepaint(int x, int y, int w, int h);
+@@ -703,6 +706,7 @@
+     void disownDataPassedToDeleted();
+     friend QDebug& operator<<(QDebug& stream, const Toplevel*);
+     void deleteEffectWindow();
++    virtual bool shouldUnredirect() const = 0;
+     void setDepth(int depth);
+     QRect m_frameGeometry;
+     xcb_visualid_t m_visual;
+@@ -732,6 +736,8 @@
+     QByteArray resource_class;
+     ClientMachine *m_clientMachine;
+     xcb_window_t m_wmClientLeader;
++    bool unredirect;
++    bool unredirectSuspend; // when unredirected, but pixmap is needed temporarily
+     bool m_damageReplyPending;
+     QRegion opaque_region;
+     xcb_xfixes_fetch_region_cookie_t m_regionCookie;
+@@ -985,6 +991,11 @@
+     return resource_class; // it is always lowercase
+ }
+ 
++inline bool Toplevel::unredirected() const
++{
++    return unredirect;
++}
++
+ inline const ClientMachine *Toplevel::clientMachine() const
+ {
+     return m_clientMachine;
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/tva.md kwin-lowlatency/tva.md
+--- kwin-5.19.1/tva.md	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/tva.md	2020-06-19 23:40:45.726649944 +0300
+@@ -0,0 +1,65 @@
++# Tilde van Arrow
++
++the ultimate project to optimize KWin and cut the rough edges.
++the compositor should do nothing more than render windows in the exact time.
++it is unknown why do some things take too long to render, such as moving between desktop, using present windows or even switching windows.
++those are detrimental to smoothness and cause stutter.
++
++this document is incomplete.
++
++# possibilities
++
++- too much processing when switching windows
++- the need to recreate every single texture
++- Qt is too high-level
++
++# solutions
++
++## window switch stutter
++
++even after using the most basic theme, switching windows causes stutter.
++maybe the toplevel is doing too much, or some effect...
++
++## texture recreation
++
++certain heavier themes cause more lag spikes. come on why can't we have a cache so we don't have to re-render everything?
++decoration rendering is done in software so yeah...
++
++## Qt is too high-level
++
++...we could replace certain unneeded Qt parts by our own ones, and perhaps improve performance...
++
++## kwin-lowerlatencyandlowpower
++
++what about we go single-buffer, somehow make the card always wait for VBlank (or near-VBlank) and let that be it?
++
++what about we use an hybrid setup?
++
++- single-buffering when the compositor is not doing anything fancy
++- double-buffering when it is
++- clients that want VSync will have a big wait before present
++- clients that don't, will be redrawn immediately (this may cause tearing), Quartz-style
++
++## let's learn OpenGL
++
++because this could allow for further optimizations on lower-end systems.
++
++I just do not think KWin is optimized enough... for them...
++
++## come on let's catch up already
++
++if we do not do anything about this soon, the other guy working at Mutter will destroy KWin in performance.
++
++sadly I think we already lost the race, because GNOME is beginning to run on Pi, and... KDE still does not :<
++
++come on they will defeat us and team uid will get a chance to achieve World Domination!! like this
++
++> Qt is there because Canonical used it to validate their own CLA. Basically “We are happy to sign Qt’s CLA so you should be happy to sign our CLA”. Fortunately that failed as well.
++
++oh come on 144Hz you are SO annoying!
++
++# frequently asked questions
++
++> KDE is a downstream, Qt has CLA and C++ is an unwise choice. GNOME is the Standard-
++
++144Hz. [look here](https://www.youtube.com/watch?v=VZlWCBhoCns&t=56s).
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/unmanaged.cpp kwin-lowlatency/unmanaged.cpp
+--- kwin-5.19.1/unmanaged.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/unmanaged.cpp	2020-06-19 23:40:45.726649944 +0300
+@@ -215,5 +215,35 @@
+     return true;
+ }
+ 
++bool Unmanaged::shouldUnredirect() const
++{
++    // the pixmap is needed for the login effect, a nicer solution would be the login effect increasing
++    // refcount for the window pixmap (which would prevent unredirect), avoiding this hack
++    if (resourceClass() == "ksplashx"
++            || resourceClass() == "ksplashsimple"
++            || resourceClass() == "ksplashqml"
++            )
++        return false;
++    // it must cover whole display or one xinerama screen, and be the topmost there
++    const int desktop = VirtualDesktopManager::self()->current();
++    // TODO: this mess o-o
++    if (frameGeometry() == workspace()->clientArea(FullArea, frameGeometry().center(), desktop)
++            || frameGeometry() == workspace()->clientArea(ScreenArea, frameGeometry().center(), desktop)) {
++        QList<Toplevel*> stacking = workspace()->xStackingOrder();
++        for (int pos = stacking.count() - 1;
++                pos >= 0;
++                --pos) {
++            Toplevel* c = stacking.at(pos);
++            if (c == this)   // is not covered by any other window, ok to unredirect
++                return true;
++            // TODO: check if this works
++            if (c->frameGeometry().intersects(bufferGeometry()))
++                return false;
++        }
++        abort();
++    }
++    return false;
++}
++
+ } // namespace
+ 
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/unmanaged.h kwin-lowlatency/unmanaged.h
+--- kwin-5.19.1/unmanaged.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/unmanaged.h	2020-06-19 23:40:45.726649944 +0300
+@@ -57,6 +57,7 @@
+     void release(ReleaseReason releaseReason = ReleaseReason::Release);
+ protected:
+     void debug(QDebug& stream) const override;
++    bool shouldUnredirect() const override;
+     void addDamage(const QRegion &damage) override;
+ private:
+     ~Unmanaged() override; // use release()
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/unredirect.md kwin-lowlatency/unredirect.md
+--- kwin-5.19.1/unredirect.md	1970-01-01 03:00:00.000000000 +0300
++++ kwin-lowlatency/unredirect.md	2020-06-19 23:40:45.726649944 +0300
+@@ -0,0 +1,30 @@
++# fullscreen unredirection
++
++this version of the compositor brings back the ability to unredirect fullscreen windows, which has been originally removed by the KDE developers because they thought their "block compositing" approach would be the future.
++
++their "block compositing" approach has 3 flaws:
++
++- it actually fully disables the compositor (which means it will take a while for it to re-enable)
++- it can get annoying (especially with SDL apps. SDL requests KWin to disable compositing, even if not in fullscreen!)
++- every application must be coded to support it. with unredirection it works on most apps without giving the developers extra burden.
++
++however, fullscreen unredirection also has its flaws:
++
++- in some setups it may crash, according to KDE developers
++- some applications may interfere and prevent it from working
++
++# non-working/crashing setups
++
++none so far. please contact me if your setup causes KWin to crash with unredirection.
++
++# known issues
++
++the following applications prevent unredirection from working:
++
++- applications using the old tray mechanism (e.g. calfjackhost or Battle.net). they create a 32x32 invisible window at the top left corner, which becomes visible when you aren't using Plasma or some other desktop that doesn't support this mechanism.
++  - however, a workaround has been applied as of v5.16.2-2 but I am not sure whether it works well or not.
++- [latte-dock](https://github.com/tildearrow/kwin-lowlatency/issues/1#issuecomment-483403493) (sometimes)
++
++the following applications may misbehave when unredirection is enabled:
++
++- some Wine applications. after switching windows [they may turn black and hang](https://github.com/tildearrow/kwin-lowlatency/issues/25).
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/workspace.cpp kwin-lowlatency/workspace.cpp
+--- kwin-5.19.1/workspace.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/workspace.cpp	2020-06-19 23:40:45.728649944 +0300
+@@ -540,6 +540,11 @@
+         connect(c, &X11Client::blockingCompositingChanged, compositor, &X11Compositor::updateClientCompositeBlocking);
+     }
+     connect(c, SIGNAL(clientFullScreenSet(KWin::X11Client *,bool,bool)), ScreenEdges::self(), SIGNAL(checkBlocking()));
++    connect(c, &X11Client::activeChanged, m_compositor, static_cast<void (Compositor::*)()>(&Compositor::checkUnredirect));
++    // THIS ONE PLEASE
++    connect(c, &X11Client::fullScreenChanged, m_compositor, static_cast<void (Compositor::*)()>(&Compositor::checkUnredirect));
++    connect(c, &X11Client::geometryChanged, m_compositor, static_cast<void (Compositor::*)()>(&Compositor::checkUnredirect));
++    connect(c, &X11Client::geometryShapeChanged, m_compositor, static_cast<void (Compositor::*)()>(&Compositor::checkUnredirect));
+     if (!c->manage(w, is_mapped)) {
+         X11Client::deleteClient(c);
+         return nullptr;
+@@ -1966,6 +1971,9 @@
+     if (effects) {
+         static_cast<EffectsHandlerImpl*>(effects)->desktopResized(geom.size());
+     }
++
++    // best guess.
++    m_compositor->checkUnredirect(true);
+ }
+ 
+ void Workspace::saveOldScreenSizes()
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/x11client.cpp kwin-lowlatency/x11client.cpp
+--- kwin-5.19.1/x11client.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/x11client.cpp	2020-06-19 23:40:45.729649944 +0300
+@@ -1602,6 +1602,9 @@
+         m_decoInputExtent.map();
+         updateHiddenPreview();
+     }
++    if (Compositor::self()->isActive()) {
++        Compositor::self()->checkUnredirect();
++    }
+     emit windowShown(this);
+ }
+ 
+@@ -1617,6 +1620,9 @@
+         updateHiddenPreview();
+     addWorkspaceRepaint(visibleRect());
+     workspace()->clientHidden(this);
++    if (Compositor::self()->isActive()) {
++        Compositor::self()->checkUnredirect();
++    }
+     emit windowHidden(this);
+ }
+ 
+@@ -1635,6 +1641,9 @@
+     updateHiddenPreview();
+     addWorkspaceRepaint(visibleRect());
+     workspace()->clientHidden(this);
++    if (Compositor::self()->isActive()) {
++        Compositor::self()->checkUnredirect();
++    }
+ }
+ 
+ /**
+@@ -2896,6 +2905,10 @@
+     updateWindowRules(Rules::Position);
+     screens()->setCurrent(this);
+     workspace()->updateStackingOrder();
++    if (Compositor::self()->isActive()) {
++        // TODO: there was a todo here but I don't know
++        Compositor::self()->checkUnredirect();
++    }
+     // client itself is not damaged
+     if (frameGeometryBeforeUpdateBlocking() != frameGeometry()) {
+         emit frameGeometryChanged(this, frameGeometryBeforeUpdateBlocking());
+@@ -4753,10 +4766,11 @@
+     if (m_syncRequest.counter != XCB_NONE) {
+         m_syncRequest.timeout->start(250);
+         sendSyncRequest();
+-    } else {                              // for clients not supporting the XSYNC protocol, we
+-        m_syncRequest.isPending = true;   // limit the resizes to 30Hz to take pointless load from X11
+-        m_syncRequest.timeout->start(33); // and the client, the mouse is still moved at full speed
+-    }                                     // and no human can control faster resizes anyway
++    } else {
++        m_syncRequest.isPending = true;   // 30Hz resizes are so old and it makes the compositor
++        m_syncRequest.timeout->start(5);  // look horrible. zero excuses.
++    }
++
+     const QRect moveResizeClientGeometry = frameRectToClientRect(moveResizeGeometry());
+     const QRect moveResizeBufferGeometry = frameRectToBufferRect(moveResizeGeometry());
+ 
+@@ -4988,4 +5002,35 @@
+     }
+ }
+ 
++// TODO THIS
++bool X11Client::shouldUnredirect() const
++{
++    if (isActiveFullScreen()) {
++        if (!rules()->checkAllowUnredirect(true)) return false;
++        QList<Toplevel*> stacking = workspace()->xStackingOrder();
++        for (int pos = stacking.count() - 1;
++                pos >= 0;
++                --pos) {
++            Toplevel* c = stacking.at(pos);
++            if (c == this) {   // is not covered by any other window, ok to unredirect
++                //printf("yes.\n");
++                return true;
++            }
++            if (c->frameGeometry().intersects(frameGeometry())) {
++                // check whether this is an invisible floating icon at the top left corner
++                if (c->frameGeometry()==QRect(0,0,32,32)) {
++                  //printf("yes via hack.\n");
++                  return true;
++                }
++                //printf("no. this: %d %d %d %d. other: %d %d %d %d.\n",geometry().x(),geometry().y(),geometry().width(),geometry().height(),c->geometry().x(),c->geometry().y(),c->geometry().width(),c->geometry().height());
++                return false;
++            }
++        }
++        //printf("ABORT\n");
++        abort();
++    }
++    return false;
++}
++
++
+ } // namespace
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/x11client.h kwin-lowlatency/x11client.h
+--- kwin-5.19.1/x11client.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/x11client.h	2020-06-19 23:40:45.729649944 +0300
+@@ -343,6 +343,7 @@
+ 
+ protected:
+     void debug(QDebug& stream) const override;
++    bool shouldUnredirect() const override;
+     void addDamage(const QRegion &damage) override;
+     bool belongsToSameApplication(const AbstractClient *other, SameApplicationChecks checks) const override;
+     void doSetActive() override;
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/xdgshellclient.cpp kwin-lowlatency/xdgshellclient.cpp
+--- kwin-5.19.1/xdgshellclient.cpp	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/xdgshellclient.cpp	2020-06-19 23:40:45.729649944 +0300
+@@ -2022,4 +2022,9 @@
+     m_pingSerials.insert(serial, reason);
+ }
+ 
++bool XdgShellClient::shouldUnredirect() const
++{
++    return false;
++}
++
+ }
+diff -ruNx .git -x build -x .clang-format -x .kdev4 -x po kwin-5.19.1/xdgshellclient.h kwin-lowlatency/xdgshellclient.h
+--- kwin-5.19.1/xdgshellclient.h	2020-06-16 15:44:49.000000000 +0300
++++ kwin-lowlatency/xdgshellclient.h	2020-06-19 23:40:45.729649944 +0300
+@@ -65,6 +65,7 @@
+     QRect transparentRect() const override;
+     NET::WindowType windowType(bool direct = false, int supported_types = 0) const override;
+     void debug(QDebug &stream) const override;
++    bool shouldUnredirect() const override;
+     double opacity() const override;
+     void setOpacity(double opacity) override;
+     QByteArray windowRole() const override;
