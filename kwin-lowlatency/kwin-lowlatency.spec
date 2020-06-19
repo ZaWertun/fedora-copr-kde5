@@ -26,7 +26,7 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/kwin-%{version}.tar.xz
 
-Patch0:  kwin-lowlatency-%{version}-2.patch
+Patch0:  kwin-lowlatency-%{version}.patch
 
 ## upstream patches
 
