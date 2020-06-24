@@ -2,7 +2,7 @@
 #global bootstrap 1
 
 Name:    kwin-lowlatency
-Version: 5.19.1
+Version: 5.19.2
 Release: 1%{?dist}
 Summary: KDE Window manager with stutter and latency reductions
 
@@ -314,6 +314,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Jun 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
+- 5.19.2
+
 * Fri Jun 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
 - 5.19.1
 
