@@ -11,7 +11,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.19.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -38,6 +38,9 @@ Patch200: https://gitweb.gentoo.org/proj/kde.git/plain/kde-plasma/plasma-desktop
 # use this bundled copy (from f31) if not provided already
 Source200: synaptics-properties.h
 Patch201: plasma-desktop-5.18.4.1-synaptics_includes.patch
+
+# Possible fix for https://bugs.kde.org/show_bug.cgi?id=422957
+Patch202: plasma-desktop-5.19.2-cannot-read-property-of-null.patch
 
 # filter qmk/plugins provides
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -197,6 +200,7 @@ BuildArch: noarch
 install -pD %{SOURCE200} 3rdparty/xorg/synaptics-properties.h
 %endif
 #%patch201 -p1 -b .synaptics_includes
+%patch202 -p1
 
 ## downstream patches
 %patch100 -p1
@@ -350,6 +354,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Tue Jun 30 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-2
+- added patch to fix #422957
+
 * Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
 - 5.19.2
 
