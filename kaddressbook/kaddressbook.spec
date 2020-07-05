@@ -6,10 +6,12 @@
 %global tests 1
 %endif
 
+%global with_kuserfeedback 1
+
 Name:    kaddressbook
 Summary: Contact Manager
 Version: 20.04.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -70,6 +72,10 @@ BuildRequires: xorg-x11-server-Xvfb
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 Requires: kdepim-runtime >= %{majmin_ver}
 
+%if 0%{?with_kuserfeedback}
+BuildRequires: cmake(KUserFeedback)
+%endif
+
 %description
 KAddressBook stores all the personal details of your family, friends
 and other contacts.
@@ -127,6 +133,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/kaddressbook-15.08-kickoff.sh
 %{_kf5_datadir}/kconf_update/kaddressbook.upd
 %{_kf5_datadir}/kservices5/kaddressbook_config_plugins.desktop
+%if 0%{?with_kuserfeedback}
+%{_kf5_datadir}/kservices5/kaddressbook_config_userfeedback.desktop
+%endif
 # Kontact integration
 %{_kf5_datadir}/kservices5/kontact/kaddressbookplugin.desktop
 %{_kf5_datadir}/kontact/ksettingsdialog/kaddressbook.setdlg
@@ -138,11 +147,17 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libkaddressbookprivate.so.*
 %{_kf5_qtplugindir}/kaddressbookpart.so
 %{_qt5_plugindir}/kaddressbook_config_plugins.so
+%if 0%{?with_kuserfeedback}
+%{_qt5_plugindir}/kaddressbook_config_userfeedback.so
+%endif
 # Kontact integration
 %{_kf5_qtplugindir}/kontact_kaddressbookplugin.so
 
 
 %changelog
+* Sun Jul 05 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-2
+- added cmake(KUserFeedback) to BuildRequires
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 

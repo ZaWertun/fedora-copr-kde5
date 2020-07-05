@@ -9,7 +9,7 @@
 Name:    pim-sieve-editor
 Summary: Sieve Editor
 Version: 20.04.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -57,6 +57,8 @@ BuildRequires: kf5-kpimtextedit-devel >= %{majmin_ver}
 BuildRequires: dbus-x11
 BuildRequires: xorg-x11-server-Xvfb
 %endif
+
+BuildRequires: cmake(KUserFeedback)
 
 # split from kdepim/kmail
 Conflicts: kmail < 16.12
@@ -111,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Jul 05 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-2
+- added cmake(KUserFeedback) to BuildRequires
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 

@@ -12,7 +12,7 @@
 Name:    kate
 Summary: Advanced Text Editor
 Version: 20.04.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # kwrite LGPLv2+
 # kate: app LGPLv2, plugins, LGPLv2 and LGPLv2+ and GPLv2+
@@ -70,6 +70,8 @@ BuildRequires: cmake(KF5IconThemes)
 BuildRequires: libappstream-glib
 BuildRequires: xorg-x11-server-Xvfb
 %endif
+
+BuildRequires: cmake(KUserFeedback)
 
 # not sure if we want -plugins by default, let's play it safe'ish
 # and make it optional
@@ -186,6 +188,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Jul 05 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-2
+- added cmake(KUserFeedback) to BuildRequires
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 
