@@ -1,5 +1,5 @@
 Name:    sddm-kcm
-Version: 5.19.2
+Version: 5.19.3
 Release: 1%{?dist}
 Summary: SDDM KDE configuration module
 
@@ -78,6 +78,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+- 5.19.3
+
 * Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
 - 5.19.2
 

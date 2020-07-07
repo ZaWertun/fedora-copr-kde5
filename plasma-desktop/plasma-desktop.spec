@@ -10,8 +10,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.19.2
-Release: 2%{?dist}
+Version: 5.19.3
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -354,6 +354,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+- 5.19.3
+
 * Tue Jun 30 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-2
 - added patch to fix #422957
 
