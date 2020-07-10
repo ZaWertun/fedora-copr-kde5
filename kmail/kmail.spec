@@ -8,8 +8,8 @@
 
 Name:    kmail
 Summary: Mail client
-Version: 20.04.2
-Release: 2%{?dist}
+Version: 20.04.3
+Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -221,6 +221,9 @@ end
 
 
 %changelog
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+- 20.04.3
+
 * Sun Jul 05 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-2
 - added cmake(KUserFeedback) to BuildRequires
 

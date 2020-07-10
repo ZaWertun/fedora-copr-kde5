@@ -11,7 +11,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 20.04.2
+Version: 20.04.3
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -226,6 +226,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+- 20.04.3
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 

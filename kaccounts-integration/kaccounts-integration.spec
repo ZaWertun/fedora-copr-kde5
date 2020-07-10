@@ -1,5 +1,5 @@
 Name:    kaccounts-integration
-Version: 20.04.2
+Version: 20.04.3
 Release: 1%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
@@ -94,7 +94,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kpackage/kcms/kcm_kaccounts/metadata.{desktop,json}
 %{_kf5_datadir}/kservices5/kcm_kaccounts.desktop
 %{_kf5_plugindir}/kded/kded_accounts.so
-%{_kf5_libdir}/libkaccounts.so.1
+%{_kf5_libdir}/libkaccounts.so.2
 %{_kf5_libdir}/libkaccounts.so.%{version}
 %{_kf5_qmldir}/org/kde/kaccounts/
 
@@ -105,6 +105,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+- 20.04.3
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 

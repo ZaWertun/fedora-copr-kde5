@@ -1,7 +1,7 @@
 %global framework mailimporter
 
 Name:    kf5-%{framework}
-Version: 20.04.2
+Version: 20.04.3
 Release: 1%{?dist}
 Summary: Mail importer library
 
@@ -113,6 +113,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+- 20.04.3
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 

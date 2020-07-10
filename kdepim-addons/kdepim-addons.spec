@@ -1,5 +1,10 @@
+%if 0%{?fedora} >= 32
+# Qt >= 5.14 needed
+%global with_markdown 1
+%endif
+
 Name:    kdepim-addons
-Version: 20.04.2
+Version: 20.04.3
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -218,6 +223,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_qtplugindir}/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_calendar.so
 %{_kf5_qtplugindir}/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_highlighter.so
 %{_kf5_qtplugindir}/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_vcard.so
+%if 0%{?with_markdown}
+%{_kf5_qtplugindir}/messageviewer/bodypartformatter/messageviewer_bodypartformatter_text_markdown.so
+%endif
 
 # MessageViewer headers
 %dir %{_kf5_qtplugindir}/messageviewer/
@@ -246,6 +254,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+- 20.04.3
+
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 
