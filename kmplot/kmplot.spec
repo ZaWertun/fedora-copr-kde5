@@ -1,6 +1,6 @@
 Name:    kmplot
 Summary: Mathematical Function Plotter 
-Version: 20.04.2
+Version: 20.04.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -94,6 +94,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+- 20.04.3
+
 * Sat Jun 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
 - 20.04.2
 
