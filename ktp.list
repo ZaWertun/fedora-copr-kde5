@@ -1,0 +1,11 @@
+ktp-accounts-kcm
+ktp-approver
+ktp-auth-handler
+ktp-common-internals
+ktp-contact-list
+ktp-contact-runner
+ktp-desktop-applets
+ktp-filetransfer-handler
+ktp-kded-integration-module
+ktp-send-file
+ktp-text-ui

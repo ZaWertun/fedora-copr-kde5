@@ -1,0 +1,17 @@
+{
+  "0": [
+    "ktp-approver",
+    "ktp-common-internals",
+    "ktp-desktop-applets"
+  ],
+  "1": [
+    "ktp-accounts-kcm",
+    "ktp-auth-handler",
+    "ktp-contact-list",
+    "ktp-contact-runner",
+    "ktp-filetransfer-handler",
+    "ktp-kded-integration-module",
+    "ktp-send-file",
+    "ktp-text-ui"
+  ]
+}
