@@ -13,7 +13,7 @@
 Name:    oxygen-icon-theme
 Summary: Oxygen icon theme
 Epoch:   1
-Version: 5.71.0
+Version: 5.72.0
 Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
@@ -153,6 +153,9 @@ fi
 
 
 %changelog
+* Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.72.0-1
+- 5.72.0
+
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.71.0-1
 - 5.71.0
 

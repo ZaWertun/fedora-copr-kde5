@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A KDE Frameworks 5 Tier 3 library for accessing the usage data collected by the activities system
-Version: 5.71.0
+Version: 5.72.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -84,6 +84,9 @@ make test -C %{_target_platform}
 
 
 %changelog
+* Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
+- 5.72.0
+
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
 - 5.71.0
 

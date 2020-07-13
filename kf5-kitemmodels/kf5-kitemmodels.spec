@@ -1,8 +1,8 @@
 %global framework kitemmodels
 
 Name:           kf5-%{framework}
-Version: 5.71.0
-Release: 3%{?dist}
+Version: 5.72.0
+Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with item models
 
 License:        LGPLv2+
@@ -73,6 +73,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
+- 5.72.0
+
 * Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-3
 - qml plugin moved to main package
 
