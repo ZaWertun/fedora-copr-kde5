@@ -1,6 +1,6 @@
 Name:           kio-gdrive
 Version:        1.3.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        An Google Drive KIO slave for KDE
 
 License:        GPLv2+
@@ -58,6 +58,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.metainf
 %{_kf5_datadir}/metainfo/org.kde.kio_gdrive.metainfo.xml
 
 %changelog
+* Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1.3.0-2
+- rebuild
+
 * Sun Apr 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.0-1
 - 1.3.0
 
