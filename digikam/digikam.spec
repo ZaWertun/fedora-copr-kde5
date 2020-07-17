@@ -1,24 +1,20 @@
 
 # use ninja or not
-#global ninja 1
+%global ninja 1
+
+#global beta beta3
 
 Name:    digikam
 Summary: A digital camera accessing & photo management application
-Version: 6.4.0
-Release: 100%{?dist}
+Version: 7.0.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     http://www.digikam.org/
 Source0: http://download.kde.org/%{?beta:un}stable/digikam/%{version}/digikam-%{version}%{?beta:-%{beta}}.tar.xz
 
-# workaround ppc64le FTBFS
-# https://bugs.kde.org/show_bug.cgi?id=404853
-%ifarch ppc64le
-%global facesengine -DENABLE_FACESENGINE_DNN:BOOL=OFF
-%endif
-
 # rawhide s390x is borked recently
-ExcludeArch: s390x
+#ExcludeArch: s390x
 
 # digiKam not listed as a media handler for pictures in Nautilus (#516447)
 # TODO: upstream me
@@ -27,7 +23,6 @@ Source10: digikam-import.desktop
 ## upstream patches
 
 ## upstreamable patches
-Patch100: digikam-6.4.0-Wall.patch
 
 %if 0%{?ninja}
 BuildRequires: ninja-build
@@ -40,13 +35,14 @@ BuildRequires: doxygen
 BuildRequires: extra-cmake-modules
 BuildRequires: gettext
 BuildRequires: gcc-c++
-BuildRequires: ImageMagick-devel ImageMagick-c++-devel
+BuildRequires: ImageMagick-devel
+BuildRequires: ImageMagick-c++-devel >= 6.7
 BuildRequires: libjpeg-devel
 BuildRequires: libtiff-devel
 BuildRequires: marble-astro-devel
 BuildRequires: marble-widget-qt5-devel
 BuildRequires: perl-generators
-BuildRequires: pkgconfig(exiv2) >= 0.25
+BuildRequires: pkgconfig(exiv2) >= 0.26
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(jasper)
 BuildRequires: pkgconfig(lcms2)
@@ -62,7 +58,7 @@ BuildRequires: pkgconfig(Qt5WebKit)
 BuildRequires: pkgconfig(x11) pkgconfig(xproto)
 %if 0%{?qt5_qtwebengine_arches:1}
 %ifarch %{?qt5_qtwebengine_arches}
-%global qwebengine -DENABLE_QWEBENGINE:BOOL=ON
+%global qwebengine 1
 BuildRequires: cmake(KF5AkonadiContact)
 BuildRequires: pkgconfig(Qt5WebEngine)
 %else
@@ -89,7 +85,6 @@ BuildRequires: kf5-knotifications-devel
 BuildRequires: kf5-solid-devel
 BuildRequires: kf5-kitemviews-devel
 BuildRequires: kf5-kbookmarks-devel
-BuildRequires: kf5-kcontacts-devel
 BuildRequires: kf5-rpm-macros
 
 ## not actually checked-for or used -- rex
@@ -100,7 +95,7 @@ BuildRequires: expat-devel
 ## htmlexport plugin
 BuildRequires: pkgconfig(libxslt)
 ## RemoveRedeye
-BuildRequires: pkgconfig(opencv) >= 3.1
+BuildRequires: pkgconfig(opencv) >= 3.3
 # Panorama plugin requires flex and bison
 BuildRequires: flex
 BuildRequires: bison
@@ -111,7 +106,7 @@ BuildRequires: pkgconfig(lqr-1)
 BuildRequires: pkgconfig(libpgf) >= 6.12.24
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
-%if 0%{?fedora} > 21
+
 Recommends: %{name}-doc = %{version}-%{release}
 # expoblending assistant
 Recommends: hugin-base
@@ -120,7 +115,6 @@ Recommends: hugin-base
 Recommends: kio-extras
 Recommends: qt5-qtbase-mysql%{?_isa}
 Recommends: qt5-qtimageformats%{?_isa}
-%endif
 
 # core/libs/rawengine/libraw/
 Provides: bundled(LibRaw) = 0.18.5
@@ -157,11 +151,6 @@ BuildArch: noarch
 %prep
 %setup -q -n %{name}-%{version}%{?beta:-%{beta}}
 
-# EVIV2_MIN_VERSION
-sed -i -e "s|0.26|0.25|g" core/CMakeLists.txt
-
-%patch100 -p1 -b .Wall
-
 
 %build
 mkdir %{_target_platform}
@@ -174,8 +163,7 @@ pushd %{_target_platform}
   -DENABLE_MEDIAPLAYER:BOOL=OFF \
   -DENABLE_MYSQLSUPPORT:BOOL=ON \
   -DENABLE_INTERNALMYSQL:BOOL=ON \
-  %{?facesengine} \
-  %{?qwebengine}
+  -DENABLE_QWEBENGINE:BOOL=%{?qwebengine:ON}%{!?qwebengine:OFF}
 popd
 
 %if 0%{?ninja}
@@ -265,22 +253,43 @@ update-desktop-database -q &> /dev/null
 %{_kf5_libdir}/libdigikamcore.so
 %{_kf5_libdir}/libdigikamdatabase.so
 %{_kf5_libdir}/libdigikamgui.so
-%{_kf5_libdir}/cmake/*
+%{_kf5_libdir}/cmake/Digikam*/
 %{_includedir}/digikam/
 
 
 %changelog
-* Sat Jan 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-100
-- bump build to 100
+* Fri Jul 17 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 7.0.0-1
+- 7.0.0
 
-* Sat Jan 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-2
-- rebuild
+* Sat May 09 2020 Rex Dieter <rdieter@fedoraproject.org> - 7.0.0-0.6.beta3
+- bump opencv,ImageMagick deps
+- make weak deps unconditional
 
-* Fri Jan 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.4.0-1
-- 6.4.0
+* Mon Apr 27 2020 Rex Dieter <rdieter@fedoraproject.org> 7.0.0-0.5.beta3
+- 7.0.0-beta3
 
-* Tue Oct 01 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 6.3.0-1
-- 6.3.0
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 7.0.0-0.4.beta2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 28 2020 Nicolas Chauvet <kwizart@gmail.com> - 7.0.0-0.3.beta2
+- Rebuild for OpenCV 4.2
+
+* Mon Jan 27 2020 Nicolas Chauvet <kwizart@gmail.com> - 7.0.0-0.2.beta2
+- Update to beta2
+
+* Tue Dec 31 2019 Rex Dieter <rdieter@fedoraproject.org> - 7.0.0-0.1.beta1
+- digkam-7.0.0-beta1
+- use ninja
+- (re)enable s390x arch
+
+* Sun Dec 29 2019 Nicolas Chauvet <kwizart@gmail.com> - 6.4.0-2
+- Rebuilt for opencv4
+
+* Tue Nov 12 2019 Rex Dieter <rdieter@fedoraproject.org> - 6.4.0-1
+- digikam-6.4.0
+
+* Tue Sep 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 6.3.0-1
+- digikam-6.3.0
 
 * Wed Jul 31 2019 Rex Dieter <rdieter@fedoraproject.org> - 6.2.0-1
 - digikam-6.2.0
