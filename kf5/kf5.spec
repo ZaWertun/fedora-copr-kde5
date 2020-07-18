@@ -1,6 +1,6 @@
 Name:    kf5
 Version: 5.72.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Filesystem and RPM macros for KDE Frameworks 5
 License: BSD
 URL:     http://www.kde.org
@@ -80,6 +80,9 @@ sed -i \
 
 
 %changelog
+* Sat Jul 18 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.72.0-2
+- macros updated
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 
