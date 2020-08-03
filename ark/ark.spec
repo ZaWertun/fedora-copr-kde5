@@ -5,7 +5,7 @@
 Name:    ark
 Summary: Archive manager
 Version: 20.04.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://www.kde.org/applications/utilities/ark/
@@ -21,6 +21,8 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 ## upstreamable patches
 
 ## upstream patches
+# Patch against CVE-2020-16116, see https://kde.org/info/security/advisory-20200730-1.txt
+Patch0:	CVE-2020-16116.patch
 
 BuildRequires: bzip2-devel
 BuildRequires: desktop-file-utils
@@ -148,6 +150,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Sun Aug 02 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-2
+- patch against CVE-2020-16116
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 
