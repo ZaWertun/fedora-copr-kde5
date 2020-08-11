@@ -9,7 +9,7 @@
 #endif
 
 Name:    kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module for KNotify configuration
 
@@ -100,6 +100,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %doc README.md
 %license COPYING.LIB
 %{_kf5_libdir}/libKF5NotifyConfig.so.*
+%{_kf5_datadir}/qlogging-categories5/knotifyconfig.categories
 
 %files devel
 %{_kf5_includedir}/knotifyconfig_version.h
@@ -110,6 +111,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 

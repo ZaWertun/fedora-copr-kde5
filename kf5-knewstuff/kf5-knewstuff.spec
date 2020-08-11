@@ -1,7 +1,7 @@
 %global framework knewstuff
 
 Name:    kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module for downloading application assets
 
@@ -82,10 +82,11 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f %{name}.lang
 %doc README.md
 %license COPYING.LIB
-%{_kf5_datadir}/qlogging-categories5/%{framework}*
+%{_kf5_bindir}/knewstuff-dialog
 %{_kf5_libdir}/libKF5NewStuff.so.*
 %{_kf5_libdir}/libKF5NewStuffCore.so.*
 %{_kf5_datadir}/kf5/kmoretools/
+%{_kf5_datadir}/qlogging-categories5/%{framework}*
 %dir %{_kf5_qmldir}/org/
 %dir %{_kf5_qmldir}/org/kde
 %{_kf5_qmldir}/org/kde/newstuff/
@@ -105,6 +106,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 

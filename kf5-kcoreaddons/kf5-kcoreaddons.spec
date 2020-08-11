@@ -4,11 +4,11 @@
 #global bootstrap 1
 
 %if !0%{?bootstrap}
-%global tests 1
+#global tests 1
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with various classes on top of QtCore
 
@@ -76,7 +76,7 @@ popd
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %find_lang_kf5 kcoreaddons5_qt
-%find_lang_kf5 xml_mimetypes5
+%find_lang_kf5 kde5_xml_mimetypes
 
 
 %check
@@ -105,7 +105,7 @@ update-mime-database %{_datadir}/mime &> /dev/null || :
 %ldconfig_scriptlets
 %endif
 
-%files -f kcoreaddons5_qt.lang -f xml_mimetypes5.lang
+%files -f kcoreaddons5_qt.lang -f kde5_xml_mimetypes.lang
 %doc README.md
 %license COPYING.LIB
 %{_kf5_bindir}/desktoptojson
@@ -113,6 +113,7 @@ update-mime-database %{_datadir}/mime &> /dev/null || :
 %{_kf5_datadir}/mime/packages/kde5.xml
 %{_kf5_datadir}/kf5/licenses/
 %{_kf5_datadir}/qlogging-categories5/kcoreaddons.categories
+%{_kf5_datadir}/qlogging-categories5/kcoreaddons.renamecategories
 
 %files devel
 %{_kf5_includedir}/kcoreaddons_version.h
@@ -123,6 +124,9 @@ update-mime-database %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 

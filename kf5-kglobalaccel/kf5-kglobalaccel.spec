@@ -1,7 +1,7 @@
 %global framework kglobalaccel
 
 Name:    kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for global shortcuts
 
@@ -83,6 +83,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_bindir}/kglobalaccel5
 %{_kf5_datadir}/kservices5/kglobalaccel5.desktop
 %{_kf5_datadir}/qlogging-categories5/kglobalaccel.categories
+%{_kf5_datadir}/qlogging-categories5/kglobalaccel.renamecategories
 %{_datadir}/dbus-1/services/org.kde.kglobalaccel.service
 
 %ldconfig_scriptlets libs
@@ -102,6 +103,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 

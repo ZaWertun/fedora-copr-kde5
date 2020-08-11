@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary: The KHolidays Library
 
@@ -86,6 +86,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license COPYING*
 %{_kf5_libdir}/libKF5Holidays.so.*
 %{_kf5_qmldir}/org/kde/kholidays/
+%{_kf5_datadir}/qlogging-categories5/kholidays.categories
 
 %files devel
 %{_kf5_includedir}/kholidays_version.h
@@ -96,6 +97,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.72.0-1
 - 5.72.0
 

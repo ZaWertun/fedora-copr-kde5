@@ -13,7 +13,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
@@ -39,6 +39,7 @@ BuildRequires:  wayland-devel >= %{wayland_min_version}
 BuildRequires:  wayland-protocols-devel
 BuildRequires:  qt5-qttools-devel
 BuildRequires:  cmake(Qt5WaylandClient)
+BuildRequires:  cmake(PlasmaWaylandProtocols) >= 1.1
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -112,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 

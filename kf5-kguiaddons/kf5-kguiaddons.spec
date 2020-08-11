@@ -1,7 +1,7 @@
 %global framework kguiaddons
 
 Name:           kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with various classes on top of QtGui
 
@@ -62,6 +62,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %license COPYING COPYING.LIB
 %{_kf5_libdir}/libKF5GuiAddons.so.*
 %{_kf5_plugindir}/kguiaddons/
+%{_kf5_datadir}/qlogging-categories5/kguiaddons.categories
 
 %files devel
 %{_kf5_includedir}/kguiaddons_version.h
@@ -72,6 +73,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 

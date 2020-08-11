@@ -8,7 +8,7 @@
 %endif
 
 Name:           kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 2 library to load and install packages as plugins
 
@@ -92,6 +92,7 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_bindir}/kpackagetool5
 %{_mandir}/man1/kpackagetool5.1*
 %{_kf5_datadir}/qlogging-categories5/kpackage.categories
+%{_kf5_datadir}/qlogging-categories5/kpackage.renamecategories
 
 %files devel
 %{_kf5_includedir}/kpackage_version.h
@@ -101,6 +102,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 

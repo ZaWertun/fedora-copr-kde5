@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:    plasma-wayland-protocols
-Version: 1.0
+Version: 1.1.1
 Release: 1%{?dist}
 Summary: Plasma Specific Protocols for Wayland
 
@@ -57,5 +57,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1.1.1-1
+- 1.1.1
+
 * Fri May 22 2020 Martin Kyral <martin.kyral@gmail.com> - 1.0-1
 - 1.0

@@ -1,7 +1,7 @@
 %global framework khtml
 
 Name:           kf5-%{framework}
-Version: 5.72.0
+Version: 5.73.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 4 solution with KHTML, a HTML rendering engine
 
@@ -99,7 +99,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_datadir}/kf5/khtml/
 %{_kf5_datadir}/kservices5/*.desktop
 %config %{_kf5_sysconfdir}/xdg/khtmlrc
-%{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_datadir}/qlogging-categories5/khtml.categories
+%{_kf5_datadir}/qlogging-categories5/khtml.renamecategories
 
 %files devel
 %{_kf5_libdir}/libKF5KHtml.so
@@ -110,6 +111,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+- 5.73.0
+
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 
