@@ -1,6 +1,6 @@
 Name:    artikulate
 Summary: Improve your pronunciation by listening to native speakers
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 # artwork: LGPL3
@@ -96,6 +96,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

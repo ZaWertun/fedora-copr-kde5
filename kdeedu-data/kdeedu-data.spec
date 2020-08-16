@@ -1,7 +1,7 @@
 
 Name:    kdeedu-data
 Summary: Shared icons, artwork and data files for educational applications
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -64,6 +64,9 @@ cp -alf \
 
 
 %changelog
+* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

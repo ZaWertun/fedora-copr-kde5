@@ -1,19 +1,7 @@
-From 068bf7f9bf8f34a9f14ed026e6c5c993b7cc80c7 Mon Sep 17 00:00:00 2001
-From: Rex Dieter <rdieter@math.unl.edu>
-Date: Mon, 28 Dec 2015 11:29:59 -0600
-Subject: [PATCH] explicitly use QLibrary to load libpython (like pykde)
-
-BUG: 335965
----
- CMakeLists.txt               | 3 +++
- scripting/python_scripter.cc | 7 +++++++
- 2 files changed, 10 insertions(+)
-
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d7fffcd..7b93833 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -57,6 +57,9 @@ add_subdirectory( pykig )
+diff -r -U3 kig-20.08.0.orig/CMakeLists.txt kig-20.08.0/CMakeLists.txt
+--- kig-20.08.0.orig/CMakeLists.txt	2020-08-07 09:54:58.000000000 +0300
++++ kig-20.08.0/CMakeLists.txt	2020-08-16 23:18:22.463314427 +0300
+@@ -64,6 +64,9 @@
  if(BoostPython_FOUND)
    add_subdirectory( scripting )
    add_definitions(-DKIG_ENABLE_PYTHON_SCRIPTING)
@@ -23,10 +11,10 @@ index d7fffcd..7b93833 100644
  endif(BoostPython_FOUND)
  
  set_package_properties(
-diff --git a/scripting/python_scripter.cc b/scripting/python_scripter.cc
-index e60a90c..99c1f1c 100644
---- a/scripting/python_scripter.cc
-+++ b/scripting/python_scripter.cc
+Только в kig-20.08.0/: CMakeLists.txt.orig
+diff -r -U3 kig-20.08.0.orig/scripting/python_scripter.cc kig-20.08.0/scripting/python_scripter.cc
+--- kig-20.08.0.orig/scripting/python_scripter.cc	2020-08-07 08:49:45.000000000 +0300
++++ kig-20.08.0/scripting/python_scripter.cc	2020-08-16 23:18:22.463314427 +0300
 @@ -23,6 +23,8 @@
  #include <Python.h>
  #include "python_scripter.h"
@@ -36,9 +24,9 @@ index e60a90c..99c1f1c 100644
  #include <iostream>
  #include <string>
  
-@@ -398,6 +400,11 @@ PythonScripter::PythonScripter()
-   // don't do it..
-   //delete [] s;
+@@ -381,6 +383,11 @@
+ 
+   PyImport_AppendInittab( "kig", PyInit_kig );
  
 +  QLibrary *pythonLib = new QLibrary();
 +  pythonLib->setLoadHints(QLibrary::ExportExternalSymbolsHint);
@@ -47,7 +35,5 @@ index e60a90c..99c1f1c 100644
 +
    Py_Initialize();
  
-   s = newstring( "import math; from math import *;" );
--- 
-2.5.0
-
+   PyRun_SimpleString( "import math; from math import *;" );
+Только в kig-20.08.0/scripting: python_scripter.cc.orig
