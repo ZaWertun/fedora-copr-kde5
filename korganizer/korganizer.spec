@@ -8,7 +8,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -147,6 +147,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_metainfodir}/org.kde.korganizer.appdata.xml
 %{_kf5_datadir}/applications/org.kde.korganizer.desktop
 %{_kf5_datadir}/applications/korganizer-import.desktop
+%{_kf5_datadir}/applications/korganizer-view.desktop
 %{_kf5_datadir}/korganizer/
 %{_kf5_datadir}/icons/hicolor/*/apps/korg-journal.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korg-todo.*
@@ -186,13 +187,16 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/kcm_apptsummary.so
 %{_kf5_qtplugindir}/kcm_sdsummary.so
 %{_kf5_qtplugindir}/kcm_todosummary.so
-%{_kf5_qtplugindir}/kontact_korganizerplugin.so
-%{_kf5_qtplugindir}/kontact_todoplugin.so
-%{_kf5_qtplugindir}/kontact_journalplugin.so
-%{_kf5_qtplugindir}/kontact_specialdatesplugin.so
+%{_kf5_qtplugindir}/kontact5/kontact_korganizerplugin.so
+%{_kf5_qtplugindir}/kontact5/kontact_todoplugin.so
+%{_kf5_qtplugindir}/kontact5/kontact_journalplugin.so
+%{_kf5_qtplugindir}/kontact5/kontact_specialdatesplugin.so
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

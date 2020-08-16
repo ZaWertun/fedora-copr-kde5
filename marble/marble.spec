@@ -2,7 +2,7 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -255,6 +255,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.04.3-1
 - 20.04.3
 

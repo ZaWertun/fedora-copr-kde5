@@ -1,7 +1,7 @@
 %global framework libkdepim
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: Library for common kdepim apps
 
@@ -17,7 +17,7 @@ URL:     http://cgit.kde.org/%{framework}.git
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 
 BuildRequires:  boost-devel
-%global kf5_ver 5.23
+%global kf5_ver 5.71
 BuildRequires:  extra-cmake-modules >= %{kf5_ver}
 BuildRequires:  kf5-rpm-macros >= %{kf5_ver} 
 BuildRequires:  cmake(KF5I18n)
@@ -34,9 +34,6 @@ BuildRequires:  cmake(Qt5Widgets)
 %global majmin_ver %{version}
 # kf5-akonadi-contacts available only where qt5-qtwebengine is
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
-BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
-BuildRequires:  kf5-akonadi-search-devel >= %{majmin_ver}
-BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcontacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-kimap-devel >= %{majmin_ver}
 BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
@@ -54,19 +51,9 @@ Conflicts:      kaddressbook < 16.04.0
 %description
 %{summary}.
 
-%package        akonadi
-Summary:        The LibkdepimAkonadi runtime library
-Requires:       %{name}%{?_isa} = %{version}-%{release}
-%description    akonadi
-%{summary}.
-
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-# -akonadi deps
-Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
-Requires:       cmake(KF5Akonadi)
-Requires:       cmake(KF5AkonadiContact)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -96,17 +83,8 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %files -f %{name}.lang
 %license COPYING*
 %{_kf5_libdir}/libKF5Libkdepim.so.5*
-%{_kf5_datadir}/kdepimwidgets/
 %{_qt5_plugindir}/designer/kdepimwidgets.so
-%{_kf5_datadir}/kservices5/kcmldap.desktop
-%{_qt5_plugindir}/kcm_ldap.so
 %{_kf5_datadir}/qlogging-categories5/*categories
-
-%ldconfig_scriptlets akonadi
-
-%files akonadi
-%{_kf5_libdir}/libKF5LibkdepimAkonadi.so.5*
-%{_qt5_plugindir}/designer/kdepimakonadiwidgets.so
 
 %files devel
 %{_kf5_libdir}/libKF5Libkdepim.so
@@ -118,16 +96,12 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_libdir}/cmake/MailTransportDBusService/
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.addressbook.service.xml
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.mailtransport.service.xml
-# -akonadi
-%{_kf5_libdir}/libKF5LibkdepimAkonadi.so
-%{_kf5_libdir}/cmake/KF5LibkdepimAkonadi/
-%{_kf5_includedir}/libkdepimakonadi_version.h
-%{_kf5_includedir}/libkdepimakonadi/
-%{_kf5_includedir}/LibkdepimAkonadi/
-%{_kf5_archdatadir}/mkspecs/modules/qt_LibkdepimAkonadi.pri
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

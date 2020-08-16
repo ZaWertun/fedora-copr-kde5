@@ -8,7 +8,7 @@
 
 Name:    krdc
 Summary: Remote desktop client
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -47,7 +47,9 @@ BuildRequires: kf5-rpm-macros
 BuildRequires: kf5-kwindowsystem-devel
 
 BuildRequires: freerdp >= %{freerdp_ver}
+BuildRequires: zlib-devel
 BuildRequires: libvncserver-devel
+BuildRequires: libssh-devel
 # for hicolor icon hack in %%prep
 BuildRequires: oxygen-icon-theme
 
@@ -120,7 +122,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %files -f %{name}.lang
 %license COPYING*
 %{_kf5_bindir}/krdc
-%{_kf5_datadir}/krdc/
 %{_kf5_datadir}/applications/org.kde.krdc.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/krdc.*
@@ -145,6 +146,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

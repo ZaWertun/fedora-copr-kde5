@@ -1,5 +1,5 @@
 Name:    kdepim-apps-libs
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: KDE PIM common libraries
 
@@ -93,22 +93,11 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %license COPYING*
-%{_kf5_libdir}/libKF5FollowupReminder.so.*
 %{_kf5_libdir}/libKF5KaddressbookImportExport.so.*
 %{_kf5_libdir}/libKF5KaddressbookGrantlee.so.*
-%{_kf5_libdir}/libKF5KdepimDBusInterfaces.so.*
-%{_kf5_libdir}/libKF5SendLater.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-# FollowupReminder
-%{_kf5_libdir}/libKF5FollowupReminder.so
-%{_kf5_libdir}/cmake/KF5FollowupReminder/
-%{_kf5_includedir}/FollowupReminder/
-%{_kf5_includedir}/followupreminder/
-%{_kf5_includedir}/followupreminder_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_FollowupReminder.pri
-
 # KaddressbookImportExport
 %{_kf5_libdir}/libKF5KaddressbookImportExport.so
 %{_kf5_libdir}/cmake/KF5KaddressbookImportExport/
@@ -125,24 +114,11 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %{_kf5_includedir}/kaddressbookgrantlee_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_KaddressbookGrantlee.pri
 
-# KdepimDBusInterfaces
-%{_kf5_libdir}/libKF5KdepimDBusInterfaces.so
-%{_kf5_libdir}/cmake/KF5KdepimDBusInterfaces/
-%{_kf5_includedir}/KdepimDBusInterfaces/
-%{_kf5_includedir}/kdepimdbusinterfaces/
-%{_kf5_includedir}/kdepimdbusinterfaces_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_KdepimDBusInterfaces.pri
-
-# SendLater
-%{_kf5_libdir}/libKF5SendLater.so
-%{_kf5_libdir}/cmake/KF5SendLater/
-%{_kf5_includedir}/SendLater/
-%{_kf5_includedir}/sendlater/
-%{_kf5_includedir}/sendlater_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_SendLater.pri
-
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

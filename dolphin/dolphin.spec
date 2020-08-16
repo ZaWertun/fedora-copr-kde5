@@ -8,7 +8,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -120,10 +120,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files -f dolphin.lang -f dolphin_servicemenuinstaller.lang
 %license COPYING*
-%doc README
+%doc README.md
 %{_kf5_bindir}/dolphin
 %{_kf5_bindir}/servicemenuinstaller
-%{_sysconfdir}/xdg/servicemenu.knsrc
 %{_kf5_libdir}/libkdeinit5_dolphin.so
 %{_kf5_datadir}/kservices5/kcmdolphin*.desktop
 %{_kf5_datadir}/config.kcfg/dolphin_*
@@ -134,6 +133,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/kservicetypes5/fileviewversioncontrolplugin.desktop
 %lang(fi) %{_datadir}/locale/fi/LC_SCRIPTS/dolphin/
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_datadir}/knsrcfiles/*.knsrc
 
 %ldconfig_scriptlets libs
 
@@ -153,6 +153,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

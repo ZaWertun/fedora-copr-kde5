@@ -21,7 +21,7 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -225,8 +225,8 @@ fi
 
 
 %files -f libakonadi5.lang
-%doc AUTHORS README
-%license COPYING*
+%doc AUTHORS README.md
+%license LICENSES/*.txt
 %dir %{_sysconfdir}/xdg/akonadi/
 %ghost %config(missingok,noreplace) %{_sysconfdir}/xdg/akonadi/akonadiserverrc
 %config(noreplace) %{_sysconfdir}/xdg/akonadi/akonadiserverrc.sqlite
@@ -306,6 +306,9 @@ fi
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

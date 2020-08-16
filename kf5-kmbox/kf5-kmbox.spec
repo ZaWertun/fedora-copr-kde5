@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: The KMbox Library
 
@@ -77,7 +77,7 @@ make test ARGS="--output-on-failure --timeout 120" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files
-%license COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5Mbox.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -91,6 +91,9 @@ make test ARGS="--output-on-failure --timeout 120" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

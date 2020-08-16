@@ -1,7 +1,7 @@
 %global framework incidenceeditor
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: KDE PIM library for creating and editing calendar incidences
 
@@ -38,7 +38,6 @@ BuildRequires:  cmake(KF5Codecs)
 BuildRequires:  cmake(KF5CalendarSupport)
 BuildRequires:  cmake(KF5EventViews)
 BuildRequires:  cmake(KF5Libkdepim)
-BuildRequires:  cmake(KF5KdepimDBusInterfaces)
 BuildRequires:  cmake(KF5KDGantt2)
 BuildRequires:  cmake(KF5CalendarUtils)
 BuildRequires:  cmake(KF5CalendarCore)
@@ -114,6 +113,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

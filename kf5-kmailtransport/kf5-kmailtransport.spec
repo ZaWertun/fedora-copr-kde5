@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: The KMailTransport Library
 
@@ -114,7 +114,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5MailTransport.so.*
 %{_kf5_datadir}/config.kcfg/mailtransport.kcfg
 %{_kf5_qtplugindir}/kcm_mailtransport.so
@@ -144,6 +144,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

@@ -3,7 +3,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary:        Library to access to Google services
 
@@ -84,7 +84,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f libkgapi_qt.lang
 %doc README*
-%license LICENSE
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKPimGAPIBlogger.so.5*
 %{_kf5_libdir}/libKPimGAPICalendar.so.*
 %{_kf5_libdir}/libKPimGAPIContacts.so.*
@@ -121,6 +121,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

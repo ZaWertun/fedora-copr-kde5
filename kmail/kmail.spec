@@ -8,7 +8,7 @@
 
 Name:    kmail
 Summary: Mail client
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -216,11 +216,14 @@ end
 %{_kf5_qtplugindir}/kcm_kmail.so
 %{_kf5_qtplugindir}/kcm_kontactsummary.so
 %{_kf5_qtplugindir}/kmailpart.so
-%{_kf5_qtplugindir}/kontact_kmailplugin.so
-%{_kf5_qtplugindir}/kontact_summaryplugin.so
+%{_kf5_qtplugindir}/kontact5/kontact_kmailplugin.so
+%{_kf5_qtplugindir}/kontact5/kontact_summaryplugin.so
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

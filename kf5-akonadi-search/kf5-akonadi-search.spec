@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Search library and indexing agent
 
@@ -95,18 +95,18 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%doc README.md
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5AkonadiSearchPIM.so.*
 %{_kf5_libdir}/libKF5AkonadiSearchCore.so.*
 %{_kf5_libdir}/libKF5AkonadiSearchXapian.so.*
 %{_kf5_libdir}/libKF5AkonadiSearchDebug.so.*
 %{_kf5_bindir}/akonadi_indexing_agent
 %{_kf5_datadir}/akonadi/agents/akonadiindexingagent.desktop
-%{_kf5_datadir}/kservices5/plasma-krunner-pimcontacts.desktop
 %{_kf5_datadir}/kservices5/plasma-krunner-pimcontacts_config.desktop
 %{_kf5_qtplugindir}/akonadi/
 %{_kf5_qtplugindir}/kcm_krunner_pimcontacts.so
-%{_kf5_qtplugindir}/krunner_pimcontacts.so
+%{_kf5_plugindir}/krunner/krunner_pimcontacts.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
@@ -120,6 +120,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

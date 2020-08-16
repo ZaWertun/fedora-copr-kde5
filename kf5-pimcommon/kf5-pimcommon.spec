@@ -1,7 +1,7 @@
 %global framework pimcommon
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: PIM common libraries
 
@@ -23,7 +23,7 @@ BuildRequires:  boost-devel
 
 BuildRequires:  cmake(Grantlee5)
 # kf5
-%global kf5_ver 5.28
+%global kf5_ver 5.71
 BuildRequires:  extra-cmake-modules >= %{kf5_ver}
 BuildRequires:  kf5-rpm-macros >= %{kf5_ver}
 BuildRequires:  cmake(KF5Archive)
@@ -46,6 +46,7 @@ BuildRequires:  cmake(KF5WidgetsAddons)
 BuildRequires:  cmake(KF5WindowSystem)
 BuildRequires:  cmake(KF5XmlGui)
 BuildRequires:  cmake(KF5Purpose)
+BuildRequires:  cmake(KF5KCMUtils)
 # qt5
 BuildRequires:  cmake(Qt5Designer)
 BuildRequires:  cmake(Qt5DBus)
@@ -69,6 +70,8 @@ BuildRequires:  kf5-kimap-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
 BuildRequires:  kf5-kpimtextedit-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
+BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
+BuildRequires:  kf5-akonadi-search-devel >= %{majmin_ver}
 
 BuildRequires:  pkgconfig(libxslt)
 
@@ -130,6 +133,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files akonadi
 %{_kf5_libdir}/libKF5PimCommonAkonadi.so.5*
+%{_kf5_qtplugindir}/designer/pimcommoniakonadiwidgets.so
 
 %files devel
 %{_kf5_libdir}/libKF5PimCommon.so
@@ -148,6 +152,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

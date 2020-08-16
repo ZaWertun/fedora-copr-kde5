@@ -29,7 +29,6 @@
     "kdnssd",
     "keditbookmarks",
     "kf5-grantleetheme",
-    "kf5-kdav",
     "kf5-kmime",
     "kf5-kontactinterface",
     "kf5-kpimtextedit",
@@ -97,29 +96,27 @@
     "kf5-akonadi-search",
     "kf5-kalarmcal",
     "kf5-kmailtransport",
-    "kf5-ktnef"
+    "kf5-ktnef",
+    "kf5-libkdepim"
   ],
   "4": [
     "kf5-akonadi-calendar",
-    "kf5-libkdepim",
+    "kf5-pimcommon",
     "kgpg"
   ],
   "5": [
-    "kf5-mailimporter",
-    "kf5-pimcommon"
-  ],
-  "6": [
     "kdepim-apps-libs",
     "kdepim-runtime",
     "kf5-libgravatar",
     "kf5-libksieve",
+    "kf5-mailimporter",
     "knotes"
   ],
-  "7": [
+  "6": [
     "kf5-calendarsupport",
     "kf5-messagelib"
   ],
-  "8": [
+  "7": [
     "akonadi-calendar-tools",
     "akonadiconsole",
     "akregator",
@@ -128,7 +125,7 @@
     "kf5-mailcommon",
     "pim-sieve-editor"
   ],
-  "9": [
+  "8": [
     "akonadi-import-wizard",
     "kaddressbook",
     "kalarm",
@@ -138,7 +135,7 @@
     "kontact",
     "pim-data-exporter"
   ],
-  "10": [
+  "9": [
     "kdepim-addons",
     "korganizer"
   ]

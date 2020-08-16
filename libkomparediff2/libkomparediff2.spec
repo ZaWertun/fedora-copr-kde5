@@ -3,7 +3,7 @@
 
 Name:    libkomparediff2
 Summary: Library to compare files and strings
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 # Library: GPLv2+ (some files LGPLv2+), CMake scripts: BSD
@@ -92,6 +92,7 @@ make test/fast -C %{_target_platform}
 %files -f %{name}.lang
 %license COPYING*
 %{_libdir}/libkomparediff2.so.5*
+%{_kf5_datadir}/qlogging-categories5/libkomparediff2.categories
 
 %files devel
 %{_includedir}/libkomparediff2/
@@ -100,6 +101,9 @@ make test/fast -C %{_target_platform}
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

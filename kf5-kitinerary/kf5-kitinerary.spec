@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
@@ -106,7 +106,7 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 %files -f %{name}.lang
 %doc README.md
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKPimItinerary.so.5*
 %{_kf5_datadir}/mime/packages/*.xml
 %{_kf5_datadir}/qlogging-categories5/*.categories
@@ -120,6 +120,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

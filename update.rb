@@ -40,7 +40,8 @@ end
 Dir.chdir(name) do
     old_version = `grep Version: *.spec`
     unless old_version.include?(version)
-        system "rpmdev-bumpspec -n #{version} --comment=\"#{version}\" *.spec"; done?
+        system "rpmdev-bumpspec -n #{version} --comment=\"#{version}\" *.spec 2>/dev/null"; done?
+        puts "#{name}-#{version}"
     end
 
     system "git add ."; done?

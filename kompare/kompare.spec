@@ -1,7 +1,7 @@
 
 Name:    kompare
 Summary: Diff tool
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -100,6 +100,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 %{_datadir}/kservices5/komparenavtreepart.desktop
 %{_datadir}/kservices5/komparepart.desktop
 %{_kf5_datadir}/kservices5/ServiceMenus/kompare.desktop
+%{_kf5_datadir}/qlogging-categories5/kompare.categories
 
 %ldconfig_scriptlets libs
 
@@ -115,6 +116,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

@@ -1,7 +1,7 @@
 
 Name:    juk 
 Summary: Music player 
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 # code: KDE e.V. may determine that future GPL versions are accepted
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.juk.deskt
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

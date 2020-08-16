@@ -1,5 +1,5 @@
 Name:       elisa-player
-Version:    20.04.3
+Version:    20.08.0
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -20,6 +20,8 @@ Source0:    https://download.kde.org/%{stable}/release-service/%{version}/src/el
 # cd releaseme
 # RELEASEME_READONLY=1 ./tarme.rb --version 20.03.90 --origin trunk elisa
 # Source0:    elisa-%{version}.tar.xz
+
+Patch0:	    elisa-player-20.08.0-old-qt.patch
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
@@ -63,7 +65,7 @@ Elisa is a simple music player aiming to provide a nice experience for its
 users.
 
 %prep
-%autosetup -n elisa-%{version}
+%autosetup -n elisa-%{version} -p1
 
 %build
 mkdir build
@@ -92,6 +94,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

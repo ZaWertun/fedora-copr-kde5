@@ -1,7 +1,7 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -100,6 +100,8 @@ Requires:       cmake(Qt5WebEngine)
 
 
 %build
+sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
+
 mkdir %{_target_platform}
 pushd %{_target_platform}
 %{cmake_kf5} ..
@@ -117,7 +119,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5MessageComposer.so.*
 %{_kf5_libdir}/libKF5MessageCore.so.*
 %{_kf5_libdir}/libKF5MessageList.so.*
@@ -192,6 +194,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

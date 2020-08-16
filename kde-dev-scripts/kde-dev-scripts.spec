@@ -1,6 +1,6 @@
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GPLv2+ and BSD
@@ -168,12 +168,13 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 %{_mandir}/man1/fixincludes.1*
 %{_mandir}/man1/pruneemptydirs.1*
 %{_mandir}/man1/qtdoc.1*
-%{_mandir}/man1/reportview.1*
-%{_mandir}/man1/transxx.1*
 %{_mandir}/man1/zonetab2pot.py.1*
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

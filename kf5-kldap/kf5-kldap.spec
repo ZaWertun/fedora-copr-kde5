@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: The KLDAP Library
 
@@ -25,7 +25,7 @@ Source0:        https://download.kde.org/%{stable}/release-service/%{version}/sr
 
 BuildRequires:  cyrus-sasl-devel
 BuildRequires:  openldap-devel
-%global kf5_ver 5.28
+%global kf5_ver 5.71
 BuildRequires:  extra-cmake-modules >= %{kf5_ver}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-kcompletion-devel >= %{kf5_ver}
@@ -33,6 +33,7 @@ BuildRequires:  kf5-kdoctools-devel >= %{kf5_ver}
 BuildRequires:  kf5-kio-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{kf5_ver}
 BuildRequires:  kf5-ki18n-devel >= %{kf5_ver}
+BuildRequires:  kf5-kwallet-devel >= %{kf5_ver}
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-kmbox-devel >= %{majmin_ver}
@@ -93,7 +94,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%doc README.md
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5Ldap.so.*
 %{_kf5_plugindir}/kio/ldap.so
 %{_kf5_datadir}/kservices5/ldap.protocol
@@ -109,6 +111,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

@@ -58,6 +58,7 @@
     "kf5-kservice"
   ],
   "5": [
+    "kf5-kded",
     "kf5-kdesu",
     "kf5-kemoticons",
     "kf5-kglobalaccel",
@@ -81,7 +82,9 @@
   ],
   "10": [
     "kf5-baloo",
+    "kf5-kdav",
     "kf5-kdeclarative",
+    "kf5-kdesignerplugin",
     "kf5-kinit",
     "kf5-knewstuff",
     "kf5-knotifyconfig",
@@ -92,7 +95,7 @@
   "11": [
     "kf5-frameworkintegration",
     "kf5-kcmutils",
-    "kf5-kded",
+    "kf5-kdelibs4support",
     "kf5-kdewebkit",
     "kf5-khtml",
     "kf5-kmediaplayer",
@@ -101,12 +104,10 @@
     "kf5-purpose"
   ],
   "12": [
-    "kf5-kactivities",
-    "kf5-kdesignerplugin"
+    "kf5-kactivities"
   ],
   "13": [
     "kf5-kactivities-stats",
-    "kf5-kdelibs4support",
     "kf5-plasma"
   ],
   "14": [

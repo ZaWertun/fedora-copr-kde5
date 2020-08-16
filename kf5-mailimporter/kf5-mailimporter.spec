@@ -1,7 +1,7 @@
 %global framework mailimporter
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: Mail importer library
 
@@ -22,7 +22,7 @@ BuildRequires:  cmake(Qt5UiTools)
 BuildRequires:  cmake(Qt5Widgets)
 BuildRequires:  cmake(Qt5Xml)
 
-%global kf5_ver 5.23.0
+%global kf5_ver 5.71.0
 BuildRequires:  extra-cmake-modules >= %{kf5_ver}
 BuildRequires:  kf5-rpm-macros >= %{kf5_ver}
 BuildRequires:  kf5-karchive-devel >= %{kf5_ver}
@@ -30,6 +30,7 @@ BuildRequires:  kf5-ki18n-devel >= %{kf5_ver}
 BuildRequires:  kf5-kconfig-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{kf5_ver}
 BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
+BuildRequires:  kf5-kcmutils-devel => %{kf5_ver}
 
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
@@ -40,6 +41,7 @@ BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
+BuildRequires:  kf5-pimcommon-devel >= %{majmin_ver}
 
 Obsoletes:      kdepim-libs < 7:16.04.0
 Conflicts:      kdepim-libs < 7:16.04.0
@@ -113,6 +115,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

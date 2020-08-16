@@ -11,7 +11,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -179,6 +179,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %files -f %{name}.lang
 %license COPYING*
 %doc AUTHORS ChangeLog
+%{_kf5_sysconfdir}/xdg/konqsidebartngrc
 %{_kf5_bindir}/fsview
 %{_kf5_bindir}/kfmclient
 %{_kf5_bindir}/konqueror
@@ -188,7 +189,6 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_datadir}/config.kcfg/*.kcfg
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
 %{_kf5_datadir}/dolphinpart/kpartplugins/*
-%{_kf5_datadir}/fsview/
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/kcmcss/
 %{_kf5_datadir}/kcontrol/
@@ -196,9 +196,12 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_datadir}/khtml/
 %{_kf5_datadir}/konqueror/
 %{_kf5_datadir}/kwebkitpart/
+%{_kf5_datadir}/konqsidebartng/entries/*.desktop
+%{_kf5_datadir}/konqsidebartng/plugins/*.desktop
 %{_kf5_sysconfdir}/xdg/autostart/konqy_preload.desktop
 %{_kf5_sysconfdir}/xdg/translaterc
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_datadir}/kxmlgui5/fsview/fsview_part.rc
 
 %ldconfig_scriptlets libs
 
@@ -206,10 +209,12 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_datadir}/kservices5/*
 %{_kf5_libdir}/lib*.so.*
 %{_kf5_libdir}/libkdeinit5*.so
+%{_kf5_libdir}/libkonqsidebarplugin.so
 %{_kf5_qtplugindir}/*.so
 %{_kf5_plugindir}/kfileitemaction/akregatorplugin.so
 
 %files devel
+%{_includedir}/konqsidebarplugin.h
 %{_kf5_includedir}/konq_*.h
 %{_kf5_includedir}/libkonq_export.h
 %{_kf5_libdir}/cmake/KF5Konq/
@@ -226,6 +231,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

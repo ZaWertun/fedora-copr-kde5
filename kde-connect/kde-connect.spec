@@ -5,7 +5,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        20.04.3
+Version:        20.08.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -155,6 +155,7 @@ done
 %{_kf5_datadir}/knotifications5/*
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_datadir}/qlogging-categories5/kdeconnect-kde.categories
 %{_qt5_plugindir}/kcm_kdeconnect.so
 %{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
 %{_kf5_plugindir}/kio/kdeconnect.so
@@ -166,6 +167,7 @@ done
 %{_datadir}/contractor/
 %{_datadir}/Thunar/
 %{_datadir}/zsh/
+%{_datadir}/deepin/
 
 %post -n kdeconnectd
 %{?firewalld_reload}
@@ -200,6 +202,9 @@ fi
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

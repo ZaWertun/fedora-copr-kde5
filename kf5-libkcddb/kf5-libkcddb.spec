@@ -2,7 +2,7 @@
 %global framework libkcddb
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: CDDB retrieval library
 
@@ -93,14 +93,12 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 %files -f %{name}.lang
 %license COPYING COPYING.LIB
 %{_kf5_libdir}/libKF5Cddb.so.5*
-%{_kf5_libdir}/libKF5CddbWidgets.so.5*
 %{_qt5_plugindir}/kcm_cddb.so
 %{_kf5_datadir}/config.kcfg/libkcddb5.kcfg
 %{_kf5_datadir}/kservices5/libkcddb.desktop
 
 %files devel
 %{_kf5_libdir}/libKF5Cddb.so
-%{_kf5_libdir}/libKF5CddbWidgets.so
 %{_kf5_includedir}/KCddb/
 %{_kf5_includedir}/kcddb_version.h
 %{_kf5_libdir}/cmake/KF5Cddb/
@@ -110,6 +108,9 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

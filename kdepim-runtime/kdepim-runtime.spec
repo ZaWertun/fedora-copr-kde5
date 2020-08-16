@@ -9,7 +9,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -58,6 +58,7 @@ BuildRequires:  kf5-kross-devel
 BuildRequires:  kf5-kcodecs-devel
 BuildRequires:  kf5-kwindowsystem-devel
 BuildRequires:  kf5-ktextwidgets-devel
+BuildRequires:  kf5-kcmutils-devel
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
@@ -86,6 +87,9 @@ BuildRequires:  kf5-kpimtextedit-devel >= %{majmin_ver}
 BuildRequires:  kf5-pimcommon-devel >= %{majmin_ver}
 BuildRequires:  kf5-syndication-devel >= %{majmin_ver}
 BuildRequires:  libkgapi-devel >= %{majmin_ver}
+BuildRequires:  kf5-kdav-devel >= %{majmin_ver}
+BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
+BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
 # https://bugzilla.redhat.com/show_bug.cgi?id=1662756
 Requires: libkgapi%{?_isa} >= %{majmin_ver}
 BuildRequires:  cmake(KF5PimCommon)
@@ -130,6 +134,8 @@ Requires: kf5-akonadi-server%{?_isa} >= %{version}
 
 
 %build
+sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' CMakeLists.txt
+
 mkdir %{_target_platform}
 pushd %{_target_platform}
 %{cmake_kf5} .. \
@@ -172,6 +178,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
 %{_kf5_datadir}/kservices5/pop3.protocol
 %{_kf5_datadir}/kservices5/pop3s.protocol
+%{_kf5_datadir}/kservices5/kcmldap.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
@@ -184,10 +191,14 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libmaildir.so.5*
 %{_kf5_plugindir}/kio/akonadi.so
 %{_kf5_plugindir}/kio/pop3.so
+%{_kf5_qtplugindir}/kcm_ldap.so
 %{_kf5_qtplugindir}/akonadi/config/*.so
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.04.3-1
 - 20.04.3
 

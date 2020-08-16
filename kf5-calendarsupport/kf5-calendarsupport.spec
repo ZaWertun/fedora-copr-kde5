@@ -1,7 +1,7 @@
 %global framework      calendarsupport
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 Summary: KDE PIM library for calendar and even handling
 
@@ -20,9 +20,11 @@ Source0:        https://download.kde.org/%{stable}/release-service/%{version}/sr
 # available only where kdepim-apps-libs is
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
-%global kf5_ver 5.23.0
+%global kf5_ver 5.71.0
 BuildRequires:  extra-cmake-modules >= %{kf5_ver}
 BuildRequires:  kf5-rpm-macros >= %{kf5_ver}
+BuildRequires:  kf5-kholidays-devel >= %{kf5_ver}
+BuildRequires:  kf5-kcalendarcore-devel >= %{kf5_ver}
 
 BuildRequires:  cmake(Qt5Widgets)
 BuildRequires:  cmake(Qt5Test)
@@ -38,7 +40,6 @@ BuildRequires:  cmake(KF5IdentityManagement)
 BuildRequires:  cmake(KF5Holidays)
 BuildRequires:  cmake(KF5AkonadiCalendar)
 BuildRequires:  cmake(KF5PimCommon)
-BuildRequires:  cmake(KF5KdepimDBusInterfaces)
 
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
@@ -46,12 +47,11 @@ BuildRequires:  kdepim-apps-libs-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-calendar-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
-BuildRequires:  kf5-kcalendarcore-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcalendarutils-devel >= %{majmin_ver}
-BuildRequires:  kf5-kholidays-devel >= %{majmin_ver}
 BuildRequires:  kf5-kidentitymanagement-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
 BuildRequires:  kf5-pimcommon-devel >= %{majmin_ver}
+BuildRequires:  kf5-akonadi-notes-devel >= %{majmin_ver}
 
 Requires:       kf5-filesystem
 
@@ -69,6 +69,8 @@ Requires:       cmake(KF5AkonadiCalendar)
 Requires:       kf5-akonadi-calendar-devel >= %{majmin_ver}
 Requires:       kf5-kidentitymanagement-devel >= %{majmin_ver}
 Requires:       kf5-kmime-devel >= %{majmin_ver}
+Requires:       kf5-pimcommon-devel >= %{majmin_ver}
+Requires:       kf5-akonadi-notes-devel >= %{majmin_ver}
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -111,6 +113,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

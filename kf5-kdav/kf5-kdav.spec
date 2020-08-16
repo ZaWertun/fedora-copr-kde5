@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework kdav
 
 # uncomment to enable bootstrap mode
@@ -8,26 +9,32 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.04.3
+Epoch:   1
+Version: 5.73.0
 Release: 1%{?dist}
 Summary: A DAV protocol implementation with KJobs
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
 
+%global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
 %global stable unstable
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+BuildRequires:  extra-cmake-modules >= %{majmin}
+BuildRequires:  kf5-rpm-macros >= %{majmin}
 
 BuildRequires:  cmake(Qt5Gui)
 BuildRequires:  cmake(Qt5XmlPatterns)
 
-BuildRequires:  extra-cmake-modules
-BuildRequires:  kf5-rpm-macros
+BuildRequires:  kf5-ki18n-devel >= %{majmin}
+BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
+BuildRequires:  kf5-kio-devel  >= %{majmin}
 
 BuildRequires:  cmake(KF5CoreAddons)
 BuildRequires:  cmake(KF5I18n)
@@ -44,7 +51,7 @@ BuildRequires: xorg-x11-server-Xvfb
 
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = %{epoch}:%{version}-%{release}
 Requires:       cmake(KF5CoreAddons)
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -56,17 +63,13 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-popd
-
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 
@@ -83,68 +86,71 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
+%doc README*
 %license COPYING*
+%{_kf5_datadir}/qlogging-categories5/*%{framework}.*
 %{_kf5_libdir}/libKF5DAV.so.5*
-%{_kf5_datadir}/qlogging-categories5/*.categories
-
 
 %files devel
-%{_includedir}/KF5/kdav/
-%{_includedir}/KF5/KDAV/
-%{_includedir}/KF5/kdav_version.h
+%{_kf5_includedir}/kdav_version.h
+%{_kf5_includedir}/kdav/
+%{_kf5_includedir}/KDAV/
 %{_kf5_libdir}/libKF5DAV.so
 %{_kf5_libdir}/cmake/KF5DAV/
 %{_kf5_archdatadir}/mkspecs/modules/qt_kdav.pri
 
 
 %changelog
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Mon Aug 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.73.0-1
+- 5.73.0
+
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1:5.72.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Fri Jul 17 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.72-1
+- moved to kde frameworks, epoch++ for upgrade path
+
+* Fri Jul 10 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.3-1
 - 20.04.3
 
-* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+* Fri Jun 12 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.2-1
 - 20.04.2
 
-* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+* Wed May 27 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.1-1
 - 20.04.1
 
-* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+* Fri Apr 24 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.0-1
 - 20.04.0
 
-* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+* Sat Mar 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.3-1
 - 19.12.3
 
-* Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
+* Tue Feb 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.2-1
 - 19.12.2
 
-* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 19.12.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Sat Jan 18 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.1-1
 - 19.12.1
 
-* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
-- 19.12.0
-
-* Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
+* Mon Nov 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.3-1
 - 19.08.3
 
-* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
+* Fri Oct 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.2-1
 - 19.08.2
 
-* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
-- 19.08.1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 19.04.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
-* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
-- 19.08.0
-
-* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+* Fri Jul 12 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.3-1
 - 19.04.3
 
-* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+* Wed Jun 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.2-1
 - 19.04.2
 
-* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
-- 19.04.1
-
-* Mon May 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
-- 19.04.0
+* Fri Mar 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-1
+- 18.12.3
 
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2

@@ -1,7 +1,7 @@
 
 Name:    krfb
 Summary: Desktop sharing
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -49,7 +49,9 @@ BuildRequires: pkgconfig(xdamage)
 
 BuildRequires: pkgconfig(xtst)
 BuildRequires: libjpeg-devel
-BuildRequires:  pipewire-devel
+BuildRequires: pipewire-devel
+BuildRequires: zlib-devel
+BuildRequires: libvncserver-devel
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
@@ -115,6 +117,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.desk
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 

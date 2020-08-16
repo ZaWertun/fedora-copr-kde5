@@ -10,7 +10,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -140,7 +140,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %files -f konsole.lang
-%doc README
+%doc README.md
 %{_kf5_bindir}/konsole
 %{_kf5_bindir}/konsoleprofile
 %{_kf5_libdir}/libkdeinit5_konsole.so
@@ -166,6 +166,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
 - 20.04.3
 
