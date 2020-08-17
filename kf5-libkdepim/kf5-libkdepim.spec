@@ -49,7 +49,7 @@ Conflicts:      kdepim-common < 16.04.0
 Conflicts:      kaddressbook < 16.04.0
 
 Provides:       %{name}-akonadi = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes:      %{name}-akonadi < %{?epoch:%{epoch}:}%{version}-%{release}
+Obsoletes:      %{name}-akonadi < 20.08.0
 
 %description
 %{summary}.
