@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 20.08.0
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: Library for common kdepim apps
 
 License: GPLv2+
@@ -47,6 +47,9 @@ Conflicts:      kdepim-libs < 7:16.04.0
 Conflicts:      kdepim-common < 16.04.0
 # kcm_ldap moved here
 Conflicts:      kaddressbook < 16.04.0
+
+Provides:       %{name}-akonadi = %{?epoch:%{epoch}:}%{version}-%{release}
+Obsoletes:      %{name}-akonadi < %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description
 %{summary}.
@@ -99,6 +102,12 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Aug 17 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-3
+- replace for package kf5-libkdepim-akonadi
+
+* Mon Aug 17 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-2
+- replace for package kf5-libkdepim-akonadi
+
 * Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 
