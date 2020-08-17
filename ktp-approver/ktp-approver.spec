@@ -1,6 +1,6 @@
 Name:    ktp-approver
 Summary: KDE Channel Approver for Telepathy
-Version: 20.04.3
+Version: 20.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -68,6 +68,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+- 20.08.0
+
 * Sun Jul 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
