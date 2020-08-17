@@ -14,6 +14,9 @@ URL:     https://cgit.kde.org/%{name}.git
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
+## upstreamable patches
+Patch0:  lokalize-20.08.0-old-qt.patch
+
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: gettext
