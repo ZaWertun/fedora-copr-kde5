@@ -1,4 +1,3 @@
-
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
@@ -12,7 +11,7 @@
 Name:    kate
 Summary: Advanced Text Editor
 Version: 20.08.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # kwrite LGPLv2+
 # kate: app LGPLv2, plugins, LGPLv2 and LGPLv2+ and GPLv2+
@@ -44,6 +43,7 @@ BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5JobWidgets)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5Parts)
+BuildRequires: cmake(KF5SyntaxHighlighting)
 BuildRequires: cmake(KF5TextEditor)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
@@ -89,6 +89,8 @@ License: LGPLv2
 # upgrade path, when -plugins were split
 Obsoletes: kate < 14.12.1
 Requires: %{name} = %{version}-%{release}
+# Kate integrated terminal plugin doesnt work without Konsole
+Recommends: konsole5
 %description plugins
 %{summary}.
 
@@ -106,17 +108,15 @@ Conflicts: kde-l10n < 17.03
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%cmake_kf5 \
+  -Wno-dev \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 
 %find_lang all --all-name --with-html --with-man
@@ -175,8 +175,10 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/ktexteditor/tabswitcherplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katereplicodeplugin.so
 %{_kf5_qtplugindir}/ktexteditor/textfilterplugin.so
-%{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_katesessions.so
 %{_kf5_qtplugindir}/ktexteditor/externaltoolsplugin.so
+%{_kf5_qtplugindir}/ktexteditor/lspclientplugin.so
+
+%{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_katesessions.so
 %{_kf5_datadir}/kateproject/
 %{_kf5_datadir}/katexmltools/
 
@@ -188,59 +190,68 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Sun Aug 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-2
+- changes from official Fedora spec merged
+
+* Mon Aug 17 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Mon Aug 10 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.3-3
+- .spec cosmetics
+
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 20.04.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Fri Jul 10 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.3-1
 - 20.04.3
 
-* Sun Jul 05 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-2
-- added cmake(KUserFeedback) to BuildRequires
-
-* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
+* Fri Jun 12 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.2-1
 - 20.04.2
 
-* Tue May 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
+* Tue May 26 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.1-1
 - 20.04.1
 
-* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
+* Thu Apr 23 2020 Rex Dieter <rdieter@fedoraproject.org> - 20.04.0-1
 - 20.04.0
 
-* Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.3-1
+* Thu Mar 05 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.3-1
 - 19.12.3
 
-* Fri Feb 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.2-1
+* Tue Feb 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.2-1
 - 19.12.2
 
-* Fri Jan 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.1-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 19.12.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Wed Jan 08 2020 Rex Dieter <rdieter@fedoraproject.org> - 19.12.1-1
 - 19.12.1
 
-* Thu Dec 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.12.0-1
-- 19.12.0
-
-* Fri Nov 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.3-1
+* Mon Nov 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.3-1
 - 19.08.3
 
-* Thu Oct 10 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.2-1
+* Thu Oct 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.2-1
 - 19.08.2
 
-* Thu Sep 05 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.1-1
+* Sat Sep 28 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.1-1
 - 19.08.1
 
-* Thu Aug 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.08.0-1
+* Tue Aug 13 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.08.0-1
 - 19.08.0
 
-* Thu Jul 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.3-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 19.04.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Thu Jul 11 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.3-1
 - 19.04.3
 
-* Thu Jun 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.2-1
+* Tue Jun 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.2-1
 - 19.04.2
 
-* Thu May 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.1-1
+* Tue May 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 19.04.1-1
 - 19.04.1
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 19.04.0-1
-- 19.04.0
+* Thu Mar 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.3-1
+- 18.12.3
 
 * Tue Feb 05 2019 Rex Dieter <rdieter@fedoraproject.org> - 18.12.2-1
 - 18.12.2
