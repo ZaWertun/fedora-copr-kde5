@@ -1,6 +1,6 @@
 Name:    ktp-contact-runner
 Summary: Plasma runner for KDE Telepathy
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 
 License: GPLv3+
@@ -59,6 +59,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 
