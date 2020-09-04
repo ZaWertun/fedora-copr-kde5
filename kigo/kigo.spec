@@ -1,7 +1,7 @@
 
 Name:    kigo
 Summary: Go Board game
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -92,6 +92,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 

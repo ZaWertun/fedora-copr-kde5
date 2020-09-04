@@ -1,6 +1,6 @@
 Name:    kwordquiz
 Summary: Flash Card Trainer 
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -102,6 +102,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 
