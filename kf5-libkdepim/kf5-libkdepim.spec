@@ -1,8 +1,8 @@
 %global framework libkdepim
 
 Name:    kf5-%{framework}
-Version: 20.08.0
-Release: 3%{?dist}
+Version: 20.08.1
+Release: 1%{?dist}
 Summary: Library for common kdepim apps
 
 License: GPLv2+
@@ -102,6 +102,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Mon Aug 17 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-3
 - replace for package kf5-libkdepim-akonadi
 

@@ -1,6 +1,6 @@
 Name:    kolourpaint
 Summary: An easy-to-use paint program 
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 
 License: BSD
@@ -90,6 +90,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 

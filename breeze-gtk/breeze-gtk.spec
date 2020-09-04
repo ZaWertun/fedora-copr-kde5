@@ -1,5 +1,5 @@
 Name:    breeze-gtk
-Version: 5.19.4
+Version: 5.19.5
 Release: 1%{?dist}
 Summary: Breeze widget theme for Gtk2 and Gtk3
 
@@ -64,6 +64,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
+- 5.19.5
+
 * Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.4-1
 - 5.19.4
 

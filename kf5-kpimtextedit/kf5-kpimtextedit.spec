@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 Summary: The KPimTextEdit Library
 
@@ -125,6 +125,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 

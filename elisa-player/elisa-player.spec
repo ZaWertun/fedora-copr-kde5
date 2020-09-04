@@ -1,5 +1,5 @@
 Name:       elisa-player
-Version:    20.08.0
+Version:    20.08.1
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -94,6 +94,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 

@@ -10,8 +10,8 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 20.08.0
-Release: 2%{?dist}
+Version: 20.08.1
+Release: 1%{?dist}
 
 # kwrite LGPLv2+
 # kate: app LGPLv2, plugins, LGPLv2 and LGPLv2+ and GPLv2+
@@ -190,6 +190,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Sun Aug 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-2
 - changes from official Fedora spec merged
 

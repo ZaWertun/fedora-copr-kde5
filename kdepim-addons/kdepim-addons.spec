@@ -4,7 +4,7 @@
 %endif
 
 Name:    kdepim-addons
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -254,6 +254,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 

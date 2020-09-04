@@ -1,6 +1,6 @@
 Name:    kcachegrind
 Summary: GUI to profilers such as Valgrind
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 
 License: GPLv2 and GFDL
@@ -135,6 +135,9 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 

@@ -8,7 +8,7 @@
 
 Name:    akonadi-calendar-tools
 Summary: Akonadi Calendar Tools
-Version: 20.08.0
+Version: 20.08.1
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -101,6 +101,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+- 20.08.1
+
 * Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
 - 20.08.0
 
