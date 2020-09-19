@@ -3,7 +3,7 @@
 
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -100,7 +100,7 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 %files -f %{name}.lang
 %doc README.md
-%license COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_libdir}/libKF5Purpose.so.5*
 %{_kf5_libdir}/libKF5PurposeWidgets.so.5*
@@ -130,6 +130,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 

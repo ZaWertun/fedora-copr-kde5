@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon for Qt declarative
 
@@ -39,6 +39,7 @@ BuildRequires:  kf5-kio-devel >= %{majmin}
 BuildRequires:  kf5-kpackage-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
+BuildRequires:  kf5-knotifications-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  libepoxy-devel
 BuildRequires:  qt5-qtbase-devel
@@ -102,7 +103,7 @@ make test ARGS="--output-on-failure --timeout 10 --verbose" -C %{_target_platfor
 
 %files -f %{name}.lang
 %doc README.md
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/kpackagelauncherqml
 %{_kf5_libdir}/libKF5Declarative.so.*
 %{_kf5_libdir}/libKF5QuickAddons.so.*
@@ -132,6 +133,9 @@ make test ARGS="--output-on-failure --timeout 10 --verbose" -C %{_target_platfor
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 

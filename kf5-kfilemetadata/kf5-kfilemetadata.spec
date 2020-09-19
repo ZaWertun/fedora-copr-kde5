@@ -12,7 +12,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A Tier 2 KDE Framework for extracting file metadata
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
@@ -98,7 +98,7 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kfilemetadata/writers/
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING.LGPL*
+%license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/%{framework}*
 %{_kf5_libdir}/libKF5FileMetaData.so.*
 
@@ -118,6 +118,9 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kfilemetadata/writers/
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 

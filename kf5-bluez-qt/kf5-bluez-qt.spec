@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A Qt wrapper for Bluez
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 
 License:        LGPLv2+
@@ -74,7 +74,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files
 %doc README.md
-%license COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_libdir}/libKF5BluezQt.so.*
 %{_kf5_qmldir}/org/kde/bluezqt/
@@ -89,6 +89,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 

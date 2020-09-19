@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 3 solution for advanced plugin and service introspection
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 
 # mixture of LGPLv2 and LGPLv2+ (mostly the latter)
@@ -90,7 +90,7 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kservicetypes5
 
 %files -f %{name}.lang
 %doc README.md
-%license COPYING.LIB
+%license LICENSES/*.txt
 # this is not a config file, despite rpmlint complaining otherwise -- rex
 %{_kf5_sysconfdir}/xdg/menus/kf5-applications.menu
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
@@ -109,6 +109,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kservicetypes5
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 

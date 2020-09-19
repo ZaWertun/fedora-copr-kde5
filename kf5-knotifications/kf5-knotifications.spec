@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 2 solution with abstraction for system notifications
 
@@ -102,7 +102,7 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" |
 
 %files -f knotifications5_qt.lang
 %doc README.md
-%license COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_libdir}/libKF5Notifications.so.*
 %{_kf5_datadir}/kservicetypes5/knotificationplugin.desktop
@@ -118,6 +118,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" |
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 

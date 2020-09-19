@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 Summary: A DAV protocol implementation with KJobs
 
@@ -87,7 +87,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %doc README*
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/*%{framework}.*
 %{_kf5_libdir}/libKF5DAV.so.5*
 
@@ -101,6 +101,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.74.0-1
+- 5.74.0
+
 * Mon Aug 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 1:5.73.0-1
 - 5.73.0
 

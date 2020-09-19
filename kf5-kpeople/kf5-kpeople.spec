@@ -1,7 +1,7 @@
 %global framework kpeople
 
 Name:    kf5-%{framework}
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 library for contact and people aggregation
 
@@ -66,7 +66,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 %files -f %{name}.lang
 %doc README.md
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5People.so.*
 %{_kf5_libdir}/libKF5PeopleWidgets.so.*
 %{_kf5_libdir}/libKF5PeopleBackend.so.*
@@ -86,6 +86,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 

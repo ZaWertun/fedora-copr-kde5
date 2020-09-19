@@ -2,7 +2,7 @@
 %global rpm_macros_dir %(d=%{_rpmconfigdir}/macros.d; [ -d $d ] || d=%{_sysconfdir}/rpm; echo $d)
 
 Name:           kf5-%{framework}
-Version: 5.73.0
+Version: 5.74.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 tier 3 solution for process launching
 
@@ -82,7 +82,7 @@ install -p -m644 -D %{SOURCE10} \
 
 %files -f kinit5_qt.lang
 %doc README.md
-%license COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_bindir}/*
 %{_kf5_libdir}/libkdeinit5_klauncher.so
@@ -96,6 +96,9 @@ install -p -m644 -D %{SOURCE10} \
 
 
 %changelog
+* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+- 5.74.0
+
 * Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
 - 5.73.0
 
