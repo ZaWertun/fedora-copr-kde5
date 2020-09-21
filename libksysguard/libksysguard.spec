@@ -1,7 +1,7 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
 Version: 5.19.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -13,6 +13,12 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+
+## upstream patches
+
+## upstreamable patches
+# Fix for #426774 (https://bugs.kde.org/show_bug.cgi?id=426774)
+Patch0:  min_max.patch
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-kconfig-devel
@@ -124,6 +130,9 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
+* Mon Sep 21 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-2
+- patch fixing issue #426774 added
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
 - 5.19.5
 
