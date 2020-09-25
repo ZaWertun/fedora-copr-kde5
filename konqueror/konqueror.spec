@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 ## uncomment to enable bootstrap mode
 #global bootstrap 1
@@ -128,17 +129,14 @@ browsing the web in Konqueror.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   %{?ninja:-G Ninja} \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-popd
 
 %if 0%{?ninja}
 %ninja_build -C %{_target_platform}
 %else
-%make_build -C %{_target_platform}
+%cmake_build
 %endif
 
 
@@ -146,7 +144,7 @@ popd
 %if 0%{?ninja}
 %ninja_install -C %{_target_platform}
 %else
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 %endif
 
 # omit some extraneous webenginepart files when building without webengine support
@@ -231,13 +229,13 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1

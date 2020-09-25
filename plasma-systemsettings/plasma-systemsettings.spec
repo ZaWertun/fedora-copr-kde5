@@ -1,3 +1,5 @@
+%undefine __cmake_in_source_build
+
 %global  base_name systemsettings
 
 Name:    plasma-%{base_name}
@@ -80,21 +82,12 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
-
-make %{?_smp_mflags} -C %{_target_platform}
+%{cmake_kf5}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
-
-# Get around conflict with same file from kcm_systemd package:
-pushd %{buildroot}%{_kf5_datadir}/kservices5
-mv -v settings-system-administration.desktop settings-system-administration-1.desktop
-popd
+%cmake_install
 
 %find_lang systemsettings5 --with-qt --with-html --all-name
 
@@ -129,16 +122,16 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
+* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.4-1
+* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
+* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
 - 5.19.2
 
 * Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1

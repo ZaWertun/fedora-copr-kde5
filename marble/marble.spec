@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 Name:    marble
 Summary: Virtual globe and world atlas 
@@ -149,20 +150,17 @@ mv src/3rdparty/zlib src/3rdparty/zlib.UNUSED ||:
 
 
 %build
-mkdir %{_target_platform}-qt5
-pushd %{_target_platform}-qt5
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DBUILD_MARBLE_TESTS:BOOL=OFF \
   -DMARBLE_DATA_PATH:PATH="%{_datadir}/marble/data" \
   -DMARBLE_PRI_INSTALL_USE_QT_SYS_PATHS:BOOL=TRUE \
   -DWITH_DESIGNER_PLUGIN:BOOL=OFF
 
-%make_build
-popd
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}-qt5
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 # hack around buggy --with-qt ^^
@@ -255,13 +253,13 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.04.3-1
 - 20.04.3
 
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.04.2-1

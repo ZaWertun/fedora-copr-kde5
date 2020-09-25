@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global unstable 0
 
 Name:           kpmcore
@@ -62,15 +63,13 @@ developing applications that use %{name}
 sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMakeLists.txt
 
 mkdir -p %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-make %{?_smp_mflags} -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast -C %{_target_platform} DESTDIR=%{buildroot}
+%cmake_install
 %find_lang %{name} --with-kde
 
 

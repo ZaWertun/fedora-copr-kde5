@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:           kdsoap
 Version:        1.9.0
 Release:        1%{?dist}
@@ -45,7 +46,7 @@ Documentation for %{name}
 
 %build
 %cmake -DCMAKE_BUILD_TYPE=Release .
-%make_build
+%cmake_build
 dos2unix doc/config/doxygen.css
 
 

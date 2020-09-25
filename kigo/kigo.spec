@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 Name:    kigo
 Summary: Go Board game
@@ -58,16 +59,13 @@ lines for easier flavors).
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 
@@ -92,13 +90,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
-* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Sat Jun 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1

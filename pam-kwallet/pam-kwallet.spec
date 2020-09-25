@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 %global  base_name kwallet-pam
 
@@ -56,29 +57,23 @@ Requires: kf5-kwallet
 
 
 %build
-mkdir %{_target_platform}-5
-pushd %{_target_platform}-5
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}-5
+%cmake_build
 
 %if 0%{?kwallet}
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DKWALLET4=1
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 %endif
 
 
 %install
 %if 0%{?kwallet}
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 %endif
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}-5
+%cmake_install
 
 
 %files
@@ -91,16 +86,16 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}-5
 
 
 %changelog
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
+* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.4-1
+* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
+* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
 - 5.19.2
 
 * Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1

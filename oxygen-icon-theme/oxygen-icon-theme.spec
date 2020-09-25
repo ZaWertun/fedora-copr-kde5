@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
@@ -77,16 +78,13 @@ sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 # optimize
 pushd %{buildroot}%{_kf5_datadir}/icons/oxygen
@@ -113,7 +111,6 @@ hardlink -c -v %{buildroot}%{_kf5_datadir}/icons/oxygen
 
 du -s .
 %endif
-popd
 
 # create/own all potential dirs
 mkdir -p %{buildroot}%{_kf5_datadir}/icons/oxygen/{16x16,22x22,24x24,32x32,36x36,48x48,64x64,96x96,128x128,512x512,scalable}/{actions,apps,devices,mimetypes,places}
@@ -156,7 +153,7 @@ fi
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.73.0-1
 - 5.73.0
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.72.0-1

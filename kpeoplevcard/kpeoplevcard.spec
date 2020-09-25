@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    kpeoplevcard
 Summary: Makes it possible to expose vcards to KPeople
 Version: 0.1
@@ -38,16 +39,12 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
-
-%make_build -C %{_target_platform}
+%{cmake_kf5}
+%cmake_build
 
 
 %install
-%make_install -C %{_target_platform}
+%cmake_install
 
 %ldconfig_scriptlets
 

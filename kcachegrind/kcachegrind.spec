@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    kcachegrind
 Summary: GUI to profilers such as Valgrind
 Version: 20.08.1
@@ -78,16 +79,13 @@ sed -i.env -e "s|^#!/usr/bin/env php$|#!%{_bindir}/php|g"  converters/pprof2call
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 # qcachegrind needs manual installation
 install -p -m 755 %{_target_platform}/bin/qcachegrind %{buildroot}%{_bindir}/
@@ -135,13 +133,13 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1

@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 Name:    kdenlive
 Summary: Non-linear video editor
@@ -96,19 +97,16 @@ recent video technologies.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
 mkdir -p rttr/src
 cp -v %{SOURCE1} rttr/src
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 ## unpackaged files
 rm -rfv  %{buildroot}%{_datadir}/doc/Kdenlive/
@@ -168,13 +166,13 @@ fi
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1

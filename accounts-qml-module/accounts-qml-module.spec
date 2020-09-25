@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global bazaar_rev   64
 %global real_version 0.6+17.04.20170405-0ubuntu1
 
@@ -28,7 +29,7 @@ BuildRequires: qt5-qtquickcontrols2-devel
 %build
 cd %{name}/trunk
 %qmake_qt5 PREFIX=%{_prefix}
-%make_build
+%cmake_build
 
 
 %install

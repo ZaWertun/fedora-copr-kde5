@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    libksysguard
 Summary: Library for managing processes running on the system
 Version: 5.19.5
@@ -73,17 +74,14 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DKDE_INSTALL_INCLUDEDIR:PATH=%{_kf5_includedir}
-popd
 
-make %{?_smp_mflags} -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 %find_lang ksysguard_qt5 --with-qt --with-kde --all-name
 
 
@@ -130,19 +128,19 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Mon Sep 21 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-2
+* Mon Sep 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
 - patch fixing issue #426774 added
 
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
+* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.4-1
+* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
+* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
 - 5.19.2
 
 * Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1

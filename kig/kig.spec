@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global _python3_include %(%{__python3} -Ic "from distutils.sysconfig import get_python_inc; print(get_python_inc())")
 %global _python3_lib %{_libdir}/lib%(basename %{_python3_include}).so
 
@@ -65,21 +66,18 @@ sed -ie "s|^#!/usr/bin/env python|#!%{__python3}|" pykig/pykig.py
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DPYTHON_EXECUTABLE:PATH=%{__python3} \
   -DPYTHON_INCLUDE_DIR=%{_python3_include} \
   -DPYTHON_LIBRARY=%{_python3_lib} \
   -DBoostPython_INCLUDE_DIRS="%{_python3_include};%{_includedir}/boost" \
   -DBoostPython_LIBRARIES="%{_python3_lib};%{_libdir}/libboost_python%{python3_version_nodots}.so"
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html --with-man
 
@@ -110,13 +108,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
-* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Sat Jun 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1

@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    kteatime
 Summary: Handy timer for steeping tea
 Version: 20.08.1
@@ -58,16 +59,13 @@ KTeaTime makes sure your tea does not get too strong.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-make %{?_smp_mflags} -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 

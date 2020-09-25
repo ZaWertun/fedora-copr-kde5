@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework akonadi-server
 
 # trim changelog included in binary rpms
@@ -156,18 +157,15 @@ See also: %{_sysconfdir}/akonadi/mysql-global.conf
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   %{?database_backend:-DDATABASE_BACKEND=%{database_backend}} \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=$RPM_BUILD_ROOT -C %{_target_platform}
+%cmake_install
 
 %find_lang libakonadi5
 %find_lang akonadi_knut_resource
@@ -306,13 +304,13 @@ fi
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-2

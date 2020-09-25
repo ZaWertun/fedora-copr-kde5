@@ -1,9 +1,15 @@
+%undefine __cmake_in_source_build
 
+## bootstrap, omit problematic optional build deps)
 #global bootstrap 1
 
 %global         base_name   breeze
 
+# disable kde4 build on RHEL8+
 %global         build_kde4  1
+%if 0%{?rhel} && 0%{?rhel} > 7
+%global         build_kde4  0
+%endif
 
 Name:    plasma-breeze
 Version: 5.19.5
@@ -13,7 +19,6 @@ Summary: Artwork, styles and assets for the Breeze visual style for the Plasma D
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
 
-%global majminpatch %(echo %{version} | cut -d. -f1,2,3)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
 %global majmin_ver %(echo %{version} | cut -d. -f1,2).50
@@ -22,7 +27,7 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{majminpatch}/%{base_name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kde4_libdir}/kde4/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -48,7 +53,7 @@ BuildRequires:  kf5-rpm-macros
 
 BuildRequires:  libxcb-devel
 BuildRequires:  fftw-devel
-%if ! 0%{?bootstrap}
+%if 0
 # required kpackage plugins
 BuildRequires:  plasma-packagestructure
 %endif
@@ -84,12 +89,11 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 %description -n breeze-cursor-theme
 %{summary}.
 
-%if 0%{?build_kde4:1}
+%if 0%{?build_kde4}
 %package -n     kde-style-breeze
 Summary:        KDE 4 version of Plasma 5 artwork, style and assets
 BuildRequires:  kdelibs4-devel
 BuildRequires:  libxcb-devel
-Requires:	qtcurve-qt4%{?_isa}
 ## currently mostly plasma5-specific resources, not needed or useful here really
 Obsoletes:      plasma-breeze-kde4 < 5.1.95
 Provides:       plasma-breeze-kde4%{?_isa} = %{version}-%{release}
@@ -106,31 +110,27 @@ Supplements: (kde-runtime and plasma-workspace)
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
-
-%make_build -C %{_target_platform}
+%{cmake_kf5}
+%cmake_build
 
 
-%if 0%{?build_kde4:1}
-mkdir %{_target_platform}_kde4
-pushd %{_target_platform}_kde4
-%{cmake_kde4} -DUSE_KDE4=TRUE ..
-popd
-
-%make_build -C %{_target_platform}_kde4
+%if 0%{?build_kde4}
+%global _vpath_builddir %{_target_platform}-kde4
+%{cmake_kde4} -DUSE_KDE4=TRUE -B %{_vpath_builddir}
+%cmake_build
+%undefine _vpath_builddir
 %endif
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang breeze --all-name
 
-%if 0%{?build_kde4:1}
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}_kde4
+%if 0%{?build_kde4}
+%global _vpath_builddir %{_target_platform}-kde4
+%cmake_install
+%undefine _vpath_builddir
 %endif
 
 # omit/rename kde4breeze.upd, seems to be causing problems for
@@ -157,9 +157,7 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 %{_kf5_datadir}/kservices5/breezedecorationconfig.desktop
 %{_kf5_datadir}/kservices5/breezestyleconfig.desktop
 %{_kf5_datadir}/plasma/look-and-feel/org.kde.breezedark.desktop/
-%if ! 0%{?bootstrap}
 %{_kf5_metainfodir}/org.kde.breezedark.desktop.appdata.xml
-%endif
 # fedora does autodep on cmake-filesystem, others?
 %if ! 0%{?fedora}
 %dir %{_libdir}/cmake/
@@ -172,14 +170,14 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 %{_datadir}/QtCurve/Breeze.qtcurve
 %{_datadir}/wallpapers/Next/
 
-%if 0%{?build_kde4:1}
+%if 0%{?build_kde4}
 %ldconfig_scriptlets -n kde-style-breeze
 
 %files -n kde-style-breeze
-%{_kde4_datadir}/kde4/apps/QtCurve/Breeze.qtcurve
-%{_kde4_datadir}/kde4/apps/color-schemes/Breeze*.colors
-%{_kde4_datadir}/kde4/apps/plasma/look-and-feel/org.kde.breezedark.desktop/
 %{_kde4_appsdir}/kstyle/themes/breeze.themerc
+%{_datadir}/kde4/apps/QtCurve/Breeze.qtcurve
+%{_datadir}/kde4/apps/color-schemes/*.colors
+%{_datadir}/kde4/apps/plasma/look-and-feel/org.kde.breezedark.desktop/*
 %endif
 
 %files -n breeze-cursor-theme
@@ -193,86 +191,133 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 
 
 %changelog
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
+* Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.4-1
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.19.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 28 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+* Tue Jul 07 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
+* Tue Jun 23 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.2-1
 - 5.19.2
 
-* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+* Wed Jun 17 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.1-1
 - 5.19.1
 
-* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+* Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
 
-* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
+* Fri May 15 2020 Martin Kyral <martin.kyral@gmail.com> - 5.18.90-1
+- 5.18.90
+
+* Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5
 
-* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+* Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.4.1-1
 - 5.18.4.1
 
-* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+* Tue Mar 31 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.4-1
+- 5.18.4
+
+* Tue Mar 10 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.3-1
 - 5.18.3
 
-* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+* Tue Feb 25 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.2-1
 - 5.18.2
 
-* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+* Tue Feb 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.1-1
 - 5.18.1
 
-* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+* Tue Feb 11 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.0-1
 - 5.18.0
 
-* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+* Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.17.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Thu Jan 16 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.90-1
+- 5.17.90
+
+* Wed Jan 08 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.5-1
 - 5.17.5
 
-* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+* Thu Dec 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.4-1
 - 5.17.4
 
-* Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
+* Wed Nov 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.17.3-1
 - 5.17.3
 
-* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+* Wed Oct 30 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.2-1
 - 5.17.2
 
-* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+* Wed Oct 23 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.1-1
 - 5.17.1
 
-* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+* Thu Oct 10 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.0-1
 - 5.17.0
 
-* Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+* Fri Sep 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.90-1
+- 5.16.90
+
+* Fri Sep 06 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.5-1
 - 5.16.5
 
-* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+* Tue Jul 30 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.4-1
 - 5.16.4
 
-* Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
+* Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.16.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Wed Jul 10 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.3-1
 - 5.16.3
 
-* Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
+* Wed Jun 26 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.2-1
 - 5.16.2
 
-* Tue Jun 18 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.1-1
+* Tue Jun 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-1
 - 5.16.1
 
-* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+* Tue Jun 11 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.0-1
 - 5.16.0
 
-* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+* Thu May 16 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.90-1
+- 5.15.90
+
+* Thu May 09 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.5-1
 - 5.15.5
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4.1-1
+* Wed Apr 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4.1-1
 - 5.15.4.1
 
-* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
-- 5.14.5
+* Tue Apr 02 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.3-2
+- re-enable kde4 support
+
+* Tue Mar 12 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3-1
+- 5.15.3
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-1
+- 5.15.2
+
+* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.1-1
+- 5.15.1
+
+* Wed Feb 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.0-1
+- 5.15.0
+- omit kde-style-breeze on f30+, workaround FTBFS
+
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.90-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Wed Jan 23 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.90-2
+- disable bootstrap
+
+* Sun Jan 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.14.90-1
+- 5.14.90
+- enable bootstrap
 
 * Tue Nov 27 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.14.4-1
 - 5.14.4

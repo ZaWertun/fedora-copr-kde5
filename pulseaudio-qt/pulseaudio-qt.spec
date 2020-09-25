@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    pulseaudio-qt
 Summary: Pulseaudio bindings for Qt
 Version: 1.1.0
@@ -39,13 +40,10 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
     -DBUILD_TESTING:BOOL=ON
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install

@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    khotkeys
 Version: 5.19.5
 Release: 1%{?dist}
@@ -72,19 +73,16 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
 # hack around FTBFS:
 # make[2]: *** No rule to make target 'app/org.kde.khotkeys.xml', needed by 'kcm_hotkeys/khotkeys_interface.cpp'.  Stop.
-%make_build -C %{_target_platform}/app
-%make_build -C %{_target_platform}
+%cmake_build
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang khotkeys --with-html
 
@@ -105,16 +103,16 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
+* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.4-1
+* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
+* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
 - 5.19.2
 
 * Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1

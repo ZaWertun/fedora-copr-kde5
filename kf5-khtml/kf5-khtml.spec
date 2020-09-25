@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework khtml
 
 Name:           kf5-%{framework}
@@ -72,17 +73,14 @@ developing applications that use %{name}.
 %autosetup -n %{framework}-%{version}
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DCMAKE_SHARED_LINKER_FLAGS="-Wl,--as-needed"
-popd
 
-make %{?_smp_mflags} -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang khtml5_qt --with-qt --all-name
 
@@ -114,7 +112,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
 - 5.73.0
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1

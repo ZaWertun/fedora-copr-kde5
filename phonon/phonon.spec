@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 ## When bootstrapping new releases/archs, set this initially to avoid
 ## unresolvable dependency on phonon-backend (and friends)
@@ -105,8 +106,6 @@ Requires: %{name}-qt5%{?_isa} = %{version}-%{release}
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
 %{cmake} .. \
   -DCMAKE_BUILD_TYPE:STRING="Release" \
   %{!?zeitgeist:-DCMAKE_DISABLE_FIND_PACKAGE_QZeitgeist:BOOL=ON} \
@@ -115,27 +114,23 @@ pushd %{_target_platform}
   -DPHONON_QT_IMPORTS_INSTALL_DIR=%{_qt4_importdir} \
   -DPHONON_QT_MKSPECS_INSTALL_DIR=%{_qt4_datadir}/mkspecs/modules \
   -DPHONON_QT_PLUGIN_INSTALL_DIR=%{_qt4_plugindir}/designer
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
-mkdir %{_target_platform}-Qt5
-pushd %{_target_platform}-Qt5
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DCMAKE_BUILD_TYPE:STRING="Release" \
   -DPHONON_BUILD_DECLARATIVE_PLUGIN:BOOL=%{?declarative:ON}%{!?declarative:OFF} \
   -DPHONON_BUILD_PHONON4QT5:BOOL=ON \
   -DPHONON_QT_IMPORTS_INSTALL_DIR=%{_qt5_importdir} \
   -DPHONON_QT_MKSPECS_INSTALL_DIR=%{_qt5_archdatadir}/mkspecs/modules \
   -DPHONON_QT_PLUGIN_INSTALL_DIR=%{_qt5_plugindir}/designer
-popd
 
-%make_build -C %{_target_platform}-Qt5
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}-Qt5
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
+%cmake_install
 
 # own these dirs
 mkdir -p %{buildroot}%{_kde4_libdir}/kde4/plugins/phonon_backend/

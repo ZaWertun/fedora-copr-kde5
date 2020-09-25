@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global optflags %{optflags} -flto=auto
 %global build_ldflags %{build_ldflags} -flto
 
@@ -67,20 +68,14 @@ KBackup позволяет делать резервное копировани�
 %setup -q
 
 %build
-mkdir build
-pushd build
-    %cmake_kf5 \
-        -DCMAKE_AR=/usr/bin/gcc-ar \
-        -DCMAKE_RANLIB=/usr/bin/gcc-ranlib \
-        -DCMAKE_NM=/usr/bin/gcc-nm \
-        ..
-    %make_build
-popd
+%cmake_kf5 \
+    -DCMAKE_AR=/usr/bin/gcc-ar \
+    -DCMAKE_RANLIB=/usr/bin/gcc-ranlib \
+    -DCMAKE_NM=/usr/bin/gcc-nm
+%cmake_build
 
 %install
-pushd build
-    %make_install
-popd
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 
@@ -102,13 +97,13 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1

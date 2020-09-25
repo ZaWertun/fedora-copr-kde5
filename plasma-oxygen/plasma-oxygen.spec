@@ -1,3 +1,5 @@
+%undefine __cmake_in_source_build
+
 %global         base_name oxygen
 
 Name:    plasma-%{base_name}
@@ -10,11 +12,13 @@ URL:     https://cgit.kde.org/%{base_name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
+%global majmin_ver %(echo %{version} | cut -d. -f1,2).50
 %global stable unstable
 %else
+%global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
 
 # filter plugins
 %global __provides_exclude_from ^(%{_kde4_libdir}/kde4/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -39,16 +43,19 @@ BuildRequires:  kf5-kcompletion-devel
 BuildRequires:  kf5-frameworkintegration-devel
 BuildRequires:  kf5-kwindowsystem-devel
 BuildRequires:  kf5-kcmutils-devel
-
-%if 0%{?fedora}
-%global qt4 1
-BuildRequires:  kdecoration-devel
 BuildRequires:  kf5-kwayland-devel
+
+BuildRequires:  kdecoration-devel >= %{majmin}
+
+%if 0%{?fedora} < 30 && 0%{?rhel} <= 7
+%global qt4 1
 %endif
 
 Requires:       kf5-filesystem
 
+%if 0%{?qt4}
 Requires:       qt4-style-oxygen = %{version}-%{release}
+%endif
 Requires:       qt5-style-oxygen = %{version}-%{release}
 Requires:       oxygen-cursor-themes = %{version}-%{release}
 Requires:       oxygen-sound-theme = %{version}-%{release}
@@ -77,6 +84,7 @@ Obsoletes:      plasma-oxygen-kde4 < 5.1.1-2
 %package -n     qt5-style-oxygen
 Summary:        Oxygen widget style for Qt 5
 Obsoletes:      plasma-oxygen < 5.1.1-2
+Conflicts:      plasma-desktop < 5.16.90
 %description -n qt5-style-oxygen
 %{summary}.
 
@@ -109,35 +117,35 @@ sed -i.optional \
 %build
 %if 0%{?qt4}
 # Build for Qt 4
-%global qt4_target_platform %{_target_platform}-qt4
-mkdir %{qt4_target_platform}
-pushd %{qt4_target_platform}
-%{cmake_kde4} .. -DOXYGEN_USE_KDE4:BOOL=ON
-popd
-
-make %{?_smp_mflags} -C %{qt4_target_platform}
+%global _vpath_builddir %{_target_platform}-qt4
+%{cmake_kde4} -DOXYGEN_USE_KDE4:BOOL=ON -B %{_vpath_builddir}
+%cmake_build
+%undefine _vpath_builddir
 %endif
 
 # Build for Qt 5
-%global qt5_target_platform %{_target_platform}-qt5
-mkdir %{qt5_target_platform}
-pushd %{qt5_target_platform}
-%{cmake_kf5} ..
-popd
-
-make %{?_smp_mflags} -C %{qt5_target_platform}
+%global _vpath_builddir %{_target_platform}-qt5
+%{cmake_kf5}
+%cmake_build
+%undefine _vpath_builddir
 
 %install
 %if 0%{?qt4}
-make install/fast DESTDIR=%{buildroot} -C %{qt4_target_platform}
+%global _vpath_builddir %{_target_platform}-qt4
+%cmake_install
+%undefine _vpath_builddir
 %endif
-make install/fast DESTDIR=%{buildroot} -C %{qt5_target_platform}
+%global _vpath_builddir %{_target_platform}-qt5
+%cmake_install
+%undefine _vpath_builddir
 
 
 ## unpackaged files
 # Don't bother with -devel subpackages, there are no headers anyway
 rm -fv %{buildroot}%{_libdir}/liboxygenstyle5.so
 rm -fv %{buildroot}%{_libdir}/liboxygenstyleconfig5.so
+rm -fv %{buildroot}%{_kde4_libdir}/liboxygenstyle.so
+rm -fv %{buildroot}%{_kde4_libdir}/liboxygenstyleconfig.so
 %if ! 0%{?fedora}
 rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/oxygen_kdecoration.mo
 #rm -fv %{buildroot}%{_datadir}/sounds/Oxygen-*
@@ -156,28 +164,19 @@ rm -rfv %{buildroot}%{_kf5_datadir}/plasma/look-and-feel/org.kde.oxygen/
 %endif
 
 %if 0%{?qt4}
-%post -n    qt4-style-oxygen -p /sbin/ldconfig
-%postun -n  qt4-style-oxygen -p /sbin/ldconfig
+%ldconfig_scriptlets -n    qt4-style-oxygen
 
 %files -n   qt4-style-oxygen
-%{_kde4_datadir}/kde4/apps/color-schemes/Oxygen*.colors
-%{_kde4_datadir}/kde4/apps/plasma/look-and-feel/org.kde.oxygen/
+%{_kde4_libdir}/liboxygenstyle.so.*
+%{_kde4_libdir}/liboxygenstyleconfig.so.*
+%{_kde4_libdir}/kde4/kstyle_oxygen_config.so
+%{_kde4_libdir}/kde4/plugins/styles/oxygen.so
 %{_kde4_appsdir}/kstyle/themes/oxygen.themerc
+%{_kde4_bindir}/oxygen-demo
+%{_datadir}/color-schemes/*.colors
 %endif
 
-%post -n qt5-style-oxygen
-/sbin/ldconfig
-/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-%postun -n qt5-style-oxygen
-/sbin/ldconfig
-if [ $1 -eq 0 ] ; then
-    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-%posttrans -n qt5-style-oxygen
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+%ldconfig_scriptlets -n qt5-style-oxygen
 
 %files -n   qt5-style-oxygen -f oxygen.lang
 %{_bindir}/oxygen-demo5
@@ -193,7 +192,8 @@ fi
 %{_kf5_datadir}/kservices5/oxygenstyleconfig.desktop
 %{_kf5_datadir}/kstyle/themes/oxygen.themerc
 %{_kf5_datadir}/icons/hicolor/*/apps/oxygen-settings.*
-%{_kf5_datadir}/color-schemes/*.colors
+%{_kf5_datadir}/color-schemes/Oxygen.colors
+%{_kf5_datadir}/color-schemes/OxygenCold.colors
 
 %if 0%{?fedora}
 %files -n   oxygen-cursor-themes
@@ -210,86 +210,130 @@ fi
 
 
 %changelog
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.5-1
+* Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.4-1
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.19.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 28 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.3-1
+* Tue Jul 07 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.19.2-1
+* Tue Jun 23 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.2-1
 - 5.19.2
 
-* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+* Wed Jun 17 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.1-1
 - 5.19.1
 
-* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+* Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
 
-* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
+* Fri May 15 2020 Martin Kyral <martin.kyral@gmail.com> - 5.18.90-1
+- 5.18.90
+
+* Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5
 
-* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+* Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.4.1-1
 - 5.18.4.1
 
-* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+* Tue Mar 31 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.4-1
+- 5.18.4
+
+* Tue Mar 10 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.3-1
 - 5.18.3
 
-* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+* Tue Feb 25 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.2-1
 - 5.18.2
 
-* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+* Tue Feb 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.1-1
 - 5.18.1
 
-* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+* Tue Feb 11 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.0-1
 - 5.18.0
 
-* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+* Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.17.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Thu Jan 16 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.90-1
+- 5.17.90
+
+* Wed Jan 08 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.5-1
 - 5.17.5
 
-* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+* Thu Dec 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.4-1
 - 5.17.4
 
-* Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
+* Wed Dec 04 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.17.3-2
+- qt5-style-oxygen: Conflicts: plasma-desktop < 5.16.90
+
+* Wed Nov 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.17.3-1
 - 5.17.3
 
-* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+* Wed Oct 30 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.2-1
 - 5.17.2
 
-* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+* Wed Oct 23 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.1-1
 - 5.17.1
 
-* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+* Thu Oct 10 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.0-1
 - 5.17.0
 
-* Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+* Fri Sep 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.90-1
+- 5.16.90
+
+* Fri Sep 06 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.5-1
 - 5.16.5
 
-* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+* Tue Jul 30 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.4-1
 - 5.16.4
 
-* Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
+* Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.16.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Wed Jul 10 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.3-1
 - 5.16.3
 
-* Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
+* Wed Jun 26 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.2-1
 - 5.16.2
 
-* Tue Jun 18 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.1-1
+* Tue Jun 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-1
 - 5.16.1
 
-* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+* Tue Jun 11 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.0-1
 - 5.16.0
 
-* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+* Thu May 16 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.90-1
+- 5.15.90
+
+* Thu May 09 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.5-1
 - 5.15.5
 
-* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
+* Wed Apr 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4-1
 - 5.15.4
 
-* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
-- 5.14.5
+* Tue Mar 12 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3-1
+- 5.15.3
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-1
+- 5.15.2
+
+* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.1-1
+- 5.15.1
+
+* Wed Feb 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.0-1
+- 5.15.0
+- omit qt4/kde4 support to workaround FTBFS
+- use %%make_build
+
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sun Jan 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.14.90-1
+- 5.14.90
 
 * Tue Nov 27 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.14.4-1
 - 5.14.4

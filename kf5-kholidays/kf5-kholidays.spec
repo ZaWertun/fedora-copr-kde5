@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework kholidays
 
 # uncomment to enable bootstrap mode
@@ -55,17 +56,14 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang_kf5 libkholidays5_qt
 
@@ -100,7 +98,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.73.0-1
 - 5.73.0
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.72.0-1

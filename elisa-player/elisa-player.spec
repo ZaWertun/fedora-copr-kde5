@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:       elisa-player
 Version:    20.08.1
 Release:    1%{?dist}
@@ -68,14 +69,11 @@ users.
 %autosetup -n elisa-%{version} -p1
 
 %build
-mkdir build
-pushd build
-    %cmake_kf5 ..
-    %make_build
-popd
+%cmake_kf5
+%cmake_build
 
 %install
-%make_install -C build
+%cmake_install
 
 %find_lang elisa --all-name --with-kde --with-html
 
@@ -94,13 +92,13 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
 - 20.04.3
 
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1

@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
@@ -190,7 +191,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
 * Sun Aug 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-2

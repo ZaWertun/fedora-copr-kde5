@@ -57,10 +57,10 @@ desktop-file-validate %{buildroot}%{_datadir}/remoteview/*.desktop
 %{_kf5_datadir}/metainfo/org.kde.kio_gdrive.metainfo.xml
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Thu Aug 20 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Thu Aug 20 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
 * Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-3

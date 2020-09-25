@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global unstable 0
 
 Name:           kde-partitionmanager
@@ -59,15 +60,13 @@ manipulate filesystems.
 
 %build
 mkdir -p %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-make %{?_smp_mflags} -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast -C %{_target_platform} DESTDIR=%{buildroot}
+%cmake_install
 %find_lang partitionmanager --with-kde --with-html
 
 %check

@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 # use ninja or not
 %global ninja 1
@@ -153,9 +154,7 @@ BuildArch: noarch
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   %{?ninja:-G Ninja} \
   -DENABLE_AKONADICONTACTSUPPORT:BOOL=ON \
   -DENABLE_APPSTYLES:BOOL=ON \
@@ -164,12 +163,11 @@ pushd %{_target_platform}
   -DENABLE_MYSQLSUPPORT:BOOL=ON \
   -DENABLE_INTERNALMYSQL:BOOL=ON \
   -DENABLE_QWEBENGINE:BOOL=%{?qwebengine:ON}%{!?qwebengine:OFF}
-popd
 
 %if 0%{?ninja}
 %ninja_build -C %{_target_platform}
 %else
-%make_build -C %{_target_platform} VERBOSE=
+%cmake_build
 %endif
 
 
@@ -177,7 +175,7 @@ popd
 %if 0%{?ninja}
 %ninja_install -C %{_target_platform}
 %else
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 %endif
 
 desktop-file-install --vendor="" \
@@ -261,7 +259,7 @@ update-desktop-database -q &> /dev/null
 * Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 7.1.0-1
 - 7.1.0
 
-* Fri Jul 17 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 7.0.0-1
+* Fri Jul 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 7.0.0-1
 - 7.0.0
 
 * Sat May 09 2020 Rex Dieter <rdieter@fedoraproject.org> - 7.0.0-0.6.beta3

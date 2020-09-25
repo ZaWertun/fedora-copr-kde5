@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework kdesignerplugin
 
 # uncomment to enable bootstrap mode
@@ -57,16 +58,13 @@ from ini-style description files.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang_kf5 kdesignerplugin5_qt
 # manpages
@@ -93,7 +91,7 @@ cat kdesignerplugin5_qt.lang %{name}-man.lang > %{name}.lang
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
 - 5.73.0
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1

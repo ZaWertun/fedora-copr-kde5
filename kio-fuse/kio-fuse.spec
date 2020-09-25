@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global         min_qt_version 5.12
 %global         min_kf_version 5.66
 
@@ -37,16 +38,13 @@ KioFuse works by acting as a bridge between KDE's KIO filesystem design and FUSE
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 
 %post -p /sbin/ldconfig

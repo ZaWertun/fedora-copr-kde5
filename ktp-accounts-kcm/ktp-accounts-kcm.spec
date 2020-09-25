@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    ktp-accounts-kcm
 Summary: KDE Configuration Module for Telepathy Instant Messaging Accounts
 Version: 20.08.1
@@ -84,16 +85,13 @@ to manipulate the accounts.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 
@@ -117,10 +115,10 @@ rm -fv %{buildroot}%{_kf5_libdir}/libktpaccountskcminternal.so
 
 
 %changelog
-* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.1-1
+* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
-* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 20.08.0-1
+* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
 - 20.08.0
 
 * Sun Jul 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1

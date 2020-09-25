@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    kf5
 Version: 5.74.0
 Release: 1%{?dist}
@@ -83,10 +84,10 @@ sed -i \
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
 - 5.73.0
 
-* Sat Jul 18 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.72.0-2
+* Sat Jul 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-2
 - macros updated
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1

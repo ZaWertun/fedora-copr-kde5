@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
@@ -72,16 +73,13 @@ sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 ## icon optimizations
 #du -s  .
@@ -151,7 +149,7 @@ fi
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
 - 5.73.0
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1

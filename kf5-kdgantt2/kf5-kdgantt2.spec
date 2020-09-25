@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework kdgantt2
 
 Name:    kf5-%{framework}
@@ -47,16 +48,13 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-make %{?_smp_mflags} -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 
 %post -p /sbin/ldconfig

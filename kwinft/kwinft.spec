@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global min_qt_version 5.14.0
 %global min_kf_version 5.70.0
 
@@ -224,16 +225,13 @@ sed -i \
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang kwin --with-html --all-name
 grep "%{_kf5_docdir}" kwin.lang > %{name}-doc.lang

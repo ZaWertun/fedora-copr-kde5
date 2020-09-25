@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 
 # do not use webkit on rhel
 %if 0%{?fedora} || 0%{?epel}
@@ -116,20 +117,17 @@ Requires: %{name}-libs%{?_isa} = %{epoch}:%{version}-%{release}
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
 
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DK3B_BUILD_FFMPEG_DECODER_PLUGIN:BOOL=OFF \
   -DK3B_BUILD_LAME_ENCODER_PLUGIN:BOOL=ON \
   -DK3B_BUILD_MAD_DECODER_PLUGIN:BOOL=ON
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 
@@ -174,13 +172,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 
 
 %changelog
-* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.08.1-1
+* Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.1-1
 - 20.08.1
 
-* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.08.0-1
+* Fri Aug 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.0-1
 - 20.08.0
 
-* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1:20.04.3-1
+* Thu Jul 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.04.3-1
 - 20.04.3
 
 * Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.04.2-1

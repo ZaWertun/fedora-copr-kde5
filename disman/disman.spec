@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global min_qt_version 5.14.0
 
 Name:    disman
@@ -53,15 +54,12 @@ Headers, development libraries and documentation for %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
-make %{?_smp_mflags} -C %{_target_platform}
+%{cmake_kf5}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 %find_lang %{name} --with-kde --with-qt --all-name ||:
 echo >> %{name}.lang
 

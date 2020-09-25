@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework kdelibs4support
 
 Name:    kf5-%{framework}
@@ -117,20 +118,17 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
 # Set absolute BIN_INSTALL_DIR, otherwise CMake will complain about mixed use of
 # absolute and relative paths for some reason
 # Remove once fixed upstream
-%{cmake_kf5} .. \
+%{cmake_kf5} \
         -DBIN_INSTALL_DIR=%{_kf5_bindir}
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang all --all-name --with-man %{?_with_html}
 
@@ -200,7 +198,7 @@ rm -fv %{buildroot}%{_kf5_sysconfdir}/xdg/kdebugrc
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
 - 5.73.0
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1

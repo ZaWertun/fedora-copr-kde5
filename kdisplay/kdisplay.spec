@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global min_qt_version     5.14.0
 %global min_kf_version     5.66.0
 %global min_disman_version 0.518.0
@@ -40,15 +41,12 @@ BuildRequires:  cmake(Disman) >= %{min_disman_version}
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
-make %{?_smp_mflags} -C %{_target_platform}
+%{cmake_kf5}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 
 %files

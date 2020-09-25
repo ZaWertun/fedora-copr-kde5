@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 Name:    ktimer
 Summary: Task Scheduler 
 Version: 20.08.1
@@ -63,16 +64,13 @@ KTimer is a little tool to execute programs after some time.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 

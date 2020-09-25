@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global  wayland_min_version 1.3
 %global debug_package %{nil}
 
@@ -37,16 +38,13 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} ..
-popd
+%{cmake_kf5}
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %files
 %license COPYING.LIB
@@ -57,7 +55,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 
 
 %changelog
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 1.1.1-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.1.1-1
 - 1.1.1
 
 * Fri May 22 2020 Martin Kyral <martin.kyral@gmail.com> - 1.0-1

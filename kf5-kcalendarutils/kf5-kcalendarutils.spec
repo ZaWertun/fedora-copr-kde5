@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global framework kcalutils
 
 # uncomment to enable bootstrap mode
@@ -67,17 +68,14 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %find_lang %{name} --all-name --with-html
 

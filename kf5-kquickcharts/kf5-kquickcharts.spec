@@ -1,3 +1,4 @@
+%undefine __cmake_in_source_build
 %global         framework kquickcharts
 
 # uncomment to enable bootstrap mode
@@ -57,17 +58,14 @@ developing applications that use %{name}.
 
 
 %build
-mkdir %{_target_platform}
-pushd %{_target_platform}
-%{cmake_kf5} .. \
+%{cmake_kf5} \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-popd
 
-%make_build -C %{_target_platform}
+%cmake_build
 
 
 %install
-make install/fast  DESTDIR=%{buildroot} -C %{_target_platform}
+%cmake_install
 
 %check
 %if 0%{?tests}
@@ -92,13 +90,13 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.73.0-1
+* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
 - 5.73.0
 
 * Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
 - 5.72.0
 
-* Thu Jun 18 2020 Yaroslav Sidlovsky <zawertun@otl.ru> - 5.71.0-2
+* Thu Jun 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-2
 - added kquickcharts-5.71.0-pi-should-be-constant.patch
 
 * Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
