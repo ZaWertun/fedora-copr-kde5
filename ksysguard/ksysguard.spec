@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ksysguard
 Version: 5.19.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -38,6 +38,7 @@ BuildRequires:  libksysguard-devel >= %{majmin_ver}
 BuildRequires:  lm_sensors-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libpcap)
+BuildRequires:  pkgconfig(libcap)
 
 Requires:       ksysguardd = %{version}-%{release}
 
@@ -97,6 +98,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Sat Sep 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
+- libcap build dependency added
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 
