@@ -1,14 +1,16 @@
 {
   "0": [
     "analitza",
-    "kf5-akonadi-server",
-    "kf5-frameworkintegration",
-    "kf5-kdeclarative",
     "kf5-kwayland",
     "kf5-kxmlgui",
     "qqc2-desktop-style"
   ],
   "1": [
+    "kf5-akonadi-server",
+    "kf5-frameworkintegration",
+    "kf5-kdeclarative"
+  ],
+  "2": [
     "kwin",
     "kwin-lowlatency",
     "kwinft",
