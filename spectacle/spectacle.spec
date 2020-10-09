@@ -2,7 +2,7 @@
 
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 20.08.1
+Version: 20.08.2
 Release: 1%{?dist}
 
 License: GPLv2
@@ -105,6 +105,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 
 
 %changelog
+* Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
+- 20.08.2
+
 * Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
-Version: 20.08.1
+Version: 20.08.2
 Release: 1%{?dist}
 
 License: GPLv2+ and GPLv2+ and BSD
@@ -169,6 +169,9 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 
 
 %changelog
+* Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
+- 20.08.2
+
 * Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 

@@ -11,7 +11,7 @@
 Name:    k3b
 Summary: CD/DVD/Blu-ray burning application
 Epoch:   1
-Version: 20.08.1
+Version: 20.08.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -152,7 +152,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/k3b/
 %{_kf5_datadir}/knsrcfiles/%{name}theme.knsrc
-%{_libexecdir}/k3bhelper
+%{_kf5_libexecdir}/kauth/k3bhelper
 %{_datadir}/dbus-1/system-services/org.kde.k3b.service
 %{_datadir}/dbus-1/system.d/org.kde.k3b.conf
 %{_datadir}/polkit-1/actions/org.kde.k3b.policy
@@ -172,6 +172,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 
 
 %changelog
+* Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.2-1
+- 20.08.2
+
 * Thu Sep 03 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.1-1
 - 20.08.1
 
