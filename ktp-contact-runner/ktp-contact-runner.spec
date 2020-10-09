@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-contact-runner
 Summary: Plasma runner for KDE Telepathy
-Version: 20.08.1
+Version: 20.08.2
 Release: 1%{?dist}
 
 License: GPLv3+
@@ -57,6 +57,9 @@ BuildRequires:  ktp-common-internals-devel >= %{majmin_ver}
 
 
 %changelog
+* Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
+- 20.08.2
+
 * Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
 - 20.08.1
 
