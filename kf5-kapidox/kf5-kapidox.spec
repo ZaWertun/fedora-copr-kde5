@@ -2,7 +2,7 @@
 %global framework kapidox
 
 Name:    kf5-%{framework}
-Version: 5.74.0
+Version: 5.75.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 4 scripts and data for building API documentation
 
@@ -66,7 +66,7 @@ style.
 
 
 %files
-%license LICENSE
+%license LICENSES/*.txt
 %{python_sitelib}/kapidox
 %{python_sitelib}/kapidox-%{version}-py*.egg-info
 %{_kf5_bindir}/depdiagram-prepare
@@ -77,6 +77,9 @@ style.
 
 
 %changelog
+* Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
+- 5.75.0
+
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 

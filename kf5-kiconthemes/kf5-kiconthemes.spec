@@ -2,7 +2,7 @@
 %global framework kiconthemes
 
 Name:    kf5-%{framework}
-Version: 5.74.0
+Version: 5.75.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module with icon themes
 
@@ -21,7 +21,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{v
 ## upstream patches
 
 ## upstreamable patches
-Patch100: kiconthemes-5.60.0-context_logspam.patch
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-karchive-devel >= %{majmin}
@@ -87,6 +86,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
+- 5.75.0
+
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 

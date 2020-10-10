@@ -2,7 +2,7 @@
 %global framework kitemviews
 
 Name:           kf5-%{framework}
-Version: 5.74.0
+Version: 5.75.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with item views
 
@@ -73,6 +73,9 @@ mkdir -p %{_target_platform}
 
 
 %changelog
+* Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
+- 5.75.0
+
 * Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
 - 5.74.0
 
