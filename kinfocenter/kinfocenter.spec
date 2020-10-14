@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kinfocenter
 Version: 5.20.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -59,6 +59,7 @@ BuildRequires:  kf5-kwayland-devel
 %endif
 
 Requires:       kf5-filesystem
+Requires:       plasma-disks
 
 # When kinfocenter was split out from kde-workspace
 Conflicts:      kde-workspace < 4.11.15-3
@@ -102,6 +103,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Thu Oct 15 01:01:18 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-2
+- plasma-disks added to requires
+
 * Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - 5.20.0
 
