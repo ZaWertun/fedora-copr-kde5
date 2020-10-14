@@ -1,7 +1,6 @@
-diff --git a/containmentactions/contextmenu/menu.cpp b/containmentactions/contextmenu/menu.cpp
-index 9b641bb..b2a1d17 100644
---- a/containmentactions/contextmenu/menu.cpp
-+++ b/containmentactions/contextmenu/menu.cpp
+diff -r -U3 plasma-workspace-5.20.0.orig/containmentactions/contextmenu/menu.cpp plasma-workspace-5.20.0/containmentactions/contextmenu/menu.cpp
+--- plasma-workspace-5.20.0.orig/containmentactions/contextmenu/menu.cpp	2020-10-09 15:31:38.000000000 +0300
++++ plasma-workspace-5.20.0/containmentactions/contextmenu/menu.cpp	2020-10-13 23:06:47.443332356 +0300
 @@ -30,6 +30,7 @@
  #include <QIcon>
  #include <KGlobalAccel>
@@ -10,7 +9,7 @@ index 9b641bb..b2a1d17 100644
  
  #include <Plasma/Containment>
  #include <Plasma/Corona>
-@@ -45,6 +46,7 @@
+@@ -40,6 +41,7 @@
  
  ContextMenu::ContextMenu(QObject *parent, const QVariantList &args)
      : Plasma::ContainmentActions(parent, args),
@@ -18,16 +17,15 @@ index 9b641bb..b2a1d17 100644
        m_runCommandAction(nullptr),
        m_lockScreenAction(nullptr),
        m_logoutAction(nullptr),
-@@ -74,7 +76,7 @@ void ContextMenu::restore(const KConfigGroup &config)
-         m_actionOrder << QStringLiteral("add widgets") << QStringLiteral("_add panel") << QStringLiteral("_context") << QStringLiteral("configure") << QStringLiteral("remove");
-     } else {
-         actions.insert(QStringLiteral("configure shortcuts"), false);
--        m_actionOrder << QStringLiteral("_context") << QStringLiteral("_run_command") << QStringLiteral("add widgets") << QStringLiteral("_add panel")
-+        m_actionOrder << QStringLiteral("_context") << QStringLiteral("_run_konsole") << QStringLiteral("_run_command") << QStringLiteral("add widgets") << QStringLiteral("_add panel")
-                       << QStringLiteral("manage activities") << QStringLiteral("remove") << QStringLiteral("edit mode") << QStringLiteral("_sep1")
-                       <<QStringLiteral("_lock_screen") << QStringLiteral("_logout") << QStringLiteral("_sep2") << QStringLiteral("run associated application") << QStringLiteral("configure")
-                       << QStringLiteral("configure shortcuts") << QStringLiteral("_sep3") << QStringLiteral("_wallpaper");
-@@ -93,6 +95,10 @@ void ContextMenu::restore(const KConfigGroup &config)
+@@ -69,6 +71,7 @@
+         c->containmentType() == Plasma::Types::CustomPanelContainment) {
+         m_actionOrder   << QStringLiteral("add widgets")
+                         << QStringLiteral("_add panel")
++                        << QStringLiteral("_run_konsole")
+                         << QStringLiteral("_context")
+                         << QStringLiteral("configure")
+                         << QStringLiteral("remove");
+@@ -105,6 +108,10 @@
  
      // everything below should only happen once, so check for it
      if (!m_runCommandAction) {
@@ -38,7 +36,7 @@ index 9b641bb..b2a1d17 100644
          m_runCommandAction = new QAction(i18nc("plasma_containmentactions_contextmenu", "Show KRunner"), this);
          m_runCommandAction->setIcon(QIcon::fromTheme(QStringLiteral("plasma-search")));
          m_runCommandAction->setShortcut(KGlobalAccel::self()->globalShortcut(QStringLiteral("krunner.desktop"), QStringLiteral("_launch")).value(0));
-@@ -164,6 +170,8 @@ QAction *ContextMenu::action(const QString &name)
+@@ -185,6 +192,8 @@
          if (c->corona() && c->corona()->immutability() == Plasma::Types::Mutable) {
              return c->corona()->actions()->action(QStringLiteral("add panel"));
          }
@@ -47,7 +45,7 @@ index 9b641bb..b2a1d17 100644
      } else if (name == QLatin1String("_run_command")) {
          if (KAuthorized::authorizeAction(QStringLiteral("run_command")) && KAuthorized::authorize(QStringLiteral("run_command"))) {
              return m_runCommandAction;
-@@ -191,6 +199,11 @@ QAction *ContextMenu::action(const QString &name)
+@@ -212,6 +221,11 @@
      return nullptr;
  }
  
@@ -59,11 +57,12 @@ index 9b641bb..b2a1d17 100644
  void ContextMenu::runCommand()
  {
      if (!KAuthorized::authorizeAction(QStringLiteral("run_command"))) {
-diff --git a/containmentactions/contextmenu/menu.h b/containmentactions/contextmenu/menu.h
-index 2b0bbe4..c1f6eb2 100644
---- a/containmentactions/contextmenu/menu.h
-+++ b/containmentactions/contextmenu/menu.h
-@@ -42,10 +42,12 @@ public:
+Только в plasma-workspace-5.20.0/containmentactions/contextmenu: menu.cpp.orig
+Только в plasma-workspace-5.20.0/containmentactions/contextmenu: menu.cpp.rej
+diff -r -U3 plasma-workspace-5.20.0.orig/containmentactions/contextmenu/menu.h plasma-workspace-5.20.0/containmentactions/contextmenu/menu.h
+--- plasma-workspace-5.20.0.orig/containmentactions/contextmenu/menu.h	2020-10-09 15:31:38.000000000 +0300
++++ plasma-workspace-5.20.0/containmentactions/contextmenu/menu.h	2020-10-13 23:00:15.017991124 +0300
+@@ -42,10 +42,12 @@
      void save(KConfigGroup &config) override;
  
  public Q_SLOTS:

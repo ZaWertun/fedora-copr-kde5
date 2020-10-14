@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kinfocenter
-Version: 5.19.5
+Version: 5.20.0
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -102,6 +102,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 

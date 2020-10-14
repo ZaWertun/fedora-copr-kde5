@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
-Version: 5.19.5
+Version: 5.20.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -31,9 +31,11 @@ BuildRequires:  kf5-karchive-devel
 BuildRequires:  kf5-kcmutils-devel
 BuildRequires:  cmake(KF5DBusAddons)
 BuildRequires:  cmake(KF5GuiAddons)
+BuildRequires:  cmake(KDecoration2)
 
 BuildRequires:  gtk3-devel
 BuildRequires:  gtk2-devel
+BuildRequires:  rubygem-sass
 
 # need kcmshell5 from kde-cli-tools
 Requires:       kde-cli-tools
@@ -65,18 +67,20 @@ appearance of GTK apps in KDE.
 %cmake_install
 
 %files
-%license COPYING COPYING.LIB
-%{_libexecdir}/reload_gtk_apps
-%{_libexecdir}/gtk_preview
+%license LICENSES/*.txt
 %{_libexecdir}/gtk3_preview
-%{_datadir}/kcm-gtk-module/
 %{_kf5_libdir}/kconf_update_bin/gtk_theme
 %{_kf5_datadir}/kconf_update/gtkconfig.upd
 %{_kf5_plugindir}/kded/gtkconfig.so
 %{_libdir}/gtk-3.0/modules/libcolorreload-gtk-module.so
+%{_libdir}/gtk-3.0/modules/libwindow-decorations-gtk-module.so
+%{_datadir}/themes/Breeze/window_decorations.css
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 

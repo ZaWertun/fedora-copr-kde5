@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ksysguard
-Version: 5.19.5
-Release: 2%{?dist}
+Version: 5.20.0
+Release: 1%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -77,7 +77,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_bindir}/ksystemstats
 %{_kf5_libdir}/libksgrdbackend.so
 %{_kf5_libdir}/libkdeinit5_ksysguard.so
-%caps(cap_net_raw=pe) %{_libexecdir}/ksysguard/ksgrd_network_helper
 %{_datadir}/ksysguard
 %{_datadir}/metainfo/org.kde.ksysguard.appdata.xml
 %{_datadir}/knsrcfiles/ksysguard.knsrc
@@ -87,9 +86,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_kf5_datadir}/kxmlgui5/ksysguard/
 %{_kf5_datadir}/dbus-1/services/org.kde.ksystemstats.service
 %{_qt5_plugindir}/ksysguard/ksysguard_ksgrd.so
+%{_qt5_plugindir}/ksysguard/ksysguard_plugin_osinfo.so
 %{_qt5_plugindir}/ksysguard/ksysguard_plugin_nvidiaglobal.so
+%{_qt5_plugindir}/ksysguard/ksysguard_globalplugin_network.so
 %{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_nvidia.so
-%{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_network.so
 
 %files -n ksysguardd
 %license COPYING
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Sat Sep 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
 - libcap build dependency added
 

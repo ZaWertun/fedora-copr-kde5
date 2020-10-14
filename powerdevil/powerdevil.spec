@@ -3,7 +3,7 @@
 %global kf5_version 5.42.0
 
 Name:    powerdevil
-Version: 5.19.5
+Version: 5.20.0
 Release: 1%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
@@ -90,12 +90,16 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 %license COPYING*
 %{_datadir}/dbus-1/system.d/org.kde.powerdevil.backlighthelper.conf
 %{_datadir}/dbus-1/system.d/org.kde.powerdevil.discretegpuhelper.conf
+%{_datadir}/dbus-1/system.d/org.kde.powerdevil.chargethresholdhelper.conf
 %{_datadir}/dbus-1/system-services/org.kde.powerdevil.backlighthelper.service
 %{_datadir}/dbus-1/system-services/org.kde.powerdevil.discretegpuhelper.service
+%{_datadir}/dbus-1/system-services/org.kde.powerdevil.chargethresholdhelper.service
 %{_datadir}/polkit-1/actions/org.kde.powerdevil.backlighthelper.policy
 %{_datadir}/polkit-1/actions/org.kde.powerdevil.discretegpuhelper.policy
+%{_datadir}/polkit-1/actions/org.kde.powerdevil.chargethresholdhelper.policy
 %{_kf5_libexecdir}/kauth/backlighthelper
 %{_kf5_libexecdir}/kauth/discretegpuhelper
+%{_kf5_libexecdir}/kauth/chargethresholdhelper
 %{_sysconfdir}/xdg/autostart/powerdevil.desktop
 %{_libexecdir}/org_kde_powerdevil
 %{_kf5_libdir}/libpowerdevilconfigcommonprivate.so.*
@@ -106,9 +110,13 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 %{_kf5_datadir}/knotifications5/powerdevil.notifyrc
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 

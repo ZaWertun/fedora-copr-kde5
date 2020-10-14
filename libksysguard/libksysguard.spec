@@ -1,8 +1,8 @@
 %undefine __cmake_in_source_build
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.19.5
-Release: 2%{?dist}
+Version: 5.20.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -98,6 +98,7 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libKSysGuardFormatter.so.*
 %{_kf5_libdir}/libKSysGuardSensorFaces.so.*
 %{_kf5_libdir}/libKSysGuardSensors.so.*
+%{_kf5_qtplugindir}/designer/*5widgets.so
 %{_kf5_datadir}/ksysguard
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_qmldir}/org/kde/ksysguard/faces/
@@ -128,6 +129,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Mon Sep 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
 - patch fixing issue #426774 added
 

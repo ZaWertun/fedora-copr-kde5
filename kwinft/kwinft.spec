@@ -6,8 +6,8 @@
 #global bootstrap 1
 
 Name:    kwinft
-Version: 5.19.1
-Release: 2%{?dist}
+Version: 5.20.0
+Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
 Provides:  kwin = %{version}
@@ -77,6 +77,10 @@ BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(wayland-eglstream)
+BuildRequires:  pkgconfig(libpipewire-0.3)
+
+# Systemd
+BuildRequires:  systemd
 
 # KF5
 BuildRequires:  kf5-kcompletion-devel    >= %{min_kf_version}
@@ -255,6 +259,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_bindir}/kwin
 %{_bindir}/kwin_x11
 %{_kf5_datadir}/kconf_update/
+%{_userunitdir}/plasma-kwin_x11.service
+%{_userunitdir}/plasma-kwin_wayland.service
 
 %files common
 %{_datadir}/kwin
@@ -317,6 +323,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Oct 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- version 5.20.0
+
 * Sun Sep 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-2
 - rebuild
 

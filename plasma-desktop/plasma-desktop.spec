@@ -11,7 +11,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.19.5
+Version: 5.20.0
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -246,7 +246,7 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 
 
 %check
-desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,knetattach}.desktop
+#desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,knetattach}.desktop
 
 
 %ldconfig_scriptlets
@@ -254,32 +254,20 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %files -f plasmadesktop5.lang
 %license COPYING*
 %{_bindir}/kaccess
-%{_bindir}/kcolorschemeeditor
-%{_bindir}/kfontinst
-%{_bindir}/kfontview
-%{_bindir}/krdb
 %{_bindir}/knetattach
 %{_bindir}/solid-action-desktop-gen
-%{_bindir}/lookandfeeltool
 %{_bindir}/ibus-ui-emojier-plasma
 %{_bindir}/tastenbrett
 %{_kf5_libexecdir}/kauth/kcmdatetimehelper
-%{_kf5_libexecdir}/kauth/fontinst
-%{_kf5_libexecdir}/kauth/fontinst_helper
-%{_kf5_libexecdir}/kauth/fontinst_x11
 %{_libexecdir}/kimpanel-ibus-panel
 %{_libexecdir}/kimpanel-ibus-panel-launcher
-%{_libexecdir}/plasma-changeicons
-%{_libexecdir}/kfontprint
 %{_kf5_qmldir}/org/kde/plasma/private
 %{_kf5_libdir}/libkdeinit5_kaccess.so
-%{_kf5_libdir}/kconf_update_bin/*
 # TODO: -libs subpkg -- rex
-%{_kf5_libdir}/libkfontinst.so.*
-%{_kf5_libdir}/libkfontinstui.so.*
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kcms/*.so
 %{_kf5_plugindir}/kded/*.so
+%{_kf5_plugindir}/krunner/krunner_*.so
 %{_kf5_qmldir}/org/kde/plasma/activityswitcher
 %{_kf5_qmldir}/org/kde/private/desktopcontainment/*
 %{_kf5_qmldir}/org/kde/activities/settings/
@@ -291,55 +279,39 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_touchpad.so
 %{_datadir}/config.kcfg/touchpad.kcfg
 %{_datadir}/config.kcfg/touchpaddaemon.kcfg
+%{_datadir}/config.kcfg/launchfeedbacksettingsbase.kcfg
 %{_datadir}/dbus-1/interfaces/org.kde.touchpad.xml
 # kcminput
 %{_kf5_bindir}/kapplymousetheme
 %{_kf5_datadir}/kcmmouse/
 %endif
 %{_datadir}/config.kcfg/browser_settings.kcfg
-%{_datadir}/config.kcfg/colorssettings.kcfg
-%{_datadir}/config.kcfg/cursorthemesettings.kcfg
-%{_datadir}/config.kcfg/fontssettings.kcfg
-%{_datadir}/config.kcfg/iconssettingsbase.kcfg
 %{_datadir}/config.kcfg/kactivitymanagerd_plugins_settings.kcfg
 %{_datadir}/config.kcfg/kactivitymanagerd_settings.kcfg
-%{_datadir}/config.kcfg/launchfeedbacksettings.kcfg
-%{_datadir}/config.kcfg/lookandfeelsettings.kcfg
 %{_datadir}/config.kcfg/splashscreensettings.kcfg
-%{_datadir}/config.kcfg/stylesettings.kcfg
 %{_datadir}/config.kcfg/terminal_settings.kcfg
 %{_datadir}/config.kcfg/workspaceoptions_kdeglobalssettings.kcfg
 %{_datadir}/config.kcfg/workspaceoptions_plasmasettings.kcfg
 %{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
 %{_datadir}/qlogging-categories5/kcmkeys.categories
-%{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_kimpanel.so
+%{_datadir}/qlogging-categories5/kcmusers.categories
 %{_kf5_datadir}/kconf_update/*
-%{_kf5_datadir}/kdisplay
-%{_kf5_datadir}/kcontrol
 %{_kf5_datadir}/kcmkeys
 %{_kf5_datadir}/kcm_componentchooser
-%{_kf5_datadir}/kfontinst
 %{_kf5_datadir}/kcmkeyboard
 %{_kf5_datadir}/kpackage/kcms/*
 %{_kf5_datadir}/knsrcfiles/
-%{_datadir}/konqsidebartng/virtual_folders/services/fonts.desktop
 %{_kf5_datadir}/kf5/kactivitymanagerd/workspace/
 %{_kf5_datadir}/kcmsolidactions/
 %{_kf5_datadir}/solid/devices/*.desktop
 %{_kf5_datadir}/dbus-1/system.d/*.conf
 %{_kf5_datadir}/kservices5/*.desktop
-%{_kf5_datadir}/kservices5/ServiceMenus/installfont.desktop
-%{_kf5_datadir}/kservices5/fonts.protocol
 %{_kf5_datadir}/kservicetypes5/*.desktop
-%{_kf5_datadir}/kxmlgui5/kfontview
-%{_kf5_datadir}/kxmlgui5/kfontinst
 %{_kf5_datadir}/knotifications5/*.notifyrc
 %{_datadir}/icons/hicolor/*/*/*
 %{_kf5_metainfodir}/*.xml
 %{_datadir}/applications/*.desktop
-%{_datadir}/dbus-1/services/*.service
 %{_datadir}/dbus-1/system-services/*.service
-%{_datadir}/polkit-1/actions/org.kde.fontinst.policy
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmclock.policy
 %{_sysconfdir}/xdg/autostart/*.desktop
 
@@ -352,6 +324,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,k
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 

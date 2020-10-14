@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kde-cli-tools
-Version: 5.19.5
+Version: 5.20.0
 Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
@@ -92,6 +92,7 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 %{_bindir}/ksvgtopng5
 %{_bindir}/ktraderclient5
 %{_bindir}/kbroadcastnotification
+%{_bindir}/kde-inhibit
 %{_kf5_libexecdir}/kdeeject
 %{_kf5_qtplugindir}/kcm_filetypes.so
 %{_kf5_datadir}/kservices5/filetypes.desktop
@@ -108,6 +109,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 

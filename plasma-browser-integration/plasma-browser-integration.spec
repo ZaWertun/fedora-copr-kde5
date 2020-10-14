@@ -3,7 +3,7 @@
 
 Name:    plasma-browser-integration
 Summary: %{base_name} provides components necessary to integrate browsers into the Plasma Desktop
-Version: 5.19.5
+Version: 5.20.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -74,11 +74,13 @@ https://community.kde.org/Plasma/Browser_Integration
 %{_bindir}/plasma-browser-integration-host
 %{_libdir}/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json
 %{_libdir}/qt5/plugins/kf5/kded/browserintegrationreminder.so
-%{_libdir}/qt5/plugins/krunner_browsertabs.so
-%{_datadir}/kservices5/plasma-runner-browsertabs.desktop
+%{_kf5_plugindir}/krunner/krunner_browsertabs.so
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 

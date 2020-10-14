@@ -7,7 +7,7 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.19.5
+Version: 5.20.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -36,7 +36,7 @@ Source15:       fedora.desktop
 Source20:       breeze-fedora-0.2.tar.gz
 
 ## downstream Patches
-Patch100:       plasma-workspace-5.12.5-konsole-in-contextmenu.patch
+Patch100:       plasma-workspace-5.20.0-konsole-in-contextmenu.patch
 Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 # remove stuff we don't want or need, plus a minor bit of customization --rex
 #Patch102:       startkde.patch
@@ -69,6 +69,7 @@ BuildRequires:  libXfixes-devel
 BuildRequires:  libXrandr-devel
 BuildRequires:  libXcursor-devel
 BuildRequires:  libXtst-devel
+BuildRequires:  libXft-devel
 BuildRequires:  libxcb-devel
 BuildRequires:  xcb-util-keysyms-devel
 BuildRequires:  xcb-util-image-devel
@@ -83,6 +84,7 @@ BuildRequires:  libbsd-devel
 BuildRequires:  pam-devel
 BuildRequires:  lm_sensors-devel
 BuildRequires:  pciutils-devel
+BuildRequires:  pipewire-devel
 %ifnarch s390 s390x
 BuildRequires:  libraw1394-devel
 %endif
@@ -98,6 +100,10 @@ BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtwebkit-devel
 BuildRequires:  phonon-qt5-devel
+BuildRequires:  qt5-qtsvg-devel
+BuildRequires:  qt5-qtwayland-devel
+BuildRequires:  qt5-qtbase-private-devel
+BuildRequires:  plasma-wayland-protocols-devel
 
 BuildRequires:  kf5-rpm-macros >= %{kf5_version_min}
 BuildRequires:  extra-cmake-modules
@@ -194,6 +200,9 @@ Requires:       plasma-milou >= %{majmin_ver}
 # Power management
 Requires:       powerdevil >= %{majmin_ver}
 %endif
+
+# For kconf_update scripts
+Requires:       perl-interpreter
 
 # startkde
 Requires:       coreutils
@@ -470,11 +479,17 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_bindir}/systemmonitor
 %{_kf5_bindir}/xembedsniproxy
 %{_kf5_bindir}/plasma-shutdown
+%{_kf5_bindir}/kcolorschemeeditor
+%{_kf5_bindir}/kde-systemd-start-condition
+%{_kf5_bindir}/kfontinst
+%{_kf5_bindir}/kfontview
+%{_kf5_bindir}/krdb
+%{_kf5_bindir}/lookandfeeltool
 %{_kf5_libdir}/libkdeinit5_*.so
 %{_kf5_qmldir}/org/kde/*
 %{_libexecdir}/baloorunner
 %{_libexecdir}/ksmserver-logout-greeter
-%{_libexecdir}/ksyncdbusenv
+#%{_libexecdir}/ksyncdbusenv
 %{_kf5_datadir}/ksplash/
 %{_kf5_datadir}/plasma/plasmoids/
 %{_kf5_datadir}/plasma/services/
@@ -486,20 +501,53 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_sysconfdir}/xdg/autostart/*.desktop
 %{_datadir}/desktop-directories/*.directory
 %{_datadir}/dbus-1/services/*.service
+%{_datadir}/dbus-1/system.d/org.kde.fontinst.conf
+%{_datadir}/dbus-1/system-services/org.kde.fontinst.service
 %{_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/icons/hicolor/*/apps/kfontview.png
+%{_kf5_datadir}/icons/hicolor/*/mimetypes/fonts-package.png
+%{_kf5_datadir}/icons/hicolor/scalable/apps/preferences-desktop-font-installer.svgz
+%{_kf5_datadir}/kcontrol/pics/logo.png
+%{_kf5_datadir}/kcontrol/pics/mini-world.png
+%{_kf5_datadir}/kdisplay/app-defaults/*.ad
+%{_kf5_datadir}/kfontinst/icons/hicolor/*/actions/*.png
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/*.protocol
+%{_kf5_datadir}/kservices5/ServiceMenus/installfont.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/knotifications5/*.notifyrc
 %{_kf5_datadir}/config.kcfg/*
 %{_kf5_datadir}/kio_desktop/
 %{_kf5_datadir}/kconf_update/krunnerplugins.upd
-%{_kf5_libdir}/kconf_update_bin/krunnerplugins
-%{_kf5_metainfodir}/*.xml
+%{_kf5_datadir}/kconf_update/delete_cursor_old_default_size.pl
+%{_kf5_datadir}/kconf_update/delete_cursor_old_default_size.upd
+%{_kf5_datadir}/kconf_update/icons_remove_effects.upd
+%{_kf5_datadir}/kconf_update/krdb_libpathwipe.upd
+%{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.pl
+%{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.upd
 %{_kf5_datadir}/applications/org.kde.klipper.desktop
 %{_kf5_datadir}/applications/org.kde.plasmashell.desktop
 %{_kf5_datadir}/applications/plasma-windowed.desktop
 %{_kf5_datadir}/applications/org.kde.systemmonitor.desktop
+%{_kf5_datadir}/applications/org.kde.kcolorschemeeditor.desktop
+%{_kf5_datadir}/applications/org.kde.kfontview.desktop
+%{_kf5_datadir}/krunner/dbusplugins/plasma-runner-baloosearch.desktop
+%{_kf5_datadir}/konqsidebartng/virtual_folders/services/fonts.desktop
+%{_kf5_datadir}/kpackage/kcms/kcm5_icons/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm5_icons/metadata.{desktop,json}
+%{_kf5_datadir}/kpackage/kcms/kcm_colors/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_colors/metadata.{desktop,json}
+%{_kf5_datadir}/kpackage/kcms/kcm_cursortheme/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_cursortheme/metadata.{desktop,json}
+%{_kf5_datadir}/kpackage/kcms/kcm_desktoptheme/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_desktoptheme/metadata.{desktop,json}
+%{_kf5_datadir}/kpackage/kcms/kcm_fonts/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_fonts/metadata.{desktop,json}
+%{_kf5_datadir}/kpackage/kcms/kcm_lookandfeel/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_lookandfeel/metadata.{desktop,json}
+%{_kf5_datadir}/kpackage/kcms/kcm_style/contents/ui/*.qml
+%{_kf5_datadir}/kpackage/kcms/kcm_style/metadata.{desktop,json}
+%{_kf5_metainfodir}/*.xml
 %{_datadir}/xsessions/plasma.desktop
 %{_kf5_bindir}/plasma_waitforname
 %{_kf5_datadir}/qlogging-categories5/*.categories
@@ -529,6 +577,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_libdir}/libtaskmanager.so.*
 %{_libdir}/libweather_ion.so.*
 %{_libdir}/libnotificationmanager.*
+%{_libdir}/libkfontinst.so.*
+%{_libdir}/libkfontinstui.so.*
 # multilib'able plugins
 %{_kf5_qtplugindir}/plasma/applets/
 %{_kf5_qtplugindir}/plasma/dataengine/
@@ -544,9 +594,19 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_qtplugindir}/kpackage/packagestructure/*.so
 %{_kf5_plugindir}/kio/*.so
 %{_kf5_plugindir}/kded/*.so
+%{_kf5_plugindir}/krunner/*.so
 %{_qt5_plugindir}/kcms/kcm_translations.so
 %{_qt5_plugindir}/kcms/kcm_feedback.so
-%{_libdir}/kconf_update_bin/krunnerglobalshortcuts
+%{_qt5_plugindir}/kcms/kcm_colors.so
+%{_qt5_plugindir}/kcms/kcm_cursortheme.so
+%{_qt5_plugindir}/kcms/kcm_desktoptheme.so
+%{_qt5_plugindir}/kcms/kcm_fonts.so
+%{_qt5_plugindir}/kcms/kcm_icons.so
+%{_qt5_plugindir}/kcms/kcm_lookandfeel.so
+%{_qt5_plugindir}/kcms/kcm_style.so
+%{_kf5_libdir}/kconf_update_bin/krunnerplugins
+%{_kf5_libdir}/kconf_update_bin/krdb_clearlibrarypath
+%{_kf5_libdir}/kconf_update_bin/krunnerglobalshortcuts
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_applauncher.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_contextmenu.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_paste.so
@@ -554,8 +614,15 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_switchwindow.so
 %{_libexecdir}/plasma-sourceenv.sh
 %{_libexecdir}/startplasma-waylandsession
+%{_libexecdir}/kfontprint
+%{_libexecdir}/plasma-changeicons
+%{_libexecdir}/plasma-dbus-run-session-if-needed
+%{_kf5_libexecdir}/kauth/fontinst*
 %{_datadir}/kconf_update/krunnerglobalshortcuts.upd
 %{_datadir}/kglobalaccel/krunner.desktop
+%{_kf5_datadir}/kxmlgui5/kfontinst/
+%{_kf5_datadir}/kxmlgui5/kfontview/
+%{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
 
 %files geolocation
 %{_kf5_qtplugindir}/plasma-geolocation-gps.so
@@ -577,6 +644,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_libdir}/libtaskmanager.so
 %{_libdir}/libplasma-geolocation-interface.so
 %{_libdir}/libkworkspace5.so
+%{_libdir}/libkfontinst.so
+%{_libdir}/libkfontinstui.so
 %dir %{_includedir}/plasma/
 %{_includedir}/colorcorrect/
 %{_includedir}/plasma/weather/
@@ -609,6 +678,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
 - 5.19.5
 

@@ -2,7 +2,7 @@
 %global min_qt_version 5.14.0
 
 Name:    disman
-Version: 0.519.0
+Version: 0.520.0
 Release: 1%{?dist}
 Summary: Qt/C++ display management library
 
@@ -66,7 +66,7 @@ echo >> %{name}.lang
 
 %files -f %{name}.lang
 %license COPYING.LIB
-%{_bindir}/disman-doctor
+%{_bindir}/dismanctl
 %{_libdir}/libDisman.so.*
 %{_libdir}/libDismanWayland.so.*
 %{_datadir}/dbus-1/services/org.kwinft.disman.service
@@ -83,13 +83,16 @@ echo >> %{name}.lang
 %{_libdir}/cmake/DismanWayland/DismanWayland*.cmake
 %{_libdir}/pkgconfig/disman.pc
 %{_libdir}/pkgconfig/disman-wayland.pc
-%{_includedir}/Disman/
+%{_includedir}/disman/
 %{_includedir}/disman_version.h
 %{_includedir}/disman_wayland_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_Disman.pri
 
 
 %changelog
+* Wed Oct 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.520.0-1
+- 0.520.0
+
 * Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.519.0-1
 - version 0.519.0
 

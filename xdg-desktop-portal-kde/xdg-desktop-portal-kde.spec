@@ -3,8 +3,8 @@
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.19.5
-Release: 2%{?dist}
+Version: 5.20.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -20,6 +20,7 @@ Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  qt5-qtbase-private-devel
 BuildRequires:  cmake(Qt5QuickWidgets)
 # libQt5PrintSupport.so.5(Qt_5_PRIVATE_API)(64bit)
@@ -40,6 +41,9 @@ BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(KF5Declarative)
 BuildRequires:  cmake(KF5Kirigami2)
 BuildRequires:  cmake(KF5Plasma)
+
+BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  cmake(PlasmaWaylandProtocols)
 
 Requires:   xdg-desktop-portal
 Requires:   flatpak
@@ -78,6 +82,9 @@ pieces of KDE infrastructure.
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Sun Sep 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
 - rebuild
 

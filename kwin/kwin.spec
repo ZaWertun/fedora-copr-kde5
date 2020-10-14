@@ -10,8 +10,8 @@
 %endif
 
 Name:    kwin
-Version: 5.19.5
-Release: 2%{?dist}
+Version: 5.20.0
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -77,6 +77,12 @@ BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(wayland-eglstream)
+BuildRequires:  pkgconfig(libpipewire-0.3)
+BuildRequires:  qt5-qtwayland-devel
+BuildRequires:  wayland-protocols-devel
+
+# Systemd
+BuildRequires:  systemd
 
 # KF5
 BuildRequires:  kf5-kcompletion-devel
@@ -234,6 +240,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_bindir}/kwin
 %{_bindir}/kwin_x11
 %{_kf5_datadir}/kconf_update/
+%{_userunitdir}/plasma-kwin_x11.service
+%{_userunitdir}/plasma-kwin_wayland.service
 
 %files common -f kwin5.lang
 %{_datadir}/kwin
@@ -294,10 +302,13 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_includedir}/kwin*.h
 
 %files doc -f %{name}-doc.lang
-%license COPYING*
+%license LICENSES/*.txt
 
 
 %changelog
+* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+- 5.20.0
+
 * Sun Sep 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
 - rebuild
 
