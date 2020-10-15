@@ -4,7 +4,7 @@
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 1 barcode library
 Version: 5.75.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: BSD 
 URL:     https://cgit.kde.org/%{framework}.git
@@ -22,6 +22,7 @@ BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 
 BuildRequires:  pkgconfig(Qt5Gui)
+BuildRequires:  cmake(Qt5Quick)
 
 BuildRequires:  pkgconfig(libdmtx)
 BuildRequires:  pkgconfig(libqrencode)
@@ -61,6 +62,8 @@ developing applications that use %{name}.
 %license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_libdir}/libKF5Prison.so.5*
+%{_kf5_libdir}/qt5/qml/org/kde/prison/libprisonquickplugin.so
+%{_kf5_libdir}/qt5/qml/org/kde/prison/qmldir
 
 %files devel
 %{_kf5_includedir}/prison_version.h
@@ -71,6 +74,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Oct 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-2
+- added Qt5Quick to build dependicies
+
 * Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
 - 5.75.0
 
