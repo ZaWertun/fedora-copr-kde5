@@ -2,7 +2,7 @@
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
 Version: 5.20.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 # KDE e.V. may determine that future LGPL versions are accepted
@@ -41,7 +41,7 @@ BuildRequires:  rubygem-sass
 Requires:       kde-cli-tools
 
 # allows GTK Config kded module to apply settings to GTK applications on the fly
-Requires:       xsettingsd
+Recommends:     xsettingsd
 
 %if 0%{?fedora} > 23
 Obsoletes:      kcm-gtk < 0.5.3-30
@@ -78,6 +78,9 @@ appearance of GTK apps in KDE.
 
 
 %changelog
+* Thu Oct 15 12:10:47 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-2
+- recommends for xsettingsd
+
 * Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - 5.20.0
 
