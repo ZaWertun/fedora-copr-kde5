@@ -2,7 +2,6 @@
   "0": [
     "bluedevil",
     "kactivitymanagerd",
-    "kde-gtk-config",
     "kdecoration",
     "kinfocenter",
     "kscreenlocker",
@@ -15,6 +14,7 @@
     "pam-kwallet",
     "plasma-browser-integration",
     "plasma-discover",
+    "plasma-disks",
     "plasma-drkonqi",
     "plasma-milou",
     "plasma-nm",
@@ -28,6 +28,7 @@
     "xdg-desktop-portal-kde"
   ],
   "1": [
+    "kde-gtk-config",
     "kscreen",
     "ksysguard",
     "plasma-breeze",
