@@ -15,7 +15,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -370,7 +370,7 @@ BuildArch: noarch
 %package wayland
 Summary:        Wayland support for Plasma
 Requires:       %{name} = %{version}-%{release}
-Requires:       kwin-wayland >= %{majmin_ver}
+Requires:       (kwin-wayland >= %{majmin_ver} or kwin-lowlatency-wayland >= %{majmin_ver})
 Requires:       kwayland-integration%{?_isa} >= %{majmin_ver}
 Requires:       xorg-x11-server-Xwayland
 Requires:       qt5-qtwayland%{?_isa}
@@ -384,7 +384,7 @@ Summary:        Xorg support for Plasma
 # Split of Xorg session into subpackage
 Obsoletes:      %{name} < 5.19.5-2
 Requires:       %{name} = %{version}-%{release}
-Requires:       kwin-x11 >= %{majmin_ver}
+Requires:       (kwin-x11 >= %{majmin_ver} or kwin-lowlatency-x11 >= %{majmin_ver})
 Requires:       xorg-x11-server-Xorg
 %description xorg
 %{summary}.
@@ -723,6 +723,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Oct 16 19:41:39 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-3
+- added kwin-lowlatency-{x11,wayland} to requires
+
 * Thu Oct 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-2
 - startplasma-x11 moved to separate package
 
