@@ -3,7 +3,7 @@
 
 Name:    plasma-browser-integration
 Summary: %{base_name} provides components necessary to integrate browsers into the Plasma Desktop
-Version: 5.20.0
+Version: 5.20.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -78,6 +78,9 @@ https://community.kde.org/Plasma/Browser_Integration
 
 
 %changelog
+* Tue Oct 20 17:02:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - 5.20.0
 

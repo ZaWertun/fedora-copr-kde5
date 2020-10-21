@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kinfocenter
-Version: 5.20.0
-Release: 2%{?dist}
+Version: 5.20.1
+Release: 1%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -103,6 +103,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Oct 20 17:02:38 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Thu Oct 15 01:01:18 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-2
 - plasma-disks added to requires
 

@@ -4,7 +4,7 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.20.0
+Version: 5.20.1.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -18,7 +18,8 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz
+%global dir_version %(echo %{version} |cut -d. -f1-3)
+Source0: http://download.kde.org/%{stable}/plasma/%{dir_version}/%{base_name}-%{version}.tar.xz
 
 BuildRequires: desktop-file-utils
 
@@ -122,6 +123,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Wed Oct 21 01:19:47 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1.1-1
+- 5.20.1.1
+
+* Tue Oct 20 17:02:49 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - 5.20.0
 

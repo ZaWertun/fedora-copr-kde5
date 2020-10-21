@@ -5,7 +5,7 @@
 
 Name:    plasma-disks
 Summary: Monitors S.M.A.R.T. capable devices for imminent failure
-Version: 5.20.0
+Version: 5.20.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -71,6 +71,9 @@ Requires:       kf5-filesystem
 
 
 %changelog
+* Tue Oct 20 17:02:45 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Thu Oct 15 00:06:34 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - first spec for version 5.20.0
 

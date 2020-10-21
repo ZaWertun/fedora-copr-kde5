@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    ksysguard
-Version: 5.20.0
+Version: 5.20.1
 Release: 1%{?dist}
 Summary: KDE Process Management application
 
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Tue Oct 20 17:02:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - 5.20.0
 

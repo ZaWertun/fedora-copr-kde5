@@ -10,8 +10,8 @@
 %endif
 
 Name:    kwin-lowlatency
-Version: 5.20.0
-Release: 2%{?dist}
+Version: 5.20.1
+Release: 1%{?dist}
 Summary: KDE Window manager with stutter and latency reductions
 
 Provides:  kwin = %{version}
@@ -34,7 +34,7 @@ URL:     https://github.com/tildearrow/kwin-lowlatency
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/kwin-%{version}.tar.xz
 
-Patch0:  kwin-lowlatency-5.20.0.patch
+Patch0:  kwin-lowlatency-%(echo %{version} |cut -d. -f1-3).patch
 
 ## upstream patches
 
@@ -383,6 +383,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Oct 21 01:59:07 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Thu Oct 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-2
 - kwin_x11 moved to separate package
 

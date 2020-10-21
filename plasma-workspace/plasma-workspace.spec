@@ -14,8 +14,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.20.0
-Release: 4%{?dist}
+Version: 5.20.1.1
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -28,7 +28,8 @@ URL:     https://cgit.kde.org/%{name}.git
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+%global dir_version %(echo %{version} | cut -d. -f1-3)
+Source0: http://download.kde.org/%{stable}/plasma/%{dir_version}/%{name}-%{version}.tar.xz
 
 # filter qml/plugins provides
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -723,6 +724,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Oct 21 01:17:07 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1.1-1
+- 5.20.1.1
+
+* Tue Oct 20 17:02:50 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Fri Oct 16 22:53:53 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-4
 - added kwinft-{x11,wayland} to requires
 

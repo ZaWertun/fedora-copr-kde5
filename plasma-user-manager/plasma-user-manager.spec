@@ -3,7 +3,7 @@
 
 Name:    plasma-user-manager
 Summary: Manage the users of your system
-Version: 5.20.0
+Version: 5.20.1
 Release: 1%{?dist}
 
 License: GPLv2
@@ -73,6 +73,9 @@ A simple system settings module to manage the users of your system.
 
 
 %changelog
+* Tue Oct 20 17:02:49 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+- 5.20.1
+
 * Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - 5.20.0
 
