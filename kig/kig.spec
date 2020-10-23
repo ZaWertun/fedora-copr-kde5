@@ -62,7 +62,7 @@ Conflicts: kdeedu-math < 4.7.0-10
 %prep
 %autosetup -p1
 
-sed -ie "s|^#!/usr/bin/env python|#!%{__python3}|" pykig/pykig.py
+sed -ie "s|^#!/usr/bin/env python3|#!%{__python3}|" pykig/pykig.py
 
 
 %build
@@ -91,17 +91,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %license COPYING*
 %{_kf5_bindir}/%{name}*
 %{_kf5_bindir}/pykig.*
-#{_sysconfdir}/xdg/%{name}.knsrc
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_kf5_datadir}/icons/hicolor/*/mimetypes/application-x-%{name}.*
 %{_kf5_datadir}/%{name}/
-#{_kf5_datadir}/kconf_update/%{name}*
-#{_kf5_datadir}/knotifications5/%{name}.notifyrc
 %{_kf5_datadir}/kservices5/kig_part.desktop
 %{_kf5_datadir}/kxmlgui5/%{name}/
-#{_kf5_datadir}/sounds/%{name}*
 %{_kf5_qtplugindir}/kigpart.so
 %{_kf5_datadir}/katepart5/syntax/python-kig.xml
 %{_mandir}/man1/kig.1*
