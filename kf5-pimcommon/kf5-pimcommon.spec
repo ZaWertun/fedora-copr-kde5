@@ -3,7 +3,7 @@
 
 Name:    kf5-%{framework}
 Version: 20.08.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: PIM common libraries
 
 License: GPLv2+
@@ -84,6 +84,7 @@ Conflicts:      kdepim-libs < 7:16.04.0
 
 %package        akonadi
 Summary:        The PimCommonAkondi runtime library
+Obsoletes:      kf5-libkdepim-akonadi < 20.08.0
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 %description akonadi
 %{summary}.
@@ -150,6 +151,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Oct 24 23:37:07 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-2
+- obsoletes: kf5-libkdepim-akonadi
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 
