@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ksysguard
 Version: 5.20.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -32,6 +32,7 @@ BuildRequires:  kf5-kconfig-devel
 BuildRequires:  kf5-kiconthemes-devel
 BuildRequires:  kf5-kdelibs4support-devel
 BuildRequires:  kf5-kdoctools-devel
+BuildRequires:  kf5-networkmanager-qt-devel
 
 BuildRequires:  libksysguard-devel >= %{majmin_ver}
 
@@ -39,6 +40,7 @@ BuildRequires:  lm_sensors-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libpcap)
 BuildRequires:  pkgconfig(libcap)
+BuildRequires:  pkgconfig(libnl-3.0)
 
 Requires:       ksysguardd = %{version}-%{release}
 
@@ -85,11 +87,13 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_kf5_datadir}/knotifications5/ksysguard.notifyrc
 %{_kf5_datadir}/kxmlgui5/ksysguard/
 %{_kf5_datadir}/dbus-1/services/org.kde.ksystemstats.service
+%caps(cap_net_raw=pe) %{_libexecdir}/ksysguard/ksgrd_network_helper
 %{_qt5_plugindir}/ksysguard/ksysguard_ksgrd.so
 %{_qt5_plugindir}/ksysguard/ksysguard_plugin_osinfo.so
 %{_qt5_plugindir}/ksysguard/ksysguard_plugin_nvidiaglobal.so
 %{_qt5_plugindir}/ksysguard/ksysguard_globalplugin_network.so
 %{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_nvidia.so
+%{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_network.so
 
 %files -n ksysguardd
 %license COPYING
@@ -98,6 +102,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Sat Oct 24 14:12:52 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-2
+- pkgconfig(libnl-3.0) added to BR
+
 * Tue Oct 20 17:02:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
 - 5.20.1
 
