@@ -14,8 +14,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.20.1.1
-Release: 2%{?dist}
+Version: 5.20.2
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -724,6 +724,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Oct 27 16:56:34 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+- 5.20.2
+
 * Fri Oct 23 21:40:33 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1.1-2
 - rebuild
 

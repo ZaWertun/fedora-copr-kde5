@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ksysguard
-Version: 5.20.1
-Release: 2%{?dist}
+Version: 5.20.2
+Release: 1%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -102,6 +102,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Tue Oct 27 16:56:24 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+- 5.20.2
+
 * Sat Oct 24 14:12:52 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-2
 - pkgconfig(libnl-3.0) added to BR
 

@@ -1,0 +1,7 @@
+[Unit]
+Description=KGlobalaccel
+
+[Service]
+Type=dbus
+BusName=org.kde.kglobalaccel
+ExecStart=/usr/bin/kglobalaccel5

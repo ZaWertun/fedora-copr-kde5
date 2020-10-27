@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    breeze-gtk
-Version: 5.20.1
+Version: 5.20.2
 Release: 1%{?dist}
 Summary: Breeze widget theme for Gtk2 and Gtk3
 
@@ -62,6 +62,9 @@ LANG=C.UTF-8 make %{?_smp_mflags} -C %{_target_platform}
 
 
 %changelog
+* Tue Oct 27 16:56:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+- 5.20.2
+
 * Tue Oct 20 17:02:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
 - 5.20.1
 

@@ -7,7 +7,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.20.1
+Version: 5.20.2
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -207,6 +207,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 
 %changelog
+* Tue Oct 27 16:56:28 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+- 5.20.2
+
 * Tue Oct 20 17:02:45 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
 - 5.20.1
 
