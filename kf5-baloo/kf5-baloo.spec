@@ -11,7 +11,7 @@
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
 Version: 5.75.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # libs are LGPL, tools are GPL
 # KDE e.V. may determine that future LGPL/GPL versions are accepted
@@ -29,6 +29,8 @@ URL:     https://community.kde.org/Baloo
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 Source1:        97-kde-baloo-filewatch-inotify.conf
+# shutdown script to explictly stop baloo_file on logout
+Source2:        baloo_file_shutdown.sh
 
 ## upstreamable patches
 # http://bugzilla.redhat.com/1235026
@@ -127,6 +129,7 @@ License:        LGPLv2 or LGPLv3
 rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/baloodb5.*
 
 install -p -m644 -D %{SOURCE1} %{buildroot}%{_prefix}/lib/sysctl.d/97-kde-baloo-filewatch-inotify.conf
+install -p -m755 -D %{SOURCE2} %{buildroot}%{_sysconfdir}/xdg/plasma-workspace/shutdown/baloo_file.sh
 
 %find_lang kio5_baloosearch
 %find_lang kio5_tags
@@ -169,6 +172,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 %files file -f %{name}-file.lang
 %{_prefix}/lib/sysctl.d/97-kde-baloo-filewatch-inotify.conf
+%{_sysconfdir}/xdg/plasma-workspace/shutdown/baloo_file.sh
 %{_kf5_bindir}/baloo_file
 %{_kf5_bindir}/baloo_file_extractor
 %{_kf5_sysconfdir}/xdg/autostart/baloo_file.desktop
@@ -201,6 +205,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Oct 28 17:05:30 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-2
+- merged changes from official package
+
 * Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
 - 5.75.0
 
