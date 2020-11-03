@@ -15,7 +15,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -55,6 +55,8 @@ Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
 # workaround https://bugzilla.redhat.com/show_bug.cgi?id=1754395
 Patch106:       plasma-workspace-5.18.4.1-filter-environment-v2.patch
+# restarting dbus-broker as workaround for https://bugzilla.redhat.com/show_bug.cgi?id=1861700
+Patch107:       plasma-workspace-5.20.2-restart-dbus-broker.patch
 
 ## upstreamable Patches
 
@@ -419,6 +421,7 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
 #%patch102 -p1 -b .startkde
 %patch105 -p1
 %patch106 -p1 -b .bz1754395
+%patch107 -p1 -b .bz1861700
 
 %if 0%{?fedora}
 cp -a lookandfeel lookandfeel-fedora
@@ -724,6 +727,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu Oct 29 21:13:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-2
+- added plasma-workspace-5.20.2-restart-dbus-broker.patch
+
 * Tue Oct 27 16:56:34 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
 - 5.20.2
 

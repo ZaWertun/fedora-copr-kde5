@@ -1,0 +1,15 @@
+diff -r -U3 plasma-workspace-5.20.2.orig/startkde/startplasma.cpp plasma-workspace-5.20.2/startkde/startplasma.cpp
+--- plasma-workspace-5.20.2.orig/startkde/startplasma.cpp	2020-10-29 20:30:33.136299451 +0300
++++ plasma-workspace-5.20.2/startkde/startplasma.cpp	2020-10-29 21:54:31.983918212 +0300
+@@ -333,6 +333,11 @@
+ 
+ bool startPlasmaSession(bool wayland)
+ {
++    qInfo() << "restarting dbus.service on start";
++    QProcess p;
++    p.start(QStringLiteral("systemctl"), { QStringLiteral("--user"), QStringLiteral("restart"), QStringLiteral("dbus.service") });
++    p.waitForFinished(-1);
++
+     OrgKdeKSplashInterface iface(QStringLiteral("org.kde.KSplash"), QStringLiteral("/KSplash"), QDBusConnection::sessionBus());
+     iface.setStage(QStringLiteral("kinit"));
+     // finally, give the session control to the session manager
