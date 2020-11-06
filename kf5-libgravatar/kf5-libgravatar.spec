@@ -2,7 +2,7 @@
 %global framework libgravatar
 
 Name:    kf5-%{framework}
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 Summary: Gravatar support library
 
@@ -86,6 +86,9 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 
 %changelog
+* Fri Nov  6 13:25:53 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

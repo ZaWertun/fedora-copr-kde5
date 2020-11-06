@@ -4,7 +4,7 @@
 
 Name:    kf5-libksane
 Summary: SANE Library interface for KDE
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -76,6 +76,9 @@ Requires: cmake(Qt5Widgets)
 
 
 %changelog
+* Fri Nov  6 13:25:56 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

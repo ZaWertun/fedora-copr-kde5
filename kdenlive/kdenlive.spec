@@ -2,7 +2,7 @@
 
 Name:    kdenlive
 Summary: Non-linear video editor
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -97,8 +97,8 @@ recent video technologies.
 
 
 %build
-mkdir -p rttr/src
-cp -v %{SOURCE1} rttr/src
+mkdir -p %{__cmake_builddir}/rttr/src
+cp -v %{SOURCE1} %{__cmake_builddir}/rttr/src
 %{cmake_kf5} \
   -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
@@ -154,10 +154,10 @@ fi
 %{_kf5_datadir}/knotifications5/kdenlive.notifyrc
 %{_kf5_datadir}/kservices5/mltpreview.desktop
 %{_kf5_datadir}/kxmlgui5/kdenlive/
-%{_kf5_sysconfdir}/xdg/kdenlive_keyboardschemes.knsrc
-%{_kf5_sysconfdir}/xdg/kdenlive_renderprofiles.knsrc
-%{_kf5_sysconfdir}/xdg/kdenlive_titles.knsrc
-%{_kf5_sysconfdir}/xdg/kdenlive_wipes.knsrc
+%{_kf5_datadir}/knsrcfiles/kdenlive_keyboardschemes.knsrc
+%{_kf5_datadir}/knsrcfiles/kdenlive_renderprofiles.knsrc
+%{_kf5_datadir}/knsrcfiles/kdenlive_titles.knsrc
+%{_kf5_datadir}/knsrcfiles/kdenlive_wipes.knsrc
 %{_kf5_mandir}/man1/kdenlive.1*
 %{_kf5_mandir}/man1/kdenlive_render.1*
 # consider subpkg for multilib
@@ -166,6 +166,9 @@ fi
 
 
 %changelog
+* Fri Nov  6 13:25:39 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

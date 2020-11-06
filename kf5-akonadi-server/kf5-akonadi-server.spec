@@ -22,7 +22,7 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -304,6 +304,9 @@ fi
 
 
 %changelog
+* Fri Nov  6 13:25:45 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

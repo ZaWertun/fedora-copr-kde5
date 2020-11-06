@@ -2,8 +2,8 @@
 %global framework pimcommon
 
 Name:    kf5-%{framework}
-Version: 20.08.2
-Release: 2%{?dist}
+Version: 20.08.3
+Release: 1%{?dist}
 Summary: PIM common libraries
 
 License: GPLv2+
@@ -151,6 +151,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Fri Nov  6 13:25:58 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Sat Oct 24 23:37:07 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-2
 - obsoletes: kf5-libkdepim-akonadi
 

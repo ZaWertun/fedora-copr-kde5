@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kcalc 
 Summary: Scientific Calculator 
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Nov  6 13:25:34 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

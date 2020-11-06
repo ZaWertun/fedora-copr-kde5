@@ -9,7 +9,7 @@
 
 Name:    grantlee-editor
 Summary: KMail Theme Editor
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -130,6 +130,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Nov  6 13:25:29 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

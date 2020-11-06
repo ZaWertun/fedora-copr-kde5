@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kleopatra
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -103,6 +103,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Fri Nov  6 13:26:02 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

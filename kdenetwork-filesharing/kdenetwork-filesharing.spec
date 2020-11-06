@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdenetwork-filesharing
 Summary: Network filesharing
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -67,6 +67,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Fri Nov  6 13:25:38 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 

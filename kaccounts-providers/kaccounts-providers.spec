@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kaccounts-providers
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
@@ -68,6 +68,9 @@ Obsoletes: kaccounts-providers < 15.12.0
 
 
 %changelog
+* Fri Nov  6 13:25:31 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 
