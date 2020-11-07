@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-contact-list
 Summary: Telepathy contact list application
-Version: 20.08.2
+Version: 20.08.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -76,6 +76,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ktpcontactlis
 
 
 %changelog
+* Sat Nov  7 10:44:59 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
+- 20.08.3
+
 * Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
 - 20.08.2
 
