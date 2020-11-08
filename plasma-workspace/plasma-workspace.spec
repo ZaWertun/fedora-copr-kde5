@@ -15,7 +15,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -385,7 +385,7 @@ Requires:       qt5-qttools
 %package xorg
 Summary:        Xorg support for Plasma
 # Split of Xorg session into subpackage
-Obsoletes:      %{name} < 5.19.5-2
+Obsoletes:      %{name} < 5.20.0
 Requires:       %{name} = %{version}-%{release}
 Requires:       (kwin-x11 >= %{majmin_ver} or kwin-lowlatency-x11 >= %{majmin_ver} or kwinft-x11 >= %{majmin_ver})
 Requires:       xorg-x11-server-Xorg
@@ -727,6 +727,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Sun Nov  8 13:14:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-3
+- Obsoletes fixed?
+
 * Thu Oct 29 21:13:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-2
 - added plasma-workspace-5.20.2-restart-dbus-broker.patch
 
