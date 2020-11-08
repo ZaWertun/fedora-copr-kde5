@@ -1,9 +1,10 @@
+%global _lto_cflags %{nil}
 %undefine __cmake_in_source_build
 
 Name:    kdenlive
 Summary: Non-linear video editor
 Version: 20.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     http://www.kdenlive.org
@@ -166,6 +167,9 @@ fi
 
 
 %changelog
+* Sun Nov  8 13:08:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-2
+- LTO disabled
+
 * Fri Nov  6 13:25:39 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 
