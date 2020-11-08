@@ -1,3 +1,4 @@
+%global _lto_cflags %{nil}
 %undefine __cmake_in_source_build
 
 # trim changelog included in binary rpms
@@ -5,7 +6,7 @@
 
 Name:           libkgapi
 Version: 20.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        Library to access to Google services
 
 License:        GPLv2+
@@ -119,6 +120,9 @@ resources.
 
 
 %changelog
+* Sun Nov  8 12:15:52 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-2
+- LTO disabled
+
 * Fri Nov  6 13:26:12 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 
