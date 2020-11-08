@@ -2,7 +2,7 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        4.1.0
+Version:        4.2.0
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
@@ -31,14 +31,14 @@ BuildRequires:  kf5-kservice-devel
 BuildRequires:  kf5-kxmlgui-devel
 BuildRequires:  kf5-kwidgetsaddons-devel
 BuildRequires:  kf5-kdbusaddons-devel
-BuildRequires:  kpmcore-devel >= 3.3.0
+BuildRequires:  kpmcore-devel >= 4.2.0
 BuildRequires:  qt5-qtbase-devel
 
 BuildRequires:  pkgconfig(appstream-glib)
 BuildRequires:  pkgconfig(blkid)
 BuildRequires:  pkgconfig(libatasmart)
 
-Requires:       kpmcore >= 3.3.0
+Requires:       kpmcore >= 4.2.0
 Requires:       kf5-filesystem
 
 %description
@@ -59,15 +59,14 @@ manipulate filesystems.
 
 
 %build
-mkdir -p %{_target_platform}
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
 %find_lang partitionmanager --with-kde --with-html
+
 
 %check
 # Validate .desktop file
@@ -77,9 +76,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/*partitionmanager
 appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdata.xml
 
 
-
 %files -f partitionmanager.lang
-%license COPYING.md
+%license LICENSES/*.txt
 %{_kf5_bindir}/partitionmanager
 %{_kf5_datadir}/applications/*partitionmanager.desktop
 %{_kf5_datadir}/kxmlgui5/partitionmanager/
@@ -88,6 +86,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Fri Nov  6 14:47:06 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.2.0-1
+- 4.2.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.1.0-1
 - 4.1.0
 

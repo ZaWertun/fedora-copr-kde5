@@ -2,7 +2,7 @@
 %global unstable 0
 
 Name:           kpmcore
-Version:        4.1.0
+Version:        4.2.0
 Release:        1%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
@@ -28,6 +28,8 @@ BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(blkid)
 BuildRequires:  pkgconfig(libatasmart)
 BuildRequires:  pkgconfig(libparted)
+
+BuildRequires:  cmake(PolkitQt5-1)
 
 Requires:       parted
 Requires:       e2fsprogs
@@ -75,13 +77,13 @@ mkdir -p %{_target_platform}
 
 
 %files -f %{name}.lang
-%license COPYING.md
+%license LICENSES/*.txt
 %{_kf5_libdir}/libkpmcore.so.*
 %{_kf5_qtplugindir}/libpm*.so
 %{_kf5_datadir}/polkit-1/actions/*.policy
 %{_kf5_datadir}/dbus-1/system-services/*.service
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kpmcore.*.conf
-%{_kf5_libexecdir}/kauth/kpmcore_externalcommand
+%{_libexecdir}/kpmcore_externalcommand
 
 
 %files devel
@@ -92,6 +94,9 @@ mkdir -p %{_target_platform}
 
 
 %changelog
+* Fri Nov  6 14:46:54 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.2.0-1
+- 4.2.0
+
 * Fri Mar 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.1.0-1
 - 4.1.0
 
