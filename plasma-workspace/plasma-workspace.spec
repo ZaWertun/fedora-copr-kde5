@@ -15,7 +15,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -57,6 +57,8 @@ Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
 Patch106:       plasma-workspace-5.18.4.1-filter-environment-v2.patch
 # restarting dbus-broker as workaround for https://bugzilla.redhat.com/show_bug.cgi?id=1861700
 Patch107:       plasma-workspace-5.20.2-restart-dbus-broker.patch
+# fix for https://github.com/ZaWertun/fedora-copr-kde5/issues/55
+Patch108:       plasma-workspace-5.20.2-splash-black-screen-fix.patch
 
 ## upstreamable Patches
 
@@ -422,6 +424,7 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
 %patch105 -p1
 %patch106 -p1 -b .bz1754395
 %patch107 -p1 -b .bz1861700
+%patch108 -p1 -b .splash-black-screen-fix
 
 %if 0%{?fedora}
 cp -a lookandfeel lookandfeel-fedora
@@ -727,6 +730,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Mon Nov  9 23:43:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-4
+- added plasma-workspace-5.20.2-splash-black-screen-fix.patch
+
 * Sun Nov  8 13:14:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-3
 - Obsoletes fixed?
 
