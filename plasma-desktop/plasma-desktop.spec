@@ -11,7 +11,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.20.2
+Version: 5.20.3
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -324,6 +324,9 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 
 
 %changelog
+* Wed Nov 11 11:10:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+- 5.20.3
+
 * Tue Oct 27 16:56:28 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
 - 5.20.2
 

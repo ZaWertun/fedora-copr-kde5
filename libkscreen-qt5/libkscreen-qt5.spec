@@ -3,8 +3,8 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.20.2
-Release: 2%{?dist}
+Version: 5.20.3
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -100,6 +100,9 @@ popd
 
 
 %changelog
+* Wed Nov 11 11:10:17 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+- 5.20.3
+
 * Tue Nov 10 12:54:03 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-2
 - service file name changed to 'org.kde.KScreen.service'
 

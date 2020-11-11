@@ -14,8 +14,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.20.2
-Release: 4%{?dist}
+Version: 5.20.3
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -730,6 +730,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Nov 11 11:10:25 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+- 5.20.3
+
 * Mon Nov  9 23:43:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-4
 - added plasma-workspace-5.20.2-splash-black-screen-fix.patch
 

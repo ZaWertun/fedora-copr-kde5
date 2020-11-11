@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    ksshaskpass
-Version: 5.20.2
+Version: 5.20.3
 Release: 1%{?dist}
 Summary: A ssh-add helper that uses kwallet and kpassworddialog
 
@@ -61,6 +61,9 @@ EOF
 
 
 %changelog
+* Wed Nov 11 11:10:15 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+- 5.20.3
+
 * Tue Oct 27 16:56:24 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
 - 5.20.2
 

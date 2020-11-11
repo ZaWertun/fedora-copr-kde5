@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    sddm-kcm
-Version: 5.20.2
+Version: 5.20.3
 Release: 1%{?dist}
 Summary: SDDM KDE configuration module
 
@@ -76,6 +76,9 @@ SDDM Display Manager
 
 
 %changelog
+* Wed Nov 11 11:10:27 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+- 5.20.3
+
 * Tue Oct 27 16:56:35 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
 - 5.20.2
 
