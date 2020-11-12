@@ -15,7 +15,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -55,10 +55,10 @@ Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
 # workaround https://bugzilla.redhat.com/show_bug.cgi?id=1754395
 Patch106:       plasma-workspace-5.18.4.1-filter-environment-v2.patch
-# restarting dbus-broker as workaround for https://bugzilla.redhat.com/show_bug.cgi?id=1861700
-Patch107:       plasma-workspace-5.20.2-restart-dbus-broker.patch
 # fix for https://github.com/ZaWertun/fedora-copr-kde5/issues/55
 Patch108:       plasma-workspace-5.20.2-splash-black-screen-fix.patch
+# Fix for https://bugs.kde.org/show_bug.cgi?id=424408
+Patch109:       fix-424408.patch
 
 ## upstreamable Patches
 
@@ -423,8 +423,8 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
 #%patch102 -p1 -b .startkde
 %patch105 -p1
 %patch106 -p1 -b .bz1754395
-%patch107 -p1 -b .bz1861700
 %patch108 -p1 -b .splash-black-screen-fix
+%patch109 -p1 -b .fix-424408
 
 %if 0%{?fedora}
 cp -a lookandfeel lookandfeel-fedora
@@ -730,6 +730,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu Nov 12 21:24:13 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-2
+- added fix-424408.patch
+
 * Wed Nov 11 11:10:25 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
 - 5.20.3
 

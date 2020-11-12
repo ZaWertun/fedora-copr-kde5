@@ -1,0 +1,136 @@
+diff --git a/gmenu-dbusmenu-proxy/main.cpp b/gmenu-dbusmenu-proxy/main.cpp
+index 632321289f9955cadb63469ec810c975220bf9cf..cd32b10f6a4a08bb2ae094b48f0ab90f6e47e0c3 100644
+--- a/gmenu-dbusmenu-proxy/main.cpp
++++ b/gmenu-dbusmenu-proxy/main.cpp
+@@ -18,6 +18,7 @@
+  */
+ 
+ #include <QGuiApplication>
++#include <QSessionManager>
+ 
+ #include <KWindowSystem>
+ 
+@@ -28,7 +29,6 @@ int main(int argc, char ** argv)
+     qputenv("QT_QPA_PLATFORM", "xcb");
+ 
+     QGuiApplication::setDesktopSettingsAware(false);
+-    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+ 
+     QGuiApplication app(argc, argv);
+ 
+@@ -36,6 +36,12 @@ int main(int argc, char ** argv)
+         qFatal("qdbusmenuproxy is only useful XCB. Aborting");
+     }
+ 
++    auto disableSessionManagement = [](QSessionManager &sm) {
++        sm.setRestartHint(QSessionManager::RestartNever);
++    };
++    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
++    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
++
+     app.setQuitOnLastWindowClosed(false);
+ 
+     MenuProxy proxy;
+diff --git a/krunner/main.cpp b/krunner/main.cpp
+index cbf0dff836c0933f13c9c456cd5d282483037888..bbf20743e3371bf4988e2c2c655a082c3dc39409 100644
+--- a/krunner/main.cpp
++++ b/krunner/main.cpp
+@@ -24,6 +24,7 @@
+ #include <QUrl>
+ #include <QDebug>
+ #include <QQuickWindow>
++#include <QSessionManager>
+ #include <QDBusMessage>
+ #include <QDBusConnection>
+ 
+@@ -41,7 +42,6 @@
+ int main(int argc, char **argv)
+ {
+     QCommandLineParser parser;
+-    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+     if (!qEnvironmentVariableIsSet("PLASMA_USE_QT_SCALING")) {
+         qunsetenv("QT_DEVICE_PIXEL_RATIO");
+         QCoreApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
+@@ -93,6 +93,14 @@ int main(int argc, char **argv)
+ 
+     KDBusService service(KDBusService::Unique | KDBusService::StartupOption(parser.isSet(replaceOption) ? KDBusService::Replace : 0));
+ 
++    QGuiApplication::setFallbackSessionManagementEnabled(false);
++
++    auto disableSessionManagement = [](QSessionManager &sm) {
++        sm.setRestartHint(QSessionManager::RestartNever);
++    };
++    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
++    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
++
+     View view;
+ 
+     auto updateVisibility = [&]() {
+diff --git a/shell/main.cpp b/shell/main.cpp
+index 1000b5a97f04f59852bee9dcf8114ce0a1b3a10c..d82993271c19085129d7b08b5a4229a3f240031f 100644
+--- a/shell/main.cpp
++++ b/shell/main.cpp
+@@ -21,6 +21,7 @@
+ #include <QApplication>
+ #include <QCommandLineParser>
+ #include <QQuickWindow>
++#include <QSessionManager>
+ #include <QDebug>
+ #include <QProcess>
+ #include <QMessageBox>
+@@ -83,7 +84,6 @@ int main(int argc, char *argv[])
+     } else {
+         QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+     }
+-    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+ 
+     QQuickWindow::setDefaultAlphaBuffer(true);
+ 
+@@ -162,6 +162,14 @@ int main(int argc, char *argv[])
+     cliOptions.process(app);
+     aboutData.processCommandLine(&cliOptions);
+ 
++    QGuiApplication::setFallbackSessionManagementEnabled(false);
++
++    auto disableSessionManagement = [](QSessionManager &sm) {
++        sm.setRestartHint(QSessionManager::RestartNever);
++    };
++    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
++    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
++
+     ShellCorona* corona = new ShellCorona(&app);
+     corona->setShell(cliOptions.value(shellPluginOption));
+ 
+diff --git a/xembed-sni-proxy/main.cpp b/xembed-sni-proxy/main.cpp
+index 05fd6bf32d21a2d467e8d88c8e0da627306f0350..8b00782342b4bac7eeb185c0549569dc4f0f5e67 100644
+--- a/xembed-sni-proxy/main.cpp
++++ b/xembed-sni-proxy/main.cpp
+@@ -19,6 +19,7 @@
+  */
+ 
+ #include <QGuiApplication>
++#include <QSessionManager>
+ 
+ #include "fdoselectionmanager.h"
+ 
+@@ -41,7 +42,6 @@ int main(int argc, char ** argv)
+     qputenv("QT_QPA_PLATFORM", "xcb");
+ 
+     QGuiApplication::setDesktopSettingsAware(false);
+-    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+ 
+     QGuiApplication app(argc, argv);
+ 
+@@ -49,6 +49,12 @@ int main(int argc, char ** argv)
+         qFatal("xembed-sni-proxy is only useful XCB. Aborting");
+     }
+ 
++    auto disableSessionManagement = [](QSessionManager &sm) {
++        sm.setRestartHint(QSessionManager::RestartNever);
++    };
++    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
++    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
++
+     app.setQuitOnLastWindowClosed(false);
+ 
+     qDBusRegisterMetaType<KDbusImageStruct>();
