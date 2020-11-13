@@ -15,7 +15,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -59,6 +59,8 @@ Patch106:       plasma-workspace-5.18.4.1-filter-environment-v2.patch
 Patch108:       plasma-workspace-5.20.2-splash-black-screen-fix.patch
 # Fix for https://bugs.kde.org/show_bug.cgi?id=424408
 Patch109:       fix-424408.patch
+# Fix for https://bugs.kde.org/show_bug.cgi?id=408606
+Patch110:       fix-408606.patch
 
 ## upstreamable Patches
 
@@ -425,6 +427,7 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
 %patch106 -p1 -b .bz1754395
 %patch108 -p1 -b .splash-black-screen-fix
 %patch109 -p1 -b .fix-424408
+%patch110 -p1 -b .fix-408606
 
 %if 0%{?fedora}
 cp -a lookandfeel lookandfeel-fedora
@@ -730,6 +733,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Nov 13 15:09:02 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-3
+- added fix-408606.patch
+
 * Thu Nov 12 21:24:13 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-2
 - added fix-424408.patch
 
