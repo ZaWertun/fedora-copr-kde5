@@ -2,7 +2,7 @@
 %global framework kglobalaccel
 
 Name:    kf5-%{framework}
-Version: 5.75.0
+Version: 5.76.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for global shortcuts
 
@@ -27,6 +27,7 @@ BuildRequires:  kf5-kdbusaddons-devel >= %{majmin}
 BuildRequires:  kf5-ki18n-devel >= %{majmin}
 BuildRequires:  kf5-kservice-devel >= %{majmin}
 BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
+BuildRequires:  systemd
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
@@ -83,6 +84,7 @@ developing applications that use %{name}.
 %{_kf5_datadir}/qlogging-categories5/kglobalaccel.categories
 %{_kf5_datadir}/qlogging-categories5/kglobalaccel.renamecategories
 %{_datadir}/dbus-1/services/org.kde.kglobalaccel.service
+%{_userunitdir}/plasma-kglobalaccel.service
 
 %ldconfig_scriptlets libs
 
@@ -101,6 +103,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Nov 15 22:13:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
+- 5.76.0
+
 * Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
 - 5.75.0
 

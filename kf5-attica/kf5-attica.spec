@@ -2,7 +2,7 @@
 %global framework attica
 
 Name:    kf5-attica
-Version: 5.75.0
+Version: 5.76.0
 Release: 1%{?dist}
 Summary: KDE Frameworks Tier 1 Addon with Open Collaboration Services API
 
@@ -68,6 +68,9 @@ Requires:       qt5-qtbase-devel
 
 
 %changelog
+* Sun Nov 15 22:13:34 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
+- 5.76.0
+
 * Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
 - 5.75.0
 

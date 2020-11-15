@@ -3,8 +3,8 @@
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 1 barcode library
-Version: 5.75.0
-Release: 2%{?dist}
+Version: 5.76.0
+Release: 1%{?dist}
 
 License: BSD 
 URL:     https://cgit.kde.org/%{framework}.git
@@ -74,6 +74,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Nov 15 22:13:55 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
+- 5.76.0
+
 * Thu Oct 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-2
 - added Qt5Quick to build dependicies
 

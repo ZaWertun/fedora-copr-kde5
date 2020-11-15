@@ -10,8 +10,8 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.75.0
-Release: 2%{?dist}
+Version: 5.76.0
+Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
 # KDE e.V. may determine that future LGPL/GPL versions are accepted
@@ -205,6 +205,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Nov 15 22:13:34 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
+- 5.76.0
+
 * Wed Oct 28 17:05:30 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-2
 - merged changes from official package
 
