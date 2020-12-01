@@ -5,12 +5,6 @@
 
 %global         base_name   breeze
 
-# disable kde4 build on RHEL8+
-%global         build_kde4  1
-%if 0%{?rhel} && 0%{?rhel} > 7
-%global         build_kde4  0
-%endif
-
 Name:    plasma-breeze
 Version: 5.20.4
 Release: 1%{?dist}
@@ -30,7 +24,7 @@ URL:     https://cgit.kde.org/%{base_name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
 
 # filter plugin provides
-%global __provides_exclude_from ^(%{_kde4_libdir}/kde4/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
+%global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
 
 BuildRequires:  gettext
 BuildRequires:  kdecoration-devel >= %{majmin_ver}
@@ -89,55 +83,21 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 %description -n breeze-cursor-theme
 %{summary}.
 
-%if 0%{?build_kde4}
-%package -n     kde-style-breeze
-Summary:        KDE 4 version of Plasma 5 artwork, style and assets
-BuildRequires:  kdelibs4-devel
-BuildRequires:  libxcb-devel
-## currently mostly plasma5-specific resources, not needed or useful here really
-Obsoletes:      plasma-breeze-kde4 < 5.1.95
-Provides:       plasma-breeze-kde4%{?_isa} = %{version}-%{release}
-%if 0
-Supplements: (kde-runtime and plasma-workspace)
-%endif
-%description -n kde-style-breeze
-%{summary}.
-%endif
-
 
 %prep
 %autosetup -n %{base_name}-%{version} -p1
 
 
 %build
-%{cmake_kf5}
-%cmake_build
+%cmake_kf5
 
-
-%if 0%{?build_kde4}
-%global _vpath_builddir %{_target_platform}-kde4
-%{cmake_kde4} -DUSE_KDE4=TRUE -B %{_vpath_builddir}
 %cmake_build
-%undefine _vpath_builddir
-%endif
 
 
 %install
 %cmake_install
 
 %find_lang breeze --all-name
-
-%if 0%{?build_kde4}
-%global _vpath_builddir %{_target_platform}-kde4
-%cmake_install
-%undefine _vpath_builddir
-%endif
-
-# omit/rename kde4breeze.upd, seems to be causing problems for
-# (at least) new users, lame workaround for
-# http://bugzilla.redhat.com/1283348
-mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
-   %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd.BAK
 
 
 %ldconfig_scriptlets
@@ -170,16 +130,6 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 %{_datadir}/QtCurve/Breeze.qtcurve
 %{_datadir}/wallpapers/Next/
 
-%if 0%{?build_kde4}
-%ldconfig_scriptlets -n kde-style-breeze
-
-%files -n kde-style-breeze
-%{_kde4_appsdir}/kstyle/themes/breeze.themerc
-%{_datadir}/kde4/apps/QtCurve/Breeze.qtcurve
-%{_datadir}/kde4/apps/color-schemes/*.colors
-%{_datadir}/kde4/apps/plasma/look-and-feel/org.kde.breezedark.desktop/*
-%endif
-
 %files -n breeze-cursor-theme
 %doc cursors/Breeze/README
 %dir %{_kf5_datadir}/icons/Breeze_Snow/
@@ -191,20 +141,26 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 
 
 %changelog
-* Tue Dec  1 22:30:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+* Tue Dec  1 09:42:56 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.4-1
 - 5.20.4
 
-* Wed Nov 11 11:10:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+* Wed Nov 11 08:22:38 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-1
 - 5.20.3
 
-* Tue Oct 27 16:56:27 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+* Thu Oct 29 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.2-2
+- drop kde-style-breeze (it was a lie), to be packaged separately now
+
+* Tue Oct 27 14:21:46 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.2-1
 - 5.20.2
 
-* Tue Oct 20 17:02:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+* Tue Oct 20 15:27:44 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.1-1
 - 5.20.1
 
-* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+* Sun Oct 11 19:50:02 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.0-1
 - 5.20.0
+
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.90-1
+- 5.19.90
 
 * Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5

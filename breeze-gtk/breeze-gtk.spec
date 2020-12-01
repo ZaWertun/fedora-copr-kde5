@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 Name:    breeze-gtk
 Version: 5.20.4
 Release: 1%{?dist}
-Summary: Breeze widget theme for Gtk2 and Gtk3
+Summary: Breeze widget theme for GTK
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -13,40 +12,61 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
-BuildArch: noarch
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
-## upstream patches (master branch)
-#BuildRequires: git-core
+BuildArch:      noarch
 
-BuildRequires:  gtk3-devel
-BuildRequires:  kf5-rpm-macros
+BuildRequires:  gtk2-engines
+BuildRequires:  plasma-breeze-devel >= 5.20.2-2
+BuildRequires:  python2-cairo-devel
+BuildRequires:  python3-cairo-devel
+BuildRequires:  sassc
+
 BuildRequires:  extra-cmake-modules
+BuildRequires:  kf5-rpm-macros
+
+# not used directly, but is an indirect dep from ECMQueryQmake.cmake
+# probably should be fixed there -- rex
 BuildRequires:  qt5-qtbase-devel
 
-BuildRequires:  kf5-kcoreaddons-devel
-BuildRequires:  kf5-kconfig-devel
-
-BuildRequires:  rubygem-sass
-BuildRequires:  python3-cairo
-BuildRequires:  plasma-breeze
-BuildRequires:  kde-style-breeze
-
-Requires:       kf5-filesystem
+# main meta package to depend on all subpkgs, for cleaner/simpler upgrade path
+Requires: %{name}-gtk2 = %{version}-%{release}
+Requires: %{name}-gtk3 = %{version}-%{release}
 
 %description
 %{summary}.
 
+%package common
+Summary:        Breeze widget theme for GTK common files
+Conflicts:      breeze-gtk < 5.20.2-2
+
+%description common
+%{summary}.
+
+%package gtk2
+Summary:        Breeze widget theme for GTK 2
+Requires:       gtk2-engines
+Requires:       %{name}-common = %{version}-%{release}
+Supplements:    (plasma-breeze and gtk2)
+%description gtk2
+%{summary}.
+
+%package gtk3
+Summary:        Breeze widget theme for GTK 3
+Requires:       %{name}-common = %{version}-%{release}
+Supplements:    (plasma-breeze and gtk3)
+%description gtk3
+%{summary}.
+
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n %{name}-%{version}
 
 
 %build
-%{cmake_kf5} \
-  -DWITH_GTK3_VERSION:STRING="$(pkg-config --modversion gtk+-3.0)"
+%cmake_kf5
 
-LANG=C.UTF-8 make %{?_smp_mflags} -C %{_target_platform}
+%cmake_build
 
 
 %install
@@ -54,109 +74,177 @@ LANG=C.UTF-8 make %{?_smp_mflags} -C %{_target_platform}
 
 
 %files
+# empty metapackage
+
+%files common
 %license LICENSES/*.txt
 %doc README.md
-# consider putting these in some -common/-data noarch subpkg -- rex
-%{_datadir}/themes/Breeze/
-%{_datadir}/themes/Breeze-Dark/
+%dir %{_datadir}/themes/Breeze/
+%{_datadir}/themes/Breeze/assets/
+%{_datadir}/themes/Breeze/settings.ini
+%dir %{_datadir}/themes/Breeze-Dark/
+%{_datadir}/themes/Breeze-Dark/assets/
+%{_datadir}/themes/Breeze-Dark/settings.ini
+
+%files gtk2
+%{_datadir}/themes/Breeze/gtk-2.0/
+%{_datadir}/themes/Breeze-Dark/gtk-2.0/
+
+%files gtk3
+%{_datadir}/themes/Breeze/gtk-3.0/
+%{_datadir}/themes/Breeze-Dark/gtk-3.0/
 
 
 %changelog
-* Tue Dec  1 22:30:37 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+* Tue Dec  1 09:42:56 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.4-1
 - 5.20.4
 
-* Wed Nov 11 11:10:11 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+* Wed Nov 11 08:22:37 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-1
 - 5.20.3
 
-* Tue Oct 27 16:56:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+* Thu Oct 29 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.2-4
+- rebuild without kde-style-breeze
+
+* Thu Oct 29 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.2-3
+- simplifiy, use main as metapackage for cleaner upgrade path
+
+* Thu Oct 29 10:14:49 EDT 2020 Neal Gompa <ngompa13@gmail.com> - 5.20.2-2
+- Split breeze-gtk into gtk2 and gtk3 subpackages and make noarch
+
+* Tue Oct 27 14:21:27 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.2-1
 - 5.20.2
 
-* Tue Oct 20 17:02:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+* Tue Oct 20 15:27:25 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.1-1
 - 5.20.1
 
-* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+* Sun Oct 11 19:50:01 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.0-1
 - 5.20.0
 
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.90-1
+- 5.19.90
+
+* Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
+* Tue Jul 28 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
+* Mon Jul 27 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.19.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 07 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
+* Tue Jun 23 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.2-1
 - 5.19.2
 
-* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+* Wed Jun 17 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.1-1
 - 5.19.1
 
-* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+* Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
 
-* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
+* Fri May 15 2020 Martin Kyral <martin.kyral@gmail.com> - 5.18.90-1
+- 5.18.90
+
+* Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5
 
-* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+* Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.4.1-1
 - 5.18.4.1
 
-* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+* Tue Mar 31 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.4-1
+- 5.18.4
+
+* Tue Mar 10 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.3-1
 - 5.18.3
 
-* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+* Tue Feb 25 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.2-1
 - 5.18.2
 
-* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+* Tue Feb 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.1-1
 - 5.18.1
 
-* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+* Tue Feb 11 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.0-1
 - 5.18.0
 
-* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.17.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Thu Jan 16 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.90-1
+- 5.17.90
+
+* Wed Jan 08 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.5-1
 - 5.17.5
 
-* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+* Thu Dec 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.4-1
 - 5.17.4
 
-* Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
+* Wed Nov 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.17.3-1
 - 5.17.3
 
-* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+* Wed Oct 30 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.2-1
 - 5.17.2
 
-* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+* Wed Oct 23 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.1-1
 - 5.17.1
 
-* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+* Thu Oct 10 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.0-1
 - 5.17.0
 
-* Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+* Fri Sep 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.90-1
+- 5.16.90
+
+* Fri Sep 06 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.5-1
 - 5.16.5
 
-* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+* Tue Jul 30 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.4-1
 - 5.16.4
 
-* Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
+* Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.16.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Tue Jul 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.3-2
+- .spec cosmetics: cleanup BR, use %%make_build
+
+* Wed Jul 10 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.3-1
 - 5.16.3
 
-* Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
+* Wed Jun 26 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.2-1
 - 5.16.2
 
-* Tue Jun 18 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.1-1
+* Tue Jun 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-1
 - 5.16.1
 
-* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+* Tue Jun 11 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.0-1
 - 5.16.0
 
-* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+* Thu May 16 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.90-1
+- 5.15.90
+
+* Thu May 09 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.5-1
 - 5.15.5
 
-* Mon Apr 29 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
+* Wed Apr 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4-1
 - 5.15.4
 
-* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
-- 5.14.5
+* Tue Mar 12 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3-1
+- 5.15.3
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-1
+- 5.15.2
+
+* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.1-1
+- 5.15.1
+
+* Wed Feb 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.0-1
+- 5.15.0
+
+* Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sun Jan 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.14.90-1
+- 5.14.90
 
 * Tue Nov 27 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.14.4-1
 - 5.14.4
