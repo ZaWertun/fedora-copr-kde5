@@ -12,7 +12,7 @@
 %endif
 
 Name:    plasma-breeze
-Version: 5.20.3
+Version: 5.20.4
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
@@ -191,6 +191,9 @@ mv %{buildroot}%{_kf5_datadir}/kconf_update/kde4breeze.upd \
 
 
 %changelog
+* Tue Dec  1 22:30:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+- 5.20.4
+
 * Wed Nov 11 11:10:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
 - 5.20.3
 

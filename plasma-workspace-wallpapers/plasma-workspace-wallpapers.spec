@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    plasma-workspace-wallpapers
-Version: 5.20.3
+Version: 5.20.4
 Release: 1%{?dist}
 Summary: Additional wallpapers for Plasma workspace
 License: LGPLv3
@@ -75,6 +75,9 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 
 
 %changelog
+* Tue Dec  1 22:30:50 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+- 5.20.4
+
 * Wed Nov 11 11:10:25 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
 - 5.20.3
 

@@ -3,7 +3,7 @@
 
 Name:    plasma-drkonqi
 Summary: DrKonqi crash handler for KF5/Plasma5
-Version: 5.20.3
+Version: 5.20.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -94,6 +94,9 @@ fi
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %changelog
+* Tue Dec  1 22:30:46 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+- 5.20.4
+
 * Wed Nov 11 11:10:21 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
 - 5.20.3
 

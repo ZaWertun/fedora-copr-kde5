@@ -9,7 +9,7 @@
 
 Name:    pam-kwallet
 Summary: PAM module for KWallet
-Version: 5.20.3
+Version: 5.20.4
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -86,6 +86,9 @@ Requires: kf5-kwallet
 
 
 %changelog
+* Tue Dec  1 22:30:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+- 5.20.4
+
 * Wed Nov 11 11:10:18 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
 - 5.20.3
 

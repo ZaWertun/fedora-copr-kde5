@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kscreen
 Epoch:   1
-Version: 5.20.3
+Version: 5.20.4
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -86,6 +86,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue Dec  1 22:30:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.20.4-1
+- 5.20.4
+
 * Wed Nov 11 11:10:14 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.20.3-1
 - 5.20.3
 

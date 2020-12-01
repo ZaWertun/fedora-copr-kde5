@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
-Version: 5.20.3
+Version: 5.20.4
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -78,6 +78,9 @@ appearance of GTK apps in KDE.
 
 
 %changelog
+* Tue Dec  1 22:30:38 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+- 5.20.4
+
 * Wed Nov 11 11:10:12 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
 - 5.20.3
 
