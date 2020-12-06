@@ -14,7 +14,7 @@
 
 Name:    kwinft
 Version: 5.20.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
 Provides:  kwin = %{version}
@@ -384,6 +384,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Dec  5 13:32:37 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-3
+- rebuild
+
 * Fri Oct 16 23:00:51 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-2
 - rebuild
 

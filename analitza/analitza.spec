@@ -10,7 +10,7 @@
 Name:    analitza
 Summary: Library of mathematical features
 Version: 20.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -101,6 +101,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Sat Dec  5 13:32:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-2
+- rebuild
+
 * Sat Nov  7 02:22:24 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

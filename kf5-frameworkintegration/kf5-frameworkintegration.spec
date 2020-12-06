@@ -3,7 +3,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.76.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 4 workspace and cross-framework integration plugins
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -114,6 +114,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Dec  5 13:32:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-2
+- rebuild
+
 * Sun Nov 15 22:13:35 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
 - 5.76.0
 

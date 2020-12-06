@@ -57,8 +57,6 @@ Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
 Patch106:       plasma-workspace-5.18.4.1-filter-environment-v2.patch
 # fix for https://github.com/ZaWertun/fedora-copr-kde5/issues/55
 Patch108:       plasma-workspace-5.20.2-splash-black-screen-fix.patch
-# Fix for https://bugs.kde.org/show_bug.cgi?id=424408
-Patch109:       fix-424408.patch
 # Fix for https://bugs.kde.org/show_bug.cgi?id=408606
 Patch110:       fix-408606.patch
 
@@ -426,7 +424,6 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
 %patch105 -p1
 %patch106 -p1 -b .bz1754395
 %patch108 -p1 -b .splash-black-screen-fix
-%patch109 -p1 -b .fix-424408
 %patch110 -p1 -b .fix-408606
 
 %if 0%{?fedora}

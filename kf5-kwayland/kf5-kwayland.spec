@@ -15,7 +15,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.76.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
 License: GPLv2+
@@ -111,6 +111,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Dec  5 13:32:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-2
+- rebuild
+
 * Sun Nov 15 22:13:53 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
 - 5.76.0
 
