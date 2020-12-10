@@ -2,7 +2,7 @@
 %global min_qt_version 5.14.0
 
 Name:    disman
-Version: 0.520.0
+Version: 0.520.1
 Release: 1%{?dist}
 Summary: Qt/C++ display management library
 
@@ -34,8 +34,8 @@ BuildRequires:  cmake(KF5Plasma)
 BuildRequires:  cmake(KF5Wayland)
 BuildRequires:  cmake(KF5KCMUtils)
 
-BuildRequires:  wrapland-client-devel >= %{version}
-BuildRequires:  wrapland-server-devel >= %{version}
+BuildRequires:  wrapland-client-devel >= 0.520.0
+BuildRequires:  wrapland-server-devel >= 0.520.0
 
 Requires:       kf5-filesystem
 Requires:       qt5-qtgraphicaleffects
@@ -90,6 +90,9 @@ echo >> %{name}.lang
 
 
 %changelog
+* Thu Dec 10 17:00:46 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.520.1-1
+- version 0.520.1
+
 * Wed Oct 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.520.0-1
 - 0.520.0
 
