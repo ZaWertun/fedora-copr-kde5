@@ -9,7 +9,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -151,6 +151,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:55:59 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:27 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

@@ -2,7 +2,7 @@
 %global framework libkdepim
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: Library for common kdepim apps
 
@@ -82,7 +82,7 @@ developing applications that use %{name}.
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5Libkdepim.so.5*
 %{_qt5_plugindir}/designer/kdepimwidgets.so
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -100,6 +100,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Dec 10 21:56:24 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:55 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

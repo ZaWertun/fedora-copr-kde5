@@ -2,7 +2,7 @@
 %global framework eventviews
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: KDE PIM library for displaying events and calendars
 
@@ -93,7 +93,7 @@ developing applications that use %{name}.
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5EventViews.so.*
 %{_kf5_datadir}/kservicetypes5/calendardecoration.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -108,6 +108,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Dec 10 21:56:16 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:46 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

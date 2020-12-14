@@ -10,7 +10,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -91,6 +91,8 @@ BuildRequires:  libkgapi-devel >= %{majmin_ver}
 BuildRequires:  kf5-kdav-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
+BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
+
 # https://bugzilla.redhat.com/show_bug.cgi?id=1662756
 Requires: libkgapi%{?_isa} >= %{majmin_ver}
 BuildRequires:  cmake(KF5PimCommon)
@@ -161,7 +163,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %endif
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/akonadi_*
 %{_kf5_bindir}/gidmigrator
 %{_kf5_datadir}/akonadi/accountwizard/*
@@ -194,6 +196,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:56:11 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.3-1
 - 20.08.3
 

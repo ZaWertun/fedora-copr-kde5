@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: The KMbox Library
 
@@ -85,10 +85,13 @@ make test ARGS="--output-on-failure --timeout 120" -C %{_target_platform} ||:
 %{_kf5_includedir}/KMbox
 %{_kf5_libdir}/libKF5Mbox.so
 %{_kf5_libdir}/cmake/KF5Mbox
-%{_kf5_archdatadir}/mkspecs/modules/qt_Mbox.pri
+%{_kf5_archdatadir}/mkspecs/modules/qt_KMbox.pri
 
 
 %changelog
+* Thu Dec 10 21:56:20 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:50 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

@@ -12,7 +12,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -181,6 +181,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_bindir}/fsview
 %{_kf5_bindir}/kfmclient
 %{_kf5_bindir}/konqueror
+%{_kf5_bindir}/kcreatewebarchive
 %{_kf5_datadir}/akregator/pics/feed.png
 %{_kf5_metainfodir}/org.kde.konqueror.appdata.xml
 %{_kf5_datadir}/applications/*.desktop
@@ -200,6 +201,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_sysconfdir}/xdg/translaterc
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/kxmlgui5/fsview/fsview_part.rc
+%{_kf5_datadir}/kconf_update/webenginepart.upd
 
 %ldconfig_scriptlets libs
 
@@ -229,6 +231,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Dec 10 21:56:35 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:06 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

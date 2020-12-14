@@ -2,7 +2,7 @@
 
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -22,6 +22,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
+BuildRequires: systemd
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -48,6 +49,7 @@ BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5PrintSupport)
 BuildRequires: cmake(Qt5Quick)
 BuildRequires: cmake(Qt5X11Extras)
+BuildRequires: cmake(Qt5Svg)
 
 BuildRequires: pkgconfig(xcb-cursor)
 BuildRequires: pkgconfig(xcb-image)
@@ -102,9 +104,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 %{_kf5_datadir}/kconf_update/spectacle_newConfig.upd
 %{_kf5_datadir}/kglobalaccel/*.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%{_userunitdir}/app-org.kde.spectacle.service
 
 
 %changelog
+* Thu Dec 10 21:56:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:16 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

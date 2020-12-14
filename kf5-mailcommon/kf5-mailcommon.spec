@@ -2,7 +2,7 @@
 %global framework mailcommon
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: Mail applications support library
 
@@ -58,6 +58,7 @@ BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-mailimporter-devel >= %{majmin_ver}
 BuildRequires:  kf5-messagelib-devel >= %{majmin_ver}
 BuildRequires:  kf5-pimcommon-devel >= %{majmin_ver}
+BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 
 BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  phonon-qt5-devel
@@ -99,7 +100,7 @@ Requires:       cmake(KF5PimCommon)
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5MailCommon.so.*
 %{_qt5_plugindir}/designer/mailcommonwidgets.so
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -114,6 +115,9 @@ Requires:       cmake(KF5PimCommon)
 
 
 %changelog
+* Thu Dec 10 21:56:26 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:57 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

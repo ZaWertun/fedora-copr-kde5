@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:       elisa-player
-Version:    20.08.3
+Version:    20.12.0
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -21,8 +21,6 @@ Source0:    https://download.kde.org/%{stable}/release-service/%{version}/src/el
 # cd releaseme
 # RELEASEME_READONLY=1 ./tarme.rb --version 20.03.90 --origin trunk elisa
 # Source0:    elisa-%{version}.tar.xz
-
-Patch0:	    elisa-player-20.08.0-old-qt.patch
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
@@ -92,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
 %changelog
+* Thu Dec 10 21:56:00 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:28 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

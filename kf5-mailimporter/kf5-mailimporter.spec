@@ -2,7 +2,7 @@
 %global framework mailimporter
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: Mail importer library
 
@@ -43,6 +43,7 @@ BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
 BuildRequires:  kf5-pimcommon-devel >= %{majmin_ver}
+BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 
 Obsoletes:      kdepim-libs < 7:16.04.0
 Conflicts:      kdepim-libs < 7:16.04.0
@@ -87,7 +88,7 @@ Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5MailImporter.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -113,6 +114,9 @@ Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
 
 
 %changelog
+* Thu Dec 10 21:56:27 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:58 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

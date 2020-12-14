@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: The Akonadi Calendar Library
 
@@ -43,6 +43,7 @@ BuildRequires:  kf5-kcalendarutils-devel >= %{majmin_ver}
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
+BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 BuildRequires:  qt5-qtbase-devel
 %if 0%{?tests}
 BuildRequires: kf5-akonadi-server >= %{majmin_ver}
@@ -111,6 +112,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:56:14 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

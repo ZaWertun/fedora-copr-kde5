@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: The Akonadi Contacts Library
 
@@ -50,6 +50,8 @@ BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcalendarcore-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcontacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
+BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
+BuildRequires:  kf5-libkleo-devel >= %{majmin_ver}
 
 %if 0%{?tests}
 BuildRequires: kf5-akonadi-server >= %{majmin_ver}
@@ -134,6 +136,9 @@ xvfb-run -a \
 
 
 %changelog
+* Thu Dec 10 21:56:14 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

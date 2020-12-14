@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kaccounts-providers
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
@@ -52,13 +52,15 @@ Obsoletes: kaccounts-providers < 15.12.0
 
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %config %{_sysconfdir}/signon-ui/webkit-options.d/*
 %{_datadir}/accounts/providers/kde/
 %{_datadir}/accounts/services/kde/*.service
 %dir %{_kf5_datadir}/kpackage/genericqml
 %{_kf5_datadir}/kpackage/genericqml/org.kde.kaccounts.owncloud/
 %{_kf5_datadir}/kpackage/genericqml/org.kde.kaccounts.nextcloud/
+%{_kf5_datadir}/icons/hicolor/256x256/apps/kaccounts-owncloud.png
+%{_kf5_datadir}/icons/hicolor/scalable/apps/kaccounts-nextcloud.svg
 %dir %{_qt5_plugindir}/kaccounts/
 %dir %{_qt5_plugindir}/kaccounts/ui/
 %{_qt5_plugindir}/kaccounts/ui/owncloud_plugin_kaccounts.so
@@ -68,6 +70,9 @@ Obsoletes: kaccounts-providers < 15.12.0
 
 
 %changelog
+* Thu Dec 10 21:56:03 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:31 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

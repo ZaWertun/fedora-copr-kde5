@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 
 Name:           kio-gdrive
-Version:        20.08.3
+Version:        20.12.0
 Release:        1%{?dist}
 Summary:        An Google Drive KIO slave for KDE
 
@@ -48,8 +48,8 @@ desktop-file-validate %{buildroot}%{_datadir}/remoteview/*.desktop
 %license COPYING
 %doc HACKING README.md
 %{_qt5_plugindir}/kf5/kio/gdrive.so
-%dir %{_kf5_plugindir}/kfileitemaction/
-%{_kf5_plugindir}/kfileitemaction/copyurlitemaction.so
+%{_kf5_plugindir}/kfileitemaction/gdrivecontextmenuaction.so
+%{_kf5_plugindir}/propertiesdialog/gdrivepropertiesplugin.so
 %{_qt5_plugindir}/kaccounts/daemonplugins/gdrive.so
 %{_kf5_datadir}/accounts/services/kde/google-drive.service
 %{_kf5_datadir}/knotifications5/gdrive.notifyrc
@@ -57,6 +57,9 @@ desktop-file-validate %{buildroot}%{_datadir}/remoteview/*.desktop
 %{_kf5_datadir}/metainfo/org.kde.kio_gdrive.metainfo.xml
 
 %changelog
+* Thu Dec 10 21:56:30 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:01 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

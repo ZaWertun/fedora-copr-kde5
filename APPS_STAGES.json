@@ -111,23 +111,23 @@
     "kgpg"
   ],
   "5": [
-    "kdepim-apps-libs",
     "kdepim-runtime",
+    "kf5-calendarsupport",
     "kf5-libgravatar",
     "kf5-libksieve",
     "kf5-mailimporter",
     "knotes"
   ],
   "6": [
-    "kf5-calendarsupport",
+    "akonadi-calendar-tools",
+    "kf5-eventviews",
     "kf5-messagelib"
   ],
   "7": [
-    "akonadi-calendar-tools",
     "akonadiconsole",
     "akregator",
     "grantlee-editor",
-    "kf5-eventviews",
+    "kf5-incidenceeditor",
     "kf5-mailcommon",
     "pim-sieve-editor"
   ],
@@ -135,14 +135,13 @@
     "akonadi-import-wizard",
     "kaddressbook",
     "kalarm",
-    "kf5-incidenceeditor",
     "kmail",
     "kmail-account-wizard",
     "kontact",
+    "korganizer",
     "pim-data-exporter"
   ],
   "9": [
-    "kdepim-addons",
-    "korganizer"
+    "kdepim-addons"
   ]
 }

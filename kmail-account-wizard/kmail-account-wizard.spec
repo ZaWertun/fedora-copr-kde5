@@ -9,7 +9,7 @@
 
 Name:    kmail-account-wizard
 Summary: KMail Account Wizard
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -111,7 +111,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %endif
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/accountwizard
 %{_kf5_bindir}/ispdb
 %{_kf5_datadir}/akonadi/accountwizard/
@@ -124,6 +124,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:56:32 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:03 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

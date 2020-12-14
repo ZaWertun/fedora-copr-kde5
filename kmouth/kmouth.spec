@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kmouth
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: A program that speaks for you 
 
@@ -78,6 +78,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kmouth.de
 
 
 %changelog
+* Thu Dec 10 21:56:33 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:04 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

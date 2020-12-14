@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kaccounts-integration
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
@@ -86,7 +86,7 @@ Headers, development libraries and documentation for %{name}.
 
 %files -f %{name}.lang
 %doc README
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_qtplugindir}/kcms/kcm_kaccounts.so
 %{_kf5_qtplugindir}/kaccounts/daemonplugins/kaccounts_kio_webdav_plugin.so
 %{_kf5_datadir}/kpackage/kcms/kcm_kaccounts/contents/ui/*.qml
@@ -104,6 +104,9 @@ Headers, development libraries and documentation for %{name}.
 
 
 %changelog
+* Thu Dec 10 21:56:03 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:31 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

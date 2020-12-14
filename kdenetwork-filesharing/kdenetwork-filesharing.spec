@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdenetwork-filesharing
 Summary: Network filesharing
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -27,6 +27,9 @@ BuildRequires: kf5-kwidgetsaddons-devel
 BuildRequires: kf5-rpm-macros
 BuildRequires: pkgconfig(packagekitqt5)
 BuildRequires: pkgconfig(Qt5Widgets)
+
+BuildRequires: cmake(Qt5Qml)
+BuildRequires: cmake(KF5Declarative)
 
 # or gets pulled in via PK at runtime
 Recommends: samba
@@ -60,13 +63,20 @@ Conflicts: kde-l10n < 17.03
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_qt5_plugindir}/sambausershareplugin.so
 %{_kf5_datadir}/kservices5/sambausershareplugin.desktop
 %{_kf5_metainfodir}/*.metainfo.xml
+%{_kf5_libexecdir}/kauth/authhelper
+%{_kf5_datadir}/dbus-1/system-services/org.kde.filesharing.samba.service
+%{_kf5_datadir}/dbus-1/system.d/org.kde.filesharing.samba.conf
+%{_kf5_datadir}/polkit-1/actions/org.kde.filesharing.samba.policy
 
 
 %changelog
+* Thu Dec 10 21:56:10 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:38 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

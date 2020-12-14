@@ -9,7 +9,7 @@
 
 Name:    akonadi-calendar-tools
 Summary: Akonadi Calendar Tools
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -90,7 +90,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/calendarjanitor
 %{_kf5_bindir}/konsolekalendar
 %{_kf5_datadir}/applications/konsolekalendar.desktop
@@ -99,6 +99,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:55:57 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:24 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

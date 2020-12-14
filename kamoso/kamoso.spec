@@ -9,7 +9,7 @@
 
 Name:           kamoso
 Summary:        Application for taking pictures and videos from a webcam
-Version:        20.08.3
+Version:        20.12.0
 Release:        1%{?dist}
 
 License:        GPLv2+
@@ -94,8 +94,8 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %files -f kamoso.lang
-%doc AUTHORS TODO
-%license COPYING
+%doc AUTHORS
+%license COPYING COPYING.LIB
 %{_kf5_bindir}/kamoso
 %{_libdir}/gstreamer-1.0/gstkamosoqt5videosink.so
 %{_kf5_datadir}/icons/hicolor/*/actions/*
@@ -107,6 +107,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:56:05 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:33 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

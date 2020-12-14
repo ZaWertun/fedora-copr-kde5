@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    signon-kwallet-extension
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: KWallet integration for Sign-on framework
 
@@ -45,6 +45,9 @@ BuildRequires:  signon-devel
 
 
 %changelog
+* Thu Dec 10 21:56:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:16 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

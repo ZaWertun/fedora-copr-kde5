@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    poxml
 Summary: Text utilities from kdesdk
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -67,6 +67,9 @@ xml2pot
 
 
 %changelog
+* Thu Dec 10 21:56:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:15 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

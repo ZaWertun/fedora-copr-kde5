@@ -6,7 +6,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        20.08.3
+Version:        20.12.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -188,18 +188,25 @@ fi
 %ldconfig_scriptlets libs
 
 %files libs
-%{_kf5_libdir}/libkdeconnectpluginkcm.so.1*
-%{_kf5_libdir}/libkdeconnectinterfaces.so.1*
-%{_kf5_libdir}/libkdeconnectcore.so.1*
-%{_kf5_libdir}/libkdeconnectsmshelper.so.1*
+%{_kf5_libdir}/libkdeconnectpluginkcm.so.20*
+%{_kf5_libdir}/libkdeconnectinterfaces.so.20*
+%{_kf5_libdir}/libkdeconnectcore.so.20*
 %{_qt5_plugindir}/kdeconnect*.so
 %{_qt5_plugindir}/kdeconnect/
+%{_kf5_datadir}/kdeconnect/kdeconnect_findthisdevice_config.qml
+%{_kf5_datadir}/kdeconnect/kdeconnect_pausemusic_config.qml
+%{_kf5_datadir}/kdeconnect/kdeconnect_runcommand_config.qml
+%{_kf5_datadir}/kdeconnect/kdeconnect_sendnotifications_config.qml
+%{_kf5_datadir}/kdeconnect/kdeconnect_share_config.qml
 
 %files nautilus
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py*
 
 
 %changelog
+* Thu Dec 10 21:56:08 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

@@ -1,6 +1,6 @@
 diff -up konsole-17.08.1/src/History.cpp.history konsole-17.08.1/src/History.cpp
---- konsole-17.08.1/src/History.cpp.history	2017-09-30 08:21:27.365926716 -0500
-+++ konsole-17.08.1/src/History.cpp	2017-09-30 08:22:31.013042882 -0500
+--- konsole-17.08.1/src/history/HistoryFile.cpp.history	2017-09-30 08:21:27.365926716 -0500
++++ konsole-17.08.1/src/history/HistoryFile.cpp	2017-09-30 08:22:31.013042882 -0500
 @@ -82,7 +82,7 @@ HistoryFile::HistoryFile() :
          }
  

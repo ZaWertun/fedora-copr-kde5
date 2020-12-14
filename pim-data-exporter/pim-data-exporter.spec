@@ -9,7 +9,7 @@
 
 Name:    pim-data-exporter
 Summary: Pim Data Exporter
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -55,6 +55,7 @@ BuildRequires:  kf5-kmailtransport-devel >= %{majmin_ver}
 BuildRequires:  kf5-kpimtextedit-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-mailcommon-devel >= %{majmin_ver}
+BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -103,7 +104,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/pimdataexporter
 %{_kf5_bindir}/pimdataexporterconsole
 %{_kf5_datadir}/applications/*.desktop
@@ -119,6 +120,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:56:42 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:14 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

@@ -2,7 +2,7 @@
 
 Name:    kpat
 Summary: A selection of solitaire card games
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -43,6 +43,7 @@ BuildRequires: kf5-kwidgetsaddons-devel
 BuildRequires: kf5-kxmlgui-devel
 
 BuildRequires: pkgconfig(libfreecell-solver)
+BuildRequires: pkgconfig(libblack-hole-solver)
 BuildRequires: pkgconfig(phonon4qt5)
 
 BuildRequires: pkgconfig(Qt5Widgets) pkgconfig(Qt5Qml) pkgconfig(Qt5Quick) pkgconfig(Qt5QuickWidgets) pkgconfig(Qt5Svg) pkgconfig(Qt5Test)
@@ -88,8 +89,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %files -f %{name}.lang
 %license COPYING*
 %{_kf5_bindir}/%{name}
-%{_sysconfdir}/xdg/kcardtheme.knsrc
-%{_sysconfdir}/xdg/%{name}*
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
@@ -99,10 +98,15 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_libdir}/libkcardgame.so
 %{_datadir}/mime/packages/kpatience.xml
 %{_mandir}/man6/kpat.6*
+%{_kf5_datadir}/knsrcfiles/%{name}.knsrc
+%{_kf5_datadir}/knsrcfiles/kcardtheme.knsrc
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %changelog
+* Thu Dec 10 21:56:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:08 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

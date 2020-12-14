@@ -2,7 +2,7 @@
 
 Name:    kgpg
 Summary: Manage GPG encryption keys 
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -45,6 +45,7 @@ BuildRequires: cmake(KF5WindowSystem)
 # pim-related deps below are available only where qtwebengine is
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 BuildRequires: cmake(KF5AkonadiContact)
+BuildRequires: cmake(KF5GrantleeTheme)
 BuildRequires: cmake(KF5Contacts)
 
 # support kde4 servicemenus too
@@ -120,6 +121,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Dec 10 21:56:29 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:00 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

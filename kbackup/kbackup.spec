@@ -3,7 +3,7 @@
 %global build_ldflags %{build_ldflags} -flto
 
 Name:           kbackup
-Version:        20.08.3
+Version:        20.12.0
 Release:        1%{?dist}
 Summary:        Back up your data in a simple, user friendly way
 Summary(fr):    Sauvegarder vos données de manière simple et conviviale
@@ -77,7 +77,7 @@ KBackup позволяет делать резервное копировани�
 %install
 %cmake_install
 
-%find_lang %{name} --all-name --with-html
+%find_lang %{name} --all-name --with-html --with-man
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/org.kde.%{name}.appdata.xml
@@ -85,7 +85,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 
 %files -f %{name}.lang
 %license COPYING
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS ChangeLog README
 %{_bindir}/%{name}
 %{_datadir}/metainfo/org.kde.%{name}.appdata.xml
 %{_datadir}/applications/org.kde.%{name}.desktop
@@ -94,9 +94,13 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 %{_datadir}/icons/hicolor/*/mimetypes/*.png
 %{_datadir}/kxmlgui5/%{name}
 %{_datadir}/mime/packages/%{name}.xml
+%{_mandir}/man1/%{name}.1*
 
 
 %changelog
+* Thu Dec 10 21:56:05 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:33 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

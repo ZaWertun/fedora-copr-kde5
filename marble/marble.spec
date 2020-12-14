@@ -3,7 +3,7 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -202,7 +202,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_datadir}/kservices5/marble_thumbnail_osm.desktop
 %{_datadir}/kservices5/marble_thumbnail_shp.desktop
 %{_datadir}/kservices5/plasma-runner-marble.desktop
-%{_sysconfdir}/xdg/marble.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 
 %files common -f %{name}.lang
 %license LICENSE.txt
@@ -236,7 +236,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_libdir}/libmarblewidget-qt5.so.28
 %{_libdir}/libmarblewidget-qt5.so.0.*
 %{_libdir}/marble/plugins/
-%{_qt5_plugindir}/libmarblethumbnail.so
+%{_qt5_plugindir}/marblethumbnail.so
 %{_qt5_plugindir}/plasma_runner_marble.so
 # include part here too
 %{_datadir}/kservices5/marble_part.desktop
@@ -253,6 +253,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Thu Dec 10 21:56:41 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:14 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.3-1
 - 20.08.3
 

@@ -5,7 +5,7 @@
 %endif
 
 Name:    kdepim-addons
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -69,7 +69,6 @@ BuildRequires:  cmake(KF5KontactInterface)
 #global majmin_ver %%(echo %%{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  akonadi-import-wizard-devel >= %{majmin_ver}
-BuildRequires:  kdepim-apps-libs-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-notes-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-calendarsupport-devel >= %{majmin_ver}
@@ -122,14 +121,15 @@ Supplements:    korganizer
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libgrammarcommon.so.5*
 %{_kf5_libdir}/libkmailgrammalecte.so.5*
 %{_kf5_libdir}/libkmaillanguagetool.so.5*
 %{_kf5_libdir}/libadblocklibprivate.so.5*
 %{_kf5_libdir}/libdkimverifyconfigure.so.5*
+%{_kf5_libdir}/libfolderconfiguresettings.so.5*
 %{_kf5_libdir}/libkmailquicktextpluginprivate.so.5*
-
+%{_kf5_libdir}/libexpireaccounttrashfolderconfig.so.5*
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents/
 %{_kf5_qtplugindir}/webengineviewer/urlinterceptor/webengineviewer_adblockplugin.so
@@ -140,16 +140,10 @@ Supplements:    korganizer
 
 # TODO: Split to per-app subpackages?
 # KAddressBook
-%{_kf5_libdir}/libkaddressbookimportexportlibprivate.so.*
 %{_kf5_libdir}/libkaddressbookmergelibprivate.so*
 %{_kf5_libdir}/contacteditor/editorpageplugins/cryptopageplugin.so
 
 %dir %{_kf5_qtplugindir}/kaddressbook/
-%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportcsvplugin.so
-%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportgmxplugin.so
-%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportldapplugin.so
-%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportldifplugin.so
-%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportvcardplugin.so
 %{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_checkgravatarplugin.so
 %{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_mergecontactsplugin.so
 %{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_searchduplicatesplugin.so
@@ -243,6 +237,8 @@ Supplements:    korganizer
 %{_kf5_qtplugindir}/messageviewer/viewercommonplugin/messageviewer_translatorplugin.so
 %{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_dkimconfigplugin.so
 %{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_gravatarconfigplugin.so
+%{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_folderconfiguresettingsplugin.so
+%{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_expireaccounttrashfolderconfigplugin.so
 
 # qtcreator templates
 %dir %{_datadir}/qtcreator
@@ -252,6 +248,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Thu Dec 10 21:56:11 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:39 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

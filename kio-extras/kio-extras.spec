@@ -8,7 +8,7 @@
 %endif
 
 Name:    kio-extras
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -140,7 +140,7 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 %files -f %{name}.lang
 # include *a* copy, others are in mtp/
-%license fish/COPYING
+%license LICENSES/*.txt
 %{_kf5_libdir}/libkioarchive.so.5*
 %{_kf5_libdir}/libmolletnetwork5.so.*
 %dir %{_kf5_plugindir}/kded
@@ -202,6 +202,8 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_datadir}/mime/packages/kf5_network.xml
 %{_datadir}/config.kcfg/jpegcreatorsettings5.kcfg
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_libexecdir}/smbnotifier
+%{_kf5_plugindir}/kded/smbwatcher.so
 
 
 %files info
@@ -218,6 +220,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Dec 10 21:56:30 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:01 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

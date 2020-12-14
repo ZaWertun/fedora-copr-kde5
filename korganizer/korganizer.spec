@@ -9,7 +9,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -58,7 +58,6 @@ BuildRequires: cmake(KF5Service)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
-BuildRequires: kdepim-apps-libs-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-calendar-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-mime-devel >= %{majmin_ver}
@@ -81,6 +80,7 @@ BuildRequires: kf5-kpimtextedit-devel >= %{majmin_ver}
 BuildRequires: kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires: kf5-mailcommon-devel >= %{majmin_ver}
 BuildRequires: kf5-pimcommon-devel >= %{majmin_ver}
+BuildRequires: kf5-grantleetheme-devel >= %{majmin_ver}
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -135,7 +135,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %endif
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/korganizer
 %{_kf5_datadir}/config.kcfg/korganizer.kcfg
 %{_kf5_datadir}/kconf_update/korganizer*
@@ -192,6 +192,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:56:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:07 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

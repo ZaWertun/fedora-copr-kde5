@@ -5,8 +5,8 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 20.08.3
-Release: 2%{?dist}
+Version: 20.12.0
+Release: 1%{?dist}
 Summary:        Library to access to Google services
 
 License:        GPLv2+
@@ -120,6 +120,9 @@ resources.
 
 
 %changelog
+* Thu Dec 10 21:56:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Sun Nov  8 12:15:52 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-2
 - LTO disabled
 

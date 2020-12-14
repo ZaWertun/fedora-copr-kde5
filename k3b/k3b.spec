@@ -11,7 +11,7 @@
 Name:    k3b
 Summary: CD/DVD/Blu-ray burning application
 Epoch:   1
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -172,6 +172,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 
 
 %changelog
+* Thu Dec 10 21:56:02 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:30 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.08.3-1
 - 20.08.3
 

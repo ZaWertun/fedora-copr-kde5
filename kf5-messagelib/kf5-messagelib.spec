@@ -2,7 +2,7 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -53,7 +53,6 @@ BuildRequires:  cmake(KF5NewStuff)
 
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
-BuildRequires:  kdepim-apps-libs-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-notes-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-search-devel >= %{majmin_ver}
@@ -192,6 +191,9 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
 
 %changelog
+* Thu Dec 10 21:56:27 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:58 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

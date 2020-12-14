@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    sweeper 
 Summary: Clean unwanted traces the user leaves on the system 
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -76,6 +76,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.sweeper.d
 
 
 %changelog
+* Thu Dec 10 21:56:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:17 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

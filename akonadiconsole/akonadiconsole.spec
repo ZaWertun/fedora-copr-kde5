@@ -9,7 +9,7 @@
 
 Name:    akonadiconsole
 Summary: Akonadi developer tool
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -65,6 +65,7 @@ BuildRequires:  kf5-kpimtextedit-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkleo-devel  >= %{majmin_ver}
 BuildRequires:  kf5-messagelib-devel  >= %{majmin_ver}
+BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 BuildRequires:  cmake(KF5AkonadiSearch)
 
 BuildRequires: pkgconfig(xapian-core)
@@ -114,7 +115,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/akonadiconsole
 %{_kf5_datadir}/kconf_update/akonadiconsole.upd
 %{_kf5_datadir}/applications/org.kde.akonadiconsole.desktop
@@ -126,6 +127,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:55:57 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:25 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

@@ -11,7 +11,7 @@
 
 Name:    kaddressbook
 Summary: Contact Manager
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -54,7 +54,6 @@ BuildRequires: cmake(Gpgmepp)
 # kde-apps
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
-BuildRequires: kdepim-apps-libs-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-search-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires: kf5-grantleetheme-devel >= %{majmin_ver}
@@ -86,6 +85,14 @@ Summary: Runtime libraries for %{name}
 Requires: %{name} = %{version}-%{release}
 %description libs
 %{summary}.
+
+
+%package devel
+Summary: Development files for %{name}
+Requires: %{name}-libs%{?_isa} = %{version}-%{release}
+%description devel
+The %{name}-devel package contains libraries and header files for
+developing applications that use %{name}.
 
 
 %prep
@@ -142,6 +149,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %ldconfig_scriptlets libs
 
 %files libs
+%{_kf5_libdir}/libKPimAddressbookImportExport.so.*
 %{_kf5_libdir}/libkaddressbookprivate.so.*
 %{_kf5_qtplugindir}/kaddressbookpart.so
 %{_qt5_plugindir}/kaddressbook_config_plugins.so
@@ -153,7 +161,19 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/kontact5/kontact_kaddressbookplugin.so
 
 
+%files devel
+%{_kf5_libdir}/libKPimAddressbookImportExport.so
+%{_includedir}/KPim/KAddressBookImportExport/
+%{_includedir}/KPim/kaddressbookimportexport/
+%{_includedir}/KPim/kaddressbookimportexport_version.h
+%{_kf5_libdir}/cmake/KPimAddressbookImportExport/
+%{_kf5_archdatadir}/mkspecs/modules/qt_KAddressbookImportExport.pri
+
+
 %changelog
+* Thu Dec 10 21:56:04 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:25:31 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

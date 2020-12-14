@@ -9,7 +9,7 @@
 
 Name:    kontact
 Summary: Personal Information Manager
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -48,7 +48,6 @@ BuildRequires: cmake(KF5IconThemes)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
-BuildRequires: kdepim-apps-libs-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires: kf5-grantleetheme-devel >= %{majmin_ver}
 BuildRequires: kf5-kontactinterface-devel >= %{majmin_ver}
@@ -111,7 +110,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %endif
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/kontact
 %{_kf5_metainfodir}/org.kde.kontact.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kontact.desktop
@@ -132,6 +131,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 10 21:56:35 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:07 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

@@ -4,7 +4,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           yakuake
-Version:        20.08.3
+Version:        20.12.0
 Release:        1%{?dist}
 Summary:        A drop-down terminal emulator
 
@@ -82,16 +82,19 @@ desktop-file-validate  %{buildroot}%{_kf5_datadir}/applications/org.kde.yakuake.
 %doc AUTHORS ChangeLog TODO
 %license COPYING
 %{_kf5_bindir}/yakuake
-%{_kf5_sysconfdir}/xdg/yakuake.knsrc
 %{_kf5_metainfodir}/org.kde.yakuake.appdata.xml
 %{_kf5_datadir}/applications/org.kde.yakuake.desktop
 %{_kf5_datadir}/knotifications5/yakuake.notifyrc
 %{_kf5_datadir}/yakuake/
+%{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 %{_kf5_datadir}/icons/hicolor/*/apps/yakuake.*
 %{_kf5_datadir}/dbus-1/services/org.kde.yakuake.service
 
 
 %changelog
+* Thu Dec 10 21:56:45 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Fri Nov  6 13:26:18 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 
