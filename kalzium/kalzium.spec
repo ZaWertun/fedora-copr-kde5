@@ -16,7 +16,7 @@
 
 Name:    kalzium
 Summary: Periodic Table of Elements
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -125,7 +125,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 %files -f %{name}.lang
 %license COPYING*
 %{_kf5_bindir}/kalzium
-%{_kf5_sysconfdir}/xdg/kalzium.knsrc
 %{_kf5_datadir}/kalzium/
 %{_kf5_metainfodir}/org.kde.kalzium.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kalzium.desktop
@@ -136,6 +135,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 %{_mandir}/man1/kalzium.*
 %dir %{_kf5_datadir}/libkdeedu/
 %{_kf5_datadir}/libkdeedu/data/
+%{_kf5_datadir}/knsrcfiles/kalzium.knsrc
 
 %{?ldconfig_scriptlets:%ldconfig_scriptlets libs}
 
@@ -155,6 +155,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 
 
 %changelog
+* Mon Dec 14 13:04:32 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Sat Nov  7 02:22:26 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

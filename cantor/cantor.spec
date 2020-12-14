@@ -17,7 +17,7 @@
 
 Name:    cantor
 Summary: KDE Frontend to Mathematical Software
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -34,7 +34,6 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 ## upstream fixes
 
 ## upstreamable patches
-Patch100: cantor-19.08.3-py39.patch
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires: analitza-devel >= %{majmin_ver}
@@ -154,18 +153,18 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_bindir}/cantor*
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
-%{_kf5_sysconfdir}/xdg/cantor.knsrc
-%{_kf5_sysconfdir}/xdg/cantor_kalgebra.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_sage.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_scilab.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_maxima.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_octave.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_kalgebra.knsrc
 %if 0%{?luajit}
-%{_kf5_sysconfdir}/xdg/cantor_lua.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_lua.knsrc
 %endif
-%{_kf5_sysconfdir}/xdg/cantor_maxima.knsrc
-%{_kf5_sysconfdir}/xdg/cantor_octave.knsrc
 %if 0%{?qalculate}
-%{_kf5_sysconfdir}/xdg/cantor_qalculate.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_qalculate.knsrc
 %endif
-%{_kf5_sysconfdir}/xdg/cantor_sage.knsrc
-%{_kf5_sysconfdir}/xdg/cantor_scilab.knsrc
 %dir %{_kf5_datadir}/kxmlgui5/cantor/
 %{_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/cantor/
@@ -177,7 +176,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %if 0%{?python3}
 %files -n python3-%{name}
-%{_kf5_sysconfdir}/xdg/cantor_python.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_python.knsrc
 %{_kf5_bindir}/cantor_pythonserver
 %{_kf5_libdir}/cantor_pythonbackend.so
 %{_kf5_qtplugindir}/cantor/backends/cantor_pythonbackend.so
@@ -189,7 +188,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_bindir}/cantor_rserver
 %{_kf5_qtplugindir}/cantor/backends/cantor_rbackend.so
 %{_kf5_datadir}/config.kcfg/rserver.kcfg
-%{_kf5_sysconfdir}/xdg/cantor_r.knsrc
+%{_kf5_datadir}/knsrcfiles/%{name}_r.knsrc
 %endif
 
 %ldconfig_scriptlets libs
@@ -223,6 +222,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Mon Dec 14 13:04:32 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Sat Nov  7 02:22:25 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

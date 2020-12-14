@@ -2,7 +2,7 @@
 
 Name:    kigo
 Summary: Go Board game
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -79,7 +79,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %license COPYING*
 %doc README
 %{_kf5_bindir}/%{name}*
-%{_kf5_sysconfdir}/xdg/%{name}*
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
@@ -87,9 +86,14 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/kxmlgui5/%{name}/
 %{_kf5_datadir}/%{name}/
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
+%{_kf5_datadir}/knsrcfiles/kigo-games.knsrc
+%{_kf5_datadir}/knsrcfiles/kigo.knsrc
 
 
 %changelog
+* Mon Dec 14 13:04:35 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Sat Nov  7 02:22:28 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

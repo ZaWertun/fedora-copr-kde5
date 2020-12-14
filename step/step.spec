@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    step
 Summary: Interactive Physics Simulator 
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -85,20 +85,21 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %license COPYING*
 %doc README
 %{_kf5_bindir}/%{name}
-%{_sysconfdir}/xdg/%{name}.knsrc
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/actions/*
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}*
 %{_kf5_datadir}/%{name}/
-#{_kf5_datadir}/kconf_update/%{name}*
-#{_kf5_datadir}/knotifications5/%{name}.notifyrc
 %{_kf5_datadir}/kxmlgui5/%{name}/
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
 %{_datadir}/mime/packages/org.kde.%{name}.xml
+%{_kf5_datadir}/knsrcfiles/step.knsrc
 
 
 %changelog
+* Mon Dec 14 13:04:39 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Sat Nov  7 02:22:33 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 

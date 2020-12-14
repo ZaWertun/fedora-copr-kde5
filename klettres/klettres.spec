@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    klettres
 Summary: Learn the alphabet and read some syllables in different languages
-Version: 20.08.3
+Version: 20.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -80,22 +80,21 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %files -f %{name}.lang
 %license COPYING*
-#doc README
 %{_kf5_bindir}/%{name}*
-%{_sysconfdir}/xdg/%{name}*
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_kf5_datadir}/%{name}/
-#{_kf5_datadir}/kconf_update/%{name}*
-#{_kf5_datadir}/knotifications5/%{name}.notifyrc
 %{_kf5_datadir}/kxmlgui5/%{name}/
-#{_kf5_datadir}/sounds/%{name}*
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
 %{_kf5_datadir}/qlogging-categories5/%{name}*
+%{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 
 
 %changelog
+* Mon Dec 14 13:04:35 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+- 20.12.0
+
 * Sat Nov  7 02:22:29 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
 - 20.08.3
 
