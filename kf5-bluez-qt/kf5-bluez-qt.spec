@@ -3,7 +3,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A Qt wrapper for Bluez
-Version: 5.76.0
+Version: 5.77.0
 Release: 1%{?dist}
 
 License:        LGPLv2+
@@ -87,6 +87,9 @@ Development files for %{name}.
 
 
 %changelog
+* Mon Dec 14 16:50:06 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
+- 5.77.0
+
 * Sun Nov 15 22:13:35 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
 - 5.76.0
 

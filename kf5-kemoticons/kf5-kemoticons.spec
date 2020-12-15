@@ -2,7 +2,7 @@
 %global framework kemoticons
 
 Name:    kf5-%{framework}
-Version: 5.76.0
+Version: 5.77.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module with support for emoticons and emoticons themes
 
@@ -80,6 +80,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Dec 14 16:50:14 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
+- 5.77.0
+
 * Sun Nov 15 22:13:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
 - 5.76.0
 

@@ -2,8 +2,8 @@
 %global framework kxmlgui
 
 Name:    kf5-%{framework}
-Version: 5.76.0
-Release: 2%{?dist}
+Version: 5.77.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for user-configurable main windows
 
 # Library LGPLv2+, ksendbugmail is GPLv2+
@@ -31,7 +31,8 @@ BuildRequires:  kf5-kitemviews-devel >= %{majmin}
 BuildRequires:  kf5-ktextwidgets-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
-BuildRequires:  kf5-rpm-macros
+BuildRequires:  kf5-kguiaddons-devel >= %{majmin}
+BuildRequires:  kf5-rpm-macros >= %{majmin}
 
 BuildRequires:  libX11-devel
 BuildRequires:  qt5-qtbase-devel
@@ -96,6 +97,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kxmlgui5/
 
 
 %changelog
+* Mon Dec 14 16:50:24 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
+- 5.77.0
+
 * Sat Dec  5 13:32:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-2
 - rebuild
 

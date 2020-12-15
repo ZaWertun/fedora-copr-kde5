@@ -10,7 +10,7 @@
 
 Name:    kf5-kcalendarcore
 Epoch:   1
-Version: 5.76.0
+Version: 5.77.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 KCalendarCore Library
 
@@ -103,6 +103,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Dec 14 16:50:08 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.77.0-1
+- 5.77.0
+
 * Sun Nov 15 22:13:37 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.76.0-1
 - 5.76.0
 
