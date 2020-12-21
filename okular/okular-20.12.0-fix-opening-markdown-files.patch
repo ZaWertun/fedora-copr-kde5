@@ -1,0 +1,17 @@
+diff --git a/part/part.cpp b/part/part.cpp
+index 536e412a4050cfd50af510ef3c9c78ee4413186a..8d57ed0d53e354e914a09724db251fd6ef769317 100644
+--- a/part/part.cpp
++++ b/part/part.cpp
+@@ -1473,8 +1473,10 @@ bool Part::openFile()
+         }
+ 
+         if (mimes[0].inherits(QStringLiteral("text/plain"))) {
+-            QMimeType contentMime = db.mimeTypeForFile(fileNameToOpen, QMimeDatabase::MatchContent);
+-            mimes.prepend(contentMime);
++            const QMimeType contentMime = db.mimeTypeForFile(fileNameToOpen, QMimeDatabase::MatchContent);
++            if (contentMime.name() != QLatin1String("text/plain")) {
++                mimes.prepend(contentMime);
++            }
+         }
+     } else {
+         mimes << pathMime;

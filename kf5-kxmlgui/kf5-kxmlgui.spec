@@ -3,7 +3,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.77.0
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for user-configurable main windows
 
 # Library LGPLv2+, ksendbugmail is GPLv2+
@@ -18,6 +18,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+## upstream patches
+#  Fix for https://bugs.kde.org/show_bug.cgi?id=430388 (Custom Shortcuts cannot record key presses)
+Patch0:         kf5-kxmlgui-5.77.0-fix-key-recording.patch
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-attica-devel >= %{majmin}
@@ -97,6 +101,12 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kxmlgui5/
 
 
 %changelog
+* Mon Dec 21 16:49:08 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-3
+- added kf5-kxmlgui-5.77.0-fix-key-recording.patch
+
+* Mon Dec 21 16:49:00 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-2
+- added
+
 * Mon Dec 14 16:50:24 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
 - 5.77.0
 
