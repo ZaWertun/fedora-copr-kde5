@@ -59,6 +59,8 @@ BuildRequires:  kf5-kwallet-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-kxmlgui-devel >= %{majmin}
 
+BuildRequires:  cmake(KDED)
+
 BuildRequires:  krb5-devel
 BuildRequires:  libacl-devel
 %if !0%{?flatpak}
@@ -71,6 +73,7 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  cmake(Qt5UiPlugin)
+BuildRequires:  cmake(Qt5Qml)
 
 Requires:       %{name}-core%{?_isa} = %{version}-%{release}
 Requires:       %{name}-widgets%{?_isa} = %{version}-%{release}
