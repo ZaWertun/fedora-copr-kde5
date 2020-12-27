@@ -3,7 +3,7 @@
 Name:    spectacle
 Summary: Screenshot capture utility
 Version: 20.12.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/spectacle/
@@ -111,6 +111,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 
 
 %changelog
+* Sun Dec 27 17:28:34 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-3
+- rebuild
+
 * Thu Dec 17 21:56:44 MSK 2020 Rajeesh KV <rajeeshknambiar@fedoraproject.org> - 20.12.0-2
 - Add image annotation support
 
