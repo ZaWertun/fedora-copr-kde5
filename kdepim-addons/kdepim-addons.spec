@@ -6,7 +6,7 @@
 
 Name:    kdepim-addons
 Version: 20.12.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
 License: GPLv2 and LGPLv2+
@@ -54,6 +54,7 @@ BuildRequires:  cmake(KF5KaddressbookGrantlee)
 BuildRequires:  cmake(KPimImportWizard)
 BuildRequires:  cmake(KPimItinerary)
 BuildRequires:  cmake(KPimPkPass)
+BuildRequires:  cmake(KPimAddressbookImportExport)
 BuildRequires:  cmake(KF5Libkdepim)
 BuildRequires:  cmake(KF5Libkleo)
 BuildRequires:  cmake(KF5MailCommon)
@@ -149,6 +150,12 @@ Supplements:    korganizer
 %{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_searchduplicatesplugin.so
 %{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_sendmailplugin.so
 %{_kf5_qtplugindir}/kaddressbook/mainview/kaddressbook_sendvcardsplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportcsvplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportgmxplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportldapplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportldifplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportvcardplugin.so
+%{_kf5_qtplugindir}/kaddressbook/importexportplugin/kaddressbook_importexportwindowscontactplugin.so
 
 # Akonadi
 %{_kf5_qtplugindir}/akonadi/emailaddressselectionldapdialogplugin.so
@@ -248,6 +255,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Sun Jan  3 03:58:00 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-2
+- rebuild with cmake(KPimAddressbookImportExport) build dep
+
 * Thu Dec 10 21:56:11 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 
