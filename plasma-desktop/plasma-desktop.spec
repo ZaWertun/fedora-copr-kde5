@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 
-%global kf5_version_min 5.42
+%global kf5_version_min 5.69
 
 %global synaptics 1
 %global scim 1
@@ -12,7 +12,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.20.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -38,10 +38,6 @@ Patch100: plasma-desktop-5.8-default_favorites.patch
 Patch200: https://gitweb.gentoo.org/proj/kde.git/plain/kde-plasma/plasma-desktop/files/plasma-desktop-5.18.4.1-override-include-dirs.patch
 # use this bundled copy (from f31) if not provided already
 Source200: synaptics-properties.h
-Patch201: plasma-desktop-5.18.4.1-synaptics_includes.patch
-
-# Possible fix for https://bugs.kde.org/show_bug.cgi?id=422957
-Patch202: plasma-desktop-5.19.2-cannot-read-property-of-null.patch
 
 # filter qmk/plugins provides
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -133,6 +129,9 @@ BuildRequires:  pkgconfig(xorg-synaptics)
 %endif
 %endif
 
+# kcm_users
+Requires:       accountsservice
+
 # Desktop
 Requires:       plasma-workspace >= %{majmin_ver}
 
@@ -160,6 +159,9 @@ Obsoletes:      kde-workspace < 5.0.0-1
 
 Obsoletes:      kactivities-workspace < 5.6.0
 Provides:       kactivities-workspace = %{version}-%{release}
+
+Obsoletes:      plasma-user-manager < 5.19.50
+Provides:       plasma-user-manager = %{version}-%{release}
 
 # kimpanel moved here from kdeplasma-addons-5.5.x
 Conflicts:      kdeplasma-addons < 5.6.0
@@ -196,12 +198,10 @@ BuildArch: noarch
 ## upstream patches
 
 ## upstreamable patches
-#%patch200 -p1
+%patch200 -p1
 %if ! 0%{?synaptics}
 install -pD %{SOURCE200} 3rdparty/xorg/synaptics-properties.h
 %endif
-#%patch201 -p1 -b .synaptics_includes
-%patch202 -p1
 
 ## downstream patches
 %patch100 -p1
@@ -223,8 +223,7 @@ sed -i.breeze_ver \
 %endif
 
 %{cmake_kf5} \
-  %{?!synaptics:-DSynaptics_INCLUDE_DIRS:PATH="$(pwd)/../3rdparty"}
-
+  %{?!synaptics:-DSynaptics_INCLUDE_DIRS:PATH="$(pwd)/../3rdparty/xorg"}
 %cmake_build
 
 
@@ -246,13 +245,13 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 
 
 %check
-#desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.{kfontview,knetattach}.desktop
+desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.desktop
 
 
 %ldconfig_scriptlets
 
 %files -f plasmadesktop5.lang
-%license COPYING*
+%license COPYING
 %{_bindir}/kaccess
 %{_bindir}/knetattach
 %{_bindir}/solid-action-desktop-gen
@@ -267,7 +266,7 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kcms/*.so
 %{_kf5_plugindir}/kded/*.so
-%{_kf5_plugindir}/krunner/krunner_*.so
+%{_kf5_plugindir}/krunner/krunner*.so
 %{_kf5_qmldir}/org/kde/plasma/activityswitcher
 %{_kf5_qmldir}/org/kde/private/desktopcontainment/*
 %{_kf5_qmldir}/org/kde/activities/settings/
@@ -279,7 +278,6 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_touchpad.so
 %{_datadir}/config.kcfg/touchpad.kcfg
 %{_datadir}/config.kcfg/touchpaddaemon.kcfg
-%{_datadir}/config.kcfg/launchfeedbacksettingsbase.kcfg
 %{_datadir}/dbus-1/interfaces/org.kde.touchpad.xml
 # kcminput
 %{_kf5_bindir}/kapplymousetheme
@@ -292,6 +290,7 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 %{_datadir}/config.kcfg/terminal_settings.kcfg
 %{_datadir}/config.kcfg/workspaceoptions_kdeglobalssettings.kcfg
 %{_datadir}/config.kcfg/workspaceoptions_plasmasettings.kcfg
+%{_datadir}/config.kcfg/launchfeedbacksettingsbase.kcfg
 %{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
 %{_datadir}/qlogging-categories5/kcmkeys.categories
 %{_datadir}/qlogging-categories5/kcmusers.categories
@@ -308,12 +307,15 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/knotifications5/*.notifyrc
+%ifnarch s390 s390x
 %{_datadir}/icons/hicolor/*/*/*
+%endif
 %{_kf5_metainfodir}/*.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/dbus-1/system-services/*.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmclock.policy
 %{_sysconfdir}/xdg/autostart/*.desktop
+
 
 %if 0%{?scim}
 %files kimpanel-scim
@@ -324,38 +326,47 @@ rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 
 
 %changelog
-* Tue Dec  1 22:30:45 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+* Thu Dec 31 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.4-2
+- Requires: accountsservice (kde#430916)
+
+* Tue Dec  1 09:42:59 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.4-1
 - 5.20.4
 
-* Wed Nov 11 11:10:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+* Wed Nov 11 08:22:41 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-1
 - 5.20.3
 
-* Tue Oct 27 16:56:28 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+* Tue Oct 27 14:23:44 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.2-1
 - 5.20.2
 
-* Tue Oct 20 17:02:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+* Tue Oct 20 15:29:34 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.1-1
 - 5.20.1
 
-* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+* Sun Oct 11 19:50:04 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.0-1
 - 5.20.0
 
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.90-1
+- 5.19.90
+
+* Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.19.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 28 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
+* Tue Jul 07 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 30 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-2
-- added patch to fix #422957
-
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
+* Tue Jun 23 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.2-1
 - 5.19.2
 
-* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+* Wed Jun 17 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.1-1
 - 5.19.1
+
+* Wed Jun 10 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.19.0-2
+- adjust synaptics hacks (for rhel8), bump kf5 dep
 
 * Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
