@@ -29,8 +29,9 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 
 ## upstream patches
 
-# nuke ill-advised -devel pkg
 Obsoletes:      kdepim-apps-libs <= 20.08.3
+
+# nuke ill-advised -devel pkg
 Obsoletes:      kdepim-runtime-devel < 1:4.7.90-3
 
 Obsoletes:      akonadi-google < 0.4

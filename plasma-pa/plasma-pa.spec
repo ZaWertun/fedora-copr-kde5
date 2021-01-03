@@ -39,7 +39,7 @@ BuildRequires:  cmake(KF5Notifications)
 BuildRequires:  plasma-packagestructure
 %endif
 
-Requires: pulseaudio or pipewire-pulseaudio
+Requires: (pulseaudio or pipewire-pulseaudio)
 # support systemsettings->multimedia->audio volume->advanced->automatically switch streams when a new output becomes available
 Recommends: pulseaudio-module-gconf%{?_isa}
 
