@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    plasma-pa
 Version: 5.20.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Plasma applet for audio volume management using PulseAudio
 
 License: LGPLv2+ and GPLv2+
@@ -39,7 +39,7 @@ BuildRequires:  cmake(KF5Notifications)
 BuildRequires:  plasma-packagestructure
 %endif
 
-Requires: pulseaudio
+Requires: pulseaudio or pipewire-pulseaudio
 # support systemsettings->multimedia->audio volume->advanced->automatically switch streams when a new output becomes available
 Recommends: pulseaudio-module-gconf%{?_isa}
 
@@ -79,6 +79,9 @@ rm -rfv %{buildroot}%{_kde4_appsdir}/kconf_update/
 
 
 %changelog
+* Sun Jan  3 13:39:54 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-2
+- require pulseaudio or pipewire-pulseaudio
+
 * Tue Dec  1 22:30:48 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
 - 5.20.4
 
