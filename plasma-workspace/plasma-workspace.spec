@@ -16,7 +16,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -368,7 +368,7 @@ BuildArch: noarch
 %package wayland
 Summary:        Wayland support for Plasma
 Requires:       %{name} = %{version}-%{release}
-Requires:       kwin-wayland >= %{majmin_ver}
+Requires:       (kwin-wayland >= %{majmin_ver} or kwinft-wayland >= %{majmin_ver} or kwin-lowlatency-wayland >= %{majmin_ver})
 Requires:       kwayland-integration%{?_isa} >= %{majmin_ver}
 Requires:       xorg-x11-server-Xwayland
 Requires:       qt5-qtwayland%{?_isa}
@@ -382,7 +382,7 @@ Summary:        Xorg support for Plasma
 # Split of Xorg session into subpackage
 Obsoletes:      %{name} < 5.19.5-2
 Requires:       %{name} = %{version}-%{release}
-Requires:       kwin-x11 >= %{majmin_ver}
+Requires:       (kwin-x11 >= %{majmin_ver} or kwinft-x11 >= %{majmin_ver} or kwin-lowlatency-x11 >= %{majmin_ver})
 Requires:       xorg-x11-server-Xorg
 %description xorg
 %{summary}.
@@ -704,6 +704,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Jan  5 22:03:43 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-4
+- fixed dependicies for kwinft & kwin-lowlatency
+
 * Sat Jan  2 16:06:21 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-3
 - rebuild
 
