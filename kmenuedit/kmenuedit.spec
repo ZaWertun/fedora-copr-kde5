@@ -4,7 +4,7 @@
 
 Name:    kmenuedit
 Summary: KDE menu editor
-Version: 5.20.4
+Version: 5.20.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -79,6 +79,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.des
 
 
 %changelog
+* Tue Jan  5 22:06:15 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Tue Dec  1 22:30:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
 - 5.20.4
 

@@ -3,7 +3,7 @@
 %global         base_name oxygen
 
 Name:    plasma-%{base_name}
-Version: 5.20.4
+Version: 5.20.5
 Release: 1%{?dist}
 Summary: Plasma and Qt widget style and window decorations for Plasma 5 and KDE 4
 
@@ -210,6 +210,9 @@ rm -rfv %{buildroot}%{_kf5_datadir}/plasma/look-and-feel/org.kde.oxygen/
 
 
 %changelog
+* Tue Jan  5 22:06:21 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Tue Dec  1 22:30:48 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
 - 5.20.4
 

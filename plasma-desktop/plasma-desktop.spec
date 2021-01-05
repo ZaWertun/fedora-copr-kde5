@@ -11,8 +11,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.20.4
-Release: 2%{?dist}
+Version: 5.20.5
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://cgit.kde.org/%{name}.git
@@ -326,6 +326,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Tue Jan  5 22:06:19 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Thu Dec 31 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.4-2
 - Requires: accountsservice (kde#430916)
 

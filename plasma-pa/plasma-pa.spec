@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    plasma-pa
-Version: 5.20.4
-Release: 2%{?dist}
+Version: 5.20.5
+Release: 1%{?dist}
 Summary: Plasma applet for audio volume management using PulseAudio
 
 License: LGPLv2+ and GPLv2+
@@ -79,6 +79,9 @@ rm -rfv %{buildroot}%{_kde4_appsdir}/kconf_update/
 
 
 %changelog
+* Tue Jan  5 22:06:21 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Sun Jan  3 13:39:54 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-2
 - require pulseaudio or pipewire-pulseaudio
 

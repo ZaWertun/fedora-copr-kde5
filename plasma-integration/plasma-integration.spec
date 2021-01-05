@@ -1,8 +1,8 @@
 %undefine __cmake_in_source_build
 Name:    plasma-integration
 Summary: Qt Platform Theme integration plugin for Plasma
-Version: 5.20.4
-Release: 2%{?dist}
+Version: 5.20.5
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
 License: LGPLv2 or LGPLv3
@@ -83,6 +83,9 @@ sed -i.breeze_version \
 
 
 %changelog
+* Tue Jan  5 22:06:20 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Sat Dec  5 13:32:37 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-2
 - rebuild
 

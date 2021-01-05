@@ -15,8 +15,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.20.4
-Release: 4%{?dist}
+Version: 5.20.5
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -704,6 +704,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Jan  5 22:06:23 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Tue Jan  5 22:03:43 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-4
 - fixed dependicies for kwinft & kwin-lowlatency
 

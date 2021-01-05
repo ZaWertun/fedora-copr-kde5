@@ -17,8 +17,8 @@
 %endif
 
 Name:    kwin
-Version: 5.20.4
-Release: 2%{?dist}
+Version: 5.20.5
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -358,6 +358,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jan  5 22:06:17 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Sat Dec  5 13:32:37 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-2
 - rebuild
 

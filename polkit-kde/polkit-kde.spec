@@ -3,7 +3,7 @@
 
 Name:    polkit-kde
 Summary: PolicyKit integration for KDE Desktop
-Version: 5.20.4
+Version: 5.20.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -77,6 +77,9 @@ mv %{buildroot}/%{_libexecdir}/polkit-kde-authentication-agent-1 \
 
 
 %changelog
+* Tue Jan  5 22:06:23 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Tue Dec  1 22:30:51 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
 - 5.20.4
 

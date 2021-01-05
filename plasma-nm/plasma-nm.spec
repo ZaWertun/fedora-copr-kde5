@@ -4,7 +4,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.20.4
+Version: 5.20.5
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -303,6 +303,9 @@ Requires:       NetworkManager-wireguard
 
 
 %changelog
+* Tue Jan  5 22:06:21 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+- 5.20.5
+
 * Tue Dec  1 22:30:47 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
 - 5.20.4
 
