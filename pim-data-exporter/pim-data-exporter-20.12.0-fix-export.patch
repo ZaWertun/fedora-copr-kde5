@@ -1,0 +1,79 @@
+From 30fc703e7310d372a03ea622e0f397e19c43223e Mon Sep 17 00:00:00 2001
+From: Laurent Montel <laurent.montel@kdab.com>
+Date: Wed, 6 Jan 2021 13:27:14 +0100
+Subject: [PATCH] Fix store archive info.
+
+CCBUG: 429895
+---
+ core/autotests/testexportfile.cpp |  2 +-
+ core/pimdatabackuprestore.cpp     |  2 +-
+ core/utils.cpp                    | 12 ++++++------
+ core/utils.h                      |  2 +-
+ 4 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/core/autotests/testexportfile.cpp b/core/autotests/testexportfile.cpp
+index af5f628d..478d48d1 100644
+--- a/core/autotests/testexportfile.cpp
++++ b/core/autotests/testexportfile.cpp
+@@ -56,7 +56,7 @@ void TestExportFile::start()
+ 
+     //TODO fix file name.
+     Utils::addVersion(mArchiveStorage->archive());
+-    Utils::storeDataExportInfo(mArchiveStorage->archive());
++    Utils::storeDataExportInfo(mArchiveStorage->archive(), QString()); //TODO fix me ?
+ 
+     QSignalSpy finish(mAbstractImportExportJob, &AbstractImportExportJob::jobFinished);
+     QSignalSpy error(mAbstractImportExportJob, &AbstractImportExportJob::error);
+diff --git a/core/pimdatabackuprestore.cpp b/core/pimdatabackuprestore.cpp
+index 1bbc189f..d1202797 100644
+--- a/core/pimdatabackuprestore.cpp
++++ b/core/pimdatabackuprestore.cpp
+@@ -97,7 +97,7 @@ bool PimDataBackupRestore::backupStart(const QString &filename)
+     Utils::addVersion(mArchiveStorage->archive());
+     //Add exported file info.
+     //qDebug() << "mExportedInfoFileName" << mExportedInfoFileName;
+-    Utils::storeDataExportInfo(mArchiveStorage->archive());
++    Utils::storeDataExportInfo(mArchiveStorage->archive(), mExportedInfoFileName);
+     backupNextStep();
+     return true;
+ }
+diff --git a/core/utils.cpp b/core/utils.cpp
+index 848b8e67..3057fd34 100644
+--- a/core/utils.cpp
++++ b/core/utils.cpp
+@@ -139,13 +139,13 @@ KZip *Utils::openZip(const QString &filename, QString &errorMsg)
+     return zip;
+ }
+ 
+-void Utils::storeDataExportInfo(KZip *archive)
++void Utils::storeDataExportInfo(KZip *archive, const QString &exportInfoFileName)
+ {
+-    QTemporaryFile tmp;
+-    tmp.open();
+-    const bool fileAdded = archive->addLocalFile(tmp.fileName(), Utils::infoPath() + Utils::exportDataTypeFileName());
+-    if (!fileAdded) {
+-        qCDebug(PIMDATAEXPORTERCORE_LOG) << "storeDataExportInfo can't add to archive" << Utils::infoPath() + Utils::exportDataTypeFileName();
++    if (!exportInfoFileName.isEmpty()) {
++        const bool fileAdded = archive->addLocalFile(exportInfoFileName, Utils::infoPath() + Utils::exportDataTypeFileName());
++        if (!fileAdded) {
++            qCDebug(PIMDATAEXPORTERCORE_LOG) << "storeDataExportInfo can't add to archive" << Utils::infoPath() + Utils::exportDataTypeFileName();
++        }
+     }
+ }
+ 
+diff --git a/core/utils.h b/core/utils.h
+index db75d5f6..95b6f92a 100644
+--- a/core/utils.h
++++ b/core/utils.h
+@@ -102,7 +102,7 @@ Q_REQUIRED_RESULT QString akonadiAgentName(const QString &configPath);
+ PIMDATAEXPORTER_EXPORT Q_REQUIRED_RESULT QVector<Utils::AkonadiInstanceInfo> listOfResource();
+ 
+ KZip *openZip(const QString &filename, QString &errorMsg);
+-PIMDATAEXPORTER_EXPORT void storeDataExportInfo(KZip *archive);
++PIMDATAEXPORTER_EXPORT void storeDataExportInfo(KZip *archive, const QString &exportInfoFileName);
+ 
+ PIMDATAEXPORTER_EXPORT void addVersion(KZip *archive);
+ PIMDATAEXPORTER_EXPORT Q_REQUIRED_RESULT int archiveVersion(KZip *archive);
+-- 
+GitLab
+
