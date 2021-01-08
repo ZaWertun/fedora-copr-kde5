@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-common-internals
 Summary: Common internals for KDE Telepathy
-Version: 20.12.0
+Version: 20.12.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -131,6 +131,9 @@ Requires:       telepathy-logger-qt-devel
 
 
 %changelog
+* Fri Jan  8 18:36:46 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Mon Dec 14 16:03:01 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 

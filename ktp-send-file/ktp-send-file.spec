@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-send-file
 Summary: A File manager plugin to launch file transfer jobs
-Version: 20.12.0
+Version: 20.12.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -61,6 +61,9 @@ Provides:       telepathy-kde-send-file = %{version}-%{release}
 
 
 %changelog
+* Fri Jan  8 18:36:48 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Mon Dec 14 16:03:02 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 
