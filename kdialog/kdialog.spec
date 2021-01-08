@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdialog
 Summary: Nice dialog boxes from shell scripts
-Version: 20.12.0
+Version: 20.12.1
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -59,6 +59,9 @@ KDialog can be used to show nice dialog boxes from shell scripts.
 
 
 %changelog
+* Thu Jan  7 22:09:19 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Thu Dec 10 21:56:12 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 

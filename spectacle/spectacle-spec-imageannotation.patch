@@ -1,0 +1,31 @@
+--- b/spectacle.spec	2020-12-16 11:19:57.510607640 +0530
++++ a/spectacle.spec	2020-12-16 11:20:31.628605633 +0530
+@@ -3,7 +3,7 @@
+ Name:    spectacle
+ Summary: Screenshot capture utility
+ Version: 20.12.0
+-Release: 1%{?dist}
++Release: 2%{?dist}
+ 
+ License: GPLv2
+ URL:     https://www.kde.org/applications/graphics/spectacle/
+@@ -58,6 +58,9 @@
+ 
+ BuildRequires: cmake(KDEExperimentalPurpose)
+ 
++BuildRequires: kimageannotator-devel
++BuildRequires: kcolorpicker-devel
++
+ # f26+ upgrade path
+ %if 0%{?fedora} > 25
+ Obsoletes: ksnapshot <= 15.08.3
+@@ -108,6 +111,9 @@
+ 
+ 
+ %changelog
++* Thu Dec 17 21:56:44 MSK 2020 Rajeesh KV <rajeeshknambiar@fedoraproject.org> - 20.12.0-2
++- Add image annotation support
++
+ * Thu Dec 10 21:56:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
+ - 20.12.0
+ 

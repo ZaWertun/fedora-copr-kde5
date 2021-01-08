@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kmag
-Version: 20.12.0
+Version: 20.12.1
 Release: 1%{?dist}
 Summary: A screen magnifier
 
@@ -73,6 +73,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Jan  7 22:09:34 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Thu Dec 10 21:56:31 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 

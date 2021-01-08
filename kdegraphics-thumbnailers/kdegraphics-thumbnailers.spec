@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdegraphics-thumbnailers
 Summary: Thumbnailers for various graphic types 
-Version: 20.12.0
+Version: 20.12.1
 Release: 1%{?dist}
 
 # most sources GPLv2+, dscparse.* GPL, gscreator.* LGPLv2+, 
@@ -54,6 +54,9 @@ BuildRequires: cmake(Qt5Gui)
 
 
 %changelog
+* Thu Jan  7 22:09:17 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Thu Dec 10 21:56:09 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 

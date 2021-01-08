@@ -5,8 +5,8 @@
 %endif
 
 Name:    kdepim-addons
-Version: 20.12.0
-Release: 2%{?dist}
+Version: 20.12.1
+Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
 License: GPLv2 and LGPLv2+
@@ -255,6 +255,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Thu Jan  7 22:09:18 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Sun Jan  3 03:58:00 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-2
 - rebuild with cmake(KPimAddressbookImportExport) build dep
 

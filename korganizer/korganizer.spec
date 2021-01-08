@@ -9,7 +9,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 20.12.0
+Version: 20.12.1
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -192,6 +192,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jan  7 22:09:37 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Thu Dec 10 21:56:36 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 

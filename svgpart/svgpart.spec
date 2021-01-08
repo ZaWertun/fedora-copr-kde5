@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    svgpart
 Summary: SVG KPart
-Version: 20.12.0
+Version: 20.12.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -48,9 +48,13 @@ Conflicts: kde-l10n < 17.03
 %license COPYING
 %{_kf5_datadir}/kservices5/svgpart.desktop
 %{_kf5_plugindir}/parts/%{name}.so
+%{_kf5_metainfodir}/org.kde.%{name}.metainfo.xml
 
 
 %changelog
+* Thu Jan  7 22:09:44 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Thu Dec 10 21:56:44 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
 - 20.12.0
 

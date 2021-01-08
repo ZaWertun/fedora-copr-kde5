@@ -10,8 +10,8 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 20.12.0
-Release: 2%{?dist}
+Version: 20.12.1
+Release: 1%{?dist}
 
 License: GPLv2
 URL:     https://cgit.kde.org/%{framework}.git
@@ -198,6 +198,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jan  7 22:09:18 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.12.1-1
+- 20.12.1
+
 * Sun Jan  3 13:52:49 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.12.0-2
 - obsolete for kdepim-apps-libs
 

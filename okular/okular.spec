@@ -15,8 +15,8 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 20.12.0
-Release: 2%{?dist}
+Version: 20.12.1
+Release: 1%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/okular/
@@ -31,8 +31,6 @@ URL:     https://www.kde.org/applications/graphics/okular/
 Source0: http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
-#  Fix for https://bugs.kde.org/show_bug.cgi?id=430538 (Markdown files opened as plain text)
-Patch0:  okular-20.12.0-fix-opening-markdown-files.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -235,6 +233,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Thu Jan  7 22:09:42 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Mon Dec 21 16:52:16 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-2
 - added okular-20.12.0-fix-opening-markdown-files.patch
 

@@ -9,8 +9,8 @@
 
 Name:    pim-data-exporter
 Summary: Pim Data Exporter
-Version: 20.12.0
-Release: 2%{?dist}
+Version: 20.12.1
+Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -126,6 +126,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jan  7 22:09:42 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
+- 20.12.1
+
 * Wed Jan  6 18:55:05 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-2
 - added patches to fix export & import
 
