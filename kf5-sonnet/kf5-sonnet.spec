@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.77.0
+Version: 5.78.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 solution for spell checking
 
@@ -122,6 +122,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jan  9 16:30:34 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
+- 5.78.0
+
 * Mon Dec 14 16:50:27 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
 - 5.77.0
 

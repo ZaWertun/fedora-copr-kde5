@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.77.0
+Version: 5.78.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 2 solution with abstraction for system notifications
 
@@ -42,6 +42,7 @@ BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
 BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  cmake(Qt5Quick)
 
 %if !0%{?bootstrap}
 %if 0%{?fedora}
@@ -116,6 +117,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" |
 
 
 %changelog
+* Sat Jan  9 16:30:26 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
+- 5.78.0
+
 * Mon Dec 14 16:50:19 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
 - 5.77.0
 

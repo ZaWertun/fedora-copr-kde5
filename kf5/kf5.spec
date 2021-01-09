@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kf5
-Version: 5.77.0
+Version: 5.78.0
 Release: 1%{?dist}
 Summary: Filesystem and RPM macros for KDE Frameworks 5
 License: BSD
@@ -81,6 +81,9 @@ sed -i \
 
 
 %changelog
+* Sat Jan  9 16:30:12 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
+- 5.78.0
+
 * Mon Dec 14 16:50:05 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
 - 5.77.0
 

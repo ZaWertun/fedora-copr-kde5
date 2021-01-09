@@ -2,8 +2,8 @@
 %global framework kio
 
 Name:    kf5-%{framework}
-Version: 5.77.0
-Release: 2%{?dist}
+Version: 5.78.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
@@ -19,7 +19,6 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches
-Patch0:  kf5-kio-5.77.0-fix-bug-430374.patch
 
 ## upstreamable patches
 
@@ -288,6 +287,9 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 
 %changelog
+* Sat Jan  9 16:30:24 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
+- 5.78.0
+
 * Wed Dec 23 14:32:39 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-2
 - added patch to fix bug 430374
 
