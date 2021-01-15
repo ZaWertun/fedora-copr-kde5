@@ -10,7 +10,7 @@
 Name:    dolphin
 Summary: KDE File Manager
 Version: 20.12.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git/
@@ -22,6 +22,9 @@ URL:     https://cgit.kde.org/%{name}.git/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+
+## upstream patches
+Patch0:  b1cadeba939155282a9fadf7d7b025d6529c489e.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qtbase-devel
@@ -151,6 +154,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Jan 15 18:00:50 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-2
+- added patch to fix #431626
+
 * Thu Jan  7 22:09:09 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 
