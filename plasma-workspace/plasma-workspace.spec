@@ -16,10 +16,10 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
-URL:     https://cgit.kde.org/%{name}.git
+URL:     https://invent.kde.org/plasma/%{name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -51,8 +51,6 @@ Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 # and example,
 # https://github.com/notmart/artwork-lnf-netrunner-core/blob/master/usr/share/plasma/look-and-feel/org.kde.netrunner-core.desktop/contents/defaults
 Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
-# workaround https://bugzilla.redhat.com/show_bug.cgi?id=1754395
-Patch106:       plasma-workspace-5.18.4.1-filter-environment-v2.patch
 # Fix for https://bugs.kde.org/show_bug.cgi?id=408606
 Patch110:       fix-408606.patch
 
@@ -61,6 +59,7 @@ Patch110:       fix-408606.patch
 ## upstream Patches lookaside cache
 
 ## upstream Patches (master branch)
+Patch416: 0416-libkworkspace-Only-update-env-vars-with-alphanumeric.patch
 
 # udev
 BuildRequires:  zlib-devel
@@ -406,6 +405,7 @@ BuildArch: noarch
 %setup -q -a 20
 
 ## upstream patches
+%patch416 -p1 -b 0416
 
 %patch100 -p1 -b .konsole-in-contextmenu
 # FIXME/TODO:  it is unclear whether this is needed or even a good idea anymore -- rex
@@ -415,7 +415,6 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
   shell/packageplugins/lookandfeel/lookandfeel.cpp
 %endif
 %patch105 -p1
-%patch106 -p1 -b .bz1754395
 %patch110 -p1 -b .fix-408606
 
 %if 0%{?fedora}
@@ -704,6 +703,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Jan 15 13:16:48 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-2
+- pull in upstream fix for sanitized user environment (#1754395)
+
 * Tue Jan  5 22:06:23 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 
