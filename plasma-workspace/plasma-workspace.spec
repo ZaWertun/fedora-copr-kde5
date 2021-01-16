@@ -16,7 +16,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.20.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}.git
@@ -703,6 +703,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Sat Jan 16 16:32:28 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-3
+- rebuild
+
 * Fri Jan 15 13:16:48 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-2
 - pull in upstream fix for sanitized user environment (#1754395)
 
