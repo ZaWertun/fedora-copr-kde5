@@ -10,7 +10,7 @@
 Name:    dolphin
 Summary: KDE File Manager
 Version: 20.12.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git/
@@ -68,6 +68,7 @@ BuildRequires:  libappstream-glib
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 %{?kf5_kinit_requires}
 
+Recommends:     kio-fuse%{?_isa}
 Recommends:     kio-extras%{?_isa}
 
 # translations moved here
@@ -154,6 +155,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Jan 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-3
+- kio-fuse added to recommended packages
+
 * Fri Jan 15 18:00:50 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-2
 - added patch to fix #431626
 
