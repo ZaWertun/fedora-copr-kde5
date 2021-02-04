@@ -16,7 +16,7 @@
 
 Name:    kalzium
 Summary: Periodic Table of Elements
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -155,6 +155,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 
 
 %changelog
+* Fri Feb  5 00:48:04 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Fri Jan  8 18:02:57 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

@@ -9,7 +9,7 @@
 
 Name:    analitza
 Summary: Library of mathematical features
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -101,6 +101,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Fri Feb  5 00:48:03 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Fri Jan  8 18:02:56 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

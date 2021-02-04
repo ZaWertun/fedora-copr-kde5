@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kiten
 Summary: Japanese Reference/Study Tool
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -116,6 +116,9 @@ done
 
 
 %changelog
+* Fri Feb  5 00:48:06 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Fri Jan  8 18:03:00 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 
