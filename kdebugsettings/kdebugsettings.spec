@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdebugsettings
 Summary: Configure debug output from Qt5 applications
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -70,6 +70,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kdebugset
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:16 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

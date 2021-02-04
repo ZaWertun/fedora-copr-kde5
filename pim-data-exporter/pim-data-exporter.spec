@@ -9,7 +9,7 @@
 
 Name:    pim-data-exporter
 Summary: Pim Data Exporter
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -25,10 +25,6 @@ URL:     https://userbase.kde.org/Akonadi/
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# https://invent.kde.org/pim/pim-data-exporter/-/commit/30fc703e7310d372a03ea622e0f397e19c43223e
-Patch0:  pim-data-exporter-20.12.0-fix-export.patch
-# https://invent.kde.org/pim/pim-data-exporter/-/commit/adf53dd4bdfdbf98b2b62061c586d4c078aa9c41
-Patch1:  pim-data-exporter-20.12.0-fix-import.patch
 
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
@@ -126,6 +122,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:42 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

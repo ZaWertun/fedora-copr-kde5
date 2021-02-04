@@ -2,7 +2,7 @@
 %global framework libkleo
 
 Name:    kf5-%{framework}
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 Summary: KDE PIM cryptographic library
 
@@ -105,6 +105,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:29 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

@@ -2,7 +2,7 @@
 
 Name:    kmix 
 Summary: KDE volume control 
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 # code is LGPLv2+ except for gui/osdwidget.* which is GPLv2+
@@ -111,6 +111,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmix.desktop
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:34 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

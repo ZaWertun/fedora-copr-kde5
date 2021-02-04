@@ -9,7 +9,7 @@
 
 Name:    krdc
 Summary: Remote desktop client
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -144,6 +144,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:38 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

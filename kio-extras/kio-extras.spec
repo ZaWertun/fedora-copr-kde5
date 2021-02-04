@@ -8,7 +8,7 @@
 %endif
 
 Name:    kio-extras
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -220,6 +220,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:33 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

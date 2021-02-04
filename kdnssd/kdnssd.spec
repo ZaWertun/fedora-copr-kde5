@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdnssd
 Summary: KDE Network Monitor for DNS-SD services (Zeroconf)
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -65,6 +65,9 @@ Provides:  kdenetwork-kdnssd = 7:%{version}-%{release}
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:20 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

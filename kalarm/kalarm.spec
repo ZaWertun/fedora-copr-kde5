@@ -9,7 +9,7 @@
 
 Name:    kalarm
 Summary: Personal Alarm Scheduler
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -144,6 +144,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:13 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

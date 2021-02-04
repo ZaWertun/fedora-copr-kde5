@@ -11,7 +11,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -164,6 +164,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Thu Jan  7 22:09:37 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 

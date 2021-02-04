@@ -9,8 +9,8 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 20.12.1
-Release: 3%{?dist}
+Version: 20.12.2
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git/
@@ -24,7 +24,6 @@ URL:     https://cgit.kde.org/%{name}.git/
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
-Patch0:  b1cadeba939155282a9fadf7d7b025d6529c489e.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qtbase-devel
@@ -155,6 +154,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Fri Jan 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-3
 - kio-fuse added to recommended packages
 
