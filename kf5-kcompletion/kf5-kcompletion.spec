@@ -18,6 +18,9 @@ URL:            https://cgit.kde.org/%{framework}.git
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
+## upstream fixes
+Patch3: 0003-Fix-regression-caused-due-to-porting-from-operator-t.patch
+
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
@@ -41,7 +44,7 @@ developing applications that use %{name}.
 
 
 %prep
-%setup -q -n %{framework}-%{version}
+%autosetup -n %{framework}-%{version} -p1
 
 
 %build
