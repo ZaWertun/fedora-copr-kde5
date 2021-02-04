@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-desktop-applets
 Summary: KDE Telepathy desktop applets
-Version: 20.12.1
+Version: 20.12.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -75,6 +75,9 @@ KDE Telepathy desktop applets, including:
 
 
 %changelog
+* Fri Feb  5 00:48:49 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
+- 20.12.2
+
 * Fri Jan  8 18:36:47 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
 - 20.12.1
 
