@@ -3,7 +3,7 @@
 
 Name:    %{framework}
 Version: 5.78.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: QtQuickControls2 style for consistency between QWidget and QML apps 
 
 # kirigami-plasmadesktop-integration: LGPLv2+
@@ -21,6 +21,9 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches
+# Use QQuickWindow::setTextRenderType() for the default text rendering type
+# https://invent.kde.org/frameworks/qqc2-desktop-style/-/merge_requests/52
+Patch0:  merge_request_52.patch
 
 BuildRequires: extra-cmake-modules >= %{majmin}
 BuildRequires: kf5-rpm-macros
@@ -43,12 +46,6 @@ BuildRequires: pkgconfig(Qt5X11Extras)
 BuildRequires: qt5-qtquickcontrols2-devel
 Requires: qt5-qtquickcontrols2%{?_isa}
 
-# WORKAROUND FTBFS
-%if 0%{?rhel}==7
-BuildRequires: devtoolset-7-toolchain
-BuildRequires: devtoolset-7-gcc-c++
-%endif
-
 %description
 This is a style for QtQuickControls 2 that uses QWidget's QStyle for
 painting, making possible to achieve an higher degree of consistency
@@ -60,12 +57,7 @@ between QWidget-based and QML-based apps.
 
 
 %build
-%if 0%{?rhel}==7
-. /opt/rh/devtoolset-7/enable
-%endif
-
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -86,6 +78,10 @@ between QWidget-based and QML-based apps.
 
 
 %changelog
+* Thu Feb 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-2
+- Added patch that fixes font rendering, corresponding merge request:
+  https://invent.kde.org/frameworks/qqc2-desktop-style/-/merge_requests/52
+
 * Sat Jan  9 16:30:36 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
 - 5.78.0
 
