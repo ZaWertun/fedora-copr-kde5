@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.78.0
+Version: 5.79.0
 Release: 1%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 
@@ -25,9 +25,6 @@ URL:     https://techbase.kde.org/Kirigami
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
-
-# Fix for #419008 (Always crash in Regional Setting within System Settings)
-Patch0:  revert_9b7cae898ed7d9b58e65035b8216ec6ff78bfa17.patch
 
 ## upstream paches
 
@@ -124,6 +121,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
+- 5.79.0
+
 * Sat Jan  9 16:30:24 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
 - 5.78.0
 

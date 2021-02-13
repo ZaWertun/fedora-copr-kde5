@@ -2,8 +2,8 @@
 %global framework qqc2-desktop-style
 
 Name:    %{framework}
-Version: 5.78.0
-Release: 2%{?dist}
+Version: 5.79.0
+Release: 1%{?dist}
 Summary: QtQuickControls2 style for consistency between QWidget and QML apps 
 
 # kirigami-plasmadesktop-integration: LGPLv2+
@@ -78,6 +78,9 @@ between QWidget-based and QML-based apps.
 
 
 %changelog
+* Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
+- 5.79.0
+
 * Thu Feb 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-2
 - Added patch that fixes font rendering, corresponding merge request:
   https://invent.kde.org/frameworks/qqc2-desktop-style/-/merge_requests/52

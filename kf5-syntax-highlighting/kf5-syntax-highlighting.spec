@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.78.0
+Version: 5.79.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Syntax highlighting engine for Kate syntax definitions
 
@@ -92,6 +92,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
+- 5.79.0
+
 * Sat Jan  9 16:30:35 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
 - 5.78.0
 

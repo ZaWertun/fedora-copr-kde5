@@ -2,7 +2,7 @@
 %global framework kcompletion
 
 Name:           kf5-%{framework}
-Version: 5.78.0
+Version: 5.79.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 2 addon with auto completion widgets and classes
 
@@ -19,7 +19,6 @@ URL:            https://cgit.kde.org/%{framework}.git
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream fixes
-Patch3: 0003-Fix-regression-caused-due-to-porting-from-operator-t.patch
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
@@ -77,6 +76,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
+- 5.79.0
+
 * Sat Jan  9 16:30:16 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
 - 5.78.0
 
