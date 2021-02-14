@@ -1,3 +1,5 @@
+%bcond_without optimization
+
 %undefine __cmake_in_source_build
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
@@ -8,7 +10,7 @@
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
 Version: 5.79.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
 License: LGPLv3+
@@ -40,6 +42,11 @@ BuildRequires: hardlink
 # for optimizegraphics
 #BuildRequires: kde-dev-scripts
 BuildRequires: time
+
+%if %{with optimization}
+BuildRequires: svgcleaner
+BuildRequires: python3-scour
+%endif
 
 # inheritance, though could consider Recommends: if needed -- rex
 Requires: hicolor-icon-theme
@@ -80,6 +87,17 @@ sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 
 %install
 %cmake_install
+
+%if %{with optimization}
+set +x
+find %{buildroot}%{_datadir}/icons/ -type f -name \*.svg |while read f; do
+    (scour --quiet --indent=none --no-line-breaks $f /tmp/$(basename $f) 2>/dev/null && mv /tmp/$(basename $f) $f 2>/dev/null) ||
+        echo "scour failed: $f"
+    (svgcleaner --quiet $f /tmp/$(basename $f) 2>/dev/null && mv /tmp/$(basename $f) $f 2>/dev/null) ||
+        echo "svgcleaner failed: $f"
+done
+set -x
+%endif
 
 ## icon optimizations
 #du -s  .
@@ -146,6 +164,9 @@ fi
 
 
 %changelog
+* Sun Feb 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-2
+- Optional icon optimization with svgcleaner & scour
+
 * Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
 - 5.79.0
 
