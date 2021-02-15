@@ -1,29 +1,28 @@
 %undefine __cmake_in_source_build
-%define appname kImageAnnotator
+%define appname kColorPicker
 %global libname lib%{appname}
 
-Name: kimageannotator
-Version: 0.4.1
+Name: kcolorpicker
+Version: 0.1.5
 Release: 1%{?dist}
 
 License: LGPLv3+
-Summary: Library and a tool for annotating images
+Summary: QToolButton control with color popup menu
 URL: https://github.com/ksnip/%{appname}
 Source0: %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires: cmake(Qt5LinguistTools)
-BuildRequires: cmake(kColorPicker)
-BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
-BuildRequires: cmake(Qt5Svg)
 
 BuildRequires: ninja-build
 BuildRequires: gcc-c++
 BuildRequires: cmake
 
 %description
-Library and a tool for annotating images. Part of KSnip project.
+QToolButton with color popup menu which lets you select a color.
+
+The popup features a color dialog button which can be used to add
+custom colors to the popup menu.
 
 %package devel
 Summary: Development files for %{name}
@@ -44,10 +43,9 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 
 %install
 %cmake_install
-%find_lang %{appname} --with-qt
 
-%files -f %{appname}.lang
-%doc CHANGELOG.md README.md
+%files
+%doc README.md
 %license LICENSE
 %{_libdir}/%{libname}.so.0*
 
@@ -57,14 +55,11 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %{_libdir}/%{libname}.so
 
 %changelog
-* Mon Feb 15 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.4.1-1
-- Updated to version 0.4.1.
+* Mon Feb 15 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.1.5-1
+- Updated to version 0.1.5.
 
-* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.0-2
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.1.4-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
-* Mon Dec 14 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 0.4.0-1
-- Updated to version 0.4.0.
-
-* Fri Jul 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 0.3.2-1
+* Fri Jul 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 0.1.4-1
 - Initial SPEC release.
