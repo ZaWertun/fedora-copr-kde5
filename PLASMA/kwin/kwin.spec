@@ -18,7 +18,7 @@
 
 Name:    kwin
 Version: 5.21.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -317,15 +317,11 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files wayland
 %{_kf5_bindir}/kwin_wayland
-%{_kf5_qtplugindir}/platforms/KWinQpaPlugin.so
-%{_kf5_qtplugindir}/org.kde.kglobalaccel5.platforms/KF5GlobalAccelPrivateKWin.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandDrmBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandFbdevBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandWaylandBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandX11Backend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandVirtualBackend.so
-%{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeKWinWaylandPrivatePlugin.so
-%{_userunitdir}/plasma-kwin_wayland.service
 
 %files x11
 %{_kf5_bindir}/kwin_x11
@@ -358,6 +354,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Feb 16 2021 ElXreno <elxreno@gmail.com> - 5.21.0-2
+- Drop non-existent files
+
 * Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
 - 5.21.0
 
