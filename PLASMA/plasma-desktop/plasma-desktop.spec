@@ -11,11 +11,11 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.20.5
-Release: 1%{?dist}
+Version: 5.21.0
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
-URL:     https://cgit.kde.org/%{name}.git
+URL:     https://invent.kde.org/plasma/%{name}
 
 %global verdir %(echo %{version} | cut -d. -f1-3)
 %global revision %(echo %{version} | cut -d. -f3)
@@ -36,6 +36,9 @@ Patch100: plasma-desktop-5.8-default_favorites.patch
 
 ## upstreamable patches
 Patch200: https://gitweb.gentoo.org/proj/kde.git/plain/kde-plasma/plasma-desktop/files/plasma-desktop-5.18.4.1-override-include-dirs.patch
+Patch201: plasma-desktop-missing-include.patch
+Patch202: plasma-desktop-python-shebang.patch
+
 # use this bundled copy (from f31) if not provided already
 Source200: synaptics-properties.h
 
@@ -151,6 +154,9 @@ Requires:       kmenuedit >= %{majmin_ver}
 
 Requires:       qqc2-desktop-style
 
+# for ibus-ui-emojier-plasma
+Recommends: ibus
+
 # Virtual provides for plasma-workspace
 Provides:       plasmashell(desktop) = %{version}-%{release}
 Provides:       plasmashell = %{version}-%{release}
@@ -199,6 +205,9 @@ BuildArch: noarch
 
 ## upstreamable patches
 %patch200 -p1
+%patch201 -p1
+%patch202 -p1
+
 %if ! 0%{?synaptics}
 install -pD %{SOURCE200} 3rdparty/xorg/synaptics-properties.h
 %endif
@@ -257,6 +266,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_bindir}/solid-action-desktop-gen
 %{_bindir}/ibus-ui-emojier-plasma
 %{_bindir}/tastenbrett
+%{_bindir}/krunner-plugininstaller
 %{_kf5_libexecdir}/kauth/kcmdatetimehelper
 %{_libexecdir}/kimpanel-ibus-panel
 %{_libexecdir}/kimpanel-ibus-panel-launcher
@@ -283,20 +293,21 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_bindir}/kapplymousetheme
 %{_kf5_datadir}/kcmmouse/
 %endif
-%{_datadir}/config.kcfg/browser_settings.kcfg
 %{_datadir}/config.kcfg/kactivitymanagerd_plugins_settings.kcfg
 %{_datadir}/config.kcfg/kactivitymanagerd_settings.kcfg
 %{_datadir}/config.kcfg/splashscreensettings.kcfg
-%{_datadir}/config.kcfg/terminal_settings.kcfg
 %{_datadir}/config.kcfg/workspaceoptions_kdeglobalssettings.kcfg
 %{_datadir}/config.kcfg/workspaceoptions_plasmasettings.kcfg
 %{_datadir}/config.kcfg/launchfeedbacksettingsbase.kcfg
+%{_datadir}/config.kcfg/kcmaccessibilitybell.kcfg
+%{_datadir}/config.kcfg/kcmaccessibilitykeyboard.kcfg
+%{_datadir}/config.kcfg/kcmaccessibilitymouse.kcfg
+%{_datadir}/config.kcfg/kcmaccessibilityscreenreader.kcfg
 %{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
 %{_datadir}/qlogging-categories5/kcmkeys.categories
 %{_datadir}/qlogging-categories5/kcmusers.categories
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kcmkeys
-%{_kf5_datadir}/kcm_componentchooser
 %{_kf5_datadir}/kcmkeyboard
 %{_kf5_datadir}/kpackage/kcms/*
 %{_kf5_datadir}/knsrcfiles/
@@ -326,7 +337,23 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
-* Tue Jan  5 22:06:19 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+* Mon Feb 15 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-2
+- Tarball respin
+
+* Thu Feb 11 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-1
+- 5.21.0
+
+* Thu Jan 28 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.90-3
+- ibus-ui-emojier-plasma: +Recommends: ibus
+
+* Tue Jan 26 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.90-2
+- for ibus-ui-emojier-plasma: +Recommends: ibus-uniemoji
+- fix URL
+
+* Thu Jan 21 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.90-1
+- 5.20.90 (beta)
+
+* Tue Jan  5 16:03:32 CET 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.5-1
 - 5.20.5
 
 * Thu Dec 31 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.4-2

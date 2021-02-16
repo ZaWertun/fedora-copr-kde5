@@ -3,7 +3,7 @@
 
 Name:    polkit-kde
 Summary: PolicyKit integration for KDE Desktop
-Version: 5.20.5
+Version: 5.21.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -32,6 +32,8 @@ BuildRequires:  kf5-kiconthemes-devel
 BuildRequires:  kf5-knotifications-devel
 
 BuildRequires:  polkit-qt5-1-devel
+
+BuildRequires:  systemd
 
 Provides: PolicyKit-authentication-agent = %{version}-%{release}
 Provides: polkit-kde-1 = %{version}-%{release}
@@ -74,9 +76,13 @@ mv %{buildroot}/%{_libexecdir}/polkit-kde-authentication-agent-1 \
 %{_sysconfdir}/xdg/autostart/polkit-kde-authentication-agent-1.desktop
 %{_kf5_datadir}/knotifications5/policykit1-kde.notifyrc
 %{_kf5_datadir}/applications/org.kde.polkit-kde-authentication-agent-1.desktop
+%{_userunitdir}/plasma-polkit-agent.service
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Jan  5 22:06:23 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 

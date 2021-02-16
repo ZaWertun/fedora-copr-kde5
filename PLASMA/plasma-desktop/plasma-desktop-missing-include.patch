@@ -1,0 +1,13 @@
+diff --git a/kcms/autostart/autostartmodel.cpp b/kcms/autostart/autostartmodel.cpp
+index bb15ffe..94d800c 100644
+--- a/kcms/autostart/autostartmodel.cpp
++++ b/kcms/autostart/autostartmodel.cpp
+@@ -35,6 +35,8 @@
+ #include <KOpenWithDialog>
+ #include <KPropertiesDialog>
+ 
++#include <optional>
++
+ // FDO user autostart directories are
+ // .config/autostart which has .desktop files executed by klaunch
+ 

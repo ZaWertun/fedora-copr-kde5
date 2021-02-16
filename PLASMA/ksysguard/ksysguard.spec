@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    ksysguard
-Version: 5.20.5
+Version: 5.21.0
 Release: 1%{?dist}
 Summary: KDE Process Management application
 
@@ -89,8 +89,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 %{_kf5_datadir}/dbus-1/services/org.kde.ksystemstats.service
 %caps(cap_net_raw=pe) %{_libexecdir}/ksysguard/ksgrd_network_helper
 %{_qt5_plugindir}/ksysguard/ksysguard_ksgrd.so
+%{_qt5_plugindir}/ksysguard/ksysguard_plugin_cpu.so
+%{_qt5_plugindir}/ksysguard/ksysguard_plugin_disk.so
+%{_qt5_plugindir}/ksysguard/ksysguard_plugin_power.so
+%{_qt5_plugindir}/ksysguard/ksysguard_plugin_memory.so
 %{_qt5_plugindir}/ksysguard/ksysguard_plugin_osinfo.so
-%{_qt5_plugindir}/ksysguard/ksysguard_plugin_nvidiaglobal.so
 %{_qt5_plugindir}/ksysguard/ksysguard_globalplugin_network.so
 %{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_nvidia.so
 %{_qt5_plugindir}/ksysguard/process/ksysguard_plugin_network.so
@@ -102,6 +105,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ksysguard.des
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Jan  5 22:06:16 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 

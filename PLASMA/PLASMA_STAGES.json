@@ -12,7 +12,6 @@
     "libkscreen-qt5",
     "libksysguard",
     "pam-kwallet",
-    "plasma-browser-integration",
     "plasma-discover",
     "plasma-disks",
     "plasma-drkonqi",
@@ -23,6 +22,7 @@
     "plasma-thunderbolt",
     "plasma-workspace-wallpapers",
     "polkit-kde",
+    "qqc2-breeze-style",
     "sddm-kcm",
     "xdg-desktop-portal-kde"
   ],
@@ -32,6 +32,7 @@
     "ksysguard",
     "plasma-breeze",
     "plasma-oxygen",
+    "plasma-systemmonitor",
     "plasma-vault"
   ],
   "2": [
@@ -46,6 +47,7 @@
     "kde-cli-tools",
     "kdeplasma-addons",
     "khotkeys",
+    "plasma-browser-integration",
     "plasma-desktop",
     "plasma-systemsettings",
     "powerdevil"

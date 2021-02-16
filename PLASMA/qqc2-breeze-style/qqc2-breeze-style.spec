@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 
 Name:    qqc2-breeze-style
-Version: 5.20.90
+Version: 5.21.0
 Release: 1%{?dist}
 Summary: Breeze inspired QQC2 Style
 
@@ -71,6 +71,9 @@ QQC2-Desktop-Style, it does not depend on Qt Widgets and the system QStyle.
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Feb 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.90-1
 - first spec for version 5.20.90
 

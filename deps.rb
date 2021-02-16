@@ -80,7 +80,7 @@ end.freeze
 workers = []
 SPECS.each_slice((SPECS.size/4)+1) do |slice|
     workers << Thread.new do
-        slice.each do |path|
+        slice.compact.each do |path|
             src = `rpmspec -P #{path} 2>/dev/null`.split(/\n/)
             spec = File.basename(path, '.spec')
 

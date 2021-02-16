@@ -1,32 +1,33 @@
 diff --git a/containmentactions/contextmenu/menu.cpp b/containmentactions/contextmenu/menu.cpp
-index 8f5a827..6271a7d 100644
+index 3271140..dcee8fd 100644
 --- a/containmentactions/contextmenu/menu.cpp
 +++ b/containmentactions/contextmenu/menu.cpp
-@@ -30,6 +30,7 @@
- #include <QIcon>
+@@ -28,6 +28,7 @@
+ #include <KAuthorized>
  #include <KGlobalAccel>
  #include <KLocalizedString>
 +#include <KToolInvocation>
+ #include <QDebug>
+ #include <QIcon>
  
- #include <Plasma/Containment>
- #include <Plasma/Corona>
 @@ -40,6 +41,7 @@
  
  ContextMenu::ContextMenu(QObject *parent, const QVariantList &args)
-     : Plasma::ContainmentActions(parent, args),
-+      m_runKonsoleAction(nullptr),
-       m_runCommandAction(nullptr),
-       m_lockScreenAction(nullptr),
-       m_logoutAction(nullptr),
-@@ -79,6 +81,7 @@ void ContextMenu::restore(const KConfigGroup &config)
-                       << QStringLiteral("configure shortcuts")
-                       << QStringLiteral("_sep1")
-                       << QStringLiteral("_context")
-+                      << QStringLiteral("_run_konsole")
-                       << QStringLiteral("_run_command")
-                       << QStringLiteral("add widgets")
-                       << QStringLiteral("_add panel")
-@@ -105,6 +108,10 @@ void ContextMenu::restore(const KConfigGroup &config)
+     : Plasma::ContainmentActions(parent, args)
++    , m_runKonsoleAction(nullptr)
+     , m_runCommandAction(nullptr)
+     , m_lockScreenAction(nullptr)
+     , m_logoutAction(nullptr)
+@@ -71,7 +73,7 @@ void ContextMenu::restore(const KConfigGroup &config)
+     } else {
+         actions.insert(QStringLiteral("configure shortcuts"), false);
+         m_actionOrder << QStringLiteral("configure") << QStringLiteral("run associated application") << QStringLiteral("configure shortcuts")
+-                      << QStringLiteral("_sep1") << QStringLiteral("_context") << QStringLiteral("_run_command") << QStringLiteral("add widgets")
++                      << QStringLiteral("_sep1") << QStringLiteral("_context") << QStringLiteral("_run_konsole") << QStringLiteral("_run_command") << QStringLiteral("add widgets")
+                       << QStringLiteral("_add panel") << QStringLiteral("manage activities") << QStringLiteral("remove") << QStringLiteral("edit mode")
+                       << QStringLiteral("_sep2") << QStringLiteral("_lock_screen") << QStringLiteral("_logout") << QStringLiteral("_sep3")
+                       << QStringLiteral("_wallpaper");
+@@ -90,6 +92,10 @@ void ContextMenu::restore(const KConfigGroup &config)
  
      // everything below should only happen once, so check for it
      if (!m_runCommandAction) {
@@ -37,7 +38,7 @@ index 8f5a827..6271a7d 100644
          m_runCommandAction = new QAction(i18nc("plasma_containmentactions_contextmenu", "Show KRunner"), this);
          m_runCommandAction->setIcon(QIcon::fromTheme(QStringLiteral("plasma-search")));
          m_runCommandAction->setShortcut(KGlobalAccel::self()->globalShortcut(QStringLiteral("krunner.desktop"), QStringLiteral("_launch")).value(0));
-@@ -185,6 +192,8 @@ QAction *ContextMenu::action(const QString &name)
+@@ -169,6 +175,8 @@ QAction *ContextMenu::action(const QString &name)
          if (c->corona() && c->corona()->immutability() == Plasma::Types::Mutable) {
              return c->corona()->actions()->action(QStringLiteral("add panel"));
          }
@@ -46,7 +47,7 @@ index 8f5a827..6271a7d 100644
      } else if (name == QLatin1String("_run_command")) {
          if (KAuthorized::authorizeAction(QStringLiteral("run_command")) && KAuthorized::authorize(QStringLiteral("run_command"))) {
              return m_runCommandAction;
-@@ -212,6 +221,11 @@ QAction *ContextMenu::action(const QString &name)
+@@ -196,6 +204,11 @@ QAction *ContextMenu::action(const QString &name)
      return nullptr;
  }
  
@@ -59,7 +60,7 @@ index 8f5a827..6271a7d 100644
  {
      if (!KAuthorized::authorizeAction(QStringLiteral("run_command"))) {
 diff --git a/containmentactions/contextmenu/menu.h b/containmentactions/contextmenu/menu.h
-index 813ff38..a157a48 100644
+index 3cc3d32..5735fb8 100644
 --- a/containmentactions/contextmenu/menu.h
 +++ b/containmentactions/contextmenu/menu.h
 @@ -42,10 +42,12 @@ public:

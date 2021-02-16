@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.20.5
+Version: 5.21.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -18,8 +18,6 @@ Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1
 ## upstream patches
 
 ## upstreamable patches
-# Fix for #426774 (https://bugs.kde.org/show_bug.cgi?id=426774)
-Patch0:  min_max.patch
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-kconfig-devel
@@ -129,6 +127,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Jan  5 22:06:18 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 

@@ -7,7 +7,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.20.5
+Version: 5.21.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -57,6 +57,8 @@ BuildRequires: kf5-kwidgetsaddons-devel
 BuildRequires: kf5-plasma-devel
 BuildRequires: kf5-rpm-macros
 BuildRequires: kf5-solid-devel
+BuildRequires: cmake(KF5KCMUtils)
+BuildRequires: cmake(KF5IdleTime)
 
 BuildRequires: cmake(Snapd) >= %{snapd_glib_version}
 BuildRequires: pkgconfig(packagekitqt5)
@@ -70,6 +72,7 @@ BuildRequires: pkgconfig(Qt5Svg)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5Xml)
+BuildRequires: pkgconfig(Qt5X11Extras)
 
 BuildRequires: kf5-kirigami2-devel >= 2.2
 Requires: kf5-kirigami2%{?_isa} >= 2.2
@@ -136,6 +139,7 @@ Supplements: (%{name} and snapd)
 %find_lang libdiscover
 %find_lang plasma-discover --with-html
 %find_lang plasma-discover-notifier
+%find_lang kcm_updates
 
 
 %check
@@ -162,6 +166,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %{_datadir}/kxmlgui5/plasmadiscover/
 %{_kf5_libexecdir}/discover/
 %dir %{_libexecdir}/discover
+%{_kf5_datadir}/kservices5/kcm_updates.desktop
 
 %files notifier -f plasma-discover-notifier.lang
 %{_datadir}/knotifications5/discoverabstractnotifier.notifyrc
@@ -171,7 +176,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 %ldconfig_scriptlets libs
 
-%files libs -f libdiscover.lang
+%files libs -f libdiscover.lang -f kcm_updates.lang
 %license LICENSES/*.txt
 %{_datadir}/knsrcfiles/discover_ktexteditor_codesnippets_core.knsrc
 %dir %{_libdir}/plasma-discover/
@@ -186,6 +191,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %dir %{_datadir}/libdiscover/categories
 %{_datadir}/libdiscover/categories/packagekit-backend-categories.xml
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_qtplugindir}/kcms/kcm_updates.so
+%{_kf5_datadir}/kpackage/kcms/kcm_updates/
 
 %files flatpak
 %{_datadir}/applications/org.kde.discover-flatpak.desktop
@@ -202,11 +209,14 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %{_kf5_qtplugindir}/discover/snap-backend.so
 %{_datadir}/dbus-1/system-services/org.kde.discover.libsnapclient.service
 %{_datadir}/polkit-1/actions/org.kde.discover.libsnapclient.policy
-%{_datadir}/applications/org.kde.discover.snap.urlhandler.desktop
 %{_datadir}/libdiscover/categories/snap-backend-categories.xml
+%{_kf5_datadir}/applications/org.kde.discover.snap.desktop
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Jan  5 22:06:19 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 

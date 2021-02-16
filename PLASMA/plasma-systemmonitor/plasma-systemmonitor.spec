@@ -3,13 +3,13 @@
 
 Name:    plasma-systemmonitor
 Summary: New version of KSysGuard built on top of the new KStats daemon
-Version: 5.20.0
+Version: 5.21.0
 Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
 
-Source0: https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz
 
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  desktop-file-utils
@@ -27,6 +27,7 @@ BuildRequires:  cmake(KF5Service)     >= %{min_kf_version}
 BuildRequires:  cmake(KF5NewStuff)    >= %{min_kf_version}
 BuildRequires:  cmake(KF5DBusAddons)  >= %{min_kf_version}
 BuildRequires:  cmake(KF5IconThemes)  >= %{min_kf_version}
+BuildRequires:  cmake(KF5ItemModels)  >= %{min_kf_version}
 BuildRequires:  cmake(KF5Declarative) >= %{min_kf_version}
 BuildRequires:  cmake(KF5GlobalAccel) >= %{min_kf_version}
 
@@ -82,6 +83,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Nov  3 21:30:40 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
 - first spec for version 5.20.0
 

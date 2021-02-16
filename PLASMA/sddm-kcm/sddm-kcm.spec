@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    sddm-kcm
-Version: 5.20.5
+Version: 5.21.0
 Release: 1%{?dist}
 Summary: SDDM KDE configuration module
 
@@ -39,6 +39,9 @@ BuildRequires:  libXcursor-devel
 BuildRequires:  libxcb-devel
 BuildRequires:  xcb-util-image-devel
 
+BuildRequires:  cmake(KF5Declarative)
+BuildRequires:  cmake(KF5KCMUtils)
+
 Requires:       sddm
 
 
@@ -65,17 +68,20 @@ SDDM Display Manager
 %doc README.md
 %license COPYING
 %{_kf5_bindir}/sddmthemeinstaller
-%{_kf5_qtplugindir}/kcm_sddm.so
-%{_kf5_datadir}/kservices5/kcm_sddm.desktop
-%{_kf5_datadir}/sddm-kcm
+%{_kf5_qtplugindir}/kcms/kcm_sddm.so
 %{_kf5_libexecdir}/kauth/kcmsddm_authhelper
+%{_kf5_datadir}/kservices5/kcm_sddm.desktop
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kcontrol.kcmsddm.conf
 %{_kf5_datadir}/knsrcfiles/sddmtheme.knsrc
+%{_kf5_datadir}/kpackage/kcms/kcm_sddm/
 %{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmsddm.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmsddm.policy
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Jan  5 22:06:24 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 

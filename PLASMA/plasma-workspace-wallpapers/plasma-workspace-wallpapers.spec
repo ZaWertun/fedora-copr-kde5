@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    plasma-workspace-wallpapers
-Version: 5.20.5
+Version: 5.21.0
 Release: 1%{?dist}
 Summary: Additional wallpapers for Plasma workspace
 License: LGPLv3
@@ -59,8 +59,10 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 %{_datadir}/wallpapers/Elarun/
 %{_datadir}/wallpapers/EveningGlow/
 %{_datadir}/wallpapers/FallenLeaf/
+%{_datadir}/wallpapers/Flow/
 %{_datadir}/wallpapers/FlyingKonqui/
 %{_datadir}/wallpapers/Grey/
+%{_datadir}/wallpapers/IceCold/
 %{_datadir}/wallpapers/Kite/
 %{_datadir}/wallpapers/Kokkini/
 %{_datadir}/wallpapers/OneStandsOut/
@@ -68,13 +70,15 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 %{_datadir}/wallpapers/PastelHills/
 %{_datadir}/wallpapers/Path/
 %{_datadir}/wallpapers/SafeLanding/
-%{_datadir}/wallpapers/summer_1am/
-%{_datadir}/wallpapers/IceCold/
+%{_datadir}/wallpapers/Shell/
 %{_datadir}/wallpapers/Volna/
-%{_datadir}/wallpapers/Flow/
+%{_datadir}/wallpapers/summer_1am/
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Jan  5 22:06:23 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 

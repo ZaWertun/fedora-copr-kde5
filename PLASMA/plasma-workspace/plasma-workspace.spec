@@ -4,7 +4,7 @@
 # repo or arch where there's no package that would provide plasmashell
 #global bootstrap 1
 
-%global kf5_version_min 5.50.0
+%global kf5_version_min 5.78.0
 
 # Control wayland by default
 %if (0%{?fedora} && 0%{?fedora} < 34) || (0%{?rhel} && 0%{?rhel} < 9)
@@ -15,11 +15,11 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.20.5
-Release: 3%{?dist}
+Version: 5.21.0
+Release: 1%{?dist}
 
 License: GPLv2+
-URL:     https://invent.kde.org/plasma/%{name}.git
+URL:     https://invent.kde.org/plasma/%{name}
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -37,11 +37,20 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 # This goes to PAM
 # TODO: this should arguably be in kde-settings with the other pam-related configs
 Source10:       kde
+Source11:       startkderc
 Source15:       fedora.desktop
 
 # breeze fedora sddm theme components
 # includes f25-based preview (better than breeze or nothing at least)
 Source20:       breeze-fedora-0.2.tar.gz
+
+# breeze fedora plasma theme components
+# includes breeze twilight settings and preview files
+# this will not be needed in 5.22 when breeze twilight replaces breeze
+# cf. https://invent.kde.org/plasma/plasma-workspace/-/merge_requests/552
+Source30:       breezetwilight-defaults
+Source31:       breezetwilight-fullscreenpreview.jpg
+Source32:       breezetwilight-preview.png
 
 ## downstream Patches
 Patch100:       plasma-workspace-5.12.5-konsole-in-contextmenu.patch
@@ -51,15 +60,12 @@ Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 # and example,
 # https://github.com/notmart/artwork-lnf-netrunner-core/blob/master/usr/share/plasma/look-and-feel/org.kde.netrunner-core.desktop/contents/defaults
 Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
-# Fix for https://bugs.kde.org/show_bug.cgi?id=408606
-Patch110:       fix-408606.patch
 
 ## upstreamable Patches
 
-## upstream Patches lookaside cache
+## upstream Patches
 
 ## upstream Patches (master branch)
-Patch416: 0416-libkworkspace-Only-update-env-vars-with-alphanumeric.patch
 
 # udev
 BuildRequires:  zlib-devel
@@ -140,6 +146,8 @@ BuildRequires:  kf5-plasma-devel >= %{kf5_version_min}
 Requires:       kf5-plasma%{?_isa} >= %{_kf5_version}
 BuildRequires:  kf5-threadweaver-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
+BuildRequires:  kf5-kirigami2-devel >= %{kf5_version_min}
+BuildRequires:  kf5-kquickcharts-devel >= %{kf5_version_min}
 
 
 BuildRequires:  kf5-ksysguard-devel >= %{majmin_ver}
@@ -151,6 +159,7 @@ BuildRequires:  kwin-devel >= %{majmin_ver}
 
 BuildRequires:  kuserfeedback-devel
 BuildRequires:  plasma-wayland-protocols-devel
+BuildRequires:  plasma-breeze-devel >= %{version}
 
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
@@ -376,14 +385,18 @@ Requires:       qt5-qttools
 %description wayland
 %{summary}.
 
-%package xorg
+%package x11
 Summary:        Xorg support for Plasma
+# Rename this package to match upstream
+Obsoletes:      %{name}-xorg < 5.20.90-2
+Provides:       %{name}-xorg = %{version}-%{release}
+Provides:       %{name}-xorg%{?_isa} = %{version}-%{release}
 # Split of Xorg session into subpackage
 Obsoletes:      %{name} < 5.19.5-2
 Requires:       %{name} = %{version}-%{release}
 Requires:       (kwin-x11 >= %{majmin_ver} or kwinft-x11 >= %{majmin_ver} or kwin-lowlatency-x11 >= %{majmin_ver})
 Requires:       xorg-x11-server-Xorg
-%description xorg
+%description x11
 %{summary}.
 
 %package -n plasma-lookandfeel-fedora
@@ -405,7 +418,6 @@ BuildArch: noarch
 %setup -q -a 20
 
 ## upstream patches
-%patch416 -p1 -b 0416
 
 %patch100 -p1 -b .konsole-in-contextmenu
 # FIXME/TODO:  it is unclear whether this is needed or even a good idea anymore -- rex
@@ -415,11 +427,13 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
   shell/packageplugins/lookandfeel/lookandfeel.cpp
 %endif
 %patch105 -p1
-%patch110 -p1 -b .fix-408606
 
 %if 0%{?fedora}
 cp -a lookandfeel lookandfeel-fedora
 install -m 0644 %{SOURCE15} lookandfeel-fedora/metadata.desktop
+install -m 0644 %{SOURCE30} lookandfeel-fedora/contents/defaults
+install -m 0644 %{SOURCE31} lookandfeel-fedora/contents/previews/fullscreenpreview.jpg
+install -m 0644 %{SOURCE32} lookandfeel-fedora/contents/previews/preview.png
 cat >> CMakeLists.txt <<EOL
 plasma_install_package(lookandfeel-fedora org.fedoraproject.fedora.desktop look-and-feel lookandfeel)
 EOL
@@ -427,7 +441,9 @@ EOL
 
 
 %build
-%{cmake_kf5}
+%{cmake_kf5} \
+  %{?with_wayland_default:-DPLASMA_WAYLAND_DEFAULT_SESSION:BOOL=ON}
+
 %cmake_build
 
 
@@ -442,9 +458,6 @@ ln -s startplasma-x11 %{buildroot}%{_kf5_bindir}/startkde
 %else
 # compat symlink
 ln -s startplasma-wayland %{buildroot}%{_kf5_bindir}/startkde
-# rename desktop files
-mv %{buildroot}%{_datadir}/wayland-sessions/plasmawayland.desktop %{buildroot}%{_datadir}/wayland-sessions/plasma.desktop
-mv %{buildroot}%{_datadir}/xsessions/plasma.desktop %{buildroot}%{_datadir}/xsessions/plasmaxorg.desktop
 %endif
 
 %if 0%{?fedora}
@@ -472,6 +485,10 @@ sed -i -e 's|^Image=.*$|Image=Fedora|g' \
 
 # Make kcheckpass work
 install -m644 -p -D %{SOURCE10} %{buildroot}%{_sysconfdir}/pam.d/kde
+
+# Make kdestart use systemd
+install -m644 -p -D %{SOURCE11} %{buildroot}%{_sysconfdir}/xdg/startkderc
+
 
 %find_lang all --with-html --all-name
 
@@ -529,6 +546,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/plasma/look-and-feel/org.kde.breeze.desktop/
 %{_kf5_datadir}/solid/
 %{_kf5_datadir}/kstyle/
+%{_sysconfdir}/xdg/startkderc
 %{_sysconfdir}/xdg/autostart/*.desktop
 %{_datadir}/icons/hicolor/*/*/*font*.png
 %{_datadir}/icons/hicolor/scalable/apps/preferences-desktop-font-installer.svgz
@@ -552,14 +570,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/knotifications5/*.notifyrc
 %{_kf5_datadir}/config.kcfg/*
 %{_kf5_datadir}/kio_desktop/
-%{_kf5_datadir}/kconf_update/krunnerplugins.upd
 %{_kf5_datadir}/kconf_update/delete_cursor_old_default_size.pl
 %{_kf5_datadir}/kconf_update/delete_cursor_old_default_size.upd
 %{_kf5_datadir}/kconf_update/icons_remove_effects.upd
 %{_kf5_datadir}/kconf_update/krdb_libpathwipe.upd
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.pl
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.upd
-%{_kf5_libdir}/kconf_update_bin/krunnerplugins
 %{_kf5_metainfodir}/*.xml
 %{_kf5_datadir}/applications/org.kde.klipper.desktop
 %{_kf5_datadir}/applications/org.kde.plasmashell.desktop
@@ -579,6 +595,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/kpackage/kcms/kcm_lookandfeel/*
 %{_kf5_datadir}/kpackage/kcms/kcm_style/*
 %{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
+%{_userunitdir}/*.service
+%{_userunitdir}/*.target
+
 # PAM
 %config(noreplace) %{_sysconfdir}/pam.d/kde
 %exclude %{_kf5_datadir}/kservices5/plasma-dataengine-geolocation.desktop
@@ -627,6 +646,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_qt5_plugindir}/kcms/kcm_icons.so
 %{_qt5_plugindir}/kcms/kcm_lookandfeel.so
 %{_qt5_plugindir}/kcms/kcm_style.so
+%{_libdir}/kconf_update_bin/krunnerhistory
 %{_libdir}/kconf_update_bin/krunnerglobalshortcuts
 %{_libdir}/kconf_update_bin/krdb_clearlibrarypath
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_applauncher.so
@@ -637,6 +657,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_libexecdir}/plasma-sourceenv.sh
 %{_libexecdir}/startplasma-waylandsession
 %{_datadir}/kconf_update/krunnerglobalshortcuts.upd
+%{_datadir}/kconf_update/krunnerhistory.upd
 %{_datadir}/kglobalaccel/krunner.desktop
 
 %files geolocation
@@ -688,12 +709,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_datadir}/wayland-sessions/plasma.desktop
 %endif
 
-%files xorg
+%files x11
 %{_kf5_bindir}/startplasma-x11
 %if ! %{with wayland_default}
 %{_datadir}/xsessions/plasma.desktop
 %else
-%{_datadir}/xsessions/plasmaxorg.desktop
+%{_datadir}/xsessions/plasmax11.desktop
 %endif
 
 %if 0%{?fedora}
@@ -701,22 +722,47 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/plasma/look-and-feel/org.fedoraproject.fedora.desktop/
 %endif
 
-
 %changelog
-* Sat Jan 16 16:32:28 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-3
-- rebuild
+* Thu Feb 11 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-1
+- 5.21.0
 
-* Fri Jan 15 13:16:48 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-2
+* Fri Jan 29 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.90-9
+- pull in upstream fix for lockscreen detection (kde#432251)
+
+* Thu Jan 28 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.90-7
+- pull in upstream wayland session fix (kde#432189)
+
+* Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 5.20.90-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Mon Jan 25 2021 Neal Gompa <ngompa13@gmail.com> - 5.20.90-5
+- Switch over to systemd user sessions
+
+* Mon Jan 25 2021 Neal Gompa <ngompa13@gmail.com> - 5.20.90-4
+- Fix setup for default wallpaper in Fedora Breeze Twilight theme
+
+* Sat Jan 23 2021 Neal Gompa <ngompa13@gmail.com> - 5.20.90-3
+- Fix configuration of Fedora Breeze Twilight theme
+
+* Fri Jan 22 2021 Neal Gompa <ngompa13@gmail.com> - 5.20.90-2
+- Switch to new Breeze Twilight-based theme (pagureio#fedora-kde/SIG#12)
+- Adapt Wayland by default to new upstream settings
+
+* Thu Jan 21 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.90-1
+- 5.20.90 (beta)
+
+* Thu Jan 14 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.5-4
+- rebuild (gpsd)
+- update URL
+
+* Thu Jan 14 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.5-3
 - pull in upstream fix for sanitized user environment (#1754395)
 
-* Tue Jan  5 22:06:23 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+* Thu Jan 14 10:43:00 CET 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.5-2
+- Rebuild (gpsd)
+
+* Tue Jan  5 16:03:33 CET 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.5-1
 - 5.20.5
-
-* Tue Jan  5 22:03:43 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-4
-- fixed dependicies for kwinft & kwin-lowlatency
-
-* Sat Jan  2 16:06:21 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-3
-- rebuild
 
 * Tue Dec 22 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.4-2
 - runtime dep cleanup, mostly -dbus-x11, +dbus +dbus-tools

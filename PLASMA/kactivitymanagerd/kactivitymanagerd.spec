@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:           kactivitymanagerd
 Summary:        Plasma service to manage user's activities
-Version: 5.20.5
+Version: 5.21.0
 Release: 1%{?dist}
 
 License:        GPLv2+
@@ -34,6 +34,8 @@ BuildRequires:  cmake(KF5DBusAddons)
 BuildRequires:  cmake(KF5I18n)
 
 BuildRequires:  boost-devel
+
+BuildRequires:  systemd
 
 # The kactivitymanagerd was split from KActivities in KF5 5.21,
 # but thanks to our clever packaging kf5-kactivities package
@@ -69,18 +71,22 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 
 
 %files -f kactivities5.lang
-%license COPYING*
+%license LICENSES/*.txt
 %doc README.md
 %{_libexecdir}/kactivitymanagerd
 %{_kf5_libdir}/libkactivitymanagerd_plugin.so
 %{_kf5_qtplugindir}/kactivitymanagerd/
-%{_kf5_datadir}/dbus-1/services/org.kde.activitymanager.service
 %{_kf5_datadir}/kservices5/kactivitymanagerd.desktop
 %{_kf5_datadir}/kservicetypes5/kactivitymanagerd-plugin.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_datadir}/dbus-1/services/org.kde.ActivityManager.service
+%{_userunitdir}/plasma-kactivitymanagerd.service
 
 
 %changelog
+* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Tue Jan  5 22:06:13 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
 - 5.20.5
 
