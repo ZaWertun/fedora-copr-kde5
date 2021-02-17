@@ -2,7 +2,7 @@
 %global min_qt_version 5.14.0
 
 Name:    disman
-Version: 0.520.1
+Version: 0.521.0
 Release: 1%{?dist}
 Summary: Qt/C++ display management library
 
@@ -90,6 +90,9 @@ echo >> %{name}.lang
 
 
 %changelog
+* Wed Feb 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.521.0-1
+- 0.521.0
+
 * Thu Dec 10 17:00:46 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.520.1-1
 - version 0.520.1
 

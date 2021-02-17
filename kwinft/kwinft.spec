@@ -13,8 +13,8 @@
 %endif
 
 Name:    kwinft
-Version: 5.20.0
-Release: 3%{?dist}
+Version: 5.21.0
+Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
 Provides:  kwin = %{version}
@@ -184,15 +184,11 @@ Requires:       xorg-x11-server-Xwayland
 Provides:       kwin-wayland = %{version}
 Conflicts:      kwin-wayland
 # </>
+# Obsolete kwin-wayland-nvidia package as this is now done automatically
+# by kwin-wayland
+Obsoletes:      %{name}-wayland-nvidia <= 5.20.0
+Provides:       %{name}-wayland-nvidia = %{version}-%{release}
 %description    wayland
-%{summary}.
-
-%package        wayland-nvidia
-Summary:        KDE Window Manager with Wayland support for NVIDIA driver
-Requires:       %{name}-wayland = %{version}-%{release}
-Supplements:    (%{name}-wayland and kmod-nvidia)
-BuildArch:      noarch
-%description    wayland-nvidia
 %{summary}.
 
 %package        x11
@@ -271,8 +267,7 @@ sed -i \
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -290,9 +285,8 @@ ln -s kwin_x11 %{buildroot}%{_bindir}/kwin
 ln -s kwin_wayland %{buildroot}%{_bindir}/kwin
 %endif
 
-# install kwin-wayland-nvidia environment file
-mkdir -p %{buildroot}%{_environmentdir}
-echo "KWIN_DRM_USE_EGL_STREAMS=1" > %{buildroot}%{_environmentdir}/10-kwin-wayland-nvidia.conf
+sed -ie "s|^#!/usr/bin/env python|#!%{__python3}|" %{buildroot}%{_datadir}/kconf_update/*.py
+rm -v %{buildroot}%{_datadir}/kconf_update/*.pye*
 
 
 %check
@@ -312,7 +306,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kwin/
 %{_kf5_qtplugindir}/kcms/
-%{_kf5_qtplugindir}/kf5/
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_packagestructure*.so
 %{_kf5_qtplugindir}/org.kde.kwin.scenes/*.so
@@ -323,6 +316,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kconf_update/kwin.upd
 %{_datadir}/kconf_update/kwin-5.16-auto-bordersize.sh
 %{_datadir}/kconf_update/kwin-5.18-move-animspeed.py
+%{_datadir}/kconf_update/kwin-5.21-desktop-grid-click-behavior.py
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
@@ -339,18 +333,12 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files wayland
 %{_kf5_bindir}/kwin_wayland
-%{_kf5_qtplugindir}/platforms/KWinQpaPlugin.so
-%{_kf5_qtplugindir}/org.kde.kglobalaccel5.platforms/KF5GlobalAccelPrivateKWin.so
+%{_kf5_bindir}/kwin_wayland_wrapper
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandDrmBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandFbdevBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandWaylandBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandX11Backend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandVirtualBackend.so
-%{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeKWinWaylandPrivatePlugin.so
-%{_userunitdir}/plasma-kwin_wayland.service
-
-%files wayland-nvidia
-%{_environmentdir}/10-kwin-wayland-nvidia.conf
 
 %files x11
 %{_kf5_bindir}/kwin_x11
@@ -377,6 +365,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwinglutils.so
 %{_libdir}/libkwin4_effect_builtins.so
 %{_includedir}/kwin*.h
+%{_kf5_libdir}/cmake/KWinEffects/KWinEffects*.cmake
 
 %files doc -f %{name}-doc.lang
 %doc README.md
@@ -384,6 +373,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Feb 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+- 5.21.0
+
 * Sat Dec  5 13:32:37 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-3
 - rebuild
 
