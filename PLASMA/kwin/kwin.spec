@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -29,7 +28,6 @@ Conflicts: kwin-lowlatency
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
 URL:     https://userbase.kde.org/KWin
-#URL:    https://cgit.kde.org/%{name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -39,13 +37,16 @@ URL:     https://userbase.kde.org/KWin
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
+
+## proposed patches
 
 # Base
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  systemd-rpm-macros
 
 # Qt
 BuildRequires:  qt5-qtbase-devel
@@ -57,6 +58,7 @@ BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qttools-devel
 BuildRequires:  qt5-qttools-static
 BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  qt5-qtwayland-devel
 
 # X11/OpenGL
 BuildRequires:  mesa-libGL-devel
@@ -77,19 +79,17 @@ BuildRequires:  xcb-util-devel
 BuildRequires:  libepoxy-devel
 BuildRequires:  libcap-devel
 
+BuildRequires:  lcms2-devel
+BuildRequires:  glib2-devel
+BuildRequires:  pipewire-devel
+
 # Wayland
 BuildRequires:  kf5-kwayland-devel
 BuildRequires:  wayland-devel
+BuildRequires:  wayland-protocols-devel
 BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
-BuildRequires:  pkgconfig(wayland-eglstream)
-BuildRequires:  pkgconfig(libpipewire-0.3)
-BuildRequires:  qt5-qtwayland-devel
-BuildRequires:  wayland-protocols-devel
-
-# Systemd
-BuildRequires:  systemd
 
 # KF5
 BuildRequires:  kf5-kcompletion-devel
@@ -116,6 +116,7 @@ BuildRequires:  kf5-kiconthemes-devel
 BuildRequires:  kf5-kidletime-devel
 BuildRequires:  kf5-ktextwidgets-devel
 BuildRequires:  kf5-kirigami2-devel
+BuildRequires:  kf5-krunner-devel
 
 BuildRequires:  kdecoration-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
@@ -155,7 +156,7 @@ Obsoletes:      kwin-gles-libs < 5
 Provides: firstboot(windowmanager) = kwin
 
 # Split of X11 variant into subpackage
-Obsoletes: kwin < 5.20.0
+Obsoletes: kwin < 5.19.5-3
 
 %if ! %{with wayland_default}
 Recommends: %{name}-wayland = %{version}-%{release}
@@ -173,6 +174,7 @@ Summary:        KDE Window Manager with Wayland support
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 Requires:       %{name}-common%{?_isa} = %{version}-%{release}
 Requires:       kwayland-integration%{?_isa} >= %{majmin_ver}
+Requires:       kwayland-server%{?_isa} >= %{majmin_ver}
 %if ! 0%{?bootstrap}
 BuildRequires:  xorg-x11-server-Xwayland
 %endif
@@ -185,7 +187,7 @@ Provides:       firstboot(windowmanager) = kwin_wayland
 %{?kf5_kinit_requires}
 # Obsolete kwin-wayland-nvidia package as this is now done automatically
 # by kwin-wayland
-Obsoletes:      %{name}-wayland-nvidia <= 5.20.3
+Obsoletes:      %{name}-wayland-nvidia < 5.20.2-2
 Provides:       %{name}-wayland-nvidia = %{version}-%{release}
 %description    wayland
 %{summary}.
@@ -211,6 +213,8 @@ Provides:       firstboot(windowmanager) = kwin_x11
 Summary:        Common files for KWin X11 and KWin Wayland
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 Requires:       kf5-kwayland%{?_isa} >= %{_kf5_version}
+# Split of X11 variant into subpackage
+Obsoletes:      %{name}-common < 5.19.5-3
 %description    common
 %{summary}.
 
@@ -242,7 +246,7 @@ BuildArch:      noarch
 
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -p1
 
 sed -i \
   -e 's|^find_package(Breeze ${PROJECT_VERSION} CONFIG)|find_package(Breeze 5.9 CONFIG)|' \
@@ -250,7 +254,7 @@ sed -i \
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 
 %cmake_build
@@ -289,8 +293,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kwin/
 %{_kf5_qtplugindir}/kcms/
-%{_kf5_qtplugindir}/kf5/
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
+%dir %{_kf5_qtplugindir}/org.kde.kwin.platforms
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_packagestructure*.so
 %{_kf5_qtplugindir}/org.kde.kwin.scenes/*.so
 %{_qt5_qmldir}/org/kde/kwin
@@ -300,10 +304,11 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kconf_update/kwin.upd
 %{_datadir}/kconf_update/kwin-5.16-auto-bordersize.sh
 %{_datadir}/kconf_update/kwin-5.18-move-animspeed.py
+%{_datadir}/kconf_update/kwin-5.21-desktop-grid-click-behavior.py
+%{_datadir}/kconf_update/kwin-5.21-no-swap-encourage.py
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
-%{_kf5_datadir}/kpackage/kcms/kcm_kwin_virtualdesktops/*
 %{_kf5_datadir}/kpackage/kcms/kcm_*
 %{_kf5_datadir}/knotifications5/kwin.notifyrc
 %{_kf5_datadir}/config.kcfg/kwin.kcfg
@@ -314,14 +319,17 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/kwinrules.upd
 %{_datadir}/icons/hicolor/*/apps/kwin.*
 %{_datadir}/knsrcfiles/*.knsrc
+%{_datadir}/krunner/dbusplugins/kwin-runner-windows.desktop
 
 %files wayland
+%{_bindir}/kwin_wayland_wrapper
 %{_kf5_bindir}/kwin_wayland
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandDrmBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandFbdevBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandWaylandBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandX11Backend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandVirtualBackend.so
+#{_userunitdir}/plasma-kwin_wayland.service
 
 %files x11
 %{_kf5_bindir}/kwin_x11
@@ -331,6 +339,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %ldconfig_scriptlets libs
 
 %files libs
+%{_kf5_datadir}/qlogging-categories5/org_kde_kwin.categories
 %{_libdir}/libkwin.so.*
 %{_libdir}/libkwinxrenderutils.so.*
 %{_libdir}/libkwineffects.so.*
@@ -338,11 +347,11 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwin4_effect_builtins.so.*
 %{_libdir}/libkcmkwincommon.so.*
 %{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
-%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
 %{_libdir}/cmake/KWinDBusInterface
+%{_libdir}/cmake/KWinEffects
 %{_libdir}/libkwinxrenderutils.so
 %{_libdir}/libkwineffects.so
 %{_libdir}/libkwinglutils.so
@@ -354,140 +363,236 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
-* Tue Feb 16 2021 ElXreno <elxreno@gmail.com> - 5.21.0-2
-- Drop non-existent files
+* Mon Feb 15 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-2
+- Tarball respin
 
-* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+* Thu Feb 11 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-1
 - 5.21.0
 
-* Tue Jan  5 22:06:17 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+* Mon Feb 08 2021 Neal Gompa <ngompa13@gmail.com> - 5.20.90-4
+- Add patch to ensure Xauthority file is generated for Wayland (rhbz#1921947)
+
+* Thu Jan 28 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.90-3
+- pull in upstream wayland fix (kde#432189)
+- .spec cosmetics
+- revert BR: make (not needed)
+
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 5.20.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Thu Jan 21 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.90-1
+- 5.20.90 (beta)
+
+* Tue Jan  5 16:03:31 CET 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.5-1
 - 5.20.5
 
-* Sat Dec  5 13:32:37 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-2
-- rebuild
+* Fri Jan 01 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.4-3
+- -wayland: add explicit versioned dep on kwayland-server
 
-* Tue Dec  1 22:30:42 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+* Thu Dec 10 10:57:46 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.4-2
+- Fix screensharing on Wayland with Chromium
+
+* Tue Dec  1 09:42:59 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.4-1
 - 5.20.4
 
-* Wed Nov 11 11:10:17 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+* Mon Nov 30 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-3
+- Fix screensharing for xwayland apps
+
+* Mon Nov 23 07:53:19 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-2
+- rebuild (qt5)
+
+* Wed Nov 11 08:33:06 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-1
 - 5.20.3
 
-* Tue Oct 27 16:56:25 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+* Thu Nov  5 07:55:10 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.2-3
+- Backport upstream fix for clipboard issue
+
+* Sat Oct 31 10:01:51 EDT 2020 Neal Gompa <ngompa13@gmail.com> - 5.20.2-2
+- Obsolete kwin-wayland-nvidia package by kwin-wayland since kwin now
+  automatically supports NVIDIA graphics correctly on Wayland
+
+* Tue Oct 27 14:23:03 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.2-1
 - 5.20.2
 
-* Tue Oct 20 17:02:42 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+* Tue Oct 20 15:28:57 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.1-1
 - 5.20.1
 
-* Thu Oct 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-2
-- kwin_x11 moved to separate package
+* Tue Oct 13 14:51:44 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.0-2
+- Updated sources
 
-* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+* Sun Oct 11 19:50:03 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.0-1
 - 5.20.0
 
-* Sun Sep 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
-- rebuild
+* Sat Oct 03 2020 Neal Gompa <ngompa13@gmail.com> - 5.19.90-2
+- Use Wayland by default for F34+
+  https://fedoraproject.org/wiki/Changes/WaylandByDefaultForPlasma
 
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.90-1
+- 5.19.90
+
+* Thu Sep 17 2020 Neal Gompa <ngompa13@gmail.com> - 5.19.5-3
+- Split out X11 support and set up conditional for Wayland by default
+- Add kwin-wayland-nvidia package for NVIDIA driver configuration
+
+* Fri Sep 11 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-2
+- rebuild (qt5)
+
+* Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
+* Tue Jul 28 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.19.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 14 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-2
+- Don't perform MouseActivateRaiseAndPassClick for topmost windows
+
+* Tue Jul 07 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
+* Tue Jun 23 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.2-1
 - 5.19.2
 
-* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+* Wed Jun 17 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.1-1
 - 5.19.1
 
-* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+* Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
 
-* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-3
-- rebuild
+* Fri May 15 2020 Martin Kyral <martin.kyral@gmail.com> - 5.18.90-1
+- 5.18.90
 
-* Fri Jun 12 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-2
-- rebuild
-
-* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
+* Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5
 
-* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+* Mon Apr 06 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.4.1-2
+- rebuild (qt5)
+
+* Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.4.1-1
 - 5.18.4.1
 
-* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+* Tue Mar 31 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.4-1
+- 5.18.4
+
+* Tue Mar 10 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.3-1
 - 5.18.3
 
-* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+* Tue Feb 25 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.2-1
 - 5.18.2
 
-* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+* Tue Feb 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.1-1
 - 5.18.1
 
-* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+* Tue Feb 11 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.0-1
 - 5.18.0
 
-* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.17.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Thu Jan 16 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.90-1
+- 5.17.90
+
+* Wed Jan 08 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.5-1
 - 5.17.5
 
-* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+* Mon Dec 09 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.4-2
+- rebuild (qt5)
+
+* Thu Dec 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.4-1
 - 5.17.4
 
-* Mon Nov 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-2
-- rebuild
-
-* Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
+* Wed Nov 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.17.3-1
 - 5.17.3
 
-* Sat Nov 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-2
-- GTK_FRAME_EXTENTS.patch returned
-
-* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+* Wed Oct 30 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.2-1
 - 5.17.2
 
-* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+* Wed Oct 23 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.1-1
 - 5.17.1
 
-* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+* Wed Oct 16 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.0-2
+- Updated tarball
+
+* Thu Oct 10 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.0-1
 - 5.17.0
 
-* Sun Oct 06 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-2
-- rebuild with new qt5
+* Wed Sep 25 2019 Jan Grulich <jgrulich@redhat.com> - 5.16.90-2
+- rebuild (qt5)
 
-* Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+* Fri Sep 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.90-1
+- 5.16.90
+
+* Fri Sep 06 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.5-1
 - 5.16.5
 
-* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+* Tue Jul 30 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.4-1
 - 5.16.4
 
-* Wed Jul 17 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-2
-- applied patch to support _GTK_FRAME_EXTENTS
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.16.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
-* Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
+* Wed Jul 10 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.3-1
 - 5.16.3
 
-* Wed Jul 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-2
-- rebuild with new qt5
-
-* Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
+* Wed Jun 26 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.2-1
 - 5.16.2
 
-* Tue Jun 18 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.1-1
+* Tue Jun 25 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-3
+- rebuild (qt5)
+
+* Wed Jun 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-2
+- pull in 5.16 branch fix
+
+* Tue Jun 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-1
 - 5.16.1
 
-* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+* Mon Jun 17 2019 Jan Grulich <jgrulich@redhat.com> - 5.16.0-2
+- rebuild (qt5)
+
+* Tue Jun 11 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.0-1
 - 5.16.0
 
-* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+* Wed Jun 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.15.90-2
+- rebuild (qt5)
+
+* Thu May 16 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.90-1
+- 5.15.90
+
+* Thu May 09 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.5-1
 - 5.15.5
 
-* Sat Apr 27 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
+* Wed Apr 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4-1
 - 5.15.4
 
-* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
-- 5.14.5
+* Wed Mar 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3.2-1
+- 5.15.3.2
+- tarball respun to remove docs causing build issues with KDocTools < 5.57
+
+* Tue Mar 12 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3-1
+- 5.15.3
+
+* Sun Mar 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-3
+- rebuild (qt5)
+
+* Thu Feb 28 2019 Pete Walter <pwalter@fedoraproject.org> - 5.15.2-2
+- Update wayland deps
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-1
+- 5.15.2
+
+* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.1-1
+- 5.15.1
+
+* Wed Feb 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.0-1
+- 5.15.0
+
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sun Jan 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.14.90-1
+- 5.14.90
 
 * Wed Dec 12 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.14.4-2
 - rebuild (qt5)

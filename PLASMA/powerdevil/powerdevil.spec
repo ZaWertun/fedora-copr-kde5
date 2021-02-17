@@ -111,6 +111,7 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
+%{_userunitdir}/plasma-powerdevil.service
 
 
 %changelog

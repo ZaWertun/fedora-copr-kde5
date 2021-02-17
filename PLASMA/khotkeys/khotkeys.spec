@@ -90,7 +90,7 @@ developing applications that use %{name}.
 %ldconfig_scriptlets
 
 %files -f khotkeys.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_libdir}/libkhotkeysprivate.so.*
 %{_kf5_qtplugindir}/kcm_hotkeys.so
 %{_kf5_plugindir}/kded/khotkeys.so

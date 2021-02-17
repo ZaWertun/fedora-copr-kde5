@@ -89,7 +89,7 @@ developing applications that use %{name}.
 %postun -p /sbin/ldconfig
 
 %files -f kdeplasmaaddons5_qt.lang
-%license COPYING COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_datadir}/plasma/plasmoids/*
 %{_kf5_datadir}/plasma/desktoptheme/default/widgets/*
 %{_kf5_datadir}/plasma/desktoptheme/default/weather/*

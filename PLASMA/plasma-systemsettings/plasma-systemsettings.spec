@@ -70,13 +70,6 @@ Conflicts: kde-workspace < 5.0
 %description
 %{summary}.
 
-%package        devel
-Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
-%description    devel
-The %{name}-devel package contains libraries and header files for
-developing applications that use %{name}.
-
 
 %prep
 %autosetup -n %{base_name}-%{version} -p1
@@ -94,8 +87,8 @@ developing applications that use %{name}.
 
 
 %check
-desktop-file-validate %{buildroot}%{_datadir}/applications/kdesystemsettings.desktop
-desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/kdesystemsettings.desktop ||:
+desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.desktop ||:
 
 
 %ldconfig_scriptlets
@@ -103,8 +96,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 %files -f systemsettings5.lang
 %license COPYING*
 %{_bindir}/systemsettings5
-%{_libdir}/libsystemsettingsview.so.*
-%{_kf5_qtplugindir}/*.so
+%{_kf5_qtplugindir}/systemsettingsview/icon_mode.so
+%{_kf5_qtplugindir}/systemsettingsview/systemsettings_sidebar_mode.so
 %{_datadir}/systemsettings/
 %{_datadir}/applications/kdesystemsettings.desktop
 %{_datadir}/applications/systemsettings.desktop
@@ -116,10 +109,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 %{_kf5_datadir}/kpackage/genericqml/org.kde.systemsettings.*/
 %{_kf5_metainfodir}/*.metainfo.xml
 %{_kf5_datadir}/qlogging-categories5/*categories
-
-%files devel
-%{_includedir}/systemsettingsview/
-%{_libdir}/libsystemsettingsview.so
 
 
 %changelog

@@ -27,6 +27,7 @@ BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  cmake(Qt5Gui)
 BuildRequires:  cmake(Qt5DBus)
+BuildRequires:  cmake(Qt5Quick)
 BuildRequires:  cmake(Qt5Widgets)
 BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(KF5I18n)
@@ -39,6 +40,7 @@ BuildRequires:  cmake(KF5Activities)
 BuildRequires:  cmake(KF5Crash)
 BuildRequires:  cmake(KF5Purpose)
 BuildRequires:  cmake(KF5FileMetaData)
+BuildRequires:  cmake(KF5ItemModels)
 
 BuildRequires:  cmake(LibTaskManager)
 
@@ -73,10 +75,12 @@ https://community.kde.org/Plasma/Browser_Integration
 %license COPYING-GPL3
 %config %{_sysconfdir}/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json
 %config %{_sysconfdir}/opt/chrome/native-messaging-hosts/org.kde.plasma.browser_integration.json
+%config %{_sysconfdir}/opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json
 %{_bindir}/plasma-browser-integration-host
 %{_libdir}/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json
 %{_libdir}/qt5/plugins/kf5/kded/browserintegrationreminder.so
-%{_kf5_plugindir}/krunner/krunner_browsertabs.so
+%{_kf5_datadir}/krunner/dbusplugins/plasma-runner-browsertabs.desktop
+%{_kf5_datadir}/krunner/dbusplugins/plasma-runner-browserhistory.desktop
 
 
 %changelog
