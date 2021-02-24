@@ -15,7 +15,7 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.21.0
+Version: 5.21.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -723,6 +723,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %endif
 
 %changelog
+* Tue Feb 23 13:50:10 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.1-1
+- 5.21.1
+
 * Thu Feb 11 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-1
 - 5.21.0
 

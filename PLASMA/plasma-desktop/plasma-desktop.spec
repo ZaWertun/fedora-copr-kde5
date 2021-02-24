@@ -11,8 +11,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.21.0
-Release: 2%{?dist}
+Version: 5.21.1
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -337,6 +337,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Tue Feb 23 13:50:06 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.1-1
+- 5.21.1
+
 * Mon Feb 15 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-2
 - Tarball respin
 
