@@ -14,7 +14,7 @@
 
 Name:    kwinft
 Version: 5.21.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
 Provides:  kwin = %{version}
@@ -285,7 +285,7 @@ ln -s kwin_x11 %{buildroot}%{_bindir}/kwin
 ln -s kwin_wayland %{buildroot}%{_bindir}/kwin
 %endif
 
-sed -ie "s|^#!/usr/bin/env python3|#!%{__python3}|" %{buildroot}%{_datadir}/kconf_update/*.py
+sed -ie "s|^#!/usr/bin/env python.*|#!%{__python3}|" %{buildroot}%{_datadir}/kconf_update/*.py
 rm -v %{buildroot}%{_datadir}/kconf_update/*.pye*
 
 
@@ -373,6 +373,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Feb 24 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-3
+- One more rebuild
+
 * Wed Feb 24 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-2
 - Fix dependency issue for KWinFT
 
