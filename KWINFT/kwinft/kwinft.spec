@@ -285,7 +285,7 @@ ln -s kwin_x11 %{buildroot}%{_bindir}/kwin
 ln -s kwin_wayland %{buildroot}%{_bindir}/kwin
 %endif
 
-sed -ie "s|^#!/usr/bin/env python|#!%{__python3}|" %{buildroot}%{_datadir}/kconf_update/*.py
+sed -ie "s|^#!/usr/bin/env python3|#!%{__python3}|" %{buildroot}%{_datadir}/kconf_update/*.py
 rm -v %{buildroot}%{_datadir}/kconf_update/*.pye*
 
 
