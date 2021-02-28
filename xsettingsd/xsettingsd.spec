@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:       xsettingsd
-Version:    1.0.0
+Version:    1.0.2
 Release:    1%{?dist}
 Summary:    Provides settings to X11 clients via the XSETTINGS specification
 
@@ -40,9 +40,12 @@ install -Dm0644 dump_xsettings.1 %{buildroot}%{_mandir}/man1/dump_xsettings.1
 %files
 %{_bindir}/*
 %{_mandir}/man1/*
-%doc README COPYING
+%doc README.md COPYING
 
 %changelog
+* Sun Feb 28 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.2-1
+- version 1.0.2
+
 * Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.0-1
 - version 1.0.0
 
