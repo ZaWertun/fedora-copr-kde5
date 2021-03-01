@@ -88,7 +88,7 @@
 |qqc2-desktop-style|![status](https://copr.fedorainfracloud.org/coprs/zawertun/kde/package/qqc2-desktop-style/status_image/last_build.png)|
 
 
-## Applications
+## APPS
 
 |_Package_|_Status_|
 |---------|--------|
@@ -219,7 +219,7 @@
 |yakuake|![status](https://copr.fedorainfracloud.org/coprs/zawertun/kde/package/yakuake/status_image/last_build.png)|
 
 
-## Plasma
+## PLASMA
 
 |_Package_|_Status_|
 |---------|--------|
