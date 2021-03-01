@@ -222,7 +222,6 @@
 ## Plasma
 
 |_Package_|_Status_|
-|---------|--------||_Package_|_Status_|
 |---------|--------|
 |bluedevil|![status](https://copr.fedorainfracloud.org/coprs/zawertun/kde/package/bluedevil/status_image/last_build.png)|
 |breeze-gtk|![status](https://copr.fedorainfracloud.org/coprs/zawertun/kde/package/breeze-gtk/status_image/last_build.png)|
