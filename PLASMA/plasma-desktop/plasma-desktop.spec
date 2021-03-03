@@ -11,7 +11,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.21.1
+Version: 5.21.2
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -252,6 +252,9 @@ rm -rfv %{buildroot}%{_datadir}/kdm/pics/users/
 # odd locale stuff?
 rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 
+sed -ie "s|^#!/usr/bin/env python.*|#!%{__python3}|" %{buildroot}%{_datadir}/kconf_update/*.py
+rm -v %{buildroot}%{_datadir}/kconf_update/*.pye*
+
 
 %check
 desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.desktop
@@ -337,6 +340,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Wed Mar 03 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.2-1
+- 5.21.2
+
 * Tue Feb 23 13:50:06 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.1-1
 - 5.21.1
 
