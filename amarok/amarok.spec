@@ -1,7 +1,7 @@
 Name:    amarok
 Summary: Powerful music player that lets you rediscover your music
 Version: 2.9.71
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/multimedia/amarok
@@ -58,14 +58,23 @@ BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5SyntaxHighlighting)
 BuildRequires: cmake(KF5Kirigami2)
+BuildRequires: cmake(KF5Wallet)
 
 BuildRequires: fftw-devel
 BuildRequires: zlib-devel
 BuildRequires: glib2-devel
+BuildRequires: gtkpod-devel
+BuildRequires: libmtp-devel
+BuildRequires: libofa-devel
 BuildRequires: taglib-devel
 BuildRequires: libcurl-devel
 BuildRequires: libxml2-devel
 BuildRequires: mariadb-devel
+BuildRequires: liblastfm-devel
+BuildRequires: loudmouth-devel
+BuildRequires: gdk-pixbuf2-devel
+# Commented - produces compilation error (header mygpo-qt5/ApiRequest.h not found)
+#BuildRequires: libmygpo-qt5-devel
 BuildRequires: taglib-extras-devel
 BuildRequires: mariadb-embedded-devel
 
@@ -178,6 +187,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.am
 
 
 %changelog
+* Thu Mar 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.9.71-2
+- More optional deps added
+
 * Thu Mar 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.9.71-1
 - First spec for version 2.9.71
 
