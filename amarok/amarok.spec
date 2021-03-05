@@ -1,7 +1,7 @@
 Name:    amarok
 Summary: Powerful music player that lets you rediscover your music
 Version: 2.9.71
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/multimedia/amarok
@@ -13,6 +13,7 @@ BuildRequires: extra-cmake-modules
 
 BuildRequires: libappstream-glib
 BuildRequires: desktop-file-utils
+BuildRequires: kf5-kdelibs4support
 
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5DBus)
@@ -79,6 +80,7 @@ BuildRequires: taglib-extras-devel
 BuildRequires: mariadb-embedded-devel
 
 Requires:      %{name}-libs%{?_isa} = %{version}-%{release}
+Requires:      %{name}-utils%{?_isa} = %{version}-%{release}
 Recommends:    %{name}-docs = %{version}-%{release}
 
 %description
@@ -90,10 +92,14 @@ Requires:       %{name} = %{version}-%{release}
 %description    libs
 Runtime files for %{name}.
 
+%package        utils
+Summary:        Amarok standalone utilities
+%description    utils
+%{summary}, including amarokcollectionscanner.
+
 %package        doc
 Summary:        Documentation for %{name}
 BuildArch:      noarch
-
 %description    doc
 Documentation for %{name}.
 
@@ -108,9 +114,12 @@ Documentation for %{name}.
 
 %install
 %cmake_install
-# Removing because locale validation error "Unusual locale length":
-rm -v %{buildroot}%{_kf5_datadir}/locale/*/LC_MESSAGES/amarokcollectionscanner_qt.qm
-%find_lang %{name} --with-qt --all-name
+
+%find_lang amarok --with-html --without-mo && mv amarok.lang amarok-doc.lang
+%find_lang amarok --all-name
+%find_lang amarokcollectionscanner --with-qt
+
+rm -fv %{buildroot}%{_libdir}/libamarok{-sqlcollection,-transcoding,core,lib,shared}.so
 chmod -x %{buildroot}%{_kf5_datadir}/applications/org.kde.amarok*.desktop
 
 
@@ -130,7 +139,6 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.am
 %{_sysconfdir}/xdg/amarok_homerc
 %{_bindir}/amarok
 %{_bindir}/amarok_afttagger
-%{_bindir}/amarokcollectionscanner
 %{_bindir}/amarokpkg
 %{_kf5_datadir}/amarok/data/
 %{_kf5_datadir}/amarok/icons/hicolor/
@@ -182,11 +190,18 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.am
 %{_kf5_libdir}/qt5/qml/org/kde/amarok/wikipedia/
 
 
-%files doc
+%files utils -f amarokcollectionscanner.lang
+%{_bindir}/amarokcollectionscanner
+
+
+%files doc -f amarok-doc.lang
 %{_kf5_datadir}/doc/HTML/*/amarok/
 
 
 %changelog
+* Fri Mar 05 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.9.71-3
+- Moved amarokcollectionscanner to -utils package
+
 * Thu Mar 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.9.71-2
 - More optional deps added
 
