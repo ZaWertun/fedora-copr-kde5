@@ -195,7 +195,6 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.am
 
 
 %files doc -f amarok-doc.lang
-%{_kf5_datadir}/doc/HTML/*/amarok/
 
 
 %changelog
