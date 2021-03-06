@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:       elisa-player
-Version:    20.12.2
+Version:    20.12.3
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -90,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
 %changelog
+* Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
 - 20.12.2
 

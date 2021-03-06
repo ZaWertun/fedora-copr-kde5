@@ -5,7 +5,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 20.12.2
+Version: 20.12.3
 Release: 1%{?dist}
 Summary:        Library to access to Google services
 
@@ -120,6 +120,9 @@ resources.
 
 
 %changelog
+* Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
 - 20.12.2
 

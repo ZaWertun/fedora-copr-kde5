@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kcachegrind
 Summary: GUI to profilers such as Valgrind
-Version: 20.12.2
+Version: 20.12.3
 Release: 1%{?dist}
 
 License: GPLv2 and GFDL
@@ -133,6 +133,9 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 
 %changelog
+* Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
 - 20.12.2
 

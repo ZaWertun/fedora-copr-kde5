@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    dragon
 Summary: Media player
-Version: 20.12.2
+Version: 20.12.3
 Release: 1%{?dist}
 
 # code: KDE e.V. may determine that future GPL versions are accepted
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.dragonpla
 
 
 %changelog
+* Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
 - 20.12.2
 

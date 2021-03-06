@@ -5,7 +5,7 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 20.12.2
+Version: 20.12.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -146,6 +146,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Thu Feb 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
 - 20.12.2
 
