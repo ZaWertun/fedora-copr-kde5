@@ -1,4 +1,5 @@
-%undefine __cmake_in_source_build
+%global _lto_cflags %{nil}
+
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -110,6 +111,7 @@ BuildRequires:  pkgconfig(libical)
 BuildRequires:  pkgconfig(libxslt) pkgconfig(libxml-2.0)
 
 BuildRequires:  pkgconfig(shared-mime-info)
+BuildRequires:  pkgconfig(zlib)
 
 %if !0%{?bootstrap}
 BuildRequires:  cmake(Qt5TextToSpeech)

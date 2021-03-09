@@ -54,6 +54,7 @@ BuildRequires: cmake(Qt5Widgets)
 
 BuildRequires: cmake(Phonon4Qt5)
 BuildRequires: pkgconfig(taglib)
+BuildRequires: pkgconfig(zlib)
 
 # when split occurred
 Obsoletes: kdemultimedia-juk < 6:4.8.80

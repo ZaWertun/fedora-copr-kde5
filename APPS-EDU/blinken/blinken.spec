@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    blinken 
 Summary: Memory Enhancement Game 
-Version: 20.12.2
+Version: 20.12.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -78,6 +78,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Fri Feb  5 00:48:03 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
 - 20.12.2
 

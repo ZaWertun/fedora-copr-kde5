@@ -71,6 +71,7 @@ BuildRequires: pkgconfig(sndfile)
 BuildRequires: pkgconfig(taglib)
 BuildRequires: pkgconfig(vorbisenc) pkgconfig(vorbisfile)
 BuildRequires: pkgconfig(taglib)
+BuildRequires: pkgconfig(zlib)
 
 Conflicts: k3b-extras-freeworld < 1:17.03
 

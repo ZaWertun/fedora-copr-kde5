@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-approver
 Summary: KDE Channel Approver for Telepathy
-Version: 20.12.2
+Version: 20.12.3
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -66,6 +66,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Fri Feb  5 00:48:48 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
 - 20.12.2
 

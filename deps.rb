@@ -107,8 +107,8 @@ SPECS.each_slice((SPECS.size/4)+1) do |slice|
                 br.select!.each_with_index {|_, i| !rm.include?(i)}
 
                 br.each do |r|
-                    if r =~ /[a-z]+\(.+\)/
-                        deps << resolve_dep(r)
+                    if r =~ /([a-z]+\(.+\))/
+                        deps << resolve_dep($1)
                     else
                         deps << r
                     end

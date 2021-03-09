@@ -1,11 +1,10 @@
-%undefine __cmake_in_source_build
 Name:    kpeoplevcard
 Summary: Makes it possible to expose vcards to KPeople
 Version: 0.1
 Release: 1%{?dist}
 
 License: LGPLv2+
-URL:     https://cgit.kde.org/%{name}.git
+URL:     https://invent.kde.org/pim/kpeoplevcard
 
 Source0: http://download.kde.org/stable/%{name}/%{version}/%{name}-%{version}.tar.xz
 

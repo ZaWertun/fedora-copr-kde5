@@ -39,7 +39,6 @@ BuildRequires:  cmake(KF5Codecs)
 BuildRequires:  cmake(KF5CalendarSupport)
 BuildRequires:  cmake(KF5EventViews)
 BuildRequires:  cmake(KF5Libkdepim)
-BuildRequires:  cmake(KF5KDGantt2)
 BuildRequires:  cmake(KF5CalendarUtils)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5MailTransport)
@@ -66,7 +65,6 @@ Conflicts:      kdepim-libs < 7:16.04.0
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       cmake(KF5KDGantt2)
 Requires:       cmake(KF5EventViews)
 Requires:       cmake(KF5CalendarSupport)
 Requires:       cmake(KF5CalendarUtils)
