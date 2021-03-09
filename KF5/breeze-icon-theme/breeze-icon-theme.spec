@@ -1,6 +1,5 @@
-%bcond_without optimization
+%bcond_with optimization
 
-%undefine __cmake_in_source_build
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
