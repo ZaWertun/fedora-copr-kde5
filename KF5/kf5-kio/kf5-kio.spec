@@ -2,7 +2,7 @@
 %global framework kio
 
 Name:    kf5-%{framework}
-Version: 5.79.0
+Version: 5.80.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
@@ -284,9 +284,15 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 %{_kf5_archdatadir}/mkspecs/modules/qt_KIOGui.pri
 %{_datadir}/dbus-1/interfaces/*.xml
 %{_kf5_bindir}/protocoltojson
+%dir %{_kf5_datadir}/kdevappwizard/
+%dir %{_kf5_datadir}/kdevappwizard/templates/
+%{_kf5_datadir}/kdevappwizard/templates/ioslave*
 
 
 %changelog
+* Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
+- 5.80.0
+
 * Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
 - 5.79.0
 

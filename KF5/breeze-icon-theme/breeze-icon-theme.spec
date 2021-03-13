@@ -8,8 +8,8 @@
 
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
-Version: 5.79.0
-Release: 2%{?dist}
+Version: 5.80.0
+Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
 License: LGPLv3+
@@ -163,6 +163,9 @@ fi
 
 
 %changelog
+* Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
+- 5.80.0
+
 * Sun Feb 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-2
 - Optional icon optimization with svgcleaner & scour
 

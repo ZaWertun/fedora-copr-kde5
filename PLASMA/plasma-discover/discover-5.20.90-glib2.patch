@@ -1,0 +1,84 @@
+diff -up discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakBackend.h.glib2 discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakBackend.h
+--- discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakBackend.h.glib2	2021-01-21 06:41:01.000000000 -0600
++++ discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakBackend.h	2021-02-10 11:26:43.704327286 -0600
+@@ -18,9 +18,7 @@
+ 
+ #include <AppStreamQt/component.h>
+ 
+-extern "C" {
+ #include <flatpak.h>
+-}
+ 
+ class FlatpakSourcesBackend;
+ class StandardBackendUpdater;
+diff -up discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakFetchDataJob.h.glib2 discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakFetchDataJob.h
+--- discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakFetchDataJob.h.glib2	2021-01-21 06:41:01.000000000 -0600
++++ discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakFetchDataJob.h	2021-02-10 11:28:06.032234337 -0600
+@@ -8,10 +8,8 @@
+ #define FLATPAKFETCHDATAJOB_H
+ 
+ #include <QByteArray>
+-extern "C" {
+ #include <flatpak.h>
+ #include <glib.h>
+-}
+ 
+ class FlatpakResource;
+ 
+diff -up discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakJobTransaction.h.glib2 discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakJobTransaction.h
+--- discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakJobTransaction.h.glib2	2021-01-21 06:41:01.000000000 -0600
++++ discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakJobTransaction.h	2021-02-10 11:27:09.968616640 -0600
+@@ -11,11 +11,9 @@
+ #include <Transaction/Transaction.h>
+ #include <QPointer>
+ 
+-extern "C" {
+ #include <flatpak.h>
+ #include <gio/gio.h>
+ #include <glib.h>
+-}
+ 
+ class FlatpakResource;
+ class FlatpakTransactionThread;
+diff -up discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakNotifier.h.glib2 discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakNotifier.h
+--- discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakNotifier.h.glib2	2021-01-21 06:41:01.000000000 -0600
++++ discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakNotifier.h	2021-02-10 11:26:02.800876618 -0600
+@@ -10,9 +10,7 @@
+ #include <BackendNotifierModule.h>
+ #include <functional>
+ 
+-extern "C" {
+ #include <flatpak.h>
+-}
+ 
+ class FlatpakNotifier : public BackendNotifierModule
+ {
+diff -up discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakResource.h.glib2 discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakResource.h
+--- discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakResource.h.glib2	2021-01-21 06:41:01.000000000 -0600
++++ discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakResource.h	2021-02-10 11:27:32.528865196 -0600
+@@ -11,9 +11,7 @@
+ 
+ #include <resources/AbstractResource.h>
+ 
+-extern "C" {
+ #include <flatpak.h>
+-}
+ 
+ #include <AppStreamQt/component.h>
+ 
+diff -up discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.h.glib2 discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.h
+diff -up discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.h.glib2 discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.h
+--- discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.h.glib2	2021-02-10 11:08:03.352832102 -0600
++++ discover-5.20.90/libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.h	2021-02-10 11:26:15.236013622 -0600
+@@ -7,11 +7,9 @@
+ #ifndef FLATPAKTRANSACTIONTHREAD_H
+ #define FLATPAKTRANSACTIONTHREAD_H
+ 
+-extern "C" {
+ #include <flatpak.h>
+ #include <gio/gio.h>
+ #include <glib.h>
+-}
+ 
+ #include <Transaction/Transaction.h>
+ #include <QThread>

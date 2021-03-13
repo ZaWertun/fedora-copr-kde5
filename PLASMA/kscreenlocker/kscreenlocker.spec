@@ -41,8 +41,8 @@ BuildRequires:  kf5-kwayland-devel
 
 BuildRequires:  libX11-devel
 BuildRequires:  xcb-util-keysyms-devel
-BuildRequires:  libwayland-client-devel
-BuildRequires:  libwayland-server-devel
+BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(xi)
 
 BuildRequires:  libXcursor-devel

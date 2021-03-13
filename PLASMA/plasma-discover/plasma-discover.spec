@@ -1,18 +1,19 @@
-%undefine __cmake_in_source_build
 
 %global base_name discover
-%global kf5_version 5.45
+%global kf5_version 5.73
 %global flatpak_version 0.8.0
+# enable snap support (or not)
+%global snap 1
 %global snapd_glib_version 1.39
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
 Version: 5.21.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
-URL:     https://cgit.kde.org/?p=%{base_name}.git
+URL:     https://invent.kde.org/plasma/discover
 
 %global verdir %(echo %{version} | cut -d. -f1-3)
 %global revision %(echo %{version} | cut -d. -f3)
@@ -23,7 +24,17 @@ URL:     https://cgit.kde.org/?p=%{base_name}.git
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz
 
+Source10: PK_OFFLINE_UPDATE.sh
+
 ## upstream patches (in lookaside cache)
+# git format-patch v%{version}
+
+## upstreamable patches
+
+# glib2 patch is needed only with glib2 > 2.66
+%if 0%{?fedora} >= 34
+Patch100: discover-5.20.90-glib2.patch
+%endif
 
 BuildRequires: appstream-qt-devel >= 0.11.1
 BuildRequires: appstream-devel
@@ -34,6 +45,8 @@ BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
 BuildRequires: gettext
 BuildRequires: libxml2-devel
+BuildRequires: pkgconfig(fwupd)
+BuildRequires: pkgconfig(libmarkdown)
 
 BuildRequires: extra-cmake-modules >= %{kf5_version}
 BuildRequires: kf5-attica-devel >= %{kf5_version}
@@ -41,10 +54,12 @@ BuildRequires: kf5-karchive-devel
 BuildRequires: kf5-kconfig-devel
 BuildRequires: kf5-kconfigwidgets-devel
 BuildRequires: kf5-kcoreaddons-devel
+BuildRequires: kf5-kcmutils-devel
 BuildRequires: kf5-kdbusaddons-devel
 BuildRequires: kf5-kdeclarative-devel
 BuildRequires: kf5-ki18n-devel
 BuildRequires: kf5-kiconthemes-devel
+BuildRequires: kf5-kidletime-devel
 BuildRequires: kf5-kitemmodels-devel
 BuildRequires: kf5-kio-devel
 BuildRequires: kf5-kitemviews-devel
@@ -57,10 +72,8 @@ BuildRequires: kf5-kwidgetsaddons-devel
 BuildRequires: kf5-plasma-devel
 BuildRequires: kf5-rpm-macros
 BuildRequires: kf5-solid-devel
-BuildRequires: cmake(KF5KCMUtils)
-BuildRequires: cmake(KF5IdleTime)
 
-BuildRequires: cmake(Snapd) >= %{snapd_glib_version}
+BuildRequires: cmake(KUserFeedback)
 BuildRequires: pkgconfig(packagekitqt5)
 BuildRequires: pkgconfig(phonon4qt5)
 BuildRequires: pkgconfig(Qt5Concurrent)
@@ -79,21 +92,45 @@ Requires: kf5-kirigami2%{?_isa} >= 2.2
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
+# Enable -packagekit and -flatpak by default
+# Fedora Kinoite will explicitely exclude -packagekit and -offline-updates
+Recommends: %{name}-packagekit = %{version}-%{release}
+Recommends: %{name}-flatpak = %{version}-%{release}
+
+# Enable -offline-updates by default for f34+
+%if 0%{?fedora} > 33
+Recommends: %{name}-offline-updates = %{version}-%{release}
+%endif
+
+# handle upgrade path
+%if ! 0%{?snap}
+Obsoletes: plasma-discover-snap < %{version}-%{release}
+%endif
+
 %description
 KDE and Plasma resources management GUI.
 
 %package libs
 Summary: Runtime libraries for %{name}
-Requires: PackageKit
 Requires: qt5-qtquickcontrols2%{?_isa}
 %description libs
 %{summary}.
 
+%package packagekit
+Summary: Plasma Discover PackageKit support
+Requires: PackageKit
+%description packagekit
+%{summary}.
+
 %package notifier
 Summary: Plasma Discover Update Notifier
+# -notifier replaces plasma-pk-updates for f34+
+%if 0%{?fedora} > 33
+Obsoletes: plasma-pk-updates < 0.5
+%endif
 Obsoletes: plasma-discover-updater < 5.6.95
 Provides:  plasma-discover-updater = %{version}-%{release}
-Requires: %{name}-libs%{?_isa} = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 %description notifier
 %{summary}.
 
@@ -107,8 +144,10 @@ Supplements: (%{name} and flatpak)
 %description flatpak
 %{summary}.
 
+%if 0%{?snap}
 %package snap
 Summary: Plasma Discover snap support
+BuildRequires: cmake(Snapd) >= %{snapd_glib_version}
 Requires: %{name} = %{version}-%{release}
 Requires: %{name}-libs = %{version}-%{release}
 Requires: snapd-qt%{?_isa} >= %{snapd_glib_version}
@@ -116,19 +155,22 @@ Requires: snapd
 Supplements: (%{name} and snapd)
 %description snap
 %{summary}.
+%endif
+
+%package offline-updates
+Summary: Plasma Discover Offline updates enablement
+Requires: %{name} = %{version}-%{release}
+%description offline-updates
+Set environment variable PK_OFFLINE_UPDATES to enable offline updates feature
+in %{name}.
 
 
 %prep
-%autosetup -p1 -n discover-%{version}
-
-# disable update notifier applet by default, since fedora uses plasma-pk-updates
-#sed -i \
-#  -e 's|X-KDE-PluginInfo-EnabledByDefault=.*|X-KDE-PluginInfo-EnabledByDefault=false|g' \
-#  notifier/plasmoid/metadata.desktop
+%autosetup -n discover-%{version} -p1
 
 
 %build
-%{cmake_kf5}
+%cmake_kf5
 
 %cmake_build
 
@@ -136,36 +178,40 @@ Supplements: (%{name} and snapd)
 %install
 %cmake_install
 
+install -m644 -p -D %{SOURCE10} %{buildroot}%{_kf5_sysconfdir}/xdg/plasma-workspace/env/PK_OFFLINE_UPDATE.sh
+
+## unpackaged files
+%if !0%{?snap}
+rm -fv %{buildroot}%{_datadir}/applications/org.kde.discover.snap.urlhandler.desktop
+%endif
+
 %find_lang libdiscover
+%find_lang kcm_updates
 %find_lang plasma-discover --with-html
 %find_lang plasma-discover-notifier
-%find_lang kcm_updates
 
+cat kcm_updates.lang plasma-discover.lang | sort | uniq -u > discover.lang
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.appdata.xml ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.flatpak.appdata.xml ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml ||:
-## discovernotifier currently fails, fixme
-## ? tag-invalid           : stock icon is not valid [update-none]
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discovernotifier.appdata.xml ||:
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.snap.appdata.xml ||:
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desktop
 
 
-%files -f plasma-discover.lang
+%files -f discover.lang
 %{_bindir}/plasma-discover
 %{_bindir}/plasma-discover-update
 %{_kf5_metainfodir}/org.kde.discover.appdata.xml
-%{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml
 %{_datadir}/applications/org.kde.discover.desktop
 %{_datadir}/applications/org.kde.discover.urlhandler.desktop
 %{_datadir}/icons/hicolor/*/apps/plasmadiscover.*
 %{_datadir}/icons/hicolor/*/apps/flatpak-discover.*
 %{_datadir}/discover/
 %{_datadir}/kxmlgui5/plasmadiscover/
+%{_datadir}/knsrcfiles/discover_ktexteditor_codesnippets_core.knsrc
 %{_kf5_libexecdir}/discover/
-%dir %{_libexecdir}/discover
+%{_kf5_datadir}/kpackage/kcms/kcm_updates/
 %{_kf5_datadir}/kservices5/kcm_updates.desktop
 
 %files notifier -f plasma-discover-notifier.lang
@@ -176,23 +222,25 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 %ldconfig_scriptlets libs
 
-%files libs -f libdiscover.lang -f kcm_updates.lang
+%files libs -f libdiscover.lang
 %license LICENSES/*.txt
-%{_datadir}/knsrcfiles/discover_ktexteditor_codesnippets_core.knsrc
+%{_kf5_datadir}/qlogging-categories5/discover.categories
 %dir %{_libdir}/plasma-discover/
 %{_libdir}/plasma-discover/libDiscoverNotifiers.so
 %{_libdir}/plasma-discover/libDiscoverCommon.so
-%dir %{_kf5_qtplugindir}/discover-notifier/
-%{_kf5_qtplugindir}/discover-notifier/DiscoverPackageKitNotifier.so
 %dir %{_kf5_qtplugindir}/discover
+%dir %{_kf5_qtplugindir}/discover-notifier/
+%{_kf5_qtplugindir}/discover/fwupd-backend.so
 %{_kf5_qtplugindir}/discover/kns-backend.so
-%{_kf5_qtplugindir}/discover/packagekit-backend.so
 %dir %{_datadir}/libdiscover
 %dir %{_datadir}/libdiscover/categories
+%{_qt5_plugindir}/kcms/kcm_updates.so
+
+%files packagekit
+%{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml
+%{_kf5_qtplugindir}/discover-notifier/DiscoverPackageKitNotifier.so
+%{_kf5_qtplugindir}/discover/packagekit-backend.so
 %{_datadir}/libdiscover/categories/packagekit-backend-categories.xml
-%{_kf5_datadir}/qlogging-categories5/*categories
-%{_kf5_qtplugindir}/kcms/kcm_updates.so
-%{_kf5_datadir}/kpackage/kcms/kcm_updates/
 
 %files flatpak
 %{_datadir}/applications/org.kde.discover-flatpak.desktop
@@ -201,127 +249,222 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %{_kf5_qtplugindir}/discover/flatpak-backend.so
 %{_datadir}/libdiscover/categories/flatpak-backend-categories.xml
 
+%if 0%{?snap}
 %files snap
-%{_datadir}/dbus-1/system.d/org.kde.discover.libsnapclient.conf
+%dir %{_libexecdir}/discover/
 %{_libexecdir}/discover/SnapMacaroonDialog
 %{_kf5_libexecdir}/kauth/libsnap_helper
 %{_kf5_metainfodir}/org.kde.discover.snap.appdata.xml
 %{_kf5_qtplugindir}/discover/snap-backend.so
+%{_datadir}/dbus-1/system.d/org.kde.discover.libsnapclient.conf
 %{_datadir}/dbus-1/system-services/org.kde.discover.libsnapclient.service
 %{_datadir}/polkit-1/actions/org.kde.discover.libsnapclient.policy
 %{_datadir}/libdiscover/categories/snap-backend-categories.xml
 %{_kf5_datadir}/applications/org.kde.discover.snap.desktop
+%endif
+
+%files offline-updates
+%{_kf5_sysconfdir}/xdg/plasma-workspace/env/PK_OFFLINE_UPDATE.sh
 
 
 %changelog
-* Wed Mar 03 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.2-1
+* Mon Mar 08 2021 Timothée Ravier <travier@redhat.com> - 5.21.2-2
+- Have PackageKit backend requires PackageKit for all branches
+  Recommend flatpak backend for all branches
+  Move PackageKit appdata to sub package
+
+* Tue Mar 02 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.2-1
 - 5.21.2
 
-* Tue Feb 23 13:50:06 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.1-1
+* Fri Feb 26 2021 Timothée Ravier <travier@redhat.com> - 5.21.1-2
+- Split PackageKit backend into a sub-package for Fedora Kinoite
+
+* Tue Feb 23 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.1-1
 - 5.21.1
 
-* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+* Mon Feb 22 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.0-2
+- -offline-updates: put env snippet in the right place
+
+* Thu Feb 11 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-1
 - 5.21.0
 
-* Tue Jan  5 22:06:19 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+* Wed Feb 10 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.90-4
+- backport upstream fixes
+
+* Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 5.20.90-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Fri Jan 22 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.20.90-2
+- BR: KUserFeedback
+
+* Thu Jan 21 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.90-1
+- 5.20.90 (beta)
+
+* Tue Jan  5 16:03:29 CET 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.5-1
 - 5.20.5
 
-* Tue Dec  1 22:30:45 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+* Tue Dec  1 09:42:56 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.4-1
 - 5.20.4
 
-* Wed Nov 11 11:10:20 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+* Mon Nov 30 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.3-3
+- Recommends: -flatpak (f34+)
+
+* Mon Nov 30 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.3-2
+- make env file match name of env variable PK_OFFLINE_UPDATE)
+
+* Wed Nov 11 08:22:38 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-1
 - 5.20.3
 
-* Tue Oct 27 16:56:28 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+* Thu Nov 05 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.2-3
+- -notifier: depend on main instead of just -libs
+- -notifier: Obsoletes: plasma-pk-updates (f34+)
+- Recommands: -offline-updates (f34+)
+
+* Thu Nov 05 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.20.2-2
+- .spec cleanup
+- update URL
+- offline-updates subpkg, to opt-in to the feature
+
+* Tue Oct 27 14:21:58 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.2-1
 - 5.20.2
 
-* Tue Oct 20 17:02:45 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+* Tue Oct 20 15:27:56 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.1-1
 - 5.20.1
 
-* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+* Sun Oct 11 19:50:02 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.0-1
 - 5.20.0
 
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.90-1
+- 5.19.90
+
+* Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.19.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 28 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
+* Tue Jul 07 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
+* Tue Jun 23 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.2-1
 - 5.19.2
 
-* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+* Wed Jun 17 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.1-1
 - 5.19.1
 
-* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+* Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
 
-* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
+* Fri May 15 2020 Martin Kyral <martin.kyral@gmail.com> - 5.18.90-1
+- 5.18.90
+
+* Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5
 
-* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+* Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.4.1-1
 - 5.18.4.1
 
-* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+* Tue Mar 31 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.4-1
+- 5.18.4
+
+* Tue Mar 10 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.3-1
 - 5.18.3
 
-* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+* Tue Feb 25 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.2-1
 - 5.18.2
 
-* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
-- 5.18.1
+* Tue Feb 18 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.1-2
+- Recommends: PackageKit
 
-* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+* Tue Feb 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.1-1
+- 5.18.1
+- enable fwupd,markdown support
+
+* Tue Feb 11 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.0-1
 - 5.18.0
 
-* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+* Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.17.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Thu Jan 16 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.90-1
+- 5.17.90
+
+* Wed Jan 08 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.5-1
 - 5.17.5
 
-* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+* Thu Dec 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.4-1
 - 5.17.4
 
-* Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
+* Wed Nov 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.17.3-1
 - 5.17.3
 
-* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+* Wed Oct 30 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.2-1
 - 5.17.2
 
-* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+* Wed Oct 23 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.1-1
 - 5.17.1
 
-* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+* Thu Oct 10 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.0-1
 - 5.17.0
 
-* Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+* Fri Sep 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.90-1
+- 5.16.90
+
+* Wed Sep 11 2019 Rex Dieter <rdieter@fedoraproject.org> 5.16.5-2
+- handle upgrade path if -snap is not enabled
+- re-enable -snap support
+
+* Fri Sep 06 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.5-1
 - 5.16.5
 
-* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+* Tue Jul 30 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.4-1
 - 5.16.4
 
-* Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
+* Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.16.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Wed Jul 10 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.3-1
 - 5.16.3
 
-* Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
+* Wed Jun 26 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.2-1
 - 5.16.2
 
-* Tue Jun 18 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.1-1
+* Tue Jun 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-1
 - 5.16.1
+- temporarily disable snap support on f31+
 
-* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+* Tue Jun 11 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.0-1
 - 5.16.0
 
-* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+* Thu May 16 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.90-1
+- 5.15.90
+
+* Thu May 09 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.5-1
 - 5.15.5
 
-* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5.1-1
-- 5.14.5.1
+* Wed Apr 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4-1
+- 5.15.4
 
-* Fri Feb 01 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
-- 5.14.5 (branch)
-- revert upstream commit leading to kde bug 399981
+* Tue Mar 12 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3-1
+- 5.15.3
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-1
+- 5.15.2
+
+* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.1-1
+- 5.15.1
+
+* Wed Feb 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.0-1
+- 5.15.0
+
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sun Jan 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.14.90-1
+- 5.14.90
 
 * Tue Nov 27 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.14.4-1
 - 5.14.4

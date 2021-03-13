@@ -2,7 +2,7 @@
 %global framework qqc2-desktop-style
 
 Name:    %{framework}
-Version: 5.79.0
+Version: 5.80.0
 Release: 1%{?dist}
 Summary: QtQuickControls2 style for consistency between QWidget and QML apps 
 
@@ -21,9 +21,6 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches
-# Use QQuickWindow::setTextRenderType() for the default text rendering type
-# https://invent.kde.org/frameworks/qqc2-desktop-style/-/merge_requests/52
-Patch0:  merge_request_52.patch
 
 BuildRequires: extra-cmake-modules >= %{majmin}
 BuildRequires: kf5-rpm-macros
@@ -78,6 +75,9 @@ between QWidget-based and QML-based apps.
 
 
 %changelog
+* Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
+- 5.80.0
+
 * Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
 - 5.79.0
 
