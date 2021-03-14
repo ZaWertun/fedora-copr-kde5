@@ -3,7 +3,7 @@
 
 Name:           kf5-%{framework}
 Version: 5.80.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with additional image plugins for QtGui
 
 License:        LGPLv2+
@@ -21,10 +21,14 @@ Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framewo
 %global __provides_exclude_from ^(%{_kf5_plugindir}/.*\\.so)$
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
-BuildRequires:  jasper-devel
 BuildRequires:  kf5-rpm-macros >= %{majmin}
-BuildRequires:  pkgconfig(OpenEXR)
 BuildRequires:  qt5-qtbase-devel
+
+BuildRequires:  cmake(KF5Archive)
+
+BuildRequires:  jasper-devel
+BuildRequires:  pkgconfig(OpenEXR)
+BuildRequires:  pkgconfig(libavif)
 
 Requires:       kf5-filesystem >= %{majmin}
 
@@ -60,6 +64,9 @@ image formats.
 
 
 %changelog
+* Sun Mar 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-2
+- optional build deps added
+
 * Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
 - 5.80.0
 
