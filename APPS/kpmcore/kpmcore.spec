@@ -2,7 +2,7 @@
 
 Name:           kpmcore
 Version:        20.12.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
 URL:            https://invent.kde.org/system/kpmcore
@@ -11,6 +11,9 @@ Source0:        http://download.kde.org/unstable/release-service/%{version}/src/
 %else
 Source0:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 %endif
+
+## upstreamable patches
+Patch0:         kpmcore-20.12.3-fix-exit-code-check.patch
 
 BuildRequires:  cmake
 BuildRequires:  extra-cmake-modules
@@ -58,7 +61,7 @@ developing applications that use %{name}
 
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMakeLists.txt
@@ -88,6 +91,9 @@ sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMak
 
 
 %changelog
+* Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-2
+- added kpmcore-20.12.3-fix-exit-code-check.patch
+
 * Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 
