@@ -2,7 +2,7 @@
 
 Name:           kde-partitionmanager
 Version:        20.12.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        KDE Partition Manager
 
 License:        GPLv3+
@@ -32,6 +32,8 @@ BuildRequires:  kf5-kwidgetsaddons-devel
 BuildRequires:  kf5-kdbusaddons-devel
 BuildRequires:  kpmcore-devel = %{version}
 BuildRequires:  qt5-qtbase-devel
+
+BuildRequires:  cmake(KF5DocTools)
 
 BuildRequires:  pkgconfig(appstream-glib)
 BuildRequires:  pkgconfig(blkid)
@@ -85,6 +87,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-2
+- added optional build dep: DocTools
+
 * Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 
