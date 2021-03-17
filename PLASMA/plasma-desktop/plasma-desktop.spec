@@ -36,7 +36,6 @@ Patch100: plasma-desktop-5.8-default_favorites.patch
 
 ## upstreamable patches
 Patch200: https://gitweb.gentoo.org/proj/kde.git/plain/kde-plasma/plasma-desktop/files/plasma-desktop-5.18.4.1-override-include-dirs.patch
-Patch201: plasma-desktop-missing-include.patch
 Patch202: plasma-desktop-python-shebang.patch
 
 # use this bundled copy (from f31) if not provided already
@@ -205,7 +204,6 @@ BuildArch: noarch
 
 ## upstreamable patches
 %patch200 -p1
-%patch201 -p1
 %patch202 -p1
 
 %if ! 0%{?synaptics}
