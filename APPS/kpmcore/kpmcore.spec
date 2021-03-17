@@ -1,16 +1,15 @@
-%undefine __cmake_in_source_build
 %global unstable 0
 
 Name:           kpmcore
-Version:        4.2.0
+Version:        20.12.3
 Release:        1%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
-URL:            https://github.com/KDE/kpmcore
+URL:            https://invent.kde.org/system/kpmcore
 %if 0%{?unstable}
-Source0:        http://download.kde.org/unstable/%{name}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:        http://download.kde.org/unstable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 %else
-Source0:        http://download.kde.org/stable/%{name}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 %endif
 
 BuildRequires:  cmake
@@ -63,17 +62,13 @@ developing applications that use %{name}
 
 %build
 sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMakeLists.txt
-
-mkdir -p %{_target_platform}
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-%find_lang %{name} --with-kde
-
+%find_lang %{name} --with-kde --all-name
 
 
 %files -f %{name}.lang
@@ -92,8 +87,10 @@ mkdir -p %{_target_platform}
 %{_kf5_libdir}/libkpmcore.so
 
 
-
 %changelog
+* Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Fri Nov  6 14:46:54 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.2.0-1
 - 4.2.0
 

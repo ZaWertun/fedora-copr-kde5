@@ -1,17 +1,16 @@
-%undefine __cmake_in_source_build
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        4.2.0
+Version:        20.12.3
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
 License:        GPLv3+
-URL:            http://www.kde.org/applications/system/kdepartitionmanager/
+URL:            https://invent.kde.org/system/partitionmanager
 %if 0%{?unstable}
-Source0:        http://download.kde.org/unstable/partitionmanager/%{version}/src/partitionmanager-%{version}.tar.xz
+Source0:        http://download.kde.org/unstable/release-service/%{version}/src/partitionmanager-%{version}.tar.xz
 %else
-Source0:        http://download.kde.org/stable/partitionmanager/%{version}/src/partitionmanager-%{version}.tar.xz
+Source0:        http://download.kde.org/stable/release-service/%{version}/src/partitionmanager-%{version}.tar.xz
 %endif
 
 BuildRequires:  cmake
@@ -31,14 +30,14 @@ BuildRequires:  kf5-kservice-devel
 BuildRequires:  kf5-kxmlgui-devel
 BuildRequires:  kf5-kwidgetsaddons-devel
 BuildRequires:  kf5-kdbusaddons-devel
-BuildRequires:  kpmcore-devel >= 4.2.0
+BuildRequires:  kpmcore-devel = %{version}
 BuildRequires:  qt5-qtbase-devel
 
 BuildRequires:  pkgconfig(appstream-glib)
 BuildRequires:  pkgconfig(blkid)
 BuildRequires:  pkgconfig(libatasmart)
 
-Requires:       kpmcore >= 4.2.0
+Requires:       kpmcore = %{version}
 Requires:       kf5-filesystem
 
 %description
@@ -86,6 +85,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
+- 20.12.3
+
 * Fri Nov  6 14:47:06 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 4.2.0-1
 - 4.2.0
 

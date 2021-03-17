@@ -34,6 +34,7 @@ kdegraphics-mobipocket
 kdegraphics-thumbnailers
 kdenetwork-filesharing
 kdenlive
+kde-partitionmanager
 kdepim-addons
 kdepim-runtime
 kde-print-manager
@@ -100,6 +101,7 @@ konsole5
 kontact
 korganizer
 kpat
+kpmcore
 kqtquickcharts
 krdc
 krfb
