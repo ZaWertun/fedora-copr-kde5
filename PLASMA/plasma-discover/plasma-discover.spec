@@ -8,8 +8,8 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.21.2
-Release: 2%{?dist}
+Version: 5.21.3
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
@@ -268,6 +268,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 
 %changelog
+* Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
+- 5.21.3
+
 * Mon Mar 08 2021 Timothée Ravier <travier@redhat.com> - 5.21.2-2
 - Have PackageKit backend requires PackageKit for all branches
   Recommend flatpak backend for all branches

@@ -3,7 +3,7 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.21.2
+Version: 5.21.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -100,6 +100,9 @@ popd
 
 
 %changelog
+* Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
+- 5.21.3
+
 * Wed Mar 03 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.2-1
 - 5.21.2
 
