@@ -3,7 +3,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.80.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
@@ -21,6 +21,7 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{v
 ## upstream patches
 
 ## upstreamable patches
+Patch0:  fix_#430862.patch
 
 %if 0%{?flatpak}
 # Disable the help: and ghelp: protocol for Flatpak builds, to avoid depending
@@ -170,8 +171,7 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -290,6 +290,9 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 
 %changelog
+* Fri Mar 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-2
+- added fix_#430862.patch
+
 * Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
 - 5.80.0
 

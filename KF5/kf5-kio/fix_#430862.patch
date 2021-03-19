@@ -1,0 +1,13 @@
+diff --git a/src/widgets/previewjob.cpp b/src/widgets/previewjob.cpp
+index 988da16b..2a1515b6 100644
+--- a/src/widgets/previewjob.cpp
++++ b/src/widgets/previewjob.cpp
+@@ -70,7 +70,7 @@ public:
+         : initialItems(items)
+         , width(size.width())
+         , height(size.height())
+-        , cacheSize(-1)
++        , cacheSize(0)
+         , bScale(true)
+         , bSave(true)
+         , ignoreMaximumSize(false)
