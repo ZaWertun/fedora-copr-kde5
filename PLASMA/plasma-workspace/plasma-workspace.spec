@@ -16,7 +16,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.21.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -149,6 +149,9 @@ BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kirigami2-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kquickcharts-devel >= %{kf5_version_min}
 
+# Required for InteractiveConsole:
+BuildRequires:  cmake(KF5TextEditor) >= %{kf5_version_min}
+BuildRequires:  cmake(KF5SyntaxHighlighting) >= %{kf5_version_min}
 
 BuildRequires:  kf5-ksysguard-devel >= %{majmin_ver}
 BuildRequires:  kf5-kwayland-devel >= %{kf5_version_min}
@@ -723,6 +726,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %endif
 
 %changelog
+* Tue Mar 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-2
+- added build dependencies: KF5TextEditor, KF5SyntaxHighlighting
+
 * Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
 - 5.21.3
 
