@@ -15,8 +15,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.21.3
-Release: 2%{?dist}
+Version: 5.21.4
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -726,6 +726,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %endif
 
 %changelog
+* Tue Apr 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-1
+- 5.21.4
+
 * Tue Mar 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-2
 - added build dependencies: KF5TextEditor, KF5SyntaxHighlighting
 

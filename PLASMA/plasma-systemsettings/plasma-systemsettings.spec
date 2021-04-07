@@ -4,7 +4,7 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.21.3
+Version: 5.21.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Tue Apr 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-1
+- 5.21.4
+
 * Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
 - 5.21.3
 
