@@ -2,7 +2,7 @@
 %global framework kdewebkit
 
 Name:    kf5-%{framework}
-Version: 5.80.0
+Version: 5.81.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for QtWebKit
 
@@ -78,6 +78,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Apr 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-1
+- 5.81.0
+
 * Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
 - 5.80.0
 

@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -9,7 +8,7 @@
 
 Name:    extra-cmake-modules
 Summary: Additional modules for CMake build system
-Version: 5.80.0
+Version: 5.81.0
 Release: 1%{?dist}
 
 License: BSD
@@ -26,10 +25,11 @@ URL:     https://api.kde.org/ecm/
 Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{name}-%{version}.tar.xz
 BuildArch:      noarch
 
-# bundle clang python bindings here, at least until they are properly packaged elsewhere, see:
-# https://bugzilla.redhat.com/show_bug.cgi?id=1490997
-Source1: clang-python-4.0.1.tar.gz
-%if 0%{?fedora} && 0%{?fedora} < 27
+## bundle clang python bindings here, at least until they are properly packaged elsewhere, see:
+## https://bugzilla.redhat.com/show_bug.cgi?id=1490997
+#Source1: clang-python-4.0.1.tar.gz
+#if 0%{?fedora} && 0%{?fedora} < 27
+%if 0
 %global clang 1
 Provides: bundled(python2-clang) = 4.0.1
 %if 0%{?tests}
@@ -75,7 +75,7 @@ Additional modules for CMake build system needed by KDE Frameworks.
 
 
 %prep
-%autosetup -p1 -a1
+%autosetup -p1 %{?clang:-a1}
 
 
 %build
@@ -126,6 +126,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Apr 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-1
+- 5.81.0
+
 * Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
 - 5.80.0
 
