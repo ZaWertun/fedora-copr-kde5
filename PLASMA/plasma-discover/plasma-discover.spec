@@ -9,7 +9,7 @@
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
 Version: 5.21.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
@@ -28,6 +28,11 @@ Source10: PK_OFFLINE_UPDATE.sh
 
 ## upstream patches (in lookaside cache)
 # git format-patch v%{version}
+
+## downstream patches
+# workaround PK metadata refresh issues (always force refresh)
+# adjust periodic refresh from 1/24hr to 1/12hr
+Patch200: discover-5.21.4-pk_refresh_force.patch
 
 ## upstreamable patches
 
@@ -125,9 +130,6 @@ Requires: PackageKit
 %package notifier
 Summary: Plasma Discover Update Notifier
 # -notifier replaces plasma-pk-updates for f34+
-%if 0%{?fedora} > 33
-Obsoletes: plasma-pk-updates < 0.5
-%endif
 Obsoletes: plasma-discover-updater < 5.6.95
 Provides:  plasma-discover-updater = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
@@ -166,7 +168,7 @@ in %{name}.
 
 
 %prep
-%autosetup -n discover-%{version} -p1
+%autosetup -n %{base_name}-%{version} -p1
 
 
 %build
@@ -268,11 +270,17 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 
 %changelog
-* Tue Apr 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-1
+* Fri Apr 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.4-2
+- plasma-discover doesnt refresh metadata (#1903294)
+
+* Tue Apr 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.4-1
 - 5.21.4
 
-* Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
+* Tue Mar 16 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.3-1
 - 5.21.3
+
+* Thu Mar 11 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.2-3
+- CVE-2021-28117
 
 * Mon Mar 08 2021 Timothée Ravier <travier@redhat.com> - 5.21.2-2
 - Have PackageKit backend requires PackageKit for all branches

@@ -1,0 +1,33 @@
+diff -up discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp.pk_refresh_force discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
+--- discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp.pk_refresh_force	2021-04-06 07:16:29.000000000 -0500
++++ discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp	2021-04-16 09:46:19.276519674 -0500
+@@ -392,7 +392,7 @@ void PackageKitBackend::checkForUpdates(
+ 
+     if (!m_refresher) {
+         acquireFetching(true);
+-        m_refresher = PackageKit::Daemon::refreshCache(false);
++        m_refresher = PackageKit::Daemon::refreshCache(true);
+ 
+         connect(m_refresher.data(), &PackageKit::Transaction::errorCode, this, &PackageKitBackend::transactionError);
+         connect(m_refresher.data(), &PackageKit::Transaction::finished, this, [this]() {
+diff -up discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp.pk_refresh_force discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
+--- discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp.pk_refresh_force	2021-04-06 07:16:29.000000000 -0500
++++ discover-5.21.4/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp	2021-04-16 09:52:05.497152680 -0500
+@@ -51,7 +51,7 @@ PackageKitNotifier::PackageKitNotifier(Q
+             bool ok;
+             const int days = value.toInt(&ok);
+             if (!ok || days == 0) {
+-                regularCheck->setInterval(24 * 60 * 60 * 1000); //refresh at least once every day
++                regularCheck->setInterval(12 * 60 * 60 * 1000); //refresh at least twice every day
+                 regularCheck->start();
+                 if (!value.isEmpty())
+                     qWarning() << "couldn't understand value for timer:" << value;
+@@ -223,7 +223,7 @@ void PackageKitNotifier::onDistroUpgrade
+ void PackageKitNotifier::refreshDatabase()
+ {
+     if (!m_refresher) {
+-        m_refresher = PackageKit::Daemon::refreshCache(false);
++        m_refresher = PackageKit::Daemon::refreshCache(true);
+         connect(m_refresher.data(), &PackageKit::Transaction::finished, this, &PackageKitNotifier::recheckSystemUpdateNeeded);
+     }
+ 
