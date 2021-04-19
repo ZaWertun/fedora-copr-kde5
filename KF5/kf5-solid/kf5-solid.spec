@@ -3,7 +3,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.81.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module that provides hardware information
 
 License: LGPLv2+
@@ -71,7 +71,10 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
+%cmake_kf5 \
+    -DWITH_NEW_SOLID_JOB:BOOL=ON \
+    -DWITH_NEW_POWER_ASYNC_API:BOOL=ON \
+    -DWITH_NEW_POWER_ASYNC_FREEDESKTOP:BOOL=ON
 
 %cmake_build
 
@@ -88,6 +91,7 @@ developing applications that use %{name}.
 %doc README.md TODO
 %license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
+%{_kf5_bindir}/solid-power
 %{_kf5_bindir}/solid-hardware5
 #files libs
 %{_kf5_qmldir}/org/kde/solid/
@@ -102,6 +106,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Apr 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-2
+- power support enabled
+
 * Sun Apr 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-1
 - 5.81.0
 
