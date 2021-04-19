@@ -1,0 +1,12 @@
+diff -up plasma-pk-updates-0.3.2/src/declarative/pkupdates.cpp.notif plasma-pk-updates-0.3.2/src/declarative/pkupdates.cpp
+--- plasma-pk-updates-0.3.2/src/declarative/pkupdates.cpp.notif	2020-11-05 10:58:12.241536215 -0600
++++ plasma-pk-updates-0.3.2/src/declarative/pkupdates.cpp	2020-11-05 11:01:43.038872828 -0600
+@@ -422,7 +422,7 @@ void PkUpdates::onFinished(PackageKit::T
+                 m_lastNotification = KNotification::event(s_eventIdUpdatesAvailable,
+                                      QString(),
+                                      i18np("You have 1 new update", "You have %1 new updates", upCount),
+-                                     s_pkUpdatesIconName, nullptr, KNotification::Persistent,
++                                     s_pkUpdatesIconName, nullptr, KNotification::CloseOnTimeout,
+                                      s_componentName);
+                 connect(m_lastNotification, &KNotification::closed, this, [this] {
+                     qCDebug(PLASMA_PK_UPDATES) << "Old notification closed";

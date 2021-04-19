@@ -1,0 +1,39 @@
+From 04cb8277574b07b78b7f7f03dea1aa4080f09f58 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Stefan=20Br=C3=BCns?= <stefan.bruens@rwth-aachen.de>
+Date: Fri, 21 Jun 2019 00:03:35 +0200
+Subject: [PATCH 14/51] Remove explicit initialization of default constructed
+ members
+
+Summary:
+All four are of type QPointer<PackageKit::Transaction> and are thus
+default initialized, no need to do it explicitly.
+
+Reviewers: lukas, jgrulich, ngraham
+
+Reviewed By: jgrulich
+
+Differential Revision: https://phabricator.kde.org/D21975
+---
+ src/declarative/pkupdates.cpp | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/src/declarative/pkupdates.cpp b/src/declarative/pkupdates.cpp
+index 5a5e6ce..ffccff7 100644
+--- a/src/declarative/pkupdates.cpp
++++ b/src/declarative/pkupdates.cpp
+@@ -47,11 +47,7 @@ namespace
+ } // namespace {
+ 
+ PkUpdates::PkUpdates(QObject *parent) :
+-    QObject(parent),
+-    m_updatesTrans(Q_NULLPTR),
+-    m_cacheTrans(Q_NULLPTR),
+-    m_installTrans(Q_NULLPTR),
+-    m_detailTrans(Q_NULLPTR)
++    QObject(parent)
+ {
+     setStatusMessage(i18n("Idle"));
+ 
+-- 
+2.28.0
+
