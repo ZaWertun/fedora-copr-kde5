@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Version: 20.12.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
 License: LGPLv2+
@@ -108,16 +108,19 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 %{_kf5_libdir}/libKPimItinerary.so.5*
 %{_kf5_datadir}/mime/packages/*.xml
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_libexecdir}/kitinerary-extractor
 
 
 %files devel
 %{_includedir}/KPim/
 %{_kf5_libdir}/libKPimItinerary.so
 %{_kf5_libdir}/cmake/KPimItinerary/
-%{_kf5_libexecdir}/%{framework}*
 
 
 %changelog
+* Tue Apr 20 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-2
+- kitinerary-extractor moved back from devel package
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 
