@@ -3,7 +3,7 @@
 %global framework libkcddb
 
 Name:    kf5-%{framework}
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 Summary: CDDB retrieval library
 
@@ -89,11 +89,12 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5Cddb.so.5*
 %{_qt5_plugindir}/kcm_cddb.so
 %{_kf5_datadir}/config.kcfg/libkcddb5.kcfg
 %{_kf5_datadir}/kservices5/libkcddb.desktop
+%{_kf5_datadir}/qlogging-categories5/%{framework}.categories
 
 %files devel
 %{_kf5_libdir}/libKF5Cddb.so
@@ -106,6 +107,9 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

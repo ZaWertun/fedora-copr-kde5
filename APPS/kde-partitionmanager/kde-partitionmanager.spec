@@ -1,8 +1,8 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        20.12.3
-Release:        2%{?dist}
+Version:        21.04.0
+Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
 License:        GPLv3+
@@ -87,6 +87,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-2
 - added optional build dep: DocTools
 

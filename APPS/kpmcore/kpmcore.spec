@@ -1,8 +1,8 @@
 %global unstable 0
 
 Name:           kpmcore
-Version:        20.12.3
-Release:        2%{?dist}
+Version:        21.04.0
+Release:        1%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
 URL:            https://invent.kde.org/system/kpmcore
@@ -91,6 +91,9 @@ sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMak
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Wed Mar 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-2
 - added kpmcore-20.12.3-fix-exit-code-check.patch
 

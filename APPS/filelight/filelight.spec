@@ -2,7 +2,7 @@
 Name:    filelight 
 Summary: Graphical disk usage statistics 
 Epoch:   1
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -68,7 +68,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %doc AUTHORS README*
 %{_kf5_bindir}/filelight
 %{_kf5_datadir}/applications/org.kde.filelight.desktop
@@ -80,6 +80,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:20.12.3-1
 - 20.12.3
 

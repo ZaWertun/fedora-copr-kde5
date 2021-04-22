@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kcachegrind
 Summary: GUI to profilers such as Valgrind
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: GPLv2 and GFDL
@@ -71,9 +71,9 @@ QT-based browser for data produced by profiling tools (e.g. cachegrind).
 
 # Avoid use of #!/usr/bin/env as interpeter
 %if 0%{?fedora} >= 31
-sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python3}|g" converters/hotshot2calltree.cmake
+sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python3}|g" converters/hotshot2calltree.in
 %else
-sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python2}|g" converters/hotshot2calltree.cmake
+sed -i.env -e "s|^#!/usr/bin/env python$|#!%{__python2}|g" converters/hotshot2calltree.in
 %endif
 sed -i.env -e "s|^#!/usr/bin/env php$|#!%{_bindir}/php|g"  converters/pprof2calltree
 
@@ -104,7 +104,7 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 %files -f %{name}.lang
 %doc README
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/kcachegrind
 %{_kf5_datadir}/kcachegrind/
 %{_kf5_datadir}/applications/org.kde.kcachegrind.desktop
@@ -124,7 +124,7 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 %files -n qcachegrind
 %doc README
-%license COPYING*
+%license LICENSES/*.txt
 %{_bindir}/qcachegrind
 %{_bindir}/cgview
 %{_datadir}/applications/qcachegrind.desktop
@@ -133,6 +133,9 @@ cat kcachegrind_qt.lang >> kcachegrind.lang
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

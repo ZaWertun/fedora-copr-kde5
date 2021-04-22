@@ -6,10 +6,12 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        20.12.3
+Version:        21.04.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
+
+%global version_major %(echo %{version} |cut -d. -f1)
 
 Url:            https://community.kde.org/KDEConnect
 #Url:            https://cgit.kde.org/kdeconnect-kde.git
@@ -54,6 +56,7 @@ BuildRequires:  cmake(Qt5Network)
 BuildRequires:  cmake(Qt5Quick)
 BuildRequires:  cmake(Qt5Test)
 BuildRequires:  cmake(Qt5X11Extras)
+BuildRequires:  cmake(Qt5QuickControls2)
 
 BuildRequires:  cmake(Qca-qt5)
 
@@ -147,12 +150,11 @@ done
 
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/kdeconnect-*
 %{_kf5_datadir}/plasma/plasmoids/org.kde.kdeconnect/
 %{_kf5_datadir}/knotifications5/*
 %{_kf5_datadir}/kservices5/*.desktop
-%{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/qlogging-categories5/kdeconnect-kde.categories
 %{_qt5_plugindir}/kcm_kdeconnect.so
 %{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
@@ -188,9 +190,9 @@ fi
 %ldconfig_scriptlets libs
 
 %files libs
-%{_kf5_libdir}/libkdeconnectpluginkcm.so.20*
-%{_kf5_libdir}/libkdeconnectinterfaces.so.20*
-%{_kf5_libdir}/libkdeconnectcore.so.20*
+%{_kf5_libdir}/libkdeconnectpluginkcm.so.%{version_major}*
+%{_kf5_libdir}/libkdeconnectinterfaces.so.%{version_major}*
+%{_kf5_libdir}/libkdeconnectcore.so.%{version_major}*
 %{_qt5_plugindir}/kdeconnect*.so
 %{_qt5_plugindir}/kdeconnect/
 %{_kf5_datadir}/kdeconnect/kdeconnect_findthisdevice_config.qml
@@ -204,6 +206,9 @@ fi
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

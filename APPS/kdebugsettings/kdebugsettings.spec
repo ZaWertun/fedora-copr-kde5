@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdebugsettings
 Summary: Configure debug output from Qt5 applications
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -45,8 +45,7 @@ An application to enable/disable qCDebug
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -61,15 +60,19 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kdebugset
 
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/kdebugsettings
 %{_kf5_libdir}/libkdebugsettings.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_datadir}/applications/org.kde.kdebugsettings.desktop
+"%{_kf5_datadir}/kdebugsettings/groups/Full Debug Ruqola"
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

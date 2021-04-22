@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdenetwork-filesharing
 Summary: Network filesharing
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -64,8 +64,8 @@ Conflicts: kde-l10n < 17.03
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_qt5_plugindir}/sambausershareplugin.so
-%{_kf5_datadir}/kservices5/sambausershareplugin.desktop
+%dir %{_kf5_plugindir}/propertiesdialog/
+%{_kf5_plugindir}/propertiesdialog/sambausershareplugin.so
 %{_kf5_metainfodir}/*.metainfo.xml
 %{_kf5_libexecdir}/kauth/authhelper
 %{_kf5_datadir}/dbus-1/system-services/org.kde.filesharing.samba.service
@@ -74,6 +74,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

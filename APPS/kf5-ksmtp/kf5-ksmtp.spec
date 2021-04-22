@@ -2,7 +2,7 @@
 %global framework ksmtp 
 
 Name:    kf5-%{framework}
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 Summary: KDE SMTP libraries
 
@@ -84,6 +84,9 @@ Requires:       kf5-kmime-devel >= %{version}
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

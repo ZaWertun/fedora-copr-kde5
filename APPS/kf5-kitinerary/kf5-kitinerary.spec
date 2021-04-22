@@ -9,8 +9,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 20.12.3
-Release: 2%{?dist}
+Version: 21.04.0
+Release: 1%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
 License: LGPLv2+
@@ -118,6 +118,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Tue Apr 20 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-2
 - kitinerary-extractor moved back from devel package
 

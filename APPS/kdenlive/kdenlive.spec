@@ -3,7 +3,7 @@
 
 Name:    kdenlive
 Summary: Non-linear video editor
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -73,6 +73,7 @@ BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5WebKitWidgets)
 BuildRequires: pkgconfig(Qt5Multimedia)
 BuildRequires: pkgconfig(Qt5QuickControls2)
+BuildRequires: cmake(Qt5NetworkAuth)
 
 ## workaround for missing dependency in kf5-kio, can remove
 ## once kf5-kio-5.24.0-2 (or newer is available)
@@ -159,6 +160,7 @@ fi
 %{_kf5_datadir}/knsrcfiles/kdenlive_renderprofiles.knsrc
 %{_kf5_datadir}/knsrcfiles/kdenlive_titles.knsrc
 %{_kf5_datadir}/knsrcfiles/kdenlive_wipes.knsrc
+%{_kf5_datadir}/knsrcfiles/kdenlive_luts.knsrc
 %{_kf5_mandir}/man1/kdenlive.1*
 %{_kf5_mandir}/man1/kdenlive_render.1*
 # consider subpkg for multilib
@@ -167,6 +169,9 @@ fi
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

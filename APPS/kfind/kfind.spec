@@ -2,7 +2,7 @@
 
 Name:    kfind
 Summary: KDE Find File Utility
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 # Documentation is GFDL, rest GPLv2+
@@ -46,8 +46,7 @@ KFind allows you to search for directories and files.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -63,7 +62,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/%{name}
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
@@ -73,6 +72,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

@@ -2,7 +2,7 @@
 
 Name:    keditbookmarks
 Summary: Bookmark organizer and editor
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 # Documentation is GFDL, rest GPLv2 and GPLv3 (note: NOT any later version)
@@ -77,7 +77,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_bindir}/kbookmarkmerger
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/config.kcfg/keditbookmarks.kcfg
-%{_kf5_datadir}/kxmlgui5/keditbookmarks/
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
 %{_mandir}/man1/kbookmarkmerger.1*
 
@@ -88,6 +87,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

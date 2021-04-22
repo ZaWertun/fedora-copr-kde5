@@ -4,8 +4,10 @@
 
 Name:    kf5-libksane
 Summary: SANE Library interface for KDE
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
+
+%global version_major %(echo %{version} |cut -d. -f1)
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -49,8 +51,7 @@ Requires: cmake(Qt5Widgets)
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -64,8 +65,9 @@ Requires: cmake(Qt5Widgets)
 
 %files -f %{name}.lang
 %doc AUTHORS
-%license COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5Sane.so.5*
+%{_kf5_libdir}/libKF5Sane.so.%{version_major}*
 %{_kf5_datadir}/icons/hicolor/*/actions/*
 
 %files devel
@@ -76,6 +78,9 @@ Requires: cmake(Qt5Widgets)
 
 
 %changelog
+* Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Sat Mar 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 
