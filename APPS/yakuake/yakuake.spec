@@ -80,7 +80,7 @@ desktop-file-validate  %{buildroot}%{_kf5_datadir}/applications/org.kde.yakuake.
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog TODO
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/yakuake
 %{_kf5_metainfodir}/org.kde.yakuake.appdata.xml
 %{_kf5_datadir}/applications/org.kde.yakuake.desktop

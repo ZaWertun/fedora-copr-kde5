@@ -56,6 +56,7 @@ BuildRequires: cmake(KF5TextEditor)
 BuildRequires: cmake(KF5Wallet)
 BuildRequires: cmake(KF5Kross)
 BuildRequires: cmake(KF5NewStuff)
+BuildRequires: cmake(KF5SyntaxHighlighting)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)

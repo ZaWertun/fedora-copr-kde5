@@ -35,6 +35,7 @@ BuildRequires: perl-generators
 BuildRequires: cmake(Qt5Network)
 BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(Qt5Widgets)
+BuildRequires: cmake(Qt5Keychain)
 
 # kf5
 BuildRequires: extra-cmake-modules
@@ -98,7 +99,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/sieveeditor
 %{_kf5_datadir}/kconf_update/sieveeditor-15.08-kickoff.sh
 %{_kf5_datadir}/kconf_update/sieveeditor.upd

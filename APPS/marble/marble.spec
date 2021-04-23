@@ -201,7 +201,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_datadir}/kservices5/marble_thumbnail_kmz.desktop
 %{_datadir}/kservices5/marble_thumbnail_osm.desktop
 %{_datadir}/kservices5/marble_thumbnail_shp.desktop
-%{_datadir}/kservices5/plasma-runner-marble.desktop
+#{_datadir}/kservices5/plasma-runner-marble.desktop
 %{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 
 %files common -f %{name}.lang
@@ -237,7 +237,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_libdir}/libmarblewidget-qt5.so.0.*
 %{_libdir}/marble/plugins/
 %{_qt5_plugindir}/marblethumbnail.so
-%{_qt5_plugindir}/plasma_runner_marble.so
+%{_kf5_plugindir}/krunner/plasma_runner_marble.so
 # include part here too
 %{_datadir}/kservices5/marble_part.desktop
 %{_qt5_plugindir}/libmarble_part.so

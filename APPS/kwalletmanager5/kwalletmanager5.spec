@@ -78,7 +78,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/kwalletmanager5
 %{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmkwallet5.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmkwallet5.policy

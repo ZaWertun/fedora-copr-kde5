@@ -30,6 +30,8 @@ BuildRequires:  kf5-kconfig-devel
 BuildRequires:  kf5-kparts-devel
 BuildRequires:  kf5-ktexteditor-devel
 BuildRequires:  kf5-kwidgetsaddons-devel
+BuildRequires:  cmake(KF5SyntaxHighlighting)
+
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  libkomparediff2-devel >= %{majmin_ver}
 
@@ -89,7 +91,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 %files -f %{name}.lang
 %doc README
-%license COPYING*
+%license LICENSES/*.txt
 %{_bindir}/kompare
 %{_datadir}/kservicetypes5/kompare*.desktop
 %{_datadir}/applications/org.kde.kompare.desktop

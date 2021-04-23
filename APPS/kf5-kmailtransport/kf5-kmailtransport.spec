@@ -51,6 +51,7 @@ BuildRequires:  cmake(KF5Mime)
 BuildRequires:  cmake(KPimSMTP)
 
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  cmake(Qt5Keychain)
 
 %if 0%{?tests}
 BuildRequires: dbus-x11

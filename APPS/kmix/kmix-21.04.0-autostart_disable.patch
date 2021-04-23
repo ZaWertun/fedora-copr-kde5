@@ -1,0 +1,12 @@
+diff -up kmix-18.08.1/desktop/kmix_autostart.desktop.autostart_disable kmix-18.08.1/desktop/kmix_autostart.desktop
+--- kmix-18.08.1/desktop/kmix_autostart.desktop.autostart_disable	2018-08-27 00:41:51.000000000 -0500
++++ kmix-18.08.1/desktop/kmix_autostart.desktop	2018-09-16 10:02:31.984742827 -0500
+@@ -8,7 +8,7 @@ X-KDE-autostart-after=panel
+ X-KDE-autostart-after=pulseaudio
+ X-KDE-StartupNotify=false
+ X-DBUS-StartupType=Unique
+-X-KDE-autostart-condition=kmixrc:Global:AutoStart:true
++X-KDE-autostart-condition=kmixrc:Global:AutoStart:false
+ Icon=kmix
+ GenericName=Sound Mixer
+ GenericName[bg]=Звуков смесител

@@ -51,14 +51,12 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -73,6 +71,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.sweeper.d
 %{_kf5_metainfodir}/org.kde.sweeper.appdata.xml
 %{_kf5_datadir}/kxmlgui5/sweeper/
 %{_datadir}/dbus-1/interfaces/org.kde.sweeper.xml
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 
 %changelog

@@ -45,7 +45,7 @@ Conflicts: kde-l10n < 17.03
 
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_datadir}/kservices5/svgpart.desktop
 %{_kf5_plugindir}/parts/%{name}.so
 %{_kf5_metainfodir}/org.kde.%{name}.metainfo.xml

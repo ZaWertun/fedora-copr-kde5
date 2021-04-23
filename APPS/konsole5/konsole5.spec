@@ -146,7 +146,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 %{_kf5_metainfodir}/org.kde.konsole.appdata.xml
 %{_kf5_datadir}/khotkeys/konsole.*
 %{_kf5_datadir}/knotifications5/konsole.notifyrc
-%{_kf5_datadir}/kservices5/ServiceMenus/konsolehere.desktop
+#{_kf5_datadir}/kservices5/ServiceMenus/konsolehere.desktop
 %{_kf5_datadir}/kservices5/ServiceMenus/konsolerun.desktop
 %{_kf5_datadir}/kservicetypes5/terminalemulator.desktop
 %{_kf5_datadir}/knsrcfiles/*.knsrc

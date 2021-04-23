@@ -25,6 +25,8 @@ BuildRequires:  kf5-ki18n-devel
 BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-ktexteditor-devel
 BuildRequires:  kf5-kxmlgui-devel
+BuildRequires:  cmake(KF5SyntaxHighlighting)
+
 BuildRequires:  qt5-qtbase-devel
 
 Requires:       dolphin >= %{majmin_ver}

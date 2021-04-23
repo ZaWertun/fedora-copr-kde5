@@ -12,9 +12,6 @@ Source0:        http://download.kde.org/unstable/release-service/%{version}/src/
 Source0:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 %endif
 
-## upstreamable patches
-Patch0:         kpmcore-20.12.3-fix-exit-code-check.patch
-
 BuildRequires:  cmake
 BuildRequires:  extra-cmake-modules
 BuildRequires:  gettext

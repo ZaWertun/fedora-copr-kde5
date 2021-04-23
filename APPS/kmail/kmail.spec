@@ -41,6 +41,7 @@ BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5WebEngine)
 BuildRequires: cmake(Qt5Xml)
+BuildRequires: cmake(Qt5Keychain)
 
 # kf5
 BuildRequires: extra-cmake-modules
@@ -195,6 +196,7 @@ end
 %{_kf5_datadir}/knotifications5/akonadi_followupreminder_agent.notifyrc
 %{_kf5_datadir}/knotifications5/akonadi_mailfilter_agent.notifyrc
 %{_kf5_datadir}/knotifications5/akonadi_sendlater_agent.notifyrc
+%{_kf5_datadir}/knotifications5/akonadi_mailmerge_agent.notifyrc
 # ktnef
 %{_kf5_bindir}/ktnef
 %{_kf5_datadir}/applications/org.kde.ktnef.desktop

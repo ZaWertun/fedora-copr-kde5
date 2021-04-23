@@ -135,6 +135,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %lang(fi) %{_datadir}/locale/fi/LC_SCRIPTS/dolphin/
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_userunitdir}/plasma-%{name}.service
 
 %ldconfig_scriptlets libs
 
@@ -142,7 +143,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_libdir}/libdolphinprivate.so.*
 %{_kf5_libdir}/libdolphinvcs.so.*
 %{_kf5_qtplugindir}/kcm_*.so
-%{_kf5_qtplugindir}/dolphinpart.so
+%{_kf5_plugindir}/parts/%{name}part.so
 %{_kf5_datadir}/kservices5/dolphinpart.desktop
 
 %files devel

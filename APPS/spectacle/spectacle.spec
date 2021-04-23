@@ -86,7 +86,7 @@ Conflicts: kde-l10n < 17.03
 %install
 %cmake_install
 
-%find_lang %{name} --all-name --with-html
+%find_lang %{name} --all-name --with-html --with-man
 
 
 %check
@@ -94,7 +94,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.sp
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle.desktop
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/spectacle
 %{_kf5_metainfodir}/org.kde.spectacle.appdata.xml
 %{_kf5_libdir}/kconf_update_bin/spectacle-migrate-shortcuts
@@ -108,6 +108,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 %{_kf5_datadir}/kglobalaccel/*.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_userunitdir}/app-org.kde.spectacle.service
+%{_mandir}/man1/%{name}.1*
 
 
 %changelog

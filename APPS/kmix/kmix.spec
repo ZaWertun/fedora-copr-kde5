@@ -5,6 +5,8 @@ Summary: KDE volume control
 Version: 21.04.0
 Release: 1%{?dist}
 
+%global version_major %(echo %{version} |cut -d. -f1)
+
 # code is LGPLv2+ except for gui/osdwidget.* which is GPLv2+
 # docs GFDL
 License: GPLv2+ and GFDL
@@ -22,7 +24,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 
 ## upstreamable patches
 # disable autostart by default (on newer plasma releases that use plasma-pa)
-Patch2:  kmix-18.08.1-autostart_disable.patch
+Patch2:  kmix-21.04.0-autostart_disable.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -96,17 +98,15 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmix.desktop
 %{_kf5_metainfodir}/org.kde.kmix.appdata.xml
 %{_kf5_datadir}/kmix/
 %{_kf5_datadir}/kxmlgui5/kmix/
-#{_kf5_libdir}/libkdeinit5_kmix.so
-#{_kf5_libdir}/libkdeinit5_kmixctrl.so
-%{_kf5_datadir}/kservices5/plasma-dataengine-mixer.desktop
-%{_kf5_datadir}/plasma/services/mixer.operations
 %{_sysconfdir}/xdg/autostart/restore_kmix_volumes.desktop
 %{_sysconfdir}/xdg/autostart/kmix_autostart.desktop
 %{_kf5_datadir}/knotifications5/kmix.notifyrc
 %{_kf5_datadir}/kservices5/kmixctrl_restore.desktop
+%{_kf5_datadir}/config.kcfg/%{name}settings.kcfg
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 # -libs subpkg?
-%{_qt5_plugindir}/plasma/dataengine/plasma_engine_mixer.so
 %{_kf5_libdir}/libkmixcore.so.5*
+%{_kf5_libdir}/libkmixcore.so.%{version_major}*
 %{_kf5_plugindir}/kded/kmixd.so
 
 

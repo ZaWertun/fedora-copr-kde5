@@ -151,9 +151,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/icons/hicolor/*/apps/korg-todo.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korganizer.*
 %{_kf5_datadir}/icons/hicolor/*/apps/quickview.*
-%{_kf5_datadir}/icons/oxygen/*/actions/smallclock.png
-%{_kf5_datadir}/icons/oxygen/*/actions/upindicator.png
-%{_kf5_datadir}/icons/oxygen/*/actions/checkmark.png
 %{_kf5_datadir}/kservices5/korganizer_*.desktop
 # Kontact integration
 %{_kf5_datadir}/kontact/ksettingsdialog/*.setdlg

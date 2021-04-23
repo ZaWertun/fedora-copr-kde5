@@ -99,7 +99,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 %{_kf5_metainfodir}/org.kde.gwenview.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/gwenview/
-%{_kf5_datadir}/kservices5/ServiceMenus/slideshow.desktop
 %{_kf5_datadir}/solid/actions/gwenview_importer*.desktop
 %{_kf5_datadir}/kconf_update/gwenview*
 
@@ -108,9 +107,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 %files libs
 %{_kf5_libdir}/libgwenviewlib.so.*
 %{_kf5_qtplugindir}/kf5/parts/gvpart.so
-%{_kf5_datadir}/kxmlgui5/gvpart/
 %{_kf5_datadir}/kservices5/gvpart.desktop
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
+%{_kf5_plugindir}/kfileitemaction/slideshowfileitemaction.so
 
 
 %changelog

@@ -40,7 +40,7 @@ Patch101: konqueror-18.12.2-preloaded.patch
 # since kwebenginepart has crippling bug,
 # https://bugzilla.redhat.com/show_bug.cgi?id=1523082
 # https://bugs.kde.org/show_bug.cgi?id=401976
-Patch200: konqueror-18.12.0-webenginepart_priority.patch
+Patch200: konqueror-21.04.0-webenginepart_priority.patch
 
 BuildRequires: desktop-file-utils
 
@@ -212,6 +212,10 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_libdir}/libkonqsidebarplugin.so
 %{_kf5_qtplugindir}/*.so
 %{_kf5_plugindir}/kfileitemaction/akregatorplugin.so
+%dir %{_kf5_plugindir}/parts/
+%{_kf5_plugindir}/parts/fsviewpart.so
+%{_kf5_plugindir}/parts/konq_sidebar.so
+
 
 %files devel
 %{_includedir}/konqsidebarplugin.h
@@ -225,7 +229,6 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_datadir}/kxmlgui5/webenginepart/
 %{_kf5_datadir}/webenginepart/
 %{_kf5_libdir}/libkwebenginepart.so
-%dir %{_kf5_plugindir}/parts/
 %{_kf5_plugindir}/parts/webenginepart.so
 %endif
 

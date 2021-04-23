@@ -133,7 +133,7 @@ developing applications that use %{name}.
 
 %files akonadi
 %{_kf5_libdir}/libKF5PimCommonAkonadi.so.5*
-%{_kf5_qtplugindir}/designer/pimcommoniakonadiwidgets.so
+%{_kf5_qtplugindir}/designer/pimcommonakonadiwidgets.so
 
 %files devel
 %{_kf5_libdir}/libKF5PimCommon.so

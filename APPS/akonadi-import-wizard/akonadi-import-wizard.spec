@@ -29,9 +29,9 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
-#BuildRequires: libappstream-glib
 
 BuildRequires: cmake(Qt5Widgets)
+BuildRequires: cmake(Qt5Keychain)
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros

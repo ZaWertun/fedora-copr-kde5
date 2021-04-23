@@ -41,6 +41,7 @@ BuildRequires:  kf5-kmbox-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
 
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  cmake(Qt5Keychain)
 
 %if 0%{?tests}
 BuildRequires: dbus-x11

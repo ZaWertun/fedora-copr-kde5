@@ -18,7 +18,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 
 ## downstream patches
 # fix ksystemlog to find log files in fedora locations
-Patch1: ksystemlog-15.12.1-fedora.patch
+Patch1: ksystemlog-21.04.0-fedora.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
@@ -77,6 +77,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/kxmlgui5/ksystemlog/
 %{_kf5_metainfodir}/org.kde.ksystemlog.appdata.xml
 %{_kf5_datadir}/applications/org.kde.ksystemlog.desktop
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 
 %changelog

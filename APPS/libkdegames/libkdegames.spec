@@ -95,7 +95,7 @@ Requires: kf5-kwidgetsaddons-devel
 
 %files -f %{name}.lang
 %doc README TODO
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKF5KDEGames.so.7*
 %{_kf5_libdir}/libKF5KDEGamesPrivate.so.*
 %{_qt5_archdatadir}/qml/org/kde/games/

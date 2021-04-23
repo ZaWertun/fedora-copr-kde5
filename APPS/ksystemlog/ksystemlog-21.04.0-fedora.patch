@@ -1,0 +1,77 @@
+diff '--color=auto' -r -U3 ksystemlog-21.04.0.orig/src/modes/apache/apacheConfiguration.cpp ksystemlog-21.04.0/src/modes/apache/apacheConfiguration.cpp
+--- ksystemlog-21.04.0.orig/src/modes/apache/apacheConfiguration.cpp	2021-04-14 18:24:20.000000000 +0300
++++ ksystemlog-21.04.0/src/modes/apache/apacheConfiguration.cpp	2021-04-23 13:48:26.431219404 +0300
+@@ -25,10 +25,10 @@
+ {
+     mConfiguration->setCurrentGroup(QStringLiteral("ApacheLogMode"));
+ 
+-    const QStringList defaultApachePaths{QStringLiteral("/var/log/apache2/error.log")};
++    const QStringList defaultApachePaths{QStringLiteral("/var/log/httpd/error.log")};
+     mConfiguration->addItemStringList(QStringLiteral("ApacheLogFilesPaths"), mApachePaths, defaultApachePaths, QStringLiteral("ApacheLogFilesPaths"));
+ 
+-    const QStringList defaultApacheAccessPaths{QStringLiteral("/var/log/apache2/access.log")};
++    const QStringList defaultApacheAccessPaths{QStringLiteral("/var/log/httpd/access.log")};
+     mConfiguration->addItemStringList(QStringLiteral("ApacheAccessLogFilesPaths"),
+                                       mApacheAccessPaths,
+                                       defaultApacheAccessPaths,
+diff '--color=auto' -r -U3 ksystemlog-21.04.0.orig/src/modes/authentication/authenticationConfiguration.cpp ksystemlog-21.04.0/src/modes/authentication/authenticationConfiguration.cpp
+--- ksystemlog-21.04.0.orig/src/modes/authentication/authenticationConfiguration.cpp	2021-04-14 18:24:20.000000000 +0300
++++ ksystemlog-21.04.0/src/modes/authentication/authenticationConfiguration.cpp	2021-04-23 13:48:51.910274746 +0300
+@@ -25,7 +25,7 @@
+ {
+     mConfiguration->setCurrentGroup(QStringLiteral("AuthenticationLogMode"));
+ 
+-    const QString defaultAuthenticationPath{QStringLiteral("/var/log/auth.log")};
++    const QString defaultAuthenticationPath{QStringLiteral("/var/log/secure")};
+     mConfiguration->addItemString(QStringLiteral("LogFilePath"), mAuthenticationPath, defaultAuthenticationPath, QStringLiteral("LogFilePath"));
+ 
+     const QStringList defaultWarningKeywords{QStringLiteral("failed")};
+diff '--color=auto' -r -U3 ksystemlog-21.04.0.orig/src/modes/cron/cronConfiguration.cpp ksystemlog-21.04.0/src/modes/cron/cronConfiguration.cpp
+--- ksystemlog-21.04.0.orig/src/modes/cron/cronConfiguration.cpp	2021-04-14 18:24:20.000000000 +0300
++++ ksystemlog-21.04.0/src/modes/cron/cronConfiguration.cpp	2021-04-23 13:49:40.002417408 +0300
+@@ -25,7 +25,7 @@
+ {
+     mConfiguration->setCurrentGroup(QStringLiteral("CronLogMode"));
+ 
+-    const QStringList defaultCronPaths{QStringLiteral("/var/log/syslog")};
++    const QStringList defaultCronPaths{QStringLiteral("/var/log/cron")};
+     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mCronPaths, defaultCronPaths, QStringLiteral("LogFilesPaths"));
+ 
+     const QString defaultProcessFilter(QStringLiteral("/usr/sbin/cron"));
+diff '--color=auto' -r -U3 ksystemlog-21.04.0.orig/src/modes/daemon/daemonConfiguration.cpp ksystemlog-21.04.0/src/modes/daemon/daemonConfiguration.cpp
+--- ksystemlog-21.04.0.orig/src/modes/daemon/daemonConfiguration.cpp	2021-04-14 18:24:20.000000000 +0300
++++ ksystemlog-21.04.0/src/modes/daemon/daemonConfiguration.cpp	2021-04-23 13:50:02.346489121 +0300
+@@ -25,7 +25,7 @@
+ {
+     mConfiguration->setCurrentGroup(QStringLiteral("DaemonLogMode"));
+ 
+-    const QStringList defaultDaemonPaths{QStringLiteral("/var/log/daemon.log")};
++    const QStringList defaultDaemonPaths{QStringLiteral("/var/log/boot.log")};
+     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mDaemonPaths, defaultDaemonPaths, QStringLiteral("LogFilesPaths"));
+ }
+ 
+diff '--color=auto' -r -U3 ksystemlog-21.04.0.orig/src/modes/postfix/postfixConfiguration.cpp ksystemlog-21.04.0/src/modes/postfix/postfixConfiguration.cpp
+--- ksystemlog-21.04.0.orig/src/modes/postfix/postfixConfiguration.cpp	2021-04-14 18:24:20.000000000 +0300
++++ ksystemlog-21.04.0/src/modes/postfix/postfixConfiguration.cpp	2021-04-23 13:50:43.957622670 +0300
+@@ -23,8 +23,7 @@
+ 
+ PostfixConfiguration::PostfixConfiguration()
+     : GenericLogModeConfiguration(QStringLiteral(POSTFIX_LOG_MODE_ID),
+-                                  QStringList() << QStringLiteral("/var/log/mail.log") << QStringLiteral("/var/log/mail.info")
+-                                                << QStringLiteral("/var/log/mail.warn") << QStringLiteral("/var/log/mail.err"),
++                                  QStringList() << QStringLiteral("/var/log/maillog"),
+                                   QList<int>() << Globals::NOTICE_LOG_LEVEL_ID << Globals::INFORMATION_LOG_LEVEL_ID << Globals::WARNING_LOG_LEVEL_ID
+                                                << Globals::ERROR_LOG_LEVEL_ID)
+ {
+diff '--color=auto' -r -U3 ksystemlog-21.04.0.orig/src/modes/system/systemConfiguration.cpp ksystemlog-21.04.0/src/modes/system/systemConfiguration.cpp
+--- ksystemlog-21.04.0.orig/src/modes/system/systemConfiguration.cpp	2021-04-14 18:24:20.000000000 +0300
++++ ksystemlog-21.04.0/src/modes/system/systemConfiguration.cpp	2021-04-23 13:51:05.281691115 +0300
+@@ -23,7 +23,7 @@
+ 
+ SystemConfiguration::SystemConfiguration()
+     : GenericLogModeConfiguration(QStringLiteral(SYSTEM_LOG_MODE_ID),
+-                                  QStringList() << QStringLiteral("/var/log/syslog"),
++                                  QStringList() << QStringLiteral("/var/log/messages"),
+                                   QList<int>() << Globals::INFORMATION_LOG_LEVEL_ID)
+ {
+     /*

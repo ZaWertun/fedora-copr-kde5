@@ -54,6 +54,7 @@ BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(KF5SyntaxHighlighting)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)

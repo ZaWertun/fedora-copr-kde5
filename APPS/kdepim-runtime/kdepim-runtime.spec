@@ -72,6 +72,7 @@ BuildRequires:  qt5-qtwebchannel-devel
 BuildRequires:  qt5-qtwebengine-devel
 BuildRequires:  qt5-qtnetworkauth-devel
 BuildRequires:  qca-qt5-devel
+BuildRequires:  cmake(Qt5Keychain)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-akonadi-calendar-devel >= %{majmin_ver}
