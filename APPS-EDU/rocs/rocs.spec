@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    rocs 
 Summary: Graph Theory IDE 
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -52,6 +52,9 @@ BuildRequires: libappstream-glib
 BuildRequires: pkgconfig(Qt5Concurrent) pkgconfig(Qt5Gui) pkgconfig(Qt5ScriptTools)
 BuildRequires: pkgconfig(Qt5Qml) pkgconfig(Qt5Quick) pkgconfig(Qt5Xml) pkgconfig(Qt5Svg) pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5WebKit) pkgconfig(Qt5WebKitWidgets) pkgconfig(Qt5XmlPatterns)
+
+BuildRequires: cmake(KF5TextEditor)
+BuildRequires: cmake(KF5SyntaxHighlighting)
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
@@ -119,6 +122,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Apr 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

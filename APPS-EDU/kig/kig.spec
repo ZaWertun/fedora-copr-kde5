@@ -4,7 +4,7 @@
 
 Name:    kig
 Summary: Interactive Geometry 
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -47,6 +47,7 @@ BuildRequires: cmake(KF5Archive)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5CoreAddons)
+BuildRequires: cmake(KF5SyntaxHighlighting)
 
 BuildRequires: pkgconfig(Qt5PrintSupport)
 BuildRequires: pkgconfig(Qt5Svg)
@@ -104,6 +105,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Apr 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

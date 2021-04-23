@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kiten
 Summary: Japanese Reference/Study Tool
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -68,8 +68,7 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 # remove the skip code from kanjidic
 sed -i 's/ P[0-9]*-[0-9]*-[0-9]*//g' data/kanjidic
 
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -89,7 +88,7 @@ done
 
 
 %files -f %{name}.lang
-%license COPYING COPYING.DOC
+%license LICENSES/*.txt
 %doc AUTHORS README TODO
 %{_kf5_bindir}/kiten
 %{_kf5_bindir}/kitengen
@@ -107,7 +106,6 @@ done
 %ldconfig_scriptlets libs
 
 %files libs
-%doc COPYING.LIB
 %{_kf5_libdir}/libkiten.so.5*
 
 %files devel
@@ -116,6 +114,9 @@ done
 
 
 %changelog
+* Fri Apr 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-common-internals
 Summary: Common internals for KDE Telepathy
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -36,6 +36,7 @@ BuildRequires:  kf5-kwallet-devel
 BuildRequires:  kf5-kconfig-devel
 BuildRequires:  kf5-kpeople-devel
 BuildRequires:  kf5-kwindowsystem-devel
+BuildRequires:  cmake(KF5SyntaxHighlighting)
 
 BuildRequires:  pkgconfig(mission-control-plugins)
 BuildRequires:  pkgconfig(TelepathyQt5)
@@ -131,6 +132,9 @@ Requires:       telepathy-logger-qt-devel
 
 
 %changelog
+* Fri Apr 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 

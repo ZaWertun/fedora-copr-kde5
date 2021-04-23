@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    blinken 
 Summary: Memory Enhancement Game 
-Version: 20.12.3
+Version: 21.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -67,17 +67,19 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %files -f %{name}.lang
 %doc AUTHORS 
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/%{name}
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/%{name}/
-#{_kf5_datadir}/kxmlgui5/%{name}/
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
 
 
 %changelog
+* Fri Apr 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
+- 21.04.0
+
 * Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
 - 20.12.3
 
