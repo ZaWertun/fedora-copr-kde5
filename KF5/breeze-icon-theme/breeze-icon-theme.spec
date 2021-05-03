@@ -1,5 +1,3 @@
-%bcond_with optimization
-
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
@@ -9,7 +7,7 @@
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
 Version: 5.81.0
-Release: 1%{?dist}
+Release: 3%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
 License: LGPLv3+
@@ -42,13 +40,11 @@ BuildRequires: hardlink
 #BuildRequires: kde-dev-scripts
 BuildRequires: time
 
-%if %{with optimization}
-BuildRequires: svgcleaner
-BuildRequires: python3-scour
-%endif
-
 # inheritance, though could consider Recommends: if needed -- rex
 Requires: hicolor-icon-theme
+
+# Needed for proper Fedora logo
+Requires: system-logos
 
 # upstream name
 Provides:       breeze-icons = %{version}-%{release}
@@ -79,7 +75,7 @@ sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 
 
 %build
-%{cmake_kf5}
+%cmake_kf5
 
 %cmake_build
 
@@ -87,16 +83,16 @@ sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 %install
 %cmake_install
 
-%if %{with optimization}
-set +x
-find %{buildroot}%{_datadir}/icons/ -type f -name \*.svg |while read f; do
-    (scour --quiet --indent=none --no-line-breaks $f /tmp/$(basename $f) 2>/dev/null && mv /tmp/$(basename $f) $f 2>/dev/null) ||
-        echo "scour failed: $f"
-    (svgcleaner --quiet $f /tmp/$(basename $f) 2>/dev/null && mv /tmp/$(basename $f) $f 2>/dev/null) ||
-        echo "svgcleaner failed: $f"
-done
-set -x
-%endif
+# Do not use Fedora logo from upstream
+rm -rf %{buildroot}%{_datadir}/icons/breeze-dark/apps/48/org.fedoraproject.AnacondaInstaller.svg
+rm -rf %{buildroot}%{_datadir}/icons/breeze/apps/48/org.fedoraproject.AnacondaInstaller.svg
+# Use copy found in fedora-logos
+pushd %{buildroot}%{_datadir}/icons/breeze-dark/apps/48/
+ln -s ../../../hicolor/48x48/apps/org.fedoraproject.AnacondaInstaller.svg org.fedoraproject.AnacondaInstaller.svg
+popd
+pushd %{buildroot}%{_datadir}/icons/breeze/apps/48/
+ln -s ../../../hicolor/48x48/apps/org.fedoraproject.AnacondaInstaller.svg org.fedoraproject.AnacondaInstaller.svg
+popd
 
 ## icon optimizations
 #du -s  .
@@ -163,70 +159,86 @@ fi
 
 
 %changelog
-* Sun Apr 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-1
+* Thu Apr 29 2021 Tom Callaway <spot@fedoraproject.org> - 5.81.0-3
+- use fedora logo image from fedora-logos (not upstream copy)
+
+* Fri Apr 09 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.81.0-2
+- respin
+
+* Tue Apr 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.81.0-1
 - 5.81.0
 
-* Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
+* Tue Mar 09 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.80.0-1
 - 5.80.0
 
-* Sun Feb 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-2
-- Optional icon optimization with svgcleaner & scour
+* Sat Feb 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.79.0-2
+- respin
 
-* Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
+* Sat Feb 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.79.0-1
 - 5.79.0
 
-* Sat Jan  9 16:30:11 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 5.78.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Mon Jan  4 08:30:16 CST 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.78.0-1
 - 5.78.0
 
-* Mon Dec 14 16:50:05 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
+* Sun Dec 13 14:06:11 CST 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.77.0-1
 - 5.77.0
 
-* Sun Nov 15 22:13:33 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
+* Thu Nov 19 08:51:38 CST 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.76.0-1
 - 5.76.0
 
-* Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
+* Wed Oct 14 09:42:50 CDT 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.75.0-1
 - 5.75.0
 
-* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.74.0-1
 - 5.74.0
 
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
-- 5.73.0
+* Mon Aug 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.73.0-1
+- 5.73.0, use %%cmake_build %%cmake_install
 
-* Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
+* Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.72.0-3
+- Second attempt - Rebuilt for
+  https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Mon Jul 27 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.72.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.72.0-1
 - 5.72.0
 
-* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
+* Tue Jun 16 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.71.0-1
 - 5.71.0
 
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
+* Mon May 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.0-1
 - 5.70.0
 
-* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
+* Tue Apr 21 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.69.0-1
 - 5.69.0
 
-* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
+* Fri Mar 20 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.68.0-1
 - 5.68.0
 
-* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
-- rebuild
-
-* Sun Feb 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-1
+* Sun Feb 02 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
 - 5.67.0
 
-* Sat Jan 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.66.0-1
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Tue Jan 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-1
 - 5.66.0
 
-* Sat Dec 14 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.65.0-1
+* Tue Dec 17 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.65.0-1
 - 5.65.0
 
-* Mon Nov 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.64.0-1
+* Fri Nov 08 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.64.0-1
 - 5.64.0
 
-* Sun Oct 13 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.63.0-1
+* Tue Oct 22 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.63.0-1
 - 5.63.0
 
-* Sun Sep 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.62.0-1
+* Mon Sep 16 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.62.0-1
 - 5.62.0
 
 * Wed Aug 07 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.61.0-1
