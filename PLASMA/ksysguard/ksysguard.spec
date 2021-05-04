@@ -1,6 +1,6 @@
 Name:    ksysguard
-Version: 5.21.4
-Release: 2%{?dist}
+Version: 5.21.5
+Release: 1%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -143,6 +143,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ksysguard
 
 
 %changelog
+* Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
+- 5.21.5
+
 * Sun Apr 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-2
 - rebuild
 

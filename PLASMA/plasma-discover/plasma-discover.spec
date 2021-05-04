@@ -8,8 +8,8 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.21.4
-Release: 2%{?dist}
+Version: 5.21.5
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
@@ -35,11 +35,6 @@ Source10: PK_OFFLINE_UPDATE.sh
 Patch200: discover-5.21.4-pk_refresh_force.patch
 
 ## upstreamable patches
-
-# glib2 patch is needed only with glib2 > 2.66
-%if 0%{?fedora} >= 34
-Patch100: discover-5.20.90-glib2.patch
-%endif
 
 BuildRequires: appstream-qt-devel >= 0.11.1
 BuildRequires: appstream-devel
@@ -270,6 +265,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 
 
 %changelog
+* Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
+- 5.21.5
+
 * Fri Apr 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.4-2
 - plasma-discover doesnt refresh metadata (#1903294)
 
