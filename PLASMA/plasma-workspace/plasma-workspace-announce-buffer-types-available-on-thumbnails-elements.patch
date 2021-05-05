@@ -1,0 +1,30 @@
+From 64db2f098f4fd015684605deb4fd8290cce16e29 Mon Sep 17 00:00:00 2001
+From: Aleix Pol <aleixpol@kde.org>
+Date: Wed, 5 May 2021 13:20:13 +0200
+Subject: [PATCH] Announce which buffer types are available on thumbnails
+ elements
+
+We recently changed it so kwin defaults to memptr because some clients
+couldn't deal with dmabuf. We still want dmabuf to be used as it's less
+stressful to the system and we support it just fine.
+---
+ libtaskmanager/declarative/pipewiresourcestream.cpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/libtaskmanager/declarative/pipewiresourcestream.cpp b/libtaskmanager/declarative/pipewiresourcestream.cpp
+index 9acc562b1..0118b1c2b 100644
+--- a/libtaskmanager/declarative/pipewiresourcestream.cpp
++++ b/libtaskmanager/declarative/pipewiresourcestream.cpp
+@@ -93,7 +93,9 @@ void PipeWireSourceStream::onStreamParamChanged(void *data, uint32_t id, const s
+                                                                  SPA_PARAM_BUFFERS_stride,
+                                                                  SPA_POD_CHOICE_RANGE_Int(stride, stride, INT32_MAX),
+                                                                  SPA_PARAM_BUFFERS_align,
+-                                                                 SPA_POD_Int(16));
++                                                                 SPA_POD_Int(16),
++                                                                 SPA_PARAM_BUFFERS_dataType,
++                                                                 SPA_POD_Int((1 << SPA_DATA_MemPtr) | (1 << SPA_DATA_MemFd) | (1 << SPA_DATA_DmaBuf)));
+     pw_stream_update_params(pw->pwStream, &param, 1);
+ }
+
+--
+GitLab

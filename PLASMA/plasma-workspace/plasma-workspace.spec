@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # Set (as 1) to enable bootstrap when building plasma-workspace on a new
 # repo or arch where there's no package that would provide plasmashell
 #global bootstrap 1
@@ -16,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.21.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -55,6 +53,8 @@ Source32:       breezetwilight-preview.png
 ## downstream Patches
 Patch100:       plasma-workspace-5.12.5-konsole-in-contextmenu.patch
 Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
+# add dependency on ssh-agent.service
+Patch102:       plasma-workspace-5.21-ssh-agent.patch
 # default to folderview (instead of desktop) containment, see also
 # https://mail.kde.org/pipermail/distributions/2016-July/000133.html
 # and example,
@@ -66,6 +66,7 @@ Patch105:       plasma-workspace-5.7.3-folderview_layout.patch
 ## upstream Patches
 
 ## upstream Patches (master branch)
+Patch0:  plasma-workspace-announce-buffer-types-available-on-thumbnails-elements.patch
 
 # udev
 BuildRequires:  zlib-devel
@@ -109,7 +110,7 @@ BuildRequires:  libqalculate-devel
 BuildRequires:  kf5-kholidays-devel
 BuildRequires:  kf5-prison-devel
 
-BuildRequires:  qt5-qtbase-devel >= 5.7.0
+BuildRequires:  qt5-qtbase-devel >= 5.15
 BuildRequires:  qt5-qtbase-private-devel
 %{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 BuildRequires:  qt5-qtx11extras-devel
@@ -149,9 +150,6 @@ BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kirigami2-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kquickcharts-devel >= %{kf5_version_min}
 
-# Required for InteractiveConsole:
-BuildRequires:  cmake(KF5TextEditor) >= %{kf5_version_min}
-BuildRequires:  cmake(KF5SyntaxHighlighting) >= %{kf5_version_min}
 
 BuildRequires:  kf5-ksysguard-devel >= %{majmin_ver}
 BuildRequires:  kf5-kwayland-devel >= %{kf5_version_min}
@@ -379,7 +377,7 @@ BuildArch: noarch
 %package wayland
 Summary:        Wayland support for Plasma
 Requires:       %{name} = %{version}-%{release}
-Requires:       (kwin-wayland >= %{majmin_ver} or kwinft-wayland >= %{majmin_ver} or kwin-lowlatency-wayland >= %{majmin_ver})
+Requires:       kwin-wayland >= %{majmin_ver}
 Requires:       kwayland-integration%{?_isa} >= %{majmin_ver}
 Requires:       xorg-x11-server-Xwayland
 Requires:       qt5-qtwayland%{?_isa}
@@ -397,7 +395,7 @@ Provides:       %{name}-xorg%{?_isa} = %{version}-%{release}
 # Split of Xorg session into subpackage
 Obsoletes:      %{name} < 5.19.5-2
 Requires:       %{name} = %{version}-%{release}
-Requires:       (kwin-x11 >= %{majmin_ver} or kwinft-x11 >= %{majmin_ver} or kwin-lowlatency-x11 >= %{majmin_ver})
+Requires:       kwin-x11 >= %{majmin_ver}
 Requires:       xorg-x11-server-Xorg
 Requires:       xsetroot
 %description x11
@@ -430,6 +428,7 @@ BuildArch: noarch
 sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfeel:org.kde.breeze.desktop}|g" \
   shell/packageplugins/lookandfeel/lookandfeel.cpp
 %endif
+%patch102 -p1
 %patch105 -p1
 
 %if 0%{?fedora}
@@ -456,12 +455,10 @@ EOL
 
 chrpath --delete %{buildroot}%{_kf5_qtplugindir}/phonon_platform/kde.so
 
-%if ! %{with wayland_default}
-# compat symlink
+# legacy/compat startkde symlink, drop in future releases (f35+)
+%if 0%{?fedora} < 35
+%global startkde 1
 ln -s startplasma-x11 %{buildroot}%{_kf5_bindir}/startkde
-%else
-# compat symlink
-ln -s startplasma-wayland %{buildroot}%{_kf5_bindir}/startkde
 %endif
 
 %if 0%{?fedora}
@@ -493,7 +490,6 @@ install -m644 -p -D %{SOURCE10} %{buildroot}%{_sysconfdir}/pam.d/kde
 # Make kdestart use systemd
 install -m644 -p -D %{SOURCE11} %{buildroot}%{_sysconfdir}/xdg/startkderc
 
-
 %find_lang all --with-html --all-name
 
 grep "%{_kf5_docdir}" all.lang > %{name}-doc.lang
@@ -508,9 +504,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %files common
-%license COPYING
-%license COPYING.DOC
-%license COPYING.LIB
+%license COPYING*
 
 %files -f %{name}.lang
 %{_kf5_bindir}/gmenudbusmenuproxy
@@ -525,7 +519,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_bindir}/plasma_session
 %{_kf5_bindir}/plasma-shutdown
 %{_kf5_bindir}/plasma_waitforname
-%{_kf5_bindir}/startkde
 %{_kf5_bindir}/systemmonitor
 %{_kf5_bindir}/xembedsniproxy
 %{_kf5_bindir}/kcolorschemeeditor
@@ -599,8 +592,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/kpackage/kcms/kcm_lookandfeel/*
 %{_kf5_datadir}/kpackage/kcms/kcm_style/*
 %{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
-%{_userunitdir}/*.service
-%{_userunitdir}/*.target
+%{_userunitdir}/*
 
 # PAM
 %config(noreplace) %{_sysconfdir}/pam.d/kde
@@ -715,6 +707,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 %files x11
 %{_kf5_bindir}/startplasma-x11
+%if 0%{?startkde}
+%{_kf5_bindir}/startkde
+%endif
 %if ! %{with wayland_default}
 %{_datadir}/xsessions/plasma.desktop
 %else
@@ -726,26 +721,40 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/plasma/look-and-feel/org.fedoraproject.fedora.desktop/
 %endif
 
+
 %changelog
+* Wed May 05 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-3
+- Announce which buffer types are available on thumbnails elements
+
 * Wed May 05 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-2
 - xsetroot added as required for plasma-workspace-x11
 
-* Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
+* Tue May 04 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-1
 - 5.21.5
 
-* Tue Apr 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-1
+* Fri Apr 30 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.4-2
+- startkde: make compat symlink unconditionally use startplasma-x11
+- startkde: drop compat symlink in future releases (f35+)
+
+* Tue Apr 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.4-1
 - 5.21.4
 
-* Tue Mar 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-2
-- added build dependencies: KF5TextEditor, KF5SyntaxHighlighting
-
-* Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
+* Tue Mar 16 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.3-1
 - 5.21.3
 
-* Wed Mar 03 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.2-1
+* Tue Mar 02 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.2-1
 - 5.21.2
 
-* Tue Feb 23 13:50:10 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.1-1
+* Mon Mar 01 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.1-4
+- plasma-core.target: +Before=ssh-agent.service
+
+* Thu Feb 25 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.1-3
+- plasma-workspace@.target: Wants += ssh-agent.service (#1761817)
+
+* Wed Feb 24 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.1-2
+- .spec cosmetics
+
+* Tue Feb 23 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.1-1
 - 5.21.1
 
 * Thu Feb 11 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-1

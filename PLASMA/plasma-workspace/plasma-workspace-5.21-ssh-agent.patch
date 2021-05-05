@@ -1,0 +1,20 @@
+diff -up plasma-workspace-5.21.1/startkde/systemd/plasma-core.target.ssh_agent plasma-workspace-5.21.1/startkde/systemd/plasma-core.target
+--- plasma-workspace-5.21.1/startkde/systemd/plasma-core.target.ssh_agent	2021-02-23 07:09:21.000000000 -0600
++++ plasma-workspace-5.21.1/startkde/systemd/plasma-core.target	2021-03-01 13:07:40.558916195 -0600
+@@ -4,4 +4,5 @@ Wants=plasma-plasmashell.service plasma-
+ Requires=plasma-ksmserver.service
+ BindsTo=plasma-ksmserver.service
+ After=graphical-session-pre.target
++Before=ssh-agent.service
+ RefuseManualStart=yes
+diff -up plasma-workspace-5.21.1/startkde/systemd/plasma-workspace@.target.ssh_agent plasma-workspace-5.21.1/startkde/systemd/plasma-workspace@.target
+--- plasma-workspace-5.21.1/startkde/systemd/plasma-workspace@.target.ssh_agent	2021-02-23 07:09:21.000000000 -0600
++++ plasma-workspace-5.21.1/startkde/systemd/plasma-workspace@.target	2021-03-01 13:06:44.734705478 -0600
+@@ -1,6 +1,6 @@
+ [Unit]
+ Description=KDE Plasma Workspace
+ Requires=plasma-core.target xdg-desktop-autostart.target graphical-session.target
+-Wants=plasma-kwin_%i.service plasma-restoresession.service plasma-xembedsniproxy.service plasma-gmenudbusmenuproxy.service plasma-powerdevil.service plasma-ksplash-ready.service plasma-polkit-agent.service plasma-baloo.service plasma-foreground-booster.service
++Wants=plasma-kwin_%i.service plasma-restoresession.service plasma-xembedsniproxy.service plasma-gmenudbusmenuproxy.service plasma-powerdevil.service plasma-ksplash-ready.service plasma-polkit-agent.service plasma-baloo.service plasma-foreground-booster.service ssh-agent.service
+ BindsTo=graphical-session.target
+ Before=graphical-session.target xdg-desktop-autostart.target plasma-ksplash-ready.service plasma-restoresession.service
