@@ -22,8 +22,8 @@ index acb3d92..36b22ec 100644
 +++ b/src/modulemanager.cpp
 @@ -7,6 +7,7 @@
  #include "modulemanager.h"
- #include "../config.h"
  #include "module.h"
+ #include "../config.h"
 +#include "server.h"
  
  #if USE_GSETTINGS

@@ -1,0 +1,12 @@
+diff '--color=auto' -r -U3 powerdevil-5.21.5.orig/daemon/powerdevilpolicyagent.cpp powerdevil-5.21.5/daemon/powerdevilpolicyagent.cpp
+--- powerdevil-5.21.5.orig/daemon/powerdevilpolicyagent.cpp	2021-05-04 15:57:30.000000000 +0300
++++ powerdevil-5.21.5/daemon/powerdevilpolicyagent.cpp	2021-05-05 03:45:17.021313522 +0300
+@@ -236,7 +236,7 @@
+             return;
+         }
+ 
+-        QDBusPendingReply<QDBusObjectPath> session = m_managerIface.data()->asyncCall(QLatin1String("GetSessionByPID"), (quint32) QCoreApplication::applicationPid());
++        QDBusPendingReply<QDBusObjectPath> session = m_managerIface.data()->asyncCall(QLatin1String("GetSession"), QStringLiteral("auto"));
+         session.waitForFinished();
+ 
+         if (!session.isValid()) {
