@@ -2,8 +2,8 @@
 %global framework solid
 
 Name:    kf5-%{framework}
-Version: 5.81.0
-Release: 2%{?dist}
+Version: 5.82.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module that provides hardware information
 
 License: LGPLv2+
@@ -106,6 +106,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-1
+- 5.82.0
+
 * Mon Apr 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-2
 - power support enabled
 

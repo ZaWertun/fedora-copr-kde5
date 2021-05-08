@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global         framework baloo
 
 # uncomment to enable bootstrap mode
@@ -10,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.81.0
+Version: 5.82.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -135,7 +134,6 @@ install -p -m755 -D %{SOURCE2} %{buildroot}%{_sysconfdir}/xdg/plasma-workspace/s
 %find_lang kio5_tags
 %find_lang kio5_timeline
 %find_lang balooctl5
-#find_lang baloodb5
 %find_lang balooengine5
 %find_lang baloosearch5
 %find_lang balooshow5
@@ -162,7 +160,6 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-#{_kf5_bindir}/baloodb
 %{_kf5_bindir}/baloosearch
 %{_kf5_bindir}/balooshow
 %{_kf5_bindir}/balooctl
@@ -170,10 +167,13 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 %files file -f %{name}-file.lang
 %{_prefix}/lib/sysctl.d/97-kde-baloo-filewatch-inotify.conf
-%{_sysconfdir}/xdg/plasma-workspace/shutdown/baloo_file.sh
+%config(noreplace) %{_sysconfdir}/xdg/plasma-workspace/shutdown/baloo_file.sh
 %{_kf5_bindir}/baloo_file
 %{_kf5_bindir}/baloo_file_extractor
-%{_kf5_sysconfdir}/xdg/autostart/baloo_file.desktop
+%config(noreplace) %{_kf5_sysconfdir}/xdg/autostart/baloo_file.desktop
+%{_userunitdir}/kde-baloo.service
+%{_libexecdir}/baloo_file
+%{_libexecdir}/baloo_file_extractor
 
 %ldconfig_scriptlets libs
 
@@ -203,6 +203,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-1
+- 5.82.0
+
 * Sun Apr 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-1
 - 5.81.0
 

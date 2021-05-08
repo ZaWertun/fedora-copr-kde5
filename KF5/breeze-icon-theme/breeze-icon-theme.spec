@@ -6,8 +6,8 @@
 
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
-Version: 5.81.0
-Release: 3%{?dist}
+Version: 5.82.0
+Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
 License: LGPLv3+
@@ -159,6 +159,9 @@ fi
 
 
 %changelog
+* Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-1
+- 5.82.0
+
 * Thu Apr 29 2021 Tom Callaway <spot@fedoraproject.org> - 5.81.0-3
 - use fedora logo image from fedora-logos (not upstream copy)
 

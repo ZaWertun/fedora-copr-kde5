@@ -40,6 +40,7 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
+Patch0: kwin-use-dmabufs-only-when-client-asks-for-it.patch
 
 ## proposed patches
 
@@ -363,6 +364,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed May 05 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-2
+- Use dma-bufs for screensharing only when client asks for it
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 
