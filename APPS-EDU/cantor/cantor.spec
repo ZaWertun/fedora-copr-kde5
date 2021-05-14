@@ -17,7 +17,7 @@
 
 Name:    cantor
 Summary: KDE Frontend to Mathematical Software
-Version: 21.04.0
+Version: 21.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -173,6 +173,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/kxmlgui5/cantor/cantor_scripteditor.rc
 %{_kf5_datadir}/kxmlgui5/cantor/cantor_shell.rc
 %{_kf5_datadir}/kxmlgui5/cantor/cantor_*assistant.rc
+%{_kf5_datadir}/mime/packages/%{name}.xml
 
 %if 0%{?python3}
 %files -n python3-%{name}
@@ -222,6 +223,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri May 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
+- 21.04.1
+
 * Fri Apr 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
 - 21.04.0
 
