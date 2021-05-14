@@ -2,7 +2,7 @@
 
 Name:    kgpg
 Summary: Manage GPG encryption keys 
-Version: 21.04.0
+Version: 21.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -121,6 +121,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
+- 21.04.1
+
 * Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
 - 21.04.0
 

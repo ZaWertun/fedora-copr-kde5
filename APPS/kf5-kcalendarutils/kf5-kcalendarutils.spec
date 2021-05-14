@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-kcalendarutils
-Version: 21.04.0
+Version: 21.04.1
 Release: 1%{?dist}
 Summary: The KCalendarUtils Library
 
@@ -107,6 +107,9 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
+- 21.04.1
+
 * Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
 - 21.04.0
 

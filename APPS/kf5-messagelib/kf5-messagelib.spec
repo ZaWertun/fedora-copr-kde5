@@ -2,7 +2,7 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 21.04.0
+Version: 21.04.1
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -191,6 +191,9 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
 
 %changelog
+* Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
+- 21.04.1
+
 * Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
 - 21.04.0
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kfloppy
 Summary: Floppy formatting tool 
-Version: 21.04.0
+Version: 21.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -72,6 +72,9 @@ desktop-file-validate %{buildroot}%{_kde4_datadir}/applications/org.kde.kfloppy.
 
 
 %changelog
+* Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
+- 21.04.1
+
 * Thu Apr 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
 - 21.04.0
 
