@@ -17,7 +17,7 @@
 
 Name:    kwin
 Version: 5.21.5
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -41,6 +41,8 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 
 ## upstream patches
 Patch0: kwin-use-dmabufs-only-when-client-asks-for-it.patch
+# https://bugs.kde.org/show_bug.cgi?id=395970
+Patch1: kwin-fix-focus-follows-mouse-policy.patch
 
 ## proposed patches
 
@@ -364,6 +366,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu May 13 2021 Jonathan Wakely <jwakely@redhat.com> - 5.21.5-3
+- Add patch to fix focus follows mouse (#1960208)
+
 * Wed May 05 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-2
 - Use dma-bufs for screensharing only when client asks for it
 
