@@ -3,14 +3,14 @@
 %global debug_package %{nil}
 
 Name:    plasma-wayland-protocols
-Version: 1.2.1
+Version: 1.3.0
 Release: 1%{?dist}
 Summary: Plasma Specific Protocols for Wayland
 
 License: LGPLv2+ and MIT and BSD
 URL:     https://invent.kde.org/libraries/%{name}
 
-Source0: https://download.kde.org/stable/%{name}/%{name}-v%{version}.tar.xz
+Source0: https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
 
 ## upstream patches (lookaside cache)
 
@@ -30,7 +30,7 @@ developing applications that use %{name}.
 
 
 %prep
-%autosetup -p1 -n %{name}-v%{version}
+%autosetup -p1
 
 
 %build
@@ -52,6 +52,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.0-1
+- v1.3.0
+
 * Mon Apr 05 2021 Rex Dieter <rdieter@fedoraproject.org> - 1.2.1-1
 - v1.2.1
 

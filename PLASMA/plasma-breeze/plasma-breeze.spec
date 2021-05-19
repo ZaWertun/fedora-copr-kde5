@@ -7,7 +7,7 @@
 
 Name:    plasma-breeze
 Version: 5.21.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
 License: GPLv2+
@@ -22,6 +22,10 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
+
+## upstream
+# https://bugs.kde.org/show_bug.cgi?id=436473
+Patch0:  plasma-breeze-5.21.5-fix-resize-cursor-stuck.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -145,6 +149,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 
 %changelog
+* Tue May 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-2
+- added patch for issue #436473
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 
