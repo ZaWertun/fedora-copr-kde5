@@ -1,13 +1,12 @@
-%undefine __cmake_in_source_build
 %global framework kio
 
 Name:    kf5-%{framework}
 Version: 5.82.0
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
-URL:     https://cgit.kde.org/%{framework}.git
+URL:     https://invent.kde.org/frameworks/%{framework}
 
 %global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
@@ -18,7 +17,11 @@ URL:     https://cgit.kde.org/%{framework}.git
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
-## upstream patches
+## upstream patches (lookaside)
+Patch17: 0017-MimeTypeFinderJob-Resolve-symlinks-for-a-local-file.patch
+Patch24: 0024-kio_file-pass-the-absolute-path-to-QMimeDatabase-mim.patch
+Patch25: 0025-MimeTypeFinderJob-the-StatJob-details-should-include.patch
+Patch27: 0027-kio_file-fix-how-createUDSEntry-is-called.patch
 
 ## upstreamable patches
 
@@ -40,6 +43,7 @@ BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
 BuildRequires:  kf5-kcrash-devel >= %{majmin}
 BuildRequires:  kf5-kdoctools-devel >= %{majmin}
 BuildRequires:  kf5-kdbusaddons-devel >= %{majmin}
+BuildRequires:  kf5-kguiaddons-devel >= %{majmin}
 BuildRequires:  kf5-ki18n-devel >= %{majmin}
 BuildRequires:  kf5-kservice-devel >= %{majmin}
 BuildRequires:  kf5-solid-devel >= %{majmin}
@@ -57,9 +61,6 @@ BuildRequires:  kf5-ktextwidgets-devel >= %{majmin}
 BuildRequires:  kf5-kwallet-devel >= %{majmin}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-kxmlgui-devel >= %{majmin}
-BuildRequires:  cmake(KF5GuiAddons)
-
-BuildRequires:  cmake(KDED)
 
 BuildRequires:  krb5-devel
 BuildRequires:  libacl-devel
@@ -74,6 +75,16 @@ BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  cmake(Qt5UiPlugin)
 BuildRequires:  cmake(Qt5Qml)
+
+
+%if ! 0%{?bootstrap}
+# really runtime dep, but will make cmake happier when building
+BuildRequires: kf5-kded-devel
+# (apparently?) requires org.kde.klauncher5 service provided by kf5-kinit -- rex
+# not versioned to allow update without bootstrap
+# <skip!>
+BuildRequires:  kf5-kinit-devel
+%endif
 
 Requires:       %{name}-core%{?_isa} = %{version}-%{release}
 Requires:       %{name}-widgets%{?_isa} = %{version}-%{release}
@@ -172,6 +183,7 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 %build
 %cmake_kf5
+
 %cmake_build
 
 
@@ -187,8 +199,7 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 %files core
 %{_kf5_sysconfdir}/xdg/accept-languages.codes
-%{_kf5_datadir}/qlogging-categories5/%{framework}.categories
-%{_kf5_datadir}/qlogging-categories5/%{framework}.renamecategories
+%{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_libexecdir}/kio_http_cache_cleaner
 %{_kf5_libexecdir}/kpac_dhcp_helper
 %{_kf5_libexecdir}/kioexec
@@ -290,56 +301,71 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 
 %changelog
-* Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-1
+* Sat May 15 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.82.0-3
+- 2 more kio_file-related backports
+
+* Fri May 14 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.82.0-2
+- backport KMimeTypeFinderJob fixes
+
+* Mon May 03 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.82.0-1
 - 5.82.0
 
-* Sun Apr 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-1
+* Tue Apr 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.81.0-1
 - 5.81.0
 
-* Fri Mar 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.1-1
-- version 5.80.1
+* Tue Mar 30 2021 Jonathan Wakely <jwakely@redhat.com> - 5.80.1-2
+- Rebuilt for removed libstdc++ symbol (#1937698)
 
-* Fri Mar 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-2
-- added fix_#430862.patch
+* Mon Mar 15 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.80.1-1
+- 5.80.1
 
-* Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
+* Tue Mar 09 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.80.0-1
 - 5.80.0
 
-* Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
+* Sun Feb 07 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.79.0-3
+- BR: Qt5Qml, kf5-kded-devel
+
+* Sat Feb 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.79.0-2
+- respin
+
+* Sat Feb 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.79.0-1
 - 5.79.0
 
-* Sat Jan  9 16:30:24 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 5.78.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Mon Jan  4 08:48:59 CST 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.78.0-1
 - 5.78.0
 
-* Wed Dec 23 14:32:39 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-2
-- added patch to fix bug 430374
-
-* Mon Dec 14 16:50:17 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
+* Sun Dec 13 14:14:59 CST 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.77.0-1
 - 5.77.0
 
-* Sun Nov 15 22:13:46 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
+* Thu Nov 19 09:05:04 CST 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.76.0-1
 - 5.76.0
 
-* Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
+* Fri Oct 16 2020 Jeff Law <law@redhat.com> - 5.75.0-2
+- Fix missing #include for gcc-11
+
+* Wed Oct 14 09:57:16 CDT 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.75.0-1
 - 5.75.0
 
-* Sat Sep 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.1-1
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.74.1-1
 - 5.74.1
 
-* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
-- 5.74.0
-
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
+* Mon Aug 03 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.73.0-1
 - 5.73.0
 
-* Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.72.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 07 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.72.0-1
 - 5.72.0
 
-* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
+* Tue Jun 16 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.71.0-1
 - 5.71.0
 
-* Thu May 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.1-2
-- rebuild
+* Sun May 31 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.1-2
+- pull in upstream fix for "run in terminal" regression (#1841860)
 
 * Sat May 16 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.70.1-1
 - 5.70.1
