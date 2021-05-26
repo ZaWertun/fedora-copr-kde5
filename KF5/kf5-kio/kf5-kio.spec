@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.82.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
@@ -22,6 +22,7 @@ Patch17: 0017-MimeTypeFinderJob-Resolve-symlinks-for-a-local-file.patch
 Patch24: 0024-kio_file-pass-the-absolute-path-to-QMimeDatabase-mim.patch
 Patch25: 0025-MimeTypeFinderJob-the-StatJob-details-should-include.patch
 Patch27: 0027-kio_file-fix-how-createUDSEntry-is-called.patch
+Patch28: 0028-KCoreDirLister-Guard-uiDelegate-it-might-be-null.patch
 
 ## upstreamable patches
 
@@ -301,6 +302,9 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 
 %changelog
+* Wed May 26 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-4
+- added patch to fix #437153
+
 * Sat May 15 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.82.0-3
 - 2 more kio_file-related backports
 
