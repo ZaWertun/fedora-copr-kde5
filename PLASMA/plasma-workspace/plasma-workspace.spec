@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.21.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -139,6 +139,7 @@ BuildRequires:  kf5-knotifyconfig-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kpeople-devel >= %{kf5_version_min}
 BuildRequires:  kf5-krunner-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ktexteditor-devel >= %{kf5_version_min}
+BuildRequires:  kf5-syntax-highlighting-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kwallet-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kxmlrpcclient-devel >= %{kf5_version_min}
@@ -723,6 +724,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu May 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-4
+- added KF5SyntaxHighlighting build dependency
+
 * Wed May 05 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-3
 - Announce which buffer types are available on thumbnails elements
 
