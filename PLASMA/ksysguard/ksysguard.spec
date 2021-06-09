@@ -1,10 +1,10 @@
 Name:    ksysguard
 Version: 5.22.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
-URL:     https://invent.kde.org/plasma%{name}
+URL:     https://invent.kde.org/plasma/%{name}
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -14,7 +14,7 @@ URL:     https://invent.kde.org/plasma%{name}
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/%{name}/%{version}/%{name}-%{version}.tar.xz
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -29,16 +29,12 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5IconThemes)
-BuildRequires: cmake(KF5Init)
 BuildRequires: cmake(KF5ItemViews)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5Solid)
 BuildRequires: cmake(KF5WindowSystem)
-
-# libkdeinit5_*
-%{?kf5_kinit_requires}
 
 BuildRequires: cmake(KF5NetworkManagerQt)
 
@@ -54,19 +50,15 @@ Requires:       ksystemstats = %{version}-%{release}
 %description
 %{summary}.
 
-%package backend
-Summary: KDE Process Manager Backend
 # -libs -> plugins renamed
 Obsoletes: ksysguard-libs < 5.12.1-3
 Provides:  ksysguard-libs = %{version}-%{release}
 # -plugins -> -backend renamed
 Obsoletes: ksysguard-plugins < 5.21.1-6
 Provides:  ksysguard-plugins = %{version}-%{release}
-# Deal with the split of libraries and ksystemstats
-Conflicts: %{name} < 5.21.1-2
 
-%description backend
-%{summary}.
+Obsoletes: ksysguard-backend < 5.21.90-2
+Provides:  ksysguard-backend = %{version}-%{release}
 
 %package -n   ksysguardd
 Summary: Performance monitor daemon
@@ -74,16 +66,6 @@ Summary: Performance monitor daemon
 Conflicts: %{name} < 5.21.1-2
 
 %description -n ksysguardd
-%{summary}.
-
-%package -n  ksystemstats
-Summary: System statistics daemon
-Requires: %{name}-backend%{?_isa} = %{version}-%{release}
-Requires: ksysguardd = %{version}-%{release}
-# Deal with the split of libraries and ksystemstats
-Conflicts: %{name} < 5.21.1-2
-
-%description -n ksystemstats
 %{summary}.
 
 
@@ -115,8 +97,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ksysguard
 %license COPYING*
 %doc README
 %{_kf5_bindir}/ksysguard
-%{_kf5_libdir}/libkdeinit5_ksysguard.so
-%{_libexecdir}/ksysguard/
 %{_kf5_datadir}/ksysguard/
 %{_kf5_metainfodir}/org.kde.ksysguard.appdata.xml
 %{_kf5_datadir}/knsrcfiles/ksysguard.knsrc
@@ -125,32 +105,30 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ksysguard
 %{_kf5_datadir}/knotifications5/ksysguard.notifyrc
 %{_kf5_datadir}/kxmlgui5/ksysguard/
 
-%files backend
-%license COPYING
-%{_kf5_libdir}/libksgrdbackend.so
-%{_qt5_plugindir}/ksysguard/
-
 %files -n ksysguardd
 %license COPYING
 %config %{_sysconfdir}/ksysguarddrc
 %{_kf5_bindir}/ksysguardd
 
-%files -n ksystemstats
-%license COPYING
-%{_kf5_bindir}/ksystemstats
-%{_kf5_bindir}/kstatsviewer
-%{_datadir}/dbus-1/services/org.kde.ksystemstats.service
-
 
 %changelog
-* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+* Wed Jun 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-2
+- rebuild
+
+* Sun Jun 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.0-1
 - 5.22.0
 
-* Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
-- 5.21.5
+* Sun May 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-2
+- fix URL
+- drop kinit dep
+- drop -backend (Obsoletes)
+- drop ksystemstats (moved to libksysguard)
 
-* Sun Apr 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-2
-- rebuild
+* Sun May 16 2021 Marc Deop <marcdeop@fedoraproject.org> - 5.21.90-1
+- 5.21.90
+
+* Tue May 04 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-1
+- 5.21.5
 
 * Tue Apr 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.4-1
 - 5.21.4
