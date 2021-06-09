@@ -1,0 +1,12 @@
+diff '--color=auto' -r -U3 khotkeys-5.22.0.orig/kcm_hotkeys/actions/dbus_action_widget.cpp khotkeys-5.22.0/kcm_hotkeys/actions/dbus_action_widget.cpp
+--- khotkeys-5.22.0.orig/kcm_hotkeys/actions/dbus_action_widget.cpp	2021-06-09 16:19:08.151327788 +0300
++++ khotkeys-5.22.0/kcm_hotkeys/actions/dbus_action_widget.cpp	2021-06-09 16:19:34.289433109 +0300
+@@ -79,7 +79,7 @@
+ 
+ void DbusActionWidget::launchDbusBrowser() const
+ {
+-    auto *job = new KIO::CommandLauncherJob("qdbusviewer");
++    auto *job = new KIO::CommandLauncherJob("qdbusviewer-qt5");
+     job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+     job->start();
+ }

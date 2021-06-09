@@ -16,8 +16,8 @@
 %endif
 
 Name:    kwin
-Version: 5.21.5
-Release: 3%{?dist}
+Version: 5.22.0
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -40,9 +40,6 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
-Patch0: kwin-use-dmabufs-only-when-client-asks-for-it.patch
-# https://bugs.kde.org/show_bug.cgi?id=395970
-Patch1: kwin-fix-focus-follows-mouse-policy.patch
 
 ## proposed patches
 
@@ -304,6 +301,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
 %{_libexecdir}/kwin_killer_helper
 %{_libexecdir}/kwin_rules_dialog
+%{_libexecdir}/kwin-applywindowdecoration
 %{_datadir}/kconf_update/kwin.upd
 %{_datadir}/kconf_update/kwin-5.16-auto-bordersize.sh
 %{_datadir}/kconf_update/kwin-5.18-move-animspeed.py
@@ -366,6 +364,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Thu May 13 2021 Jonathan Wakely <jwakely@redhat.com> - 5.21.5-3
 - Add patch to fix focus follows mouse (#1960208)
 

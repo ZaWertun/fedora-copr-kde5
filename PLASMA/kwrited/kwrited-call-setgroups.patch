@@ -1,36 +1,35 @@
-diff --git a/kwrited.cpp b/kwrited.cpp
-index 2b73e36..27b309e 100644
---- a/kwrited.cpp
-+++ b/kwrited.cpp
-@@ -35,6 +35,7 @@
- # include <signal.h>
- # include <sys/types.h>
- # include <unistd.h>
-+# include <grp.h>
+diff '--color=auto' -r -U3 kwrited-5.22.0.orig/kwrited.cpp kwrited-5.22.0/kwrited.cpp
+--- kwrited-5.22.0.orig/kwrited.cpp	2021-06-03 17:09:01.000000000 +0300
++++ kwrited-5.22.0/kwrited.cpp	2021-06-08 21:38:22.247086631 +0300
+@@ -22,6 +22,7 @@
+ #include <signal.h>
+ #include <sys/types.h>
+ #include <unistd.h>
++#include <grp.h>
  #else
- # include <kpluginfactory.h>
- # include <kpluginloader.h>
-@@ -61,6 +62,7 @@ int main(int argc, char **argv)
-     //drop elevated privileges temporarily
+ #include <kpluginfactory.h>
+ #include <kpluginloader.h>
+@@ -48,6 +49,7 @@
+     // drop elevated privileges temporarily
      original_euid = geteuid();
      original_egid = getegid();
 +    setgroups(0, 0); // Remove any extraneous groups
      seteuid(getuid());
      setegid(getgid());
  
-@@ -119,6 +121,7 @@ KWrited::KWrited() : QObject()
-   
- #if defined(BUILD_AS_EXECUTABLE)
-   //drop privileges again
-+  setgroups(0, 0);
-   seteuid(getuid());
-   setegid(getgid());
- #endif
-@@ -139,6 +142,7 @@ KWrited::~KWrited()
+@@ -105,6 +107,7 @@
  
  #if defined(BUILD_AS_EXECUTABLE)
-   //drop privileges again
-+  setgroups(0, 0);
-   seteuid(getuid());
-   setegid(getgid());
+     // drop privileges again
++    setgroups(0, 0);
+     seteuid(getuid());
+     setegid(getgid());
+ #endif
+@@ -125,6 +128,7 @@
+ 
+ #if defined(BUILD_AS_EXECUTABLE)
+     // drop privileges again
++    setgroups(0, 0);
+     seteuid(getuid());
+     setegid(getgid());
  #endif

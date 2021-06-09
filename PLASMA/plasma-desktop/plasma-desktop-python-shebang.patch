@@ -1,13 +1,3 @@
-diff --git a/kcms/keyboard/kcminputrc_migrate_repeat_value.py b/kcms/keyboard/kcminputrc_migrate_repeat_value.py
-index 6515cff..8016e60 100755
---- a/kcms/keyboard/kcminputrc_migrate_repeat_value.py
-+++ b/kcms/keyboard/kcminputrc_migrate_repeat_value.py
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/python3
- import sys
- 
- for line in sys.stdin:
 diff --git a/kcms/ksmserver/kconf_update/ksmserver_update_loginMode_value.py b/kcms/ksmserver/kconf_update/ksmserver_update_loginMode_value.py
 index a019986..cec9c78 100644
 --- a/kcms/ksmserver/kconf_update/ksmserver_update_loginMode_value.py

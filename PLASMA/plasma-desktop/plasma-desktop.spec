@@ -1,6 +1,4 @@
-%undefine __cmake_in_source_build
-
-%global kf5_version_min 5.69
+%global kf5_version_min 5.82
 
 %global synaptics 1
 %global scim 1
@@ -11,7 +9,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -35,7 +33,8 @@ Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.t
 Patch100: plasma-desktop-5.8-default_favorites.patch
 
 ## upstreamable patches
-Patch200: https://gitweb.gentoo.org/proj/kde.git/plain/kde-plasma/plasma-desktop/files/plasma-desktop-5.18.4.1-override-include-dirs.patch
+# REBASE?  -- rex
+#Patch200: https://gitweb.gentoo.org/proj/kde.git/plain/kde-plasma/plasma-desktop/files/plasma-desktop-5.18.4.1-override-include-dirs.patch
 Patch202: plasma-desktop-python-shebang.patch
 
 # use this bundled copy (from f31) if not provided already
@@ -86,11 +85,8 @@ BuildRequires:  kf5-baloo-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kdeclarative-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kpeople-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
-BuildRequires:  kf5-kinit-devel >= %{kf5_version_min}
-# libkdeinit5_*
-%{?kf5_kinit_requires}
 
-BuildRequires:  kf5-ksysguard-devel >= %{majmin_ver}
+BuildRequires:  libksysguard-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  kwin-devel >= %{majmin_ver}
 # see %%prep below -- rex
@@ -101,6 +97,9 @@ BuildRequires:  plasma-workspace-devel >= %{majmin_ver}
 %if 0%{?fedora}
 BuildRequires:  cmake(AppStreamQt)
 %endif
+BuildRequires:  cmake(KAccounts) intltool
+BuildRequires:  cmake(KUserFeedback)
+BuildRequires:  PackageKit-Qt5-devel
 BuildRequires:  kf5-kactivities-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kactivities-stats-devel >= %{kf5_version_min}
 BuildRequires:  libcanberra-devel
@@ -151,7 +150,10 @@ Requires:       kwin >= %{majmin_ver}
 # kickoff -> edit applications (#1229393)
 Requires:       kmenuedit >= %{majmin_ver}
 
-Requires:       qqc2-desktop-style
+BuildRequires:  kf5-kirigami2
+Requires:       kf5-kirigami2%{?_isa}
+BuildRequires:  qqc2-desktop-style
+Requires:       qqc2-desktop-style%{?_isa}
 
 # for ibus-ui-emojier-plasma
 Recommends: ibus
@@ -203,7 +205,7 @@ BuildArch: noarch
 ## upstream patches
 
 ## upstreamable patches
-%patch200 -p1
+#patch200 -p1
 %patch202 -p1
 
 %if ! 0%{?synaptics}
@@ -250,9 +252,6 @@ rm -rfv %{buildroot}%{_datadir}/kdm/pics/users/
 # odd locale stuff?
 rm -rfv %{buildroot}%{_datadir}/locale/*/LC_SCRIPTS/kfontinst/
 
-sed -ie "s|^#!/usr/bin/env python.*|#!%{__python3}|" %{buildroot}%{_datadir}/kconf_update/*.py
-rm -v %{buildroot}%{_datadir}/kconf_update/*.pye*
-
 
 %check
 desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.desktop
@@ -272,13 +271,13 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_libexecdir}/kimpanel-ibus-panel
 %{_libexecdir}/kimpanel-ibus-panel-launcher
 %{_kf5_qmldir}/org/kde/plasma/private
-%{_kf5_libdir}/libkdeinit5_kaccess.so
 # TODO: -libs subpkg -- rex
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kcms/*.so
 %{_kf5_plugindir}/kded/*.so
 %{_kf5_plugindir}/krunner/krunner*.so
 %{_kf5_qmldir}/org/kde/plasma/activityswitcher
+%{_kf5_qmldir}/org/kde/plasma/emoji/
 %{_kf5_qmldir}/org/kde/private/desktopcontainment/*
 %{_kf5_qmldir}/org/kde/activities/settings/
 %{_kf5_datadir}/plasma/*
@@ -287,26 +286,14 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_datadir}/kservices5/kded/touchpad.desktop
 %{_bindir}/kcm-touchpad-list-devices
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_touchpad.so
-%{_datadir}/config.kcfg/touchpad.kcfg
-%{_datadir}/config.kcfg/touchpaddaemon.kcfg
 %{_datadir}/dbus-1/interfaces/org.kde.touchpad.xml
 # kcminput
 %{_kf5_bindir}/kapplymousetheme
 %{_kf5_datadir}/kcmmouse/
 %endif
-%{_datadir}/config.kcfg/kactivitymanagerd_plugins_settings.kcfg
-%{_datadir}/config.kcfg/kactivitymanagerd_settings.kcfg
-%{_datadir}/config.kcfg/splashscreensettings.kcfg
-%{_datadir}/config.kcfg/workspaceoptions_kdeglobalssettings.kcfg
-%{_datadir}/config.kcfg/workspaceoptions_plasmasettings.kcfg
-%{_datadir}/config.kcfg/launchfeedbacksettingsbase.kcfg
-%{_datadir}/config.kcfg/kcmaccessibilitybell.kcfg
-%{_datadir}/config.kcfg/kcmaccessibilitykeyboard.kcfg
-%{_datadir}/config.kcfg/kcmaccessibilitymouse.kcfg
-%{_datadir}/config.kcfg/kcmaccessibilityscreenreader.kcfg
+%{_datadir}/config.kcfg/*.kcfg
 %{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
-%{_datadir}/qlogging-categories5/kcmkeys.categories
-%{_datadir}/qlogging-categories5/kcmusers.categories
+%{_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kcmkeys
 %{_kf5_datadir}/kcmkeyboard
@@ -327,7 +314,8 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_datadir}/dbus-1/system-services/*.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmclock.policy
 %{_sysconfdir}/xdg/autostart/*.desktop
-
+%{_kf5_datadir}/accounts/providers/kde/
+%{_kf5_datadir}/accounts/services/kde/
 
 %if 0%{?scim}
 %files kimpanel-scim
@@ -338,19 +326,31 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
-* Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
+* Sun Jun 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.0-1
+- 5.22.0
+
+* Thu May 20 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-3
+- pull in some upstream fixes
+
+* Sun May 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-2
+- s/kf5-ksysguard/libksysguard/
+
+* Fri May 14 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-1
+- 5.21.90
+
+* Tue May 04 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-1
 - 5.21.5
 
-* Tue Apr 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-1
+* Tue Apr 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.4-1
 - 5.21.4
 
-* Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
+* Tue Mar 16 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.3-1
 - 5.21.3
 
-* Wed Mar 03 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.2-1
+* Tue Mar 02 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.2-1
 - 5.21.2
 
-* Tue Feb 23 13:50:06 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.1-1
+* Tue Feb 23 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.1-1
 - 5.21.1
 
 * Mon Feb 15 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-2

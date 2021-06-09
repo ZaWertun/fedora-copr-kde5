@@ -2,7 +2,7 @@
 %define         base_name milou
 
 Name:    plasma-%{base_name}
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 Summary: A dedicated KDE search application built on top of Baloo
 
@@ -71,6 +71,9 @@ Provides:       kde-plasma-milou = %{version}-%{release}
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

@@ -3,7 +3,7 @@
 
 Name:    plasma-thunderbolt
 Summary: Plasma integration for controlling Thunderbolt devices
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -38,8 +38,7 @@ Requires:       bolt%{?_isa}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -51,7 +50,7 @@ Requires:       bolt%{?_isa}
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_libdir}/libkbolt.so
 %{_kf5_qtplugindir}/kcms/kcm_bolt.so
 %{_kf5_plugindir}/kded/kded_bolt.so
@@ -62,6 +61,9 @@ Requires:       bolt%{?_isa}
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

@@ -4,7 +4,7 @@
 
 Name:    kmenuedit
 Summary: KDE menu editor
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -53,14 +53,12 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang kmenuedit5 --with-html --all-name
 
 
@@ -68,7 +66,7 @@ Conflicts:      kde-workspace < 4.11.15-3
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.desktop
 
 %files -f kmenuedit5.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_bindir}/kmenuedit
 %{_datadir}/kmenuedit/
 %{_datadir}/applications/org.kde.kmenuedit.desktop
@@ -79,6 +77,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.des
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

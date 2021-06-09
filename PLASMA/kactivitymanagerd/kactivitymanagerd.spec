@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:           kactivitymanagerd
 Summary:        Plasma service to manage user's activities
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License:        GPLv2+
@@ -80,10 +80,14 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 %{_kf5_datadir}/kservicetypes5/kactivitymanagerd-plugin.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_datadir}/dbus-1/services/org.kde.ActivityManager.service
+%{_kf5_datadir}/krunner/dbusplugins/plasma-runnners-activities.desktop
 %{_userunitdir}/plasma-kactivitymanagerd.service
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

@@ -3,7 +3,7 @@
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -60,19 +60,17 @@ pieces of KDE infrastructure.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang xdg-desktop-portal-kde
 
 
 %files -f xdg-desktop-portal-kde.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_libexecdir}/xdg-desktop-portal-kde
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
 %{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
@@ -82,6 +80,9 @@ pieces of KDE infrastructure.
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

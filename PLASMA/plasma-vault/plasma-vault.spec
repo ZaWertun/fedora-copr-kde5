@@ -3,7 +3,7 @@
 
 Name:    plasma-vault
 Summary: Plasma Vault offers strong encryption features in a user-friendly way
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -55,7 +55,7 @@ prying eyes even when the user is logged in.
 
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_plugindir}/kded/plasmavault.so
 %dir %{_qt5_plugindir}/plasma/applets/
 %{_qt5_plugindir}/plasma/applets/plasma_applet_vault.so
@@ -66,6 +66,9 @@ prying eyes even when the user is logged in.
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

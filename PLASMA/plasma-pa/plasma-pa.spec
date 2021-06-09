@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    plasma-pa
-Version: 5.21.5
-Release: 2%{?dist}
+Version: 5.22.0
+Release: 1%{?dist}
 Summary: Plasma applet for audio volume management using PulseAudio
 
 License: LGPLv2+ and GPLv2+
@@ -16,8 +16,6 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream
-# https://bugs.kde.org/show_bug.cgi?id=433246
-Patch0:  bug-433246.patch
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  glib2-devel
@@ -71,7 +69,7 @@ rm -rfv %{buildroot}%{_kde4_appsdir}/kconf_update/
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.volume/
 %{_kf5_qmldir}/org/kde/plasma/private/volume/
 %{_kf5_qtplugindir}/kcms/kcm_pulseaudio.so
@@ -83,6 +81,9 @@ rm -rfv %{buildroot}%{_kde4_appsdir}/kconf_update/
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Wed May 05 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-2
 - added patch for issue #433246
 

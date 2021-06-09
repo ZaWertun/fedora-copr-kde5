@@ -2,7 +2,7 @@
 # repo or arch where there's no package that would provide plasmashell
 #global bootstrap 1
 
-%global kf5_version_min 5.78.0
+%global kf5_version_min 5.82.0
 
 # Control wayland by default
 %if (0%{?fedora} && 0%{?fedora} < 34) || (0%{?rhel} && 0%{?rhel} < 9)
@@ -13,8 +13,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.21.5
-Release: 4%{?dist}
+Version: 5.22.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -66,7 +66,6 @@ Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 ## upstream Patches
 
 ## upstream Patches (master branch)
-Patch0:  plasma-workspace-announce-buffer-types-available-on-thumbnails-elements.patch
 
 # udev
 BuildRequires:  zlib-devel
@@ -139,7 +138,6 @@ BuildRequires:  kf5-knotifyconfig-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kpeople-devel >= %{kf5_version_min}
 BuildRequires:  kf5-krunner-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ktexteditor-devel >= %{kf5_version_min}
-BuildRequires:  kf5-syntax-highlighting-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kwallet-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kxmlrpcclient-devel >= %{kf5_version_min}
@@ -151,13 +149,21 @@ BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kirigami2-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kquickcharts-devel >= %{kf5_version_min}
 
-
-BuildRequires:  kf5-ksysguard-devel >= %{majmin_ver}
 BuildRequires:  kf5-kwayland-devel >= %{kf5_version_min}
 BuildRequires:  wayland-devel >= 1.3.0
 BuildRequires:  libkscreen-qt5-devel >= %{majmin_ver}
+BuildRequires:  libksysguard-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  kwin-devel >= %{majmin_ver}
+BuildRequires:  layer-shell-qt-devel >= %{majmin_ver}
+
+BuildRequires:  PackageKit-Qt5-devel
+
+# workaround for
+#   The imported target "Qt5::XkbCommonSupport" references the file
+#     "/usr/lib64/libQt5XkbCommonSupport.a"
+#  but this file does not exist.
+BuildRequires:  qt5-qtbase-static
 
 BuildRequires:  kuserfeedback-devel
 BuildRequires:  plasma-wayland-protocols-devel
@@ -188,8 +194,9 @@ Requires:       libkworkspace5%{?_isa} = %{version}-%{release}
 
 # for libkdeinit5_*
 %{?kf5_kinit_requires}
-Requires:       kactivitymanagerd >= %{majmin_ver}
-Requires:       khotkeys >= %{majmin_ver}
+Requires:       kactivitymanagerd%{?_isa} >= %{majmin_ver}
+Requires:       khotkeys%{?_isa} >= %{majmin_ver}
+Requires:       ksystemstats%{?_isa} >= %{majmin_ver}
 Requires:       kf5-baloo >= %{kf5_version_min}
 Requires:       kf5-kded >= %{kf5_version_min}
 Requires:       kf5-kdoctools >= %{kf5_version_min}
@@ -198,9 +205,6 @@ Requires:       kf5-kxmlrpcclient >= %{kf5_version_min}
 Requires:       kf5-kquickcharts >= %{kf5_version_min}
 Requires:       qt5-qtquickcontrols
 Requires:       qt5-qtgraphicaleffects
-
-# systemmonitor dataengine
-Requires:       ksysguardd >= %{majmin_ver}
 
 # The new volume control for PulseAudio
 %if 0%{?fedora} || 0%{?rhel} > 7
@@ -518,6 +522,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_bindir}/plasmashell
 %{_kf5_bindir}/plasmawindowed
 %{_kf5_bindir}/plasma_session
+%{_kf5_bindir}/plasma-apply-*
 %{_kf5_bindir}/plasma-shutdown
 %{_kf5_bindir}/plasma_waitforname
 %{_kf5_bindir}/systemmonitor
@@ -559,8 +564,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_datadir}/krunner/dbusplugins/plasma-runner-baloosearch.desktop
 %{_datadir}/kxmlgui5/kfontinst/kfontviewpart.rc
 %{_datadir}/kxmlgui5/kfontview/kfontviewui.rc
-%{_kf5_datadir}/kcontrol/pics/logo.png
-%{_kf5_datadir}/kcontrol/pics/mini-world.png
 %{_kf5_datadir}/kservices5/ServiceMenus/installfont.desktop
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/*.protocol
@@ -571,7 +574,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/kconf_update/delete_cursor_old_default_size.pl
 %{_kf5_datadir}/kconf_update/delete_cursor_old_default_size.upd
 %{_kf5_datadir}/kconf_update/icons_remove_effects.upd
-%{_kf5_datadir}/kconf_update/krdb_libpathwipe.upd
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.pl
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.upd
 %{_kf5_metainfodir}/*.xml
@@ -583,15 +585,18 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/applications/org.kde.kfontview.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_sysconfdir}/xdg/plasmanotifyrc
-%{_kf5_datadir}/kpackage/kcms/kcm_translations/*
-%{_kf5_datadir}/kpackage/kcms/kcm5_icons/*
-%{_kf5_datadir}/kpackage/kcms/kcm_colors/*
-%{_kf5_datadir}/kpackage/kcms/kcm_cursortheme/*
-%{_kf5_datadir}/kpackage/kcms/kcm_desktoptheme/*
-%{_kf5_datadir}/kpackage/kcms/kcm_feedback/*
-%{_kf5_datadir}/kpackage/kcms/kcm_fonts/*
-%{_kf5_datadir}/kpackage/kcms/kcm_lookandfeel/*
-%{_kf5_datadir}/kpackage/kcms/kcm_style/*
+%{_kf5_datadir}/kpackage/kcms/kcm_autostart/
+%{_kf5_datadir}/kpackage/kcms/kcm_translations/
+%{_kf5_datadir}/kpackage/kcms/kcm5_icons/
+%{_kf5_datadir}/kpackage/kcms/kcm_colors/
+%{_kf5_datadir}/kpackage/kcms/kcm_cursortheme/
+%{_kf5_datadir}/kpackage/kcms/kcm_desktoptheme/
+%{_kf5_datadir}/kpackage/kcms/kcm_feedback/
+%{_kf5_datadir}/kpackage/kcms/kcm_fonts/
+%{_kf5_datadir}/kpackage/kcms/kcm_lookandfeel/
+%{_kf5_datadir}/kpackage/kcms/kcm_nightcolor/
+%{_kf5_datadir}/kpackage/kcms/kcm_notifications/
+%{_kf5_datadir}/kpackage/kcms/kcm_style/
 %{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
 %{_userunitdir}/*
 
@@ -616,6 +621,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_libdir}/libcolorcorrect.so.*
 %{_libdir}/libtaskmanager.so.*
 %{_libdir}/libweather_ion.so.*
+%{_libdir}/libkrdb.so
 %{_libdir}/libnotificationmanager.*
 %{_libdir}/libkfontinst*
 # multilib'able plugins
@@ -633,19 +639,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_qtplugindir}/kpackage/packagestructure/*.so
 %{_kf5_plugindir}/kio/*.so
 %{_kf5_plugindir}/kded/*.so
-%{_kf5_plugindir}/krunner/krunner*
-%{_qt5_plugindir}/kcms/kcm_translations.so
-%{_qt5_plugindir}/kcms/kcm_colors.so
-%{_qt5_plugindir}/kcms/kcm_cursortheme.so
-%{_qt5_plugindir}/kcms/kcm_desktoptheme.so
-%{_qt5_plugindir}/kcms/kcm_feedback.so
-%{_qt5_plugindir}/kcms/kcm_fonts.so
-%{_qt5_plugindir}/kcms/kcm_icons.so
-%{_qt5_plugindir}/kcms/kcm_lookandfeel.so
-%{_qt5_plugindir}/kcms/kcm_style.so
+%{_kf5_plugindir}/krunner/*
+%{_qt5_plugindir}/kcms/kcm_*.so
 %{_libdir}/kconf_update_bin/krunnerhistory
 %{_libdir}/kconf_update_bin/krunnerglobalshortcuts
-%{_libdir}/kconf_update_bin/krdb_clearlibrarypath
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_applauncher.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_contextmenu.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_paste.so
@@ -653,9 +650,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_switchwindow.so
 %{_libexecdir}/plasma-sourceenv.sh
 %{_libexecdir}/startplasma-waylandsession
-%{_datadir}/kconf_update/krunnerglobalshortcuts.upd
-%{_datadir}/kconf_update/krunnerhistory.upd
-%{_datadir}/kglobalaccel/krunner.desktop
+%{_kf5_datadir}/kconf_update/krunnerhistory.upd
+%{_kf5_datadir}/kconf_update/krunnerglobalshortcuts2.upd
+%{_kf5_datadir}/kglobalaccel/org.kde.krunner.desktop
 
 %files geolocation
 %{_kf5_qtplugindir}/plasma-geolocation-gps.so
@@ -724,8 +721,26 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
-* Thu May 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-4
-- added KF5SyntaxHighlighting build dependency
+* Sun Jun 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.0-1
+- 5.22.0
+
+* Fri May 28 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-4
+- .konsole-in-contextmenu.patch rebased
+
+* Tue May 18 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-3
+- Requires: ksystemstats
+- make other plasma-related runtime deps arch'd
+
+* Sun May 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-2
+- drop Requires: ksysguardd (#1960934)
+- s/kf5-ksysguard/libksysguard/
+
+* Fri May 14 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-1
+- 5.21.90
+
+* Thu May 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.5-4
+- Reset systemd failed units on login (master/ branch backport)
+- actually apply buffer types patch from -3
 
 * Wed May 05 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-3
 - Announce which buffer types are available on thumbnails elements

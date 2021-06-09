@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    khotkeys
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 Summary: Application to configure hotkeys in KDE
 
@@ -18,10 +18,10 @@ Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut 
 
 ## downstream patches
 # kcm_hotkeys, use qdbusviewer-qt5, see also http://bugs.kde.org/329094
-Patch100: khotkeys-5.19.0-qdbusviewer-qt5.patch
+Patch100: khotkeys-5.22.0-qdbusviewer-qt5.patch
 # use qdbus-qt5 instead of hard-coding (unpathed) qdbus
 # FIXME: make upstreamable
-Patch101: khotkeys-5.14.4-qdbus-qt5.patch
+Patch101: khotkeys-5.21.90-qdbus-qt5.patch
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-kcmutils-devel
@@ -103,6 +103,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

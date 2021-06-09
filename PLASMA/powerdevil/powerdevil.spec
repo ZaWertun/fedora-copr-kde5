@@ -3,8 +3,8 @@
 %global kf5_version 5.42.0
 
 Name:    powerdevil
-Version: 5.21.5
-Release: 2%{?dist}
+Version: 5.22.0
+Release: 1%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -23,8 +23,6 @@ Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1
 ## upstream patches
 
 ## upstreamable patches
-# https://bugs.kde.org/show_bug.cgi?id=433408
-Patch0:  powerdevil-5.21.5-fallback-to-xdg_session_id.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -118,6 +116,9 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Wed May 05 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-2
 - added patch to fix #433408
 

@@ -4,7 +4,7 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -94,8 +94,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 %ldconfig_scriptlets
 
 %files -f systemsettings5.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_bindir}/systemsettings5
+%{_libdir}/libsystemsettingsview.so.3
 %{_kf5_qtplugindir}/systemsettingsview/icon_mode.so
 %{_kf5_qtplugindir}/systemsettingsview/systemsettings_sidebar_mode.so
 %{_datadir}/systemsettings/
@@ -112,6 +113,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

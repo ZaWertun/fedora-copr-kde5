@@ -16,6 +16,7 @@ kwayland-integration
 kwayland-server
 kwin
 kwrited
+layer-shell-qt
 libkscreen-qt5
 libksysguard
 pam-kwallet

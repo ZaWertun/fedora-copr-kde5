@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kde-cli-tools
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
@@ -109,6 +109,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

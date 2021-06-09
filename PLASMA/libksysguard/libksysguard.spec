@@ -1,11 +1,11 @@
-%undefine __cmake_in_source_build
+
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 
 License: GPLv2+
-URL:     https://cgit.kde.org/%{name}.git
+URL:     https://invent.kde.org/plasma/%{name}
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -13,36 +13,51 @@ URL:     https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
-
-## upstream patches
-
-## upstreamable patches
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 BuildRequires:  extra-cmake-modules
-BuildRequires:  kf5-kconfig-devel
-BuildRequires:  kf5-kdelibs4support-devel
-BuildRequires:  kf5-ki18n-devel
-BuildRequires:  kf5-knewstuff-devel
-BuildRequires:  kf5-plasma-devel
-BuildRequires:  kf5-kglobalaccel-devel
 BuildRequires:  kf5-rpm-macros
+# kf5 required
+BuildRequires:  cmake(KF5CoreAddons)
+BuildRequires:  cmake(KF5Config)
+BuildRequires:  cmake(KF5I18n)
+BuildRequires:  cmake(KF5WindowSystem)
+BuildRequires:  cmake(KF5Completion)
+BuildRequires:  cmake(KF5Auth)
+BuildRequires:  cmake(KF5WidgetsAddons)
+BuildRequires:  cmake(KF5IconThemes)
+BuildRequires:  cmake(KF5ConfigWidgets)
+BuildRequires:  cmake(KF5Service)
+BuildRequires:  cmake(KF5GlobalAccel)
+BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(KF5Declarative)
-BuildRequires:  libXres-devel
-BuildRequires:  qt5-qtbase-devel
-BuildRequires:  qt5-qtscript-devel
+BuildRequires:  cmake(KF5NewStuff)
+# kf5 optional
+BuildRequires:  cmake(KF5Plasma)
+# qt5 required
 BuildRequires:  qt5-qttools-devel
-BuildRequires:  qt5-qtwebkit-devel
-BuildRequires:  qt5-qtx11extras-devel
-BuildRequires:  qt5-qtwebengine-devel
-BuildRequires:  zlib-devel
+BuildRequires:  cmake(Qt5DBus)
+BuildRequires:  cmake(Qt5Network)
+BuildRequires:  cmake(Qt5Widgets)
+BuildRequires:  cmake(Qt5X11Extras)
+BuildRequires:  cmake(Qt5WebChannel)
+# qt5 optional
+%ifarch %{qt5_qtwebengine_arches}
+BuildRequires:  cmake(Qt5WebEngineWidgets)
+%endif
 
-Requires:       kf5-filesystem
+BuildRequires:  pkgconfig(libpcap)
+BuildRequires:  pkgconfig(libnl-3.0) pkgconfig(libnl-route-3.0)
+BuildRequires:  libXres-devel
+BuildRequires:  zlib-devel
 
 Obsoletes:      kf5-ksysguard < 5.1.95
 Provides:       kf5-ksysguard = %{version}-%{release}
 
 Requires:       %{name}-common = %{version}-%{release}
+
+## upgrade path, https://bugzilla.redhat.com/show_bug.cgi?id=1963354
+Conflicts: ksysguard-backend < 5.21.90
 
 %description
 KSysGuard library provides API to read and manage processes
@@ -51,6 +66,12 @@ running on the system.
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       cmake(Qt5Core)
+Requires:       cmake(Qt5Network)
+Requires:       cmake(Qt5Widgets)
+Requires:       cmake(KF5Config)
+Requires:       cmake(KF5I18n)
+Requires:       cmake(KF5IconThemes)
 Obsoletes:      kf5-ksysguard-devel < 5.1.95
 Provides:       kf5-ksysguard-devel = %{version}-%{release}
 Conflicts:      kde-workspace-devel < 1:4.11.16-11
@@ -72,7 +93,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DKDE_INSTALL_INCLUDEDIR:PATH=%{_kf5_includedir}
 
 %cmake_build
@@ -80,11 +101,11 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
+
 %find_lang ksysguard_qt5 --with-qt --with-kde --all-name
 
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%ldconfig_scriptlets
 
 %files -f ksysguard_qt5.lang
 %license COPYING.LIB
@@ -93,24 +114,27 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libprocesscore.so.*
 %{_kf5_libdir}/libksignalplotter.so.*
 %{_kf5_libdir}/libksgrd.so.*
-%{_kf5_libdir}/libKSysGuardFormatter.so.*
-%{_kf5_libdir}/libKSysGuardSensorFaces.so.*
-%{_kf5_libdir}/libKSysGuardSensors.so.*
-%{_kf5_qtplugindir}/designer/*5widgets.so
-%{_kf5_datadir}/ksysguard
-%{_kf5_datadir}/qlogging-categories5/*categories
-%{_kf5_qmldir}/org/kde/ksysguard/faces/
-%{_kf5_qmldir}/org/kde/ksysguard/formatter/
-%{_kf5_qmldir}/org/kde/ksysguard/process/
-%{_kf5_qmldir}/org/kde/ksysguard/sensors/
-%{_kf5_qtplugindir}/kpackage/packagestructure/sensorface_packagestructure.so
+%{_kf5_libdir}/libKSysGuardFormatter.so*
+%{_kf5_libdir}/libKSysGuardSensors.so*
+%{_kf5_libdir}/libKSysGuardSensorFaces.so*
+%{_kf5_datadir}/ksysguard/
+%{_kf5_datadir}/qlogging-categories5/libksysguard.categories
+%{_qt5_plugindir}/kpackage/packagestructure/sensorface_packagestructure.so
+%{_qt5_plugindir}/designer/ksignalplotter5widgets.so
+%{_qt5_plugindir}/designer/ksysguard*.so
+%{_qt5_qmldir}/org/kde/ksysguard/
+
+%{_kf5_libdir}/libKSysGuardSystemStats.so.*
+%{_qt5_plugindir}/ksysguard/
+%{_libexecdir}/ksysguard/
+%{_kf5_datadir}/dbus-1/interfaces/org.kde.ksystemstats.xml
 
 %files common
 %{_kf5_libexecdir}/kauth/ksysguardprocesslist_helper
 %{_datadir}/dbus-1/system.d/org.kde.ksysguard.processlisthelper.conf
 %{_datadir}/dbus-1/system-services/org.kde.ksysguard.processlisthelper.service
 %{_datadir}/polkit-1/actions/org.kde.ksysguard.processlisthelper.policy
-%{_datadir}/knsrcfiles/*.knsrc
+%{_datadir}/knsrcfiles/*
 
 %files devel
 %{_kf5_includedir}/ksysguard/
@@ -119,136 +143,207 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libprocesscore.so
 %{_kf5_libdir}/libksignalplotter.so
 %{_kf5_libdir}/libksgrd.so
-%{_kf5_libdir}/libKSysGuardFormatter.so
-%{_kf5_libdir}/libKSysGuardSensorFaces.so
-%{_kf5_libdir}/libKSysGuardSensors.so
+%{_kf5_libdir}/cmake/KSysGuard/
 %{_kf5_libdir}/cmake/KF5SysGuard/
-%{_kf5_libdir}/cmake/KSysGuard/KSysGuard*.cmake
+%{_kf5_libdir}/libKSysGuardSystemStats.so
 
 
 %changelog
-* Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
+* Sun Jun 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.0-1
+- 5.22.0
+
+* Sun May 30 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-4
+- Conflicts: ksysguard-backend < 5.21.90 (#1963354)
+
+* Tue May 18 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-3
+- drop Obsoletes/Provides: ksystemstats
+
+* Sun May 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-2
+- Obsoletes/Provides: ksystemstats
+
+* Thu May 13 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.90-1
+- 5.21.90
+
+* Tue May 04 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-1
 - 5.21.5
 
-* Tue Apr 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.4-1
+* Tue Apr 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.4-1
 - 5.21.4
 
-* Tue Mar 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.3-1
+* Tue Mar 16 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.3.1-1
+- 5.21.3.1
+
+* Tue Mar 16 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.3-1
 - 5.21.3
 
-* Wed Mar 03 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.2-1
+* Tue Mar 02 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.2-1
 - 5.21.2
 
-* Tue Feb 23 13:50:05 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.1-1
+* Tue Feb 23 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.1-1
 - 5.21.1
 
-* Tue Feb 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
+* Thu Feb 11 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.0-3
+- -devel: add Qt5, KF5 deps from KSysGuardConfig.cmake
+
+* Thu Feb 11 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.0-2
+- .spec cleanup
+- fix dir ownership
+
+* Thu Feb 11 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.0-1
 - 5.21.0
 
-* Tue Jan  5 22:06:18 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.5-1
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 5.20.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Thu Jan 21 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.90-1
+- 5.20.90 (beta)
+
+* Tue Jan  5 16:03:31 CET 2021 Jan Grulich <jgrulich@redhat.com> - 5.20.5-1
 - 5.20.5
 
-* Tue Dec  1 22:30:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.4-1
+* Tue Dec  1 09:42:59 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.4-1
 - 5.20.4
 
-* Wed Nov 11 11:10:18 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.3-1
+* Wed Nov 11 08:22:41 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.3-1
 - 5.20.3
 
-* Tue Oct 27 16:56:26 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.2-1
+* Tue Oct 27 14:23:13 CET 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.2-1
 - 5.20.2
 
-* Tue Oct 20 17:02:43 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.1-1
+* Tue Oct 20 15:29:05 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.1-1
 - 5.20.1
 
-* Tue Oct 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.20.0-1
+* Sun Oct 11 19:50:03 CEST 2020 Jan Grulich <jgrulich@redhat.com> - 5.20.0-1
 - 5.20.0
 
-* Mon Sep 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-2
-- patch fixing issue #426774 added
+* Fri Sep 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.90-1
+- 5.19.90
 
-* Tue Sep 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.5-1
+* Tue Sep 01 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.5-1
 - 5.19.5
 
-* Tue Jul 28 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.4-1
+* Tue Jul 28 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.4-1
 - 5.19.4
 
-* Tue Jul 07 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.3-1
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.19.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Tue Jul 07 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.3-1
 - 5.19.3
 
-* Tue Jun 23 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.2-1
+* Tue Jun 23 2020 Jan Grulich <jgrulich@redhat.com> - 5.19.2-1
 - 5.19.2
 
-* Tue Jun 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.1-1
+* Wed Jun 17 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.1-1
 - 5.19.1
 
-* Mon Jun 15 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.19.0-1
+* Thu Jun 11 2020 Marie Loise Nolden <loise@kde.org> - 5.19.0.1-1
+- 5.19.0.1
+
+* Tue Jun 9 2020 Martin Kyral <martin.kyral@gmail.com> - 5.19.0-1
 - 5.19.0
 
-* Wed May 06 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.5-1
+* Fri May 15 2020 Martin Kyral <martin.kyral@gmail.com> - 5.18.90-1
+- 5.18.90
+
+* Tue May 05 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.5-1
 - 5.18.5
 
-* Wed Apr 01 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.4.1-1
+* Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.18.4.1-1
 - 5.18.4.1
 
-* Wed Mar 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.3-1
+* Tue Mar 31 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.4-1
+- 5.18.4
+
+* Tue Mar 10 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.3-1
 - 5.18.3
 
-* Wed Feb 26 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.2-1
+* Tue Feb 25 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.2-1
 - 5.18.2
 
-* Wed Feb 19 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.1-1
+* Tue Feb 18 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.1-1
 - 5.18.1
 
-* Tue Feb 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.18.0-1
+* Tue Feb 11 2020 Jan Grulich <jgrulich@redhat.com> - 5.18.0-1
 - 5.18.0
 
-* Thu Jan 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.5-1
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.17.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Thu Jan 16 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.90-1
+- 5.17.90
+
+* Wed Jan 08 2020 Jan Grulich <jgrulich@redhat.com> - 5.17.5-1
 - 5.17.5
 
-* Tue Dec 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.4-1
+* Thu Dec 05 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.4-1
 - 5.17.4
 
-* Tue Nov 12 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.3-1
+* Wed Nov 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.17.3-1
 - 5.17.3
 
-* Wed Oct 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.2-1
+* Wed Oct 30 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.2-1
 - 5.17.2
 
-* Wed Oct 23 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.1-1
+* Wed Oct 23 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.1-1
 - 5.17.1
 
-* Tue Oct 15 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.17.0-1
+* Thu Oct 10 2019 Jan Grulich <jgrulich@redhat.com> - 5.17.0-1
 - 5.17.0
 
-* Tue Sep 03 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.5-1
+* Fri Sep 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.90-1
+- 5.16.90
+
+* Fri Sep 06 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.5-1
 - 5.16.5
 
-* Tue Jul 30 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.4-1
+* Tue Jul 30 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.4-1
 - 5.16.4
 
-* Tue Jul 09 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.3-1
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.16.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Wed Jul 10 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.3-1
 - 5.16.3
 
-* Tue Jun 25 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.2-1
+* Wed Jun 26 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.2-1
 - 5.16.2
 
-* Tue Jun 18 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.1-1
+* Tue Jun 18 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.16.1-1
 - 5.16.1
 
-* Tue Jun 11 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.16.0-1
+* Tue Jun 11 2019 Martin Kyral <martin.kyral@gmail.com> - 5.16.0-1
 - 5.16.0
 
-* Wed May 08 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-2
-- qt5-qtwebengine-devel added to BR
+* Thu May 16 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.90-1
+- 5.15.90
 
-* Tue May 07 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.5-1
+* Thu May 09 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.5-1
 - 5.15.5
 
-* Sun Apr 28 2019 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.15.4-1
+* Mon Apr 15 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4-2
+- refresh build deps, add qtwebengine (#1699687)
+
+* Wed Apr 03 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.4-1
 - 5.15.4
 
-* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.14.5-1
-- 5.14.5
+* Tue Mar 12 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.3-1
+- 5.15.3
+
+* Tue Feb 26 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.2-1
+- 5.15.2
+
+* Tue Feb 19 2019 Rex Dieter <rdieter@fedoraproject.org> - 5.15.1-1
+- 5.15.1
+
+* Wed Feb 13 2019 Martin Kyral <martin.kyral@gmail.com> - 5.15.0-1
+- 5.15.0
+
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sun Jan 20 2019 Martin Kyral <martin.kyral@gmail.com> - 5.14.90-1
+- 5.14.90
 
 * Tue Nov 27 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.14.4-1
 - 5.14.4

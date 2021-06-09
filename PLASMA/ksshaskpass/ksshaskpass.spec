@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    ksshaskpass
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 Summary: A ssh-add helper that uses kwallet and kpassworddialog
 
@@ -54,13 +54,16 @@ EOF
 
 %files -f ksshaskpass.lang
 %doc ChangeLog
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/ksshaskpass
 %config(noreplace) %{_sysconfdir}/xdg/plasma-workspace/env/ksshaskpass.sh
 %{_mandir}/man1/ksshaskpass.1*
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 

@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kinfocenter
-Version: 5.21.5
+Version: 5.22.0
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -88,10 +88,10 @@ Conflicts:      kde-workspace < 4.11.15-3
 %{_bindir}/kinfocenter
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kcms/*.so
-%ifnarch s390 s390x
-%{_datadir}/kcmview1394/
-%endif
-%{_datadir}/kcmusb/
+#ifnarch s390 s390x
+#{_datadir}/kcmview1394/
+#endif
+#{_datadir}/kcmusb/
 %{_sysconfdir}/xdg/menus/kinfocenter.menu
 %{_datadir}/applications/org.kde.kinfocenter.desktop
 %{_kf5_datadir}/kservices5/*.desktop
@@ -100,11 +100,14 @@ Conflicts:      kde-workspace < 4.11.15-3
 %{_kf5_datadir}/kpackage/kcms/kcm_nic/
 %{_kf5_datadir}/kpackage/kcms/kcmsamba/
 %{_kf5_datadir}/kpackage/kcms/kcm_energyinfo/
-%{_kf5_datadir}/kpackage/kcms/kcm_fileindexermonitor/
+#{_kf5_datadir}/kpackage/kcms/kcm_fileindexermonitor/
 %{_kf5_datadir}/metainfo/org.kde.kinfocenter.appdata.xml
 
 
 %changelog
+* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+- 5.22.0
+
 * Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
 - 5.21.5
 
