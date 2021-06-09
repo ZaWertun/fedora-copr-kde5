@@ -2,7 +2,7 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
 Version: 5.22.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -58,6 +58,7 @@ Requires:       %{name}-common = %{version}-%{release}
 
 ## upgrade path, https://bugzilla.redhat.com/show_bug.cgi?id=1963354
 Conflicts: ksysguard-backend < 5.21.90
+Obsoletes: ksysguard-backend < 5.21.90
 
 %description
 KSysGuard library provides API to read and manage processes
@@ -149,6 +150,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Wed Jun 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-3
+- obsolete ksysguard-backend
+
 * Wed Jun 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-2
 - rebuild
 
