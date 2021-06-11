@@ -2,7 +2,7 @@
 Name:    gwenview 
 Summary: An image viewer
 Epoch:   1
-Version: 21.04.1
+Version: 21.04.2
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -113,6 +113,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.04.2-1
+- 21.04.2
+
 * Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.04.1-1
 - 21.04.1
 

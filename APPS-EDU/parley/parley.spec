@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    parley
 Summary: Vocabulary Trainer 
-Version: 21.04.1
+Version: 21.04.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -108,6 +108,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
+- 21.04.2
+
 * Fri May 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
 - 21.04.1
 

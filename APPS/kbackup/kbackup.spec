@@ -3,7 +3,7 @@
 %global build_ldflags %{build_ldflags} -flto
 
 Name:           kbackup
-Version:        21.04.1
+Version:        21.04.2
 Release:        1%{?dist}
 Summary:        Back up your data in a simple, user friendly way
 Summary(fr):    Sauvegarder vos données de manière simple et conviviale
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 
 
 %changelog
+* Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
+- 21.04.2
+
 * Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
 - 21.04.1
 

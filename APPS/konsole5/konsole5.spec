@@ -11,7 +11,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 21.04.1
+Version: 21.04.2
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -164,6 +164,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
+- 21.04.2
+
 * Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
 - 21.04.1
 

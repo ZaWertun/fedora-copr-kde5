@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kmousetool
-Version: 21.04.1
+Version: 21.04.2
 Release: 1%{?dist}
 Summary: A program that clicks the mouse for you
 
@@ -74,6 +74,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
+- 21.04.2
+
 * Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
 - 21.04.1
 

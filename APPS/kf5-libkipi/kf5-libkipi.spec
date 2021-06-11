@@ -4,7 +4,7 @@
 
 Name:    kf5-libkipi
 Summary: Common plugin infrastructure for KDE image applications
-Version: 21.04.1
+Version: 21.04.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -81,6 +81,9 @@ Requires: cmake(KF5XmlGui)
 
 
 %changelog
+* Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
+- 21.04.2
+
 * Thu May 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
 - 21.04.1
 
