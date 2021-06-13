@@ -2,7 +2,7 @@
 %global framework kguiaddons
 
 Name:           kf5-%{framework}
-Version: 5.82.0
+Version: 5.83.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with various classes on top of QtGui
 
@@ -75,6 +75,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Jun 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.83.0-1
+- 5.83.0
+
 * Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-1
 - 5.82.0
 

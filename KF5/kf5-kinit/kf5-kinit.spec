@@ -3,7 +3,7 @@
 %global rpm_macros_dir %(d=%{_rpmconfigdir}/macros.d; [ -d $d ] || d=%{_sysconfdir}/rpm; echo $d)
 
 Name:           kf5-%{framework}
-Version: 5.82.0
+Version: 5.83.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 tier 3 solution for process launching
 
@@ -94,6 +94,9 @@ install -p -m644 -D %{SOURCE10} \
 
 
 %changelog
+* Sun Jun 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.83.0-1
+- 5.83.0
+
 * Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-1
 - 5.82.0
 
