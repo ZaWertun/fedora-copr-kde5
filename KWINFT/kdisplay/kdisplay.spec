@@ -1,10 +1,10 @@
 %undefine __cmake_in_source_build
 %global min_qt_version     5.14.0
 %global min_kf_version     5.66.0
-%global min_disman_version 0.521.0
+%global min_disman_version 0.522.0
 
 Name:    kdisplay
-Version: 5.21.0
+Version: 5.22.0
 Release: 1%{?dist}
 Summary: App and daemon for display managing
 
@@ -74,6 +74,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kwinft.%{name
 
 
 %changelog
+* Thu Jun 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.522.0-1
+- 0.522.0
+
 * Wed Feb 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.0-1
 - 5.21.0
 

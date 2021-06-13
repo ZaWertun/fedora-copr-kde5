@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.22.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -382,7 +382,7 @@ BuildArch: noarch
 %package wayland
 Summary:        Wayland support for Plasma
 Requires:       %{name} = %{version}-%{release}
-Requires:       kwin-wayland >= %{majmin_ver}
+Requires:       (kwin-wayland >= %{majmin_ver} or kwinft-wayland >= %{majmin_ver})
 Requires:       kwayland-integration%{?_isa} >= %{majmin_ver}
 Requires:       xorg-x11-server-Xwayland
 Requires:       qt5-qtwayland%{?_isa}
@@ -400,7 +400,7 @@ Provides:       %{name}-xorg%{?_isa} = %{version}-%{release}
 # Split of Xorg session into subpackage
 Obsoletes:      %{name} < 5.19.5-2
 Requires:       %{name} = %{version}-%{release}
-Requires:       kwin-x11 >= %{majmin_ver}
+Requires:       (kwin-x11 >= %{majmin_ver} or kwinft-x11 >= %{majmin_ver})
 Requires:       xorg-x11-server-Xorg
 Requires:       xsetroot
 %description x11
@@ -721,6 +721,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu Jun 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-2
+- readded kwinft support
+
 * Sun Jun 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.0-1
 - 5.22.0
 

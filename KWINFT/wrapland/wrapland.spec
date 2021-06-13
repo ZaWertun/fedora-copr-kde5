@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    wrapland
-Version: 0.521.0
+Version: 0.522.0
 Release: 1%{?dist}
 Summary: Qt/C++ library wrapping libwayland
 
@@ -115,6 +115,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jun 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.522.0-1
+- 0.522.0
+
 * Wed Feb 17 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.521.0-1
 - 0.521.0
 
