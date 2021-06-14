@@ -18,11 +18,6 @@ URL:     https://invent.kde.org/frameworks/%{framework}
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches (lookaside)
-Patch17: 0017-MimeTypeFinderJob-Resolve-symlinks-for-a-local-file.patch
-Patch24: 0024-kio_file-pass-the-absolute-path-to-QMimeDatabase-mim.patch
-Patch25: 0025-MimeTypeFinderJob-the-StatJob-details-should-include.patch
-Patch27: 0027-kio_file-fix-how-createUDSEntry-is-called.patch
-Patch28: 0028-KCoreDirLister-Guard-uiDelegate-it-might-be-null.patch
 
 ## upstreamable patches
 
@@ -214,16 +209,13 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 %{_kf5_qtplugindir}/kcm_kio.so
 %{_kf5_qtplugindir}/kcm_trash.so
 %{_kf5_plugindir}/kiod/
-%{_kf5_datadir}/kservices5/cache.desktop
 %{_kf5_datadir}/kservices5/cookies.desktop
 %{_kf5_datadir}/kservices5/netpref.desktop
 %{_kf5_datadir}/kservices5/proxy.desktop
 %{_kf5_datadir}/kservices5/smb.desktop
-%{_kf5_datadir}/kservices5/useragent.desktop
 %{_kf5_datadir}/kservices5/*.protocol
 %{_kf5_datadir}/kservices5/http_cache_cleaner.desktop
 %{_kf5_datadir}/kservices5/kcmtrash.desktop
-%{_kf5_datadir}/kservices5/useragentstrings
 %{_kf5_datadir}/knotifications5/proxyscout.*
 %{_kf5_datadir}/kf5/kcookiejar/domain_info
 %{_kf5_datadir}/applications/*.desktop
