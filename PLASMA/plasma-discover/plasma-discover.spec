@@ -9,7 +9,7 @@
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
 Version: 5.22.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
@@ -24,7 +24,8 @@ URL:     https://invent.kde.org/plasma/discover
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz
 
-Source10: PK_OFFLINE_UPDATE.sh
+## ovrride some defaults, namely to enable offline updates
+Source10: discoverrc
 
 ## upstream patches (in lookaside cache)
 # git format-patch v%{version}
@@ -32,9 +33,10 @@ Source10: PK_OFFLINE_UPDATE.sh
 ## downstream patches
 # workaround PK metadata refresh issues (always force refresh)
 # adjust periodic refresh from 1/24hr to 1/12hr
-Patch200: discover-5.22.0-pk_refresh_force.patch
+Patch200: discover-5.21.4-pk_refresh_force.patch
 
 ## upstreamable patches
+
 
 BuildRequires: appstream-qt-devel >= 0.11.1
 BuildRequires: appstream-devel
@@ -125,6 +127,9 @@ Requires: PackageKit
 %package notifier
 Summary: Plasma Discover Update Notifier
 # -notifier replaces plasma-pk-updates for f34+
+%if 0%{?fedora} > 33
+Obsoletes: plasma-pk-updates < 0.5
+%endif
 Obsoletes: plasma-discover-updater < 5.6.95
 Provides:  plasma-discover-updater = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
@@ -158,7 +163,7 @@ Supplements: (%{name} and snapd)
 Summary: Plasma Discover Offline updates enablement
 Requires: %{name} = %{version}-%{release}
 %description offline-updates
-Set environment variable PK_OFFLINE_UPDATES to enable offline updates feature
+Enable Offline Updates feature by default
 in %{name}.
 
 
@@ -175,7 +180,7 @@ in %{name}.
 %install
 %cmake_install
 
-install -m644 -p -D %{SOURCE10} %{buildroot}%{_kf5_sysconfdir}/xdg/plasma-workspace/env/PK_OFFLINE_UPDATE.sh
+install -m644 -p -D %{SOURCE10} %{buildroot}%{_kf5_sysconfdir}/xdg/discoverrc
 
 ## unpackaged files
 %if !0%{?snap}
@@ -261,14 +266,17 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %endif
 
 %files offline-updates
-%{_kf5_sysconfdir}/xdg/plasma-workspace/env/PK_OFFLINE_UPDATE.sh
+%{_kf5_sysconfdir}/xdg/discoverrc
 
 
 %changelog
-* Tue Jun 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
+* Mon Jun 14 2021 Alessandro Astone <ales.astone@gmail.com> - 5.22.0-2
+- Use XDG discoverrc to enable offline updates by default
+
+* Sun Jun 06 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.0-1
 - 5.22.0
 
-* Tue May 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.21.5-1
+* Tue May 04 2021 Jan Grulich <jgrulich@redhat.com> - 5.21.5-1
 - 5.21.5
 
 * Fri Apr 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.21.4-2

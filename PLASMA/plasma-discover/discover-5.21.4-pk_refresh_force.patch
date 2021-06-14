@@ -1,7 +1,8 @@
-diff '--color=auto' -r -U3 discover-5.22.0.orig/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp discover-5.22.0/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
---- discover-5.22.0.orig/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp	2021-06-08 21:43:07.470270259 +0300
-+++ discover-5.22.0/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp	2021-06-08 21:43:44.294423076 +0300
-@@ -394,7 +394,7 @@
+diff --git a/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp b/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
+index c796aa2..119651b 100644
+--- a/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
++++ b/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
+@@ -394,7 +394,7 @@ void PackageKitBackend::checkForUpdates()
  
      if (!m_refresher) {
          acquireFetching(true);
@@ -10,19 +11,20 @@ diff '--color=auto' -r -U3 discover-5.22.0.orig/libdiscover/backends/PackageKitB
  
          connect(m_refresher.data(), &PackageKit::Transaction::errorCode, this, &PackageKitBackend::transactionError);
          connect(m_refresher.data(), &PackageKit::Transaction::finished, this, [this]() {
-diff '--color=auto' -r -U3 discover-5.22.0.orig/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp discover-5.22.0/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
---- discover-5.22.0.orig/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp	2021-06-08 21:43:07.469270255 +0300
-+++ discover-5.22.0/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp	2021-06-08 21:44:33.839628680 +0300
-@@ -51,7 +51,7 @@
+diff --git a/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp b/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
+index cba6b72..5bcd3b7 100644
+--- a/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
++++ b/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
+@@ -51,7 +51,7 @@ PackageKitNotifier::PackageKitNotifier(QObject *parent)
              bool ok;
              const int days = value.toInt(&ok);
              if (!ok || days == 0) {
 -                regularCheck->setInterval(24 * 60 * 60 * 1000); // refresh at least once every day
-+                regularCheck->setInterval(12 * 60 * 60 * 1000); // refresh at least twice every day
++                regularCheck->setInterval(12 * 60 * 60 * 1000); //refresh at least twice every day
                  regularCheck->start();
                  if (!value.isEmpty())
                      qWarning() << "couldn't understand value for timer:" << value;
-@@ -229,7 +229,7 @@
+@@ -229,7 +229,7 @@ void PackageKitNotifier::onDistroUpgrade(PackageKit::Transaction::DistroUpgrade
  void PackageKitNotifier::refreshDatabase()
  {
      if (!m_refresher) {
