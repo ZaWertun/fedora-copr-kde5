@@ -1,0 +1,10 @@
+To use this theme, edit /etc/sysconfig/grub to include:
+GRUB_THEME="/boot/grub2/themes/breeze/theme.txt"
+and comment-out line:
+GRUB_TERMINAL_OUTPUT="console"
+
+Then, run 
+grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+if using EFI, otherwise,
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
