@@ -65,6 +65,7 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 %{_datadir}/wallpapers/IceCold/
 %{_datadir}/wallpapers/Kite/
 %{_datadir}/wallpapers/Kokkini/
+%{_datadir}/wallpapers/MilkyWay/
 %{_datadir}/wallpapers/OneStandsOut/
 %{_datadir}/wallpapers/Opal/
 %{_datadir}/wallpapers/PastelHills/

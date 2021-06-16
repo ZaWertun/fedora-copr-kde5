@@ -1,6 +1,6 @@
 Name:    ksysguard
-Version: 5.22.1
-Release: 1%{?dist}
+Version: 5.22.0
+Release: 3%{?dist}
 Summary: KDE Process Management application
 
 License: GPLv2
@@ -44,8 +44,8 @@ BuildRequires:  libnl3-devel
 BuildRequires:  lm_sensors-devel
 BuildRequires:  pkgconfig(libpcap)
 
-Requires:       ksysguardd = %{version}-%{release}
-Requires:       ksystemstats = %{version}-%{release}
+Requires:       ksysguardd >= %{version}
+Requires:       ksystemstats >= %{version}
 
 %description
 %{summary}.
@@ -112,8 +112,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ksysguard
 
 
 %changelog
-* Tue Jun 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.1-1
-- 5.22.1
+* Tue Jun 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-3
+- don't require same build & version for ksysguardd & ksystemstats
 
 * Wed Jun 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-2
 - rebuild
