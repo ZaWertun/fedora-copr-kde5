@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.22.1
-Release: 1%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -62,6 +62,7 @@ Patch102:       plasma-workspace-5.21-ssh-agent.patch
 Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 
 ## upstreamable Patches
+Patch106:       plasma-workspace-5.22.1-get-session-auto.patch
 
 ## upstream Patches
 
@@ -138,6 +139,7 @@ BuildRequires:  kf5-knotifyconfig-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kpeople-devel >= %{kf5_version_min}
 BuildRequires:  kf5-krunner-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ktexteditor-devel >= %{kf5_version_min}
+BuildRequires:  kf5-syntax-highlighting-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kwallet-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kxmlrpcclient-devel >= %{kf5_version_min}
@@ -721,6 +723,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Sat Jun 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com>
+- build dependency kf5-syntax-highlighting-devel added
+
+* Wed Jun 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.1-2
+- added plasma-workspace-5.22.1-get-session-auto.patch
+
 * Tue Jun 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.1-1
 - 5.22.1
 

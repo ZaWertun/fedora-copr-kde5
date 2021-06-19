@@ -1,0 +1,46 @@
+diff '--color=auto' -r -U3 plasma-workspace-5.22.1.orig/libkworkspace/kdisplaymanager.cpp plasma-workspace-5.22.1/libkworkspace/kdisplaymanager.cpp
+--- plasma-workspace-5.22.1.orig/libkworkspace/kdisplaymanager.cpp	2021-06-16 15:47:01.733418129 +0300
++++ plasma-workspace-5.22.1/libkworkspace/kdisplaymanager.cpp	2021-06-16 17:23:04.722776725 +0300
+@@ -445,7 +445,7 @@
+ 
+         // auto is newer and may not exist on all platforms, fallback to GetSessionByPID if the above failed
+ 
+-        QDBusReply<QDBusObjectPath> r = man.call(QStringLiteral("GetSessionByPID"), (uint)QCoreApplication::applicationPid());
++        QDBusReply<QDBusObjectPath> r = man.call(QStringLiteral("GetSession"), QLatin1String("auto"));
+         if (r.isValid()) {
+             SystemdSession sess(r.value());
+             if (sess.isValid()) {
+@@ -609,12 +609,19 @@
+ 
+ bool KDisplayManager::isSwitchable()
+ {
++    qInfo() << "KDisplayManager::isSwitchable()";
+     if (DMType == NewGDM || DMType == LightDM) {
++        qInfo() << "KDisplayManager::isSwitchable(): DMType == NewGDM || DMType == LightDM";
+         QDBusObjectPath currentSeat;
+         if (getCurrentSeat(nullptr, &currentSeat)) {
++            qInfo() << "KDisplayManager::isSwitchable(): getCurrentSeat()";
+             SystemdSeat SDseat(currentSeat);
+             if (SDseat.isValid()) {
++                qInfo() << "KDisplayManager::isSwitchable(): SDseat.isValid()";
+                 QVariant prop = SDseat.property("CanMultiSession");
++                qInfo() << "KDisplayManager::isSwitchable(): CanMultiSession" << prop;
++                qInfo() << "KDisplayManager::isSwitchable(): CanMultiSession" << prop.isValid();
++                qInfo() << "KDisplayManager::isSwitchable(): CanMultiSession" << prop.toBool();
+                 if (prop.isValid())
+                     return prop.toBool();
+                 else {
+@@ -628,9 +635,12 @@
+             }
+             CKSeat CKseat(currentSeat);
+             if (CKseat.isValid()) {
++                qInfo() << "KDisplayManager::isSwitchable(): CKseat.isValid()";
+                 QDBusReply<bool> r = CKseat.call(QStringLiteral("CanActivateSessions"));
+-                if (r.isValid())
++                if (r.isValid()) {
++                    qInfo() << "KDisplayManager::isSwitchable(): CanActivateSessions := true";
+                     return r.value();
++                }
+             }
+         }
+         return false;
