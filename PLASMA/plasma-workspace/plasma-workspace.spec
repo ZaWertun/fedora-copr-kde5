@@ -61,10 +61,7 @@ Patch102:       plasma-workspace-5.21-ssh-agent.patch
 # https://github.com/notmart/artwork-lnf-netrunner-core/blob/master/usr/share/plasma/look-and-feel/org.kde.netrunner-core.desktop/contents/defaults
 Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 
-Patch106:       924bdf5e27850b33282e1b4f09d9c27fbb4cfd55.reverse.patch
-
 ## upstreamable Patches
-Patch106:       plasma-workspace-5.22.1-get-session-auto.patch
 
 ## upstream Patches
 
@@ -697,7 +694,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %files -n sddm-breeze
 %{_datadir}/sddm/themes/breeze/
 %{_datadir}/sddm/themes/01-breeze-fedora/
-#%config(noreplace) %{_datadir}/sddm/themes/01-breeze-fedora/theme.conf.user
 
 %files wayland
 %{_kf5_bindir}/startplasma-wayland
