@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kinfocenter
-Version: 5.22.2
-Release: 2%{?dist}
+Version: 5.22.2.1
+Release: 1%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -109,6 +109,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Wed Jun 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2.1-1
+- 5.22.2.1
+
 * Wed Jun 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2-2
 - added 0004-repair-the-version-header.patch,
   0006-stop-looking-for-the-plasma-version-in-the-session-f.patch
