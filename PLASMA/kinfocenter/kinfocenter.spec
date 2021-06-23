@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kinfocenter
 Version: 5.22.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -16,6 +16,10 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream patches
+# master branch
+Patch4: 0004-repair-the-version-header.patch
+# Backport for for upstream bug #436954
+Patch6: 0006-stop-looking-for-the-plasma-version-in-the-session-f.patch
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
@@ -105,6 +109,10 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Wed Jun 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2-2
+- added 0004-repair-the-version-header.patch,
+  0006-stop-looking-for-the-plasma-version-in-the-session-f.patch
+
 * Tue Jun 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2-1
 - 5.22.2
 
