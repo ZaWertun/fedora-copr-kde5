@@ -13,8 +13,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.22.1
-Release: 3%{?dist}
+Version: 5.22.2
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -60,6 +60,8 @@ Patch102:       plasma-workspace-5.21-ssh-agent.patch
 # and example,
 # https://github.com/notmart/artwork-lnf-netrunner-core/blob/master/usr/share/plasma/look-and-feel/org.kde.netrunner-core.desktop/contents/defaults
 Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
+
+Patch106:       924bdf5e27850b33282e1b4f09d9c27fbb4cfd55.reverse.patch
 
 ## upstreamable Patches
 Patch106:       plasma-workspace-5.22.1-get-session-auto.patch
@@ -723,6 +725,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Jun 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2-1
+- 5.22.2
+
 * Sat Jun 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com>
 - build dependency kf5-syntax-highlighting-devel added
 
