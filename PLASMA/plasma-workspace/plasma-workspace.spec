@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.22.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -64,6 +64,9 @@ Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 ## upstreamable Patches
 
 ## upstream Patches
+Patch3: 0003-Assing-first-screen-if-screen-is-null.patch
+Patch5: 0005-xembed-sni-proxy-Add-Menu-property.patch
+Patch7: 0007-Guard-calls-into-layer-shell.patch
 
 ## upstream Patches (master branch)
 
@@ -426,6 +429,9 @@ BuildArch: noarch
 %setup -q -a 20
 
 ## upstream patches
+%patch3 -p1 -b .0003
+%patch5 -p1 -b .0005
+%patch7 -p1 -b .0007
 
 %patch100 -p1 -b .konsole-in-contextmenu
 # FIXME/TODO:  it is unclear whether this is needed or even a good idea anymore -- rex
