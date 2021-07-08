@@ -727,6 +727,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Jul 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2.1-2
+- backport upstream fixes (change from official repo)
+
 * Wed Jun 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com>
 - 5.22.2.1
 
