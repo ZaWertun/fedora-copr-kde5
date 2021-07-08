@@ -3,7 +3,7 @@
 
 Name:    kdenlive
 Summary: Non-linear video editor
-Version: 21.04.2
+Version: 21.04.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -169,6 +169,9 @@ fi
 
 
 %changelog
+* Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
+- 21.04.3
+
 * Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
 - 21.04.2
 

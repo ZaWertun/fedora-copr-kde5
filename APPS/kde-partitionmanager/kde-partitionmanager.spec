@@ -1,7 +1,7 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        21.04.2
+Version:        21.04.3
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
@@ -87,6 +87,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
+- 21.04.3
+
 * Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
 - 21.04.2
 

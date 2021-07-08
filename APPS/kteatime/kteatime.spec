@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kteatime
 Summary: Handy timer for steeping tea
-Version: 21.04.2
+Version: 21.04.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -91,6 +91,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
+- 21.04.3
+
 * Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
 - 21.04.2
 

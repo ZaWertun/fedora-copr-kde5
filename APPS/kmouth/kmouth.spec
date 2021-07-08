@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kmouth
-Version: 21.04.2
+Version: 21.04.3
 Release: 1%{?dist}
 Summary: A program that speaks for you 
 
@@ -78,6 +78,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kmouth.de
 
 
 %changelog
+* Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
+- 21.04.3
+
 * Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
 - 21.04.2
 

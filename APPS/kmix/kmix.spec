@@ -2,7 +2,7 @@
 
 Name:    kmix 
 Summary: KDE volume control 
-Version: 21.04.2
+Version: 21.04.3
 Release: 1%{?dist}
 
 %global version_major %(echo %{version} |cut -d. -f1)
@@ -111,6 +111,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmix.desktop
 
 
 %changelog
+* Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
+- 21.04.3
+
 * Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
 - 21.04.2
 
