@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.83.0
+Version: 5.84.0
 Release: 1%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 
@@ -121,6 +121,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jul 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.84.0-1
+- 5.84.0
+
 * Sun Jun 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.83.0-1
 - 5.83.0
 
