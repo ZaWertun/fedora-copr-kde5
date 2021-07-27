@@ -2,7 +2,7 @@
 %define         base_name milou
 
 Name:    plasma-%{base_name}
-Version: 5.22.3
+Version: 5.22.4
 Release: 1%{?dist}
 Summary: A dedicated KDE search application built on top of Baloo
 
@@ -62,7 +62,6 @@ Provides:       kde-plasma-milou = %{version}-%{release}
 %files -f milou.lang
 %{_kf5_qtplugindir}/miloutextplugin.so
 %{_kf5_datadir}/kservicetypes5/miloupreviewplugin.desktop
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.milou.desktop
 %{_kf5_datadir}/kservices5/miloutextpreview.desktop
 %{_libdir}/libmilou.so.*
 %{_kf5_qmldir}/org/kde/milou/
@@ -71,6 +70,9 @@ Provides:       kde-plasma-milou = %{version}-%{release}
 
 
 %changelog
+* Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
+- 5.22.4
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.3-1
 - 5.22.3
 

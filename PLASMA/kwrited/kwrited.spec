@@ -2,7 +2,7 @@
 
 Name:    kwrited
 Summary: KDE Write Daemon
-Version: 5.22.3
+Version: 5.22.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -67,6 +67,9 @@ Conflicts:      kde-workspace < 5.0.0-1
 
 
 %changelog
+* Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
+- 5.22.4
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.3-1
 - 5.22.3
 

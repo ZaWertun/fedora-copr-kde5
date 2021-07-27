@@ -13,8 +13,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.22.3
-Release: 2%{?dist}
+Version: 5.22.4
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -737,6 +737,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
+- 5.22.4
+
 * Fri Jul 16 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.22.3-2
 - add (modularized) user service dependencies for ssh-agent, spice-vdagent
 - drop BR: kf5-kdelibs4support

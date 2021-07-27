@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    plasma-pa
-Version: 5.22.3
+Version: 5.22.4
 Release: 1%{?dist}
 Summary: Plasma applet for audio volume management using PulseAudio
 
@@ -73,7 +73,6 @@ rm -rfv %{buildroot}%{_kde4_appsdir}/kconf_update/
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.volume/
 %{_kf5_qmldir}/org/kde/plasma/private/volume/
 %{_kf5_qtplugindir}/kcms/kcm_pulseaudio.so
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.volume.desktop
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kpackage/kcms/kcm_pulseaudio
 %{_kf5_datadir}/kservices5/kcm_pulseaudio.desktop
@@ -81,6 +80,9 @@ rm -rfv %{buildroot}%{_kde4_appsdir}/kconf_update/
 
 
 %changelog
+* Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
+- 5.22.4
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.3-1
 - 5.22.3
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kscreen
 Epoch:   1
-Version: 5.22.3
+Version: 5.22.4
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -67,7 +67,6 @@ KCM and KDED modules for managing displays in KDE.
 %{_bindir}/kscreen-console
 %{_kf5_qtplugindir}/plasma/applets/plasma_applet_kscreen.so
 %{_kf5_plugindir}/kded/kscreen.so
-%{_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
 %{_datadir}/metainfo/org.kde.kscreen.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/PresentationModeItem.qml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/ScreenLayoutSelection.qml
@@ -86,6 +85,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.22.4-1
+- 5.22.4
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.22.3-1
 - 5.22.3
 

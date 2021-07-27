@@ -4,7 +4,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.22.3
+Version: 5.22.4
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -237,7 +237,6 @@ Requires:       NetworkManager-wireguard
 # plasma-nm applet
 %{_qt5_qmldir}/org/kde/plasma/networkmanagement/
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.networkmanagement.desktop
 #{_datadir}/plasma/updates/*.js
 # plasma-nm notifications
 %{_kf5_datadir}/knotifications5/networkmanagement.notifyrc
@@ -303,6 +302,9 @@ Requires:       NetworkManager-wireguard
 
 
 %changelog
+* Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
+- 5.22.4
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.3-1
 - 5.22.3
 
