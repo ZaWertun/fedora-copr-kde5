@@ -2,7 +2,7 @@
 
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -69,6 +69,9 @@ Obsoletes: ksnapshot <= 15.08.3
 # translations moved here
 Conflicts: kde-l10n < 17.03
 
+# For kconf_update/50-clipboard_settings_change.py
+Requires:  python3
+
 %description
 %{summary}.
 
@@ -105,6 +108,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 %{_kf5_datadir}/knotifications5/spectacle.notifyrc
 %{_kf5_datadir}/kconf_update/spectacle_shortcuts.upd
 %{_kf5_datadir}/kconf_update/spectacle_newConfig.upd
+%{_kf5_datadir}/kconf_update/spectacle_clipboard.upd
+%{_kf5_datadir}/kconf_update/50-clipboard_settings_change.py
 %{_kf5_datadir}/kglobalaccel/*.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_userunitdir}/app-org.kde.spectacle.service
@@ -112,6 +117,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

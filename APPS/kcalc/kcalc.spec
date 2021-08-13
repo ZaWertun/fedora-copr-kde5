@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kcalc 
 Summary: Scientific Calculator 
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -17,7 +17,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 
 ## upstreamable patches
 # fix arithmetic fault in mod, factorial
-Patch100: kcalc-4.9.90-misc.patch
+Patch100: kcalc-21.08.0-misc.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
@@ -89,21 +89,18 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %files -f %{name}.lang
 %license COPYING*
-#doc README
 %{_kf5_bindir}/%{name}
-%{_kf5_libdir}/libkdeinit5_%{name}.so
-#{_sysconfdir}/xdg/%{name}.knsrc
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
-#{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_kf5_datadir}/%{name}/
 %{_kf5_datadir}/kconf_update/%{name}*
-%{_kf5_datadir}/kxmlgui5/%{name}/
-#{_kf5_datadir}/sounds/%{name}/
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

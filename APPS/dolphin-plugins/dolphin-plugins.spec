@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    dolphin-plugins
 Summary: Dolphin plugins for revision control systems
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -63,25 +63,23 @@ systems:
 
 
 %files -f %{name}.lang
-%license COPYING
-%{_kf5_qtplugindir}/fileviewbazaarplugin.so
-%{_kf5_qtplugindir}/fileviewdropboxplugin.so
-%{_kf5_qtplugindir}/fileviewgitplugin.so
-%{_kf5_qtplugindir}/fileviewsvnplugin.so
-%{_kf5_qtplugindir}/fileviewhgplugin.so
+%license LICENSES/*.txt
 %{_kf5_plugindir}/kfileitemaction/mountisoaction.so
+%{_kf5_qtplugindir}/dolphin/vcs/fileviewbazaarplugin.so
+%{_kf5_qtplugindir}/dolphin/vcs/fileviewdropboxplugin.so
+%{_kf5_qtplugindir}/dolphin/vcs/fileviewgitplugin.so
+%{_kf5_qtplugindir}/dolphin/vcs/fileviewhgplugin.so
+%{_kf5_qtplugindir}/dolphin/vcs/fileviewsvnplugin.so
 %{_kf5_datadir}/config.kcfg/fileviewgitpluginsettings.kcfg
 %{_kf5_datadir}/config.kcfg/fileviewsvnpluginsettings.kcfg
 %{_kf5_datadir}/config.kcfg/fileviewhgpluginsettings.kcfg
-%{_kf5_datadir}/kservices5/fileviewbazaarplugin.desktop
-%{_kf5_datadir}/kservices5/fileviewdropboxplugin.desktop
-%{_kf5_datadir}/kservices5/fileviewgitplugin.desktop
-%{_kf5_datadir}/kservices5/fileviewsvnplugin.desktop
-%{_kf5_datadir}/kservices5/fileviewhgplugin.desktop
 %{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

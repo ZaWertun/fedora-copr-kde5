@@ -15,7 +15,7 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -185,9 +185,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 %endif
 
 %files -f okular.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/okular
-#{_kf5_sysconfdir}/xdg/%{name}*
 %{_kf5_datadir}/applications/org.kde.okular.desktop
 %{_kf5_metainfodir}/org.kde.okular.appdata.xml
 %{_kf5_datadir}/applications/okularApplication_*.desktop
@@ -218,8 +217,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 %files part -f okular-part.lang
 %if 0%{?fedora}
-%{_qt5_plugindir}/kio_msits.so
-%{_kf5_datadir}/kservices5/ms-its.protocol
+%{_kf5_plugindir}/kio/kio_msits.so
 %endif
 %{_kf5_datadir}/config.kcfg/*.kcfg
 %{_kf5_datadir}/kservices5/okular[A-Z]*.desktop
@@ -233,6 +231,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

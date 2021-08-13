@@ -3,7 +3,7 @@
 
 Name:    kde-print-manager
 Summary: Printer management for KDE
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+
@@ -86,13 +86,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_bindir}/kde-add-printer
 %{_bindir}/kde-print-queue
 %{_bindir}/configure-printer
 %{_kf5_qmldir}/org/kde/plasma/printmanager/
 %{_kf5_datadir}/kservices5/kcm_printer_manager.desktop
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.printmanager.desktop
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.printmanager/
 %{_kf5_datadir}/knotifications5/printmanager.notifyrc
 %{_kf5_datadir}/applications/org.kde.kde-add-printer.desktop
@@ -111,6 +110,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

@@ -5,7 +5,7 @@
 %endif
 
 Name:    kdepim-addons
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -129,6 +129,7 @@ Supplements:    korganizer
 %{_kf5_libdir}/libadblocklibprivate.so.5*
 %{_kf5_libdir}/libdkimverifyconfigure.so.5*
 %{_kf5_libdir}/libfolderconfiguresettings.so.5*
+%{_kf5_libdir}/libkmailconfirmbeforedeleting.so.5*
 %{_kf5_libdir}/libkmailquicktextpluginprivate.so.5*
 %{_kf5_libdir}/libexpireaccounttrashfolderconfig.so.5*
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
@@ -193,7 +194,6 @@ Supplements:    korganizer
 %{_kf5_qtplugindir}/importwizard/gearyimporterplugin.so
 %{_kf5_qtplugindir}/importwizard/nylasmailimporterplugin.so
 %{_kf5_qtplugindir}/importwizard/operaimporterplugin.so
-%{_kf5_qtplugindir}/libksieve/regexpeditorlineeditplugin.so
 %{_kf5_qtplugindir}/mailtransport/mailtransport_sendplugin.so
 %{_kf5_qtplugindir}/templateparser/templateparseraddressrequesterplugin.so
 
@@ -246,6 +246,7 @@ Supplements:    korganizer
 %{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_gravatarconfigplugin.so
 %{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_folderconfiguresettingsplugin.so
 %{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_expireaccounttrashfolderconfigplugin.so
+%{_kf5_qtplugindir}/messageviewer/checkbeforedeleting/kmail_confirmbeforedeletingplugin.so
 
 # qtcreator templates
 %dir %{_datadir}/qtcreator
@@ -255,6 +256,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

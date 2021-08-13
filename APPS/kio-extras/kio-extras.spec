@@ -8,7 +8,7 @@
 %endif
 
 Name:    kio-extras
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -142,10 +142,8 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 # include *a* copy, others are in mtp/
 %license LICENSES/*.txt
 %{_kf5_libdir}/libkioarchive.so.5*
-%{_kf5_libdir}/libmolletnetwork5.so.*
 %dir %{_kf5_plugindir}/kded
 %{_kf5_plugindir}/kded/filenamesearchmodule.so
-%{_kf5_plugindir}/kded/networkwatcher.so
 %{_kf5_plugindir}/kded/recentdocumentsnotifier.so
 %dir %{_kf5_plugindir}/kio/
 %dir %{_kf5_plugindir}/kiod/
@@ -159,7 +157,6 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kio/man.so
 %{_kf5_plugindir}/kiod/kmtpd.so
 %{_kf5_plugindir}/kio/mtp.so
-%{_kf5_plugindir}/kio/network.so
 %{_kf5_plugindir}/kio/nfs.so
 %{_kf5_plugindir}/kio/recentdocuments.so
 %{_kf5_plugindir}/kio/settings.so
@@ -183,10 +180,6 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_qtplugindir}/windowsimagethumbnail.so
 %{_datadir}/kio_docfilter/
 %{_datadir}/kio_bookmarks/
-%dir %{_datadir}/konqsidebartng/
-%dir %{_datadir}/konqsidebartng/virtual_folders/
-%dir %{_datadir}/konqsidebartng/virtual_folders/remote/
-%{_datadir}/konqsidebartng/virtual_folders/remote/virtualfolder_network.desktop
 %dir %{_datadir}/konqueror/
 %dir %{_datadir}/konqueror/dirtree/
 %dir %{_datadir}/konqueror/dirtree/remote/
@@ -194,14 +187,11 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_datadir}/konqueror/dirtree/remote/smb-network.desktop
 %{_datadir}/remoteview/
 %{_kf5_datadir}/solid/actions/solid_mtp.desktop
-%{_kf5_datadir}/kservices5/*.protocol
+%{_kf5_datadir}/dbus-1/services/org.kde.kmtpd5.service
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/thumbcreator.desktop
-%{_datadir}/dbus-1/interfaces/kf5_org.kde.network.kioslavenotifier.xml
-%{_datadir}/dbus-1/services/org.kde.kmtp.daemon.service
-%{_datadir}/mime/packages/kf5_network.xml
 %{_datadir}/config.kcfg/jpegcreatorsettings5.kcfg
-%{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_libexecdir}/smbnotifier
 %{_kf5_plugindir}/kded/smbwatcher.so
 
@@ -215,11 +205,13 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %files devel
 %{_kf5_includedir}/*.h
 # no soname symlink? --rex
-#{_kf5_libdir}/libkioarchive.so
 %{_kf5_libdir}/cmake/KioArchive/
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

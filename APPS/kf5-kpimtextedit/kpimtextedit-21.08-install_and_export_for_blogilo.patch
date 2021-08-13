@@ -1,0 +1,92 @@
+diff '--color=auto' -r -U3 kpimtextedit-21.08.0.orig/src/CMakeLists.txt kpimtextedit-21.08.0/src/CMakeLists.txt
+--- kpimtextedit-21.08.0.orig/src/CMakeLists.txt	2021-08-12 13:33:00.975438412 +0300
++++ kpimtextedit-21.08.0/src/CMakeLists.txt	2021-08-12 13:36:20.003199251 +0300
+@@ -113,6 +113,9 @@
+ ecm_generate_headers(KPimTextEdit_CamelCase_HEADERS
+     HEADER_NAMES
+     EditorUtil
++    InsertHtmlDialog
++    InsertImageWidget
++    InsertTableWidget
+     SelectSpecialCharDialog
+     SlideContainer
+     TextEditorCompleter
+@@ -124,6 +127,7 @@
+ 
+ ecm_generate_headers(KPimTextEdit_CamelCaseemoticon_HEADERS
+     HEADER_NAMES
++    EmoticonTextEditAction
+     EmoticonUnicodeTab
+     PREFIX KPIMTextEdit
+     REQUIRED_HEADERS kpimtextedit_HEADERS
+diff '--color=auto' -r -U3 kpimtextedit-21.08.0.orig/src/emoticon/emoticontexteditaction.h kpimtextedit-21.08.0/src/emoticon/emoticontexteditaction.h
+--- kpimtextedit-21.08.0.orig/src/emoticon/emoticontexteditaction.h	2021-08-12 13:33:00.947438307 +0300
++++ kpimtextedit-21.08.0/src/emoticon/emoticontexteditaction.h	2021-08-12 13:36:20.004199255 +0300
+@@ -13,7 +13,7 @@
+ 
+ namespace KPIMTextEdit
+ {
+-class EmoticonTextEditAction : public KActionMenu
++class KPIMTEXTEDIT_EXPORT EmoticonTextEditAction : public KActionMenu
+ {
+     Q_OBJECT
+ public:
+diff '--color=auto' -r -U3 kpimtextedit-21.08.0.orig/src/inserthtmldialog.h kpimtextedit-21.08.0/src/inserthtmldialog.h
+--- kpimtextedit-21.08.0.orig/src/inserthtmldialog.h	2021-08-12 13:33:00.975438412 +0300
++++ kpimtextedit-21.08.0/src/inserthtmldialog.h	2021-08-12 13:36:20.004199255 +0300
+@@ -10,12 +10,12 @@
+ #include <QDialog>
+ 
+ #include "kpimtextedit/plaintexteditor.h"
+-#include "kpimtextedit_private_export.h"
++#include "kpimtextedit_export.h"
+ 
+ namespace KPIMTextEdit
+ {
+ class InsertHtmlDialogPrivate;
+-class KPIMTEXTEDIT_TESTS_EXPORT InsertHtmlDialog : public QDialog
++class KPIMTEXTEDIT_EXPORT InsertHtmlDialog : public QDialog
+ {
+     Q_OBJECT
+ public:
+diff '--color=auto' -r -U3 kpimtextedit-21.08.0.orig/src/insertimagewidget.h kpimtextedit-21.08.0/src/insertimagewidget.h
+--- kpimtextedit-21.08.0.orig/src/insertimagewidget.h	2021-08-12 13:33:00.975438412 +0300
++++ kpimtextedit-21.08.0/src/insertimagewidget.h	2021-08-12 13:36:20.004199255 +0300
+@@ -6,6 +6,8 @@
+ */
+ #pragma once
+ 
++#include "kpimtextedit_export.h"
++
+ #include <QUrl>
+ 
+ #include <QWidget>
+@@ -14,7 +16,7 @@
+ {
+ class InsertImageWidgetPrivate;
+ 
+-class InsertImageWidget : public QWidget
++class KPIMTEXTEDIT_EXPORT InsertImageWidget : public QWidget
+ {
+     Q_OBJECT
+ public:
+diff '--color=auto' -r -U3 kpimtextedit-21.08.0.orig/src/inserttablewidget.h kpimtextedit-21.08.0/src/inserttablewidget.h
+--- kpimtextedit-21.08.0.orig/src/inserttablewidget.h	2021-08-12 13:33:00.949438314 +0300
++++ kpimtextedit-21.08.0/src/inserttablewidget.h	2021-08-12 13:37:40.132509498 +0300
+@@ -7,13 +7,15 @@
+ 
+ #pragma once
+ 
++#include "kpimtextedit_export.h"
++
+ #include <QWidget>
+ 
+ #include <QTextLength>
+ 
+ namespace KPIMTextEdit
+ {
+-class InsertTableWidget : public QWidget
++class KPIMTEXTEDIT_EXPORT InsertTableWidget : public QWidget
+ {
+     Q_OBJECT
+ public:

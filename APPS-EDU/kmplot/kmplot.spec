@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kmplot
 Summary: Mathematical Function Plotter 
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -56,14 +56,12 @@ Conflicts: kdeedu-math < 4.7.0-10
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man --with-qt
 
 
@@ -73,25 +71,23 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %files -f %{name}.lang
-%license COPYING*
-#doc README
+%license LICENSES/*.txt
 %{_kf5_bindir}/%{name}
-#{_sysconfdir}/xdg/%{name}.knsrc
+%{_kf5_qtplugindir}/kf5/parts/kmplotpart.so
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
-#{_kf5_datadir}/%{name}/
-#{_kf5_datadir}/kconf_update/%{name}*
 %{_kf5_datadir}/kxmlgui5/%{name}/
-#{_kf5_datadir}/sounds/%{name}/
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
 %{_kf5_datadir}/kservices5/%{name}_part.desktop
-%{_kf5_qtplugindir}/%{name}part.so
 %{_datadir}/dbus-1/interfaces/org.kde.%{name}.*.xml
 %{_mandir}/man1/kmplot.*
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

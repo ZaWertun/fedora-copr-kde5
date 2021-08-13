@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdnssd
 Summary: KDE Network Monitor for DNS-SD services (Zeroconf)
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -42,29 +42,29 @@ Provides:  kdenetwork-kdnssd = 7:%{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
 %files -f %{name}.lang
-%license COPYING*
-%{_kf5_qtplugindir}/kded_dnssdwatcher.so
+%license LICENSES/*.txt
 %{_kf5_plugindir}/kio/zeroconf.so
+%{_kf5_qtplugindir}/kf5/kded/dnssdwatcher.so
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.kdnssd.xml
-%{_kf5_datadir}/kservices5/kded/dnssdwatcher.desktop
 %dir %{_kf5_datadir}/remoteview/
 %{_kf5_datadir}/remoteview/zeroconf.desktop
 %{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

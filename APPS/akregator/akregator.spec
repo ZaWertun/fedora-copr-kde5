@@ -9,7 +9,7 @@
 
 Name:    akregator
 Summary: Feed Reader
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -126,7 +126,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_bindir}/akregatorstorageexporter
 %{_kf5_bindir}/akregator
 %{_kf5_datadir}/kservices5/akregator_*.desktop
-%{_kf5_datadir}/kservices5/feed.protocol
 %{_kf5_datadir}/kservicetypes5/akregator_plugin.desktop
 %{_kf5_datadir}/config.kcfg/akregator.kcfg
 %{_kf5_metainfodir}/org.kde.akregator.appdata.xml
@@ -150,11 +149,22 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libakregatorprivate.so.*
 %{_kf5_qtplugindir}/akregatorpart.so
 %{_kf5_qtplugindir}/akregator_*.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_advanced.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_appearance.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_archive.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_browser.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_general.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_plugins.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_security.so
+%{_kf5_qtplugindir}/pim/kcms/akregator/akregator_config_userfeedback.so
 # Kontact integration
 %{_kf5_qtplugindir}/kontact5/kontact_akregatorplugin.so
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 Summary: The KLDAP Library
 
@@ -97,8 +97,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5Ldap.so.*
 %{_kf5_plugindir}/kio/ldap.so
-%{_kf5_datadir}/kservices5/ldap.protocol
-%{_kf5_datadir}/kservices5/ldaps.protocol
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
@@ -110,6 +108,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

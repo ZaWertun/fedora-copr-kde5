@@ -11,7 +11,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -151,7 +151,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 # katesessions applet
 %{_kf5_metainfodir}/org.kde.plasma.katesessions.appdata.xml
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.katesessions/
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.katesessions.desktop
 %{_kf5_datadir}/kservices5/plasma-dataengine-katesessions.desktop
 %{_kf5_datadir}/plasma/services/org.kde.plasma.katesessions.operations
 
@@ -164,7 +163,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/ktexteditor/katefiletreeplugin.so
 %{_kf5_qtplugindir}/ktexteditor/kategdbplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katekonsoleplugin.so
-%{_kf5_qtplugindir}/ktexteditor/kateopenheaderplugin.so
 %{_kf5_qtplugindir}/ktexteditor/kateprojectplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katesearchplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katesnippetsplugin.so
@@ -193,6 +191,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

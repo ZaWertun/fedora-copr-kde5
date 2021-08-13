@@ -11,7 +11,7 @@
 Name:    k3b
 Summary: CD/DVD/Blu-ray burning application
 Epoch:   1
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -139,7 +139,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 
 %files -f %{name}.lang
 %doc README*
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/k3b
 %{_kf5_metainfodir}/org.kde.k3b.appdata.xml
 %{_kf5_datadir}/applications/org.kde.k3b.desktop
@@ -163,8 +163,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 %files libs
 %{_kf5_libdir}/libk3bdevice.so.*
 %{_kf5_libdir}/libk3blib.so.*
-%{_kf5_qtplugindir}/*.so
 %{_kf5_plugindir}/kio/videodvd.so
+%{_kf5_qtplugindir}/*.so
+%{_kf5_qtplugindir}/k3b/k3b*.so
 
 %files devel
 %{_includedir}/k3b*.h
@@ -173,6 +174,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.04.3-1
 - 21.04.3
 

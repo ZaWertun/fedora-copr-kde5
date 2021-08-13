@@ -3,7 +3,7 @@ Name:    khelpcenter
 Summary: Show documentation for KDE applications
 # Override khelpcenter subpackage from kde-runtime-15.04 (no longer built)
 Epoch:   1
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2 or GPLv3
@@ -58,8 +58,7 @@ Requires:       kf5-filesystem
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -82,14 +81,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop
 
 %files -f %{name}.lang
 %doc README.metadata
-%license COPYING
+%license LICENSES/*.txt
 %{_bindir}/khelpcenter
 %{_libexecdir}/khc_mansearch.pl
 %{_libexecdir}/khc_xapianindexer
 %{_libexecdir}/khc_xapiansearch
-%{_kf5_libdir}/libkdeinit5_khelpcenter.so
 %{_kf5_datadir}/khelpcenter/
-%{_kf5_datadir}/kxmlgui5/khelpcenter/khelpcenterui.rc
 %{_kf5_metainfodir}/org.kde.Help.appdata.xml
 %{_datadir}/applications/org.kde.Help.desktop
 %{_datadir}/config.kcfg/khelpcenter.kcfg
@@ -100,6 +97,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.04.3-1
 - 21.04.3
 

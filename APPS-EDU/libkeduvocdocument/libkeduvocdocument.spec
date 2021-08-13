@@ -9,7 +9,7 @@
 
 Name:    libkeduvocdocument
 Summary: Library to parse, convert, and manipulate KVTML files
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -82,11 +82,10 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 %files -f %{name}.lang
 %doc AUTHORS README 
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_libdir}/libKEduVocDocument.so.5*
 
 %files devel
-%license COPYING.LIB
 %{_includedir}/libkeduvocdocument/
 %{_kf5_libdir}/libKEduVocDocument.so
 %license COPYING-CMAKE-SCRIPTS 
@@ -94,6 +93,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

@@ -1,10 +1,10 @@
-diff -ur kcalc-4.9.90/kcalc_core.cpp kcalc-4.9.90-misc/kcalc_core.cpp
---- kcalc-4.9.90/kcalc_core.cpp	2012-11-14 17:46:47.000000000 +0100
-+++ kcalc-4.9.90-misc/kcalc_core.cpp	2012-12-08 20:05:58.000000000 +0100
-@@ -99,7 +99,13 @@
- }
+diff '--color=auto' -r -U3 kcalc-21.08.0.orig/kcalc_core.cpp kcalc-21.08.0/kcalc_core.cpp
+--- kcalc-21.08.0.orig/kcalc_core.cpp	2021-08-05 00:54:42.000000000 +0300
++++ kcalc-21.08.0/kcalc_core.cpp	2021-08-12 12:11:56.415552745 +0300
+@@ -100,7 +100,13 @@
  
- KNumber ExecMod(const KNumber &left_op, const KNumber &right_op) {
+ KNumber ExecMod(const KNumber &left_op, const KNumber &right_op)
+ {
 -    return left_op % right_op;
 +    KNumber tmp_result = left_op % right_op;
 +
@@ -15,12 +15,13 @@ diff -ur kcalc-4.9.90/kcalc_core.cpp kcalc-4.9.90-misc/kcalc_core.cpp
 +    return tmp_result;
  }
  
- KNumber ExecIntDiv(const KNumber &left_op, const KNumber &right_op) {
-@@ -535,8 +541,11 @@
+ KNumber ExecIntDiv(const KNumber &left_op, const KNumber &right_op)
+@@ -566,9 +572,11 @@
  
  void CalcEngine::Factorial(const KNumber &input)
  {
--    if (input == KNumber::PosInfinity) return;
+-    if (input == KNumber::PosInfinity)
+-        return;
 -    if (input < KNumber::Zero || input.type() == KNumber::TYPE_ERROR) {
 +    if (input == KNumber::PosInfinity || input > KNumber(999999)) {
 +       last_number_ = KNumber::PosInfinity;

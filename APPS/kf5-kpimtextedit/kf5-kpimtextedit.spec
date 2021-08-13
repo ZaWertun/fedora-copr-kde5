@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 Summary: The KPimTextEdit Library
 
@@ -26,7 +26,7 @@ Source0:        https://download.kde.org/%{stable}/release-service/%{version}/sr
 
 # upstream says we should just patch this downstream, see the discussion on:
 # https://phabricator.kde.org/D17947
-Patch100: kpimtextedit-20.04-install_and_export_for_blogilo.patch
+Patch100: kpimtextedit-21.08-install_and_export_for_blogilo.patch
 
 BuildRequires:  grantlee-qt5-devel
 
@@ -72,7 +72,6 @@ Conflicts: kde-l10n < 17.03
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       cmake(KF5TextWidgets)
-#Requires:       kf5-ktextwidgets-devel
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -123,6 +122,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

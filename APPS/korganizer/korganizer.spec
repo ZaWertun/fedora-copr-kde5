@@ -9,7 +9,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -139,7 +139,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_bindir}/korganizer
 %{_kf5_datadir}/config.kcfg/korganizer.kcfg
 %{_kf5_datadir}/kconf_update/korganizer*
-%{_kf5_datadir}/kservices5/webcal.protocol
 %{_datadir}/dbus-1/interfaces/org.kde.Korganizer.*.xml
 %{_datadir}/dbus-1/interfaces/org.kde.korganizer.*.xml
 %{_kf5_metainfodir}/org.kde.korganizer.appdata.xml
@@ -147,6 +146,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/korganizer-import.desktop
 %{_kf5_datadir}/applications/korganizer-view.desktop
 %{_kf5_datadir}/korganizer/
+%{_kf5_datadir}/icons/hicolor/*/apps/korgac.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korg-journal.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korg-todo.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korganizer.*
@@ -164,7 +164,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 # korgac
 %{_kf5_bindir}/korgac
 %{_sysconfdir}/xdg/autostart/org.kde.korgac.desktop
-%{_kf5_datadir}/korgac
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/dbus-1/services/*.service
@@ -176,12 +175,20 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libkorganizer_interfaces.so.*
 %{_kf5_libdir}/libkorganizer_core.so.*
 %{_kf5_libdir}/libkorganizerprivate.so.*
-%{_kf5_qtplugindir}/kcm_korganizer.so
 %{_kf5_qtplugindir}/korganizerpart.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configcolorsandfonts.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configdesignerfields.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configfreebusy.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configgroupscheduling.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configmain.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configplugins.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configtime.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configviews.so
+%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_userfeedback.so
 # Kontact integration
-%{_kf5_qtplugindir}/kcm_apptsummary.so
-%{_kf5_qtplugindir}/kcm_sdsummary.so
-%{_kf5_qtplugindir}/kcm_todosummary.so
+%{_kf5_qtplugindir}/pim/kcms/summary/kcmapptsummary.so
+%{_kf5_qtplugindir}/pim/kcms/summary/kcmsdsummary.so
+%{_kf5_qtplugindir}/pim/kcms/summary/kcmtodosummary.so
 %{_kf5_qtplugindir}/kontact5/kontact_korganizerplugin.so
 %{_kf5_qtplugindir}/kontact5/kontact_todoplugin.so
 %{_kf5_qtplugindir}/kontact5/kontact_journalplugin.so
@@ -189,6 +196,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

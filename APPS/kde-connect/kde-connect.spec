@@ -6,7 +6,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        21.04.3
+Version:        21.08.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -46,6 +46,7 @@ BuildRequires:  cmake(KF5People)
 BuildRequires:  cmake(KF5Service)
 BuildRequires:  cmake(KF5Wayland)
 BuildRequires:  cmake(KF5PeopleVCard)
+BuildRequires:  cmake(KF5QQC2DesktopStyle)
 
 %if 0%{?bluetooth}
 BuildRequires:  cmake(Qt5Bluetooth)
@@ -57,6 +58,9 @@ BuildRequires:  cmake(Qt5Quick)
 BuildRequires:  cmake(Qt5Test)
 BuildRequires:  cmake(Qt5X11Extras)
 BuildRequires:  cmake(Qt5QuickControls2)
+BuildRequires:  cmake(Qt5WaylandClient)
+
+BuildRequires:  qt5-qtbase-private-devel
 
 BuildRequires:  cmake(Qca-qt5)
 
@@ -64,6 +68,7 @@ BuildRequires:  cmake(KF5PulseAudioQt)
 
 BuildRequires:  libXtst-devel
 BuildRequires:  pkgconfig(libfakekey)
+BuildRequires:  pkgconfig(wayland-client)
 
 Obsoletes: kde-connect-kde4-ioslave < %{version}-%{release}
 Obsoletes: kde-connect-kde4-libs < %{version}-%{release}
@@ -160,7 +165,6 @@ done
 %{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
 %{_kf5_plugindir}/kio/kdeconnect.so
 %{_datadir}/icons/hicolor/*/apps/kdeconnect*
-%{_datadir}/icons/hicolor/*/status/*
 %{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/applications/org.kde.kdeconnect*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
@@ -206,6 +210,9 @@ fi
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

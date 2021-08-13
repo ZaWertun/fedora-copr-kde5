@@ -11,7 +11,7 @@
 
 Name:    kaddressbook
 Summary: Contact Manager
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -152,13 +152,13 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKPimAddressbookImportExport.so.*
 %{_kf5_libdir}/libkaddressbookprivate.so.*
 %{_kf5_qtplugindir}/kaddressbookpart.so
-%{_qt5_plugindir}/kaddressbook_config_plugins.so
 %if 0%{?with_kuserfeedback}
-%{_qt5_plugindir}/kaddressbook_config_userfeedback.so
+%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kaddressbook_config_userfeedback.so
 %endif
 # Kontact integration
 %{_kf5_datadir}/applications/kaddressbook-view.desktop
 %{_kf5_qtplugindir}/kontact5/kontact_kaddressbookplugin.so
+%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kaddressbook_config_plugins.so
 
 
 %files devel
@@ -171,6 +171,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

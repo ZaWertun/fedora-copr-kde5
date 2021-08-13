@@ -9,7 +9,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -124,7 +124,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %doc README.md
 %{_kf5_bindir}/dolphin
 %{_kf5_bindir}/servicemenuinstaller
-%{_kf5_libdir}/libkdeinit5_dolphin.so
 %{_kf5_datadir}/kservices5/kcmdolphin*.desktop
 %{_kf5_datadir}/config.kcfg/dolphin_*
 %{_kf5_datadir}/kglobalaccel/*.desktop
@@ -155,6 +154,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

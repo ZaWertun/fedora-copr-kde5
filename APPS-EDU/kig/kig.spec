@@ -3,8 +3,8 @@
 %global _python3_lib %{_libdir}/lib%(basename %{_python3_include}).so
 
 Name:    kig
-Summary: Interactive Geometry 
-Version: 21.04.3
+Summary: Interactive Geometry
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -89,7 +89,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/%{name}*
 %{_kf5_bindir}/pykig.*
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
@@ -99,12 +99,14 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/%{name}/
 %{_kf5_datadir}/kservices5/kig_part.desktop
 %{_kf5_datadir}/kxmlgui5/%{name}/
-%{_kf5_qtplugindir}/kigpart.so
 %{_kf5_datadir}/katepart5/syntax/python-kig.xml
 %{_mandir}/man1/kig.1*
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

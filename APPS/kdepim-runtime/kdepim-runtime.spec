@@ -11,7 +11,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -175,14 +175,11 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/akonadi/agents/*
 %{_kf5_datadir}/akonadi/firstrun/*
 %{_kf5_datadir}/knotifications5/*
-%{_kf5_datadir}/kservices5/akonadi.protocol
 %{_kf5_datadir}/kservices5/akonadi/davgroupware-providers/*
 %{_kf5_datadir}/kservicetypes5/davgroupwareprovider.desktop
 %{_kf5_datadir}/mime/packages/kdepim-mime.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/*
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
-%{_kf5_datadir}/kservices5/pop3.protocol
-%{_kf5_datadir}/kservices5/pop3s.protocol
 %{_kf5_datadir}/kservices5/kcmldap.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -196,11 +193,14 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libmaildir.so.5*
 %{_kf5_plugindir}/kio/akonadi.so
 %{_kf5_plugindir}/kio/pop3.so
-%{_kf5_qtplugindir}/kcm_ldap.so
 %{_kf5_qtplugindir}/akonadi/config/*.so
+%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kcm_ldap.so
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.04.3-1
 - 21.04.3
 

@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:       elisa-player
-Version:    21.04.3
+Version:    21.08.0
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -54,6 +54,7 @@ BuildRequires:  cmake(KF5XmlGui)
 BuildRequires:  cmake(KF5Crash)
 BuildRequires:  cmake(KF5DBusAddons)
 BuildRequires:  cmake(KF5Kirigami2)
+BuildRequires:  cmake(KF5IconThemes)
 BuildRequires:  qt5-qtbase-private-devel
 Requires:       hicolor-icon-theme
 Requires:       kde-filesystem
@@ -90,6 +91,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

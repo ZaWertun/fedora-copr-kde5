@@ -9,7 +9,7 @@
 
 Name:    knotes
 Summary: Popup notes
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -135,7 +135,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_bindir}/akonadi_notes_agent
 %{_kf5_bindir}/knotes
-%{_kf5_datadir}/kservices5/knote_*.desktop
 %{_kf5_metainfodir}/org.kde.knotes.appdata.xml
 %{_kf5_datadir}/applications/org.kde.knotes.desktop
 %{_datadir}/dbus-1/interfaces/org.kde.KNotes.xml
@@ -148,6 +147,13 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/config.kcfg/knotesglobalconfig.kcfg
 %{_kf5_datadir}/kservices5/kontact/knotesplugin.desktop
 %{_kf5_datadir}/kservices5/kcmknotessummary.desktop
+%{_kf5_datadir}/kservices5/kcm_knote_action.desktop
+%{_kf5_datadir}/kservices5/kcm_knote_collection.desktop
+%{_kf5_datadir}/kservices5/kcm_knote_display.desktop
+%{_kf5_datadir}/kservices5/kcm_knote_editor.desktop
+%{_kf5_datadir}/kservices5/kcm_knote_misc.desktop
+%{_kf5_datadir}/kservices5/kcm_knote_network.desktop
+%{_kf5_datadir}/kservices5/kcm_knote_print.desktop
 %{_kf5_datadir}/kconf_update/knotes-15.08-kickoff.sh
 %{_kf5_datadir}/kconf_update/knotes.upd
 %{_kf5_datadir}/knotifications5/akonadi_notes_agent.notifyrc
@@ -160,12 +166,21 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %files libs
 %{_kf5_libdir}/libknotesprivate.so.*
 %{_kf5_libdir}/libnotesharedprivate.so.*
-%{_kf5_qtplugindir}/kcm_knote.so
-%{_kf5_qtplugindir}/kcm_knotessummary.so
 %{_kf5_qtplugindir}/kontact5/kontact_knotesplugin.so
+%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_action.so
+%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_collection.so
+%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_display.so
+%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_editor.so
+%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_misc.so
+%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_network.so
+%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_print.so
+%{_kf5_qtplugindir}/pim/kcms/summary/kcmknotessummary.so
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

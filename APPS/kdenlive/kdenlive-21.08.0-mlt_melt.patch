@@ -1,0 +1,21 @@
+diff '--color=auto' -r -U3 kdenlive-21.08.0.orig/src/mltconnection.cpp kdenlive-21.08.0/src/mltconnection.cpp
+--- kdenlive-21.08.0.orig/src/mltconnection.cpp	2021-08-10 10:53:21.000000000 +0300
++++ kdenlive-21.08.0/src/mltconnection.cpp	2021-08-12 13:24:12.979454852 +0300
+@@ -112,7 +112,7 @@
+     appName = QStringLiteral("melt");
+     libName = QStringLiteral("mlt");
+ #else
+-    appName = QStringLiteral("melt-7");
++    appName = QStringLiteral("mlt-melt");
+     libName = QStringLiteral("mlt-7");
+ #endif
+     // environment variables should override other settings
+@@ -155,7 +155,7 @@
+         if (!QFile::exists(meltPath)) {
+             meltPath = QStandardPaths::findExecutable(appName);
+             if (meltPath.isEmpty()) {
+-                meltPath = QStandardPaths::findExecutable("mlt-melt");
++                meltPath = QStandardPaths::findExecutable("melt");
+             }
+         }
+     }

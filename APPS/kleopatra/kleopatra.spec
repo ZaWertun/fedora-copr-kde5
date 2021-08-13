@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kleopatra
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -89,6 +89,7 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 %{_kf5_datadir}/applications/kleopatra_import.desktop
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kservices5/kleopatra_*.desktop
+%{_kf5_datadir}/kservices5/ServiceMenus/kleopatra_*.desktop
 %{_kf5_datadir}/kleopatra/
 %{_kf5_datadir}/kwatchgnupg/
 %{_kf5_datadir}/icons/hicolor/*/apps/kleopatra.*
@@ -99,10 +100,13 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 %files libs
 %{_kf5_libdir}/libkleopatraclientcore.so.*
 %{_kf5_libdir}/libkleopatraclientgui.so.*
-%{_kf5_qtplugindir}/kcm_kleopatra.so
+%{_kf5_qtplugindir}/pim/kcms/kleopatra/kleopatra_config_gnupgsystem.so
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

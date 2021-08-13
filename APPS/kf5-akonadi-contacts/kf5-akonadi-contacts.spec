@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Contacts Library
 
@@ -38,6 +38,7 @@ BuildRequires:  kf5-ki18n-devel >= %{kf5_ver}
 BuildRequires:  kf5-ki18n-devel >= %{kf5_ver}
 BuildRequires:  kf5-kitemmodels-devel >= %{kf5_ver}
 BuildRequires:  kf5-prison-devel >= %{kf5_ver}
+BuildRequires:  cmake(KF5KCMUtils)
 
 BuildRequires:  cmake(Grantlee5) >= 5.1
 BuildRequires:  qt5-qtwebengine-devel
@@ -113,9 +114,9 @@ xvfb-run -a \
 %files -f %{name}.lang
 %{_kf5_libdir}/libKF5AkonadiContact.so.*
 %{_kf5_libdir}/libKF5ContactEditor.so.*
-%{_kf5_qtplugindir}/kcm_akonadicontact_actions.so
 %{_kf5_qtplugindir}/akonadi/contacts/
 %{_kf5_qtplugindir}/akonadi_serializer_*.so
+%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kcm_akonadicontact_actions.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
 %{_kf5_datadir}/kservices5/akonadicontact_actions.desktop
 %{_kf5_datadir}/kf5/akonadi/contact/
@@ -136,6 +137,9 @@ xvfb-run -a \
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

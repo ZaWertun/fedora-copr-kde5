@@ -3,7 +3,7 @@
 %global build_ldflags %{build_ldflags} -flto
 
 Name:           kbackup
-Version:        21.04.3
+Version:        21.08.0
 Release:        1%{?dist}
 Summary:        Back up your data in a simple, user friendly way
 Summary(fr):    Sauvegarder vos données de manière simple et conviviale
@@ -33,6 +33,7 @@ BuildRequires:  cmake(KF5XmlGui)
 BuildRequires:  cmake(KF5IconThemes)
 BuildRequires:  cmake(KF5Archive)
 BuildRequires:  cmake(KF5WidgetsAddons)
+BuildRequires:  cmake(KF5GuiAddons)
 BuildRequires:  desktop-file-utils
 BuildRequires:  libappstream-glib
 BuildRequires:  gettext
@@ -98,6 +99,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

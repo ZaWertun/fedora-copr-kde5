@@ -9,7 +9,7 @@
 
 Name:    krdc
 Summary: Remote desktop client
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -118,7 +118,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*
 %{_kf5_bindir}/krdc
 %{_kf5_datadir}/applications/org.kde.krdc.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
@@ -127,8 +127,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/kservices5/ServiceMenus/smb2rdc.desktop
 %{_kf5_datadir}/kservices5/krdc_rdp_config.desktop
 %{_kf5_datadir}/kservices5/krdc_vnc_config.desktop
-%{_kf5_datadir}/kservices5/*.protocol
-%{_kf5_datadir}/kxmlgui5/krdc/
+%{_kf5_datadir}/kservicetypes5/krdc_plugin.desktop
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
 
@@ -144,6 +144,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

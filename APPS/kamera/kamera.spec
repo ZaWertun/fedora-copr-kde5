@@ -2,7 +2,7 @@
 
 Name:    kamera
 Summary: Digital camera support for KDE 
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -58,14 +58,16 @@ Requires: kde-cli-tools
 %doc AUTHORS README
 %license COPYING*
 %{_kf5_qtplugindir}/kcm_kamera.so
-%{_kf5_qtplugindir}/kio_kamera.so
+%{_kf5_qtplugindir}/kf5/kio/kio_%{name}.so
 %{_kf5_datadir}/solid/actions/solid_camera.desktop
-%{_kf5_datadir}/kservices5/camera.protocol
 %{_kf5_datadir}/kservices5/kamera.desktop
 %{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

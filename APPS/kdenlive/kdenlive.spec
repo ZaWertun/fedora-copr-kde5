@@ -3,7 +3,7 @@
 
 Name:    kdenlive
 Summary: Non-linear video editor
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -20,7 +20,7 @@ Source100: kdenlive-find-lang.sh
 
 Patch1:   rttr_cmakelists.patch
 
-Patch100: kdenlive-19.04.0-mlt_melt.patch
+Patch100: kdenlive-21.08.0-mlt_melt.patch
 
 # Add support for finding html files with find-lang.sh --with-html on epel
 # https://github.com/rpm-software-management/rpm/commit/0c42871ff407a3eeb1e8b8c1de9395f35659c987
@@ -169,6 +169,9 @@ fi
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

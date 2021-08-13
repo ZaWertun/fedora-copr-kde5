@@ -5,7 +5,7 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -135,9 +135,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 %files libs
 %{_kf5_libdir}/libkerfuffle.so.*
-%{_kf5_qtplugindir}/arkpart.so
 %{_kf5_datadir}/kservices5/ark_part.desktop
 %{_kf5_qtplugindir}/kerfuffle/
+%{_kf5_qtplugindir}/kf5/parts/%{name}part.so
 %{_kf5_plugindir}/kio_dnd/extracthere.so
 %{_kf5_plugindir}/kfileitemaction/compressfileitemaction.so
 %{_kf5_plugindir}/kfileitemaction/extractfileitemaction.so
@@ -145,6 +145,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
 - 21.04.3
 

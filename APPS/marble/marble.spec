@@ -3,8 +3,10 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 21.04.3
+Version: 21.08.0
 Release: 1%{?dist}
+
+%global maj_ver %(echo %{version} | cut -d. -f1)
 
 License: LGPLv2+
 URL:     http://edu.kde.org/marble/
@@ -178,12 +180,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 %files
 %{_bindir}/marble
+%{_kf5_libdir}/libmarblewidget-qt5.so.%{maj_ver}*
 %{_datadir}/kxmlgui5/marble/
 %{_kf5_metainfodir}/org.kde.marble.appdata.xml
 %{_kf5_metainfodir}/org.kde.plasma.worldmap.appdata.xml
 %{_kf5_metainfodir}/org.kde.plasma.worldclock.appdata.xml
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.worldclock.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.plasma.worldmap.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.worldclock/
 %{_datadir}/plasma/wallpapers/org.kde.plasma.worldmap/
 %{_datadir}/applications/org.kde.marble.desktop
@@ -201,7 +202,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_datadir}/kservices5/marble_thumbnail_kmz.desktop
 %{_datadir}/kservices5/marble_thumbnail_osm.desktop
 %{_datadir}/kservices5/marble_thumbnail_shp.desktop
-#{_datadir}/kservices5/plasma-runner-marble.desktop
 %{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 
 %files common -f %{name}.lang
@@ -234,7 +234,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 %files widget-qt5
 %{_libdir}/libmarblewidget-qt5.so.28
-%{_libdir}/libmarblewidget-qt5.so.0.*
 %{_libdir}/marble/plugins/
 %{_qt5_plugindir}/marblethumbnail.so
 %{_kf5_plugindir}/krunner/plasma_runner_marble.so
@@ -253,6 +252,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.0-1
+- 21.08.0
+
 * Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.04.3-1
 - 21.04.3
 
