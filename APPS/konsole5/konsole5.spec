@@ -12,7 +12,7 @@
 Name:    konsole5
 Summary: KDE Terminal emulator
 Version: 21.08.0
-Release: 1%{?dist}
+Release: 3%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
 License: GPLv2 and GFDL
@@ -30,10 +30,11 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{bas
 ## upstreamable patches
 
 ## upstream patches
-# master branch
+Patch100: konsole-21.08.0-fix_kxmlgui_toolbars.patch
 
 ## downstream patches
 Patch200: konsole-history_location_default.patch
+
 # custom konsolerc that sets default to cache as well
 Source10: konsolerc
 
@@ -108,7 +109,8 @@ Summary: Konsole5 kpart plugin
 
 %build
 %{cmake_kf5} \
-  %{?tests:-DBUILD_TESTING:BOOL=ON}
+  %{?tests:-DBUILD_TESTING:BOOL=ON} \
+  -DENABLE_PLUGIN_SSHMANAGER=ON
 
 %cmake_build
 
@@ -159,10 +161,17 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 %{_kf5_datadir}/konsole/
 %{_kf5_libdir}/libkonsoleprivate.so.%{maj_ver}*
 %{_kf5_qtplugindir}/konsolepart.so
+%{_kf5_qtplugindir}/konsoleplugins/konsole_sshmanagerplugin.so
 %{_kf5_datadir}/kservices5/konsolepart.desktop
 
 
 %changelog
+* Fri Aug 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-3
+- Added patch to fix #430036
+
+* Fri Aug 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-2
+- SSH plugin enabled
+
 * Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
 - 21.08.0
 
