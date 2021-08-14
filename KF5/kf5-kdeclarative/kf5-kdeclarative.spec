@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.84.0
+Version: 5.85.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon for Qt declarative
 
@@ -118,6 +118,8 @@ make test ARGS="--output-on-failure --timeout 10 --verbose" -C %{_target_platfor
 %{_kf5_qmldir}/org/kde/kio/
 %{_kf5_qmldir}/org/kde/kwindowsystem/
 %{_kf5_qmldir}/org/kde/kcm/
+%{_kf5_qmldir}/org/kde/graphicaleffects
+
 
 %files devel
 %{_kf5_includedir}/kdeclarative_version.h
@@ -131,6 +133,9 @@ make test ARGS="--output-on-failure --timeout 10 --verbose" -C %{_target_platfor
 
 
 %changelog
+* Sat Aug 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.85.0-1
+- 5.85.0
+
 * Sat Jul 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.84.0-1
 - 5.84.0
 

@@ -2,7 +2,7 @@
 %global framework kimageformats
 
 Name:           kf5-%{framework}
-Version: 5.84.0
+Version: 5.85.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with additional image plugins for QtGui
 
@@ -64,6 +64,9 @@ image formats.
 
 
 %changelog
+* Sat Aug 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.85.0-1
+- 5.85.0
+
 * Sat Jul 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.84.0-1
 - 5.84.0
 

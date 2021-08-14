@@ -2,7 +2,7 @@
 %global framework modemmanager-qt
 
 Name:    kf5-%{framework}
-Version: 5.84.0
+Version: 5.85.0
 Release: 1%{?dist}
 Summary: A Tier 1 KDE Frameworks module wrapping ModemManager DBus API
 
@@ -69,6 +69,9 @@ that use ModemManager.
 
 
 %changelog
+* Sat Aug 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.85.0-1
+- 5.85.0
+
 * Sat Jul 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.84.0-1
 - 5.84.0
 
