@@ -1,0 +1,30 @@
+From 3fb106d71338339dcf589f396a8d101ffd1cebff Mon Sep 17 00:00:00 2001
+From: Kishore Gopalakrishnan <kishore96@gmail.com>
+Date: Sun, 15 Aug 2021 11:39:43 +0530
+Subject: [PATCH] Re-add servicetype for pimeventsplugin
+
+The removal of this in commit 95186ed513a76402b8539f833ed7beed4fdcb799
+breaks the configuration page in Plasma's Digital Clock settings.
+
+BUG: 440449
+---
+ plugins/plasma/pimeventsplugin/pimeventsplugin.json | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/plugins/plasma/pimeventsplugin/pimeventsplugin.json b/plugins/plasma/pimeventsplugin/pimeventsplugin.json
+index c900dfde7..d65545cfa 100644
+--- a/plugins/plasma/pimeventsplugin/pimeventsplugin.json
++++ b/plugins/plasma/pimeventsplugin/pimeventsplugin.json
+@@ -98,6 +98,9 @@
+         "Name[uk]": "Додаток подій PIM",
+         "Name[x-test]": "xxPIM Events Pluginxx",
+         "Name[zh_CN]": "PIM 事件插件",
++        "ServiceTypes": [
++            "PlasmaCalendar/Plugin"
++        ],
+         "Version": "1.0"
+     },
+     "X-KDE-PlasmaCalendar-ConfigUi": "pimevents/PimEventsConfig.qml"
+-- 
+GitLab
+
