@@ -160,7 +160,6 @@ rm -fv %{buildroot}%{_kf5_sysconfdir}/xdg/kdebugrc
 %{_kf5_bindir}/kdebugdialog5
 # fileshareset pulls in perl
 %{_kf5_libexecdir}/fileshareset
-%{_kf5_datadir}/kservices5/*.protocol
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/qimageioplugins/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop

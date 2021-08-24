@@ -61,6 +61,7 @@ BuildRequires:  cmake(Qt5QuickControls2)
 BuildRequires:  cmake(Qt5WaylandClient)
 
 BuildRequires:  qt5-qtbase-private-devel
+%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 BuildRequires:  cmake(Qca-qt5)
 
