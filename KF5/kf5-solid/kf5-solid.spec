@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global framework solid
 
 Name:    kf5-%{framework}
 Version: 5.85.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module that provides hardware information
 
 License: LGPLv2+
@@ -34,6 +33,10 @@ BuildRequires:  bison
 BuildRequires:  flex
 # really runtime-only dep, but doesn't hurt to check availability at buildtime
 BuildRequires:  media-player-info
+BuildRequires:  pkgconfig(mount)
+# For iOS device support backend
+BuildRequires:  pkgconfig(libplist-2.0)
+BuildRequires:  pkgconfig(libimobiledevice-1.0)
 %if 0%{?fedora} > 23 || 0%{?rhel} > 7
 Recommends:     media-player-info
 Recommends:     udisks2
@@ -106,6 +109,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Aug 24 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.85.0-2
+- Optional iOS device support backend enabled
+
 * Sat Aug 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.85.0-1
 - 5.85.0
 
