@@ -5,8 +5,8 @@
 %endif
 
 Name:    kdepim-addons
-Version: 21.08.0
-Release: 2%{?dist}
+Version: 21.08.1
+Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
 License: GPLv2 and LGPLv2+
@@ -21,7 +21,6 @@ URL:     https://cgit.kde.org/%{name}.git/
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
-Patch0:  kdepim-addons-21.08.0-restore-pim-events-plugin.patch
 
 ## upstream patches (master)
 
@@ -257,6 +256,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.1-1
+- 21.08.1
+
 * Mon Aug 16 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-2
 - Added patch to fix #440449
 

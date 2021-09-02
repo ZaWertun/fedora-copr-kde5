@@ -11,8 +11,8 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 21.08.0
-Release: 3%{?dist}
+Version: 21.08.1
+Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
 License: GPLv2 and GFDL
@@ -30,7 +30,6 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{bas
 ## upstreamable patches
 
 ## upstream patches
-Patch100: konsole-21.08.0-fix_kxmlgui_toolbars.patch
 
 ## downstream patches
 Patch200: konsole-history_location_default.patch
@@ -166,6 +165,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.1-1
+- 21.08.1
+
 * Fri Aug 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-3
 - Added patch to fix #430036
 

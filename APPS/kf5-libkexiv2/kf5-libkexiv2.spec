@@ -4,7 +4,7 @@
 
 Name:    kf5-libkexiv2
 Summary: A wrapper around Exiv2 library
-Version: 21.08.0
+Version: 21.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -68,6 +68,9 @@ Requires: cmake(Qt5Gui)
 
 
 %changelog
+* Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.1-1
+- 21.08.1
+
 * Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
 - 21.08.0
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-accounts-kcm
 Summary: KDE Configuration Module for Telepathy Instant Messaging Accounts
-Version: 21.08.0
+Version: 21.08.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -115,6 +115,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libktpaccountskcminternal.so
 
 
 %changelog
+* Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.1-1
+- 21.08.1
+
 * Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
 - 21.08.0
 
