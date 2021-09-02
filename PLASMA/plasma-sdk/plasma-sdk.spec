@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    plasma-sdk
-Version: 5.22.4
+Version: 5.22.5
 Release: 1%{?dist}
 Summary: Development tools for Plasma 5
 
@@ -142,6 +142,9 @@ Plasma SDK contains the following tools for Plasma-related development:
 
 
 %changelog
+* Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
+- 5.22.5
+
 * Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
 - 5.22.4
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:           kactivitymanagerd
 Summary:        Plasma service to manage user's activities
-Version: 5.22.4
+Version: 5.22.5
 Release: 1%{?dist}
 
 License:        GPLv2+
@@ -85,6 +85,9 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 
 
 %changelog
+* Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
+- 5.22.5
+
 * Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
 - 5.22.4
 

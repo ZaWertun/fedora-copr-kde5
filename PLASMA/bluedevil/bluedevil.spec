@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    bluedevil
 Summary: Bluetooth stack for KDE
-Version: 5.22.4
+Version: 5.22.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -99,6 +99,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.bluedevil
 
 
 %changelog
+* Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
+- 5.22.5
+
 * Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
 - 5.22.4
 

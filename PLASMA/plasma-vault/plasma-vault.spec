@@ -3,7 +3,7 @@
 
 Name:    plasma-vault
 Summary: Plasma Vault offers strong encryption features in a user-friendly way
-Version: 5.22.4
+Version: 5.22.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -65,6 +65,9 @@ prying eyes even when the user is logged in.
 
 
 %changelog
+* Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
+- 5.22.5
+
 * Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
 - 5.22.4
 
