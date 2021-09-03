@@ -92,6 +92,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %license LICENSES/*.txt
 %{_kf5_bindir}/%{name}*
 %{_kf5_bindir}/pykig.*
+%{_kf5_qtplugindir}/kf5/parts/kigpart.so
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*

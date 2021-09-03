@@ -93,8 +93,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop ||:
 
 %files -f %{name}.lang
-%license COPYING*
-#doc README
+%license LICENSES/*.txt
 %{_kf5_bindir}/%{name}
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml

@@ -66,6 +66,8 @@ BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5Xml)
 BuildRequires: pkgconfig(Qt5XmlPatterns)
 BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: pkgconfig(Qt5Help)
+BuildRequires: pkgconfig(Qt5WebEngine)
 BuildRequires: poppler-qt5-devel
 
 # optional deps/plugins
@@ -197,12 +199,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %files libs
 %{_libdir}/libcantorlibs.so.*
 %{_libdir}/libcantor_config.so
-%{_kf5_qtplugindir}/libcantorpart.so
 %{_kf5_datadir}/kxmlgui5/cantor/cantor_part.rc
+%{_kf5_datadir}/knsrcfiles/cantor-documentation.knsrc
 ## plugins
 %dir %{_kf5_qtplugindir}/cantor/
 %{_kf5_qtplugindir}/cantor/assistants/
 %{_kf5_qtplugindir}/cantor/panels/
+%{_kf5_qtplugindir}/kf5/parts/cantorpart.so
 %dir %{_kf5_qtplugindir}/cantor/backends/
 %{_kf5_qtplugindir}/cantor/backends/cantor_kalgebrabackend.so
 %if 0%{?luajit}
@@ -220,6 +223,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_includedir}/cantor/
 %{_libdir}/libcantorlibs.so
 %{_libdir}/cmake/Cantor/
+%{_kf5_datadir}/config.kcfg/octavebackend.kcfg.in
 
 
 %changelog
