@@ -2,8 +2,8 @@
 %global framework plasma
 
 Name:    kf5-%{framework}
-Version: 5.85.0
-Release: 2%{?dist}
+Version: 5.86.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -23,7 +23,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches
-Patch17: 0017-Fix-Plasma-non-Qt-icon-scaling-with-integer-scale-fa.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -145,6 +144,7 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 %{_kf5_qmldir}/QtQuick/Controls.2/Plasma/
 %{_kf5_qtplugindir}/plasma/
 %{_kf5_qtplugindir}/kpackage/packagestructure/*.so
+%{_kf5_qtplugindir}/kf5/kirigami/KirigamiPlasmaStyle.so
 %{_kf5_datadir}/plasma/
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
@@ -168,6 +168,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Sat Sep 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.86.0-1
+- 5.86.0
+
 * Mon Aug 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.85.0-2
 - backport upstream fix for fractional scaled icons
 

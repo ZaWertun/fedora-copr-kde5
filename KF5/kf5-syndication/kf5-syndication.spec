@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.85.0
+Version: 5.86.0
 Release: 1%{?dist}
 Summary: The Syndication Library
 
@@ -94,6 +94,9 @@ make test/fast -C %{_target_platform}
 
 
 %changelog
+* Sat Sep 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.86.0-1
+- 5.86.0
+
 * Sat Aug 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.85.0-1
 - 5.85.0
 
