@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.22.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -68,6 +68,9 @@ Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 ## upstreamable Patches
 
 ## upstream Patches (master branch)
+Patch180: 0180-Add-plasma-kwallet-pam.service-to-our-wanted-list.patch
+# https://invent.kde.org/plasma/plasma-workspace/commit/61e2ea2323ae63c5805c87353701ba6fb722205a
+Patch181: plasma-workspace-5.22-devicenotifier.patch
 
 # udev
 BuildRequires:  zlib-devel
@@ -737,6 +740,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Sep 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
+- upstream spec changes merged
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 
