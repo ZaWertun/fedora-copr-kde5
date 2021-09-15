@@ -3,7 +3,7 @@ Name:    gwenview
 Summary: An image viewer
 Epoch:   1
 Version: 21.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # app: GPLv2+
 # lib:  IJG and (LGPLv2 or LGPLv3 or LGPLv3+ (KDE e.V.)) and LGPLv2+ and GPLv2+
@@ -22,6 +22,8 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 ## upstream patches (master branch)
 
 ## upstreamable patches
+Patch0:        gwenview-21.08.1-add-sony-raw-type.patch
+Patch1:        gwenview-21.08.1-fix-opening-raw-files.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
@@ -113,6 +115,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Tue Sep 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.1-2
+- added patches to fix some RAW files support
+
 * Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.1-1
 - 21.08.1
 

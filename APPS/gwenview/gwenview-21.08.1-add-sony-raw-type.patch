@@ -1,0 +1,12 @@
+diff --git a/lib/mimetypeutils.cpp b/lib/mimetypeutils.cpp
+index 3eb2c157..9780cc8a 100644
+--- a/lib/mimetypeutils.cpp
++++ b/lib/mimetypeutils.cpp
+@@ -74,6 +74,7 @@ static inline QStringList rawMimeTypes()
+         QStringLiteral("image/x-pentax-pef"),
+         QStringLiteral("image/x-adobe-dng"),
+         QStringLiteral("image/x-sony-arw"),
++        QStringLiteral("image/x-sony-sr2"),
+         QStringLiteral("image/x-minolta-mrw"),
+         QStringLiteral("image/x-panasonic-raw"),
+         QStringLiteral("image/x-panasonic-raw2"),
