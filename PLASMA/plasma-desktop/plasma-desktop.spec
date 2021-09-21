@@ -10,7 +10,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.22.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -27,6 +27,8 @@ URL:     https://invent.kde.org/plasma/%{name}
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.tar.xz
 
 ## upstream patches
+# Bug 441239 - Keyboard layout applet in systemtray can't be switched to spare layout
+Patch50:  plasma-desktop-5.22.5-fix_non-working_context_menu.patch
 
 ## downstream patches
 # default kickoff favorites: +konsole +apper
@@ -326,6 +328,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Tue Sep 21 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
+- added plasma-desktop-5.22.5-fix_non-working_context_menu.patch
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 
