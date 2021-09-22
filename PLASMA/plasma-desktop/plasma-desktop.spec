@@ -10,7 +10,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.22.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -205,6 +205,7 @@ BuildArch: noarch
 %setup -q
 
 ## upstream patches
+%patch50 -p1
 
 ## upstreamable patches
 #patch200 -p1
@@ -328,6 +329,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Wed Sep 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-3
+- apply plasma-desktop-5.22.5-fix_non-working_context_menu.patch
+
 * Tue Sep 21 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
 - added plasma-desktop-5.22.5-fix_non-working_context_menu.patch
 
