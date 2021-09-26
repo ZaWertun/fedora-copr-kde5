@@ -10,7 +10,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.22.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -147,7 +147,7 @@ Requires:       kio-extras
 Requires:       kwrited >= %{majmin_ver}
 
 # Install KWin
-Requires:       kwin >= %{majmin_ver}
+Requires:       (kwin >= %{majmin_ver} or kwinft >= %{majmin_ver})
 
 # kickoff -> edit applications (#1229393)
 Requires:       kmenuedit >= %{majmin_ver}
@@ -329,6 +329,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Sun Sep 26 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-4
+- depend on kwin or kwinft
+
 * Wed Sep 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-3
 - apply plasma-desktop-5.22.5-fix_non-working_context_menu.patch
 
