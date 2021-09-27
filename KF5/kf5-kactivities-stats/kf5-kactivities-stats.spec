@@ -61,7 +61,7 @@ rm -fv %{buildroot}/etc/xdg/kactivities-stats.categories
 
 # Currently includes no tests
 %check
-make test -C %{_target_platform}
+make test -C %{__cmake_builddir}
 
 
 %ldconfig_scriptlets

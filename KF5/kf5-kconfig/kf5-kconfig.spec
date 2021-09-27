@@ -17,9 +17,6 @@
 %global tests 1
 %endif
 
-# use ninja instead of make
-%global ninja 1
-
 Name:    kf5-%{framework}
 Version: 5.86.0
 Release: 1%{?dist}
@@ -40,10 +37,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{v
 ## upstream patches
 
 ## upstreamable patches
-
-%if 0%{?ninja}
-BuildRequires:  ninja-build
-%endif
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros >= %{majmin}
@@ -139,22 +132,13 @@ export PYTHONPATH
 %endif
 
 %{cmake_kf5} \
-  %{?ninja:-G Ninja} \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
 
-%if 0%{?ninja}
-%ninja_build -C %{_target_platform}
-%else
 %cmake_build
-%endif
 
 
 %install
-%if 0%{?ninja}
-%ninja_install -C %{_target_platform}
-%else
 %cmake_install
-%endif
 
 %find_lang_kf5 kconfig5_qt
 
@@ -164,11 +148,7 @@ export PYTHONPATH
 export CTEST_OUTPUT_ON_FAILURE=1
 ## cant use %%ninja_test here for some reason, doesn't inherit env vars from xvfb or dbus -- rex
 xvfb-run -a \
-%if 0%{?ninja}
-ninja test -v -C %{_target_platform} ||:
-%else
-make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
-%endif
+    make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %endif
 
 

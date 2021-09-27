@@ -73,7 +73,7 @@ export CTEST_OUTPUT_ON_FAILURE=1
 #xvfb-run -a \
 #dbus-launch --exit-with-session \
 time \
-make test/fast -C %{_target_platform}
+    make test/fast -C %{__cmake_builddir}
 %endif
 
 

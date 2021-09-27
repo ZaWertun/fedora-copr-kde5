@@ -27,6 +27,7 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  cmake(KF5Archive)
 
 BuildRequires:  jasper-devel
+BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(OpenEXR)
 BuildRequires:  pkgconfig(libavif)
 

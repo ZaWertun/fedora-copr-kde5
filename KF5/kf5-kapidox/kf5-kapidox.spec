@@ -28,13 +28,16 @@ BuildRequires:  kf5-rpm-macros >= %{majmin}
 Requires:       kf5-filesystem >= %{majmin}
 
 %if 0%{?fedora} > 28 || 0%{?rhel} > 7
-BuildRequires:  python3-devel python3
+BuildRequires:  python3
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
 %global __python %{__python3}
 %global python_sitelib %{python3_sitelib}
 Requires: python3-jinja2
 Requires: python3-PyYAML
 %else
-BuildRequires:  python2-devel python2
+BuildRequires:  python2
+BuildRequires:  python2-devel
 %global __python %{__python2}
 %global python_sitelib %{python2_sitelib}
 %if 0%{?fedora} || 0%{?rhel} > 7
