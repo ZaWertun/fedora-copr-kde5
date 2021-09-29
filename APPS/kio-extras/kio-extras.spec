@@ -59,6 +59,7 @@ BuildRequires:  OpenEXR-devel
 BuildRequires:  openslp-devel
 BuildRequires:  perl-generators
 BuildRequires:  phonon-qt5-devel
+BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(libtirpc)
 BuildRequires:  pkgconfig(shared-mime-info)
 BuildRequires:  qt5-qtbase-devel

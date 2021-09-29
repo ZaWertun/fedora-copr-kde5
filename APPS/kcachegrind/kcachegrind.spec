@@ -88,8 +88,8 @@ sed -i.env -e "s|^#!/usr/bin/env php$|#!%{_bindir}/php|g"  converters/pprof2call
 %cmake_install
 
 # qcachegrind needs manual installation
-install -p -m 755 %{_target_platform}/bin/qcachegrind %{buildroot}%{_bindir}/
-install -p -m 755 %{_target_platform}/bin/cgview %{buildroot}%{_bindir}/
+install -p -m 755 %{__cmake_builddir}/bin/qcachegrind %{buildroot}%{_bindir}/
+install -p -m 755 %{__cmake_builddir}/bin/cgview %{buildroot}%{_bindir}/
 install -p -m 644 qcachegrind/qcachegrind.desktop %{buildroot}%{_datadir}/applications/
 
 

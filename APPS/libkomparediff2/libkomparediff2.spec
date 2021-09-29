@@ -81,7 +81,7 @@ developing applications that use %{name}.
 
 %check
 %if 0%{?tests}
-make test/fast -C %{_target_platform}
+make test/fast -C %{__cmake_builddir}
 %endif
 
 
