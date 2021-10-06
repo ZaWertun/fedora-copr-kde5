@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.22.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -264,6 +264,13 @@ Requires:       oxygen-sound-theme >= %{majmin_ver}
 
 # PolicyKit authentication agent
 Requires:        polkit-kde >= %{majmin_ver}
+
+# onscreen keyboard
+Requires:        maliit-keyboard
+
+%if %{with systemdBoot}
+Requires:        (uresourced if systemd-oomd-defaults)
+%endif
 
 # Require any plasmashell (plasma-desktop provides plasmashell(desktop))
 %if 0%{?bootstrap}
@@ -740,6 +747,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Oct 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-3
+- added requires: maliit-keyboard, uresourced
+
 * Wed Sep 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
 - upstream spec changes merged
 
