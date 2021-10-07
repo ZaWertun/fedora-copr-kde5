@@ -17,7 +17,7 @@
 
 Name:    kwin
 Version: 5.22.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -40,6 +40,10 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
+
+## upstreamable patches
+# Bug 440027 - Wayland crashes after login
+Patch0:  kwin-5.22.5-fix-wayland-crash-after-login.patch
 
 ## proposed patches
 
@@ -364,6 +368,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
+- added kwin-5.22.5-fix-wayland-crash-after-login.patch
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 
