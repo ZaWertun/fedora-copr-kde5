@@ -131,6 +131,8 @@ BuildRequires:  kwayland-server-devel >= %{majmin_ver}
 BuildRequires: dbus-x11
 BuildRequires: openbox
 BuildRequires: xorg-x11-server-Xvfb
+# /usr/lib64/dri/swrast_dri.so
+BuildRequires: mesa-dri-drivers
 %endif
 
 ## Runtime deps
@@ -283,6 +285,8 @@ ln -s kwin_wayland %{buildroot}%{_bindir}/kwin
 %check
 %if 0%{?tests}
 # using low timeout to avoid extending buildtimes too much for now -- rex
+mkdir -m 700 /run/xdg_runtime
+export XDG_RUNTIME_DIR=/run/xdg_runtime
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
