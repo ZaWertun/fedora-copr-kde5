@@ -72,6 +72,8 @@ Patch180: 0180-Add-plasma-kwallet-pam.service-to-our-wanted-list.patch
 # https://invent.kde.org/plasma/plasma-workspace/commit/61e2ea2323ae63c5805c87353701ba6fb722205a
 Patch181: plasma-workspace-5.22-devicenotifier.patch
 
+BuildRequires:  systemd-rpm-macros
+
 # udev
 BuildRequires:  zlib-devel
 BuildRequires:  dbusmenu-qt5-devel
