@@ -2,8 +2,8 @@
 Name:    gwenview 
 Summary: An image viewer
 Epoch:   1
-Version: 21.08.1
-Release: 2%{?dist}
+Version: 21.08.2
+Release: 1%{?dist}
 
 # app: GPLv2+
 # lib:  IJG and (LGPLv2 or LGPLv3 or LGPLv3+ (KDE e.V.)) and LGPLv2+ and GPLv2+
@@ -115,6 +115,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.2-1
+- 21.08.2
+
 * Tue Sep 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.1-2
 - added patches to fix some RAW files support
 

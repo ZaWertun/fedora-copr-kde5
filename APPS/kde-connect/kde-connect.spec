@@ -6,7 +6,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        21.08.1
+Version:        21.08.2
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -166,6 +166,7 @@ done
 %{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
 %{_kf5_plugindir}/kio/kdeconnect.so
 %{_datadir}/icons/hicolor/*/apps/kdeconnect*
+%{_datadir}/icons/hicolor/*/status/{laptop,smartphone,tablet,tv}{connected,disconnected,trusted}.svg
 %{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/applications/org.kde.kdeconnect*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
@@ -211,6 +212,9 @@ fi
 
 
 %changelog
+* Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-1
+- 21.08.2
+
 * Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.1-1
 - 21.08.1
 

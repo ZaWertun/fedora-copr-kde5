@@ -11,7 +11,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 21.08.1
+Version: 21.08.2
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -191,6 +191,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-1
+- 21.08.2
+
 * Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.1-1
 - 21.08.1
 
