@@ -17,7 +17,7 @@
 
 Name:    kwin
 Version: 5.22.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -40,10 +40,14 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
+# Fix cursor offset in Wayland VMs; effectively a backport of
+# https://github.com/KDE/kwin/commit/998bbf4e
+# https://bugzilla.redhat.com/show_bug.cgi?id=2011066
+Patch0: 0001-Fix-wrong-cursor-hotspot-under-Wayland-on-VMs.patch
 
 ## upstreamable patches
 # Bug 440027 - Wayland crashes after login
-Patch0:  kwin-5.22.5-fix-wayland-crash-after-login.patch
+Patch1:  kwin-5.22.5-fix-wayland-crash-after-login.patch
 
 ## proposed patches
 
@@ -372,6 +376,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-3
+- added 0001-Fix-wrong-cursor-hotspot-under-Wayland-on-VMs.patch
+
 * Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
 - added kwin-5.22.5-fix-wayland-crash-after-login.patch
 

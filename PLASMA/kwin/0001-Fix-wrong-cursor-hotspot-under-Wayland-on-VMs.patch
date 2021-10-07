@@ -1,0 +1,65 @@
+From e413264fab376f043d4dce73fc528cac6c3466a0 Mon Sep 17 00:00:00 2001
+From: Adam Williamson <awilliam@redhat.com>
+Date: Wed, 6 Oct 2021 10:20:58 -0700
+Subject: [PATCH] Fix wrong cursor hotspot under Wayland on VMs
+
+This backports the key parts of 998bbf4 to the 5.22 branch,
+where the code is substantially different. It solves a problem
+where the click point is slightly offset from the position
+indicated by the displayed cursor when running on Wayland in
+many VM configurations (e.g. qemu with qxl or virtio GPU).
+
+Signed-off-by: Adam Williamson <awilliam@redhat.com>
+---
+ src/plugins/platforms/drm/drm_output.cpp | 12 +++++++++---
+ src/plugins/platforms/drm/drm_output.h   |  2 +-
+ 2 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/src/plugins/platforms/drm/drm_output.cpp b/src/plugins/platforms/drm/drm_output.cpp
+index 917bb857d..7ee387219 100644
+--- a/src/plugins/platforms/drm/drm_output.cpp
++++ b/src/plugins/platforms/drm/drm_output.cpp
+@@ -102,10 +102,15 @@ bool DrmOutput::hideCursor()
+     return drmModeSetCursor(m_gpu->fd(), m_crtc->id(), 0, 0, 0) == 0;
+ }
+ 
+-bool DrmOutput::showCursor(DrmDumbBuffer *c)
++bool DrmOutput::showCursor(DrmDumbBuffer *c, const QPoint &hotspot)
+ {
+     const QSize &s = c->size();
+-    if (drmModeSetCursor(m_gpu->fd(), m_crtc->id(), c->handle(), s.width(), s.height()) == 0) {
++    int ret = drmModeSetCursor2(m_gpu->fd(), m_crtc->id(), c->handle(), s.width(), s.height(), hotspot.x(), hotspot.y());
++    if (ret == ENOTSUP) {
++        // for NVIDIA case that does not support drmModeSetCursor2
++        ret = drmModeSetCursor(m_gpu->fd(), m_crtc->id(), c->handle(), s.width(), s.height());
++    }
++    if (ret == 0) {
+         if (RenderLoopPrivate::get(m_renderLoop)->presentMode == RenderLoopPrivate::SyncMode::Adaptive
+             && isCursorVisible()) {
+             m_renderLoop->scheduleRepaint();
+@@ -122,7 +127,8 @@ bool DrmOutput::showCursor()
+         return false;
+     }
+ 
+-    const bool ret = showCursor(m_cursor[m_cursorIndex].data());
++    const Cursor * const cursor = Cursors::self()->currentCursor();
++    const bool ret = showCursor(m_cursor[m_cursorIndex].data(), logicalToNativeMatrix(cursor->rect(), scale(), transform()).map(cursor->hotspot()));
+     if (!ret) {
+         qCDebug(KWIN_DRM) << "DrmOutput::showCursor(DrmDumbBuffer) failed";
+         return ret;
+diff --git a/src/plugins/platforms/drm/drm_output.h b/src/plugins/platforms/drm/drm_output.h
+index 1f89f9064..af46c88a0 100644
+--- a/src/plugins/platforms/drm/drm_output.h
++++ b/src/plugins/platforms/drm/drm_output.h
+@@ -45,7 +45,7 @@ public:
+     ///queues deleting the output after a page flip has completed.
+     void teardown();
+     void releaseGbm();
+-    bool showCursor(DrmDumbBuffer *buffer);
++    bool showCursor(DrmDumbBuffer *buffer, const QPoint &hotspot);
+     bool showCursor();
+     bool hideCursor();
+     bool updateCursor();
+-- 
+2.32.0
+
