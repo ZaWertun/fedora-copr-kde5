@@ -72,13 +72,13 @@ Summary:     Test server for %{name}.
 
 
 %install
-%make_install -C %{_target_platform}
+%make_install -C %{__cmake_builddir}
 
 
 %check
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 10" -C %{__cmake_builddir} ||:
 
 
 %files
