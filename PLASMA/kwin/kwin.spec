@@ -289,8 +289,8 @@ ln -s kwin_wayland %{buildroot}%{_bindir}/kwin
 %check
 %if 0%{?tests}
 # using low timeout to avoid extending buildtimes too much for now -- rex
-mkdir -m 700 /run/xdg_runtime
-export XDG_RUNTIME_DIR=/run/xdg_runtime
+export XDG_RUNTIME_DIR=/tmp/xdg_runtime
+mkdir -m 700 $XDG_RUNTIME_DIR
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
