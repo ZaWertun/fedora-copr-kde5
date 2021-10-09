@@ -9,7 +9,7 @@
 
 Name:    kio-extras
 Version: 21.08.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -49,6 +49,7 @@ BuildRequires:  kf5-kio-devel
 BuildRequires:  kf5-kpty-devel
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-solid-devel
+BuildRequires:  cmake(KF5ActivitiesStats)
 BuildRequires:  cmake(KF5SyntaxHighlighting)
 
 BuildRequires:  libjpeg-devel
@@ -210,6 +211,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-2
+- added buildrequires: cmake(KF5ActivitiesStats)
+
 * Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-1
 - 21.08.2
 
