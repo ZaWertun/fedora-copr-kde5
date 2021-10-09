@@ -1,0 +1,70 @@
+From 9f0cfade8c2ff36309d9953ab1e9c71a9efc7218 Mon Sep 17 00:00:00 2001
+From: Andrey Butirsky <butirsky@gmail.com>
+Date: Fri, 8 Oct 2021 15:21:48 +0300
+Subject: [PATCH] [wayland] fix crash on startup with lv3:ralt_alt XKB option
+
+With lv3:ralt_alt ("Right Alt never chooses 3rd level") option set, we
+get more layouts from libxkbcommon than it was configured, see:
+https://github.com/xkbcommon/libxkbcommon/issues/262
+It might be correct lib's behavior, still.
+
+The extra layouts are redundant, so we strip them out from usual usage.
+
+BUG: 440027
+---
+ src/xkb.cpp | 10 ++++------
+ src/xkb.h   |  2 +-
+ 2 files changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/src/xkb.cpp b/src/xkb.cpp
+index e82de0a6c1..1f51468cd4 100644
+--- a/src/xkb.cpp
++++ b/src/xkb.cpp
+@@ -413,9 +413,9 @@ QString Xkb::layoutName() const
+     return layoutName(m_currentLayout);
+ }
+ 
+-const QString &Xkb::layoutShortName(int index) const
++QString Xkb::layoutShortName(int index) const
+ {
+-    return m_layoutList.at(index);
++    return m_layoutList.value(index);
+ }
+ 
+ void Xkb::updateConsumedModifiers(uint32_t key)
+@@ -527,9 +527,7 @@ void Xkb::switchToNextLayout()
+     if (!m_keymap || !m_state) {
+         return;
+     }
+-    const xkb_layout_index_t numLayouts = xkb_keymap_num_layouts(m_keymap);
+-    const xkb_layout_index_t nextLayout = (xkb_state_serialize_layout(m_state, XKB_STATE_LAYOUT_EFFECTIVE) + 1) % numLayouts;
+-    switchToLayout(nextLayout);
++    switchToLayout( (xkb_state_serialize_layout(m_state, XKB_STATE_LAYOUT_EFFECTIVE) + 1) % numberOfLayouts() );
+ }
+ 
+ void Xkb::switchToPreviousLayout()
+@@ -560,7 +558,7 @@ quint32 Xkb::numberOfLayouts() const
+     if (!m_keymap) {
+         return 0;
+     }
+-    return xkb_keymap_num_layouts(m_keymap);
++    return qMin( xkb_keymap_num_layouts(m_keymap), uint(m_layoutList.size()) );
+ }
+ 
+ void Xkb::setSeat(KWaylandServer::SeatInterface *seat)
+diff --git a/src/xkb.h b/src/xkb.h
+index e610d37ae6..11524cc028 100644
+--- a/src/xkb.h
++++ b/src/xkb.h
+@@ -89,7 +89,7 @@ public:
+     }
+     QString layoutName(xkb_layout_index_t index) const;
+     QString layoutName() const;
+-    const QString &layoutShortName(int index) const;
++    QString layoutShortName(int index) const;
+     quint32 numberOfLayouts() const;
+ 
+     /**
+-- 
+GitLab
+

@@ -54,8 +54,8 @@ Patch2: 0002-wayland-Move-ownership-of-the-libinput-thread-to-Inp.patch
 Patch3: 0003-wayland-Move-ConnectionAdaptor-to-the-same-thread-as.patch
 
 ## upstreamable patches
-# Bug 440027 - Wayland crashes after login
-Patch10:  kwin-5.22.5-fix-wayland-crash-after-login.patch
+# Bug 440027 - Wayland crashes after login when "Right Alt never chooses 3rd level" layout option is set in Keyboard KCM
+Patch10: 0010-wayland-Fix-crash-on-startup-with-lv3:ralt_alt-XKB-option.patch
 
 ## proposed patches
 
