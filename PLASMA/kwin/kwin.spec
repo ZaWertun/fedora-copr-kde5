@@ -17,7 +17,7 @@
 
 Name:    kwin
 Version: 5.22.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -44,10 +44,18 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 # https://github.com/KDE/kwin/commit/998bbf4e
 # https://bugzilla.redhat.com/show_bug.cgi?id=2011066
 Patch0: 0001-Fix-wrong-cursor-hotspot-under-Wayland-on-VMs.patch
+# Patches from Vlad Zahorodnii to fix crashes on logout with libinput
+# libinput 1.18.901+, backported to 5.22
+# https://bugs.kde.org/show_bug.cgi?id=442104
+# https://bugs.kde.org/show_bug.cgi?id=443088
+# https://bugzilla.redhat.com/show_bug.cgi?id=2001135
+Patch1: 0001-wayland-Destroy-InputRedirection-explicitly.patch
+Patch2: 0002-wayland-Move-ownership-of-the-libinput-thread-to-Inp.patch
+Patch3: 0003-wayland-Move-ConnectionAdaptor-to-the-same-thread-as.patch
 
 ## upstreamable patches
 # Bug 440027 - Wayland crashes after login
-Patch1:  kwin-5.22.5-fix-wayland-crash-after-login.patch
+Patch10:  kwin-5.22.5-fix-wayland-crash-after-login.patch
 
 ## proposed patches
 
@@ -376,6 +384,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-4
+- merged changes from official Fedora package
+
 * Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-3
 - added 0001-Fix-wrong-cursor-hotspot-under-Wayland-on-VMs.patch
 
