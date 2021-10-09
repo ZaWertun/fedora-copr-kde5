@@ -165,6 +165,7 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kio/sftp.so
 %{_kf5_plugindir}/kio/smb.so
 %{_kf5_plugindir}/kio/thumbnail.so
+%{_kf5_plugindir}/kio/recentlyused.so
 %{_kf5_qtplugindir}/audiothumbnail.so
 %{_kf5_qtplugindir}/comicbookthumbnail.so
 %{_kf5_qtplugindir}/djvuthumbnail.so
