@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global framework kglobalaccel
 
 Name:    kf5-%{framework}
 Version: 5.87.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for global shortcuts
 
 License: LGPLv2+
@@ -27,7 +26,7 @@ BuildRequires:  kf5-kdbusaddons-devel >= %{majmin}
 BuildRequires:  kf5-ki18n-devel >= %{majmin}
 BuildRequires:  kf5-kservice-devel >= %{majmin}
 BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
-BuildRequires:  systemd
+BuildRequires:  systemd-rpm-macros
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
@@ -65,15 +64,21 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang_kf5 kglobalaccel5_qt
+
+
+%post
+%systemd_user_post plasma-%{framework}.service
+
+
+%preun
+%systemd_user_preun plasma-%{framework}.service
 
 
 %files -f kglobalaccel5_qt.lang
@@ -84,9 +89,7 @@ developing applications that use %{name}.
 %{_kf5_datadir}/qlogging-categories5/kglobalaccel.categories
 %{_kf5_datadir}/qlogging-categories5/kglobalaccel.renamecategories
 %{_datadir}/dbus-1/services/org.kde.kglobalaccel.service
-%{_userunitdir}/plasma-kglobalaccel.service
-
-%ldconfig_scriptlets libs
+%{_userunitdir}/plasma-%{framework}.service
 
 %files libs
 %{_kf5_libdir}/libKF5GlobalAccel.so.*
@@ -103,6 +106,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-2
+- added %%post / %%preun for systemd user service
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
 - 5.87.0
 

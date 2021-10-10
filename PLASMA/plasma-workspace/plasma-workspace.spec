@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.22.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -468,7 +468,6 @@ EOL
 %build
 %{cmake_kf5} \
   %{?with_wayland_default:-DPLASMA_WAYLAND_DEFAULT_SESSION:BOOL=ON}
-
 %cmake_build
 
 
@@ -530,6 +529,32 @@ cat *.lang | sort | uniq -u > %{name}.lang
 %check
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/plasma-windowed.desktop
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,plasmashell,systemmonitor}.desktop
+
+
+%post
+%systemd_user_post plasma-baloorunner.service
+%systemd_user_post plasma-gmenudbusmenuproxy.service
+%systemd_user_post plasma-kcminit-phase1.service
+%systemd_user_post plasma-kcminit.service
+%systemd_user_post plasma-krunner.service
+%systemd_user_post plasma-ksmserver.service
+%systemd_user_post plasma-ksplash-ready.service
+%systemd_user_post plasma-plasmashell.service
+%systemd_user_post plasma-restoresession.service
+%systemd_user_post plasma-xembedsniproxy.service
+
+
+%preun
+%systemd_user_post plasma-baloorunner.service
+%systemd_user_post plasma-gmenudbusmenuproxy.service
+%systemd_user_post plasma-kcminit-phase1.service
+%systemd_user_post plasma-kcminit.service
+%systemd_user_post plasma-krunner.service
+%systemd_user_post plasma-ksmserver.service
+%systemd_user_post plasma-ksplash-ready.service
+%systemd_user_post plasma-plasmashell.service
+%systemd_user_post plasma-restoresession.service
+%systemd_user_post plasma-xembedsniproxy.service
 
 
 %files common
@@ -622,7 +647,16 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/kpackage/kcms/kcm_notifications/
 %{_kf5_datadir}/kpackage/kcms/kcm_style/
 %{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
-%{_userunitdir}/*.service
+%{_userunitdir}/plasma-baloorunner.service
+%{_userunitdir}/plasma-gmenudbusmenuproxy.service
+%{_userunitdir}/plasma-kcminit-phase1.service
+%{_userunitdir}/plasma-kcminit.service
+%{_userunitdir}/plasma-krunner.service
+%{_userunitdir}/plasma-ksmserver.service
+%{_userunitdir}/plasma-ksplash-ready.service
+%{_userunitdir}/plasma-plasmashell.service
+%{_userunitdir}/plasma-restoresession.service
+%{_userunitdir}/plasma-xembedsniproxy.service
 %{_userunitdir}/plasma-core.target
 %dir %{_userunitdir}/plasma-core.target.d/
 %{_userunitdir}/plasma-core.target.d/ssh-agent.conf
@@ -750,6 +784,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-4
+- added %%post / %%preun for systemd user service
+
 * Wed Oct 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-3
 - added requires: maliit-keyboard, uresourced
 

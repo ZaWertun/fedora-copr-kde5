@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -10,7 +8,7 @@
 Name:    dolphin
 Summary: KDE File Manager
 Version: 21.08.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git/
@@ -120,6 +118,14 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %endif
 
 
+%post
+%systemd_user_post plasma-%{name}.service
+
+
+%preun
+%systemd_user_preun plasma-%{name}.service
+
+
 %files -f dolphin.lang -f dolphin_servicemenuinstaller.lang
 %license COPYING*
 %doc README.md
@@ -155,6 +161,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-2
+- added %%post / %%preun for systemd user service
+
 * Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-1
 - 21.08.2
 

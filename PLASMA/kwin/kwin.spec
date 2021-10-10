@@ -305,6 +305,15 @@ dbus-launch --exit-with-session \
 make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %endif
 
+
+%post -n %{name}-x11
+%systemd_user_post plasma-%{name}_x11.service
+
+
+%preun -n %{name}-x11
+%systemd_user_preun plasma-%{name}_x11.service
+
+
 %files
 %{_bindir}/kwin
 
@@ -355,9 +364,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files x11
 %{_kf5_bindir}/kwin_x11
 %{_kf5_qtplugindir}/org.kde.kwin.platforms/KWinX11Platform.so
-%{_userunitdir}/plasma-kwin_x11.service
-
-%ldconfig_scriptlets libs
+%{_userunitdir}/plasma-%{name}_x11.service
 
 %files libs
 %{_kf5_datadir}/qlogging-categories5/org_kde_kwin.categories

@@ -1,9 +1,9 @@
-%global         base_name polkit-kde-agent-1
+%global  base_name polkit-kde-agent-1
 
 Name:    polkit-kde
 Summary: PolicyKit integration for KDE Desktop
 Version: 5.22.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{base_name}
@@ -37,6 +37,8 @@ BuildRequires:  kf5-kdeclarative-devel
 
 BuildRequires:  polkit-qt5-1-devel
 
+BuildRequires:  systemd-rpm-macros
+
 Provides: PolicyKit-authentication-agent = %{version}-%{release}
 Provides: polkit-kde-1 = %{version}-%{release}
 Provides: polkit-kde-agent-1 = %{version}-%{release}
@@ -57,13 +59,19 @@ Provides Policy Kit Authentication Agent that nicely fits to KDE.
 %build
 %cmake_kf5 \
   -DKDE_INSTALL_LIBEXECDIR:PATH=%{_kf5_libexecdir}
-
 %cmake_build
 
 %install
 %cmake_install
-
 %find_lang polkit-kde-authentication-agent-1
+
+
+%post
+%systemd_user_post plasma-polkit-agent.service
+
+
+%preun
+%systemd_user_preun plasma-polkit-agent.service
 
 
 %files -f polkit-kde-authentication-agent-1.lang
@@ -76,6 +84,9 @@ Provides Policy Kit Authentication Agent that nicely fits to KDE.
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
+- added %%post / %%preun for systemd user service
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

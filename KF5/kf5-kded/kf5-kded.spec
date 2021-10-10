@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global framework kded
 
 Name:    kf5-%{framework}
 Version: 5.87.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon with extensible daemon for system-level services
 
 License: LGPLv2+
@@ -26,7 +25,7 @@ BuildRequires:  kf5-kdbusaddons-devel >= %{majmin}
 BuildRequires:  kf5-kdoctools-devel >= %{majmin}
 BuildRequires:  kf5-kservice-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
-BuildRequires:  systemd
+BuildRequires:  systemd-rpm-macros
 
 BuildRequires:  qt5-qtbase-devel
 
@@ -51,21 +50,25 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang kded5 --with-man --without-mo
 
 # create/own this
 mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 
 
-%ldconfig_scriptlets
+%post
+%systemd_user_post plasma-%{framework}.service
+
+
+%preun
+%systemd_user_preun plasma-%{framework}.service
+
 
 %files -f kded5.lang
 %doc README.md
@@ -78,7 +81,7 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_mandir}/man8/kded5.8*
 %dir %{_kf5_plugindir}/kded/
-%{_userunitdir}/plasma-kded.service
+%{_userunitdir}/plasma-%{framework}.service
 
 %files devel
 %{_kf5_libdir}/cmake/KDED/
@@ -86,6 +89,9 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-2
+- added %%post / %%preun for systemd user service
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
 - 5.87.0
 

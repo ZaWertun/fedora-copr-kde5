@@ -1,12 +1,12 @@
 Name:    ksystemstats
 Version: 5.22.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KSystemStats is a daemon that collects statistics about the running system.
- 
+
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
 URL:     https://invent.kde.org/plasma/%{name}
- 
+
 %global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -16,11 +16,11 @@ URL:     https://invent.kde.org/plasma/%{name}
 %endif
 
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
- 
+
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
 BuildRequires: libksysguard-devel >= %{majmin}
- 
+
 BuildRequires: kf5-rpm-macros
 BuildRequires: extra-cmake-modules >= 5.82
 BuildRequires: cmake(KF5Config)
@@ -35,14 +35,12 @@ BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5Solid)
 BuildRequires: cmake(KF5WindowSystem)
- 
 BuildRequires: cmake(KF5NetworkManagerQt)
- 
 BuildRequires: cmake(Qt5Widgets)
- 
+
 BuildRequires:  libnl3-devel
 BuildRequires:  lm_sensors-devel
-BuildRequires:  systemd-devel
+BuildRequires:  systemd-rpm-macros
 BuildRequires:  pkgconfig(libpcap)
  
 %description
@@ -53,15 +51,14 @@ Summary:  Developer files for %{name}
 Requires: %{name}%{?_isa} = %{version}-%{release}
 %description devel
 %{summary}.
- 
- 
+
+
 %prep
 %autosetup -n %{name}-%{version}
 
 
 %build
 %cmake_kf5
-
 %cmake_build
 
 
@@ -70,17 +67,28 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 %find_lang ksystemstats_plugins
 
 
+%post
+%systemd_user_post plasma-%{name}.service
+
+
+%preun
+%systemd_user_preun plasma-%{name}.service
+
+
 %files -f ksystemstats_plugins.lang
 %doc README.md
 %license LICENSES/*
 %{_kf5_bindir}/ksystemstats
 %{_kf5_bindir}/kstatsviewer
 %{_datadir}/dbus-1/services/org.kde.ksystemstats.service
-%{_userunitdir}/plasma-ksystemstats.service
+%{_userunitdir}/plasma-%{name}.service
 %{_qt5_plugindir}/ksystemstats/
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
+- added %%post / %%preun for systemd user service
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

@@ -1,9 +1,7 @@
-%undefine __cmake_in_source_build
-
 Name:    spectacle
 Summary: Screenshot capture utility
 Version: 21.08.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/spectacle/
@@ -22,7 +20,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
-BuildRequires: systemd
+BuildRequires: systemd-rpm-macros
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -81,20 +79,27 @@ Requires:  python3
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man
 
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.spectacle.appdata.xml ||:
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle.desktop
+
+
+%post
+%systemd_user_post app-org.kde.%{name}.service
+
+
+%preun
+%systemd_user_preun app-org.kde.%{name}.service
+
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
@@ -112,11 +117,14 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 %{_kf5_datadir}/kconf_update/50-clipboard_settings_change.py
 %{_kf5_datadir}/kglobalaccel/*.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
-%{_userunitdir}/app-org.kde.spectacle.service
+%{_userunitdir}/app-org.kde.%{name}.service
 %{_mandir}/man1/%{name}.1*
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-2
+- added %%post / %%preun for systemd user service
+
 * Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-1
 - 21.08.2
 

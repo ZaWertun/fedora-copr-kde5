@@ -1,11 +1,10 @@
-%undefine __cmake_in_source_build
-Name:           kactivitymanagerd
-Summary:        Plasma service to manage user's activities
+Name:    kactivitymanagerd
+Summary: Plasma service to manage user's activities
 Version: 5.22.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
-License:        GPLv2+
-URL:            https://cgit.kde.org/%{name}.git
+License: GPLv2+
+URL:     https://cgit.kde.org/%{name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -13,7 +12,7 @@ URL:            https://cgit.kde.org/%{name}.git
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -35,7 +34,7 @@ BuildRequires:  cmake(KF5I18n)
 
 BuildRequires:  boost-devel
 
-BuildRequires:  systemd
+BuildRequires:  systemd-rpm-macros
 
 # The kactivitymanagerd was split from KActivities in KF5 5.21,
 # but thanks to our clever packaging kf5-kactivities package
@@ -56,18 +55,24 @@ Provides:       kactivities = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang kactivities5 --with-qt
 
 # unpackaged files
 rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplugin.so,qmldir}
+
+
+%post
+%systemd_user_post plasma-%{name}.service
+
+
+%preun
+%systemd_user_preun plasma-%{name}.service
 
 
 %files -f kactivities5.lang
@@ -81,10 +86,13 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_datadir}/dbus-1/services/org.kde.ActivityManager.service
 %{_kf5_datadir}/krunner/dbusplugins/plasma-runnners-activities.desktop
-%{_userunitdir}/plasma-kactivitymanagerd.service
+%{_userunitdir}/plasma-%{name}.service
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
+- added %%post / %%preun for systemd user service
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

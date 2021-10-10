@@ -1,10 +1,8 @@
-%undefine __cmake_in_source_build
-
-%global kf5_version 5.42.0
+%global kf5_version 5.82.0
 
 Name:    powerdevil
 Version: 5.22.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -56,6 +54,7 @@ BuildRequires:  libXrandr-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  systemd-devel
+BuildRequires:  systemd-rpm-macros
 BuildRequires:  xcb-util-image-devel
 BuildRequires:  xcb-util-keysyms-devel
 BuildRequires:  xcb-util-wm-devel
@@ -85,7 +84,13 @@ of a daemon (a KDED module) and a KCModule for its configuration.
 rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
-%ldconfig_scriptlets
+%post
+%systemd_user_post plasma-%{name}.service
+
+
+%preun
+%systemd_user_preun plasma-%{name}.service
+
 
 %files -f powerdevil5.lang
 %license COPYING*
@@ -112,10 +117,13 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
-%{_userunitdir}/plasma-powerdevil.service
+%{_userunitdir}/plasma-%{name}.service
 
 
 %changelog
+* Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
+- added %%post / %%preun for systemd user service
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 
