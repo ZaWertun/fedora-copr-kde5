@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.86.0
+Version: 5.87.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 2 solution with abstraction for system notifications
 
@@ -117,6 +117,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" |
 
 
 %changelog
+* Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
+- 5.87.0
+
 * Sat Sep 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.86.0-1
 - 5.86.0
 

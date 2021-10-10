@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.86.0
+Version: 5.87.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -52,6 +52,8 @@ BuildRequires:  kf5-solid-devel >= %{majmin}
 BuildRequires:  lmdb-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
+
+BuildRequires:  systemd-rpm-macros
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -154,6 +156,14 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %endif
 
 
+%post
+%systemd_user_post kde-%{framework}.service
+
+
+%preun
+%systemd_user_preun kde-%{framework}.service
+
+
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_bindir}/baloosearch
@@ -167,7 +177,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_bindir}/baloo_file
 %{_kf5_bindir}/baloo_file_extractor
 %config(noreplace) %{_kf5_sysconfdir}/xdg/autostart/baloo_file.desktop
-%{_userunitdir}/kde-baloo.service
+%{_userunitdir}/kde-%{framework}.service
 %{_libexecdir}/baloo_file
 %{_libexecdir}/baloo_file_extractor
 
@@ -196,6 +206,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
+- 5.87.0
+
 * Sat Sep 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.86.0-1
 - 5.86.0
 
