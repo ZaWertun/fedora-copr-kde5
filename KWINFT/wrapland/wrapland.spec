@@ -1,6 +1,5 @@
-%undefine __cmake_in_source_build
 Name:    wrapland
-Version: 0.522.0
+Version: 0.523.0
 Release: 1%{?dist}
 Summary: Qt/C++ library wrapping libwayland
 
@@ -65,9 +64,8 @@ Summary:     Test server for %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=ON
-
 %cmake_build
 
 
@@ -115,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Fri Oct 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.523.0-1
+- 0.523.0
+
 * Thu Jun 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.522.0-1
 - 0.522.0
 

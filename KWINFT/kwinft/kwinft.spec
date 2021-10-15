@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global min_qt_version 5.14.0
 %global min_kf_version 5.70.0
 
@@ -13,7 +12,7 @@
 %endif
 
 Name:    kwinft
-Version: 5.22.0
+Version: 5.23.0
 Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
@@ -42,6 +41,7 @@ Source0: %{url}/-/archive/%{name}@%{version}/%{name}-%{name}@%{version}.tar.bz2
 # Base
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  systemd-rpm-macros
 
 # Qt
 BuildRequires:  qt5-qtbase-devel         >= %{min_qt_version}
@@ -83,6 +83,7 @@ BuildRequires:  wayland-devel
 BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
+BuildRequires:  pkgconfig(wlroots) >= 0.14
 BuildRequires:  pkgconfig(wayland-eglstream)
 BuildRequires:  pkgconfig(libpipewire-0.3)
 
@@ -260,7 +261,6 @@ Conflicts:      kwin-doc
 
 %prep
 %autosetup -p1 -n %{name}-%{name}@%{version}
-
 sed -i \
   -e 's|^find_package(Breeze ${PROJECT_VERSION} CONFIG)|find_package(Breeze 5.9 CONFIG)|' \
   CMakeLists.txt
@@ -298,6 +298,15 @@ dbus-launch --exit-with-session \
 make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %endif
 
+
+%post
+%systemd_user_post plasma-kwin_x11.service
+
+
+%preun
+%systemd_user_preun plasma-kwin_x11.service
+
+
 %files
 %{_bindir}/kwin
 
@@ -307,7 +316,11 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/kwin/
 %{_kf5_qtplugindir}/kcms/
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
-%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_packagestructure*.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_aurorae.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_decoration.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_effect.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_script.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_windowswitcher.so
 %{_kf5_qtplugindir}/org.kde.kwin.scenes/*.so
 %{_qt5_qmldir}/org/kde/kwin
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
@@ -318,6 +331,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kconf_update/kwin-5.16-auto-bordersize.sh
 %{_datadir}/kconf_update/kwin-5.18-move-animspeed.py
 %{_datadir}/kconf_update/kwin-5.21-desktop-grid-click-behavior.py
+%{_datadir}/kconf_update/kwin-5.23-placement.pl
+%{_datadir}/kconf_update/kwinrules-5.23-placement.pl
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
@@ -335,18 +350,10 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files wayland
 %{_kf5_bindir}/kwin_wayland
 %{_kf5_bindir}/kwin_wayland_wrapper
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandDrmBackend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandFbdevBackend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandWaylandBackend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandX11Backend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandVirtualBackend.so
 
 %files x11
 %{_kf5_bindir}/kwin_x11
-%{_kf5_qtplugindir}/org.kde.kwin.platforms/KWinX11Platform.so
 %{_userunitdir}/plasma-kwin_x11.service
-
-%ldconfig_scriptlets libs
 
 %files libs
 %{_libdir}/libkwin.so.*
@@ -374,6 +381,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Oct 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Thu Jun 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
 - 0.522.0
 

@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global min_qt_version 5.14.0
 
 Name:    disman
-Version: 0.522.0
+Version: 0.523.0
 Release: 1%{?dist}
 Summary: Qt/C++ display management library
 
@@ -54,7 +53,7 @@ Headers, development libraries and documentation for %{name}.
 
 
 %build
-%{cmake_kf5}
+%cmake_kf5
 %cmake_build
 
 
@@ -90,6 +89,9 @@ echo >> %{name}.lang
 
 
 %changelog
+* Fri Oct 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.523.0-1
+- 0.523.0
+
 * Thu Jun 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.522.0-1
 - 0.522.0
 
