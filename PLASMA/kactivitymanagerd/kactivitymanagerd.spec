@@ -1,7 +1,7 @@
-Name:    kactivitymanagerd
-Summary: Plasma service to manage user's activities
-Version: 5.22.5
-Release: 2%{?dist}
+Name:           kactivitymanagerd
+Summary:        Plasma service to manage user's activities
+Version: 5.23.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -90,6 +90,9 @@ rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplu
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
 - added %%post / %%preun for systemd user service
 

@@ -5,7 +5,7 @@
 
 Name:    plasma-disks
 Summary: Monitors S.M.A.R.T. capable devices for imminent failure
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -64,6 +64,7 @@ Requires:       kf5-filesystem
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kded.smart.conf
 %{_kf5_datadir}/knotifications5/org.kde.kded.smart.notifyrc
 %{_kf5_datadir}/kpackage/kcms/plasma_disks/contents/main.qml
+%{_kf5_datadir}/kpackage/kcms/plasma_disks/contents/ui/ReportPage.qml
 %{_kf5_datadir}/kpackage/kcms/plasma_disks/metadata.{desktop,json}
 %{_kf5_datadir}/kservices5/smart.desktop
 %{_kf5_datadir}/metainfo/org.kde.plasma.disks.metainfo.xml
@@ -71,6 +72,9 @@ Requires:       kf5-filesystem
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

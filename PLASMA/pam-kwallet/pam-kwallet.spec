@@ -1,15 +1,8 @@
-%undefine __cmake_in_source_build
-
 %global  base_name kwallet-pam
-
-%if 0%{?fedora} < 28
-# support (kde4) kwallet
-%global kwallet 1
-%endif
 
 Name:    pam-kwallet
 Summary: PAM module for KWallet
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -27,6 +20,7 @@ Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1
 
 Provides: %{base_name} = %{version}-%{release}
 
+BuildRequires: systemd-rpm-macros
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
 BuildRequires: libgcrypt-devel >= 1.5.0
@@ -57,35 +51,33 @@ Requires: kf5-kwallet
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
-
-%if 0%{?kwallet}
-%{cmake_kf5} \
-  -DKWALLET4=1
-
-%cmake_build
-%endif
 
 
 %install
-%if 0%{?kwallet}
 %cmake_install
-%endif
-%cmake_install
+
+
+%post
+%systemd_user_post plasma-%{base_name}.service
+
+
+%preun
+%systemd_user_preun plasma-%{base_name}.service
 
 
 %files
 %{_sysconfdir}/xdg/autostart/pam_kwallet_init.desktop
 %{_libexecdir}/pam_kwallet_init
 %{_libdir}/security/pam_kwallet5.so
-%if 0%{?kwallet}
-%{_libdir}/security/pam_kwallet.so
-%endif
+%{_userunitdir}/plasma-%{base_name}.service
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

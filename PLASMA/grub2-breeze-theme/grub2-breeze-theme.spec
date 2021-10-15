@@ -1,13 +1,12 @@
-
 %global         base_name breeze-grub
 
-Name:           grub2-breeze-theme
-Version: 5.22.5
-Release: 1%{?dist}
-Summary:        Breeze theme for GRUB
+Name:     grub2-breeze-theme
+Version:  5.23.0
+Release:  1%{?dist}
+Summary:  Breeze theme for GRUB
 
-License:        GPLv3
-URL:            https://cgit.kde.org/%{base_name}.git
+License:  GPLv3
+URL:      https://cgit.kde.org/%{base_name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -15,16 +14,16 @@ URL:            https://cgit.kde.org/%{base_name}.git
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
+Source0:  http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
 
 Source10: README.fedora
 
 # matches grub2 pkg archs
 ExcludeArch:    s390 s390x %{arm}
 %ifnarch aarch64
-Requires:       grub2
+Requires: grub2
 %else
-Requires:       grub2-efi
+Requires: grub2-efi
 %endif
 
 # debuginfo.list ends up empty/blank anyway. disable
@@ -32,8 +31,8 @@ Requires:       grub2-efi
 %global _grubthemedir /boot/grub2/themes
 
 # when pkg became arch'd
-Obsoletes:      grub2-breeze-theme < 5.6.3-2
-Provides:       %{base_name} = %{version}-%{release}
+Obsoletes: grub2-breeze-theme < 5.6.3-2
+Provides: %{base_name} = %{version}-%{release}
 
 %description
 %{summary}.
@@ -55,12 +54,15 @@ cp -r breeze %{buildroot}%{_grubthemedir}
 
 
 %files
-%license COPYING
+%license LICENSES/*.txt
 %doc README.fedora
 %{_grubthemedir}/breeze
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

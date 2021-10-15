@@ -3,7 +3,7 @@
 
 Name:    plasma-systemmonitor
 Summary: New version of KSysGuard built on top of the new KStats daemon
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -83,6 +83,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

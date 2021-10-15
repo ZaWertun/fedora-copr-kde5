@@ -1,10 +1,8 @@
-%undefine __cmake_in_source_build
-
 %global  base_name systemsettings
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -45,6 +43,8 @@ BuildRequires: cmake(KF5ActivitiesStats)
 BuildRequires: cmake(KF5KHtml)
 BuildRequires: cmake(KF5ItemModels)
 BuildRequires: cmake(KF5GuiAddons)
+BuildRequires: cmake(KF5Notifications)
+BuildRequires: cmake(KF5Runner)
 
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(Qt5Quick)
@@ -76,13 +76,12 @@ Conflicts: kde-workspace < 5.0
 
 
 %build
-%{cmake_kf5}
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang systemsettings5 --with-qt --with-html --all-name
 
 
@@ -91,18 +90,16 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kdesystemsettings.des
 desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.desktop ||:
 
 
-%ldconfig_scriptlets
-
 %files -f systemsettings5.lang
 %license LICENSES/*.txt
 %{_bindir}/systemsettings5
 %{_libdir}/libsystemsettingsview.so.3
+%{_kf5_plugindir}/krunner/krunner_systemsettings.so
 %{_kf5_qtplugindir}/systemsettingsview/icon_mode.so
 %{_kf5_qtplugindir}/systemsettingsview/systemsettings_sidebar_mode.so
 %{_datadir}/systemsettings/
 %{_datadir}/applications/kdesystemsettings.desktop
 %{_datadir}/applications/systemsettings.desktop
-%{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/kxmlgui5/systemsettings
 %{_kf5_datadir}/kglobalaccel/systemsettings.desktop
@@ -113,6 +110,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

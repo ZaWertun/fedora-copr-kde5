@@ -1,8 +1,8 @@
 %global kf5_version 5.82.0
 
 Name:    powerdevil
-Version: 5.22.5
-Release: 2%{?dist}
+Version: 5.23.0
+Release: 1%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -121,6 +121,9 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-2
 - added %%post / %%preun for systemd user service
 

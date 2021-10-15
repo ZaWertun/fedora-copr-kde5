@@ -1,5 +1,5 @@
 Name:    ksysguard
-Version: 5.22.0
+Version: 5.23.0
 Release: 1%{?dist}
 Summary: KDE Process Management application
 
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ksysguard
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Wed Jun 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.0-1
 - ksysguard version still is 5.22.0
 

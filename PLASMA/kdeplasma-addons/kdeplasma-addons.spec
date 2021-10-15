@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdeplasma-addons
 Summary: Additional Plasmoids for Plasma 5
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -113,8 +113,8 @@ developing applications that use %{name}.
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_libdir}/libplasmacomicprovidercore.so.*
 %{_kf5_libdir}/libplasmapotdprovidercore.so*
-%{_kf5_qtplugindir}/kpackage/packagestructure/plasma_packagestructure_comic.so
-%{_kf5_datadir}/kservicetypes5/plasma_comicprovider.desktop
+%{_kf5_qtplugindir}/kpackage/packagestructure/plasma_comic.so
+%{_kf5_datadir}/qlogging-categories5/plasma_comic.categories
 %{_kf5_metainfodir}/*.appdata.xml
 
 %{_libdir}/cmake/PlasmaPotdProvider/*
@@ -126,6 +126,9 @@ developing applications that use %{name}.
 %{_includedir}/plasma/potdprovider/*
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

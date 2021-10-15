@@ -1,7 +1,7 @@
 
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -46,6 +46,8 @@ BuildRequires:  cmake(Qt5WebChannel)
 BuildRequires:  cmake(Qt5WebEngineWidgets)
 %endif
 
+BuildRequires:  lm_sensors-devel
+BuildRequires:  pkgconfig(libcap)
 BuildRequires:  pkgconfig(libpcap)
 BuildRequires:  pkgconfig(libnl-3.0) pkgconfig(libnl-route-3.0)
 BuildRequires:  libXres-devel
@@ -109,7 +111,7 @@ developing applications that use %{name}.
 %ldconfig_scriptlets
 
 %files -f ksysguard_qt5.lang
-%license COPYING.LIB
+%license LICENSES/*.txt
 %{_kf5_libdir}/liblsofui.so.*
 %{_kf5_libdir}/libprocessui.so.*
 %{_kf5_libdir}/libprocesscore.so.*
@@ -150,6 +152,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

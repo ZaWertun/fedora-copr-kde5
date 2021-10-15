@@ -1,12 +1,10 @@
-%undefine __cmake_in_source_build
-
 ## bootstrap, omit problematic optional build deps)
 #global bootstrap 1
 
 %global         base_name   breeze
 
 Name:    plasma-breeze
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
@@ -92,17 +90,13 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 %build
 %cmake_kf5
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang breeze --all-name
 
-
-%ldconfig_scriptlets
 
 %files
 %license LICENSES/*.txt
@@ -120,10 +114,6 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 %{_datadir}/icons/hicolor/*/apps/breeze-settings.*
 %{_kf5_datadir}/kservices5/breezedecorationconfig.desktop
 %{_kf5_datadir}/kservices5/breezestyleconfig.desktop
-%{_kf5_datadir}/plasma/look-and-feel/org.kde.breezedark.desktop/
-%{_kf5_metainfodir}/org.kde.breezedark.desktop.appdata.xml
-%{_kf5_datadir}/plasma/look-and-feel/org.kde.breezetwilight.desktop/
-%{_kf5_metainfodir}/org.kde.breezetwilight.desktop.appdata.xml
 # fedora does autodep on cmake-filesystem, others?
 %if ! 0%{?fedora}
 %dir %{_libdir}/cmake/
@@ -147,6 +137,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

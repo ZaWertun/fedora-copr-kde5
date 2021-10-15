@@ -3,7 +3,7 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -28,9 +28,12 @@ BuildRequires:  kf5-kwayland-devel >= 5.22
 %endif
 BuildRequires:  libX11-devel
 BuildRequires:  libxcb-devel
+BuildRequires:  wayland-devel
 BuildRequires:  libXrandr-devel
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  cmake(PlasmaWaylandProtocols)
 
 Requires:       kf5-filesystem
 
@@ -100,6 +103,9 @@ popd
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

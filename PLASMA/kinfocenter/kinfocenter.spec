@@ -1,6 +1,5 @@
-%undefine __cmake_in_source_build
 Name:    kinfocenter
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -16,10 +15,6 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# master branch
-Patch4: 0004-repair-the-version-header.patch
-# Backport for for upstream bug #436954
-Patch6: 0006-stop-looking-for-the-plasma-version-in-the-session-f.patch
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
@@ -77,8 +72,7 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -92,23 +86,29 @@ Conflicts:      kde-workspace < 4.11.15-3
 %{_bindir}/kinfocenter
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kcms/*.so
-#ifnarch s390 s390x
-#{_datadir}/kcmview1394/
-#endif
-#{_datadir}/kcmusb/
 %{_sysconfdir}/xdg/menus/kinfocenter.menu
 %{_datadir}/applications/org.kde.kinfocenter.desktop
+%{_kf5_qmldir}/org/kde/kinfocenter/private/CommandOutputKCM.qml
+%{_kf5_qmldir}/org/kde/kinfocenter/private/qmldir
 %{_kf5_datadir}/kservices5/*.desktop
+%{_kf5_datadir}/kinfocenter/categories/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_datadir}/desktop-directories/kinfocenter.directory
+%{_kf5_datadir}/kpackage/kcms/kcm_cpu/
 %{_kf5_datadir}/kpackage/kcms/kcm_nic/
 %{_kf5_datadir}/kpackage/kcms/kcmsamba/
+%{_kf5_datadir}/kpackage/kcms/kcm_vulkan/
+%{_kf5_datadir}/kpackage/kcms/kcm_wayland/
 %{_kf5_datadir}/kpackage/kcms/kcm_energyinfo/
-#{_kf5_datadir}/kpackage/kcms/kcm_fileindexermonitor/
+%{_kf5_datadir}/kpackage/kcms/kcm_interrupts/
+%{_kf5_datadir}/kpackage/kcms/kcm_about-distro/
 %{_kf5_datadir}/metainfo/org.kde.kinfocenter.appdata.xml
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

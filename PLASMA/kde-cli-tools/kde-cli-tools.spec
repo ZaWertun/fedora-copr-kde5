@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kde-cli-tools
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
@@ -81,7 +81,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %files -f kdeclitools_qt.lang
+%{_bindir}/kbroadcastnotification
 %{_bindir}/kcmshell5
+%{_bindir}/kde-inhibit
 %{_bindir}/kde-open5
 %{_bindir}/kdecp5
 %{_bindir}/kdemv5
@@ -91,13 +93,13 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 %{_bindir}/kstart5
 %{_bindir}/ksvgtopng5
 %{_bindir}/ktraderclient5
-%{_bindir}/kbroadcastnotification
-%{_bindir}/kde-inhibit
+%{_bindir}/plasma-open-settings
 %{_kf5_libexecdir}/kdeeject
 %{_kf5_qtplugindir}/kcm_filetypes.so
 %{_kf5_datadir}/kservices5/filetypes.desktop
 %{_datadir}/doc/HTML/*/kcontrol5
 %{_kf5_datadir}/applications/org.kde.keditfiletype.desktop
+%{_kf5_datadir}/applications/org.kde.plasma.settings.open.desktop
 
 %files -n kdesu
 %{_bindir}/kdesu
@@ -109,6 +111,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

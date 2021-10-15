@@ -16,8 +16,8 @@
 %endif
 
 Name:    kwin
-Version: 5.22.5
-Release: 4%{?dist}
+Version: 5.23.0
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -40,22 +40,10 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# Fix cursor offset in Wayland VMs; effectively a backport of
-# https://github.com/KDE/kwin/commit/998bbf4e
-# https://bugzilla.redhat.com/show_bug.cgi?id=2011066
-Patch0: 0001-Fix-wrong-cursor-hotspot-under-Wayland-on-VMs.patch
-# Patches from Vlad Zahorodnii to fix crashes on logout with libinput
-# libinput 1.18.901+, backported to 5.22
-# https://bugs.kde.org/show_bug.cgi?id=442104
-# https://bugs.kde.org/show_bug.cgi?id=443088
-# https://bugzilla.redhat.com/show_bug.cgi?id=2001135
-Patch1: 0001-wayland-Destroy-InputRedirection-explicitly.patch
-Patch2: 0002-wayland-Move-ownership-of-the-libinput-thread-to-Inp.patch
-Patch3: 0003-wayland-Move-ConnectionAdaptor-to-the-same-thread-as.patch
 
 ## upstreamable patches
 # Bug 440027 - Wayland crashes after login when "Right Alt never chooses 3rd level" layout option is set in Keyboard KCM
-Patch10: 0010-wayland-Fix-crash-on-startup-with-lv3:ralt_alt-XKB-option.patch
+Patch10: 0010-wayland-Fix-crash-on-startup-with-lv3_ralt_alt-XKB-option.patch
 
 ## proposed patches
 
@@ -106,6 +94,7 @@ BuildRequires:  wayland-protocols-devel
 BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
+BuildRequires:  cmake(PlasmaWaylandProtocols)
 
 # KF5
 BuildRequires:  kf5-kcompletion-devel
@@ -322,9 +311,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kwin/
 %{_kf5_qtplugindir}/kcms/
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_*.so
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
 %dir %{_kf5_qtplugindir}/org.kde.kwin.platforms
-%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_packagestructure*.so
 %{_kf5_qtplugindir}/org.kde.kwin.scenes/*.so
 %{_qt5_qmldir}/org/kde/kwin
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
@@ -347,6 +336,12 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/config.kcfg/kwin_colorcorrect.kcfg
 %{_kf5_datadir}/kconf_update/kwinrules-5.19-placement.pl
 %{_kf5_datadir}/kconf_update/kwinrules.upd
+%{_kf5_datadir}/kconf_update/kwin-5.23-disable-translucency-effect.sh
+%{_kf5_datadir}/kconf_update/kwin-5.23-remove-cover-switch.py
+%{_kf5_datadir}/kconf_update/kwin-5.23-remove-cubeslide.py
+%{_kf5_datadir}/kconf_update/kwin-5.23-remove-flip-switch.py
+%{_kf5_datadir}/kconf_update/kwin-5.23-remove-xrender-backend.py
+%{_kf5_datadir}/kconf_update/kwinrules-5.23-virtual-desktop-ids.py
 %{_datadir}/icons/hicolor/*/apps/kwin.*
 %{_datadir}/knsrcfiles/*.knsrc
 %{_datadir}/krunner/dbusplugins/kwin-runner-windows.desktop
@@ -391,6 +386,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-4
 - merged changes from official Fedora package
 

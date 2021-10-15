@@ -2,7 +2,7 @@
 %global  wayland_min_version 1.3
 
 Name:    kwayland-integration
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 Summary: Provides integration plugins for various KDE Frameworks for Wayland
 
@@ -18,6 +18,12 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtbase-static
+BuildRequires:  qt5-qtbase-private-devel
+
+BuildRequires:  wayland-devel
+BuildRequires:  cmake(Qt5WaylandClient)
+BuildRequires:  wayland-protocols-devel
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
@@ -59,6 +65,9 @@ Requires:       kf5-filesystem
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

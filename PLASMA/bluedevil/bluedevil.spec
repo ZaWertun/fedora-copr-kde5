@@ -1,7 +1,6 @@
-%undefine __cmake_in_source_build
 Name:    bluedevil
 Summary: Bluetooth stack for KDE
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -14,7 +13,6 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
-#Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros >= 5.25.0-2
@@ -60,14 +58,12 @@ BlueDevil is the bluetooth stack for KDE.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -80,11 +76,11 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.bluedevil
 %doc README
 %{_kf5_bindir}/bluedevil-sendfile
 %{_kf5_bindir}/bluedevil-wizard
-%{_kf5_qtplugindir}/kio_*.so
+%{_kf5_plugindir}/kio/kio_obexftp.so
+%{_kf5_plugindir}/kio/kio_bluetooth.so
 %{_kf5_plugindir}/kded/*.so
 %{_kf5_datadir}/remoteview/bluetooth-network.desktop
 %{_kf5_datadir}/kservices5/*.desktop
-%{_kf5_datadir}/kservices5/*.protocol
 %{_kf5_datadir}/knotifications5/bluedevil.notifyrc
 %{_kf5_datadir}/applications/org.kde.bluedevilsendfile.desktop
 %{_kf5_datadir}/applications/org.kde.bluedevilwizard.desktop
@@ -99,6 +95,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.bluedevil
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 

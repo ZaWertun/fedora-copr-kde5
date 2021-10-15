@@ -9,8 +9,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.22.5
-Release: 4%{?dist}
+Version: 5.23.0
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -27,8 +27,6 @@ URL:     https://invent.kde.org/plasma/%{name}
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# Bug 441239 - Keyboard layout applet in systemtray can't be switched to spare layout
-Patch50:  plasma-desktop-5.22.5-fix_non-working_context_menu.patch
 
 ## downstream patches
 # default kickoff favorites: +konsole +apper
@@ -205,7 +203,6 @@ BuildArch: noarch
 %setup -q
 
 ## upstream patches
-%patch50 -p1
 
 ## upstreamable patches
 #patch200 -p1
@@ -263,7 +260,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %ldconfig_scriptlets
 
 %files -f plasmadesktop5.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_bindir}/kaccess
 %{_bindir}/knetattach
 %{_bindir}/solid-action-desktop-gen
@@ -286,7 +283,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_datadir}/plasma/*
 %ifnarch s390 s390x
 # touchpad
-%{_kf5_datadir}/kservices5/kded/touchpad.desktop
 %{_bindir}/kcm-touchpad-list-devices
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_touchpad.so
 %{_datadir}/dbus-1/interfaces/org.kde.touchpad.xml
@@ -329,6 +325,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Sun Sep 26 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-4
 - depend on kwin or kwinft
 

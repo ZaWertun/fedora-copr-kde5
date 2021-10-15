@@ -1,7 +1,6 @@
-%undefine __cmake_in_source_build
 Name:    plasma-integration
 Summary: Qt Platform Theme integration plugin for Plasma
-Version: 5.22.5
+Version: 5.23.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
@@ -75,7 +74,7 @@ sed -i.breeze_version \
 
 %files -f plasmaintegration5.lang
 %doc README.md
-%license COPYING.LGPL-3
+%license LICENSES/*.txt
 %{_kf5_qtplugindir}/platformthemes/KDEPlasmaPlatformTheme.so
 %{_kf5_datadir}/kconf_update/fonts_*
 %{_qt5_plugindir}/platforminputcontexts/plasmaimplatforminputcontextplugin.so
@@ -84,6 +83,9 @@ sed -i.breeze_version \
 
 
 %changelog
+* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+- 5.23.0
+
 * Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
 - 5.22.5
 
