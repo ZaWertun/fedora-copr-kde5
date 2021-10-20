@@ -16,7 +16,7 @@
 %endif
 
 Name:    kwin
-Version: 5.23.0
+Version: 5.23.1
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -42,8 +42,6 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 ## upstream patches
 
 ## upstreamable patches
-# Bug 440027 - Wayland crashes after login when "Right Alt never chooses 3rd level" layout option is set in Keyboard KCM
-Patch10: 0010-wayland-Fix-crash-on-startup-with-lv3_ralt_alt-XKB-option.patch
 
 ## proposed patches
 
@@ -386,6 +384,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Oct 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.1-1
+- 5.23.1
+
 * Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
 - 5.23.0
 

@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kscreenlocker
-Version: 5.23.0
+Version: 5.23.1
 Release: 1%{?dist}
 Summary: Library and components for secure lock screen architecture
 
@@ -106,6 +106,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Oct 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.1-1
+- 5.23.1
+
 * Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
 - 5.23.0
 
