@@ -1,5 +1,5 @@
-%global git_date     20211024
-%global git_commit   88c9bfd792d3cce3529174fc2a98b7d93e4556a8
+%global git_date     20211027
+%global git_commit   ba5a1306970c3ef90a94694dada81c85b61f80f1
 %global short_commit %(c=%{git_commit}; echo ${c:0:7})
 
 Name:           kalendar
@@ -80,7 +80,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/org.kde.%{name
 
 %changelog
 * Sun Oct 24 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-2.20211021git20b34f7
-- 2021-10-24, commit 88c9bfd792d3cce3529174fc2a98b7d93e4556a8
+- 2021-10-24, commit ba5a1306970c3ef90a94694dada81c85b61f80f1
 
 * Fri Oct 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-2.20211021git20b34f7
 - first spec for version 0.1 (2021-10-21, commit 20b34f7)
