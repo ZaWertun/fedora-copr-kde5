@@ -1,5 +1,5 @@
-%global git_date     20211029
-%global git_commit   541ae8c9d9e723dd668cde82282b13a0c7d8f98d
+%global git_date     20211103
+%global git_commit   edd5276400d4c48adf991c04ffcf022df7ad6be6
 %global short_commit %(c=%{git_commit}; echo ${c:0:7})
 
 Name:           kalendar
