@@ -8,8 +8,8 @@
 %endif
 
 Name:    kio-extras
-Version: 21.08.2
-Release: 2%{?dist}
+Version: 21.08.3
+Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -212,6 +212,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
+- 21.08.3
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-2
 - added buildrequires: cmake(KF5ActivitiesStats)
 

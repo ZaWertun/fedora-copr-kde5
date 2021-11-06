@@ -9,7 +9,7 @@
 
 Name:    akregator
 Summary: Feed Reader
-Version: 21.08.2
+Version: 21.08.3
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -162,6 +162,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
+- 21.08.3
+
 * Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-1
 - 21.08.2
 

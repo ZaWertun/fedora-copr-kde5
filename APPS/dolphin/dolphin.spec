@@ -7,8 +7,8 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 21.08.2
-Release: 2%{?dist}
+Version: 21.08.3
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git/
@@ -161,6 +161,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
+- 21.08.3
+
 * Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-2
 - added %%post / %%preun for systemd user service
 
