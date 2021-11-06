@@ -1,10 +1,10 @@
-%global git_date     20211103
-%global git_commit   edd5276400d4c48adf991c04ffcf022df7ad6be6
+%global git_date     20211106
+%global git_commit   1ec5c7ff82ad24ca70c7f7a55993daa00663dad6
 %global short_commit %(c=%{git_commit}; echo ${c:0:7})
 
 Name:           kalendar
 Version:        0.1
-Release:        2.%{git_date}git%{short_commit}%{?dist}
+Release:        3.%{git_date}git%{short_commit}%{?dist}
 Summary:        A calendar application using Akonadi to sync with external services
 
 License:        LGPLv2+
@@ -63,6 +63,11 @@ while keeping changes syncronised across your Plasma desktop or phone.
 %install
 %cmake_install
 
+# Temporary disabling QML cache, see issue #55:
+#  https://invent.kde.org/pim/kalendar/-/issues/55
+sed -i 's|Exec=kalendar|Exec=env QML_DISABLE_DISK_CACHE=1 kalendar|' \
+    %{buildroot}%{_datadir}/applications/org.kde.%{name}.desktop
+
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.desktop
@@ -79,6 +84,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/org.kde.%{name
 
 
 %changelog
+* Sat Nov 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-3.20211106git1ec5c7f
+- 2021-11-06, commit 1ec5c7ff82ad24ca70c7f7a55993daa00663dad6
+
 * Sun Oct 24 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-2.20211021git20b34f7
 - 2021-10-24, commit ba5a1306970c3ef90a94694dada81c85b61f80f1
 
