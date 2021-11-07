@@ -11,6 +11,7 @@ License:        LGPLv2+
 URL:            https://invent.kde.org/pim/%{name}
 Source0:        https://invent.kde.org/pim/%{name}/-/archive/%{short_commit}/%{name}-%{short_commit}.tar.bz2
 
+BuildRequires:  gettext
 BuildRequires:  desktop-file-utils
 BuildRequires:  libappstream-glib
 
@@ -43,6 +44,7 @@ BuildRequires:  cmake(KF5CalendarSupport)
 BuildRequires:  cmake(KF5EventViews)
 BuildRequires:  cmake(KF5GrantleeTheme)
 
+Requires:       kf5-kirigami2
 Requires:       kf5-kirigami2-addons-treeview
 
 %description
