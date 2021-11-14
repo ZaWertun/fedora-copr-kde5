@@ -63,9 +63,6 @@ Provides:       kactivities = %{version}-%{release}
 %cmake_install
 %find_lang kactivities5 --with-qt
 
-# unpackaged files
-rm -fv %{buildroot}%{_kf5_qmldir}/org/kde/activities/{libkactivitiesextensionplugin.so,qmldir}
-
 
 %post
 %systemd_user_post plasma-%{name}.service
