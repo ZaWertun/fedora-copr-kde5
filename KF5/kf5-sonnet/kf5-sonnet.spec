@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.87.0
+Version: 5.88.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 solution for spell checking
 
@@ -35,6 +35,7 @@ BuildRequires:  hunspell-devel
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
+BuildRequires:  cmake(Qt5Quick)
 BuildRequires:  zlib-devel
 
 Requires:       kf5-filesystem >= %{majmin}
@@ -97,6 +98,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %files core
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_libdir}/libKF5SonnetCore.so.*
+%{_kf5_qmldir}/org/kde/sonnet/
 %if ! 0%{?bootstrap}
 %dir %{_kf5_plugindir}/sonnet/
 %{_kf5_plugindir}/sonnet/sonnet_hunspell.so
@@ -122,6 +124,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
+- 5.88.0
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
 - 5.87.0
 

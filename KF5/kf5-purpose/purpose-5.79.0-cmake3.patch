@@ -1,7 +1,7 @@
-diff -r -U3 purpose-5.79.0.orig/src/quick/CMakeLists.txt purpose-5.79.0/src/quick/CMakeLists.txt
---- purpose-5.79.0.orig/src/quick/CMakeLists.txt	2021-02-06 21:28:51.000000000 +0300
-+++ purpose-5.79.0/src/quick/CMakeLists.txt	2021-02-13 18:33:58.601972869 +0300
-@@ -6,8 +6,8 @@
+diff -up purpose-5.79.0/src/quick/CMakeLists.txt.cmake3 purpose-5.79.0/src/quick/CMakeLists.txt
+--- purpose-5.79.0/src/quick/CMakeLists.txt.cmake3	2021-02-06 05:09:30.000000000 -0600
++++ purpose-5.79.0/src/quick/CMakeLists.txt	2021-02-06 10:40:17.286253586 -0600
+@@ -6,8 +6,8 @@ set(bindest "${CMAKE_BINARY_DIR}/bin/qml
  set_target_properties(purposequickplugin PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${bindest}")
  
  add_custom_target(moveqmldir ALL
@@ -12,4 +12,3 @@ diff -r -U3 purpose-5.79.0.orig/src/quick/CMakeLists.txt purpose-5.79.0/src/quic
  )
  
  install(TARGETS purposequickplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose)
-Только в purpose-5.79.0/src/quick: CMakeLists.txt.orig

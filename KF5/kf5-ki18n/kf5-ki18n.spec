@@ -2,7 +2,7 @@
 %global framework ki18n
 
 Name:           kf5-%{framework}
-Version: 5.87.0
+Version: 5.88.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon for localization
 
@@ -31,6 +31,7 @@ BuildRequires:  python3
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtscript-devel
+BuildRequires:  qt5-qtbase-private-devel
 
 Requires:       kf5-filesystem >= %{majmin}
 
@@ -70,6 +71,8 @@ developing applications that use %{name}.
 %doc README.md
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5I18n.so.*
+%{_kf5_libdir}/libKF5I18nLocaleData.so.*
+%{_kf5_qmldir}/org/kde/i18n/localeData/
 %{_kf5_datadir}/qlogging-categories5/*%{framework}*
 %{_kf5_qtplugindir}/kf5/ktranscript.so
 %lang(ca) %{_datadir}/locale/ca/LC_SCRIPTS/ki18n5/
@@ -90,12 +93,17 @@ developing applications that use %{name}.
 %files devel
 %{_kf5_includedir}/ki18n_version.h
 %{_kf5_includedir}/KI18n/
+%{_kf5_includedir}/KI18nLocaleData/
 %{_kf5_libdir}/libKF5I18n.so
+%{_kf5_libdir}/libKF5I18nLocaleData.so
 %{_kf5_libdir}/cmake/KF5I18n/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KI18n.pri
 
 
 %changelog
+* Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
+- 5.88.0
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
 - 5.87.0
 

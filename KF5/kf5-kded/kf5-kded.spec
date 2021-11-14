@@ -1,8 +1,8 @@
 %global framework kded
 
 Name:    kf5-%{framework}
-Version: 5.87.0
-Release: 2%{?dist}
+Version: 5.88.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon with extensible daemon for system-level services
 
 License: LGPLv2+
@@ -89,6 +89,9 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kded
 
 
 %changelog
+* Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
+- 5.88.0
+
 * Sun Oct 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-2
 - added %%post / %%preun for systemd user service
 

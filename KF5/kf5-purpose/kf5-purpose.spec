@@ -4,7 +4,7 @@
 
 Name:    kf5-purpose
 Summary: Framework for providing abstractions to get the developer's purposes fulfilled
-Version: 5.87.0
+Version: 5.88.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -25,7 +25,9 @@ Obsoletes:  kf5-purpose-twitter < 5.68.0
 
 ## downstream patches
 # src/quick/CMakeLists.txt calls 'cmake' directly, use 'cmake3' instead (mostly for epel7)
+%if 0%{?rhel} && 0%{?rhel} < 8
 Patch100: purpose-5.79.0-cmake3.patch
+%endif
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -128,6 +130,9 @@ rm -fv %{buildroot}%{_datadir}/icons/hicolor/*/actions/kipiplugin_youtube.png
 
 
 %changelog
+* Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
+- 5.88.0
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
 - 5.87.0
 

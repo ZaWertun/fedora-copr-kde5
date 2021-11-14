@@ -6,7 +6,7 @@
 
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
-Version: 5.87.0
+Version: 5.88.0
 Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
@@ -25,7 +25,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/breeze-icons
 ## upstream patches (lookaside cache)
 
 ## upstreamable patches
-Patch100: fix-breeze-dark-inheritance.patch
 
 # must come *after* patches or %%autosetup sometimes doesn't work right -- rex
 BuildArch: noarch
@@ -76,7 +75,6 @@ sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 
 %build
 %cmake_kf5
-
 %cmake_build
 
 
@@ -106,10 +104,6 @@ touch  %{buildroot}%{_kf5_datadir}/icons/{breeze,breeze-dark}/icon-theme.cache
 
 
 %check
-# verify dark inheritence, notorious for getting lost
-test "$(grep '^Inherits=' %{buildroot}%{_datadir}/icons/breeze-dark/index.theme)" = "Inherits=breeze"
-
-
 %if 0%{?fedora} > 25 || 0%{?rhel} > 7
 ## trigger-based scriptlets
 %transfiletriggerin -- %{_datadir}/icons/breeze
@@ -159,6 +153,9 @@ fi
 
 
 %changelog
+* Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
+- 5.88.0
+
 * Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
 - 5.87.0
 
