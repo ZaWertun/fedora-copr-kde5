@@ -48,6 +48,7 @@ Requires:       akonadi-calendar-tools
 Requires:       kdepim-addons
 Requires:       kdepim-runtime
 Requires:       kf5-kirigami2
+Requires:       kf5-kirigami2-addons
 Requires:       kf5-kirigami2-addons-treeview
 
 %description
