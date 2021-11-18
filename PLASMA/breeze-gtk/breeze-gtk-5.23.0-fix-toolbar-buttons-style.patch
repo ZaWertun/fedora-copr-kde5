@@ -1,6 +1,6 @@
 diff '--color=auto' -rU3 breeze-gtk-5.23.3.orig/src/gtk3/widgets/_button.scss breeze-gtk-5.23.3/src/gtk3/widgets/_button.scss
 --- breeze-gtk-5.23.3.orig/src/gtk3/widgets/_button.scss	2021-11-18 13:42:48.059293181 +0300
-+++ breeze-gtk-5.23.3/src/gtk3/widgets/_button.scss	2021-11-18 13:59:23.184975862 +0300
++++ breeze-gtk-5.23.3/src/gtk3/widgets/_button.scss	2021-11-18 14:22:42.919063754 +0300
 @@ -176,6 +176,7 @@
  
    @include button(normal);
@@ -25,3 +25,11 @@ diff '--color=auto' -rU3 breeze-gtk-5.23.3.orig/src/gtk3/widgets/_button.scss br
      color: gtk("@theme_button_foreground_backdrop_insensitive");
    }
    &:disabled {
+@@ -357,6 +361,7 @@
+       &.flat:backdrop,
+       &.flat:disabled,
+       &.flat:backdrop:disabled {
++        @include button(undecorated);
+         color: gtkalpha($button_color, 0.8);
+       }
+       &:disabled {

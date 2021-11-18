@@ -1,6 +1,6 @@
 Name:    breeze-gtk
 Version: 5.23.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Breeze widget theme for GTK
 
 License: GPLv2+
@@ -111,6 +111,9 @@ Supplements:    (plasma-breeze and gtk4)
 
 
 %changelog
+* Thu Nov 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-3
+- updated breeze-gtk-5.23.0-fix-toolbar-buttons-style.patch
+
 * Thu Nov 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-2
 - added breeze-gtk-5.23.0-fix-toolbar-buttons-style.patch
 
