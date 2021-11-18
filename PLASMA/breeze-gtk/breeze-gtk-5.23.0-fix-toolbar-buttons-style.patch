@@ -1,0 +1,27 @@
+diff '--color=auto' -rU3 breeze-gtk-5.23.3.orig/src/gtk3/widgets/_button.scss breeze-gtk-5.23.3/src/gtk3/widgets/_button.scss
+--- breeze-gtk-5.23.3.orig/src/gtk3/widgets/_button.scss	2021-11-18 13:42:48.059293181 +0300
++++ breeze-gtk-5.23.3/src/gtk3/widgets/_button.scss	2021-11-18 13:59:23.184975862 +0300
+@@ -176,6 +176,7 @@
+ 
+   @include button(normal);
+   &.flat {
++    @include button(undecorated);
+     // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
+     // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
+     // it won't fade out when the pointer leave the button allocation area. To make the transition more evident
+@@ -228,12 +229,15 @@
+   }
+   &.flat:backdrop {
+     -gtk-icon-effect: none;
++    @include button(undecorated);
+     color: gtk("@theme_button_foreground_backdrop");
+   }
+   &.flat:disabled {
++    @include button(undecorated);
+     color: gtk("@theme_button_foreground_insensitive");
+   }
+   &.flat:backdrop:disabled {
++    @include button(undecorated);
+     color: gtk("@theme_button_foreground_backdrop_insensitive");
+   }
+   &:disabled {
