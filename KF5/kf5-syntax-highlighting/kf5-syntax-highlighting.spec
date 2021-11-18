@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.88.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Syntax highlighting engine for Kate syntax definitions
 
 License: MIT
@@ -32,6 +32,7 @@ BuildRequires: kf5-rpm-macros
 
 BuildRequires: perl-interpreter
 BuildRequires: qt5-qtbase-devel
+BuildRequires: qt5-qtdeclarative-devel
 # optional deps
 %if ! 0%{?bootstrap}
 BuildRequires: qt5-qtxmlpatterns-devel
@@ -82,6 +83,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_bindir}/kate-syntax-highlighter
 %{_kf5_libdir}/libKF5SyntaxHighlighting.so.*
+%{_kf5_qmldir}/org/kde/syntaxhighlighting/
 
 %files devel
 %{_kf5_libdir}/libKF5SyntaxHighlighting.so
@@ -92,6 +94,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Nov 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-2
+- rebuild
+
 * Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
 - 5.88.0
 

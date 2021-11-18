@@ -4,7 +4,7 @@
 Name:           kf5-%{framework}
 Summary:        A KDE Frameworks 5 Tier 3 library for accessing the usage data collected by the activities system
 Version: 5.88.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License:        LGPLv2 or LGPLv3
@@ -56,12 +56,10 @@ Requires: qt5-qtbase-devel
 %install
 %cmake_install
 
-rm -fv %{buildroot}/etc/xdg/kactivities-stats.categories
-
 
 # Currently includes no tests
 %check
-make test -C %{__cmake_builddir}
+%ctest ||:
 
 
 %ldconfig_scriptlets
@@ -82,6 +80,9 @@ make test -C %{__cmake_builddir}
 
 
 %changelog
+* Thu Nov 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-2
+- rebuild
+
 * Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
 - 5.88.0
 
