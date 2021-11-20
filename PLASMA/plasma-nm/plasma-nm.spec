@@ -5,7 +5,7 @@
 Name:    plasma-nm
 Summary: Plasma for managing network connections
 Version: 5.23.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv2+ and GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -265,13 +265,13 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 
 %if 0%{?fedora} || 0%{?epel}
 %files openvpn -f plasmanetworkmanagement_openvpnui.lang
+%{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openvpnui.so
 
 %files openconnect -f plasmanetworkmanagement_openconnectui.lang
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_globalprotectui.so
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
-%{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openvpnui.so
 
 %files openswan -f plasmanetworkmanagement_openswanui.lang
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openswanui.so
@@ -304,6 +304,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Sat Nov 20 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-2
+- rebuild
+
 * Tue Nov 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-1
 - 5.23.3
 
