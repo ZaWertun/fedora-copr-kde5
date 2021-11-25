@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.23.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -242,7 +242,6 @@ Requires:       kde-settings-plasma
 
 # Default look-and-feel theme
 %if 0%{?fedora}
-%global default_lookandfeel org.fedoraproject.fedora.desktop
 Requires:       plasma-lookandfeel-fedora = %{version}-%{release}
 %endif
 %if ! 0%{?default_lookandfeel:1}
@@ -764,6 +763,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu Nov 25 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-2
+- disabled default_lookandfeel, see bug #431219
+
 * Tue Nov 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-1
 - 5.23.3
 
