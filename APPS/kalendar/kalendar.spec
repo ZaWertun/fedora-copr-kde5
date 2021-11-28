@@ -1,10 +1,10 @@
-%global git_date     20211121
-%global git_commit   79116ec8b5bc7f5738ec9f2ced73793057f8a73e
+%global git_date     20211128
+%global git_commit   0cbfd4745767a8ff5165e2924344ea7f4bf6a102
 %global short_commit %(c=%{git_commit}; echo ${c:0:7})
 
 Name:           kalendar
 Version:        0.2.1
-Release:        2.%{git_date}git%{short_commit}%{?dist}
+Release:        3.%{git_date}git%{short_commit}%{?dist}
 Summary:        A calendar application using Akonadi to sync with external services
 
 License:        LGPLv2+
@@ -90,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/org.kde.%{name
 
 
 %changelog
+* Sun Nov 28 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.2.1-3.20211128git0cbfd47
+- 2021-11-28, commit 0cbfd4745767a8ff5165e2924344ea7f4bf6a102
+
 * Sun Nov 21 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.2.1-2.20211121git79116ec
 - 2021-11-21, commit 79116ec8b5bc7f5738ec9f2ced73793057f8a73e
 
