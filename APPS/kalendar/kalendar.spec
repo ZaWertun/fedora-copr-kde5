@@ -102,24 +102,24 @@ sed -i 's|Exec=kalendar|Exec=env QML_DISABLE_DISK_CACHE=1 kalendar|' \
 
 
 %check
-desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.desktop
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
 %files
 %license LICENSES/*.txt
 %doc README.md
-%{_bindir}/%{name}
-%{_datadir}/applications/org.kde.%{name}.desktop
-%{_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
+%{_kf5_bindir}/%{name}
+%{_kf5_datadir}/applications/org.kde.%{name}.desktop
+%{_kf5_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 %files reminder-daemon
-%{_bindir}/%{name}ac
-%{_sysconfdir}/xdg/autostart/org.kde.%{name}ac.desktop
+%{_kf5_bindir}/%{name}ac
 %{_kf5_datadir}/knotifications5/%{name}ac.notifyrc
 %{_kf5_datadir}/dbus-1/services/org.kde.%{name}ac.service
+%{_kf5_sysconfdir}/xdg/autostart/org.kde.%{name}ac.desktop
 
 
 %changelog
