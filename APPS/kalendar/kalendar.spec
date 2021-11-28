@@ -11,38 +11,52 @@ License:        LGPLv2+
 URL:            https://invent.kde.org/pim/%{name}
 Source0:        https://invent.kde.org/pim/%{name}/-/archive/%{short_commit}/%{name}-%{short_commit}.tar.bz2
 
+## upstream patches
+
+## upstreamable patches
+Patch0:         find_package_kf5_service.patch
+
 BuildRequires:  gettext
 BuildRequires:  desktop-file-utils
 BuildRequires:  libappstream-glib
 
-%global kf5_min_version 5.86.0
+%global qt5_min_version     5.15.2
+%global kf5_min_version     5.86.0
+%global akonadi_min_version 5.18.0
 
-BuildRequires:  extra-cmake-modules >= %{kf5_min_version}
-BuildRequires:  kf5-rpm-macros      >= %{kf5_min_version}
+BuildRequires:  extra-cmake-modules       >= %{kf5_min_version}
+BuildRequires:  kf5-rpm-macros            >= %{kf5_min_version}
 
-BuildRequires:  cmake(Qt5Core)
-BuildRequires:  cmake(Qt5Gui)
-BuildRequires:  cmake(Qt5Qml)
-BuildRequires:  cmake(Qt5QuickControls2)
-BuildRequires:  cmake(Qt5Svg)
-BuildRequires:  cmake(Qt5Location)
+BuildRequires:  cmake(Qt5Core)            >= %{qt5_min_version}
+BuildRequires:  cmake(Qt5Gui)             >= %{qt5_min_version}
+BuildRequires:  cmake(Qt5Qml)             >= %{qt5_min_version}
+BuildRequires:  cmake(Qt5QuickControls2)  >= %{qt5_min_version}
+BuildRequires:  cmake(Qt5Svg)             >= %{qt5_min_version}
+BuildRequires:  cmake(Qt5Location)        >= %{qt5_min_version}
 
-BuildRequires:  cmake(KF5Kirigami2)     >= %{kf5_min_version}
-BuildRequires:  cmake(KF5I18n)          >= %{kf5_min_version}
-BuildRequires:  cmake(KF5CalendarCore)  >= %{kf5_min_version}
-BuildRequires:  cmake(KF5ConfigWidgets) >= %{kf5_min_version}
-BuildRequires:  cmake(KF5WindowSystem)  >= %{kf5_min_version}
-BuildRequires:  cmake(KF5CoreAddons)    >= %{kf5_min_version}
-BuildRequires:  cmake(KF5People)        >= %{kf5_min_version}
-BuildRequires:  cmake(KF5Contacts)      >= %{kf5_min_version}
-BuildRequires:  cmake(KF5ItemModels)    >= %{kf5_min_version}
-BuildRequires:  cmake(KF5XmlGui)        >= %{kf5_min_version}
+BuildRequires:  cmake(KF5CalendarCore)    >= %{kf5_min_version}
+BuildRequires:  cmake(KF5Completion)      >= %{kf5_min_version}
+BuildRequires:  cmake(KF5Config)          >= %{kf5_min_version}
+BuildRequires:  cmake(KF5ConfigWidgets)   >= %{kf5_min_version}
+BuildRequires:  cmake(KF5Contacts)        >= %{kf5_min_version}
+BuildRequires:  cmake(KF5CoreAddons)      >= %{kf5_min_version}
+BuildRequires:  cmake(KF5I18n)            >= %{kf5_min_version}
+BuildRequires:  cmake(KF5ItemModels)      >= %{kf5_min_version}
+BuildRequires:  cmake(KF5ItemViews)       >= %{kf5_min_version}
+BuildRequires:  cmake(KF5JobWidgets)      >= %{kf5_min_version}
+BuildRequires:  cmake(KF5KIO)             >= %{kf5_min_version}
+BuildRequires:  cmake(KF5Kirigami2)       >= %{kf5_min_version}
+BuildRequires:  cmake(KF5People)          >= %{kf5_min_version}
+BuildRequires:  cmake(KF5Service)         >= %{kf5_min_version}
+BuildRequires:  cmake(KF5Solid)           >= %{kf5_min_version}
+BuildRequires:  cmake(KF5WindowSystem)    >= %{kf5_min_version}
+BuildRequires:  cmake(KF5XmlGui)          >= %{kf5_min_version}
 
-BuildRequires:  cmake(KF5Akonadi)
-BuildRequires:  cmake(KF5AkonadiContact)
-BuildRequires:  cmake(KF5CalendarSupport)
-BuildRequires:  cmake(KF5EventViews)
-BuildRequires:  cmake(KF5GrantleeTheme)
+BuildRequires:  cmake(KF5Akonadi)         >= %{akonadi_min_version}
+BuildRequires:  cmake(KF5AkonadiContact)  >= %{akonadi_min_version}
+BuildRequires:  cmake(KF5CalendarSupport) >= %{akonadi_min_version}
+BuildRequires:  cmake(KF5EventViews)      >= %{akonadi_min_version}
+BuildRequires:  cmake(KF5GrantleeTheme)   >= %{akonadi_min_version}
 
 Requires:       akonadi-calendar-tools
 Requires:       kdepim-addons
@@ -51,14 +65,26 @@ Requires:       kf5-kirigami2
 Requires:       kf5-kirigami2-addons
 Requires:       kf5-kirigami2-addons-treeview
 
+Requires:       hicolor-icon-theme
+
+Requires:       %{name}-reminder-daemon = %{version}-%{release}
+
 %description
 Kalendar is a Kirigami-based calendar application that uses Akonadi. It lets
 you add, edit and delete events from local and remote accounts of your choice,
 while keeping changes syncronised across your Plasma desktop or phone.
 
+%package        reminder-daemon
+Summary:        Kalendar Reminder Daemon
+%description    reminder-daemon
+%{summary}.
+
+%description    reminder-daemon
+Kalendar Reminder Daemon.
+
 
 %prep
-%autosetup -n %{name}-%{short_commit}
+%autosetup -p1 -n %{name}-%{short_commit}
 
 
 %build
@@ -77,7 +103,7 @@ sed -i 's|Exec=kalendar|Exec=env QML_DISABLE_DISK_CACHE=1 kalendar|' \
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/org.kde.%{name}.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
 %files
@@ -86,7 +112,14 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/org.kde.%{name
 %{_bindir}/%{name}
 %{_datadir}/applications/org.kde.%{name}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
-%{_metainfodir}/org.kde.%{name}.appdata.xml
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
+%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
+
+%files reminder-daemon
+%{_bindir}/%{name}ac
+%{_sysconfdir}/xdg/autostart/org.kde.%{name}ac.desktop
+%{_kf5_datadir}/knotifications5/%{name}ac.notifyrc
+%{_kf5_datadir}/dbus-1/services/org.kde.%{name}ac.service
 
 
 %changelog
