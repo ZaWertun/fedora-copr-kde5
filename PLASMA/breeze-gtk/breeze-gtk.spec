@@ -1,6 +1,6 @@
 Name:    breeze-gtk
-Version: 5.23.3
-Release: 3%{?dist}
+Version: 5.23.4
+Release: 1%{?dist}
 Summary: Breeze widget theme for GTK
 
 License: GPLv2+
@@ -15,9 +15,6 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstreamable patches
-# Fix for bug 443626 - GTK toolbar buttons have outline;
-#  see: https://bugs.kde.org/show_bug.cgi?id=443626
-Patch0:  breeze-gtk-5.23.0-fix-toolbar-buttons-style.patch
 
 BuildArch:      noarch
 
@@ -111,6 +108,9 @@ Supplements:    (plasma-breeze and gtk4)
 
 
 %changelog
+* Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
+- 5.23.4
+
 * Thu Nov 18 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-3
 - updated breeze-gtk-5.23.0-fix-toolbar-buttons-style.patch
 

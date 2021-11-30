@@ -13,8 +13,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.23.3
-Release: 2%{?dist}
+Version: 5.23.4
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -763,6 +763,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
+- 5.23.4
+
 * Thu Nov 25 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-2
 - disabled default_lookandfeel, see bug #431219
 

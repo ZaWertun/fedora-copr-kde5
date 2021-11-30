@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdeplasma-addons
 Summary: Additional Plasmoids for Plasma 5
-Version: 5.23.3
+Version: 5.23.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -126,6 +126,9 @@ developing applications that use %{name}.
 %{_includedir}/plasma/potdprovider/*
 
 %changelog
+* Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
+- 5.23.4
+
 * Tue Nov 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-1
 - 5.23.3
 

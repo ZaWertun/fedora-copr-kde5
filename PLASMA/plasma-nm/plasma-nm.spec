@@ -4,8 +4,8 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.23.3
-Release: 2%{?dist}
+Version: 5.23.4
+Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -304,6 +304,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
+- 5.23.4
+
 * Sat Nov 20 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-2
 - rebuild
 
