@@ -1,10 +1,10 @@
-%global git_date     20211128
-%global git_commit   0cbfd4745767a8ff5165e2924344ea7f4bf6a102
+%global git_date     20211201
+%global git_commit   cbae6952de88034b148ce449f06083eace3521b5
 %global short_commit %(c=%{git_commit}; echo ${c:0:7})
 
 Name:           kalendar
-Version:        0.2.1
-Release:        3.%{git_date}git%{short_commit}%{?dist}
+Version:        0.3.0
+Release:        1%{?dist}
 Summary:        A calendar application using Akonadi to sync with external services
 
 License:        LGPLv2+
@@ -77,9 +77,6 @@ while keeping changes syncronised across your Plasma desktop or phone.
 %package        reminder-daemon
 Summary:        Kalendar Reminder Daemon
 %description    reminder-daemon
-%{summary}.
-
-%description    reminder-daemon
 Kalendar Reminder Daemon.
 
 
@@ -123,6 +120,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Wed Dec 01 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.0-1
+- version 0.3.0, commit cbae6952de88034b148ce449f06083eace3521b5
+
 * Sun Nov 28 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.2.1-3.20211128git0cbfd47
 - 2021-11-28, commit 0cbfd4745767a8ff5165e2924344ea7f4bf6a102
 
