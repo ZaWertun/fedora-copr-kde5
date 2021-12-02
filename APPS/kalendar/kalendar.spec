@@ -1,20 +1,17 @@
-%global git_date     20211201
-%global git_commit   cbae6952de88034b148ce449f06083eace3521b5
-%global short_commit %(c=%{git_commit}; echo ${c:0:7})
+%global commit cefdf26c2b7e07233e1a7a235254d9085c732f48
 
 Name:           kalendar
-Version:        0.3.0
+Version:        0.3.1
 Release:        1%{?dist}
 Summary:        A calendar application using Akonadi to sync with external services
 
 License:        LGPLv2+
 URL:            https://invent.kde.org/pim/%{name}
-Source0:        https://invent.kde.org/pim/%{name}/-/archive/%{short_commit}/%{name}-%{short_commit}.tar.bz2
+Source0:        https://invent.kde.org/pim/%{name}/-/archive/v%{version}/%{name}-v%{version}-%{commit}.tar.bz2
 
 ## upstream patches
 
 ## upstreamable patches
-Patch0:         find_package_kf5_service.patch
 
 BuildRequires:  gettext
 BuildRequires:  desktop-file-utils
@@ -47,7 +44,6 @@ BuildRequires:  cmake(KF5JobWidgets)      >= %{kf5_min_version}
 BuildRequires:  cmake(KF5KIO)             >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Kirigami2)       >= %{kf5_min_version}
 BuildRequires:  cmake(KF5People)          >= %{kf5_min_version}
-BuildRequires:  cmake(KF5Service)         >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Solid)           >= %{kf5_min_version}
 BuildRequires:  cmake(KF5WindowSystem)    >= %{kf5_min_version}
 BuildRequires:  cmake(KF5XmlGui)          >= %{kf5_min_version}
@@ -81,7 +77,7 @@ Kalendar Reminder Daemon.
 
 
 %prep
-%autosetup -p1 -n %{name}-%{short_commit}
+%autosetup -p1 -n %{name}-v%{version}-%{commit}
 
 
 %build
@@ -120,6 +116,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Dec 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.1-1
+- version 0.3.1
+
 * Wed Dec 01 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.0-1
 - version 0.3.0, commit cbae6952de88034b148ce449f06083eace3521b5
 
