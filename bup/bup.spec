@@ -1,6 +1,6 @@
 Name:           bup
 Version:        0.32
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Very efficient backup system based on the git packfile format
 
 License:        GPLv2
@@ -28,11 +28,13 @@ BuildRequires:  attr
 BuildRequires:  kmod
 BuildRequires:  rsync
 BuildRequires:  man-db
+BuildRequires:  par2cmdline
 BuildRequires:  python3-devel
 BuildRequires:  python3-pytest
 BuildRequires:  python3-pytest-xdist
 
 Requires:       git-core >= %{git_min_ver}
+Requires:       par2cmdline
 Requires:       python3
 Requires:       python3-fuse
 Requires:       python3-pylibacl
@@ -78,5 +80,8 @@ providing fast incremental saves and global deduplication
 
 
 %changelog
+* Tue Dec 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.32-2
+- added par2cmdline to Requires & BuildRequires
+
 * Tue Dec 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.32-1
 - first spec for version 0.32
