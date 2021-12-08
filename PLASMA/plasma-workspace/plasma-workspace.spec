@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.23.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -58,6 +58,7 @@ Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 
 ## upstreamable Patches
+Patch110:       plasma-workspace-5.23.4-fix-crash.patch
 
 ## upstream Patches (master branch)
 
@@ -439,6 +440,7 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
   shell/packageplugins/lookandfeel/lookandfeel.cpp
 %endif
 %patch105 -p1
+%patch110 -p1
 
 %if 0%{?fedora}	
 # Populate initial lookandfeel package
@@ -763,6 +765,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Dec 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-2
+- added plasma-workspace-5.23.4-fix-crash.patch
+
 * Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
 - 5.23.4
 
