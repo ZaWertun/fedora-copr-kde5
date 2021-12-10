@@ -11,7 +11,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -155,15 +155,20 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/plasma/services/org.kde.plasma.katesessions.operations
 
 %files plugins -f plugins.lang
+%{_kf5_qtplugindir}/ktexteditor/compilerexplorer.so
+%{_kf5_qtplugindir}/ktexteditor/externaltoolsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebacktracebrowserplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebuildplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katecloseexceptplugin.so
+%{_kf5_qtplugindir}/ktexteditor/katecolorpickerplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katectagsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katefilebrowserplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katefiletreeplugin.so
 %{_kf5_qtplugindir}/ktexteditor/kategdbplugin.so
+%{_kf5_qtplugindir}/ktexteditor/kategitblameplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katekonsoleplugin.so
 %{_kf5_qtplugindir}/ktexteditor/kateprojectplugin.so
+%{_kf5_qtplugindir}/ktexteditor/katereplicodeplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katesearchplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katesnippetsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katesqlplugin.so
@@ -171,13 +176,10 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/ktexteditor/katexmlcheckplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katexmltoolsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/ktexteditorpreviewplugin.so
-%{_kf5_qtplugindir}/ktexteditor/tabswitcherplugin.so
-%{_kf5_qtplugindir}/ktexteditor/katereplicodeplugin.so
-%{_kf5_qtplugindir}/ktexteditor/textfilterplugin.so
-%{_kf5_qtplugindir}/ktexteditor/externaltoolsplugin.so
+%{_kf5_qtplugindir}/ktexteditor/latexcompletionplugin.so
 %{_kf5_qtplugindir}/ktexteditor/lspclientplugin.so
-%{_kf5_qtplugindir}/ktexteditor/katecolorpickerplugin.so
-%{_kf5_qtplugindir}/ktexteditor/kategitblameplugin.so
+%{_kf5_qtplugindir}/ktexteditor/tabswitcherplugin.so
+%{_kf5_qtplugindir}/ktexteditor/textfilterplugin.so
 
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_katesessions.so
 %{_kf5_datadir}/kateproject/
@@ -191,6 +193,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

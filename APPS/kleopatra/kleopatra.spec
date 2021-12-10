@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kleopatra
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -65,8 +65,7 @@ Requires:       %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -88,8 +87,11 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 %{_kf5_datadir}/applications/org.kde.kleopatra.desktop
 %{_kf5_datadir}/applications/kleopatra_import.desktop
 %{_kf5_datadir}/kconf_update/*
-%{_kf5_datadir}/kservices5/kleopatra_*.desktop
-%{_kf5_datadir}/kservices5/ServiceMenus/kleopatra_*.desktop
+%{_kf5_datadir}/kio/servicemenus/kleopatra_decryptverifyfiles.desktop
+%{_kf5_datadir}/kio/servicemenus/kleopatra_decryptverifyfolders.desktop
+%{_kf5_datadir}/kio/servicemenus/kleopatra_signencryptfiles.desktop
+%{_kf5_datadir}/kio/servicemenus/kleopatra_signencryptfolders.desktop
+%{_kf5_datadir}/kservices5/kleopatra_config_gnupgsystem.desktop
 %{_kf5_datadir}/kleopatra/
 %{_kf5_datadir}/kwatchgnupg/
 %{_kf5_datadir}/icons/hicolor/*/apps/kleopatra.*
@@ -104,6 +106,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

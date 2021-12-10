@@ -6,7 +6,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        21.08.3
+Version:        21.12.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -47,6 +47,7 @@ BuildRequires:  cmake(KF5Service)
 BuildRequires:  cmake(KF5Wayland)
 BuildRequires:  cmake(KF5PeopleVCard)
 BuildRequires:  cmake(KF5QQC2DesktopStyle)
+BuildRequires:  cmake(KF5Package)
 
 %if 0%{?bluetooth}
 BuildRequires:  cmake(Qt5Bluetooth)
@@ -149,6 +150,7 @@ desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autosta
 
 
 %check
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.appdata.xml ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml ||:
 for i in %{buildroot}%{_datadir}/applications/org.kde.kdeconnect*.desktop ; do
 desktop-file-validate $i ||:
@@ -167,6 +169,7 @@ done
 %{_kf5_plugindir}/kio/kdeconnect.so
 %{_datadir}/icons/hicolor/*/apps/kdeconnect*
 %{_datadir}/icons/hicolor/*/status/{laptop,smartphone,tablet,tv}{connected,disconnected,trusted}.svg
+%{_kf5_metainfodir}/org.kde.kdeconnect.appdata.xml
 %{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/applications/org.kde.kdeconnect*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
@@ -212,6 +215,9 @@ fi
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

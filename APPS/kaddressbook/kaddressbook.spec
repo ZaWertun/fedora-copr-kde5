@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 %global bootstrap 1
 
@@ -11,7 +9,7 @@
 
 Name:    kaddressbook
 Summary: Contact Manager
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -50,6 +48,7 @@ BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5Prison)
 
 BuildRequires: cmake(Gpgmepp)
+BuildRequires: cmake(Grantlee5)
 
 # kde-apps
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -135,15 +134,12 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/kaddressbook-importer.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/kaddressbook.*
 %{_kf5_datadir}/kaddressbook/
-%{_kf5_datadir}/kconf_update/kaddressbook-15.08-kickoff.sh
-%{_kf5_datadir}/kconf_update/kaddressbook.upd
 %{_kf5_datadir}/kservices5/kaddressbook_config_plugins.desktop
 %if 0%{?with_kuserfeedback}
 %{_kf5_datadir}/kservices5/kaddressbook_config_userfeedback.desktop
 %endif
 # Kontact integration
 %{_kf5_datadir}/kservices5/kontact/kaddressbookplugin.desktop
-%{_kf5_datadir}/kontact/ksettingsdialog/kaddressbook.setdlg
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
@@ -171,6 +167,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

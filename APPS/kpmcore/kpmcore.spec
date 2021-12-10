@@ -1,7 +1,7 @@
 %global unstable 0
 
 Name:           kpmcore
-Version:        21.08.3
+Version:        21.12.0
 Release:        1%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
@@ -88,6 +88,9 @@ sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMak
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

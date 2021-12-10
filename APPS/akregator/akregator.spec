@@ -9,7 +9,7 @@
 
 Name:    akregator
 Summary: Feed Reader
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -133,12 +133,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/icons/hicolor/*/apps/akregator.*
 %{_kf5_datadir}/icons/hicolor/*/apps/akregator_empty.png
 %{_kf5_datadir}/akregator/
-%{_kf5_datadir}/kconf_update/akregator-15.08-kickoff.sh
-%{_kf5_datadir}/kconf_update/akregator.upd
 %{_datadir}/dbus-1/interfaces/org.kde.akregator.part.xml
 # Kontact integration
 %{_kf5_datadir}/kservices5/kontact/akregatorplugin.desktop
-%{_kf5_datadir}/kontact/ksettingsdialog/akregator.setdlg
 %{_kf5_datadir}/knotifications5/akregator.notifyrc
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -162,6 +159,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

@@ -9,7 +9,7 @@
 
 Name:    akonadiconsole
 Summary: Akonadi developer tool
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -67,6 +67,7 @@ BuildRequires:  kf5-libkleo-devel  >= %{majmin_ver}
 BuildRequires:  kf5-messagelib-devel  >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 BuildRequires:  cmake(KF5AkonadiSearch)
+BuildRequires:  cmake(Grantlee5)
 
 BuildRequires: pkgconfig(xapian-core)
 
@@ -117,16 +118,17 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %files
 %license LICENSES/*.txt
 %{_kf5_bindir}/akonadiconsole
-%{_kf5_datadir}/kconf_update/akonadiconsole.upd
 %{_kf5_datadir}/applications/org.kde.akonadiconsole.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/akonadiconsole.*
-%{_kf5_datadir}/kconf_update/akonadiconsole-15.08-kickoff.sh
 # -libs ?
 %{_kf5_libdir}/libakonadiconsole.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

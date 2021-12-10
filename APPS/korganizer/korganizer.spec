@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 %global bootstrap 1
 
@@ -9,7 +7,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -42,6 +40,7 @@ BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(Qt5Xml)
 BuildRequires: cmake(Qt5X11Extras)
+BuildRequires: cmake(Grantlee5)
 
 # kf5
 BuildRequires: extra-cmake-modules
@@ -153,7 +152,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/icons/hicolor/*/apps/quickview.*
 %{_kf5_datadir}/kservices5/korganizer_*.desktop
 # Kontact integration
-%{_kf5_datadir}/kontact/ksettingsdialog/*.setdlg
 %{_kf5_datadir}/kservices5/kontact/korganizerplugin.desktop
 %{_kf5_datadir}/kservices5/kontact/todoplugin.desktop
 %{_kf5_datadir}/kservices5/kontact/journalplugin.desktop
@@ -196,6 +194,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

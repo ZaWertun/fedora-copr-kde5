@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 %global bootstrap 1
 
@@ -9,7 +7,7 @@
 
 Name:    kalarm
 Summary: Personal Alarm Scheduler
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -63,6 +61,7 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5IdleTime)
 BuildRequires: cmake(KF5NotifyConfig)
+BuildRequires: cmake(Grantlee5)
 
 BuildRequires: pkgconfig(phonon4qt5)
 
@@ -132,7 +131,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_sysconfdir}/xdg/autostart/kalarm.autostart.desktop
 %{_kf5_datadir}/config.kcfg/kalarmconfig.kcfg
 %{_kf5_datadir}/kalarm/
-%{_kf5_datadir}/kconf_update/kalarm*
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kalarm.rtcwake.conf
 %{_datadir}/dbus-1/system-services/org.kde.kalarm.rtcwake.service
 %{_datadir}/polkit-1/actions/org.kde.kalarm.rtcwake.policy
@@ -144,6 +142,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

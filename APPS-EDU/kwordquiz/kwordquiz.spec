@@ -1,7 +1,6 @@
-%undefine __cmake_in_source_build
 Name:    kwordquiz
 Summary: Flash Card Trainer 
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -66,14 +65,12 @@ Conflicts: kdeedu < 4.7.0-10
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man --with-qt
 
 
@@ -83,7 +80,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %doc README
 %{_kf5_bindir}/%{name}
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
@@ -98,6 +95,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

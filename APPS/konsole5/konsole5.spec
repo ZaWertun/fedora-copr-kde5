@@ -11,7 +11,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -158,6 +158,8 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 %license COPYING*
 %config(noreplace) %{_kf5_sysconfdir}/xdg/konsolerc
 %{_kf5_datadir}/konsole/
+%{_kf5_libdir}/libkonsoleapp.so.1
+%{_kf5_libdir}/libkonsoleprivate.so.1
 %{_kf5_libdir}/libkonsoleprivate.so.%{maj_ver}*
 %{_kf5_qtplugindir}/konsolepart.so
 %{_kf5_qtplugindir}/konsoleplugins/konsole_sshmanagerplugin.so
@@ -165,6 +167,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

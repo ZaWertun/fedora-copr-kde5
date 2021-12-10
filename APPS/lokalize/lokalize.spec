@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    lokalize
 Summary: Computer-aided translation system
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -85,8 +85,7 @@ Computer-aided translation system focusing on productivity and performance
 %build
 sed -i 's|set(QT_MIN_VERSION "5.14.0")|set(QT_MIN_VERSION "5.13.0")|' CMakeLists.txt
 
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -109,7 +108,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/%{name}
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
@@ -122,6 +121,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

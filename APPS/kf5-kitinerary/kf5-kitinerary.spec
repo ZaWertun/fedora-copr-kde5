@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
@@ -28,6 +28,9 @@ BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  shared-mime-info
 BuildRequires:  cmake(KF5I18n)
+
+BuildRequires:  qt5-qtbase-private-devel
+%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 # kde-pim pkgs
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -50,6 +53,10 @@ BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(poppler)
 BuildRequires:  pkgconfig(zlib)
+BuildRequires:  pkgconfig(openssl) >= 1.1
+BuildRequires:  pkgconfig(protobuf)
+
+BuildRequires:  libphonenumber-devel
 # TODO: https://github.com/glassechidna/zxing-cpp
 #BuildRequires:  zxing-cpp-devel
 
@@ -118,6 +125,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

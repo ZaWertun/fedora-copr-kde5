@@ -5,7 +5,7 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -102,8 +102,7 @@ Provides: ark-part%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -122,7 +121,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/ark
 %{_kf5_datadir}/config.kcfg/ark.kcfg
 %{_kf5_metainfodir}/org.kde.ark.appdata.xml
@@ -145,6 +144,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

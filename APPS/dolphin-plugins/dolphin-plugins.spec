@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    dolphin-plugins
 Summary: Dolphin plugins for revision control systems
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -77,6 +77,9 @@ systems:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

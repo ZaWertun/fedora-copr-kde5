@@ -2,7 +2,7 @@
 Name:    gwenview 
 Summary: An image viewer
 Epoch:   1
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -22,7 +22,6 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 ## upstream patches (master branch)
 
 ## upstreamable patches
-Patch0:        gwenview-21.08.1-add-sony-raw-type.patch
 Patch1:        gwenview-21.08.1-fix-opening-raw-files.patch
 
 BuildRequires: desktop-file-utils
@@ -33,10 +32,8 @@ BuildRequires: kf5-baloo-devel
 BuildRequires: kf5-kactivities-devel
 BuildRequires: kf5-kdelibs4support-devel
 BuildRequires: kf5-kio-devel
-#if "%{?copr_projectname}" == "digikam"
 BuildRequires: kf5-libkdcraw-devel
 BuildRequires: kf5-libkipi-devel
-#endif
 BuildRequires: libappstream-glib
 BuildRequires: libjpeg-devel
 BuildRequires: pkgconfig(exiv2)
@@ -77,8 +74,7 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -115,6 +111,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.3-1
 - 21.08.3
 

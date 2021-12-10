@@ -12,7 +12,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -175,7 +175,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %doc AUTHORS ChangeLog
 %{_kf5_sysconfdir}/xdg/konqsidebartngrc
 %{_kf5_bindir}/fsview
@@ -210,6 +210,16 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_libdir}/lib*.so.*
 %{_kf5_libdir}/libkdeinit5*.so
 %{_kf5_libdir}/libkonqsidebarplugin.so
+%dir %{_kf5_qtplugindir}/konqueror_kcms/
+%{_kf5_qtplugindir}/konqueror_kcms/kcm_bookmarks.so
+%{_kf5_qtplugindir}/konqueror_kcms/kcm_history.so
+%{_kf5_qtplugindir}/konqueror_kcms/kcm_konq.so
+%{_kf5_qtplugindir}/konqueror_kcms/kcm_performance.so
+%{_kf5_qtplugindir}/konqueror_kcms/khtml_appearance.so
+%{_kf5_qtplugindir}/konqueror_kcms/khtml_behavior.so
+%{_kf5_qtplugindir}/konqueror_kcms/khtml_filter.so
+%{_kf5_qtplugindir}/konqueror_kcms/khtml_general.so
+%{_kf5_qtplugindir}/konqueror_kcms/khtml_java_js.so
 %{_kf5_qtplugindir}/*.so
 %{_kf5_plugindir}/kfileitemaction/akregatorplugin.so
 %dir %{_kf5_plugindir}/parts/
@@ -234,6 +244,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

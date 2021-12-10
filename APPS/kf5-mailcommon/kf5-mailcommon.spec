@@ -2,7 +2,7 @@
 %global framework mailcommon
 
 Name:    kf5-%{framework}
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: Mail applications support library
 
@@ -46,6 +46,7 @@ BuildRequires:  cmake(KF5WidgetsAddons)
 BuildRequires:  cmake(KF5WindowSystem)
 BuildRequires:  cmake(KF5XmlGui)
 BuildRequires:  cmake(KF5SyntaxHighlighting)
+BuildRequires:  cmake(Grantlee5)
 
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
@@ -115,6 +116,9 @@ Requires:       cmake(KF5PimCommon)
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

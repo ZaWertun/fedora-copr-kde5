@@ -2,7 +2,7 @@
 
 Name:    krfb
 Summary: Desktop sharing
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -34,8 +34,14 @@ BuildRequires: kf5-kxmlgui-devel
 
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
-BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(Qt5WaylandClient)
+BuildRequires: cmake(Qt5XkbCommonSupport)
 
+BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(KF5Wayland)
+BuildRequires: cmake(PlasmaWaylandProtocols)
+
+BuildRequires: qt5-qtbase-static
 BuildRequires: pkgconfig(libvncserver)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
@@ -46,7 +52,7 @@ BuildRequires: pkgconfig(xcb-shape)
 BuildRequires: pkgconfig(xcb-shm)
 BuildRequires: pkgconfig(xcb-xfixes)
 BuildRequires: pkgconfig(xdamage)
-
+BuildRequires: pkgconfig(wayland-client)
 
 BuildRequires: pkgconfig(xtst)
 BuildRequires: libjpeg-devel
@@ -81,8 +87,7 @@ Provides:  kdenetwork-krfb-libs = 7:%{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -94,14 +99,17 @@ Provides:  kdenetwork-krfb-libs = 7:%{version}-%{release}
 
 %check
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.desktop
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.virtualmonitor.desktop
 
 
 %files -f %{name}.lang
 %license COPYING*
 %doc README AUTHORS
 %{_kf5_bindir}/krfb
+%{_kf5_bindir}/krfb-virtualmonitor
 %{_kf5_datadir}/krfb/
 %{_kf5_datadir}/applications/org.kde.krfb.desktop
+%{_kf5_datadir}/applications/org.kde.krfb.virtualmonitor.desktop
 %{_kf5_metainfodir}/org.kde.krfb.appdata.xml
 %{_kf5_datadir}/kservicetypes5/krfb-framebuffer.desktop
 %{_datadir}/icons/hicolor/*/apps/krfb.*
@@ -116,6 +124,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.desk
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

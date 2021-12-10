@@ -2,7 +2,7 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -127,7 +127,6 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 %{_kf5_qtplugindir}/messageviewer/grantlee/5.0/messageviewer_grantlee_extension.so
 %{_kf5_datadir}/libmessageviewer/
 %{_kf5_datadir}/messageviewer/
-%{_kf5_datadir}/kconf_update/messageviewer.upd
 %{_kf5_datadir}/knotifications5/messageviewer.notifyrc
 %{_kf5_libdir}/libKF5MimeTreeParser.so.*
 %{_kf5_libdir}/libKF5TemplateParser.so.*
@@ -191,6 +190,9 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

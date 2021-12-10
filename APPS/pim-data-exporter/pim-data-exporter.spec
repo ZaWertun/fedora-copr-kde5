@@ -9,7 +9,7 @@
 
 Name:    pim-data-exporter
 Summary: Pim Data Exporter
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -44,6 +44,7 @@ BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5AkonadiNotes)
+BuildRequires: cmake(Grantlee5)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
@@ -112,7 +113,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/*.desktop
 %{_kf5_metainfodir}/*.appdata.xml
 %{_kf5_datadir}/config.kcfg/*.kcfg
-%{_kf5_datadir}/kconf_update/pimsettingexporter*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
@@ -122,6 +122,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

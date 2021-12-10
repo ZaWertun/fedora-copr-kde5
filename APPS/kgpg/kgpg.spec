@@ -2,7 +2,7 @@
 
 Name:    kgpg
 Summary: Manage GPG encryption keys 
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -47,6 +47,7 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5AkonadiContact)
 BuildRequires: cmake(KF5GrantleeTheme)
 BuildRequires: cmake(KF5Contacts)
+BuildRequires: cmake(Grantlee5)
 
 # support kde4 servicemenus too
 BuildRequires: kde-filesystem
@@ -121,6 +122,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

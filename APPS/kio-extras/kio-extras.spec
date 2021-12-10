@@ -8,7 +8,7 @@
 %endif
 
 Name:    kio-extras
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -118,7 +118,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
 
 %cmake_build
@@ -126,7 +126,6 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -149,11 +148,11 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kded/recentdocumentsnotifier.so
 %dir %{_kf5_plugindir}/kio/
 %dir %{_kf5_plugindir}/kiod/
+%{_kf5_plugindir}/kio/kio_filenamesearch.so
 %{_kf5_plugindir}/kio/about.so
 %{_kf5_plugindir}/kio/activities.so
 %{_kf5_plugindir}/kio/archive.so
 %{_kf5_plugindir}/kio/bookmarks.so
-%{_kf5_plugindir}/kio/filenamesearch.so
 %{_kf5_plugindir}/kio/filter.so
 %{_kf5_plugindir}/kio/fish.so
 %{_kf5_plugindir}/kio/man.so
@@ -161,7 +160,6 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kio/mtp.so
 %{_kf5_plugindir}/kio/nfs.so
 %{_kf5_plugindir}/kio/recentdocuments.so
-%{_kf5_plugindir}/kio/settings.so
 %{_kf5_plugindir}/kio/sftp.so
 %{_kf5_plugindir}/kio/smb.so
 %{_kf5_plugindir}/kio/thumbnail.so
@@ -212,6 +210,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-filetransfer-handler
 Summary: Telepathy file transfer handler
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -64,6 +64,9 @@ Telepathy-KDE file transfer handler. It basically does two thigs:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

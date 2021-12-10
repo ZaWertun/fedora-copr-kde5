@@ -7,7 +7,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -148,7 +148,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files libs
 %{_kf5_libdir}/libdolphinprivate.so.*
 %{_kf5_libdir}/libdolphinvcs.so.*
-%{_kf5_qtplugindir}/kcm_*.so
+%{_kf5_qtplugindir}/dolphin/kcms/libkcm_dolphingeneral.so
+%{_kf5_qtplugindir}/dolphin/kcms/libkcm_dolphinnavigation.so
+%{_kf5_qtplugindir}/dolphin/kcms/libkcm_dolphinviewmodes.so
 %{_kf5_plugindir}/parts/%{name}part.so
 %{_kf5_datadir}/kservices5/dolphinpart.desktop
 
@@ -161,6 +163,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdf
 Summary: View disk usage
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -49,8 +49,7 @@ free space, type and mount point.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -67,7 +66,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/*kdf.desktop ||:
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%license COPYING
+%license LICENSES/*.txt
 %{_kf5_bindir}/kdf
 %{_kf5_datadir}/qlogging-categories5/%{name}*
 %{_kf5_datadir}/icons/hicolor/*/apps/*
@@ -82,6 +81,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/*kdf.desktop ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

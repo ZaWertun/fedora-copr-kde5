@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 # workaround for bz#1546230
 # ocaml doesn't support relocation
 %undefine _hardened_build
@@ -16,7 +15,7 @@
 
 Name:    kalzium
 Summary: Periodic Table of Elements
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -103,14 +102,12 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man
 
 
@@ -123,7 +120,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/kalzium
 %{_kf5_datadir}/kalzium/
 %{_kf5_metainfodir}/org.kde.kalzium.appdata.xml
@@ -155,6 +152,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

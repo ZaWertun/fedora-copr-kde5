@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kmousetool
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: A program that clicks the mouse for you
 
@@ -46,8 +46,7 @@ A program for people whom it hurts to click the mouse.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -64,7 +63,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog README TODO
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_bindir}/kmousetool
 %{_kf5_datadir}/kmousetool/
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
@@ -74,6 +73,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

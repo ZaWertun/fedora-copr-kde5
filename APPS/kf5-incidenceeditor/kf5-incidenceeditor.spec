@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework incidenceeditor
 
 Name:    kf5-%{framework}
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: KDE PIM library for creating and editing calendar incidences
 
@@ -42,6 +41,7 @@ BuildRequires:  cmake(KF5Libkdepim)
 BuildRequires:  cmake(KF5CalendarUtils)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5MailTransport)
+BuildRequires:  cmake(Grantlee5)
 
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
@@ -81,14 +81,12 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -109,6 +107,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

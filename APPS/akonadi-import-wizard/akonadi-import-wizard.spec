@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 %global bootstrap 1
 
@@ -9,7 +7,7 @@
 
 Name:    akonadi-import-wizard
 Summary: Akonadi Import Wizard
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -42,6 +40,7 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5Wallet)
+BuildRequires: cmake(Grantlee5)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
@@ -111,7 +110,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/org.kde.akonadiimportwizard.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/kontact-import-wizard.*
 %{_kf5_datadir}/importwizard/
-%{_kf5_datadir}/kconf_update/importwizard*
 # -libs?
 %{_kf5_libdir}/libKPimImportWizard.so.5*
 %{_kf5_qtplugindir}/importwizard/
@@ -128,6 +126,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_includedir}/KPim/importwizard/
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

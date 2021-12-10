@@ -9,7 +9,7 @@
 
 Name:    pim-sieve-editor
 Summary: Sieve Editor
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -82,7 +82,6 @@ on a mail server.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -101,8 +100,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_bindir}/sieveeditor
-%{_kf5_datadir}/kconf_update/sieveeditor-15.08-kickoff.sh
-%{_kf5_datadir}/kconf_update/sieveeditor.upd
 %{_kf5_datadir}/applications/org.kde.sieveeditor.desktop
 %{_kf5_metainfodir}/org.kde.sieveeditor.appdata.xml
 %{_kf5_datadir}/config.kcfg/sieveeditorglobalconfig.kcfg
@@ -112,6 +109,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

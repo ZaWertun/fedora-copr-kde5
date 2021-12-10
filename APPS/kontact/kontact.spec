@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 %global bootstrap 1
 
@@ -9,7 +7,7 @@
 
 Name:    kontact
 Summary: Personal Information Manager
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -45,6 +43,7 @@ BuildRequires: cmake(KF5KCMUtils)
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5IconThemes)
+BuildRequires: cmake(Grantlee5)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -115,7 +114,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_metainfodir}/org.kde.kontact.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kontact.desktop
 %{_kf5_datadir}/config.kcfg/kontact.kcfg
-%{_kf5_datadir}/kconf_update/kontact*
 %{_kf5_datadir}/kservices5/kontactconfig.desktop
 %{_kf5_datadir}/messageviewer/about/default/introduction_kontact.html
 %{_kf5_datadir}/messageviewer/about/default/loading_kontact.html
@@ -127,10 +125,13 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files libs
 %{_kf5_libdir}/libkontactprivate.so.*
-%{_qt5_plugindir}/kcm_kontact.so
+%{_kf5_qtplugindir}/pim/kcms/kontact/kcm_kontact.so
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

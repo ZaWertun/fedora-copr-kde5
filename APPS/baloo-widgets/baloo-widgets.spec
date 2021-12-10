@@ -2,7 +2,7 @@
 
 Name:    baloo-widgets
 Summary: Widgets for Baloo
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
@@ -54,8 +54,7 @@ Requires: kf5-kio-devel
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -71,9 +70,8 @@ Requires: kf5-kio-devel
 %doc COPYING.LIB
 %{_kf5_libdir}/libKF5BalooWidgets.so.*
 %{_kf5_bindir}/baloo_filemetadata_temp_extractor
-%{_kf5_qtplugindir}/baloofilepropertiesplugin.so
+%{_kf5_plugindir}/propertiesdialog/baloofilepropertiesplugin.so
 %{_kf5_qtplugindir}/kf5/kfileitemaction/tagsfileitemaction.so
-%{_kf5_datadir}/kservices5/baloofilepropertiesplugin.desktop
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 %files devel
@@ -83,6 +81,9 @@ Requires: kf5-kio-devel
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

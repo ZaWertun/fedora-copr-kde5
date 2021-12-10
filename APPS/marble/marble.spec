@@ -1,12 +1,11 @@
-%undefine __cmake_in_source_build
-
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 %global maj_ver %(echo %{version} | cut -d. -f1)
+%global min_ver %(echo %{version} | cut -d. -f2)
 
 License: LGPLv2+
 URL:     http://edu.kde.org/marble/
@@ -218,12 +217,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %ldconfig_scriptlets astro
 
 %files astro
-%{_kde4_libdir}/libastro.so.1*
-%{_kde4_libdir}/libastro.so.0.*
+%{_kf5_libdir}/libastro.so.1*
+%{_kf5_libdir}/libastro.so.%{maj_ver}.%{min_ver}.0
 
 %files astro-devel
 %{_includedir}/astro/
-%{_kde4_libdir}/libastro.so
+%{_kf5_libdir}/libastro.so
 %dir %{_libdir}/cmake/
 %{_libdir}/cmake/Astro/
 
@@ -252,6 +251,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.3-1
 - 21.08.3
 

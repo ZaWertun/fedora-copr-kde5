@@ -1,11 +1,10 @@
-%undefine __cmake_in_source_build
 %if 0%{?fedora} >= 32
 # Qt >= 5.14 needed
 %global with_markdown 1
 %endif
 
 Name:    kdepim-addons
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -107,15 +106,13 @@ Supplements:    korganizer
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DKDEPIMADDONS_BUILD_EXAMPLES:BOOL=FALSE
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -128,17 +125,22 @@ Supplements:    korganizer
 %{_kf5_libdir}/libkmaillanguagetool.so.5*
 %{_kf5_libdir}/libadblocklibprivate.so.5*
 %{_kf5_libdir}/libdkimverifyconfigure.so.5*
+%{_kf5_libdir}/libscamconfiguresettings.so.5*
 %{_kf5_libdir}/libfolderconfiguresettings.so.5*
 %{_kf5_libdir}/libkmailconfirmbeforedeleting.so.5*
 %{_kf5_libdir}/libkmailquicktextpluginprivate.so.5*
 %{_kf5_libdir}/libexpireaccounttrashfolderconfig.so.5*
+%{_kf5_qtplugindir}/korg_lunarphases.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents/
 %{_kf5_qtplugindir}/webengineviewer/urlinterceptor/webengineviewer_adblockplugin.so
 %{_kf5_qtplugindir}/webengineviewer/urlinterceptor/webengineviewer_donottrackplugin.so
+%{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_scamconfiguresettingsplugin.so
 %{_kf5_datadir}/kconf_update/*.upd
-%{_kf5_qmldir}/org/kde/plasma/PimCalendars/
+%{_kf5_datadir}/icons/hicolor/scalable/status/moon-phase-*.svg
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_qmldir}/org/kde/plasma/PimCalendars/
+%{_kf5_datadir}/kservices5/korganizer/lunarphases.desktop
 
 # TODO: Split to per-app subpackages?
 # KAddressBook
@@ -256,6 +258,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

@@ -11,7 +11,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -96,6 +96,7 @@ BuildRequires:  kf5-kdav-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
+BuildRequires:  cmake(Grantlee5)
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1662756
 Requires: libkgapi%{?_isa} >= %{majmin_ver}
@@ -144,15 +145,13 @@ Requires: kf5-akonadi-server%{?_isa} >= %{version}
 %build
 sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' CMakeLists.txt
 
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 # unpackaged files
@@ -192,12 +191,14 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libkmindexreader.so.5*
 %{_kf5_libdir}/libmaildir.so.5*
 %{_kf5_plugindir}/kio/akonadi.so
-%{_kf5_plugindir}/kio/pop3.so
 %{_kf5_qtplugindir}/akonadi/config/*.so
 %{_kf5_qtplugindir}/pim/kcms/kaddressbook/kcm_ldap.so
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.08.3-1
 - 21.08.3
 

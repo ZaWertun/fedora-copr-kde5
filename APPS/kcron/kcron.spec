@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kcron
 Summary: Cron KDE configuration module
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -39,8 +39,7 @@ Systemsettings module for the cron task scheduler.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -54,12 +53,19 @@ Systemsettings module for the cron task scheduler.
 %license LICENSES/*.txt
 %doc README
 %{_kf5_qtplugindir}/kcm_cron.so
+%{_kf5_libexecdir}/kauth/kcron_helper
 %{_kf5_datadir}/kservices5/kcm_cron.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_datadir}/polkit-1/actions/local.kcron.crontab.policy
+%{_kf5_datadir}/dbus-1/system.d/local.kcron.crontab.conf
+%{_kf5_datadir}/dbus-1/system-services/local.kcron.crontab.service
 %{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 

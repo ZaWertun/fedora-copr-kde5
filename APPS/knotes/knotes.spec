@@ -9,7 +9,7 @@
 
 Name:    knotes
 Summary: Popup notes
-Version: 21.08.3
+Version: 21.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -142,7 +142,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/akonadi/agents/notesagent.desktop
 %{_kf5_datadir}/config.kcfg/notesagentsettings.kcfg
 %{_kf5_datadir}/knotes/
-%{_kf5_datadir}/kontact/ksettingsdialog/knotes.setdlg
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/config.kcfg/knotesglobalconfig.kcfg
 %{_kf5_datadir}/kservices5/kontact/knotesplugin.desktop
@@ -154,8 +153,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kservices5/kcm_knote_misc.desktop
 %{_kf5_datadir}/kservices5/kcm_knote_network.desktop
 %{_kf5_datadir}/kservices5/kcm_knote_print.desktop
-%{_kf5_datadir}/kconf_update/knotes-15.08-kickoff.sh
-%{_kf5_datadir}/kconf_update/knotes.upd
 %{_kf5_datadir}/knotifications5/akonadi_notes_agent.notifyrc
 %{_kf5_datadir}/kxmlgui5/knotes/
 %{_kf5_datadir}/knsrcfiles/*.knsrc
@@ -178,6 +175,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
+- 21.12.0
+
 * Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
 - 21.08.3
 
