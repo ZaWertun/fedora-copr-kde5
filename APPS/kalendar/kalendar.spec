@@ -2,7 +2,7 @@
 
 Name:           kalendar
 Version:        0.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A calendar application using Akonadi to sync with external services
 
 License:        LGPLv2+
@@ -53,6 +53,8 @@ BuildRequires:  cmake(KF5AkonadiContact)  >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5CalendarSupport) >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5EventViews)      >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5GrantleeTheme)   >= %{akonadi_min_version}
+
+BuildRequires:  cmake(Grantlee5)
 
 Requires:       akonadi-calendar-tools
 Requires:       kdepim-addons
@@ -116,6 +118,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Sat Dec 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.1-2
+- rebuild
+
 * Thu Dec 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.1-1
 - version 0.3.1
 
