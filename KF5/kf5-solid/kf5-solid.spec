@@ -1,7 +1,7 @@
 %global framework solid
 
 Name:    kf5-%{framework}
-Version: 5.88.0
+Version: 5.89.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module that provides hardware information
 
@@ -109,6 +109,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Dec 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.89.0-1
+- 5.89.0
+
 * Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
 - 5.88.0
 

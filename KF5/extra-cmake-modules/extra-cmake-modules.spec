@@ -8,7 +8,7 @@
 
 Name:    extra-cmake-modules
 Summary: Additional modules for CMake build system
-Version: 5.88.0
+Version: 5.89.0
 Release: 1%{?dist}
 
 License: BSD
@@ -41,7 +41,7 @@ BuildRequires: python2-PyQt5-devel
 # do not unconditionally link in base/core libpoppler library
 Patch2: extra-cmake-modules-5.39.0-poppler_overlinking.patch
 # https://bugzilla.redhat.com/1435525
-Patch3: extra-cmake-modules-5.47.0-qt_prefix.patch
+Patch3: extra-cmake-modules-5.89.0-qt_prefix.patch
 
 BuildRequires: kf5-rpm-macros
 %if 0%{?docs}
@@ -126,6 +126,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Dec 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.89.0-1
+- 5.89.0
+
 * Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
 - 5.88.0
 
