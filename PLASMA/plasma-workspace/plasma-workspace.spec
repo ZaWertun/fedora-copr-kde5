@@ -14,7 +14,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.23.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -236,6 +236,8 @@ Requires:       coreutils
 Requires:       socat
 Requires:       xmessage
 Requires:       qt5-qttools
+# start with soft dep -- rdieter
+Recommends:     xdg-desktop-portal-kde >= %{majmin_ver}
 
 Requires:       iceauth xrdb xprop
 
@@ -765,6 +767,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu Dec 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-3
+- upstream changes merged
+
 * Wed Dec 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-2
 - added plasma-workspace-5.23.4-fix-crash.patch
 
