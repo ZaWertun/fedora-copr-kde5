@@ -2,7 +2,7 @@
 Name:    ktp-accounts-kcm
 Summary: KDE Configuration Module for Telepathy Instant Messaging Accounts
 Version: 21.12.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -68,7 +68,7 @@ Recommends:       telepathy-haze
 ## irc
 #Requires: telepathy-idle
 ## audio calls
-Requires:       telepathy-rakia >= 0.7.4
+#Requires:       telepathy-rakia >= 0.7.4
 ## local xmpp
 Requires:       telepathy-salut
 ## gadu/gadu
@@ -115,6 +115,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libktpaccountskcminternal.so
 
 
 %changelog
+* Fri Dec 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-2
+- dropped telepathy-rakia dependency
+
 * Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
 - 21.12.0
 
