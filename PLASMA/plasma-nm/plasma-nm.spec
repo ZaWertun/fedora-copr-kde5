@@ -1,10 +1,8 @@
-%undefine __cmake_in_source_build
-
 %global kf5_version 5.58.0
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.23.4
+Version: 5.23.5
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -199,7 +197,7 @@ Requires:       NetworkManager-iodine
 
 
 %build
-%{cmake_kf5}
+%cmake_kf5
 %cmake_build
 
 
@@ -248,6 +246,7 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 #{_datadir}/plasma/updates/*.js
 # plasma-nm notifications
 %{_kf5_datadir}/knotifications5/networkmanagement.notifyrc
+%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.networkmanagement.desktop
 # plasma-nm kded
 %{_kf5_plugindir}/kded/networkmanagement.so
 # appdata
@@ -304,6 +303,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
+- 5.23.5
+
 * Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
 - 5.23.4
 

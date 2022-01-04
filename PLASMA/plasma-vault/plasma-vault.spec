@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global base_name    plasma-vault
 
 Name:    plasma-vault
 Summary: Plasma Vault offers strong encryption features in a user-friendly way
-Version: 5.23.4
+Version: 5.23.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -43,8 +42,7 @@ prying eyes even when the user is logged in.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -57,14 +55,18 @@ prying eyes even when the user is logged in.
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_plugindir}/kded/plasmavault.so
+%{_kf5_plugindir}/kfileitemaction/*.so
 %dir %{_qt5_plugindir}/plasma/applets/
 %{_qt5_plugindir}/plasma/applets/plasma_applet_vault.so
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.vault/
+%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.vault.desktop
 %{_kf5_metainfodir}/org.kde.plasma.vault.appdata.xml
-%{_kf5_plugindir}/kfileitemaction/*.so
 
 
 %changelog
+* Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
+- 5.23.5
+
 * Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
 - 5.23.4
 
