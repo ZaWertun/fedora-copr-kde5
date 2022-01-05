@@ -441,7 +441,6 @@ sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfee
   shell/packageplugins/lookandfeel/lookandfeel.cpp
 %endif
 %patch105 -p1
-%patch110 -p1
 
 %if 0%{?fedora}	
 # Populate initial lookandfeel package
