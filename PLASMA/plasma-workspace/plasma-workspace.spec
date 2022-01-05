@@ -58,7 +58,6 @@ Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 
 ## upstreamable Patches
-Patch110:       plasma-workspace-5.23.4-fix-crash.patch
 
 ## upstream Patches (master branch)
 
