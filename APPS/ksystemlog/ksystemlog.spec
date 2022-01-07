@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ksystemlog
 Summary: System Log Viewer for KDE
-Version: 21.12.0
+Version: 21.12.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -79,6 +79,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
+- 21.12.1
+
 * Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
 - 21.12.0
 

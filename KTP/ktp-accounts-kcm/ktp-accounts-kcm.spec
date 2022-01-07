@@ -1,8 +1,8 @@
 %undefine __cmake_in_source_build
 Name:    ktp-accounts-kcm
 Summary: KDE Configuration Module for Telepathy Instant Messaging Accounts
-Version: 21.12.0
-Release: 2%{?dist}
+Version: 21.12.1
+Release: 1%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -115,6 +115,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libktpaccountskcminternal.so
 
 
 %changelog
+* Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
+- 21.12.1
+
 * Fri Dec 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-2
 - dropped telepathy-rakia dependency
 

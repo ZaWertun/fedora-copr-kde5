@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kaccounts-providers
-Version: 21.12.0
+Version: 21.12.1
 Release: 1%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
@@ -70,6 +70,9 @@ Obsoletes: kaccounts-providers < 15.12.0
 
 
 %changelog
+* Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
+- 21.12.1
+
 * Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
 - 21.12.0
 

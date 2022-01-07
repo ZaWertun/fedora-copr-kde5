@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global  base_name print-manager
 
 Name:    kde-print-manager
 Summary: Printer management for KDE
-Version: 21.12.0
+Version: 21.12.1
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+
@@ -92,6 +91,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 %{_bindir}/configure-printer
 %{_kf5_qmldir}/org/kde/plasma/printmanager/
 %{_kf5_datadir}/kservices5/kcm_printer_manager.desktop
+%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.printmanager.desktop
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.printmanager/
 %{_kf5_datadir}/knotifications5/printmanager.notifyrc
 %{_kf5_datadir}/applications/org.kde.kde-add-printer.desktop
@@ -110,6 +110,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 
 
 %changelog
+* Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
+- 21.12.1
+
 * Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
 - 21.12.0
 

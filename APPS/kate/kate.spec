@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
@@ -11,7 +10,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 21.12.0
+Version: 21.12.1
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -119,7 +118,6 @@ Conflicts: kde-l10n < 17.03
 %install
 %cmake_install
 
-
 %find_lang all --all-name --with-html --with-man
 
 grep plugin all.lang > plugins.lang
@@ -146,6 +144,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/org.kde.kate.desktop
 %{_kf5_metainfodir}/org.kde.kate.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kate.*
+%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.katesessions.desktop
 %{_mandir}/man1/kate.1*
 
 # katesessions applet
@@ -180,6 +179,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/ktexteditor/lspclientplugin.so
 %{_kf5_qtplugindir}/ktexteditor/tabswitcherplugin.so
 %{_kf5_qtplugindir}/ktexteditor/textfilterplugin.so
+%{_kf5_qtplugindir}/ktexteditor/rainbowparens.so
 
 %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_katesessions.so
 %{_kf5_datadir}/kateproject/
@@ -193,6 +193,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
+- 21.12.1
+
 * Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
 - 21.12.0
 

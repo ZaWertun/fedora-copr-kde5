@@ -1,11 +1,12 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 21.12.0
+Version: 21.12.1
 Release: 1%{?dist}
 
 %global maj_ver %(echo %{version} | cut -d. -f1)
 %global min_ver %(echo %{version} | cut -d. -f2)
+%global patch_ver %(echo %{version} | cut -d. -f3)
 
 License: LGPLv2+
 URL:     http://edu.kde.org/marble/
@@ -201,6 +202,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_datadir}/kservices5/marble_thumbnail_kmz.desktop
 %{_datadir}/kservices5/marble_thumbnail_osm.desktop
 %{_datadir}/kservices5/marble_thumbnail_shp.desktop
+%{_datadir}/kservices5/plasma-applet-org.kde.plasma.worldclock.desktop
+%{_datadir}/kservices5/plasma-wallpaper-org.kde.plasma.worldmap.desktop
 %{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 
 %files common -f %{name}.lang
@@ -218,7 +221,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 %files astro
 %{_kf5_libdir}/libastro.so.1*
-%{_kf5_libdir}/libastro.so.%{maj_ver}.%{min_ver}.0
+%{_kf5_libdir}/libastro.so.%{maj_ver}.%{min_ver}.%{patch_ver}
 
 %files astro-devel
 %{_includedir}/astro/
@@ -251,6 +254,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.1-1
+- 21.12.1
+
 * Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.0-1
 - 21.12.0
 
