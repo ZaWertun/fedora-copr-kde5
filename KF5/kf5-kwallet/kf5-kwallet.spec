@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kwallet
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.89.0
+Version: 5.90.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for password management
 
@@ -85,7 +84,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 
 %cmake_build
@@ -93,7 +92,6 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-man
 
 
@@ -110,8 +108,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_datadir}/qlogging-categories5/%{framework}*
 %{_kf5_datadir}/dbus-1/services/org.kde.kwalletd5.service
 %{_kf5_bindir}/kwalletd5
+%{_kf5_datadir}/applications/org.kde.kwalletd5.desktop
 %{_kf5_datadir}/kservices5/kwalletd5.desktop
-%{_kf5_datadir}/knotifications5/kwalletd.notifyrc
+%{_kf5_datadir}/knotifications5/kwalletd5.notifyrc
 %{_kf5_bindir}/kwallet-query
 %{_mandir}/man1/kwallet-query.1*
 
@@ -132,6 +131,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
+- 5.90.0
+
 * Mon Dec 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.89.0-1
 - 5.89.0
 

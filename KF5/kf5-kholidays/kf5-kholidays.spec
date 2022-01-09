@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.89.0
+Version: 5.90.0
 Release: 1%{?dist}
 Summary: The KHolidays Library
 
@@ -95,6 +95,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.90.0-1
+- 5.90.0
+
 * Mon Dec 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.89.0-1
 - 5.89.0
 

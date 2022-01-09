@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework krunner
 
 Name:    kf5-%{framework}
-Version: 5.89.0
+Version: 5.90.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution with parallelized query system
 
@@ -56,8 +55,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -81,13 +79,15 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libKF5Runner.so
 %{_kf5_libdir}/cmake/KF5Runner/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KRunner.pri
-%dir %{_kf5_datadir}/kdevappwizard/
-%dir %{_kf5_datadir}/kdevappwizard/templates/
-%{_kf5_datadir}/kdevappwizard/templates/runner*
 %{_kf5_datadir}/dbus-1/interfaces/*
+%{_kf5_datadir}/kdevfiletemplates/templates/runner.tar.bz2
+%{_kf5_datadir}/kdevfiletemplates/templates/runnerpython.tar.bz2
 
 
 %changelog
+* Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
+- 5.90.0
+
 * Mon Dec 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.89.0-1
 - 5.89.0
 
