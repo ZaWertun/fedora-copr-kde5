@@ -23,6 +23,10 @@ Source0: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%
 
 ## upstreamable patches
 
+## downstream patches
+# Fix build for Fedora 34 (libQt5Qml.so.5: error adding symbols: DSO missing from command line)
+Patch1:  fix_fedora34_build.patch
+
 BuildRequires: boost-devel
 BuildRequires: cmake(Qca-qt5)
 BuildRequires: desktop-file-utils

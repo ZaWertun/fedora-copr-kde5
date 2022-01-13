@@ -1,0 +1,11 @@
+diff '--color=auto' -U3 -r ktorrent-21.12.1.orig/ktorrent/CMakeLists.txt ktorrent-21.12.1/ktorrent/CMakeLists.txt
+--- ktorrent-21.12.1.orig/ktorrent/CMakeLists.txt	2022-01-13 15:20:43.864658847 +0300
++++ ktorrent-21.12.1/ktorrent/CMakeLists.txt	2022-01-13 15:21:21.547573324 +0300
+@@ -102,6 +102,7 @@
+ 
+ target_link_libraries(ktorrent_app
+     ktcore
++    Qt5::Qml
+     KF5::Torrent
+     KF5::Crash
+     KF5::ConfigCore
