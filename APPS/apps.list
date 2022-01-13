@@ -75,6 +75,7 @@ kf5-libkipi
 kf5-libkleo
 kf5-libksane
 kf5-libksieve
+kf5-libktorrent
 kf5-mailcommon
 kf5-mailimporter
 kf5-messagelib
@@ -109,6 +110,7 @@ kruler
 ksystemlog
 kteatime
 ktimer
+ktorrent
 kwalletmanager5
 kwave
 libkdegames
