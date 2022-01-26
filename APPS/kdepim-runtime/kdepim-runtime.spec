@@ -12,7 +12,7 @@ Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
 Version: 21.12.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2
 URL:     https://cgit.kde.org/%{framework}.git
@@ -29,6 +29,9 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
 ## upstream patches
+
+## upstreamable patches
+Patch0:  kdepim-runtime-21.12.1-disable-google-contacts-sync.patch
 
 Obsoletes:      kdepim-apps-libs <= 20.08.3
 
@@ -196,6 +199,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Jan 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.1-2
+- added kdepim-runtime-21.12.1-disable-google-contacts-sync.patch
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.1-1
 - 21.12.1
 
