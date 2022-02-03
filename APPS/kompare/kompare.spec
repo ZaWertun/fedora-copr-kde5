@@ -2,7 +2,7 @@
 
 Name:    kompare
 Summary: Diff tool
-Version: 21.12.1
+Version: 21.12.2
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -116,6 +116,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 
 %changelog
+* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
+- 21.12.2
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
 - 21.12.1
 

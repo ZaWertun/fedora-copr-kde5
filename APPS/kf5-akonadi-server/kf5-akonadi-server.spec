@@ -22,7 +22,7 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 21.12.1
+Version: 21.12.2
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -304,6 +304,9 @@ fi
 
 
 %changelog
+* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
+- 21.12.2
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
 - 21.12.1
 

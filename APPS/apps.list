@@ -38,6 +38,9 @@ kde-partitionmanager
 kdepim-addons
 kdepim-runtime
 kde-print-manager
+kdevelop
+kdevelop-php
+kdevelop-python
 kdf
 kdialog
 kdnssd
@@ -127,3 +130,4 @@ spectacle
 svgpart
 sweeper
 yakuake
+zanshin

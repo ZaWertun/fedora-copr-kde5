@@ -1,0 +1,39 @@
+diff --git a/plugins/qmakemanager/qmakeconfig.cpp b/plugins/qmakemanager/qmakeconfig.cpp
+index 98dc77b..92f221a 100644
+--- a/plugins/qmakemanager/qmakeconfig.cpp
++++ b/plugins/qmakemanager/qmakeconfig.cpp
+@@ -82,15 +82,15 @@ QString QMakeConfig::qmakeExecutable(const IProject* project)
+             }
+         }
+     }
+-    if (exe.isEmpty()) {
+-        exe = QStandardPaths::findExecutable(QStringLiteral("qmake"));
+-    }
+     if (exe.isEmpty()) {
+         exe = QStandardPaths::findExecutable(QStringLiteral("qmake-qt5"));
+     }
+     if (exe.isEmpty()) {
+         exe = QStandardPaths::findExecutable(QStringLiteral("qmake-qt4"));
+     }
++    if (exe.isEmpty()) {
++        exe = QStandardPaths::findExecutable(QStringLiteral("qmake"));
++    }
+     Q_ASSERT(!exe.isEmpty());
+     return exe;
+ }
+diff --git a/plugins/qthelp/qthelpqtdoc.cpp b/plugins/qthelp/qthelpqtdoc.cpp
+index 8f9f8e1..6770e03 100644
+--- a/plugins/qthelp/qthelpqtdoc.cpp
++++ b/plugins/qthelp/qthelpqtdoc.cpp
+@@ -38,9 +38,9 @@ QString qmakeCandidate()
+ {
+     // return the first qmake executable we can find
+     const QStringList candidates {
+-        QStringLiteral("qmake"),
++        QStringLiteral("qmake-qt5"),
+         QStringLiteral("qmake-qt4"),
+-        QStringLiteral("qmake-qt5")
++        QStringLiteral("qmake")
+     };
+     auto it = std::find_if(candidates.constBegin(), candidates.constEnd(), [](const QString& candidate) {
+         return !QStandardPaths::findExecutable(candidate).isEmpty();

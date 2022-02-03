@@ -1,0 +1,162 @@
+diff -ur kdev-python-1.7.0-py3/documentation_files/__builtin_constants__.py kdev-python-1.7.0-py3-shebang/documentation_files/__builtin_constants__.py
+--- kdev-python-1.7.0-py3/documentation_files/__builtin_constants__.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/__builtin_constants__.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """
+ Built-in Constants
+diff -ur kdev-python-1.7.0-py3/documentation_files/__builtin__.py kdev-python-1.7.0-py3-shebang/documentation_files/__builtin__.py
+--- kdev-python-1.7.0-py3/documentation_files/__builtin__.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/__builtin__.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """
+ Built-in Functions
+diff -ur kdev-python-1.7.0-py3/documentation_files/__builtin_types__.py kdev-python-1.7.0-py3-shebang/documentation_files/__builtin_types__.py
+--- kdev-python-1.7.0-py3/documentation_files/__builtin_types__.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/__builtin_types__.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """
+ .. *************
+diff -ur kdev-python-1.7.0-py3/documentation_files/errno.py kdev-python-1.7.0-py3-shebang/documentation_files/errno.py
+--- kdev-python-1.7.0-py3/documentation_files/errno.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/errno.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Standard errno system symbols.
+ 
+diff -ur kdev-python-1.7.0-py3/documentation_files/exceptions.py kdev-python-1.7.0-py3-shebang/documentation_files/exceptions.py
+--- kdev-python-1.7.0-py3/documentation_files/exceptions.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/exceptions.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Standard exception classes.
+ 
+diff -ur kdev-python-1.7.0-py3/documentation_files/future_builtins.py kdev-python-1.7.0-py3-shebang/documentation_files/future_builtins.py
+--- kdev-python-1.7.0-py3/documentation_files/future_builtins.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/future_builtins.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """"""
+ def ascii(object):
+diff -ur kdev-python-1.7.0-py3/documentation_files/__future__.py kdev-python-1.7.0-py3-shebang/documentation_files/__future__.py
+--- kdev-python-1.7.0-py3/documentation_files/__future__.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/__future__.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Future statement definitions
+ 
+diff -ur kdev-python-1.7.0-py3/documentation_files/gc.py kdev-python-1.7.0-py3-shebang/documentation_files/gc.py
+--- kdev-python-1.7.0-py3/documentation_files/gc.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/gc.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Interface to the cycle-detecting garbage collector.
+ """
+diff -ur kdev-python-1.7.0-py3/documentation_files/imp.py kdev-python-1.7.0-py3-shebang/documentation_files/imp.py
+--- kdev-python-1.7.0-py3/documentation_files/imp.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/imp.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Access the implementation of the import statement.
+ 
+diff -ur kdev-python-1.7.0-py3/documentation_files/io.py kdev-python-1.7.0-py3-shebang/documentation_files/io.py
+--- kdev-python-1.7.0-py3/documentation_files/io.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/io.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Core tools for working with streams.
+ """
+diff -ur kdev-python-1.7.0-py3/documentation_files/marshal.py kdev-python-1.7.0-py3-shebang/documentation_files/marshal.py
+--- kdev-python-1.7.0-py3/documentation_files/marshal.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/marshal.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Convert Python objects to streams of bytes and back (with different
+ constraints).
+diff -ur kdev-python-1.7.0-py3/documentation_files/posix.py kdev-python-1.7.0-py3-shebang/documentation_files/posix.py
+--- kdev-python-1.7.0-py3/documentation_files/posix.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/posix.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:platform: Unix
+ :synopsis: The most common POSIX system calls (normally used via module os).
+diff -ur kdev-python-1.7.0-py3/documentation_files/pwd.py kdev-python-1.7.0-py3-shebang/documentation_files/pwd.py
+--- kdev-python-1.7.0-py3/documentation_files/pwd.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/pwd.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:platform: Unix
+ :synopsis: The password database (getpwnam() and friends).
+diff -ur kdev-python-1.7.0-py3/documentation_files/signal.py kdev-python-1.7.0-py3-shebang/documentation_files/signal.py
+--- kdev-python-1.7.0-py3/documentation_files/signal.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/signal.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Set handlers for asynchronous events.
+ 
+diff -ur kdev-python-1.7.0-py3/documentation_files/sys.py kdev-python-1.7.0-py3-shebang/documentation_files/sys.py
+--- kdev-python-1.7.0-py3/documentation_files/sys.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/sys.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Access system-specific parameters and functions.
+ 
+diff -ur kdev-python-1.7.0-py3/documentation_files/thread.py kdev-python-1.7.0-py3-shebang/documentation_files/thread.py
+--- kdev-python-1.7.0-py3/documentation_files/thread.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/thread.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: Create multiple threads of control within one interpreter.
+ 
+diff -ur kdev-python-1.7.0-py3/documentation_files/zipimport.py kdev-python-1.7.0-py3-shebang/documentation_files/zipimport.py
+--- kdev-python-1.7.0-py3/documentation_files/zipimport.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_files/zipimport.py	2014-09-27 02:53:00.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2.7
++#!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+ """:synopsis: support for importing Python modules from ZIP archives.
+ """
+diff -ur kdev-python-1.7.0-py3/documentation_src/introspection/introspect.py kdev-python-1.7.0-py3-shebang/documentation_src/introspection/introspect.py
+--- kdev-python-1.7.0-py3/documentation_src/introspection/introspect.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-shebang/documentation_src/introspection/introspect.py	2014-09-27 02:47:35.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ # -*- Coding:utf-8 -*-
+ 
+ # SPDX-FileCopyrightText: 2013 Sven Brauch <svenbrauch@googlemail.com>

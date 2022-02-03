@@ -6,7 +6,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        21.12.1
+Version:        21.12.2
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -215,6 +215,9 @@ fi
 
 
 %changelog
+* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
+- 21.12.2
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
 - 21.12.1
 

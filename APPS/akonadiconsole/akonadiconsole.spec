@@ -9,7 +9,7 @@
 
 Name:    akonadiconsole
 Summary: Akonadi developer tool
-Version: 21.12.1
+Version: 21.12.2
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -126,6 +126,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
+- 21.12.2
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
 - 21.12.1
 

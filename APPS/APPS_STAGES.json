@@ -76,6 +76,7 @@
     "kaccounts-providers",
     "kde-partitionmanager",
     "kdegraphics-thumbnailers",
+    "kdevelop",
     "kf5-akonadi-server",
     "kf5-kidentitymanagement",
     "kf5-kimap",
@@ -95,6 +96,8 @@
   ],
   "2": [
     "dolphin-plugins",
+    "kdevelop-php",
+    "kdevelop-python",
     "kf5-akonadi-mime",
     "kf5-akonadi-notes",
     "kf5-kcalendarutils",
@@ -120,7 +123,8 @@
     "kf5-libgravatar",
     "kf5-libksieve",
     "kf5-mailimporter",
-    "knotes"
+    "knotes",
+    "zanshin"
   ],
   "6": [
     "akonadi-calendar-tools",

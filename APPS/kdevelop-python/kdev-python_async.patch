@@ -1,0 +1,24 @@
+diff -rupN kdev-python-5.2.3/documentation_files/PyKDE4/kdecore.py kdev-python-5.2.3-new/documentation_files/PyKDE4/kdecore.py
+--- kdev-python-5.2.3/documentation_files/PyKDE4/kdecore.py	2018-05-17 20:38:20.000000000 +0200
++++ kdev-python-5.2.3-new/documentation_files/PyKDE4/kdecore.py	2018-07-04 23:24:21.832704858 +0200
+@@ -312,7 +312,7 @@ class KAuth():
+         def executesAsync(self):
+             '''bool KAuth.Action.executesAsync()'''
+             return bool()
+-        def setExecutesAsync(self, async):
++        def setExecutesAsync(self, async_):
+             '''void KAuth.Action.setExecutesAsync(bool async)'''
+         def execute(self):
+             '''KAuth.ActionReply KAuth.Action.execute()'''
+diff -rupN kdev-python-5.2.3/documentation_files/PyKDE4/khtml.py kdev-python-5.2.3-new/documentation_files/PyKDE4/khtml.py
+--- kdev-python-5.2.3/documentation_files/PyKDE4/khtml.py	2018-05-17 20:38:20.000000000 +0200
++++ kdev-python-5.2.3-new/documentation_files/PyKDE4/khtml.py	2018-07-04 23:17:16.075728408 +0200
+@@ -1619,7 +1619,7 @@ class DOM():
+         def setAsync(self):
+             '''bool DOM.Document.setAsync()'''
+             return bool()
+-        def async(self):
++        def async_(self):
+             '''bool DOM.Document.async()'''
+             return bool()
+         def getOverrideStyle(self, elt, pseudoElt):

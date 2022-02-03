@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    kdenetwork-filesharing
 Summary: Network filesharing
-Version: 21.12.1
+Version: 21.12.2
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -74,6 +74,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
+- 21.12.2
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
 - 21.12.1
 

@@ -1,0 +1,9 @@
+%kdevelop @@NAME@@
+%kdevelop_epoch @@EPOCH@@
+%kdevelop_version @@VERSION@@
+%kdevelop_evr @@EVR@@
+
+%kdevelop_requires \
+Requires: %{kdevelop} >= %{kdevelop_evr} \
+%{nil}
+

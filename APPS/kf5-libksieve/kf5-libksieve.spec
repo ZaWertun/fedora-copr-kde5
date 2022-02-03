@@ -2,7 +2,7 @@
 %global framework libksieve
 
 Name:    kf5-%{framework}
-Version: 21.12.1
+Version: 21.12.2
 Release: 1%{?dist}
 Summary: Sieve support library
 
@@ -114,6 +114,9 @@ Requires:       cmake(KF5SyntaxHighlighting)
 
 
 %changelog
+* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
+- 21.12.2
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
 - 21.12.1
 

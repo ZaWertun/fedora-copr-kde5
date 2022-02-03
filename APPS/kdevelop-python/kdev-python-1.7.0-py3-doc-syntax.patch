@@ -1,0 +1,33 @@
+diff -ur kdev-python-1.7.0-py3/documentation_files/__builtin_types__.py kdev-python-1.7.0-py3-doc-syntax/documentation_files/__builtin_types__.py
+--- kdev-python-1.7.0-py3/documentation_files/__builtin_types__.py	2014-08-30 16:49:01.000000000 +0200
++++ kdev-python-1.7.0-py3-doc-syntax/documentation_files/__builtin_types__.py	2014-09-27 03:24:55.000000000 +0200
+@@ -44,14 +44,6 @@
+ 		"""
+ 		pass
+ 		
+-	def set"other(self, ():
+-		"""
+-		Test whether the set is a true subset of *other*, that is,
+-		``set <= other and set != other``.
+-		
+-		"""
+-		pass
+-		
+ 	def issuperset(self, other):
+ 		"""set >= other
+ 		
+@@ -59,14 +51,6 @@
+ 		
+ 		"""
+ 		pass
+-		
+-	def set"other(self, ():
+-		"""
+-		Test whether the set is a true superset of *other*, that is, ``set >=
+-		other and set != other``.
+-		
+-		"""
+-		pass
+ 		
+ 	def union(self, other,more):
+ 		"""set | other | more

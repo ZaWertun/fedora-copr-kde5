@@ -2,7 +2,7 @@
 Name:    gwenview 
 Summary: An image viewer
 Epoch:   1
-Version: 21.12.1
+Version: 21.12.2
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -22,7 +22,6 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 ## upstream patches (master branch)
 
 ## upstreamable patches
-Patch1:        gwenview-21.08.1-fix-opening-raw-files.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
@@ -111,6 +110,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.2-1
+- 21.12.2
+
 * Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.1-1
 - 21.12.1
 
