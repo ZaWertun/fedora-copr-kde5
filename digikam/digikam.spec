@@ -1,10 +1,3 @@
-%undefine __cmake_in_source_build
-
-# use ninja or not
-%global ninja 1
-
-#global beta beta3
-
 Name:    digikam
 Summary: A digital camera accessing & photo management application
 Version: 7.5.0
@@ -24,10 +17,6 @@ Source10: digikam-import.desktop
 ## upstream patches
 
 ## upstreamable patches
-
-%if 0%{?ninja}
-BuildRequires: ninja-build
-%endif
 
 BuildRequires: boost-devel
 BuildRequires: eigen3-devel
@@ -150,12 +139,11 @@ BuildArch: noarch
 
 
 %prep
-%setup -q -n digiKam-%{version}%{?beta:-%{beta}}
+%setup -q -n digikam-%{version}%{?beta:-%{beta}}
 
 
 %build
 %{cmake_kf5} \
-  %{?ninja:-G Ninja} \
   -DENABLE_AKONADICONTACTSUPPORT:BOOL=ON \
   -DENABLE_APPSTYLES:BOOL=ON \
   -DENABLE_KFILEMETADATASUPPORT:BOOL=ON \
@@ -163,20 +151,11 @@ BuildArch: noarch
   -DENABLE_MYSQLSUPPORT:BOOL=ON \
   -DENABLE_INTERNALMYSQL:BOOL=ON \
   -DENABLE_QWEBENGINE:BOOL=%{?qwebengine:ON}%{!?qwebengine:OFF}
-
-%if 0%{?ninja}
-%ninja_build -C %{_target_platform}
-%else
 %cmake_build
-%endif
 
 
 %install
-%if 0%{?ninja}
-%ninja_install -C %{_target_platform}
-%else
 %cmake_install
-%endif
 
 desktop-file-install --vendor="" \
   --dir=%{buildroot}%{_datadir}/applications/ \
