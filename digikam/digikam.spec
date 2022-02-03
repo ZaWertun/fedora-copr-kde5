@@ -7,12 +7,12 @@
 
 Name:    digikam
 Summary: A digital camera accessing & photo management application
-Version: 7.3.0
+Version: 7.5.0
 Release: 1%{?dist}
 
 License: GPLv2+
 URL:     http://www.digikam.org/
-Source0: http://download.kde.org/%{?beta:un}stable/digikam/%{version}/digikam-%{version}%{?beta:-%{beta}}.tar.xz
+Source0: http://download.kde.org/%{?beta:un}stable/digikam/%{version}/digiKam-%{version}%{?beta:-%{beta}}.tar.xz
 
 # rawhide s390x is borked recently
 #ExcludeArch: s390x
@@ -150,7 +150,7 @@ BuildArch: noarch
 
 
 %prep
-%setup -q -n %{name}-%{version}%{?beta:-%{beta}}
+%setup -q -n digiKam-%{version}%{?beta:-%{beta}}
 
 
 %build
@@ -256,6 +256,9 @@ update-desktop-database -q &> /dev/null
 
 
 %changelog
+* Mon Jan 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 7.5.0-1
+- 7.5.0
+
 * Mon Jul 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 7.3.0-1
 - 7.3.0
 
