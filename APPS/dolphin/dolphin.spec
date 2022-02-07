@@ -7,7 +7,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 21.12.2
+Version: 21.12.2.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -19,7 +19,7 @@ URL:     https://cgit.kde.org/%{name}.git/
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{majmin_ver}.%{revision}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
 
@@ -163,6 +163,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Feb 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2.1-1
+- 21.12.2.1
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 
