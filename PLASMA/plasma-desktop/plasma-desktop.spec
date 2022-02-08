@@ -298,14 +298,12 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kcmkeys
-%{_kf5_datadir}/kcmkeyboard
 %{_kf5_datadir}/kpackage/kcms/*
 %{_kf5_datadir}/knsrcfiles/
 %{_kf5_datadir}/kf5/kactivitymanagerd/workspace/
 %{_kf5_datadir}/kcmsolidactions/
 %{_kf5_datadir}/solid/devices/*.desktop
 %{_kf5_datadir}/dbus-1/system.d/*.conf
-%{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/knotifications5/*.notifyrc
 %ifnarch s390 s390x
