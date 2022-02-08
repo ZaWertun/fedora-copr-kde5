@@ -85,6 +85,7 @@ BuildRequires:  kf5-baloo-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kdeclarative-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kpeople-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
+BuildRequires:  cmake(KF5Kirigami2) >= %{kf5_version_min}
 
 BuildRequires:  libksysguard-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
