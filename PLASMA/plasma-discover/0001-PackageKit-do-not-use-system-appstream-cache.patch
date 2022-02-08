@@ -1,0 +1,31 @@
+From f834e07503d935f505ad23fdc34b6f2eaf328b4b Mon Sep 17 00:00:00 2001
+From: Adam Williamson <awilliam@redhat.com>
+Date: Tue, 19 Oct 2021 09:43:58 -0700
+Subject: [PATCH 2/2] PackageKit: do not use system appstream cache
+
+Using the system appstream cache seems like it can cause package
+data not to be loaded sometimes (e.g.
+https://bugzilla.redhat.com/show_bug.cgi?id=2011322 ). This
+attempts to avoid the problem by setting flags to make the
+appstream pool to use only the user cache, not the system cache.
+
+Signed-off-by: Adam Williamson <awilliam@redhat.com>
+---
+ libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp b/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
+index 967d9715..0d83822a 100644
+--- a/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
++++ b/libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp
+@@ -164,6 +164,7 @@ static DelayedAppStreamLoad loadAppStream(AppStream::Pool *appdata)
+ {
+     DelayedAppStreamLoad ret;
+ 
++    appdata->setCacheFlags(AppStream::Pool::CacheFlagUseUser);
+     ret.correct = appdata->load();
+     if (!ret.correct) {
+         qWarning() << "Could not open the AppStream metadata pool" << appdata->lastError();
+-- 
+2.33.0
+

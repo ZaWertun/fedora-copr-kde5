@@ -9,7 +9,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -273,7 +273,10 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_qmldir}/org/kde/plasma/private
 # TODO: -libs subpkg -- rex
 %{_kf5_qtplugindir}/*.so
-%{_kf5_qtplugindir}/kcms/*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/*.so
+%{_kf5_qtplugindir}/plasma/kcminit/kcm_mouse_init.so
+%{_kf5_qtplugindir}/plasma/kcminit/kcm_touchpad_init.so
 %{_kf5_plugindir}/kded/*.so
 %{_kf5_plugindir}/krunner/krunner*.so
 %{_kf5_qmldir}/org/kde/plasma/activityswitcher
@@ -325,6 +328,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    plasma-workspace-wallpapers
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: Additional wallpapers for Plasma workspace
 License: LGPLv3
@@ -37,8 +37,7 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -48,6 +47,7 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 
 %files
 %license COPYING.LGPL3
+%{_datadir}/wallpapers/Altai/
 %{_datadir}/wallpapers/Autumn/
 %{_datadir}/wallpapers/BytheWater/
 %{_datadir}/wallpapers/Canopee/
@@ -69,15 +69,18 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 %{_datadir}/wallpapers/OneStandsOut/
 %{_datadir}/wallpapers/Opal/
 %{_datadir}/wallpapers/PastelHills/
+%{_datadir}/wallpapers/Patak/
 %{_datadir}/wallpapers/Path/
 %{_datadir}/wallpapers/SafeLanding/
 %{_datadir}/wallpapers/Shell/
 %{_datadir}/wallpapers/Volna/
 %{_datadir}/wallpapers/summer_1am/
-%{_datadir}/wallpapers/Altai/
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

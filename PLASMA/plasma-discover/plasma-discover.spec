@@ -1,14 +1,18 @@
-
 %global base_name discover
 %global kf5_version 5.73
 %global flatpak_version 0.8.0
 # enable snap support (or not)
 %global snap 1
 %global snapd_glib_version 1.39
+# enable fwupd support (or not)
+## enable unconditionally once rhbz#1976408 is resolved
+%if ! 0%{?el8}
+%global fwupd 1
+%endif
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -24,19 +28,25 @@ URL:     https://invent.kde.org/plasma/discover
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz
 
-## ovrride some defaults, namely to enable offline updates
+## override some defaults, namely to enable offline updates
 Source10: discoverrc
 
-## upstream patches (in lookaside cache)
-# git format-patch v%{version}
+## upstream patches
+# git format-patch v%%{version}
 
 ## downstream patches
 # workaround PK metadata refresh issues (always force refresh)
 # adjust periodic refresh from 1/24hr to 1/12hr
 Patch200: discover-5.21.4-pk_refresh_force.patch
 
-## upstreamable patches
+# Do not use system appstream cache (#2011322)
+# Not sure if this is upstreamable yet, or just a hack
+# DISABLED for appstream-0.15.1+, plasma-discover outputs to console
+#** (process:378626): WARNING **: 10:18:13.957: Not changing AppStream cache location: No longer supported.
+# and feature page shows error: "Unable to load applications" -- rdieter 20211229
+#Patch201: 0001-PackageKit-do-not-use-system-appstream-cache.patch
 
+## upstreamable patches
 
 BuildRequires: appstream-qt-devel >= 0.11.1
 BuildRequires: appstream-devel
@@ -47,8 +57,11 @@ BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
 BuildRequires: gettext
 BuildRequires: libxml2-devel
-BuildRequires: pkgconfig(fwupd)
 BuildRequires: pkgconfig(libmarkdown)
+BuildRequires: rpm-ostree-devel
+%if 0%{?fwupd}
+BuildRequires: pkgconfig(fwupd)
+%endif
 
 BuildRequires: extra-cmake-modules >= %{kf5_version}
 BuildRequires: kf5-attica-devel >= %{kf5_version}
@@ -120,6 +133,7 @@ Requires: qt5-qtquickcontrols2%{?_isa}
 
 %package packagekit
 Summary: Plasma Discover PackageKit support
+Requires: %{name} = %{version}-%{release}
 Requires: PackageKit
 %description packagekit
 %{summary}.
@@ -166,13 +180,22 @@ Requires: %{name} = %{version}-%{release}
 Enable Offline Updates feature by default
 in %{name}.
 
+%package rpm-ostree
+Summary: Plasma Discover backend for rpm-ostree support
+Requires: %{name} = %{version}-%{release}
+Supplements: ((%{name} and rpm-ostree) unless dnf)
+%description rpm-ostree
+Plasma Discover backend for rpm-ostree support
+in %{name}.
+
 
 %prep
 %autosetup -n %{base_name}-%{version} -p1
 
 
 %build
-%cmake_kf5
+%cmake_kf5 \
+  -DBUILD_RpmOstreeBackend:BOOL=ON
 
 %cmake_build
 
@@ -194,11 +217,13 @@ rm -fv %{buildroot}%{_datadir}/applications/org.kde.discover.snap.urlhandler.des
 
 cat kcm_updates.lang plasma-discover.lang | sort | uniq -u > discover.lang
 
+
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.appdata.xml ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.flatpak.appdata.xml ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml ||:
-desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desktop
+# disabled until desktop-file-validate supports xdg spec 1.5
+# desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desktop
 
 
 %files -f discover.lang
@@ -213,7 +238,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %{_datadir}/kxmlgui5/plasmadiscover/
 %{_kf5_libexecdir}/discover/
 %{_kf5_datadir}/kpackage/kcms/kcm_updates/
-%{_kf5_datadir}/kservices5/kcm_updates.desktop
 
 %files notifier -f plasma-discover-notifier.lang
 %{_datadir}/knotifications5/discoverabstractnotifier.notifyrc
@@ -231,11 +255,14 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %{_libdir}/plasma-discover/libDiscoverCommon.so
 %dir %{_kf5_qtplugindir}/discover
 %dir %{_kf5_qtplugindir}/discover-notifier/
+%if 0%{?fwupd}
 %{_kf5_qtplugindir}/discover/fwupd-backend.so
+%endif
 %{_kf5_qtplugindir}/discover/kns-backend.so
 %dir %{_datadir}/libdiscover
 %dir %{_datadir}/libdiscover/categories
-%{_qt5_plugindir}/kcms/kcm_updates.so
+%{_datadir}/libdiscover/categories/rpm-ostree-backend-categories.xml
+%{_qt5_plugindir}/plasma/kcms/systemsettings/kcm_updates.so
 
 %files packagekit
 %{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml
@@ -267,45 +294,99 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desk
 %files offline-updates
 %{_kf5_sysconfdir}/xdg/discoverrc
 
+%files rpm-ostree
+%{_kf5_qtplugindir}/discover/rpm-ostree-backend.so
+%{_kf5_qtplugindir}/discover-notifier/rpm-ostree-notifier.so
+
 
 %changelog
-* Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
+* Thu Feb 03 2022 Marc Deop <marcdeop@fedoraproject.org> - 5.24.0-1
+- 5.24.0
+
+* Fri Jan 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 5.23.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
+
+* Thu Jan 13 2022 Marc Deop <marcdeop@fedoraproject.org> - 5.23.90-1
+- 5.23.90
+
+* Tue Jan 04 2022 Marc Deop <marcdeop@fedoraproject.org> - 5.23.5-1
 - 5.23.5
 
-* Tue Nov 30 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.4-1
+* Wed Dec 29 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.23.4-2
+- disable do-not-use-system-appstream-cache.patch, no workie with newer appstream-0.15.1+
+
+* Tue Dec 14 2021 Marc Deop <marcdeop@fedoraproject.org> - 5.23.4-1
 - 5.23.4
 
-* Fri Nov 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3.1-1
+* Mon Nov 29 2021 Timothée Ravier <tim@siosm.fr> - 5.23.3.1-2
+- Stronger checks to install rpm-ostree backend only on Kinoite
+
+* Fri Nov 12 2021 Marc Deop <marcdeop@fedoraproject.org> - 5.23.3.1-1
 - 5.23.3.1
 
-* Tue Nov 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.3-1
+* Wed Nov 10 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.23.3-1
 - 5.23.3
 
-* Tue Oct 26 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.2-1
+* Tue Oct 26 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.23.2-1
 - 5.23.2
 
-* Tue Oct 19 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.1-1
+* Thu Oct 21 2021 Adam Williamson <awilliam@redhat.com> - 5.23.1-1
 - 5.23.1
+- Backport a necessary commit upstream missed (to make PK sources checkable)
+- Backport MR #192 to make PK sources list less bouncy (#2011774)
 
-* Thu Oct 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
+* Thu Oct 21 2021 Adam Williamson <awilliam@redhat.com> - 5.23.0-4
+- Update some backported patches to final merged versions
+- Backport MR #192 to make PackageKit source list less bouncy (#2011774)
+
+* Tue Oct 19 2021 Adam Williamson <awilliam@redhat.com> - 5.23.0-3
+- Don't use system appstream cache (#2011322)
+
+* Mon Oct 18 2021 Adam Williamson <awilliam@redhat.com> - 5.23.0-2
+- Backport several upstream fixes for various source state issues:
+  Flatpak: show correct remote state, fix deleting disabled remotes (#2011291)
+  Redraw checkbox correctly when enabling/disabling fwupd remotes (#2011333)
+
+* Thu Oct 07 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.23.0-1
 - 5.23.0
 
-* Tue Aug 31 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.5-1
+* Wed Oct 06 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.22.90-3
+- backport fixes from 5.23 branch
+
+* Sat Sep 18 2021 Marc Deop <marcdeop@fedoraproject.org> - 5.22.90-2
+- Remove patch as it's applied upstream already (#2000577)
+
+* Fri Sep 17 2021 Marc Deop <marcdeop@fedoraproject.org> - 5.22.90-1
+- 5.22.90
+
+* Thu Sep 02 2021 Jonathan Wakely <jwakely@redhat.com> - 5.22.5-2
+- Fix typo in restart message (#2000577)
+
+* Tue Aug 31 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.5-1
 - 5.22.5
 
-* Tue Jul 27 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.4-1
+* Fri Aug 27 2021 Timothée Ravier <travier@redhat.com> - 5.22.4-2
+- Add rpm-ostree backend
+
+* Wed Jul 28 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.4-1
 - 5.22.4
 
-* Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.3-1
+* Fri Jul 23 2021 Fedora Release Engineering <releng@fedoraproject.org> - 5.22.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+
+* Mon Jul 12 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.3-1
 - 5.22.3
 
-* Wed Jun 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2.1-1
+* Tue Jun 22 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.2.1-1
 - 5.22.2.1
 
-* Tue Jun 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.2-1
+* Tue Jun 22 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.2-1
 - 5.22.2
 
-* Tue Jun 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.22.1-1
+* Fri Jun 18 2021 Rex Dieter <rdieter@fedoraproject.org> - 5.22.1-2
+- -packagekit: add versioned dep on main pkg
+
+* Tue Jun 15 2021 Jan Grulich <jgrulich@redhat.com> - 5.22.1-1
 - 5.22.1
 
 * Mon Jun 14 2021 Alessandro Astone <ales.astone@gmail.com> - 5.22.0-2

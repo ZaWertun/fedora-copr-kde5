@@ -16,7 +16,7 @@
 %endif
 
 Name:    kwin
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -120,6 +120,7 @@ BuildRequires:  kf5-kidletime-devel
 BuildRequires:  kf5-ktextwidgets-devel
 BuildRequires:  kf5-kirigami2-devel
 BuildRequires:  kf5-krunner-devel
+BuildRequires:  cmake(KF5DBusAddons)
 
 BuildRequires:  kdecoration-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
@@ -312,7 +313,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_*.so
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
 %dir %{_kf5_qtplugindir}/org.kde.kwin.platforms
-%{_kf5_qtplugindir}/org.kde.kwin.scenes/*.so
 %{_qt5_qmldir}/org/kde/kwin
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
 %{_libexecdir}/kwin_killer_helper
@@ -343,6 +343,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/icons/hicolor/*/apps/kwin.*
 %{_datadir}/knsrcfiles/*.knsrc
 %{_datadir}/krunner/dbusplugins/kwin-runner-windows.desktop
+%{_datadir}/applications/org.kde.kwin_rules_dialog.desktop
 
 %files wayland
 %{_bindir}/kwin_wayland_wrapper
@@ -352,7 +353,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandWaylandBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandX11Backend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandVirtualBackend.so
-#{_userunitdir}/plasma-kwin_wayland.service
+%{_userunitdir}/plasma-kwin_wayland.service
 
 %files x11
 %{_kf5_bindir}/kwin_x11
@@ -365,7 +366,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwinxrenderutils.so.*
 %{_libdir}/libkwineffects.so.*
 %{_libdir}/libkwinglutils.so.*
-%{_libdir}/libkwin4_effect_builtins.so.*
 %{_libdir}/libkcmkwincommon.so.*
 %{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
 
@@ -376,7 +376,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwinxrenderutils.so
 %{_libdir}/libkwineffects.so
 %{_libdir}/libkwinglutils.so
-%{_libdir}/libkwin4_effect_builtins.so
 %{_includedir}/kwin*.h
 
 %files doc -f %{name}-doc.lang
@@ -384,6 +383,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

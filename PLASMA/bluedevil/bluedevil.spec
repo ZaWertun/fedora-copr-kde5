@@ -1,6 +1,6 @@
 Name:    bluedevil
 Summary: Bluetooth stack for KDE
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -78,23 +78,27 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.bluedevil
 %{_kf5_bindir}/bluedevil-wizard
 %{_kf5_plugindir}/kio/kio_obexftp.so
 %{_kf5_plugindir}/kio/kio_bluetooth.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_bluetooth.so
 %{_kf5_plugindir}/kded/*.so
 %{_kf5_datadir}/remoteview/bluetooth-network.desktop
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/knotifications5/bluedevil.notifyrc
+%{_kf5_datadir}/applications/kcm_bluetooth.desktop
 %{_kf5_datadir}/applications/org.kde.bluedevilsendfile.desktop
 %{_kf5_datadir}/applications/org.kde.bluedevilwizard.desktop
 %{_kf5_datadir}/bluedevilwizard/
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth
 %{_kf5_qmldir}/org/kde/plasma/private/bluetooth/
 %{_kf5_metainfodir}/org.kde.plasma.bluetooth.appdata.xml
-%{_kf5_qtplugindir}/kcms/kcm_bluetooth.so
 %{_kf5_datadir}/kpackage/kcms/kcm_bluetooth/contents/ui/*.qml
-%{_kf5_datadir}/kpackage/kcms/kcm_bluetooth/metadata.{desktop,json}
 %{_datadir}/mime/packages/*.xml
+%{_kf5_datadir}/qlogging-categories5/bluedevil.categories
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

@@ -2,7 +2,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -256,9 +256,10 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %{_qt5_plugindir}/kcm_networkmanagement.so
 %{_datadir}/kcm_networkmanagement/qml/
 %{_kf5_datadir}/kservices5/kcm_networkmanagement.desktop
-%{_datadir}/locale/*/LC_MESSAGES/kcm_mobile_broadband.mo
 %{_datadir}/locale/*/LC_MESSAGES/kcm_mobile_wifi.mo
 %{_datadir}/locale/*/LC_MESSAGES/kcm_mobile_hotspot.mo
+
+%{_kf5_datadir}/qlogging-categories5/plasma-nm.categories
 
 %files mobile
 
@@ -303,6 +304,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

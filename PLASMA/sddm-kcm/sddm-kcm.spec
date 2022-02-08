@@ -1,6 +1,5 @@
-%undefine __cmake_in_source_build
 Name:    sddm-kcm
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: SDDM KDE configuration module
 
@@ -54,8 +53,7 @@ SDDM Display Manager
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -68,9 +66,9 @@ SDDM Display Manager
 %doc README.md
 %license COPYING
 %{_kf5_bindir}/sddmthemeinstaller
-%{_kf5_qtplugindir}/kcms/kcm_sddm.so
+%{_qt5_plugindir}/plasma/kcms/systemsettings/kcm_sddm.so
 %{_kf5_libexecdir}/kauth/kcmsddm_authhelper
-%{_kf5_datadir}/kservices5/kcm_sddm.desktop
+%{_kf5_datadir}/applications/kcm_sddm.desktop
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kcontrol.kcmsddm.conf
 %{_kf5_datadir}/knsrcfiles/sddmtheme.knsrc
 %{_kf5_datadir}/kpackage/kcms/kcm_sddm/
@@ -79,6 +77,9 @@ SDDM Display Manager
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

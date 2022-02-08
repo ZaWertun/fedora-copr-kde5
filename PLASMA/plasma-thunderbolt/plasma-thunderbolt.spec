@@ -3,7 +3,7 @@
 
 Name:    plasma-thunderbolt
 Summary: Plasma integration for controlling Thunderbolt devices
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -52,15 +52,17 @@ Requires:       bolt%{?_isa}
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_libdir}/libkbolt.so
-%{_kf5_qtplugindir}/kcms/kcm_bolt.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_bolt.so
 %{_kf5_plugindir}/kded/kded_bolt.so
 %{_kf5_datadir}/knotifications5/kded_bolt.notifyrc
-%{_kf5_datadir}/kpackage/kcms/kcm_bolt/contents/ui/*.{qml,js}
-%{_kf5_datadir}/kpackage/kcms/kcm_bolt/metadata.{desktop,json}
-%{_kf5_datadir}/kservices5/kcm_bolt.desktop
+%{_kf5_datadir}/kpackage/kcms/kcm_bolt/
+%{_kf5_datadir}/applications/kcm_bolt.desktop
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

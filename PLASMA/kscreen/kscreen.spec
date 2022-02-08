@@ -1,6 +1,6 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -73,18 +73,17 @@ KCM and KDED modules for managing displays in KDE.
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.desktop
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.json
-%{_kf5_datadir}/kded_kscreen/qml/Osd.qml
-%{_kf5_datadir}/kded_kscreen/qml/OsdItem.qml
 %{_kf5_datadir}/kded_kscreen/qml/OsdSelector.qml
-%{_kf5_datadir}/kded_kscreen/qml/OutputIdentifier.qml
 %{_kf5_datadir}/kservices5/kcm_kscreen.desktop
 %{_kf5_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
 %{_kf5_datadir}/kpackage/kcms/kcm_kscreen/contents/ui/*.qml
-%{_kf5_datadir}/kpackage/kcms/kcm_kscreen/metadata.{desktop,json}
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.23.5-1
 - 5.23.5
 

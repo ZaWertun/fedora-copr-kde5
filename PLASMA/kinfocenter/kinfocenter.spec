@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -84,21 +84,25 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 %files -f %{name}.lang
 %{_bindir}/kinfocenter
-%{_kf5_qtplugindir}/*.so
-%{_kf5_qtplugindir}/kcms/*.so
+%{_kf5_libdir}/libKInfoCenterInternal.so
+%{_kf5_qtplugindir}/plasma/kcms/*.so
+%{_kf5_qtplugindir}/plasma/kcms/kinfocenter/*.so
 %{_sysconfdir}/xdg/menus/kinfocenter.menu
 %{_datadir}/applications/org.kde.kinfocenter.desktop
 %{_kf5_qmldir}/org/kde/kinfocenter/private/CommandOutputKCM.qml
 %{_kf5_qmldir}/org/kde/kinfocenter/private/qmldir
-%{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kinfocenter/categories/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_datadir}/desktop-directories/kinfocenter.directory
 %{_kf5_datadir}/kpackage/kcms/kcm_cpu/
+%{_kf5_datadir}/kpackage/kcms/kcm_egl/
+%{_kf5_datadir}/kpackage/kcms/kcm_glx/
 %{_kf5_datadir}/kpackage/kcms/kcm_nic/
+%{_kf5_datadir}/kpackage/kcms/kcm_pci/
 %{_kf5_datadir}/kpackage/kcms/kcmsamba/
 %{_kf5_datadir}/kpackage/kcms/kcm_vulkan/
 %{_kf5_datadir}/kpackage/kcms/kcm_wayland/
+%{_kf5_datadir}/kpackage/kcms/kcm_xserver/
 %{_kf5_datadir}/kpackage/kcms/kcm_energyinfo/
 %{_kf5_datadir}/kpackage/kcms/kcm_interrupts/
 %{_kf5_datadir}/kpackage/kcms/kcm_about-distro/
@@ -106,6 +110,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

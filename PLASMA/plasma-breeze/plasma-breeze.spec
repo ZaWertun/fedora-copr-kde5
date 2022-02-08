@@ -4,7 +4,7 @@
 %global         base_name   breeze
 
 Name:    plasma-breeze
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
@@ -104,13 +104,15 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 %{_kf5_qtplugindir}/styles/breeze.so
 %{_kf5_datadir}/kstyle/themes/breeze.themerc
 %{_kf5_qtplugindir}/kstyle_breeze_config.so
-%{_kf5_datadir}/kconf_update/kde4breeze.upd*
-%{_kf5_libdir}/kconf_update_bin/kde4breeze
 # used by breezedecoration
 %{_libdir}/libbreezecommon5.so.5*
 %{_bindir}/breeze-settings5
 %{_kf5_libdir}/kconf_update_bin/breezetobreezelight
+%{_kf5_libdir}/kconf_update_bin/breezehighcontrasttobreezedark
+%{_kf5_libdir}/kconf_update_bin/breezetobreezeclassic
 %{_kf5_datadir}/kconf_update/breezetobreezelight.upd
+%{_kf5_datadir}/kconf_update/breezehighcontrasttobreezedark.upd
+%{_kf5_datadir}/kconf_update/breezetobreezeclassic.upd
 %{_datadir}/icons/hicolor/*/apps/breeze-settings.*
 %{_kf5_datadir}/kservices5/breezedecorationconfig.desktop
 %{_kf5_datadir}/kservices5/breezestyleconfig.desktop
@@ -137,6 +139,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
-%global base_name    xdg-desktop-portal-kde
+%global base_name xdg-desktop-portal-kde
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -19,6 +18,8 @@ Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut 
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  systemd-rpm-macros
+
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  qt5-qtbase-private-devel
@@ -75,11 +76,14 @@ pieces of KDE infrastructure.
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
 %{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
-%{_kf5_datadir}/xdg-desktop-portal-kde/qml/
 %{_kf5_datadir}/knotifications5/xdg-desktop-portal-kde.notifyrc
+%{_userunitdir}/plasma-xdg-desktop-portal-kde.service
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

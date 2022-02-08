@@ -3,7 +3,7 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -23,6 +23,7 @@ Patch1:         libkscreen-5.6.4-rhel-nowayland.patch
 
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
+BuildRequires:  systemd-rpm-macros
 %if 0%{?fedora}
 BuildRequires:  kf5-kwayland-devel >= 5.22
 %endif
@@ -65,8 +66,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -91,6 +91,7 @@ popd
 %{_kf5_plugindir}/kscreen/
 %{_datadir}/dbus-1/services/org.kde.KScreen.service
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_userunitdir}/plasma-kscreen.service
 
 
 %files devel
@@ -103,6 +104,9 @@ popd
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

@@ -8,7 +8,7 @@
 %endif
 
 Name:    plasma-firewall
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: Control Panel for your system firewall
 
@@ -104,10 +104,10 @@ rm -rfv %{buildroot}%{_datadir}/polkit-1/actions/org.kde.ufw.policy
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_libdir}/libkcm_firewall_core.so
-%{_qt5_plugindir}/kcms/kcm_firewall.so
+%{_qt5_plugindir}/plasma/kcms/systemsettings/kcm_firewall.so
 %dir %{_qt5_plugindir}/kf5/plasma_firewall
 %{_datadir}/kpackage/kcms/kcm_firewall
-%{_datadir}/kservices5/kcm_firewall.desktop
+%{_datadir}/applications/kcm_firewall.desktop
 %{_metainfodir}/org.kde.plasma.firewall.metainfo.xml
 
 %files firewalld
@@ -127,6 +127,9 @@ rm -rfv %{buildroot}%{_datadir}/polkit-1/actions/org.kde.ufw.policy
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

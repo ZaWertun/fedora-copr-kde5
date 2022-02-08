@@ -3,7 +3,7 @@
 %global debug_package %{nil}
 
 Name:    plasma-wayland-protocols
-Version: 1.4.0
+Version: 1.6.0
 Release: 1%{?dist}
 Summary: Plasma Specific Protocols for Wayland
 
@@ -52,6 +52,12 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.6.0-1
+- version 1.6.0
+
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.5.0-1
+- version 1.5.0
+
 * Sun Sep 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.4.0-1
 - version 1.4.0
 

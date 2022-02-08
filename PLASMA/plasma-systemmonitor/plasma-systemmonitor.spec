@@ -1,9 +1,9 @@
-%global min_qt_version     5.14.0
-%global min_kf_version     5.66.0
+%global min_qt_version 5.14.0
+%global min_kf_version 5.66.0
 
 Name:    plasma-systemmonitor
 Summary: New version of KSysGuard built on top of the new KStats daemon
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -50,12 +50,12 @@ for its UI.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name
 
 
 %check
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop ||:
+desktop-file-validate %{buildroot}%{_kf5_datadir}/plasma/kinfocenter/externalmodules/kcm_external_plasma-systemmonitor.desktop ||:
 
 
 %files -f %{name}.lang
@@ -80,9 +80,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 %{_kf5_datadir}/config.kcfg/systemmonitor.kcfg
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
+%{_kf5_datadir}/plasma/kinfocenter/externalmodules/kcm_external_plasma-systemmonitor.desktop
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

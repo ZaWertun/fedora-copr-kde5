@@ -5,15 +5,22 @@
 %global kf5_version_min 5.82.0
 
 # Control wayland by default
-%if (0%{?fedora} && 0%{?fedora} < 34) || (0%{?rhel} && 0%{?rhel} < 9)
+%if (0%{?rhel} && 0%{?rhel} < 9)
 %bcond_with wayland_default
 %else
 %bcond_without wayland_default
 %endif
 
+# Control sddm wayland by default
+%if (0%{?fedora} && 0%{?fedora} < 36) || (0%{?rhel} && 0%{?rhel} < 9)
+%bcond_with sddm_wayland_default
+%else
+%bcond_without sddm_wayland_default
+%endif
+
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -49,7 +56,7 @@ Source40:       ssh-agent.conf
 Source41:       spice-vdagent.conf
 
 ## downstream Patches
-#Patch100:       plasma-workspace-5.21.90-konsole-in-contextmenu.patch
+Patch100:       plasma-workspace-konsole-in-contextmenu.patch 
 Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 # default to folderview (instead of desktop) containment, see also
 # https://mail.kde.org/pipermail/distributions/2016-July/000133.html
@@ -389,6 +396,21 @@ BuildArch: noarch
 %description -n sddm-breeze
 %{summary}.
 
+%package -n sddm-wayland-plasma
+Summary:        Plasma Wayland SDDM greeter configuration
+Provides:       sddm-greeter-displayserver
+Conflicts:      sddm-greeter-displayserver
+Requires:       kwin-wayland >= %{majmin_ver}
+Requires:       maliit-keyboard
+%if %{with sddm_wayland_default}
+Supplements:    (sddm and plasma-workspace-wayland)
+%endif
+BuildArch:      noarch
+
+%description -n sddm-wayland-plasma
+This package contains configuration and dependencies for SDDM
+to use KWin for the Wayland compositor for the greeter.
+
 %package wayland
 Summary:        Wayland support for Plasma
 Requires:       %{name} = %{version}-%{release}
@@ -456,6 +478,7 @@ EOL
 
 %build
 %{cmake_kf5} \
+  -DINSTALL_SDDM_WAYLAND_SESSION:BOOL=ON \
   %{?with_wayland_default:-DPLASMA_WAYLAND_DEFAULT_SESSION:BOOL=ON}
 %cmake_build
 
@@ -487,6 +510,10 @@ ln -sf  %{_datadir}/backgrounds/default.png \
 install -m644 -p breeze-fedora/* \
         %{buildroot}%{_datadir}/sddm/themes/01-breeze-fedora/
 
+# move sddm configuration snippet to the right place
+mkdir -p %{buildroot}%{_prefix}/lib/sddm
+mv %{buildroot}%{_sysconfdir}/sddm.conf.d %{buildroot}%{_prefix}/lib/sddm
+
 %if 0%{?fedora} > 30
 ## customize plasma-lookandfeel-fedora defaults
 # from [Wallpaper] Image=Next to Image=Fedora
@@ -516,7 +543,6 @@ cat *.lang | sort | uniq -u > %{name}.lang
 
 
 %check
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/plasma-windowed.desktop
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,plasmashell,systemmonitor}.desktop
 
 
@@ -579,6 +605,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_libexecdir}/plasma-changeicons
 %{_libexecdir}/plasma-dbus-run-session-if-needed
 %{_kf5_datadir}/ksplash/
+%{_kf5_datadir}/plasma/avatars/
 %{_kf5_datadir}/plasma/plasmoids/
 %{_kf5_datadir}/plasma/services/
 %{_kf5_datadir}/plasma/wallpapers/
@@ -600,9 +627,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_datadir}/kfontinst/icons/hicolor/*/actions/*font*.png
 %{_datadir}/konqsidebartng/virtual_folders/services/fonts.desktop
 %{_datadir}/krunner/dbusplugins/plasma-runner-baloosearch.desktop
-%{_datadir}/kxmlgui5/kfontinst/kfontviewpart.rc
+%{_datadir}/kxmlgui5/kfontview/kfontviewpart.rc
 %{_datadir}/kxmlgui5/kfontview/kfontviewui.rc
 %{_kf5_datadir}/kservices5/ServiceMenus/installfont.desktop
+%{_kf5_datadir}/kservices5/ServiceMenus/setaswallpaper.desktop
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/knotifications5/*.notifyrc
@@ -614,17 +642,17 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.pl
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.upd
 %{_kf5_metainfodir}/*.xml
+%{_kf5_datadir}/applications/kcm_*
 %{_kf5_datadir}/applications/org.kde.klipper.desktop
 %{_kf5_datadir}/applications/org.kde.plasmashell.desktop
-%{_kf5_datadir}/applications/plasma-windowed.desktop
 %{_kf5_datadir}/applications/org.kde.systemmonitor.desktop
 %{_kf5_datadir}/applications/org.kde.kcolorschemeeditor.desktop
 %{_kf5_datadir}/applications/org.kde.kfontview.desktop
+%{_kf5_datadir}/applications/org.kde.plasmawindowed.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_sysconfdir}/xdg/plasmanotifyrc
 %{_kf5_datadir}/kpackage/kcms/kcm_autostart/
 %{_kf5_datadir}/kpackage/kcms/kcm_translations/
-%{_kf5_datadir}/kpackage/kcms/kcm5_icons/
 %{_kf5_datadir}/kpackage/kcms/kcm_colors/
 %{_kf5_datadir}/kpackage/kcms/kcm_cursortheme/
 %{_kf5_datadir}/kpackage/kcms/kcm_desktoptheme/
@@ -634,6 +662,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_datadir}/kpackage/kcms/kcm_nightcolor/
 %{_kf5_datadir}/kpackage/kcms/kcm_notifications/
 %{_kf5_datadir}/kpackage/kcms/kcm_style/
+%{_kf5_datadir}/kpackage/kcms/kcm_users/
+%{_kf5_datadir}/kpackage/kcms/kcm_icons/
+%{_kf5_datadir}/kpackage/kcms/kcm_formats/
 %{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
 %{_userunitdir}/plasma-baloorunner.service
 %{_userunitdir}/plasma-gmenudbusmenuproxy.service
@@ -641,6 +672,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_userunitdir}/plasma-kcminit.service
 %{_userunitdir}/plasma-krunner.service
 %{_userunitdir}/plasma-ksmserver.service
+%{_userunitdir}/plasma-ksplash.service
 %{_userunitdir}/plasma-ksplash-ready.service
 %{_userunitdir}/plasma-plasmashell.service
 %{_userunitdir}/plasma-restoresession.service
@@ -649,7 +681,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %dir %{_userunitdir}/plasma-core.target.d/
 %{_userunitdir}/plasma-core.target.d/ssh-agent.conf
 %{_userunitdir}/plasma-core.target.d/spice-vdagent.conf
-%{_userunitdir}/plasma-workspace@.target
+%{_userunitdir}/plasma-workspace.target
+%{_userunitdir}/plasma-workspace-wayland.target
+%{_userunitdir}/plasma-workspace-x11.target
 %dir %{_userunitdir}/plasma-workspace@.target.d/
 # PAM
 %config(noreplace) %{_sysconfdir}/pam.d/kde
@@ -687,7 +721,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_plugindir}/kio/*.so
 %{_kf5_plugindir}/kded/*.so
 %{_kf5_plugindir}/krunner/*
-%{_qt5_plugindir}/kcms/kcm_*.so
+%{_qt5_plugindir}/plasma/kcms/systemsettings/kcm_*.so
 %{_libdir}/kconf_update_bin/krunnerhistory
 %{_libdir}/kconf_update_bin/krunnerglobalshortcuts
 %{_kf5_qtplugindir}/kf5/parts/kfontviewpart.so
@@ -697,8 +731,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_switchdesktop.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_switchwindow.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_switchactivity.so
+%{_kf5_qtplugindir}/plasma/kcminit/kcm_fonts_init.so
+%{_kf5_qtplugindir}/plasma/kcminit/kcm_style_init.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_fontinst.so
 %{_libexecdir}/plasma-sourceenv.sh
-%{_libexecdir}/startplasma-waylandsession
 %{_kf5_datadir}/kconf_update/krunnerhistory.upd
 %{_kf5_datadir}/kconf_update/krunnerglobalshortcuts2.upd
 %{_kf5_datadir}/kglobalaccel/org.kde.krunner.desktop
@@ -739,6 +775,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 %{_datadir}/sddm/themes/01-breeze-fedora/
 #%config(noreplace) %{_datadir}/sddm/themes/01-breeze-fedora/theme.conf.user
 
+%files -n sddm-wayland-plasma
+%{_prefix}/lib/sddm/sddm.conf.d/plasma-wayland.conf
+
 %files wayland
 %{_kf5_bindir}/startplasma-wayland
 %if ! %{with wayland_default}
@@ -765,6 +804,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

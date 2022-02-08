@@ -12,7 +12,7 @@
 
 Name:    kdecoration
 Summary: A plugin-based library to create window decorations
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 
 License: LGPLv2
@@ -38,6 +38,7 @@ BuildRequires: xorg-x11-server-Xvfb
 # For AutoReq cmake-filesystem
 BuildRequires: cmake
 BuildRequires: cmake(KF5I18n)
+BuildRequires: cmake(KF5CoreAddons)
 
 Requires:       kf5-filesystem
 
@@ -98,6 +99,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 

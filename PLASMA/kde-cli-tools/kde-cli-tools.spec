@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kde-cli-tools
-Version: 5.23.5
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
@@ -93,11 +93,19 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 %{_bindir}/kstart5
 %{_bindir}/ksvgtopng5
 %{_bindir}/ktraderclient5
+%{_bindir}/kde-open
+%{_bindir}/kdecp
+%{_bindir}/kdemv
+%{_bindir}/keditfiletype
+%{_bindir}/kioclient
+%{_bindir}/kmimetypefinder
+%{_bindir}/kstart
+%{_bindir}/ksvgtopng
 %{_bindir}/plasma-open-settings
 %{_kf5_libexecdir}/kdeeject
-%{_kf5_qtplugindir}/kcm_filetypes.so
-%{_kf5_datadir}/kservices5/filetypes.desktop
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_filetypes.so
 %{_datadir}/doc/HTML/*/kcontrol5
+%{_kf5_datadir}/applications/kcm_filetypes.desktop
 %{_kf5_datadir}/applications/org.kde.keditfiletype.desktop
 %{_kf5_datadir}/applications/org.kde.plasma.settings.open.desktop
 
@@ -111,6 +119,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Tue Jan 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.5-1
 - 5.23.5
 
