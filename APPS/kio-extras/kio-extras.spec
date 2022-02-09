@@ -91,7 +91,10 @@ Provides:  kio-extras-docs = %{version}-%{release}
 Obsoletes: kio-extras-htmlthumbnail < 18.08.3
 
 # helpful for  imagethumbnail plugin
-Recommends:     qt5-qtimageformats %{?_isa}
+Recommends:     qt5-qtimageformats%{?_isa}
+
+# Available in RPMFusion: https://admin.rpmfusion.org/pkgdb/package/free/qt-heif-image-plugin/
+Recommends:     qt-heif-image-plugin%{?_isa}
 
 # when -info was split out
 Obsoletes: kio-extras < 19.04.1-1
@@ -127,6 +130,8 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %install
 %cmake_install
 %find_lang %{name} --all-name --with-html
+
+sed -e '/MimeType=/s/$/;image\/heic;image\/heif/' -i %{_kf5_datadir}/kservices5/imagethumbnail.desktop
 
 
 %check
