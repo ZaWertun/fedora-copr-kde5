@@ -1,5 +1,7 @@
+*.gpg
 *.rpm
 *.tar.gz
+*.tar.gz.sig
 *.tar.xz
 *.tar.bz2
 deps.db

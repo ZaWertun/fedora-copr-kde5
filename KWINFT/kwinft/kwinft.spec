@@ -12,7 +12,7 @@
 %endif
 
 Name:    kwinft
-Version: 5.23.0
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
@@ -36,12 +36,15 @@ URL:     https://gitlab.com/kwinft/kwinft
 %endif
 Source0: %{url}/-/archive/%{name}@%{version}/%{name}-%{name}@%{version}.tar.bz2
 
+Patch0:  kwinft-5.24.0-fix-create-symlink.patch
+
 ## upstream patches
 
 # Base
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  systemd-rpm-macros
+BuildRequires:  desktop-file-utils
 
 # Qt
 BuildRequires:  qt5-qtbase-devel         >= %{min_qt_version}
@@ -83,7 +86,7 @@ BuildRequires:  wayland-devel
 BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
-BuildRequires:  pkgconfig(wlroots) >= 0.14
+BuildRequires:  pkgconfig(wlroots) >= 0.15
 BuildRequires:  pkgconfig(wayland-eglstream)
 BuildRequires:  pkgconfig(libpipewire-0.3)
 
@@ -115,6 +118,7 @@ BuildRequires:  kf5-kiconthemes-devel    >= %{min_kf_version}
 BuildRequires:  kf5-kidletime-devel      >= %{min_kf_version}
 BuildRequires:  kf5-ktextwidgets-devel   >= %{min_kf_version}
 BuildRequires:  kf5-kirigami2-devel      >= %{min_kf_version}
+BuildRequires:  kf5-kdbusaddons-devel    >= %{min_kf_version}
 
 BuildRequires:  kdecoration-devel   >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
@@ -290,6 +294,8 @@ rm -v %{buildroot}%{_datadir}/kconf_update/*.pye*
 
 
 %check
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kwin_rules_dialog.desktop
+
 %if 0%{?tests}
 # using low timeout to avoid extending buildtimes too much for now -- rex
 export CTEST_OUTPUT_ON_FAILURE=1
@@ -299,29 +305,11 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %endif
 
 
-%post
-%systemd_user_post plasma-kwin_x11.service
-
-
-%preun
-%systemd_user_preun plasma-kwin_x11.service
-
-
 %files
 %{_bindir}/kwin
 
 %files common
 %{_datadir}/kwin
-%{_kf5_qtplugindir}/*.so
-%{_kf5_qtplugindir}/kwin/
-%{_kf5_qtplugindir}/kcms/
-%{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
-%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_aurorae.so
-%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_decoration.so
-%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_effect.so
-%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_script.so
-%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_windowswitcher.so
-%{_kf5_qtplugindir}/org.kde.kwin.scenes/*.so
 %{_qt5_qmldir}/org/kde/kwin
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
 %{_libexecdir}/kwin_killer_helper
@@ -333,6 +321,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kconf_update/kwin-5.21-desktop-grid-click-behavior.py
 %{_datadir}/kconf_update/kwin-5.23-placement.pl
 %{_datadir}/kconf_update/kwinrules-5.23-placement.pl
+%{_kf5_datadir}/applications/org.kde.kwin_rules_dialog.desktop
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
@@ -346,10 +335,12 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/kwinrules.upd
 %{_datadir}/icons/hicolor/*/apps/kwin.*
 %{_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files wayland
-%{_kf5_bindir}/kwin_wayland
+%caps(cap_sys_nice=+ep) %{_kf5_bindir}/kwin_wayland
 %{_kf5_bindir}/kwin_wayland_wrapper
+%{_userunitdir}/plasma-kwin_wayland.service
 
 %files x11
 %{_kf5_bindir}/kwin_x11
@@ -357,13 +348,21 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files libs
 %{_libdir}/libkwin.so.*
+%{_libdir}/libkwin_wayland.so.*
 %{_libdir}/libkwinxrenderutils.so.*
 %{_libdir}/libkwineffects.so.*
 %{_libdir}/libkwinglutils.so.*
-%{_libdir}/libkwin4_effect_builtins.so.*
 %{_libdir}/libkcmkwincommon.so.*
+%{_kf5_qtplugindir}/*.so
+%{_kf5_qtplugindir}/kwin/
+%{_kf5_qtplugindir}/kcms/
+%{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_aurorae.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_decoration.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_effect.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_script.so
+%{_kf5_qtplugindir}/kpackage/packagestructure/kwin_windowswitcher.so
 %{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
-%{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
@@ -371,7 +370,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwinxrenderutils.so
 %{_libdir}/libkwineffects.so
 %{_libdir}/libkwinglutils.so
-%{_libdir}/libkwin4_effect_builtins.so
 %{_includedir}/kwin*.h
 %{_kf5_libdir}/cmake/KWinEffects/KWinEffects*.cmake
 
@@ -381,6 +379,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Feb 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Fri Oct 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
 - 5.23.0
 

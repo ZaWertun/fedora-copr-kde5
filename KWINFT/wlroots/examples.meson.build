@@ -1,0 +1,82 @@
+project(
+        'wlroots-examples',
+        'c',
+        meson_version: '>=0.51.2',
+        default_options: [
+                'c_std=c11',
+                'warning_level=2',
+                'werror=false',
+        ],
+)
+
+cc = meson.get_compiler('c')
+add_global_arguments('-DWLR_USE_UNSTABLE', language : 'c')
+
+wlroots = dependency('wlroots')
+wayland_client = dependency('wayland-client')
+wayland_server = dependency('wayland-server')
+glesv2 = dependency('glesv2')
+xkbcommon = dependency('xkbcommon')
+
+wlr_protos = dependency('wlroots')
+rt = cc.find_library('rt')
+
+# epoll is a separate library in FreeBSD
+if host_machine.system() == 'freebsd'
+	libepoll = [dependency('epoll-shim')]
+else
+	libepoll = []
+endif
+
+libpng = dependency('libpng', required: false, disabler: true)
+
+examples = {
+	'simple': {
+		'src': 'simple.c',
+		'dep': [wlroots, wayland_server, glesv2, xkbcommon],
+	},
+	'pointer': {
+		'src': 'pointer.c',
+		'dep': [wlroots, wayland_server, xkbcommon],
+	},
+	'touch': {
+		'src': ['touch.c', 'cat.c'],
+		'dep': [wlroots, wayland_server, xkbcommon],
+	},
+	'tablet': {
+		'src': 'tablet.c',
+		'dep': [wlroots, wayland_server, xkbcommon],
+	},
+	'rotation': {
+		'src': ['rotation.c', 'cat.c'],
+		'dep': [wlroots, wayland_server, xkbcommon],
+	},
+	'multi-pointer': {
+		'src': 'multi-pointer.c',
+		'dep': [wlroots, wayland_server, glesv2, xkbcommon],
+	},
+	'output-layout': {
+		'src': ['output-layout.c', 'cat.c'],
+		'dep': [wlroots, wayland_server, xkbcommon],
+	},
+	'screencopy': {
+		'src': 'screencopy.c',
+		'dep': [libpng, wayland_client, wlr_protos, rt],
+	},
+}
+
+foreach name, info : examples
+	all_dep_found = true
+	foreach d : info.get('dep')
+		all_dep_found = all_dep_found and d.found()
+	endforeach
+	if all_dep_found
+		executable(
+			name,
+			info.get('src'),
+			dependencies: info.get('dep'),
+		)
+	else
+		warning('Dependencies not satisfied for ' + name)
+	endif
+endforeach

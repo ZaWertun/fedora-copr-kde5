@@ -1,5 +1,5 @@
 Name:    wrapland
-Version: 0.523.0
+Version: 0.524.0~beta.0
 Release: 1%{?dist}
 Summary: Qt/C++ library wrapping libwayland
 
@@ -113,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Wed Feb 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.524.0~beta.0-1
+- 0.524.0-beta.0
+
 * Fri Oct 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.523.0-1
 - 0.523.0
 

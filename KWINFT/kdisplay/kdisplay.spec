@@ -3,7 +3,7 @@
 %global min_disman_version 0.522.0
 
 Name:    kdisplay
-Version: 5.23.0
+Version: 5.24.0
 Release: 1%{?dist}
 Summary: App and daemon for display managing
 
@@ -72,6 +72,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kwinft.%{name
 
 
 %changelog
+* Wed Feb 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
+- 5.24.0
+
 * Fri Oct 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.23.0-1
 - 5.23.0
 
