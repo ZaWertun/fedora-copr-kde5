@@ -30,6 +30,7 @@ BuildRequires:  jasper-devel
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(OpenEXR)
 BuildRequires:  pkgconfig(libavif)
+BuildRequires:  pkgconfig(libheif)
 
 Requires:       kf5-filesystem >= %{majmin}
 
@@ -45,7 +46,8 @@ image formats.
 
 
 %build
-%{cmake_kf5}
+%{cmake_kf5} \
+  -DKIMAGEFORMATS_HEIF=ON
 
 %cmake_build
 
@@ -65,6 +67,9 @@ image formats.
 
 
 %changelog
+* Wed Feb 09 2022 David Warner <david.p.warner@gmail.com> - 5.90.0-2
+- Enabled HEIF support
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 
