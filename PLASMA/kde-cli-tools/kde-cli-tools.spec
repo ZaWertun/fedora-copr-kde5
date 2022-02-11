@@ -1,7 +1,6 @@
-%undefine __cmake_in_source_build
 Name:    kde-cli-tools
 Version: 5.24.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
 License: GPLv2+
@@ -43,8 +42,10 @@ Requires: libkworkspace5%{?_isa} >= %{version}
 # probably could be unversioned, but let's play it safe so we can avoid adding Conflicts: -- rex
 Requires:       kdesu = 1:%{version}-%{release}
 
-# libkdeinit5_kcmshell5
-%{?kf5_kinit_requires}
+# unversioned utilitized landed here in 5.23.90, see also
+# https://phabricator.kde.org/T14763
+# https://invent.kde.org/plasma/kde-cli-tools/-/merge_requests/23
+Conflicts: kde-runtime < 17.08.3-23
 
 %description
 Provides several KDE and Plasma specific command line tools to allow
@@ -58,7 +59,7 @@ Conflicts: kde-runtime-docs < 14.12.3-2
 ## added deps below avoidable to due main pkg Requires: kdesu -- rex
 # upgrade path, when kdesu was introduced
 #Obsoletes: kde-cli-tools < 5.2.1-3
-#Requires: %{name} = %{version}-%{release}
+#Requires: %%{name} = %%{version}-%%{release}
 %description -n kdesu
 %{summary}.
 
@@ -68,14 +69,14 @@ Conflicts: kde-runtime-docs < 14.12.3-2
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
 %find_lang kdeclitools_qt --with-qt --with-kde --all-name
+%find_lang kdesu --with-html --with-man
 
 ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
@@ -109,16 +110,16 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 %{_kf5_datadir}/applications/org.kde.keditfiletype.desktop
 %{_kf5_datadir}/applications/org.kde.plasma.settings.open.desktop
 
-%files -n kdesu
+%files -n kdesu -f kdesu.lang
 %{_bindir}/kdesu
 %{_kf5_libexecdir}/kdesu
 %{_mandir}/man1/kdesu.1.gz
-%{_mandir}/*/man1/kdesu.1.gz
-## FIXME: %%lang'ify
-%{_datadir}/doc/HTML/*/kdesu
 
 
 %changelog
+* Fri Feb 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-2
+- Mark package as conflicting with kde-runtime < 17.08.3
+
 * Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
 - 5.24.0
 
