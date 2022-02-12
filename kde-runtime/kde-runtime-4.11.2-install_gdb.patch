@@ -1,0 +1,60 @@
+diff -up kde-runtime-4.11.2/drkonqi/backtracegenerator.cpp.install_gdb kde-runtime-4.11.2/drkonqi/backtracegenerator.cpp
+--- kde-runtime-4.11.2/drkonqi/backtracegenerator.cpp.install_gdb	2013-08-28 11:59:56.409413697 -0500
++++ kde-runtime-4.11.2/drkonqi/backtracegenerator.cpp	2013-10-19 20:58:10.072330538 -0500
+@@ -73,6 +73,7 @@ bool BacktraceGenerator::start()
+     emit starting();
+ 
+     if (!m_debugger.isValid() || !m_debugger.isInstalled()) {
++        m_debugger.install();
+         m_state = FailedToStart;
+         emit failedToStart();
+         return false;
+diff -up kde-runtime-4.11.2/drkonqi/debugger.cpp.install_gdb kde-runtime-4.11.2/drkonqi/debugger.cpp
+--- kde-runtime-4.11.2/drkonqi/debugger.cpp.install_gdb	2013-08-28 11:59:56.411413685 -0500
++++ kde-runtime-4.11.2/drkonqi/debugger.cpp	2013-10-19 21:08:13.195798090 -0500
+@@ -16,6 +16,9 @@
+ */
+ #include "debugger.h"
+ 
++#include <QDBusInterface>
++#include <QDBusPendingCall>
++//#include <QLatin1String>
+ #include <KConfig>
+ #include <KConfigGroup>
+ #include <KGlobal>
+@@ -49,6 +52,22 @@ bool Debugger::isInstalled() const
+     return !tryexec.isEmpty() && !KStandardDirs::findExe(tryexec).isEmpty();
+ }
+ 
++void Debugger::install() const
++{
++    QDBusInterface packageKit(QLatin1String("org.freedesktop.PackageKit"),
++                              QLatin1String("/org/freedesktop/PackageKit"),
++                              QLatin1String("org.freedesktop.PackageKit.Modify"));
++    // We don't check packageKit.isValid() because the service is activated on
++    // demand, so it will show up as "not valid".
++    WId wid = 0;
++    //if (parent) {  // how to get this?  -- Rex
++    //   wid = parent->winId();
++    //}
++    packageKit.asyncCall(QLatin1String("InstallPackageNames"),
++                         (unsigned int) wid,
++                         QStringList() << QLatin1String("gdb"),QString());
++}
++
+ QString Debugger::name() const
+ {
+     return isValid() ? m_config->group("General").readEntry("Name") : QString();
+diff -up kde-runtime-4.11.2/drkonqi/debugger.h.install_gdb kde-runtime-4.11.2/drkonqi/debugger.h
+--- kde-runtime-4.11.2/drkonqi/debugger.h.install_gdb	2013-08-28 11:59:56.411413685 -0500
++++ kde-runtime-4.11.2/drkonqi/debugger.h	2013-10-19 20:58:10.072330538 -0500
+@@ -40,6 +40,9 @@ public:
+      */
+     bool isInstalled() const;
+ 
++    /** Try to install debugger via PackageKit. */
++    void install() const;
++
+     /** Returns the translatable name of the debugger (eg. "GDB") */
+     QString name() const;
+ 

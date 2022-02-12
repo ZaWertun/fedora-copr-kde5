@@ -1,0 +1,27 @@
+diff -up kde-runtime-4.9.0/drkonqi/doc/examples/installdbgsymbols_fedora.sh.installdbgsymbols kde-runtime-4.9.0/drkonqi/doc/examples/installdbgsymbols_fedora.sh
+--- kde-runtime-4.9.0/drkonqi/doc/examples/installdbgsymbols_fedora.sh.installdbgsymbols	2012-05-22 18:57:38.000000000 -0500
++++ kde-runtime-4.9.0/drkonqi/doc/examples/installdbgsymbols_fedora.sh	2012-08-07 20:00:11.506028183 -0500
+@@ -27,12 +27,12 @@ run_in_terminal()
+     mkfifo $fifo
+ 
+     # start terminal
+-    konsole -e sh -c "echo \$\$ > $fifo; $1; exit_status=\$?; sleep 1; rm $fifo; echo \$exit_status > $fifo" &
++    konsole -e sh -c "echo \$\$ > $fifo; set -x ; $1; exit_status=\$?; sleep 10; rm $fifo; echo \$exit_status > $fifo" &
+ 
+     # wait for it to finish
+     local pid=`cat $fifo`
+     while [ "$?" = "0" ]; do
+-        sleep 1
++        sleep 10
+         kill -0 $pid 2>/dev/null
+     done
+ 
+@@ -80,7 +80,7 @@ done
+ # filter out duplicates
+ packages=`echo "$packages" | tr " " "\n" | sort | uniq | tr "\n" " "`
+ 
+-run_in_terminal "su -c \"debuginfo-install $packages\""
++run_in_terminal "pkexec debuginfo-install $packages"
+ 
+ if [ "$?" = "1" ]; then
+     exit 3

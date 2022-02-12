@@ -1,0 +1,25 @@
+diff -up kde-runtime-17.08.3/CMakeLists.txt.optinal_components kde-runtime-17.08.3/CMakeLists.txt
+--- kde-runtime-17.08.3/CMakeLists.txt.optinal_components	2018-03-28 10:34:36.007038946 -0500
++++ kde-runtime-17.08.3/CMakeLists.txt	2018-03-28 10:35:27.358434409 -0500
+@@ -53,10 +53,10 @@ set_package_properties(QCA2 PROPERTIES D
+                        TYPE OPTIONAL
+                       )
+ 
+-find_package(LibGcrypt 1.5.0 REQUIRED QUIET)
++find_package(LibGcrypt 1.5.0)
+ set_package_properties(LibGcrypt PROPERTIES DESCRIPTION "Libgcrypt is a general purpose cryptographic library based on the code from GnuPG."
+                        URL "http://www.gnu.org/software/libgcrypt/"
+-                       TYPE REQUIRED
++                       TYPE OPTIONAL 
+                        PURPOSE "kwalletd needs libgcrypt to perform PBKDF2-SHA512 hashing"
+                       )
+ 
+@@ -92,7 +92,7 @@ add_subdirectory(ktimezoned)
+ if(NOT WINCE)
+ macro_optional_add_subdirectory(kuiserver)
+ endif(NOT WINCE)
+-add_subdirectory(kwalletd)
++macro_optional_add_subdirectory(kwalletd)
+ 
+ if ( UNIX )
+    add_subdirectory(soliduiserver)

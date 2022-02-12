@@ -1,0 +1,36 @@
+diff -up kde-runtime-16.04.1/drkonqi/doc/examples/installdbgsymbols_fedora.sh.installdgbsymbols-dnf kde-runtime-16.04.1/drkonqi/doc/examples/installdbgsymbols_fedora.sh
+--- kde-runtime-16.04.1/drkonqi/doc/examples/installdbgsymbols_fedora.sh.installdgbsymbols-dnf	2016-04-12 02:37:16.000000000 -0500
++++ kde-runtime-16.04.1/drkonqi/doc/examples/installdbgsymbols_fedora.sh	2016-06-05 08:52:45.599889610 -0500
+@@ -27,12 +27,12 @@ run_in_terminal()
+     mkfifo $fifo
+ 
+     # start terminal
+-    konsole -e sh -c "echo \$\$ > $fifo; $1; exit_status=\$?; sleep 1; rm $fifo; echo \$exit_status > $fifo" &
++    konsole -e sh -c "echo \$\$ > $fifo; set -x ; $1; exit_status=\$?; sleep 10; rm $fifo; echo \$exit_status > $fifo" &
+ 
+     # wait for it to finish
+     local pid=`cat $fifo`
+     while [ "$?" = "0" ]; do
+-        sleep 1
++        sleep 10
+         kill -0 $pid 2>/dev/null
+     done
+ 
+@@ -65,7 +65,7 @@ check_dep()
+     fi
+ }
+ 
+-check_dep debuginfo-install
++#check_dep debuginfo-install
+ check_dep konsole
+ 
+ # start searching for packages
+@@ -80,7 +80,7 @@ done
+ # filter out duplicates
+ packages=`echo "$packages" | tr " " "\n" | sort | uniq | tr "\n" " "`
+ 
+-run_in_terminal "su -c \"debuginfo-install $packages\""
++run_in_terminal "pkexec dnf debuginfo-install $packages"
+ 
+ if [ "$?" = "1" ]; then
+     exit 3

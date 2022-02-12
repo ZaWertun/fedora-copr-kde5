@@ -1,0 +1,75 @@
+diff -ur kde-runtime-4.9.98/plasma/declarativeimports/plasmacomponents/CMakeLists.txt kde-runtime-4.9.98-kde#310486/plasma/declarativeimports/plasmacomponents/CMakeLists.txt
+--- kde-runtime-4.9.98/plasma/declarativeimports/plasmacomponents/CMakeLists.txt	2012-12-17 15:24:58.000000000 +0100
++++ kde-runtime-4.9.98-kde#310486/plasma/declarativeimports/plasmacomponents/CMakeLists.txt	2013-01-27 20:01:31.000000000 +0100
+@@ -21,7 +21,7 @@
+ 
+ 
+ add_library(plasmacomponentsplugin SHARED ${plasmacomponents_SRCS})
+-target_link_libraries(plasmacomponentsplugin ${QT_QTCORE_LIBRARY} ${QT_QTDECLARATIVE_LIBRARY} ${QT_QTGUI_LIBRARY} ${KDE4_KDEUI_LIBRARY} ${KDECLARATIVE_LIBRARIES} ${KDE4_PLASMA_LIBS})
++target_link_libraries(plasmacomponentsplugin ${QT_QTCORE_LIBRARY} ${QT_QTDECLARATIVE_LIBRARY} ${QT_QTGUI_LIBRARY} ${KDE4_KDEUI_LIBRARY} ${KDE4_PLASMA_LIBS})
+ 
+ install(TARGETS plasmacomponentsplugin DESTINATION ${IMPORTS_INSTALL_DIR}/org/kde/plasma/components)
+ 
+diff -ur kde-runtime-4.9.98/plasma/declarativeimports/plasmacomponents/fullscreenwindow.cpp kde-runtime-4.9.98-kde#310486/plasma/declarativeimports/plasmacomponents/fullscreenwindow.cpp
+--- kde-runtime-4.9.98/plasma/declarativeimports/plasmacomponents/fullscreenwindow.cpp	2012-12-17 15:24:58.000000000 +0100
++++ kde-runtime-4.9.98-kde#310486/plasma/declarativeimports/plasmacomponents/fullscreenwindow.cpp	2013-01-27 22:47:38.000000000 +0100
+@@ -35,8 +35,8 @@
+ 
+ #include <KWindowSystem>
+ #include <KStandardDirs>
+-
+-#include <kdeclarative.h>
++#include <KSharedConfig>
++#include <KConfigGroup>
+ 
+ #include <Plasma/Corona>
+ #include <Plasma/WindowEffects>
+@@ -124,9 +124,14 @@
+     }
+ 
+     //Try to figure out the path of the dialog component
+-    const QString target = KDeclarative::componentsTarget();
++    QString target = getenv("KDE_PLASMA_COMPONENTS_PLATFORM");
++    if (target.isEmpty()) {
++        KConfigGroup cg(KSharedConfig::openConfig("kdeclarativerc"), "Components-platform");
++        target = cg.readEntry("name", "desktop");
++    }
++
+     QString filePath;
+-    if (target != KDeclarative::defaultComponentsTarget()) {
++    if (target != "desktop") {
+         const QString file = "platformimports/" % target % "/org/kde/plasma/components/" % componentName % ".qml";
+         filePath = KStandardDirs::locate("module", file);
+     }
+diff -ur kde-runtime-4.9.98/plasma/declarativeimports/plasmacomponents/plasmacomponentsplugin.cpp kde-runtime-4.9.98-kde#310486/plasma/declarativeimports/plasmacomponents/plasmacomponentsplugin.cpp
+--- kde-runtime-4.9.98/plasma/declarativeimports/plasmacomponents/plasmacomponentsplugin.cpp	2012-12-17 15:24:58.000000000 +0100
++++ kde-runtime-4.9.98-kde#310486/plasma/declarativeimports/plasmacomponents/plasmacomponentsplugin.cpp	2013-01-27 22:47:47.000000000 +0100
+@@ -27,11 +27,10 @@
+ #include "qrangemodel.h"
+ 
+ #include <KSharedConfig>
++#include <KConfigGroup>
+ #include <KDebug>
+ #include <KGlobal>
+ 
+-#include <kdeclarative.h>
+-
+ #include "enums.h"
+ #include "qmenu.h"
+ #include "qmenuitem.h"
+@@ -91,8 +90,13 @@
+     Q_ASSERT(uri == QLatin1String("org.kde.plasma.components"));
+ 
+     //platform specific c++ components
+-    const QString target = KDeclarative::componentsTarget();
+-    if (target == KDeclarative::defaultComponentsTarget()) {
++    QString target = getenv("KDE_PLASMA_COMPONENTS_PLATFORM");
++    if (target.isEmpty()) {
++        KConfigGroup cg(KSharedConfig::openConfig("kdeclarativerc"), "Components-platform");
++        target = cg.readEntry("name", "desktop");
++    }
++
++    if (target == "desktop") {
+         qmlRegisterType<QMenuProxy>(uri, 0, 1, "Menu");
+         qmlRegisterType<QMenuItem>(uri, 0, 1, "MenuItem");
+     } else {

@@ -1,0 +1,41 @@
+diff -ur kde-runtime-17.08.3/kioslave/CMakeLists.txt kde-runtime-17.08.3-nfs-libtirpc/kioslave/CMakeLists.txt
+--- kde-runtime-17.08.3/kioslave/CMakeLists.txt	2017-10-01 03:02:55.000000000 +0200
++++ kde-runtime-17.08.3-nfs-libtirpc/kioslave/CMakeLists.txt	2018-01-10 19:24:08.159572514 +0100
+@@ -52,11 +52,13 @@
+    add_subdirectory( floppy )
+    add_subdirectory( finger )
+    add_subdirectory( man )
+-   check_include_files(rpc/rpc.h HAVE_RPC_RPC_H)
+-   add_feature_info("NFS kioslave" HAVE_RPC_RPC_H "The RPC library is needed to build the NFS kioslave")
+-   if(HAVE_RPC_RPC_H)
++   pkg_check_modules(TIRPC libtirpc)
++   include_directories(${TIRPC_INCLUDE_DIRS})
++   set(CMAKE_REQUIRED_LIBRARIES ${TIRPC_LIBRARIES})
++   add_feature_info("NFS kioslave" TIRPC_FOUND "The RPC library is needed to build the NFS kioslave")
++   if(TIRPC_FOUND)
+      add_subdirectory( nfs )
+-   endif(HAVE_RPC_RPC_H)
++   endif(TIRPC_FOUND)
+ endif(NOT WIN32)
+ 
+ if(SAMBA_FOUND OR WIN32 AND NOT WINCE)
+diff -ur kde-runtime-17.08.3/kioslave/nfs/CMakeLists.txt kde-runtime-17.08.3-nfs-libtirpc/kioslave/nfs/CMakeLists.txt
+--- kde-runtime-17.08.3/kioslave/nfs/CMakeLists.txt	2017-10-01 03:02:55.000000000 +0200
++++ kde-runtime-17.08.3-nfs-libtirpc/kioslave/nfs/CMakeLists.txt	2018-01-10 19:23:52.437813784 +0100
+@@ -10,6 +10,7 @@
+     message(FATAL_ERROR "Could not find 64-bit XDR datatype functions!")
+ endif (NOT HAVE_XDR_U_INT64_T AND NOT HAVE_XDR_UINT64_T AND NOT HAVE_XDR_U_HYPER AND NOT HAVE_XDR_U_LONGLONG_T)
+ 
++add_definitions(-D_DEFAULT_SOURCE)
+ if (HAVE_XDR_U_INT64_T)
+     add_definitions(-DHAVE_XDR_U_INT64_T)
+ endif (HAVE_XDR_U_INT64_T)
+@@ -31,7 +32,7 @@
+ kde4_add_plugin(kio_nfs ${kio_nfs_PART_SRCS})
+ 
+ 
+-target_link_libraries(kio_nfs   ${KDE4_KIO_LIBS})
++target_link_libraries(kio_nfs   ${KDE4_KIO_LIBS} ${TIRPC_LIBRARIES})
+ 
+ install(TARGETS kio_nfs  DESTINATION ${PLUGIN_INSTALL_DIR} )
+ 
