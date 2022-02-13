@@ -1,13 +1,11 @@
-%global commit cefdf26c2b7e07233e1a7a235254d9085c732f48
-
 Name:           kalendar
-Version:        0.3.1
-Release:        2%{?dist}
+Version:        1.0.0
+Release:        1%{?dist}
 Summary:        A calendar application using Akonadi to sync with external services
 
 License:        LGPLv2+
 URL:            https://invent.kde.org/pim/%{name}
-Source0:        https://invent.kde.org/pim/%{name}/-/archive/v%{version}/%{name}-v%{version}-%{commit}.tar.bz2
+Source0:        https://invent.kde.org/pim/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 
 ## upstream patches
 
@@ -47,6 +45,7 @@ BuildRequires:  cmake(KF5People)          >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Solid)           >= %{kf5_min_version}
 BuildRequires:  cmake(KF5WindowSystem)    >= %{kf5_min_version}
 BuildRequires:  cmake(KF5XmlGui)          >= %{kf5_min_version}
+BuildRequires:  cmake(KF5QQC2DesktopStyle) >= %{kf5_min_version}
 
 BuildRequires:  cmake(KF5Akonadi)         >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5AkonadiContact)  >= %{akonadi_min_version}
@@ -79,7 +78,7 @@ Kalendar Reminder Daemon.
 
 
 %prep
-%autosetup -p1 -n %{name}-v%{version}-%{commit}
+%autosetup -p1 -n %{name}-v%{version}
 
 
 %build
@@ -90,14 +89,9 @@ Kalendar Reminder Daemon.
 %install
 %cmake_install
 
-# Temporary disabling QML cache, see issue #55:
-#  https://invent.kde.org/pim/kalendar/-/issues/55
-sed -i 's|Exec=kalendar|Exec=env QML_DISABLE_DISK_CACHE=1 kalendar|' \
-    %{buildroot}%{_datadir}/applications/org.kde.%{name}.desktop
-
 
 %check
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
@@ -118,6 +112,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Sun Feb 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.0-1
+- 1.0.0
+
 * Sat Dec 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.1-2
 - rebuild
 
