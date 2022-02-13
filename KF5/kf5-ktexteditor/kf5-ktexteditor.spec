@@ -77,6 +77,7 @@ Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 #Requires:       cmake(KF5Parts)
 Requires:       kf5-kparts-devel >= %{majmin}
+Requires:       kf5-syntax-highlighting-devel >= %{majmin}
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
