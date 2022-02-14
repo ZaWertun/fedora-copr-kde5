@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework kimageformats
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with additional image plugins for QtGui
 
@@ -30,7 +29,6 @@ BuildRequires:  jasper-devel
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(OpenEXR)
 BuildRequires:  pkgconfig(libavif)
-BuildRequires:  pkgconfig(libheif)
 
 Requires:       kf5-filesystem >= %{majmin}
 
@@ -46,9 +44,7 @@ image formats.
 
 
 %build
-%{cmake_kf5} \
-  -DKIMAGEFORMATS_HEIF=ON
-
+%cmake_kf5
 %cmake_build
 
 
@@ -67,6 +63,9 @@ image formats.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Wed Feb 09 2022 David Warner <david.p.warner@gmail.com> - 5.90.0-2
 - Enabled HEIF support
 

@@ -3,7 +3,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A Qt wrapper for Bluez
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 
 License:        LGPLv2+
@@ -80,7 +80,6 @@ Development files for %{name}.
 
 %files devel
 %{_kf5_includedir}/BluezQt/
-%{_kf5_includedir}/bluezqt_version.h
 %{_kf5_libdir}/libKF5BluezQt.so
 %{_kf5_libdir}/cmake/KF5BluezQt/
 %{_kf5_libdir}/pkgconfig/KF5BluezQt.pc
@@ -88,6 +87,9 @@ Development files for %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

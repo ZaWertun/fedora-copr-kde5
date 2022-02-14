@@ -2,7 +2,7 @@
 %global framework khtml
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 4 solution with KHTML, a HTML rendering engine
 
@@ -104,11 +104,13 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libKF5KHtml.so
 %{_kf5_libdir}/cmake/KF5KHtml/
 %{_kf5_includedir}/KHtml/
-%{_kf5_includedir}/khtml_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_KHtml.pri
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

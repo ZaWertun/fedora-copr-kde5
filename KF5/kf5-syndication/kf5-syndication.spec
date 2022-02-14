@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: The Syndication Library
 
@@ -86,7 +86,6 @@ time \
 %{_kf5_datadir}/qlogging-categories5/syndication.renamecategories
 
 %files devel
-%{_kf5_includedir}/syndication_version.h
 %{_kf5_includedir}/Syndication/
 %{_kf5_libdir}/libKF5Syndication.so
 %{_kf5_libdir}/cmake/KF5Syndication/
@@ -94,6 +93,9 @@ time \
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.90.0-1
 - 5.90.0
 

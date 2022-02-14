@@ -2,7 +2,7 @@
 %global framework ki18n
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon for localization
 
@@ -91,7 +91,6 @@ developing applications that use %{name}.
 %lang(sr) %{_datadir}/locale/uk/LC_SCRIPTS/ki18n5/
 
 %files devel
-%{_kf5_includedir}/ki18n_version.h
 %{_kf5_includedir}/KI18n/
 %{_kf5_includedir}/KI18nLocaleData/
 %{_kf5_libdir}/libKF5I18n.so
@@ -101,6 +100,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

@@ -2,7 +2,7 @@
 %global framework kxmlrpcclient
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 library for interaction with XML RPC services
 
@@ -62,7 +62,6 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libKF5XmlRpcClient.so.*
 
 %files devel
-%{_kf5_includedir}/kxmlrpcclient_version.h
 %{_kf5_includedir}/KXmlRpcClient/
 %{_kf5_libdir}/libKF5XmlRpcClient.so
 %{_kf5_libdir}/cmake/KF5XmlRpcClient/
@@ -70,6 +69,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

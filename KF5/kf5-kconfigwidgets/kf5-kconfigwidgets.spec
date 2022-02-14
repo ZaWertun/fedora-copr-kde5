@@ -2,7 +2,7 @@
 %global framework kconfigwidgets
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 3 addon for creating configuration dialogs
 
@@ -78,7 +78,6 @@ developing applications that use %{name}.
 %files devel
 %{_kf5_bindir}/preparetips5
 %{_kf5_mandir}/man1/preparetips5.1*
-%{_kf5_includedir}/kconfigwidgets_version.h
 %{_kf5_includedir}/KConfigWidgets/
 %{_kf5_libdir}/libKF5ConfigWidgets.so
 %{_kf5_libdir}/cmake/KF5ConfigWidgets/
@@ -86,6 +85,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

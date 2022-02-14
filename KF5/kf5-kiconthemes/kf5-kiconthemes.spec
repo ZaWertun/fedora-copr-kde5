@@ -2,7 +2,7 @@
 %global framework kiconthemes
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module with icon themes
 
@@ -78,7 +78,6 @@ developing applications that use %{name}.
 %{_kf5_qtplugindir}/designer/*5widgets.so
 
 %files devel
-%{_kf5_includedir}/kiconthemes_version.h
 %{_kf5_includedir}/KIconThemes/
 %{_kf5_libdir}/libKF5IconThemes.so
 %{_kf5_libdir}/cmake/KF5IconThemes/
@@ -86,6 +85,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

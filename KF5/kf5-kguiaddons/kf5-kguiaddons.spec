@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework kguiaddons
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with various classes on top of QtGui
 
@@ -18,6 +17,7 @@ URL:            https://cgit.kde.org/%{framework}.git
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
+BuildRequires:  desktop-file-utils
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  libX11-devel
@@ -48,8 +48,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -57,17 +56,28 @@ developing applications that use %{name}.
 %cmake_install
 
 
+%check
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/google-maps-geo-handler.desktop ||:
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/openstreetmap-geo-handler.desktop ||:
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/qwant-maps-geo-handler.desktop ||:
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/wheelmap-geo-handler.desktop ||:
+
+
 %ldconfig_scriptlets
 
 %files
 %doc README.md
 %license LICENSES/*.txt
+%{_kf5_bindir}/kde-geo-uri-handler
 %{_kf5_libdir}/libKF5GuiAddons.so.*
 %{_kf5_plugindir}/kguiaddons/
+%{_kf5_datadir}/applications/google-maps-geo-handler.desktop
+%{_kf5_datadir}/applications/openstreetmap-geo-handler.desktop
+%{_kf5_datadir}/applications/qwant-maps-geo-handler.desktop
+%{_kf5_datadir}/applications/wheelmap-geo-handler.desktop
 %{_kf5_datadir}/qlogging-categories5/kguiaddons.categories
 
 %files devel
-%{_kf5_includedir}/kguiaddons_version.h
 %{_kf5_includedir}/KGuiAddons/
 %{_kf5_libdir}/libKF5GuiAddons.so
 %{_kf5_libdir}/cmake/KF5GuiAddons/
@@ -75,6 +85,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

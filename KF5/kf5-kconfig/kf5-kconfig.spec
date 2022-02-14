@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kconfig
 
 # uncomment to enable bootstrap mode
@@ -18,7 +17,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 
@@ -194,6 +193,9 @@ xvfb-run -a \
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

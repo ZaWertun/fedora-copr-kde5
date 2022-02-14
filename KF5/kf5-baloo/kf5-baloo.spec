@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -199,13 +199,15 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libdir}/cmake/KF5Baloo/
 %{_kf5_libdir}/pkgconfig/Baloo.pc
 %{_kf5_includedir}/Baloo/
-%{_kf5_includedir}/baloo_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_Baloo.pri
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.baloo.*.xml
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.Baloo*.xml
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

@@ -2,7 +2,7 @@
 %global framework kcompletion
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 2 addon with auto completion widgets and classes
 
@@ -68,7 +68,6 @@ developing applications that use %{name}.
 %{_kf5_datadir}/qlogging-categories5/kcompletion.categories
 
 %files devel
-%{_kf5_includedir}/kcompletion_version.h
 %{_kf5_includedir}/KCompletion/
 %{_kf5_libdir}/libKF5Completion.so
 %{_kf5_libdir}/cmake/KF5Completion/
@@ -76,6 +75,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

@@ -2,7 +2,7 @@
 %global framework kdesu
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration with su
 
@@ -66,7 +66,6 @@ developing applications that use %{name}.
 %attr(2755,root,nobody) %{_kf5_libexecdir}/kdesud
 
 %files devel
-%{_kf5_includedir}/kdesu_version.h
 %{_kf5_includedir}/KDESu/
 %{_kf5_libdir}/libKF5Su.so
 %{_kf5_libdir}/cmake/KF5Su/
@@ -74,6 +73,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

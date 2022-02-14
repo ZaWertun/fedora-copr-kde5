@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with various classes on top of QtCore
 
@@ -114,7 +114,6 @@ update-mime-database %{_datadir}/mime &> /dev/null || :
 %{_kf5_datadir}/qlogging-categories5/kcoreaddons.renamecategories
 
 %files devel
-%{_kf5_includedir}/kcoreaddons_version.h
 %{_kf5_includedir}/KCoreAddons/
 %{_kf5_libdir}/libKF5CoreAddons.so
 %{_kf5_libdir}/cmake/KF5CoreAddons/
@@ -122,6 +121,9 @@ update-mime-database %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

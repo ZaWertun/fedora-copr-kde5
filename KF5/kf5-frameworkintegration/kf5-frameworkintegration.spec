@@ -2,7 +2,7 @@
 %global framework frameworkintegration
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 4 workspace and cross-framework integration plugins
 License: LGPLv2+
@@ -107,13 +107,15 @@ developing applications that use %{name}.
 %{_kf5_plugindir}/FrameworkIntegrationPlugin.so
 
 %files devel
-%{_kf5_includedir}/frameworkintegration_version.h
 %{_kf5_includedir}/KStyle/
 %{_kf5_libdir}/libKF5Style.so
 %{_kf5_libdir}/cmake/KF5FrameworkIntegration/
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

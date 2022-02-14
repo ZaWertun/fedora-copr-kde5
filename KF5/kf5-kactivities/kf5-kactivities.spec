@@ -3,7 +3,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A KDE Frameworks 5 Tier 3 to organize user work into separate activities
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 
 License:        GPLv2+ and LGPLv2+
@@ -81,12 +81,14 @@ Requires:       qt5-qtbase-devel
 %{_kf5_libdir}/libKF5Activities.so
 %{_kf5_libdir}/cmake/KF5Activities/
 %{_kf5_includedir}/KActivities/
-%{_kf5_includedir}/kactivities_version.h
 %{_kf5_libdir}/pkgconfig/libKActivities.pc
 %{_kf5_archdatadir}/mkspecs/modules/qt_KActivities.pri
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

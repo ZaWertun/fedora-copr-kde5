@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: The KHolidays Library
 
@@ -87,7 +87,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/qlogging-categories5/kholidays.categories
 
 %files devel
-%{_kf5_includedir}/kholidays_version.h
 %{_kf5_includedir}/KHolidays/
 %{_kf5_libdir}/libKF5Holidays.so
 %{_kf5_libdir}/cmake/KF5Holidays/
@@ -95,6 +94,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.90.0-1
 - 5.90.0
 

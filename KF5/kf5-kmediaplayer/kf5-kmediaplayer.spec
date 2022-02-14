@@ -2,7 +2,7 @@
 %global framework kmediaplayer
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module with interface for media player features
 
@@ -60,7 +60,6 @@ developing applications that use %{name}.
 %{_kf5_datadir}/kservicetypes5/*.desktop
 
 %files devel
-%{_kf5_includedir}/kmediaplayer_version.h
 %{_kf5_includedir}/KMediaPlayer/
 %{_kf5_libdir}/libKF5MediaPlayer.so
 %{_kf5_libdir}/cmake/KF5MediaPlayer/
@@ -68,6 +67,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

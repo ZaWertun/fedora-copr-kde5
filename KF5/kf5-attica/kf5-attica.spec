@@ -2,7 +2,7 @@
 %global framework attica
 
 Name:    kf5-attica
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks Tier 1 Addon with Open Collaboration Services API
 
@@ -60,7 +60,6 @@ Requires:       qt5-qtbase-devel
 
 %files devel
 %{_kf5_libdir}/cmake/KF5Attica/
-%{_kf5_includedir}/attica_version.h
 %{_kf5_includedir}/Attica/
 %{_kf5_libdir}/libKF5Attica.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_Attica.pri
@@ -68,6 +67,9 @@ Requires:       qt5-qtbase-devel
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

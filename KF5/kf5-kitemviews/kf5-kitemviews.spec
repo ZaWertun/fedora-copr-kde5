@@ -2,7 +2,7 @@
 %global framework kitemviews
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with item views
 
@@ -65,7 +65,6 @@ mkdir -p %{_target_platform}
 %{_kf5_datadir}/qlogging-categories5/kitemviews.categories
 
 %files devel
-%{_kf5_includedir}/kitemviews_version.h
 %{_kf5_includedir}/KItemViews/
 %{_kf5_libdir}/libKF5ItemViews.so
 %{_kf5_libdir}/cmake/KF5ItemViews/
@@ -73,6 +72,9 @@ mkdir -p %{_target_platform}
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

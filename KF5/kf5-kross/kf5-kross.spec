@@ -2,7 +2,7 @@
 %global framework kross
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for multi-language application scripting
 
@@ -102,7 +102,6 @@ Gui part of the Kross framework.
 %{_kf5_qtplugindir}/krossmodulekdetranslation.so
 
 %files devel
-%{_kf5_includedir}/kross_version.h
 %{_kf5_includedir}/KrossUi/
 %{_kf5_includedir}/KrossCore/
 %{_kf5_libdir}/libKF5KrossCore.so
@@ -113,6 +112,9 @@ Gui part of the Kross framework.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

@@ -2,7 +2,7 @@
 %global framework kidletime
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 integration module for idle time detection
 
@@ -73,7 +73,6 @@ developing applications that use %{name}.
 %{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeXcbPlugin1.so
 
 %files devel
-%{_kf5_includedir}/kidletime_version.h
 %{_kf5_includedir}/KIdleTime/
 %{_kf5_libdir}/libKF5IdleTime.so
 %{_kf5_libdir}/cmake/KF5IdleTime/
@@ -81,6 +80,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

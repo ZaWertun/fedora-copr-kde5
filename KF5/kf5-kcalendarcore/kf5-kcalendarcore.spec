@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kcalendarcore
 
 # uncomment to enable bootstrap mode
@@ -10,7 +9,7 @@
 
 Name:    kf5-kcalendarcore
 Epoch:   1
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 KCalendarCore Library
 
@@ -95,7 +94,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5CalendarCore.so.*
 
 %files devel
-%{_kf5_includedir}/kcal*core_version.h
+%{_kf5_includedir}/kcalcore_version.h
 %{_kf5_includedir}/KCalendarCore/
 %{_kf5_libdir}/libKF5CalendarCore.so
 %{_kf5_libdir}/cmake/KF5CalendarCore/
@@ -104,6 +103,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.90.0-1
 - 5.90.0
 

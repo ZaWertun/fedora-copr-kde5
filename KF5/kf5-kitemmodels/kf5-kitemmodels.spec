@@ -2,7 +2,7 @@
 %global framework kitemmodels
 
 Name:           kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with item models
 
@@ -63,7 +63,6 @@ developing applications that use %{name}.
 %{_kf5_qmldir}/org/kde/kitemmodels/libitemmodelsplugin.so
 
 %files devel
-%{_kf5_includedir}/kitemmodels_version.h
 %{_kf5_includedir}/KItemModels/
 %{_kf5_libdir}/libKF5ItemModels.so
 %{_kf5_libdir}/cmake/KF5ItemModels/
@@ -71,6 +70,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

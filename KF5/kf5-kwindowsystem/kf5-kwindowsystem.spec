@@ -10,7 +10,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module with classes for windows management
 
@@ -101,7 +101,6 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_plugindir}/kwindowsystem/KF5WindowSystemWaylandPlugin.so
 
 %files devel
-%{_kf5_includedir}/kwindowsystem_version.h
 %{_kf5_includedir}/KWindowSystem/
 %{_kf5_libdir}/libKF5WindowSystem.so
 %{_kf5_libdir}/cmake/KF5WindowSystem/
@@ -109,6 +108,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
 - 5.90.0
 

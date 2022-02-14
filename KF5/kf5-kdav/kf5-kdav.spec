@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.90.0
+Version: 5.91.0
 Release: 1%{?dist}
 Summary: A DAV protocol implementation with KJobs
 
@@ -92,7 +92,6 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5DAV.so.5*
 
 %files devel
-%{_kf5_includedir}/kdav_version.h
 %{_kf5_includedir}/kdav/
 %{_kf5_includedir}/KDAV/
 %{_kf5_libdir}/libKF5DAV.so
@@ -101,6 +100,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.91.0-1
+- 5.91.0
+
 * Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.90.0-1
 - 5.90.0
 
