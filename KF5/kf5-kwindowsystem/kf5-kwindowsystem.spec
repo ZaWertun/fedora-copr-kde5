@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kwindowsystem
 
 ## uncomment to enable bootstrap mode
@@ -69,7 +68,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 
 %cmake_build
@@ -98,7 +97,6 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_datadir}/qlogging-categories5/kwindowsystem.categories
 %{_kf5_datadir}/qlogging-categories5/kwindowsystem.renamecategories
 %{_kf5_plugindir}/kwindowsystem/KF5WindowSystemX11Plugin.so
-%{_kf5_plugindir}/kwindowsystem/KF5WindowSystemWaylandPlugin.so
 
 %files devel
 %{_kf5_includedir}/KWindowSystem/

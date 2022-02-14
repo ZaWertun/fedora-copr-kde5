@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global  framework kwayland
 
 %global  wayland_min_version 1.3
@@ -70,7 +69,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 
 %cmake_build
@@ -105,6 +104,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/cmake/KF5Wayland/
 %{_kf5_libdir}/libKF5WaylandClient.so
 %{_kf5_libdir}/libKF5WaylandServer.so
+%{_kf5_libdir}/pkgconfig/KF5WaylandClient.pc
 %{_kf5_archdatadir}/mkspecs/modules/qt_KWaylandClient.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_KWaylandServer.pri
 
