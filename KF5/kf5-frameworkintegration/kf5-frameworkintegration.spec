@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework frameworkintegration
 
 Name:    kf5-%{framework}
@@ -79,8 +78,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -107,6 +105,7 @@ developing applications that use %{name}.
 %{_kf5_plugindir}/FrameworkIntegrationPlugin.so
 
 %files devel
+%{_kf5_includedir}/FrameworkIntegration/frameworkintegration_version.h
 %{_kf5_includedir}/KStyle/
 %{_kf5_libdir}/libKF5Style.so
 %{_kf5_libdir}/cmake/KF5FrameworkIntegration/

@@ -91,6 +91,7 @@ developing applications that use %{name}.
 %{_kf5_qmldir}/org/kde/newstuff/
 
 %files devel
+%{_kf5_includedir}/knewstuff*_version.h
 %{_kf5_includedir}/KNewStuff3/
 %{_kf5_libdir}/libKF5NewStuff.so
 %{_kf5_libdir}/libKF5NewStuffCore.so

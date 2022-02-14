@@ -113,6 +113,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/designer/*5widgets.so
 
 %files devel
+%{_kf5_includedir}/Sonnet/sonnet_version.h
 %{_kf5_includedir}/SonnetCore/
 %{_kf5_includedir}/SonnetUi/
 %{_kf5_libdir}/libKF5SonnetCore.so

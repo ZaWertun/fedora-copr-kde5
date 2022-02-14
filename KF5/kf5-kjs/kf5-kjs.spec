@@ -69,6 +69,7 @@ chmod +x %{buildroot}%{_kf5_datadir}/kf5/kjs/create_hash_table
 %files devel
 %dir %{_kf5_datadir}/kf5/kjs/
 %{_kf5_datadir}/kf5/kjs/create_hash_table
+%{_kf5_includedir}/kjs_version.h
 %{_kf5_includedir}/kjs/
 %{_kf5_includedir}/wtf/
 %{_kf5_libdir}/libKF5JS.so

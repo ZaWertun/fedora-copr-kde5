@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kross
 
 Name:    kf5-%{framework}
@@ -71,14 +70,12 @@ Gui part of the Kross framework.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-man
 
 
@@ -102,6 +99,7 @@ Gui part of the Kross framework.
 %{_kf5_qtplugindir}/krossmodulekdetranslation.so
 
 %files devel
+%{_kf5_includedir}/kross_version.h
 %{_kf5_includedir}/KrossUi/
 %{_kf5_includedir}/KrossCore/
 %{_kf5_libdir}/libKF5KrossCore.so

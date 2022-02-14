@@ -291,9 +291,7 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 %{_kf5_archdatadir}/mkspecs/modules/qt_KIOGui.pri
 %{_datadir}/dbus-1/interfaces/*.xml
 %{_kf5_bindir}/protocoltojson
-%dir %{_kf5_datadir}/kdevappwizard/
-%dir %{_kf5_datadir}/kdevappwizard/templates/
-%{_kf5_datadir}/kdevappwizard/templates/ioslave*
+%{_kf5_datadir}/kdevfiletemplates/templates/ioslave.tar.bz2
 
 
 %changelog

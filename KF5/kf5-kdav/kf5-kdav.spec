@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kdav
 
 # uncomment to enable bootstrap mode
@@ -63,14 +62,13 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -92,11 +90,11 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5DAV.so.5*
 
 %files devel
-%{_kf5_includedir}/kdav/
+%{_kf5_includedir}/kdav_version.h
 %{_kf5_includedir}/KDAV/
 %{_kf5_libdir}/libKF5DAV.so
 %{_kf5_libdir}/cmake/KF5DAV/
-%{_kf5_archdatadir}/mkspecs/modules/qt_kdav.pri
+%{_kf5_archdatadir}/mkspecs/modules/qt_KDAV.pri
 
 
 %changelog
