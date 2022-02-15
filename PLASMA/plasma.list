@@ -6,6 +6,7 @@ kde-cli-tools
 kdecoration
 kde-gtk-config
 kdeplasma-addons
+kgamma
 khotkeys
 kinfocenter
 kmenuedit
@@ -40,6 +41,7 @@ plasma-thunderbolt
 plasma-vault
 plasma-workspace
 plasma-workspace-wallpapers
+plymouth-kcm
 polkit-kde
 powerdevil
 qqc2-breeze-style

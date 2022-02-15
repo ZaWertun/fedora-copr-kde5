@@ -1,0 +1,77 @@
+diff --git a/src/helper.cpp b/src/helper.cpp
+index 6c0cca8..07de6ef 100644
+--- a/src/helper.cpp
++++ b/src/helper.cpp
+@@ -171,7 +171,7 @@ ActionReply PlymouthHelper::save(const QVariantMap &args)
+     }
+     reply = ActionReply(ActionReply::HelperErrorReply());
+     reply.setErrorCode(static_cast<ActionReply::Error>(ret));
+-    reply.setErrorDescription(i18n("Initramfs returned with error condition %1.", ret));
++    reply.setErrorDescription(i18n("Dracut returned with error condition %1.", ret));
+     return reply;
+ }
+ 
+@@ -244,22 +244,6 @@ ActionReply PlymouthHelper::install(const QVariantMap &args)
+ 
+     archive->close();
+ 
+-    // Special case: Ubuntu derivatives, which work different from everybody else
+-    if (hasUpdateAlternatives()) {
+-        // find the .plymouth file in the theme
+-        QDir dir(themePath);
+-        const QStringList themeFile = dir.entryList({QStringLiteral("*.plymouth")});
+-        if (themeFile.count() != 1) {
+-            reply = ActionReply::BackendError;
+-            reply.setErrorDescription(i18n("Theme corrupted: .plymouth file not found inside theme."));
+-            return reply;
+-        }
+-
+-        if (auto reply = updateAlternativesInstall(themePath + QLatin1Char('/') + themeFile.first()); reply.failed()) {
+-            return reply;
+-        }
+-    }
+-
+     QVariantMap map;
+     map[QStringLiteral("plugin")] = themeName;
+     map[QStringLiteral("path")] = themePath;
+@@ -291,40 +275,6 @@ ActionReply PlymouthHelper::uninstall(const QVariantMap &args)
+         return reply;
+     }
+ 
+-    // Special case: Ubuntu derivatives, which work different from everybody else
+-    if (hasUpdateAlternatives()) {
+-        // find the .plymouth file in the theme
+-        const QStringList themeFile = dir.entryList(QStringList() << QStringLiteral("*.plymouth"));
+-        if (themeFile.count() != 1) {
+-            reply = ActionReply::BackendError;
+-            reply.setErrorDescription(i18n("Theme corrupted: .plymouth file not found inside theme."));
+-            return reply;
+-        }
+-        int ret = 0;
+-        QProcess process;
+-
+-        process.start(QStringLiteral("update-alternatives"),
+-                      {QStringLiteral("--remove"), QStringLiteral("default.plymouth"), dir.path() + QLatin1Char('/') + themeFile.first()});
+-        if (!process.waitForStarted()) {
+-            reply = ActionReply::BackendError;
+-            reply.setErrorDescription(i18n("Cannot start update-alternatives."));
+-            return reply;
+-        }
+-        if (!process.waitForFinished()) {
+-            reply = ActionReply::BackendError;
+-            reply.setErrorDescription(i18n("update-alternatives failed to run."));
+-            return reply;
+-        }
+-        ret = process.exitCode();
+-
+-        if (ret != 0) {
+-            reply = ActionReply(ActionReply::HelperErrorReply());
+-            reply.setErrorCode(static_cast<ActionReply::Error>(ret));
+-            reply.setErrorDescription(i18n("update-alternatives returned with error condition %1.", ret));
+-            return reply;
+-        }
+-    }
+-
+     if (dir.removeRecursively()) {
+         return ActionReply::SuccessReply();
+     }
