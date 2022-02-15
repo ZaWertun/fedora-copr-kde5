@@ -1,6 +1,6 @@
 Name:    kde-cli-tools
-Version: 5.24.0
-Release: 2%{?dist}
+Version: 5.24.1
+Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
 License: GPLv2+
@@ -117,6 +117,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Tue Feb 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.1-1
+- 5.24.1
+
 * Fri Feb 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-2
 - Mark package as conflicting with kde-runtime < 17.08.3
 

@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.24.0
+Version: 5.24.1
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -110,6 +110,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Feb 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.1-1
+- 5.24.1
+
 * Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
 - 5.24.0
 

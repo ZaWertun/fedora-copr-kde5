@@ -1,6 +1,6 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.24.0
+Version: 5.24.1
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -81,6 +81,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue Feb 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.1-1
+- 5.24.1
+
 * Tue Feb 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.0-1
 - 5.24.0
 

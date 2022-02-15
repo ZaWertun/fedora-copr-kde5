@@ -2,7 +2,7 @@
 
 Name:    plymouth-kcm
 Summary: Plymouth configuration module for systemsettings
-Version: 5.24.0
+Version: 5.24.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -78,6 +78,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_plymouth.desktop
 
 
 %changelog
+* Tue Feb 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.1-1
+- 5.24.1
+
 * Tue Feb 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
 - new version
 
