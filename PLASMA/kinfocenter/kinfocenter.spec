@@ -60,6 +60,13 @@ BuildRequires:  kf5-kwayland-devel
 Requires:       kf5-filesystem
 Requires:       plasma-disks
 
+Recommends:     pciutils
+Recommends:     xdpyinfo
+Recommends:     egl-utils
+Recommends:     glx-utils
+Recommends:     vulkan-tools
+Recommends:     wayland-utils
+
 # When kinfocenter was split out from kde-workspace
 Conflicts:      kde-workspace < 4.11.15-3
 
@@ -78,7 +85,6 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
