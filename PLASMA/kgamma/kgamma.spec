@@ -3,7 +3,7 @@
 Name:    kgamma
 Summary: A monitor calibration tool
 Epoch:   1
-Version: 5.24.1
+Version: 5.24.2
 Release: 1%{?dist}
 
 License: GPLv2
@@ -62,6 +62,9 @@ Conflicts: kdegraphics < 7:4.6.95-10
 
 
 %changelog
+* Tue Feb 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.2-1
+- 5.24.2
+
 * Tue Feb 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.1-1
 - 5.24.1
 

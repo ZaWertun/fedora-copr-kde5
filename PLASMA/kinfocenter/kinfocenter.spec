@@ -1,6 +1,6 @@
 Name:    kinfocenter
-Version: 5.24.1
-Release: 2%{?dist}
+Version: 5.24.2
+Release: 1%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -116,6 +116,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Feb 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.2-1
+- 5.24.2
+
 * Fri Feb 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.1-2
 - rebuild
 

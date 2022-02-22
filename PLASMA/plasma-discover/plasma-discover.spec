@@ -12,7 +12,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.24.1
+Version: 5.24.2
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -38,6 +38,7 @@ Source10: discoverrc
 # workaround PK metadata refresh issues (always force refresh)
 # adjust periodic refresh from 1/24hr to 1/12hr
 Patch200: discover-5.21.4-pk_refresh_force.patch
+Patch201: discover-5.24.2-fix-build-error.patch
 
 # Do not use system appstream cache (#2011322)
 # Not sure if this is upstreamable yet, or just a hack
@@ -300,6 +301,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.di
 
 
 %changelog
+* Tue Feb 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.2-1
+- 5.24.2
+
 * Tue Feb 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.1-1
 - 5.24.1
 
