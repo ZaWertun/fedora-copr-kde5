@@ -1,6 +1,6 @@
 Name:           kalendar
 Version:        1.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A calendar application using Akonadi to sync with external services
 
 License:        LGPLv2+
@@ -8,8 +8,12 @@ URL:            https://invent.kde.org/pim/%{name}
 Source0:        https://invent.kde.org/pim/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 
 ## upstream patches
+Patch0:         001_xdg_desktop_file_version.patch
+Patch1:         kalendar_html_escape_partial_fix.patch
 
 ## upstreamable patches
+
+%{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
 BuildRequires:  gettext
 BuildRequires:  desktop-file-utils
@@ -64,17 +68,13 @@ Requires:       kf5-kirigami2-addons-treeview
 
 Requires:       hicolor-icon-theme
 
-Requires:       %{name}-reminder-daemon = %{version}-%{release}
+Provides:       %{name}-reminder-daemon = %{version}
+Obsoletes:      %{name}-reminder-daemon < 1.0.0-2
 
 %description
 Kalendar is a Kirigami-based calendar application that uses Akonadi. It lets
 you add, edit and delete events from local and remote accounts of your choice,
 while keeping changes syncronised across your Plasma desktop or phone.
-
-%package        reminder-daemon
-Summary:        Kalendar Reminder Daemon
-%description    reminder-daemon
-Kalendar Reminder Daemon.
 
 
 %prep
@@ -99,19 +99,20 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 %license LICENSES/*.txt
 %doc README.md
 %{_kf5_bindir}/%{name}
+%{_kf5_bindir}/%{name}ac
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
-%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
-
-%files reminder-daemon
-%{_kf5_bindir}/%{name}ac
 %{_kf5_datadir}/knotifications5/%{name}ac.notifyrc
 %{_kf5_datadir}/dbus-1/services/org.kde.%{name}ac.service
+%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_sysconfdir}/xdg/autostart/org.kde.%{name}ac.desktop
 
 
 %changelog
+* Sun Feb 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.0-2
+- package kalendar-reminder-daemon obsolete
+
 * Sun Feb 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.0-1
 - 1.0.0
 
