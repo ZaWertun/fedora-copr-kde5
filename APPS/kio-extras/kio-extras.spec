@@ -9,7 +9,7 @@
 
 Name:    kio-extras
 Version: 21.12.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -131,7 +131,11 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %cmake_install
 %find_lang %{name} --all-name --with-html
 
-sed -e '/MimeType=/s/$/;image\/heic;image\/heif/' -i %{buildroot}%{_kf5_datadir}/kservices5/imagethumbnail.desktop
+# Add HEIF image support
+sed -e '/MimeType=/s/$/image\/heic;image\/heif;/' -i %{buildroot}%{_kf5_datadir}/kservices5/imagethumbnail.desktop
+
+# Add JPEG JXL image support
+sed -e '/MimeType=/s/$/image\/jxl;/' -i %{buildroot}%{_kf5_datadir}/kservices5/imagethumbnail.desktop
 
 
 %check
@@ -215,6 +219,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-2
+- add JPEG JXL support
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 
