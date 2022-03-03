@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
-Name:    gwenview 
+Name:    gwenview
 Summary: An image viewer
 Epoch:   1
 Version: 21.12.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # app: GPLv2+
 # lib:  IJG and (LGPLv2 or LGPLv3 or LGPLv3+ (KDE e.V.)) and LGPLv2+ and GPLv2+
@@ -64,7 +63,7 @@ Summary:  Runtime files for %{name}
 # wrt (LGPLv2 or LGPLv3), KDE e.V. may determine that future GPL versions are accepted 
 License:  IJG and LGPLv2+ and GPLv2+ and LGPLv2 or LGPLv3
 Requires: %{name} = %{epoch}:%{version}-%{release}
-%description libs 
+%description libs
 %{summary}.
 
 
@@ -79,8 +78,10 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
+
+# Add JPEG JXL image support
+sed -e '/MimeType=/s/$/image\/jxl;/' -i %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.desktop
 
 
 %check
@@ -110,6 +111,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-2
+- add JPEG JXL support
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-1
 - 21.12.3
 
