@@ -31,7 +31,6 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 ## upstream patches
 
 ## upstreamable patches
-Patch0:  kdepim-runtime-21.12.1-disable-google-contacts-sync.patch
 
 Obsoletes:      kdepim-apps-libs <= 20.08.3
 
