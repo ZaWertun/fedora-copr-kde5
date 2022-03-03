@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 
 Name:           kio-gdrive
-Version:        21.12.2
+Version:        21.12.3
 Release:        1%{?dist}
 Summary:        An Google Drive KIO slave for KDE
 
@@ -57,6 +57,9 @@ desktop-file-validate %{buildroot}%{_datadir}/remoteview/*.desktop
 %{_kf5_datadir}/metainfo/org.kde.kio_gdrive.metainfo.xml
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

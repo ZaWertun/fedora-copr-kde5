@@ -2,7 +2,7 @@
 %global framework grantleetheme
 
 Name:    kf5-%{framework}
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 Summary: KDE PIM library for Grantlee template system
 
@@ -87,6 +87,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

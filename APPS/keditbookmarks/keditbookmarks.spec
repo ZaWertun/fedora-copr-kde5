@@ -2,7 +2,7 @@
 
 Name:    keditbookmarks
 Summary: Bookmark organizer and editor
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 
 # Documentation is GFDL, rest GPLv2 and GPLv3 (note: NOT any later version)
@@ -87,6 +87,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

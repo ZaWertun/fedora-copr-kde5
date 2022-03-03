@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-auth-handler
 Summary: Provide UI/KWallet Integration
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -72,6 +72,9 @@ Provide UI/KWallet Integration For Passwords and SSL Errors on Account Connect.
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

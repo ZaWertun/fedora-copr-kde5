@@ -9,7 +9,7 @@
 
 Name:    kwalletmanager5
 Summary: Manage KDE passwords
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -96,6 +96,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

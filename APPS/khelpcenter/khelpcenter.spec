@@ -3,7 +3,7 @@ Name:    khelpcenter
 Summary: Show documentation for KDE applications
 # Override khelpcenter subpackage from kde-runtime-15.04 (no longer built)
 Epoch:   1
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 
 License: GPLv2 or GPLv3
@@ -76,7 +76,7 @@ cp -alf \
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.Help.appdata.xml
-desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop ||:
 
 
 %files -f %{name}.lang
@@ -97,6 +97,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.2-1
 - 21.12.2
 

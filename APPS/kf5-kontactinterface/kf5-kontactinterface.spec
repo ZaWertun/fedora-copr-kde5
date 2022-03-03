@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 Summary: The Kontact Interface Library
 
@@ -101,6 +101,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

@@ -7,7 +7,7 @@
 
 Name:    akonadi-import-wizard
 Summary: Akonadi Import Wizard
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -126,6 +126,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_includedir}/KPim/importwizard/
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

@@ -4,7 +4,7 @@
 
 Name:    kf5-libksane
 Summary: SANE Library interface for KDE
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 
 %global version_major %(echo %{version} |cut -d. -f1)
@@ -78,6 +78,9 @@ Requires: cmake(Qt5Widgets)
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

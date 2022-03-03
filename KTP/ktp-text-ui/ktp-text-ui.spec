@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 Name:    ktp-text-ui
 Summary: Telepathy text chat handler
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 
 # GPLv2+: most code
@@ -132,6 +132,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ktplogviewer.
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 

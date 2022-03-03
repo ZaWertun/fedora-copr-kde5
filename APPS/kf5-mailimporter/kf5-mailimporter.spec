@@ -1,7 +1,7 @@
 %global framework mailimporter
 
 Name:    kf5-%{framework}
-Version: 21.12.2
+Version: 21.12.3
 Release: 1%{?dist}
 Summary: Mail importer library
 
@@ -112,6 +112,9 @@ Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
+- 21.12.3
+
 * Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
 - 21.12.2
 
