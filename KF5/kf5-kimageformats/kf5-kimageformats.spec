@@ -1,8 +1,8 @@
 %global framework kimageformats
 
 Name:           kf5-%{framework}
-Version: 5.91.0
-Release: 1%{?dist}
+Version:        5.91.0
+Release:        2%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with additional image plugins for QtGui
 
 License:        LGPLv2+
@@ -29,6 +29,7 @@ BuildRequires:  jasper-devel
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(OpenEXR)
 BuildRequires:  pkgconfig(libavif)
+BuildRequires:  pkgconfig(libjxl)
 
 Requires:       kf5-filesystem >= %{majmin}
 
@@ -63,6 +64,9 @@ image formats.
 
 
 %changelog
+* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-2
+- BR: pkgconfig(libjxl)
+
 * Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
 - 5.91.0
 
