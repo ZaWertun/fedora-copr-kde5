@@ -17,7 +17,7 @@
 
 Name:    kwin
 Version: 5.24.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -40,6 +40,8 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
+#  https://bugs.kde.org/show_bug.cgi?id=449273
+Patch0:  0001-Revert-Remove-mysterious-s_cursorUpdateBlocking-bool.patch
 
 ## upstreamable patches
 
@@ -383,6 +385,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Mar 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.2-2
+- added 0001-Revert-Remove-mysterious-s_cursorUpdateBlocking-bool.patch
+
 * Tue Feb 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.2-1
 - 5.24.2
 
