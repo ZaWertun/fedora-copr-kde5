@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework kapidox
 
 Name:    kf5-%{framework}
-Version: 5.91.0
+Version: 5.92.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 4 scripts and data for building API documentation
 
@@ -23,30 +22,14 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{v
 # make sure BuildArch comes *after* patches, to ensure %%autosetup works right
 BuildArch:      noarch
 
-BuildRequires:  kf5-rpm-macros >= %{majmin}
-
-Requires:       kf5-filesystem >= %{majmin}
-
-%if 0%{?fedora} > 28 || 0%{?rhel} > 7
 BuildRequires:  python3
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-%global __python %{__python3}
-%global python_sitelib %{python3_sitelib}
-Requires: python3-jinja2
-Requires: python3-PyYAML
-%else
-BuildRequires:  python2
-BuildRequires:  python2-devel
-%global __python %{__python2}
-%global python_sitelib %{python2_sitelib}
-%if 0%{?fedora} || 0%{?rhel} > 7
-Requires: python2-jinja2
-%else
-Requires: python-jinja2
-%endif
-Requires: python2-pyyaml
-%endif
+BuildRequires:  kf5-rpm-macros >= %{majmin}
+
+Requires:       python3-jinja2
+Requires:       python3-PyYAML
+Requires:       kf5-filesystem >= %{majmin}
 
 %description
 Scripts and data for building API documentation (dox) in a standard format and
@@ -58,28 +41,27 @@ style.
 
 
 %build
-%{cmake_kf5} \
- -DPYTHON_EXECUTABLE:PATH=%__python
-
-%cmake_build
+%py3_build
 
 
 %install
-%cmake_install
+%py3_install
 
 
 %files
 %license LICENSES/*.txt
-%{python_sitelib}/kapidox
-%{python_sitelib}/kapidox-%{version}-py*.egg-info
-%{_kf5_bindir}/depdiagram-prepare
-%{_kf5_bindir}/depdiagram-generate
-%{_kf5_bindir}/depdiagram-generate-all
-%{_kf5_bindir}/kapidox_generate
-%{_mandir}/man1/*
+%{python3_sitelib}/kapidox
+%{python3_sitelib}/kapidox-%{version}-py*.egg-info
+%{_kf5_bindir}/depdiagram_generate_all
+%{_kf5_bindir}/%{framework}-depdiagram-generate
+%{_kf5_bindir}/%{framework}-depdiagram-prepare
+%{_kf5_bindir}/%{framework}-generate
 
 
 %changelog
+* Sun Mar 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.92.0-1
+- 5.92.0
+
 * Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
 - 5.91.0
 

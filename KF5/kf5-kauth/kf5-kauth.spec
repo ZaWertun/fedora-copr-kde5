@@ -1,13 +1,12 @@
-%undefine __cmake_in_source_build
 %global framework kauth
 
-Name:           kf5-%{framework}
-Version: 5.91.0
+Name:    kf5-%{framework}
+Version: 5.92.0
 Release: 1%{?dist}
-Summary:        KDE Frameworks 5 Tier 2 integration module to perform actions as privileged user
+Summary: KDE Frameworks 5 Tier 2 integration module to perform actions as privileged user
 
-License:        LGPLv2+
-URL:            https://cgit.kde.org/%{framework}.git
+License: LGPLv2+
+URL:     https://cgit.kde.org/%{framework}.git
 
 %global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
@@ -43,7 +42,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DKDE_INSTALL_LIBEXECDIR=%{_kf5_libexecdir}
 
 %cmake_build
@@ -51,7 +50,6 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
-
 %find_lang_kf5 kauth5_qt
 
 
@@ -70,12 +68,17 @@ developing applications that use %{name}.
 
 %files devel
 %{_kf5_includedir}/KAuth/
+%{_kf5_includedir}/KAuthCore/
+%{_kf5_includedir}/KAuthWidgets/
 %{_kf5_libdir}/libKF5Auth*.so
 %{_kf5_libdir}/cmake/KF5Auth/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KAuth*.pri
 
 
 %changelog
+* Sun Mar 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.92.0-1
+- 5.92.0
+
 * Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
 - 5.91.0
 

@@ -10,7 +10,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.91.0
+Version: 5.92.0
 Release: 1%{?dist}
 Summary: The KContacts Library
 
@@ -33,6 +33,7 @@ BuildRequires:  kf5-ki18n-devel >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kcodecs-devel >= %{majmin}
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  cmake(Qt5Quick)
 %if 0%{?test}
 BuildRequires: dbus-x11
 BuildRequires: xorg-x11-server-Xvfb
@@ -94,6 +95,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Mar 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.92.0-1
+- 5.92.0
+
 * Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.91.0-1
 - 5.91.0
 
