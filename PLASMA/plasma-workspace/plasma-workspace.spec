@@ -12,7 +12,7 @@
 %endif
 
 # Control sddm wayland by default
-%if (0%{?fedora} && 0%{?fedora} < 36) || (0%{?rhel} && 0%{?rhel} < 9)
+%if (0%{?fedora} && 0%{?fedora} < 37) || (0%{?rhel} && 0%{?rhel} < 9)
 %bcond_with sddm_wayland_default
 %else
 %bcond_without sddm_wayland_default
@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.24.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -97,7 +97,7 @@ BuildRequires:  xcb-util-devel
 BuildRequires:  glib2-devel
 BuildRequires:  fontconfig-devel
 BuildRequires:  boost-devel
-BuildRequires:  libusb-devel
+BuildRequires:  pkgconfig(libusb)
 BuildRequires:  libbsd-devel
 BuildRequires:  pam-devel
 BuildRequires:  lm_sensors-devel
@@ -804,6 +804,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Mar 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-2
+- merged changes from official Fedora package
+
 * Tue Mar 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-1
 - 5.24.3
 

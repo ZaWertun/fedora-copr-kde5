@@ -3,7 +3,7 @@
 Name:    plasma-nm
 Summary: Plasma for managing network connections
 Version: 5.24.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv2+ and GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -82,6 +82,7 @@ the default NetworkManager service.
 # Required for properly working GMS/CDMA connections
 %package        mobile
 Summary:        Mobile support for %{name}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       ModemManager
 %if ! 0%{?bootstrap}
 BuildRequires:  pkgconfig(mobile-broadband-provider-info)
@@ -304,6 +305,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Fri Mar 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-2
+- merged changes from official Fedora package
+
 * Tue Mar 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-1
 - 5.24.3
 
