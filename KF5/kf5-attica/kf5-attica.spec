@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global framework attica
 
 Name:    kf5-attica
 Version: 5.92.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks Tier 1 Addon with Open Collaboration Services API
 
 License: LGPLv2+
@@ -17,6 +16,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+## upstreamable patches
+# https://bugs.kde.org/show_bug.cgi?id=451165
+Patch0:         kf5-attica-5.92.0-fix-new-stuff-loading.patch
 
 BuildRequires:  extra-cmake-modules >= %{version}
 BuildRequires:  kf5-rpm-macros >= %{version}
@@ -41,8 +44,7 @@ Requires:       qt5-qtbase-devel
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -67,6 +69,9 @@ Requires:       qt5-qtbase-devel
 
 
 %changelog
+* Sun Mar 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.92.0-2
+- added kf5-attica-5.92.0-fix-new-stuff-loading.patch
+
 * Sun Mar 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.92.0-1
 - 5.92.0
 

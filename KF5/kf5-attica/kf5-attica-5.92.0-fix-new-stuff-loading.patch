@@ -1,0 +1,12 @@
+diff '--color=auto' -r -U3 attica-5.92.0.orig/src/provider.cpp attica-5.92.0/src/provider.cpp
+--- attica-5.92.0.orig/src/provider.cpp	2022-03-05 14:08:53.000000000 +0300
++++ attica-5.92.0/src/provider.cpp	2022-03-20 15:17:56.547196454 +0300
+@@ -1721,7 +1721,7 @@
+         agentHeader = QString::fromLocal8Bit("Attica/%1").arg(QLatin1String(LIBATTICA_VERSION_STRING));
+     }
+     if (!d->m_additionalAgentInformation.isEmpty()) {
+-        agentHeader = QString::fromLocal8Bit("%1 (+%2)").arg(agentHeader, d->m_additionalAgentInformation);
++        //agentHeader = QString::fromLocal8Bit("%1 (+%2)").arg(agentHeader, d->m_additionalAgentInformation);
+     }
+     request.setHeader(QNetworkRequest::UserAgentHeader, agentHeader);
+ 
