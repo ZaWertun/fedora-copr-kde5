@@ -40,7 +40,7 @@ Requires:       qt5-qtbase-devel
 
 
 %prep
-%autosetup -n %{framework}-%{version}
+%autosetup -n %{framework}-%{version} -p1
 
 
 %build
