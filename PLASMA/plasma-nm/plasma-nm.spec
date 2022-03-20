@@ -3,7 +3,7 @@
 Name:    plasma-nm
 Summary: Plasma for managing network connections
 Version: 5.24.3
-Release: 2%{?dist}
+Release: 4%{?dist}
 
 License: LGPLv2+ and GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -305,6 +305,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Sun Mar 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-4
+- build bump
+
 * Fri Mar 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-2
 - merged changes from official Fedora package
 
