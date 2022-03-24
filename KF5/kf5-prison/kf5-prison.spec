@@ -1,11 +1,11 @@
-%global framework prison 
+%global framework prison
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 1 barcode library
 Version: 5.92.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
-License: BSD 
+License: BSD
 URL:     https://cgit.kde.org/%{framework}.git
 
 %global majmin %(echo %{version} | cut -d. -f1-2)
@@ -23,10 +23,11 @@ BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  cmake(Qt5Quick)
 
+BuildRequires:  cmake(ZXing)
 BuildRequires:  pkgconfig(libdmtx)
 BuildRequires:  pkgconfig(libqrencode)
 
-Requires: kf5-filesystem >= %{majmin}
+Requires:       kf5-filesystem >= %{majmin}
 
 %description
 Prison is a Qt-based barcode abstraction layer/library that provides
@@ -71,6 +72,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Mar 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.92.0-2
+- BR: cmake(ZXing)
+
 * Sun Mar 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.92.0-1
 - 5.92.0
 
