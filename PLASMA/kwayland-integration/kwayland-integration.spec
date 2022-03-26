@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global  wayland_min_version 1.3
 
 Name:    kwayland-integration
 Version: 5.24.3
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: Provides integration plugins for various KDE Frameworks for Wayland
 
 License: LGPLv2+
@@ -44,8 +43,7 @@ Requires:       kf5-filesystem
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -65,6 +63,9 @@ Requires:       kf5-filesystem
 
 
 %changelog
+* Sat Mar 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-3
+- build bump
+
 * Tue Mar 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-1
 - 5.24.3
 
