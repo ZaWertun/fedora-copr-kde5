@@ -7,7 +7,7 @@
 
 Name:           kde-connect
 Version:        21.12.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -215,6 +215,9 @@ fi
 
 
 %changelog
+* Thu Mar 31 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-2
+- rebuild
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 
