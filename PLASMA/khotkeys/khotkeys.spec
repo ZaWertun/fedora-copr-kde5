@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    khotkeys
-Version: 5.24.3
+Version: 5.24.4
 Release: 1%{?dist}
 Summary: Application to configure hotkeys in KDE
 
@@ -103,6 +103,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Mar 29 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.4-1
+- 5.24.4
+
 * Tue Mar 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.3-1
 - 5.24.3
 

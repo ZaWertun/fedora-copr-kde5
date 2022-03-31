@@ -1,6 +1,6 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.24.3
+Version: 5.24.4
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -40,6 +40,9 @@ BuildRequires:  cmake(KF5Declarative)
 BuildRequires:  cmake(KF5IconThemes)
 BuildRequires:  cmake(KF5Plasma)
 BuildRequires:  cmake(KF5KCMUtils)
+
+BuildRequires:  pkgconfig(xi)
+BuildRequires:  pkgconfig(xcb-atom)
 
 Requires:       kf5-filesystem
 Requires:       qt5-qtgraphicaleffects
@@ -81,6 +84,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue Mar 29 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.4-1
+- 5.24.4
+
 * Tue Mar 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.3-1
 - 5.24.3
 
