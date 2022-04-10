@@ -1,0 +1,12 @@
+diff '--color=auto' -r -U3 extra-cmake-modules-5.93.0.orig/kde-modules/KDEInstallDirs5.cmake extra-cmake-modules-5.93.0/kde-modules/KDEInstallDirs5.cmake
+--- extra-cmake-modules-5.93.0.orig/kde-modules/KDEInstallDirs5.cmake	2022-03-30 16:04:06.000000000 +0300
++++ extra-cmake-modules-5.93.0/kde-modules/KDEInstallDirs5.cmake	2022-04-10 14:49:30.196877086 +0300
+@@ -236,7 +236,7 @@
+ set(_default_KDE_INSTALL_USE_QT_SYS_PATHS OFF)
+ if(NOT DEFINED KDE_INSTALL_USE_QT_SYS_PATHS)
+     ecm_query_qt(qt_install_prefix_dir QT_INSTALL_PREFIX TRY)
+-    if(qt_install_prefix_dir STREQUAL "${CMAKE_INSTALL_PREFIX}")
++    if( (qt_install_prefix_dir STREQUAL "${CMAKE_INSTALL_PREFIX}") OR ( ("${CMAKE_INSTALL_PREFIX}" STREQUAL "/usr") AND (qt_install_prefix_dir STREQUAL "${CMAKE_INSTALL_FULL_LIBDIR}/qt5")) )
+         message(STATUS "Installing in the same prefix as Qt, adopting their path scheme.")
+         set(_default_KDE_INSTALL_USE_QT_SYS_PATHS ON)
+     endif()
