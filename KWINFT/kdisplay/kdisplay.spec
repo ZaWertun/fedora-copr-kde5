@@ -4,7 +4,7 @@
 
 Name:    kdisplay
 Version: 5.24.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: App and daemon for display managing
 
 %global  real_version %(echo %{version} |sed 's/~/-/')
@@ -72,6 +72,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kwinft.%{name
 
 
 %changelog
+* Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-2
+- rebuild
+
 * Wed Feb 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-1
 - 5.24.0
 
