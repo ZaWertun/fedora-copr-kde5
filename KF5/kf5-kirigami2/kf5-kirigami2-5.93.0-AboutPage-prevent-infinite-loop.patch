@@ -1,0 +1,49 @@
+From 57187b7e6a1c6396c95b9450ff4c8acb8e70f431 Mon Sep 17 00:00:00 2001
+From: Aleix Pol <aleixpol@kde.org>
+Date: Tue, 5 Apr 2022 00:40:27 +0200
+Subject: [PATCH] AboutPage: Prevent infinite loop
+
+Do not use the width of the item but the width of the page to decide if
+we are on wide mode in the FormLayout.
+
+For some reason our default height hits a perfect storm of:
+- growing past the page height
+- adds a scrollbar
+- this narrows the view and we enable the compact mode
+- this makes it fit again
+- goto 0
+
+BUG: 447958
+---
+ src/controls/AboutItem.qml | 2 ++
+ src/controls/AboutPage.qml | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/src/controls/AboutItem.qml b/src/controls/AboutItem.qml
+index fbc720a1..675bab44 100644
+--- a/src/controls/AboutItem.qml
++++ b/src/controls/AboutItem.qml
+@@ -74,6 +74,8 @@ Item
+     /** @internal */
+     property bool _usePageStack: false
+ 
++    property alias wideMode: form.wideMode
++
+     /** @internal */
+     default property alias _content: form.data
+ 
+diff --git a/src/controls/AboutPage.qml b/src/controls/AboutPage.qml
+index e0043343..22994940 100644
+--- a/src/controls/AboutPage.qml
++++ b/src/controls/AboutPage.qml
+@@ -95,6 +95,7 @@ ScrollablePage
+ 
+     AboutItem {
+         id: aboutItem
++        wideMode: page.width >= aboutItem.implicitWidth
+ 
+         _usePageStack: applicationWindow().pageStack ? true : false
+     }
+-- 
+GitLab
+

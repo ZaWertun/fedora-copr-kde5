@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kirigami2
 
 # uncomment to enable bootstrap mode
@@ -10,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.93.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 
 # All LGPLv2+ except for src/desktopicons.h (GPLv2+)
@@ -27,6 +26,8 @@ URL:     https://techbase.kde.org/Kirigami
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream paches
+# https://invent.kde.org/frameworks/kirigami/-/commit/57187b7e6a1c6396c95b9450ff4c8acb8e70f431
+Patch0: kf5-kirigami2-5.93.0-AboutPage-prevent-infinite-loop.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -49,12 +50,6 @@ BuildRequires: appstream
 BuildRequires: xorg-x11-server-Xvfb
 %endif
 
-# workaround https://bugs.kde.org/show_bug.cgi?id=395156
-%if 0%{?rhel}==7
-BuildRequires: devtoolset-7-toolchain
-BuildRequires: devtoolset-7-gcc-c++
-%endif
-
 Requires:      qt5-qtquickcontrols%{?_isa}
 Requires:      qt5-qtquickcontrols2%{?_isa}
 
@@ -75,18 +70,13 @@ developing applications that use %{name}.
 
 
 %build
-%if 0%{?rhel}==7
-. /opt/rh/devtoolset-7/enable
-%endif
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang_kf5 libkirigami2plugin_qt
 
 
@@ -123,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-2
+- added kf5-kirigami2-5.93.0-AboutPage-prevent-infinite-loop.patch
+
 * Sun Apr 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-1
 - 5.93.0
 
