@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 %global framework plasma
 
 Name:    kf5-%{framework}
 Version: 5.93.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -23,6 +22,7 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches
+Patch0:   29d31c159503e454b3c483b0b7eb180ce0ee926a.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -97,14 +97,13 @@ developing applications that use %{name}.
 
 
 %prep
-%autosetup -n %{framework}-framework-%{version} -p1
-
+%setup -n %{framework}-framework-%{version}
 install -m644 -p %{SOURCE10} .
+%patch0 -R -p1
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -167,6 +166,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-2
+- reverting commit #29d31c15
+
 * Sun Apr 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-1
 - 5.93.0
 

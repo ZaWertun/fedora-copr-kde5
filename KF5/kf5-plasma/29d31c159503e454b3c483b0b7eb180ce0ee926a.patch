@@ -1,0 +1,50 @@
+From 29d31c159503e454b3c483b0b7eb180ce0ee926a Mon Sep 17 00:00:00 2001
+From: Aleix Pol <aleixpol@kde.org>
+Date: Wed, 8 Sep 2021 16:23:51 +0200
+Subject: [PATCH] Do not compute sizes within dialogs when they're not visible
+
+It makes our system do stuff unnecessarily, it often warns that the
+dialog is not even the right size and it will be called anyway when the
+dialog is displayed, so just do it when it's necessary.
+---
+ src/plasmaquick/dialog.cpp | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/src/plasmaquick/dialog.cpp b/src/plasmaquick/dialog.cpp
+index 7f50ee098..09937ef0f 100644
+--- a/src/plasmaquick/dialog.cpp
++++ b/src/plasmaquick/dialog.cpp
+@@ -579,7 +579,7 @@ void DialogPrivate::syncToMainItemSize()
+ {
+     Q_ASSERT(mainItem);
+ 
+-    if (!componentComplete) {
++    if (!componentComplete || q->visibility() == QWindow::Hidden) {
+         return;
+     }
+     if (mainItem->width() <= 0 || mainItem->height() <= 0) {
+@@ -1150,7 +1150,7 @@ void Dialog::resizeEvent(QResizeEvent *re)
+     }
+ 
+     // A dialog can be resized even if no mainItem has ever been set
+-    if (!d->mainItem) {
++    if (!d->mainItem || !isExposed()) {
+         return;
+     }
+ 
+@@ -1237,7 +1237,11 @@ bool Dialog::event(QEvent *event)
+ {
+     if (event->type() == QEvent::Expose) {
+         if (!KWindowSystem::isPlatformWayland() || !isExposed()) {
+-            return QQuickWindow::event(event);
++            auto ret = QQuickWindow::event(event);
++            if (d->mainItem) {
++                d->syncToMainItemSize();
++            }
++            return ret;
+         }
+ 
+         /*
+-- 
+GitLab
+
