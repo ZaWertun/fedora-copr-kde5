@@ -11,7 +11,7 @@
 Name:    k3b
 Summary: CD/DVD/Blu-ray burning application
 Epoch:   1
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -164,8 +164,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 %{_kf5_libdir}/libk3bdevice.so.*
 %{_kf5_libdir}/libk3blib.so.*
 %{_kf5_plugindir}/kio/videodvd.so
-%{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/k3b/k3b*.so
+%{_kf5_qtplugindir}/k3b/kcms/kcm_k3b*.so
 
 %files devel
 %{_includedir}/k3b*.h
@@ -174,6 +174,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.k3b.deskt
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-1
 - 21.12.3
 

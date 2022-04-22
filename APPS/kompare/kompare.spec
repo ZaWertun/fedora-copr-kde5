@@ -1,8 +1,6 @@
-%undefine __cmake_in_source_build
-
 Name:    kompare
 Summary: Diff tool
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -74,14 +72,12 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -95,11 +91,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 %{_bindir}/kompare
 %{_datadir}/kservicetypes5/kompare*.desktop
 %{_datadir}/applications/org.kde.kompare.desktop
+%{_kf5_datadir}/kio/servicemenus/kompare.desktop
 %{_kf5_metainfodir}/org.kde.kompare.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/kompare.*
 %{_datadir}/kservices5/komparenavtreepart.desktop
 %{_datadir}/kservices5/komparepart.desktop
-%{_kf5_datadir}/kservices5/ServiceMenus/kompare.desktop
 %{_kf5_datadir}/qlogging-categories5/kompare.categories
 
 %ldconfig_scriptlets libs
@@ -116,6 +112,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

@@ -108,7 +108,6 @@
   "3": [
     "kf5-akonadi-contacts",
     "kf5-akonadi-search",
-    "kf5-kalarmcal",
     "kf5-kmailtransport",
     "kf5-ktnef",
     "kf5-libkdepim"
@@ -136,6 +135,7 @@
     "akonadiconsole",
     "akregator",
     "grantlee-editor",
+    "kalendar",
     "kf5-incidenceeditor",
     "kf5-mailcommon",
     "pim-sieve-editor"

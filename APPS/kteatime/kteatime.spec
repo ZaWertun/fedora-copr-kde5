@@ -1,7 +1,6 @@
-%undefine __cmake_in_source_build
 Name:    kteatime
 Summary: Handy timer for steeping tea
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -65,7 +64,6 @@ KTeaTime makes sure your tea does not get too strong.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 %check
@@ -83,6 +81,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 ## uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -15,7 +13,7 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -155,9 +153,8 @@ sed -i -e 's|^add_subdirectory( mobile )|#add_subdirectory( mobile )|' CMakeList
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_OKULARKIRIGAMI:BOOL=OFF
-
 %cmake_build
 
 
@@ -213,7 +210,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 %ldconfig_scriptlets libs
 
 %files libs
-%{_libdir}/libOkular5Core.so.9*
+%{_libdir}/libOkular5Core.so.10*
 
 %files part -f okular-part.lang
 %if 0%{?fedora}
@@ -231,6 +228,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

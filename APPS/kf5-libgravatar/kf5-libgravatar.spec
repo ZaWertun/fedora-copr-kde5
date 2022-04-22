@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework libgravatar
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: Gravatar support library
 
@@ -37,6 +36,7 @@ BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcalendarcore-devel >= %{majmin_ver}
 BuildRequires:  kf5-pimcommon-devel >= %{majmin_ver}
+BuildRequires:  cmake(KF5PimTextEdit)
 
 Obsoletes:      kdepim-libs < 7:16.04.0
 Conflicts:      kdepim-libs < 7:16.04.0
@@ -58,14 +58,12 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -80,12 +78,13 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %{_kf5_libdir}/libKF5Gravatar.so
 %{_kf5_libdir}/cmake/KF5Gravatar/
 %{_kf5_includedir}/Gravatar/
-%{_kf5_includedir}/gravatar/
-%{_kf5_includedir}/gravatar_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_Gravatar.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

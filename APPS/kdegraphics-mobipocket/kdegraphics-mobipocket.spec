@@ -1,8 +1,6 @@
-%undefine __cmake_in_source_build
-
 Name:    kdegraphics-mobipocket 
 Summary: A collection of plugins to handle mobipocket files 
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -44,8 +42,7 @@ Provides:  qmobipocket-devel%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -58,9 +55,6 @@ Provides:  qmobipocket-devel%{?_isa} = %{version}-%{release}
 %files
 %license COPYING
 %{_libdir}/libqmobipocket.so.2*
-%{_qt5_plugindir}/mobithumbnail.so
-%{_kf5_datadir}/kservices5/mobithumbnail.desktop
-%{_kf5_metainfodir}/*.metainfo.xml
 
 %files devel
 %{_libdir}/libqmobipocket.so
@@ -69,6 +63,9 @@ Provides:  qmobipocket-devel%{?_isa} = %{version}-%{release}
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %if 0%{?fedora} > 20
 %global freerdp11 1
 %global freerdp_ver 1:1.1.0
@@ -9,7 +7,7 @@
 
 Name:    krdc
 Summary: Remote desktop client
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -93,14 +91,12 @@ Provides:  kdenetwork-krdc-devel = 7:%{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 # workaround https://bugs.kde.org/show_bug.cgi?id=365986
@@ -125,8 +121,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_datadir}/icons/hicolor/*/apps/krdc.*
 %{_kf5_datadir}/config.kcfg/krdc.kcfg
 %{_kf5_datadir}/kservices5/ServiceMenus/smb2rdc.desktop
-%{_kf5_datadir}/kservices5/krdc_rdp_config.desktop
-%{_kf5_datadir}/kservices5/krdc_vnc_config.desktop
 %{_kf5_datadir}/kservicetypes5/krdc_plugin.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -144,6 +138,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

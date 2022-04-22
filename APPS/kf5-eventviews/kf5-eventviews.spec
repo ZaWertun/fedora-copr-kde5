@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework eventviews
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: KDE PIM library for displaying events and calendars
 
@@ -78,14 +77,12 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -99,14 +96,15 @@ developing applications that use %{name}.
 
 %files devel
 %{_kf5_includedir}/EventViews/
-%{_kf5_includedir}/eventviews/
-%{_kf5_includedir}/eventviews_version.h
 %{_kf5_libdir}/libKF5EventViews.so
 %{_kf5_libdir}/cmake/KF5EventViews/
 %{_kf5_archdatadir}/mkspecs/modules/qt_EventViews.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

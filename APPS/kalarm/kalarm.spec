@@ -7,7 +7,7 @@
 
 Name:    kalarm
 Summary: Personal Alarm Scheduler
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -70,7 +70,6 @@ BuildRequires: pkgconfig(phonon4qt5)
 BuildRequires: kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-server-devel >= %{majmin_ver}
-BuildRequires: kf5-kalarmcal-devel >= %{majmin_ver}
 BuildRequires: kf5-kcalendarcore-devel >= %{majmin_ver}
 BuildRequires: kf5-kcalendarutils-devel >= %{majmin_ver}
 BuildRequires: kf5-kholidays-devel >= %{majmin_ver}
@@ -90,6 +89,9 @@ BuildRequires: xorg-x11-server-Xvfb
 
 Requires: kdepim-runtime >= %{majmin_ver}
 
+Obsoletes: kf5-kalarmcal < 22.04.0
+Provides:  kf5-kalarmcal = %{version}-%{release}
+
 %description
 KAlarm is a personal alarm message, command and email scheduler.
 
@@ -98,15 +100,13 @@ KAlarm is a personal alarm message, command and email scheduler.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -125,6 +125,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_bindir}/kalarm
 %{_kf5_bindir}/kalarmautostart
+%{_kf5_libdir}/libkalarmprivate.so.5*
 %{_kf5_libexecdir}/kauth/kalarm_helper
 %{_kf5_metainfodir}/org.kde.kalarm.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kalarm.desktop
@@ -142,6 +143,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

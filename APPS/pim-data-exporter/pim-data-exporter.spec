@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 %global bootstrap 1
 
@@ -9,7 +7,7 @@
 
 Name:    pim-data-exporter
 Summary: Pim Data Exporter
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -51,7 +49,6 @@ BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-calendarsupport-devel >= %{majmin_ver}
-BuildRequires:  kf5-kalarmcal-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcalendarcore-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcontacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmailtransport-devel >= %{majmin_ver}
@@ -85,15 +82,13 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -122,6 +117,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

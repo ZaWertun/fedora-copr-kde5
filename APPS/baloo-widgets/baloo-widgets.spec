@@ -2,7 +2,7 @@
 
 Name:    baloo-widgets
 Summary: Widgets for Baloo
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
@@ -67,7 +67,7 @@ Requires: kf5-kio-devel
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%doc COPYING.LIB
+%doc LICENSES/*.txt
 %{_kf5_libdir}/libKF5BalooWidgets.so.*
 %{_kf5_bindir}/baloo_filemetadata_temp_extractor
 %{_kf5_plugindir}/propertiesdialog/baloofilepropertiesplugin.so
@@ -81,6 +81,9 @@ Requires: kf5-kio-devel
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

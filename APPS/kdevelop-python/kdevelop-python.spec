@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 
 Name:       kdevelop-python
-Version:    21.12.3
+Version:    22.04.0
 %global py3_suffix -py3
 %global py3_tag .py3
 Release:    1%{?dist}
@@ -98,6 +98,9 @@ rm -f %{buildroot}%{_datadir}/kdevpythonsupport/documentation_files/PyKDE4/parse
 %{_datadir}/metainfo/org.kde.kdev-python.metainfo.xml
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

@@ -7,7 +7,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -107,15 +107,13 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 ## unpackaged files
@@ -137,7 +135,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_bindir}/korganizer
 %{_kf5_datadir}/config.kcfg/korganizer.kcfg
-%{_kf5_datadir}/kconf_update/korganizer*
 %{_datadir}/dbus-1/interfaces/org.kde.Korganizer.*.xml
 %{_datadir}/dbus-1/interfaces/org.kde.korganizer.*.xml
 %{_kf5_metainfodir}/org.kde.korganizer.appdata.xml
@@ -145,23 +142,10 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/korganizer-import.desktop
 %{_kf5_datadir}/applications/korganizer-view.desktop
 %{_kf5_datadir}/korganizer/
-%{_kf5_datadir}/icons/hicolor/*/apps/korgac.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korg-journal.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korg-todo.*
 %{_kf5_datadir}/icons/hicolor/*/apps/korganizer.*
 %{_kf5_datadir}/icons/hicolor/*/apps/quickview.*
-%{_kf5_datadir}/kservices5/korganizer_*.desktop
-# Kontact integration
-%{_kf5_datadir}/kservices5/kontact/korganizerplugin.desktop
-%{_kf5_datadir}/kservices5/kontact/todoplugin.desktop
-%{_kf5_datadir}/kservices5/kontact/journalplugin.desktop
-%{_kf5_datadir}/kservices5/kontact/specialdatesplugin.desktop
-%{_kf5_datadir}/kservices5/kcmapptsummary.desktop
-%{_kf5_datadir}/kservices5/kcmsdsummary.desktop
-%{_kf5_datadir}/kservices5/kcmtodosummary.desktop
-# korgac
-%{_kf5_bindir}/korgac
-%{_sysconfdir}/xdg/autostart/org.kde.korgac.desktop
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/dbus-1/services/*.service
@@ -194,6 +178,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

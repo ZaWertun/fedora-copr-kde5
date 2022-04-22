@@ -1,7 +1,7 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        21.12.3
+Version:        22.04.0
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
@@ -33,6 +33,7 @@ BuildRequires:  kf5-kdbusaddons-devel
 BuildRequires:  kpmcore-devel = %{version}
 BuildRequires:  qt5-qtbase-devel
 
+BuildRequires:  cmake(PolkitQt5-1)
 BuildRequires:  cmake(KF5DocTools)
 
 BuildRequires:  pkgconfig(appstream-glib)
@@ -81,12 +82,16 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %license LICENSES/*.txt
 %{_kf5_bindir}/partitionmanager
 %{_kf5_datadir}/applications/*partitionmanager.desktop
-%{_kf5_datadir}/kxmlgui5/partitionmanager/
 %{_kf5_datadir}/config.kcfg/partitionmanager.kcfg
+%{_kf5_datadir}/kxmlgui5/partitionmanager/
+%{_kf5_datadir}/solid/actions/open_in_partitionmanager.desktop
 %{_datadir}/icons/hicolor/*/*/*
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

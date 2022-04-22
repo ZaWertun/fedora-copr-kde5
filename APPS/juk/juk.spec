@@ -1,8 +1,6 @@
-%undefine __cmake_in_source_build
-
 Name:    juk 
 Summary: Music player 
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # code: KDE e.V. may determine that future GPL versions are accepted
@@ -93,8 +91,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.juk.deskt
 %{_kf5_bindir}/juk
 %{_kf5_datadir}/juk/
 %{_datadir}/dbus-1/interfaces/org.kde.juk.*.xml
-%{_kf5_datadir}/kservices5/ServiceMenus/jukservicemenu.desktop
 %{_kf5_metainfodir}/org.kde.juk.appdata.xml
+%{_kf5_datadir}/kio/servicemenus/%{name}servicemenu.desktop
 %{_kf5_datadir}/applications/org.kde.juk.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/juk.*
 %{_kf5_datadir}/kxmlgui5/juk/
@@ -102,6 +100,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.juk.deskt
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

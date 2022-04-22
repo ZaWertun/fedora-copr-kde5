@@ -10,7 +10,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -111,13 +111,11 @@ Conflicts: kde-l10n < 17.03
 %cmake_kf5 \
   -Wno-dev \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang all --all-name --with-html --with-man
 
 grep plugin all.lang > plugins.lang
@@ -155,6 +153,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files plugins -f plugins.lang
 %{_kf5_qtplugindir}/ktexteditor/compilerexplorer.so
+%{_kf5_qtplugindir}/ktexteditor/cmaketoolsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/externaltoolsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebacktracebrowserplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebuildplugin.so
@@ -193,6 +192,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

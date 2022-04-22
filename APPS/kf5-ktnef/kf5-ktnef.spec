@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework ktnef
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: The KTNef Library
 
@@ -56,15 +55,13 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -85,7 +82,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/ktnef_version.h
 %{_kf5_includedir}/KTNEF/
 %{_kf5_libdir}/libKF5Tnef.so
 %{_kf5_libdir}/cmake/KF5Tnef/
@@ -93,6 +89,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

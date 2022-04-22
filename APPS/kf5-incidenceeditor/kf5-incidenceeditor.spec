@@ -1,7 +1,7 @@
 %global framework incidenceeditor
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: KDE PIM library for creating and editing calendar incidences
 
@@ -99,14 +99,15 @@ developing applications that use %{name}.
 
 %files devel
 %{_kf5_includedir}/IncidenceEditor/
-%{_kf5_includedir}/incidenceeditor/
-%{_kf5_includedir}/incidenceeditor_version.h
 %{_kf5_libdir}/libKF5IncidenceEditor.so
 %{_kf5_libdir}/cmake/KF5IncidenceEditor/
 %{_kf5_archdatadir}/mkspecs/modules/qt_IncidenceEditor.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

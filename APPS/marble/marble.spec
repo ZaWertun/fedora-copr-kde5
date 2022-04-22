@@ -1,7 +1,7 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 %global maj_ver %(echo %{version} | cut -d. -f1)
@@ -152,12 +152,11 @@ mv src/3rdparty/zlib src/3rdparty/zlib.UNUSED ||:
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_MARBLE_TESTS:BOOL=OFF \
   -DMARBLE_DATA_PATH:PATH="%{_datadir}/marble/data" \
   -DMARBLE_PRI_INSTALL_USE_QT_SYS_PATHS:BOOL=TRUE \
   -DWITH_DESIGNER_PLUGIN:BOOL=OFF
-
 %cmake_build
 
 
@@ -221,7 +220,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 %files astro
 %{_kf5_libdir}/libastro.so.1*
-%{_kf5_libdir}/libastro.so.%{maj_ver}.%{min_ver}.%{patch_ver}
+%{_kf5_libdir}/libastro.so.%{maj_ver}.%(echo %{min_ver} |sed 's/^0*//').%{patch_ver}
 
 %files astro-devel
 %{_includedir}/astro/
@@ -254,6 +253,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-1
 - 21.12.3
 

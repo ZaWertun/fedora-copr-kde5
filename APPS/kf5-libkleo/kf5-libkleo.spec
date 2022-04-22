@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework libkleo
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: KDE PIM cryptographic library
 
@@ -15,7 +14,8 @@ URL:     https://cgit.kde.org/%{framework}.git/
 %else
 %global stable stable
 %endif
-Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Patch0:  kf5-libkleo-22.04.0-include-iterator.patch
 
 ## upstream patches
 
@@ -74,14 +74,12 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -99,12 +97,13 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libKF5Libkleo.so
 %{_kf5_libdir}/cmake/KF5Libkleo/
 %{_kf5_includedir}/Libkleo/
-%{_kf5_includedir}/libkleo/
-%{_kf5_includedir}/libkleo_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_Libkleo.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

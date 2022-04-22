@@ -1,6 +1,6 @@
 %undefine __cmake_in_source_build
 Name:    kaccounts-integration
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
@@ -104,6 +104,9 @@ Headers, development libraries and documentation for %{name}.
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

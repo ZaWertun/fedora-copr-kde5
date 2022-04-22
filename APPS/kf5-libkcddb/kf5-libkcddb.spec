@@ -1,9 +1,7 @@
-%undefine __cmake_in_source_build
-
 %global framework libkcddb
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: CDDB retrieval library
 
@@ -70,14 +68,12 @@ CXXFLAGS="%{optflags} $(pkg-config --cflags libmusicbrainz5)"
 export CXXFLAGS
 %endif
 
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-man
 
 %if 0%{?fedora} || 0%{?rhel} > 7
@@ -98,6 +94,7 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 
 %files devel
 %{_kf5_libdir}/libKF5Cddb.so
+%{_includedir}/KCddb5/
 %{_kf5_includedir}/KCddb/
 %{_kf5_includedir}/kcddb_version.h
 %{_kf5_libdir}/cmake/KF5Cddb/
@@ -107,6 +104,9 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

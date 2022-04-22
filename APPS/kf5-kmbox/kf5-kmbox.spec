@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kmbox
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: The KMbox Library
 
@@ -52,9 +51,8 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
@@ -81,7 +79,6 @@ make test ARGS="--output-on-failure --timeout 120" -C %{_target_platform} ||:
 
 
 %files devel
-%{_kf5_includedir}/kmbox_version.h
 %{_kf5_includedir}/KMbox
 %{_kf5_libdir}/libKF5Mbox.so
 %{_kf5_libdir}/cmake/KF5Mbox
@@ -89,6 +86,9 @@ make test ARGS="--output-on-failure --timeout 120" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

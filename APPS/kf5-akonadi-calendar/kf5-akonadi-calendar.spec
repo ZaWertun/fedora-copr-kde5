@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework akonadi-calendar
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: The Akonadi Calendar Library
 
@@ -75,13 +74,11 @@ developing applications that use %{name}.
 %build
 %cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -98,21 +95,26 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
+%{_kf5_bindir}/kalendarac
 %{_kf5_libdir}/libKF5AkonadiCalendar.so.*
 %{_kf5_qtplugindir}/akonadi_serializer_kcalcore.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_datadir}/knotifications5/kalendarac.notifyrc
+%{_kf5_datadir}/dbus-1/services/org.kde.kalendarac.service
+%{_sysconfdir}/xdg/autostart/org.kde.kalendarac.desktop
 
 %files devel
-%{_kf5_includedir}/akonadi-calendar_version.h
-%{_kf5_includedir}/Akonadi/Calendar/
-%{_kf5_includedir}/akonadi/calendar/
 %{_kf5_libdir}/libKF5AkonadiCalendar.so
 %{_kf5_libdir}/cmake/KF5AkonadiCalendar/
+%{_kf5_includedir}/AkonadiCalendar/
 %{_kf5_archdatadir}/mkspecs/modules/qt_AkonadiCalendar.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

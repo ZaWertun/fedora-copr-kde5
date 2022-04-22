@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 ## uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -12,7 +10,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -182,19 +180,21 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_bindir}/kfmclient
 %{_kf5_bindir}/konqueror
 %{_kf5_bindir}/kcreatewebarchive
+%{_kf5_qtplugindir}/dolphinpart/kpartplugins/*.so
+%{_kf5_qtplugindir}/khtml/kpartplugins/*.so
+%{_kf5_qtplugindir}/konqueror/kpartplugins/*.so
+%{_kf5_qtplugindir}/kwebkitpart/kpartplugins/*.so
+%{_kf5_qtplugindir}/webenginepart/kpartplugins/*.so
 %{_kf5_datadir}/akregator/pics/feed.png
 %{_kf5_metainfodir}/org.kde.konqueror.appdata.xml
 %{_kf5_datadir}/applications/*.desktop
 %{_kf5_datadir}/config.kcfg/*.kcfg
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
-%{_kf5_datadir}/dolphinpart/kpartplugins/*
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/kcmcss/
 %{_kf5_datadir}/kcontrol/
 %{_kf5_datadir}/kf5/kbookmark/
-%{_kf5_datadir}/khtml/
 %{_kf5_datadir}/konqueror/
-%{_kf5_datadir}/kwebkitpart/
 %{_kf5_datadir}/konqsidebartng/entries/*.desktop
 %{_kf5_datadir}/konqsidebartng/plugins/*.desktop
 %{_kf5_sysconfdir}/xdg/autostart/konqy_preload.desktop
@@ -244,6 +244,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

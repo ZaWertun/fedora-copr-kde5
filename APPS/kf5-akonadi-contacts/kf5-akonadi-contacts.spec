@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework akonadi-contacts
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: The Akonadi Contacts Library
 
@@ -88,15 +87,13 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -129,14 +126,14 @@ xvfb-run -a \
 %{_kf5_libdir}/libKF5ContactEditor.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_AkonadiContact.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_ContactEditor.pri
-%{_kf5_includedir}/Akonadi/Contact/
-%{_kf5_includedir}/akonadi/contact/
-%{_kf5_includedir}/ContactEditor/
-%{_kf5_includedir}/contacteditor/
-
+%{_kf5_includedir}/AkonadiContact/
+%{_kf5_includedir}/AkonadiContactEditor/
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

@@ -1,7 +1,6 @@
-%undefine __cmake_in_source_build
 Name:    kdegraphics-thumbnailers
 Summary: Thumbnailers for various graphic types 
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # most sources GPLv2+, dscparse.* GPL, gscreator.* LGPLv2+, 
@@ -23,6 +22,8 @@ BuildRequires: cmake(KF5KExiv2)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5Archive)
 BuildRequires: cmake(Qt5Gui)
+BuildRequires: cmake(KF5I18n)
+BuildRequires: cmake(QMobipocket)
 
 %description
 %{summary}.
@@ -33,8 +34,7 @@ BuildRequires: cmake(Qt5Gui)
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -50,10 +50,15 @@ BuildRequires: cmake(Qt5Gui)
 %{_kf5_datadir}/kservices5/rawthumbnail.desktop
 %{_kf5_qtplugindir}/blenderthumbnail.so
 %{_kf5_datadir}/kservices5/blenderthumbnail.desktop
+%{_kf5_qtplugindir}/mobithumbnail.so
+%{_kf5_datadir}/kservices5/mobithumbnail.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.metainfo.xml
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

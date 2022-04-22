@@ -1,7 +1,7 @@
 %global unstable 0
 
 Name:           kpmcore
-Version:        21.12.3
+Version:        22.04.0
 Release:        1%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
@@ -74,7 +74,7 @@ sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMak
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_libdir}/libkpmcore.so.*
-%{_kf5_qtplugindir}/libpm*.so
+%{_kf5_qtplugindir}/kpmcore/*.so
 %{_kf5_datadir}/polkit-1/actions/*.policy
 %{_kf5_datadir}/dbus-1/system-services/*.service
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kpmcore.*.conf
@@ -88,6 +88,9 @@ sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMak
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

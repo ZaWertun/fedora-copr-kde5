@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 %global bootstrap 1
 
@@ -9,7 +7,7 @@
 
 Name:    akregator
 Summary: Feed Reader
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -95,15 +93,13 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 ## unpackaged files
@@ -135,7 +131,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/akregator/
 %{_datadir}/dbus-1/interfaces/org.kde.akregator.part.xml
 # Kontact integration
-%{_kf5_datadir}/kservices5/kontact/akregatorplugin.desktop
 %{_kf5_datadir}/knotifications5/akregator.notifyrc
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -159,6 +154,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

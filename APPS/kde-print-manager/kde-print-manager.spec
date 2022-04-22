@@ -2,7 +2,7 @@
 
 Name:    kde-print-manager
 Summary: Printer management for KDE
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+
@@ -67,14 +67,12 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -82,6 +80,7 @@ Requires: %{name} = %{version}-%{release}
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kde-add-printer.desktop
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ConfigurePrinter.desktop
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueue.desktop
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/kcm_printer_manager.desktop
 
 
 %files -f %{name}.lang
@@ -90,13 +89,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 %{_bindir}/kde-print-queue
 %{_bindir}/configure-printer
 %{_kf5_qmldir}/org/kde/plasma/printmanager/
-%{_kf5_datadir}/kservices5/kcm_printer_manager.desktop
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.printmanager.desktop
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.printmanager/
 %{_kf5_datadir}/knotifications5/printmanager.notifyrc
 %{_kf5_datadir}/applications/org.kde.kde-add-printer.desktop
 %{_kf5_datadir}/applications/org.kde.ConfigurePrinter.desktop
 %{_kf5_datadir}/applications/org.kde.PrintQueue.desktop
+%{_kf5_datadir}/applications/kcm_printer_manager.desktop
 %{_kf5_metainfodir}/org.kde.plasma.printmanager.appdata.xml
 %{_kf5_metainfodir}/*.metainfo.xml
 
@@ -105,11 +103,14 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.PrintQueu
 %files libs
 # private unversioned library
 %{_libdir}/libkcupslib.so
-%{_kf5_qtplugindir}/kcm_printer_manager.so
 %{_kf5_qtplugindir}/kf5/kded/printmanager.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_printer_manager.so
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

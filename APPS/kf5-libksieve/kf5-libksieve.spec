@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework libksieve
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: Sieve support library
 
@@ -79,7 +78,6 @@ Requires:       cmake(KF5SyntaxHighlighting)
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -98,22 +96,19 @@ Requires:       cmake(KF5SyntaxHighlighting)
 %files devel
 %{_kf5_libdir}/cmake/KF5LibKSieve/
 %{_kf5_includedir}/libksieve_version.h
-
 %{_kf5_libdir}/libKF5KManageSieve.so
 %{_kf5_includedir}/KManageSieve/
-%{_kf5_includedir}/kmanagesieve/
-%{_kf5_archdatadir}/mkspecs/modules/qt_KManageSieve.pri
-
 %{_kf5_libdir}/libKF5KSieve.so
-%{_kf5_archdatadir}/mkspecs/modules/qt_KSieve.pri
-
 %{_kf5_libdir}/libKF5KSieveUi.so
 %{_kf5_includedir}/KSieveUi/
-%{_kf5_includedir}/ksieveui/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KSieveUi.pri
+%{_kf5_archdatadir}/mkspecs/modules/qt_KManageSieve.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

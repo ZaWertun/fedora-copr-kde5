@@ -1,6 +1,5 @@
-%undefine __cmake_in_source_build
 Name:       elisa-player
-Version:    21.12.3
+Version:    22.04.0
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -64,21 +63,25 @@ Requires:       qt5-qtquickcontrols
 Elisa is a simple music player aiming to provide a nice experience for its
 users.
 
+
 %prep
 %autosetup -n elisa-%{version} -p1
+
 
 %build
 %cmake_kf5
 %cmake_build
 
+
 %install
 %cmake_install
-
 %find_lang elisa --all-name --with-kde --with-html
+
 
 %check
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.elisa.desktop
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.elisa.appdata.xml
+
 
 %files -f elisa.lang
 %license COPYING
@@ -86,11 +89,16 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 %{_kf5_datadir}/applications/org.kde.elisa.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/elisa*
 %{_kf5_datadir}/qlogging-categories5/elisa.categories
+%{_kf5_datadir}/dbus-1/services/org.kde.elisa.service
 %{_kf5_metainfodir}/org.kde.elisa.appdata.xml
 %{_kf5_libdir}/elisa/
 %{_kf5_libdir}/qt5/qml/org/kde/elisa/
 
+
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

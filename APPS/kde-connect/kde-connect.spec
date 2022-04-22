@@ -1,13 +1,11 @@
-%undefine __cmake_in_source_build
-
 # enable experimental (default off) bluetooth support
 #global bluetooth 1
 
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        21.12.3
-Release:        2%{?dist}
+Version:        22.04.0
+Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -48,6 +46,7 @@ BuildRequires:  cmake(KF5Wayland)
 BuildRequires:  cmake(KF5PeopleVCard)
 BuildRequires:  cmake(KF5QQC2DesktopStyle)
 BuildRequires:  cmake(KF5Package)
+BuildRequires:  cmake(KF5GuiAddons)
 
 %if 0%{?bluetooth}
 BuildRequires:  cmake(Qt5Bluetooth)
@@ -129,9 +128,8 @@ Supplements: (kdeconnectd and nautilus)
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?bluetooth:-DBLUETOOTH_ENABLED:BOOL=ON}
-
 %cmake_build
 
 
@@ -151,7 +149,7 @@ desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autosta
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.appdata.xml ||:
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml ||:
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.metainfo.xml
 for i in %{buildroot}%{_datadir}/applications/org.kde.kdeconnect*.desktop ; do
 desktop-file-validate $i ||:
 done
@@ -170,7 +168,7 @@ done
 %{_datadir}/icons/hicolor/*/apps/kdeconnect*
 %{_datadir}/icons/hicolor/*/status/{laptop,smartphone,tablet,tv}{connected,disconnected,trusted}.svg
 %{_kf5_metainfodir}/org.kde.kdeconnect.appdata.xml
-%{_kf5_metainfodir}/org.kde.kdeconnect.kcm.appdata.xml
+%{_kf5_metainfodir}/org.kde.kdeconnect.metainfo.xml
 %{_datadir}/applications/org.kde.kdeconnect*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
 %{_datadir}/contractor/
@@ -202,7 +200,6 @@ fi
 %{_kf5_libdir}/libkdeconnectpluginkcm.so.%{version_major}*
 %{_kf5_libdir}/libkdeconnectinterfaces.so.%{version_major}*
 %{_kf5_libdir}/libkdeconnectcore.so.%{version_major}*
-%{_qt5_plugindir}/kdeconnect*.so
 %{_qt5_plugindir}/kdeconnect/
 %{_kf5_datadir}/kdeconnect/kdeconnect_findthisdevice_config.qml
 %{_kf5_datadir}/kdeconnect/kdeconnect_pausemusic_config.qml
@@ -215,6 +212,9 @@ fi
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 31 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-2
 - rebuild
 

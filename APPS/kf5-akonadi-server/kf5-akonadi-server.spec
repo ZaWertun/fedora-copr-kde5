@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework akonadi-server
 
 # trim changelog included in binary rpms
@@ -22,8 +21,8 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 21.12.3
-Release: 2%{?dist}
+Version: 22.04.0
+Release: 1%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -157,10 +156,9 @@ See also: %{_sysconfdir}/akonadi/mysql-global.conf
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?database_backend:-DDATABASE_BACKEND=%{database_backend}} \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
@@ -266,11 +264,11 @@ fi
 
 %{_kf5_datadir}/dbus-1/interfaces/org.freedesktop.Akonadi.*.xml
 %{_kf5_includedir}/akonadi_version.h
-%{_kf5_includedir}/akonadi/
-%{_kf5_includedir}/AkonadiAgentBase/
+%{_kf5_includedir}/Akonadi/
+%{_kf5_includedir}/AkonadiXml/
 %{_kf5_includedir}/AkonadiCore/
 %{_kf5_includedir}/AkonadiWidgets/
-%{_kf5_includedir}/AkonadiXml/
+%{_kf5_includedir}/AkonadiAgentBase/
 %{_kf5_libdir}/libKF5AkonadiAgentBase.so
 %{_kf5_libdir}/libKF5AkonadiCore.so
 %{_kf5_libdir}/libKF5AkonadiPrivate.so
@@ -278,10 +276,6 @@ fi
 %{_kf5_libdir}/libKF5AkonadiXml.so
 %{_kf5_libdir}/cmake/KF5Akonadi/
 %{_kf5_archdatadir}/mkspecs/modules/qt_Akonadi*.pri
-#
-%dir %{_kf5_datadir}/kdevappwizard/
-%dir %{_kf5_datadir}/kdevappwizard/templates/
-%{_kf5_datadir}/kdevappwizard/templates/akonadi*
 
 %post mysql
 %{_sbindir}/update-alternatives \
@@ -304,6 +298,9 @@ fi
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 31 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-2
 - rebuild
 

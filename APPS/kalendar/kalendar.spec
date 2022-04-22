@@ -1,15 +1,20 @@
-Name:           kalendar
-Version:        1.0.0
-Release:        2%{?dist}
-Summary:        A calendar application using Akonadi to sync with external services
+Name:    kalendar
+Version: 22.04.0
+Release: 1%{?dist}
+Summary: A calendar application using Akonadi to sync with external services
 
-License:        LGPLv2+
-URL:            https://invent.kde.org/pim/%{name}
-Source0:        https://invent.kde.org/pim/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
+License: LGPLv2+
+URL:     https://invent.kde.org/pim/%{name}
+
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
+%else
+%global stable stable
+%endif
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
-Patch0:         001_xdg_desktop_file_version.patch
-Patch1:         kalendar_html_escape_partial_fix.patch
 
 ## upstreamable patches
 
@@ -78,7 +83,7 @@ while keeping changes syncronised across your Plasma desktop or phone.
 
 
 %prep
-%autosetup -p1 -n %{name}-v%{version}
+%autosetup -p1
 
 
 %build
@@ -88,6 +93,7 @@ while keeping changes syncronised across your Plasma desktop or phone.
 
 %install
 %cmake_install
+%find_lang %{name}
 
 
 %check
@@ -95,21 +101,20 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
-%files
+%files -f %{name}.lang
 %license LICENSES/*.txt
 %doc README.md
 %{_kf5_bindir}/%{name}
-%{_kf5_bindir}/%{name}ac
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
-%{_kf5_datadir}/knotifications5/%{name}ac.notifyrc
-%{_kf5_datadir}/dbus-1/services/org.kde.%{name}ac.service
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
-%{_kf5_sysconfdir}/xdg/autostart/org.kde.%{name}ac.desktop
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Sun Feb 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.0-2
 - package kalendar-reminder-daemon obsolete
 

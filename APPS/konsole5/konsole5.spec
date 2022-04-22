@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -11,7 +9,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -45,6 +43,7 @@ Provides:  konsole = %{version}-%{release}
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
 BuildRequires: pkgconfig(x11)
+BuildRequires: pkgconfig(zlib)
 
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -107,10 +106,9 @@ Summary: Konsole5 kpart plugin
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?tests:-DBUILD_TESTING:BOOL=ON} \
   -DENABLE_PLUGIN_SSHMANAGER=ON
-
 %cmake_build
 
 
@@ -143,14 +141,15 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 %{_kf5_bindir}/konsole
 %{_kf5_bindir}/konsoleprofile
 %{_kf5_libdir}/libkonsoleapp.so.%{maj_ver}*
+%{_kf5_libdir}/kconf_update_bin/konsole_globalaccel
 %{_kf5_datadir}/applications/org.kde.konsole.desktop
 %{_kf5_metainfodir}/org.kde.konsole.appdata.xml
-%{_kf5_datadir}/khotkeys/konsole.*
 %{_kf5_datadir}/knotifications5/konsole.notifyrc
-%{_kf5_datadir}/kservices5/ServiceMenus/konsolerun.desktop
 %{_kf5_datadir}/kservicetypes5/terminalemulator.desktop
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%{_kf5_datadir}/kio/servicemenus/konsolerun.desktop
+%{_kf5_datadir}/kconf_update/konsole_globalaccel.upd
 
 %ldconfig_scriptlets part
 
@@ -163,10 +162,14 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 %{_kf5_libdir}/libkonsoleprivate.so.%{maj_ver}*
 %{_kf5_qtplugindir}/konsolepart.so
 %{_kf5_qtplugindir}/konsoleplugins/konsole_sshmanagerplugin.so
+%{_kf5_qtplugindir}/konsoleplugins/konsole_quickcommandsplugin.so
 %{_kf5_datadir}/kservices5/konsolepart.desktop
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

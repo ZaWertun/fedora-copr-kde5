@@ -4,7 +4,7 @@
 %endif
 
 Name:    kdepim-addons
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -125,16 +125,19 @@ Supplements:    korganizer
 %{_kf5_libdir}/libkmaillanguagetool.so.5*
 %{_kf5_libdir}/libadblocklibprivate.so.5*
 %{_kf5_libdir}/libdkimverifyconfigure.so.5*
+%{_kf5_libdir}/libopenurlwithconfigure.so.5*
 %{_kf5_libdir}/libscamconfiguresettings.so.5*
 %{_kf5_libdir}/libfolderconfiguresettings.so.5*
 %{_kf5_libdir}/libkmailconfirmbeforedeleting.so.5*
 %{_kf5_libdir}/libkmailquicktextpluginprivate.so.5*
 %{_kf5_libdir}/libexpireaccounttrashfolderconfig.so.5*
+%{_kf5_plugindir}/mailtransport/mailtransport_sendplugin.so
 %{_kf5_qtplugindir}/korg_lunarphases.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents/
 %{_kf5_qtplugindir}/webengineviewer/urlinterceptor/webengineviewer_adblockplugin.so
 %{_kf5_qtplugindir}/webengineviewer/urlinterceptor/webengineviewer_donottrackplugin.so
+%{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_openurlwithconfigplugin.so
 %{_kf5_qtplugindir}/messageviewer/configuresettings/messageviewer_scamconfiguresettingsplugin.so
 %{_kf5_datadir}/kconf_update/*.upd
 %{_kf5_datadir}/icons/hicolor/scalable/status/moon-phase-*.svg
@@ -194,9 +197,7 @@ Supplements:    korganizer
 %{_kf5_qtplugindir}/importwizard/evolutionv1importerplugin.so
 %{_kf5_qtplugindir}/importwizard/evolutionv2importerplugin.so
 %{_kf5_qtplugindir}/importwizard/gearyimporterplugin.so
-%{_kf5_qtplugindir}/importwizard/nylasmailimporterplugin.so
 %{_kf5_qtplugindir}/importwizard/operaimporterplugin.so
-%{_kf5_qtplugindir}/mailtransport/mailtransport_sendplugin.so
 %{_kf5_qtplugindir}/templateparser/templateparseraddressrequesterplugin.so
 
 # KOrganizer
@@ -258,6 +259,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

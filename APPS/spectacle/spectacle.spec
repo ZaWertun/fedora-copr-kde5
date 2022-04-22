@@ -1,6 +1,6 @@
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -41,6 +41,7 @@ BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Screen)
 BuildRequires: cmake(KF5GlobalAccel)
 BuildRequires: cmake(KF5Kipi)
+BuildRequires: cmake(KF5GuiAddons)
 BuildRequires: kf5-libkipi-devel
 
 BuildRequires: cmake(Qt5DBus)
@@ -124,6 +125,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

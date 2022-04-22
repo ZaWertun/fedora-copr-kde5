@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework akonadi-search
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: The Akonadi Search library and indexing agent
 
@@ -68,15 +67,13 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -101,10 +98,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5AkonadiSearchDebug.so.*
 %{_kf5_bindir}/akonadi_indexing_agent
 %{_kf5_datadir}/akonadi/agents/akonadiindexingagent.desktop
-%{_kf5_datadir}/kservices5/plasma-krunner-pimcontacts_config.desktop
 %{_kf5_qtplugindir}/akonadi/
-%{_kf5_qtplugindir}/kcm_krunner_pimcontacts.so
 %{_kf5_plugindir}/krunner/krunner_pimcontacts.so
+%{_kf5_plugindir}/krunner/kcms/kcm_krunner_pimcontacts.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
@@ -112,12 +108,14 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5AkonadiSearchCore.so
 %{_kf5_libdir}/libKF5AkonadiSearchXapian.so
 %{_kf5_libdir}/libKF5AkonadiSearchDebug.so
-%{_kf5_includedir}/akonadi_search_version.h
 %{_kf5_includedir}/AkonadiSearch/
 %{_kf5_libdir}/cmake/KF5AkonadiSearch/
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

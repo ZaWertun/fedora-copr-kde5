@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kcalutils
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-kcalendarutils
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: The KCalendarUtils Library
 
@@ -68,15 +67,13 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -95,18 +92,20 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 %doc README.md
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5CalendarUtils.so.*
-%{grantlee5_plugindir}/kcalendar_grantlee_plugin.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/kcalutils_version.h
 %{_kf5_includedir}/KCalUtils/
 %{_kf5_libdir}/libKF5CalendarUtils.so
+%{_kf5_libdir}/KTextTemplate/kcalendar_grantlee_plugin.so
 %{_kf5_libdir}/cmake/KF5CalendarUtils/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KCalUtils.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

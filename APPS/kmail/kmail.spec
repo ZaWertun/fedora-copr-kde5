@@ -7,7 +7,7 @@
 
 Name:    kmail
 Summary: Mail client
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -127,15 +127,13 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 ## unpackaged files
@@ -173,18 +171,13 @@ end
 %{_kf5_datadir}/applications/org.kde.kmail2.desktop
 %{_kf5_datadir}/config.kcfg/kmail.kcfg
 %{_kf5_datadir}/kmail2/
-%{_kf5_datadir}/kservices5/kmail_*.desktop
 %{_datadir}/dbus-1/interfaces/org.kde.kmail.*.xml
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/icons/breeze-dark/*/*/*
 %{_kf5_datadir}/applications/kmail_view.desktop
 %{_kf5_datadir}/knotifications5/kmail2.notifyrc
 # Kontact integration
-%{_kf5_datadir}/kservices5/kcmkontactsummary.desktop
-%{_kf5_datadir}/kservices5/kontact/summaryplugin.desktop
 %{_kf5_datadir}/kxmlgui5/kontactsummary/
-%{_kf5_datadir}/kservices5/kontact/kmailplugin.desktop
-%{_kf5_datadir}/kservices5/kcmkmailsummary.desktop
 # agents
 %{_kf5_datadir}/akonadi/agents/*.desktop
 %{_kf5_bindir}/akonadi_*_agent
@@ -223,6 +216,9 @@ end
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

@@ -1,8 +1,8 @@
 Name:    gwenview
 Summary: An image viewer
 Epoch:   1
-Version: 21.12.3
-Release: 2%{?dist}
+Version: 22.04.0
+Release: 1%{?dist}
 
 # app: GPLv2+
 # lib:  IJG and (LGPLv2 or LGPLv3 or LGPLv3+ (KDE e.V.)) and LGPLv2+ and GPLv2+
@@ -94,11 +94,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 %{_kf5_bindir}/gwenview
 %{_kf5_bindir}/gwenview_importer
 %{_kf5_datadir}/applications/org.kde.gwenview.desktop
-%{_kf5_metainfodir}/org.kde.gwenview.appdata.xml
+%{_kf5_datadir}/applications/org.kde.gwenview_importer.desktop
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/gwenview/
-%{_kf5_datadir}/solid/actions/gwenview_importer*.desktop
 %{_kf5_datadir}/kconf_update/gwenview*
+%{_kf5_datadir}/solid/actions/gwenview_importer*.desktop
+%{_kf5_metainfodir}/org.kde.gwenview.appdata.xml
 
 %ldconfig_scriptlets libs
 
@@ -111,6 +112,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-2
 - add JPEG JXL support
 

@@ -1,7 +1,7 @@
 %global framework mailimporter
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: Mail importer library
 
@@ -43,6 +43,7 @@ BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
 BuildRequires:  kf5-pimcommon-devel >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
+BuildRequires:  cmake(KF5PimTextEdit)
 BuildRequires:  cmake(Grantlee5)
 
 Obsoletes:      kdepim-libs < 7:16.04.0
@@ -99,19 +100,18 @@ Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
 %{_kf5_libdir}/libKF5MailImporter.so
 %{_kf5_libdir}/cmake/KF5MailImporter/
 %{_kf5_includedir}/MailImporter/
-%{_kf5_includedir}/mailimporter/
-%{_kf5_includedir}/mailimporter_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_MailImporter.pri
 # akonadi
 %{_kf5_libdir}/libKF5MailImporterAkonadi.so
 %{_kf5_libdir}/cmake/KF5MailImporterAkonadi/
 %{_kf5_includedir}/MailImporterAkonadi/
-%{_kf5_includedir}/mailimporterakonadi/
-%{_kf5_includedir}/mailimporterakonadi_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_MailImporterAkonadi.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

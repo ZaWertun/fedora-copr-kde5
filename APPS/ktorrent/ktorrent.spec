@@ -2,7 +2,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:    ktorrent
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: A BitTorrent program
 
@@ -99,7 +99,6 @@ Requires: kf5-libktorrent%{?_isa} >= %{version}
 %build
 %cmake_kf5 \
   -DWITH_SYSTEM_GEOIP:BOOL=ON
-
 %cmake_build
 
 
@@ -134,10 +133,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ktorrent.
 
 %files libs
 %{_kf5_libdir}/libktcore.so.*
-%{_kf5_qtplugindir}/ktorrent/
+%{_kf5_qtplugindir}/ktorrent_plugins/ktorrent_*.so
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

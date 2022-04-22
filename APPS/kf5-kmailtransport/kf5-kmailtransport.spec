@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kmailtransport
 
 # uncomment to enable bootstrap mode
@@ -9,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: The KMailTransport Library
 
@@ -89,15 +88,13 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -117,7 +114,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5MailTransport.so.*
 %{_kf5_datadir}/config.kcfg/mailtransport.kcfg
 %{_kf5_qtplugindir}/kcm_mailtransport.so
-%{_kf5_qtplugindir}/mailtransport/
+%{_kf5_plugindir}//mailtransport/mailtransport_*.so
 %{_kf5_datadir}/kservices5/kcm_mailtransport.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -127,15 +124,11 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5MailTransportAkonadi.so.5*
 
 %files devel
-%{_kf5_includedir}/mailtransport_version.h
-%{_kf5_includedir}/mailtransport/
 %{_kf5_includedir}/MailTransport/
 %{_kf5_libdir}/libKF5MailTransport.so
 %{_kf5_libdir}/cmake/KF5MailTransport/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KMailTransport.pri
 # akonadi
-%{_kf5_includedir}/mailtransportakonadi_version.h
-%{_kf5_includedir}/mailtransportakonadi/
 %{_kf5_includedir}/MailTransportAkonadi/
 %{_kf5_libdir}/libKF5MailTransportAkonadi.so
 %{_kf5_libdir}/cmake/KF5MailTransportAkonadi/
@@ -143,6 +136,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

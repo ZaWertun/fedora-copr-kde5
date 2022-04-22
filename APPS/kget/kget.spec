@@ -1,8 +1,6 @@
-%undefine __cmake_in_source_build
-
 Name:    kget
 Summary: Download manager
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -93,7 +91,6 @@ Provides:  kdenetwork-kget-libs = 7:%{version}-%{release}
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 ## unpackaged files
@@ -110,18 +107,14 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %license COPYING*
 %{_kf5_bindir}/kget
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
+%{_kf5_datadir}/kservicetypes5/kget_plugin.desktop
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
+%{_kf5_datadir}/kio/servicemenus/kget_download.desktop
 %{_kf5_datadir}/kget/
 %{_kf5_datadir}/config.kcfg/kget*
 %{_kf5_datadir}/dbus-1/services/org.kde.kget.service
 %{_kf5_datadir}/icons/hicolor/*/apps/kget.*
-%{_kf5_datadir}/dolphinpart/kpartplugins/kget*
-%{_kf5_datadir}/khtml/kpartplugins/kget*
-%{_kf5_datadir}/kwebkitpart/kpartplugins/kget*
 %{_kf5_datadir}/knotifications5/kget*
-%{_kf5_datadir}/kservices5/kget*
-%{_kf5_datadir}/kservices5/ServiceMenus/kget*
-%{_kf5_datadir}/kservicetypes5/kget*
 %{_kf5_datadir}/kxmlgui5/kget/
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
@@ -129,12 +122,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 %files libs
 %{_kf5_libdir}/libkgetcore.so.5*
-%{_kf5_qtplugindir}/kcm_kget*.so
 %{_kf5_qtplugindir}/kget/
-%{_kf5_qtplugindir}/kget_*.so
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

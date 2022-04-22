@@ -1,9 +1,8 @@
-%undefine __cmake_in_source_build
 Name:    khelpcenter
 Summary: Show documentation for KDE applications
 # Override khelpcenter subpackage from kde-runtime-15.04 (no longer built)
 Epoch:   1
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2 or GPLv3
@@ -75,8 +74,8 @@ cp -alf \
 
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.Help.appdata.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop ||:
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.khelpcenter.metainfo.xml
 
 
 %files -f %{name}.lang
@@ -87,8 +86,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop 
 %{_libexecdir}/khc_xapianindexer
 %{_libexecdir}/khc_xapiansearch
 %{_kf5_datadir}/khelpcenter/
-%{_kf5_metainfodir}/org.kde.Help.appdata.xml
-%{_datadir}/applications/org.kde.Help.desktop
+%{_kf5_datadir}/dbus-1/services/org.kde.khelpcenter.service
+%{_kf5_metainfodir}/org.kde.khelpcenter.metainfo.xml
+%{_datadir}/applications/org.kde.khelpcenter.desktop
 %{_datadir}/config.kcfg/khelpcenter.kcfg
 %{_datadir}/kservices5/khelpcenter.desktop
 %{_datadir}/services/khelpcenter.desktop
@@ -97,6 +97,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.Help.desktop 
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-1
 - 21.12.3
 

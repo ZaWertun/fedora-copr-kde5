@@ -1,8 +1,7 @@
-%undefine __cmake_in_source_build
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -102,14 +101,12 @@ Requires:       cmake(Qt5WebEngine)
 %build
 sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -143,53 +140,42 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 %{_kf5_libdir}/libKF5MessageComposer.so
 %{_kf5_libdir}/cmake/KF5MessageComposer/
 %{_kf5_includedir}/MessageComposer/
-%{_kf5_includedir}/messagecomposer/
-%{_kf5_includedir}/messagecomposer_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageComposer.pri
 
 %{_kf5_libdir}/libKF5MessageCore.so
 %{_kf5_libdir}/cmake/KF5MessageCore/
 %{_kf5_includedir}/MessageCore/
-%{_kf5_includedir}/messagecore/
-%{_kf5_includedir}/messagecore_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageCore.pri
 
 %{_kf5_libdir}/libKF5MessageList.so
 %{_kf5_libdir}/cmake/KF5MessageList/
 %{_kf5_includedir}/MessageList/
-%{_kf5_includedir}/messagelist/
-%{_kf5_includedir}/messagelist_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageList.pri
 
 %{_kf5_libdir}/libKF5MessageViewer.so
 %{_kf5_libdir}/cmake/KF5MessageViewer/
 %{_kf5_includedir}/MessageViewer/
-%{_kf5_includedir}/messageviewer/
-%{_kf5_includedir}/messageviewer_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageViewer.pri
 
 %{_kf5_libdir}/libKF5MimeTreeParser.so
 %{_kf5_libdir}/cmake/KF5MimeTreeParser/
 %{_kf5_includedir}/MimeTreeParser/
-%{_kf5_includedir}/mimetreeparser/
-%{_kf5_includedir}/mimetreeparser_version.h
 
 %{_kf5_libdir}/libKF5TemplateParser.so
 %{_kf5_libdir}/cmake/KF5TemplateParser/
 %{_kf5_includedir}/TemplateParser/
-%{_kf5_includedir}/templateparser/
-%{_kf5_includedir}/templateparser_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_TemplateParser.pri
 
 %{_kf5_libdir}/libKF5WebEngineViewer.so
 %{_kf5_libdir}/cmake/KF5WebEngineViewer/
 %{_kf5_includedir}/WebEngineViewer/
-%{_kf5_includedir}/webengineviewer/
-%{_kf5_includedir}/webengineviewer_version.h
 %{_kf5_archdatadir}/mkspecs/modules/qt_WebEngineViewer.pri
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

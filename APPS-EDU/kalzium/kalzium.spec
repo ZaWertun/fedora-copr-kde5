@@ -15,7 +15,7 @@
 
 Name:    kalzium
 Summary: Periodic Table of Elements
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -133,6 +133,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 %dir %{_kf5_datadir}/libkdeedu/
 %{_kf5_datadir}/libkdeedu/data/
 %{_kf5_datadir}/knsrcfiles/kalzium.knsrc
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 %{?ldconfig_scriptlets:%ldconfig_scriptlets libs}
 
@@ -152,6 +153,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 
 
 %changelog
+* Fri Apr 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

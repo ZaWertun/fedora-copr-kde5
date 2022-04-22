@@ -11,7 +11,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -82,7 +82,6 @@ BuildRequires:  kf5-akonadi-contact-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-notes-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
-BuildRequires:  kf5-kalarmcal-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcalendarcore-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcalendarutils-devel >= %{majmin_ver}
 BuildRequires:  kf5-kidentitymanagement-devel >= %{majmin_ver}
@@ -98,6 +97,7 @@ BuildRequires:  kf5-kdav-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
+BuildRequires:  cmake(KF5Holidays)
 BuildRequires:  cmake(Grantlee5)
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1662756
@@ -198,6 +198,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:21.12.3-1
 - 21.12.3
 

@@ -1,6 +1,5 @@
-%undefine __cmake_in_source_build
 Name:    kleopatra
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -71,7 +70,6 @@ Requires:       %{name} = %{version}-%{release}
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 # Remove non-version .so files, we don't have -devel pkg anyway
@@ -94,6 +92,7 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 %{_kf5_datadir}/kservices5/kleopatra_config_gnupgsystem.desktop
 %{_kf5_datadir}/kleopatra/
 %{_kf5_datadir}/kwatchgnupg/
+%{_kf5_datadir}/mime/packages/application-vnd-kde-%{name}.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kleopatra.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -106,6 +105,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

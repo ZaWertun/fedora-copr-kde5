@@ -1,8 +1,6 @@
-%undefine __cmake_in_source_build
-
 Name:    kamera
 Summary: Digital camera support for KDE 
-Version: 21.12.3
+Version: 22.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -15,6 +13,7 @@ URL:     https://www.kde.org/applications/graphics/
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/kamera-%{version}.tar.xz
 
+BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-kconfig-devel
 BuildRequires: kf5-kconfigwidgets-devel
@@ -43,28 +42,33 @@ Requires: kde-cli-tools
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
+
+
+%check
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/%{name}.desktop
 
 
 %files -f %{name}.lang
 %doc AUTHORS README
 %license COPYING*
-%{_kf5_qtplugindir}/kcm_kamera.so
 %{_kf5_qtplugindir}/kf5/kio/kio_%{name}.so
 %{_kf5_datadir}/solid/actions/solid_camera.desktop
-%{_kf5_datadir}/kservices5/kamera.desktop
+%{_kf5_datadir}/applications/%{name}.desktop
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/%{name}.so
 %{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
 - 21.12.3
 

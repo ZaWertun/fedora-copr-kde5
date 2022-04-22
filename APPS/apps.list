@@ -18,6 +18,7 @@ kaccounts-integration
 kaccounts-providers
 kaddressbook
 kalarm
+kalendar
 kamera
 kamoso
 kate
@@ -55,7 +56,6 @@ kf5-calendarsupport
 kf5-eventviews
 kf5-grantleetheme
 kf5-incidenceeditor
-kf5-kalarmcal
 kf5-kcalendarutils
 kf5-kidentitymanagement
 kf5-kimap

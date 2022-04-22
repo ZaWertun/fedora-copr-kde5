@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -8,8 +6,8 @@
 %endif
 
 Name:    kio-extras
-Version: 21.12.3
-Release: 2%{?dist}
+Version: 22.04.0
+Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -123,19 +121,12 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %build
 %cmake_kf5 \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-
 %cmake_build
 
 
 %install
 %cmake_install
 %find_lang %{name} --all-name --with-html
-
-# Add HEIF image support
-sed -e '/MimeType=/s/$/image\/heic;image\/heif;/' -i %{buildroot}%{_kf5_datadir}/kservices5/imagethumbnail.desktop
-
-# Add JPEG JXL image support
-sed -e '/MimeType=/s/$/image\/jxl;/' -i %{buildroot}%{_kf5_datadir}/kservices5/imagethumbnail.desktop
 
 
 %check
@@ -173,21 +164,21 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/kio/smb.so
 %{_kf5_plugindir}/kio/thumbnail.so
 %{_kf5_plugindir}/kio/recentlyused.so
-%{_kf5_qtplugindir}/audiothumbnail.so
-%{_kf5_qtplugindir}/comicbookthumbnail.so
-%{_kf5_qtplugindir}/djvuthumbnail.so
-%{_kf5_qtplugindir}/exrthumbnail.so
-%{_kf5_qtplugindir}/imagethumbnail.so
-%{_kf5_qtplugindir}/jpegthumbnail.so
+%{_kf5_plugindir}/thumbcreator/audiothumbnail.so
+%{_kf5_plugindir}/thumbcreator/comicbookthumbnail.so
+%{_kf5_plugindir}/thumbcreator/djvuthumbnail.so
+%{_kf5_plugindir}/thumbcreator/ebookthumbnail.so
+%{_kf5_plugindir}/thumbcreator/exrthumbnail.so
+%{_kf5_plugindir}/thumbcreator/imagethumbnail.so
+%{_kf5_plugindir}/thumbcreator/jpegthumbnail.so
+%{_kf5_plugindir}/thumbcreator/kritathumbnail.so
+%{_kf5_plugindir}/thumbcreator/opendocumentthumbnail.so
+%{_kf5_plugindir}/thumbcreator/svgthumbnail.so
+%{_kf5_plugindir}/thumbcreator/textthumbnail.so
+%{_kf5_plugindir}/thumbcreator/windowsexethumbnail.so
+%{_kf5_plugindir}/thumbcreator/windowsimagethumbnail.so
 %{_kf5_qtplugindir}/kf5/kfileitemaction/kactivitymanagerd_fileitem_linking_plugin.so
 %{_kf5_qtplugindir}/kfileaudiopreview.so
-%{_kf5_qtplugindir}/ebookthumbnail.so
-%{_kf5_qtplugindir}/kritathumbnail.so
-%{_kf5_qtplugindir}/opendocumentthumbnail.so
-%{_kf5_qtplugindir}/svgthumbnail.so
-%{_kf5_qtplugindir}/textthumbnail.so
-%{_kf5_qtplugindir}/windowsexethumbnail.so
-%{_kf5_qtplugindir}/windowsimagethumbnail.so
 %{_datadir}/kio_docfilter/
 %{_datadir}/kio_bookmarks/
 %dir %{_datadir}/konqueror/
@@ -196,9 +187,10 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_datadir}/konqueror/dirtree/remote/mtp-network.desktop
 %{_datadir}/konqueror/dirtree/remote/smb-network.desktop
 %{_datadir}/remoteview/
+%{_kf5_datadir}/mime/packages/org.kde.kio.smb.xml
 %{_kf5_datadir}/solid/actions/solid_mtp.desktop
 %{_kf5_datadir}/dbus-1/services/org.kde.kmtpd5.service
-%{_kf5_datadir}/kservices5/*.desktop
+%{_kf5_datadir}/kservices5/directorythumbnail.desktop
 %{_kf5_datadir}/kservicetypes5/thumbcreator.desktop
 %{_datadir}/config.kcfg/jpegcreatorsettings5.kcfg
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -219,6 +211,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
+- 22.04.0
+
 * Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-2
 - add JPEG JXL support
 
