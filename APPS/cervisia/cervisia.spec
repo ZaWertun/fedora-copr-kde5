@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    cervisia
 Summary: CVS frontend
 Version: 22.04.0
@@ -49,8 +48,7 @@ Cervisia is a CVS frontend for KDE
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

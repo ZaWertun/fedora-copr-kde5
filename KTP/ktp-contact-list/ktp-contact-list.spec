@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktp-contact-list
 Summary: Telepathy contact list application
 Version: 22.04.0
@@ -53,8 +52,7 @@ Provides:       telepathy-kde-contact-list = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

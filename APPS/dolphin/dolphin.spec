@@ -95,9 +95,8 @@ Requires:       kf5-kio-devel%{?_isa}
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 

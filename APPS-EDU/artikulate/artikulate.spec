@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    artikulate
 Summary: Improve your pronunciation by listening to native speakers
 Version: 22.04.0
@@ -58,8 +57,7 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

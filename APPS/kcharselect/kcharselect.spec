@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kcharselect
 Summary: Character selector 
 Version: 22.04.0
@@ -63,8 +62,7 @@ fonts and copy them into the clipboard.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

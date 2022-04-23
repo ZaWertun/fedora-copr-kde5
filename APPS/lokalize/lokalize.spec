@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    lokalize
 Summary: Computer-aided translation system
 Version: 22.04.0

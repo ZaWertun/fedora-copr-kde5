@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    filelight 
 Summary: Graphical disk usage statistics 
 Epoch:   1
@@ -52,8 +51,7 @@ is being used by graphically representing your file system.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

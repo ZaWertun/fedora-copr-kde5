@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    kpat
 Summary: A selection of solitaire card games
 Version: 22.04.0
@@ -68,8 +66,7 @@ special order — moving, turning and reordering them.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

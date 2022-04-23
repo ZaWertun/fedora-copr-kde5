@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 ## When bootstrapping new releases/archs, set this initially to avoid
 ## unresolvable dependency on phonon-backend (and friends)
 #global bootstrap 1
@@ -117,14 +115,13 @@ Requires: %{name}-qt5%{?_isa} = %{version}-%{release}
 
 %cmake_build
 
-%{cmake_kf5} \
+%cmake_kf5 \
   -DCMAKE_BUILD_TYPE:STRING="Release" \
   -DPHONON_BUILD_DECLARATIVE_PLUGIN:BOOL=%{?declarative:ON}%{!?declarative:OFF} \
   -DPHONON_BUILD_PHONON4QT5:BOOL=ON \
   -DPHONON_QT_IMPORTS_INSTALL_DIR=%{_qt5_importdir} \
   -DPHONON_QT_MKSPECS_INSTALL_DIR=%{_qt5_archdatadir}/mkspecs/modules \
   -DPHONON_QT_PLUGIN_INSTALL_DIR=%{_qt5_plugindir}/designer
-
 %cmake_build
 
 

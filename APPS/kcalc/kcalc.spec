@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kcalc 
 Summary: Scientific Calculator 
 Version: 22.04.0

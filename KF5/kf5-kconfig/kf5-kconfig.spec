@@ -130,9 +130,8 @@ PYTHONPATH=%{_datadir}/ECM/python
 export PYTHONPATH
 %endif
 
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-
 %cmake_build
 
 

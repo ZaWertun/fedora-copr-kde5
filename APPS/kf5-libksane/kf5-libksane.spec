@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %global framework libksane
 
 Name:    kf5-libksane

@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %global framework libkexiv2
 
 Name:    kf5-libkexiv2
@@ -43,8 +41,7 @@ Requires: cmake(Qt5Gui)
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %global min_qt_version 5.15.0
 %global min_kf_version 5.74.0
 

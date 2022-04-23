@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kmousetool
 Version: 22.04.0
 Release: 1%{?dist}

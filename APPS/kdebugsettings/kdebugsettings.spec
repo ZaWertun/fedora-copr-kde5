@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kdebugsettings
 Summary: Configure debug output from Qt5 applications
 Version: 22.04.0

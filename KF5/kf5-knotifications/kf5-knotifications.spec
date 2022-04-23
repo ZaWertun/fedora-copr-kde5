@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework knotifications
 
 # uncomment to enable bootstrap mode
@@ -74,9 +73,8 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-
 %cmake_build
 
 

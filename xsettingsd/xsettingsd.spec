@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:       xsettingsd
 Version:    1.0.2
 Release:    1%{?dist}

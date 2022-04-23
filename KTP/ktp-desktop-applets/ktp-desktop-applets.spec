@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktp-desktop-applets
 Summary: KDE Telepathy desktop applets
 Version: 22.04.0
@@ -53,8 +52,7 @@ KDE Telepathy desktop applets, including:
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

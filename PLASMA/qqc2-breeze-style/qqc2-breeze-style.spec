@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    qqc2-breeze-style
 Version: 5.24.4
 Release: 1%{?dist}

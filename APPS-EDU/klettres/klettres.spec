@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    klettres
 Summary: Learn the alphabet and read some syllables in different languages
 Version: 22.04.0
@@ -62,8 +61,7 @@ very first sounds of a new language, for children or for adults.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

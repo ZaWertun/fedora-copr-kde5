@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    dolphin-plugins
 Summary: Dolphin plugins for revision control systems
 Version: 22.04.0
@@ -51,8 +50,7 @@ systems:
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

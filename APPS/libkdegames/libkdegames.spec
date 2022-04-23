@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    libkdegames
 Summary: Common code and data for many KDE games
 Version: 22.04.0
@@ -80,8 +78,7 @@ Requires: kf5-kwidgetsaddons-devel
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

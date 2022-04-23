@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kf5
 Version: 5.93.0
 Release: 1%{?dist}

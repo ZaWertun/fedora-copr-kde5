@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    sweeper 
 Summary: Clean unwanted traces the user leaves on the system 
 Version: 22.04.0

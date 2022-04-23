@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
 Version: 22.04.0
@@ -48,7 +47,7 @@ KDE SDK scripts
 
 
 %build
-%{cmake_kf5}
+%cmake_kf5
 %cmake_build
 
 

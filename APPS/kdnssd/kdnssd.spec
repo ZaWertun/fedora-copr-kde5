@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kdnssd
 Summary: KDE Network Monitor for DNS-SD services (Zeroconf)
 Version: 22.04.0

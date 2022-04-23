@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    kwrited
 Summary: KDE Write Daemon
 Version: 5.24.4
@@ -45,8 +43,7 @@ Conflicts:      kde-workspace < 5.0.0-1
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

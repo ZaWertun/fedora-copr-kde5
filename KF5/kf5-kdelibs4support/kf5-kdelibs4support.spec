@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kdelibs4support
 
 Name:    kf5-%{framework}
@@ -121,9 +120,8 @@ developing applications that use %{name}.
 # Set absolute BIN_INSTALL_DIR, otherwise CMake will complain about mixed use of
 # absolute and relative paths for some reason
 # Remove once fixed upstream
-%{cmake_kf5} \
+%cmake_kf5 \
         -DBIN_INSTALL_DIR=%{_kf5_bindir}
-
 %cmake_build
 
 

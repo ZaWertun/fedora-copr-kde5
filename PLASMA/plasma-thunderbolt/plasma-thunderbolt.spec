@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global base_name    plasma-thunderbolt
 
 Name:    plasma-thunderbolt

@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kruler
 Summary: A screen ruler and color measurement tool 
 Version: 22.04.0

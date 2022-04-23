@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kiten
 Summary: Japanese Reference/Study Tool
 Version: 22.04.0

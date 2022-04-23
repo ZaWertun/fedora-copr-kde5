@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kcron
 Summary: Cron KDE configuration module
 Version: 22.04.0

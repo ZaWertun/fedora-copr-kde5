@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    kfind
 Summary: KDE Find File Utility
 Version: 22.04.0

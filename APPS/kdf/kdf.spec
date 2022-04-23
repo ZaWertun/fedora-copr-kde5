@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kdf
 Summary: View disk usage
 Version: 22.04.0

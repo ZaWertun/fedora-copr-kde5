@@ -477,7 +477,7 @@ EOL
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DINSTALL_SDDM_WAYLAND_SESSION:BOOL=ON \
   %{?with_wayland_default:-DPLASMA_WAYLAND_DEFAULT_SESSION:BOOL=ON}
 %cmake_build

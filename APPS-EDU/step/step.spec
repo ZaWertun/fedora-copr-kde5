@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    step
 Summary: Interactive Physics Simulator 
 Version: 22.04.0
@@ -61,8 +60,7 @@ BuildRequires: pkgconfig(Qt5Qml) pkgconfig(Qt5Quick) pkgconfig(Qt5Xml) pkgconfig
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

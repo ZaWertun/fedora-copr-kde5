@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kuserfeedback
 Summary: Framework for collecting user feedback for applications via telemetry and surveys
 Version: 1.0.0
@@ -48,8 +47,7 @@ Analytics and administration tool for UserFeedback servers.
 
 
 %build
-%{cmake_kf5} -DENABLE_DOCS:BOOL=OFF
-
+%cmake_kf5 -DENABLE_DOCS:BOOL=OFF
 %cmake_build
 
 

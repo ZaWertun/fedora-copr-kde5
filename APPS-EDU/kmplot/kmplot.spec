@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kmplot
 Summary: Mathematical Function Plotter 
 Version: 22.04.0

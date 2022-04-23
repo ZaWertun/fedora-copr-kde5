@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    keditbookmarks
 Summary: Bookmark organizer and editor
 Version: 22.04.0
@@ -53,8 +51,7 @@ Requires:      %{name} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

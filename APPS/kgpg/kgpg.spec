@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    kgpg
 Summary: Manage GPG encryption keys 
 Version: 22.04.0
@@ -76,8 +74,7 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

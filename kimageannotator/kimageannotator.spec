@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %define appname kImageAnnotator
 %global libname lib%{appname}
 

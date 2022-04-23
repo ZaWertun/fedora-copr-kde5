@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %global         base_name oxygen
 
 Name:    plasma-%{base_name}
@@ -125,7 +123,7 @@ sed -i.optional \
 
 # Build for Qt 5
 %global _vpath_builddir %{_target_platform}-qt5
-%{cmake_kf5}
+%cmake_kf5
 %cmake_build
 %undefine _vpath_builddir
 

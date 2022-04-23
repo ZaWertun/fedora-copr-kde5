@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    khotkeys
 Version: 5.24.4
 Release: 1%{?dist}
@@ -73,8 +72,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 # hack around FTBFS:
 # make[2]: *** No rule to make target 'app/org.kde.khotkeys.xml', needed by 'kcm_hotkeys/khotkeys_interface.cpp'.  Stop.
 %cmake_build

@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kitemviews
 
 Name:           kf5-%{framework}
@@ -44,8 +43,7 @@ developing applications that use %{name}.
 
 %build
 mkdir -p %{_target_platform}
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

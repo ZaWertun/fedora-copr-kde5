@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework modemmanager-qt
 
 Name:    kf5-%{framework}
@@ -44,8 +43,7 @@ that use ModemManager.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

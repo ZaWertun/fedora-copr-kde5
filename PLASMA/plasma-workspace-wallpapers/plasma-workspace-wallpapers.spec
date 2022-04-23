@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    plasma-workspace-wallpapers
 Version: 5.24.4
 Release: 1%{?dist}

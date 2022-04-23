@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktp-auth-handler
 Summary: Provide UI/KWallet Integration
 Version: 22.04.0
@@ -49,8 +48,7 @@ Provide UI/KWallet Integration For Passwords and SSL Errors on Account Connect.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

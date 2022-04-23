@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %define appname kColorPicker
 %global libname lib%{appname}
 

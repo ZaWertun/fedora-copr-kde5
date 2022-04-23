@@ -71,8 +71,7 @@ Juk is a jukebox, tagger and music collection manager.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

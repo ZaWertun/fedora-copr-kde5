@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework threadweaver
 
 Name:           kf5-%{framework}
@@ -41,8 +40,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

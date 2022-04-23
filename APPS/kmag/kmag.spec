@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kmag
 Version: 22.04.0
 Release: 1%{?dist}
@@ -45,8 +44,7 @@ Conflicts: kdeaccessibility < 1:4.7.80
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

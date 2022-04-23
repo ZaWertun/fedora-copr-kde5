@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework ksmtp 
 
 Name:    kf5-%{framework}
@@ -57,8 +56,7 @@ Requires:       kf5-kmime-devel >= %{version}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

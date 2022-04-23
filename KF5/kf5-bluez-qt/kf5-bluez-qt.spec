@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework bluez-qt
 
 Name:           kf5-%{framework}
@@ -58,9 +57,8 @@ Development files for %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DUDEV_RULES_INSTALL_DIR:PATH="%{_udevrulesdir}"
-
 %cmake_build
 
 

@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:           kdevelop-php
 Summary:        Php language and documentation plugins for KDevelop
 Version:        22.04.0

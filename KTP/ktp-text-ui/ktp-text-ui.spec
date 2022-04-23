@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktp-text-ui
 Summary: Telepathy text chat handler
 Version: 22.04.0
@@ -76,8 +75,7 @@ mac2unix data/styles/renkoo.AdiumMessageStyle/Contents/Resources/Renkoo*LICENSE.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

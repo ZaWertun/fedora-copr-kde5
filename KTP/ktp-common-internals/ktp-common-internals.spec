@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktp-common-internals
 Summary: Common internals for KDE Telepathy
 Version: 22.04.0
@@ -79,8 +78,7 @@ Requires:       telepathy-logger-qt-devel
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

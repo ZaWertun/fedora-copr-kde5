@@ -232,7 +232,7 @@ sed -i.breeze_ver \
 %global optflags %(echo %{optflags} | sed 's/-g /-g1 /')
 %endif
 
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?!synaptics:-DSynaptics_INCLUDE_DIRS:PATH="$(pwd)/../3rdparty/xorg"}
 %cmake_build
 

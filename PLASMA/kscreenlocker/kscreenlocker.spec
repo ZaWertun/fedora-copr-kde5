@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kscreenlocker
 Version: 5.24.4
 Release: 1%{?dist}
@@ -69,8 +68,7 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

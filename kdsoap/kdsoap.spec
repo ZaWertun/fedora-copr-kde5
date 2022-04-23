@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:           kdsoap
 Version:        1.9.0
 Release:        1%{?dist}

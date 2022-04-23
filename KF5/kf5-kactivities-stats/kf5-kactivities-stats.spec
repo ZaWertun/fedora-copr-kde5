@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kactivities-stats
 
 Name:           kf5-%{framework}
@@ -47,9 +46,8 @@ Requires: qt5-qtbase-devel
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING=ON
-
 %cmake_build
 
 

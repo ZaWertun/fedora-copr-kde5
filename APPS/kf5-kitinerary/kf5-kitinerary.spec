@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kitinerary
 
 # uncomment to enable bootstrap mode
@@ -86,9 +85,8 @@ developing applications that use %{name}.
 %global optflags %(echo %{optflags} -fpermissive)
 %endif
 
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 

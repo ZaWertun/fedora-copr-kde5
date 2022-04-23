@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:           kwave
 Version: 22.04.0
 Release: 1%{?dist}
@@ -79,7 +78,7 @@ speziell die HTML-Dokumentation.
 %autosetup -p1
 
 %build
-%{cmake_kf5} -DWITH_MP3=ON
+%cmake_kf5 -DWITH_MP3=ON
 %cmake_build
 
 %install

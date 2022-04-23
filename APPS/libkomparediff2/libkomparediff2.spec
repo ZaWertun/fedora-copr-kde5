@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 # enable tests
 %global tests 1
 
@@ -67,9 +66,8 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests}%{!?tests:0}
-
 %cmake_build
 
 

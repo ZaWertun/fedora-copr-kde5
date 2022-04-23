@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
@@ -61,8 +59,7 @@ Yakuake is a drop-down terminal emulator.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

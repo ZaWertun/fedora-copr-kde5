@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %if 0%{?fedora}
 %global p7zip 1
 %endif

@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    rocs 
 Summary: Graph Theory IDE 
 Version: 22.04.0
@@ -83,8 +82,7 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

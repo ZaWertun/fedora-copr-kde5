@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kfloppy
 Summary: Floppy formatting tool 
 Version: 22.04.0
@@ -46,8 +45,7 @@ to format 3.5" and 5.25" floppy disks.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

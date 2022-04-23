@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kdialog
 Summary: Nice dialog boxes from shell scripts
 Version: 22.04.0
@@ -38,8 +37,7 @@ KDialog can be used to show nice dialog boxes from shell scripts.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

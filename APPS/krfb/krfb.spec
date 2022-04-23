@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    krfb
 Summary: Desktop sharing
 Version: 22.04.0

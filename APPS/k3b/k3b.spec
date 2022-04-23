@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # do not use webkit on rhel
 %if 0%{?fedora} || 0%{?epel}
 %define webkit 1
@@ -119,11 +117,10 @@ Requires: %{name}-libs%{?_isa} = %{epoch}:%{version}-%{release}
 
 %build
 
-%{cmake_kf5} \
+%cmake_kf5 \
   -DK3B_BUILD_FFMPEG_DECODER_PLUGIN:BOOL=OFF \
   -DK3B_BUILD_LAME_ENCODER_PLUGIN:BOOL=ON \
   -DK3B_BUILD_MAD_DECODER_PLUGIN:BOOL=ON
-
 %cmake_build
 
 

@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:           kio-gdrive
 Version:        22.04.0
 Release:        1%{?dist}
@@ -33,7 +31,7 @@ Provides KIO Access to Google Drive using the gdrive:/// protocol.
 %autosetup
 
 %build
-%{cmake_kf5}
+%cmake_kf5
 %cmake_build
 
 %install

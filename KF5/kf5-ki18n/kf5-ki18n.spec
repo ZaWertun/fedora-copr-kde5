@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework ki18n
 
 Name:           kf5-%{framework}
@@ -53,9 +52,8 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
    -DPYTHON_EXECUTABLE:PATH=%__python3
-
 %cmake_build
 
 

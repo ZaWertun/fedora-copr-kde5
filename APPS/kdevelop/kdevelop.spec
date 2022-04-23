@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:           kdevelop
 Summary:        Integrated Development Environment for C++/C
 Epoch:          9

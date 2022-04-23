@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ksshaskpass
 Version: 5.24.4
 Release: 1%{?dist}
@@ -34,8 +33,7 @@ BuildRequires:  pkgconfig(Qt5Core)
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

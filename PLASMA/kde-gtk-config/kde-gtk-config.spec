@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kde-gtk-config
 Summary: Configure the appearance of GTK apps in KDE
 Version: 5.24.4

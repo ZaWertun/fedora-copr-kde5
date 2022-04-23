@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global optflags %{optflags} -flto=auto
 %global build_ldflags %{build_ldflags} -flto
 

@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kturtle
 Summary: Educational Programming Environment 
 Version: 22.04.0
@@ -56,8 +55,7 @@ Conflicts: kdeedu < 4.7.0-10
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

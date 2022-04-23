@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:       kdevelop-python
 Version:    22.04.0
 %global py3_suffix -py3

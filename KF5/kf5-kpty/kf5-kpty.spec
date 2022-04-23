@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kpty
 
 Name:           kf5-%{framework}
@@ -47,9 +46,8 @@ developing applications that use %{name}.
 %build
 # find_program for utempter is failing for some reason, so
 # set path explicitly to known-good value
-%{cmake_kf5} \
+%cmake_kf5 \
   -DUTEMPTER_EXECUTABLE:PATH=/usr/libexec/utempter/utempter
-
 %cmake_build
 
 

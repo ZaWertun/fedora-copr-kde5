@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global base_name    drkonqi
 
 Name:    plasma-drkonqi
@@ -61,8 +60,7 @@ Requires(post): policycoreutils
 %patch52 -p1 -b .installdgbsymbols
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 %install

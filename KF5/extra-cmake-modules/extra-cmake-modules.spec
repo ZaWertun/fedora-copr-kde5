@@ -85,12 +85,11 @@ PYTHONPATH=`pwd`/python
 export PYTHONPATH
 %endif
 
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_HTML_DOCS:BOOL=%{?docs:ON}%{!?docs:OFF} \
   -DBUILD_MAN_DOCS:BOOL=%{?docs:ON}%{!?docs:OFF} \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF} \
   %{?sphinx_build}
-
 %cmake_build
 
 

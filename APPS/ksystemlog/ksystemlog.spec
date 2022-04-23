@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ksystemlog
 Summary: System Log Viewer for KDE
 Version: 22.04.0

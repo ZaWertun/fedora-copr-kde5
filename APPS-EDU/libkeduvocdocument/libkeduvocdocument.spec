@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -58,9 +56,8 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-
 %cmake_build
 
 

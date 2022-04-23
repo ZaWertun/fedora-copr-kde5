@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:           plasma-pk-updates
 Version:        0.3.2
 Release:        8%{?dist}

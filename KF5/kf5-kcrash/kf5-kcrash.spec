@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kcrash
 
 Name:    kf5-%{framework}
@@ -47,9 +46,8 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?fedora:-DKCRASH_CORE_PATTERN_RAISE:BOOL=OFF}
-
 %cmake_build
 
 

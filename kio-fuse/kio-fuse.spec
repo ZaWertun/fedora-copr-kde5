@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global         min_qt_version 5.12
 %global         min_kf_version 5.66
 
@@ -38,8 +37,7 @@ KioFuse works by acting as a bridge between KDE's KIO filesystem design and FUSE
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

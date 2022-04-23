@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    kdeedu-data
 Summary: Shared icons, artwork and data files for educational applications
 Version: 22.04.0
@@ -38,8 +36,7 @@ Requires: kde-filesystem
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

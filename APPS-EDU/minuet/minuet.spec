@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    minuet
 Summary: Minuet is an application for music education
 Version: 22.04.0
@@ -46,8 +45,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

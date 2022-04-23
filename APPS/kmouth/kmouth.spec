@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kmouth
 Version: 22.04.0
 Release: 1%{?dist}
@@ -49,8 +48,7 @@ computer speak for them.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

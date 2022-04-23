@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kaccounts-integration
 Version: 22.04.0
 Release: 1%{?dist}
@@ -71,8 +70,7 @@ Headers, development libraries and documentation for %{name}.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

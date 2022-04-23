@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global base_name    plasma-browser-integration
 
 Name:    plasma-browser-integration
@@ -59,9 +58,8 @@ https://community.kde.org/Plasma/Browser_Integration
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DMOZILLA_DIR:PATH=%{_libdir}/mozilla
-
 %cmake_build
 
 

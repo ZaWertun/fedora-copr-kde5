@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktp-filetransfer-handler
 Summary: Telepathy file transfer handler
 Version: 22.04.0
@@ -44,8 +43,7 @@ Telepathy-KDE file transfer handler. It basically does two thigs:
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

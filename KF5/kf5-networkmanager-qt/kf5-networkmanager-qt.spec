@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework networkmanager-qt
 
 Name:    kf5-%{framework}
@@ -49,8 +48,7 @@ that use NetworkManager.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

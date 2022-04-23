@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    kqtquickcharts
 Summary: A QtQuick plugin to render beautiful and interactive charts
 Version: 22.04.0
@@ -36,8 +34,7 @@ Provides: %{name}-devel%{?_isa} = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

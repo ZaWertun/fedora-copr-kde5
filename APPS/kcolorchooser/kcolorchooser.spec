@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kcolorchooser
 Summary: A color chooser 
 Version: 22.04.0
@@ -36,8 +35,7 @@ Conflicts: kde-l10n < 17.03
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

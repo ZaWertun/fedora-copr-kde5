@@ -101,9 +101,8 @@ recent video technologies.
 %build
 mkdir -p %{__cmake_builddir}/rttr/src
 cp -v %{SOURCE1} %{__cmake_builddir}/rttr/src
-%{cmake_kf5} \
+%cmake_kf5 \
   -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
-
 %cmake_build
 
 

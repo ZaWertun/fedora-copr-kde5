@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kbruch
 Summary: Practice Fractions 
 Version: 22.04.0
@@ -59,8 +58,7 @@ Conflicts: kdeedu-math < 4.7.0-10
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

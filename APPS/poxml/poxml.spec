@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    poxml
 Summary: Text utilities from kdesdk
 Version: 22.04.0
@@ -42,8 +41,7 @@ xml2pot
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 # seeing failures, appear to be parallel-build races
 %cmake_build
 

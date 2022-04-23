@@ -82,8 +82,7 @@ to interface with the Uncomplicated Firewall (UFW).
 %autosetup -n %{name}-%{version} -p1
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 %install

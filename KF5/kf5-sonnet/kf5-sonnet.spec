@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework sonnet
 
 # uncomment to enable bootstrap mode
@@ -70,9 +69,8 @@ GUI part of the Sonnet framework provides widgets with spell checking support.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-
 %cmake_build
 
 

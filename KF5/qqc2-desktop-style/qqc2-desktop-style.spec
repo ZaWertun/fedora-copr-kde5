@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework qqc2-desktop-style
 
 Name:    %{framework}

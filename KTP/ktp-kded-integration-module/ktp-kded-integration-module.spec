@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %global module ktp-kded-module
 
 Name:    ktp-kded-integration-module
@@ -62,8 +60,7 @@ integration like setting user to auto-away or handling connection errors.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

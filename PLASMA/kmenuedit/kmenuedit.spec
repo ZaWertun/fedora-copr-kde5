@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %global kf5_version 5.26.0
 
 Name:    kmenuedit

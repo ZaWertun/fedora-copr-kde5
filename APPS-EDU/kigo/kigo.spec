@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name:    kigo
 Summary: Go Board game
 Version: 22.04.0

@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    khangman
 Summary: Hangman game 
 Version: 22.04.0
@@ -69,8 +68,7 @@ Obsoletes: khangman-devel < 15.04
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

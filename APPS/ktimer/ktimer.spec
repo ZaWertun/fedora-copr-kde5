@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktimer
 Summary: Task Scheduler 
 Version: 22.04.0
@@ -64,8 +63,7 @@ KTimer is a little tool to execute programs after some time.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 %global  framework purpose
 
 Name:    kf5-purpose
@@ -81,8 +79,7 @@ Requires: cmake(KF5CoreAddons)
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

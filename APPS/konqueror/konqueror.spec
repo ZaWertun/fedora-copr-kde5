@@ -127,10 +127,9 @@ browsing the web in Konqueror.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   %{?ninja:-G Ninja} \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-
 %if 0%{?ninja}
 %ninja_build -C %{_target_platform}
 %else

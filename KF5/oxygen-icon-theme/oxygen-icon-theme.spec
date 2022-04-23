@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 # trim changelog included in binary rpms
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
@@ -78,8 +76,7 @@ sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

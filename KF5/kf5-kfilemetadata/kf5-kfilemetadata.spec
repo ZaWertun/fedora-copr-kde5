@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kfilemetadata
 
 # Define to 1 to enable ffmpeg extractor
@@ -80,8 +79,7 @@ Requires:       qt5-qtbase-devel
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

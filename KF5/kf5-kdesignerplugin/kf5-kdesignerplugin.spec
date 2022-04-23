@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kdesignerplugin
 
 # uncomment to enable bootstrap mode
@@ -58,8 +57,7 @@ from ini-style description files.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

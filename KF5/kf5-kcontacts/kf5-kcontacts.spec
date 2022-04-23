@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global framework kcontacts
 
 # uncomment to enable bootstrap mode
@@ -59,9 +58,8 @@ developing applications that use %{name}.
 
 
 %build
-%{cmake_kf5} \
+%cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
-
 %cmake_build
 
 

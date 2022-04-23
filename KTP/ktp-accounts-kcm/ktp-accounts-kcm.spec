@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    ktp-accounts-kcm
 Summary: KDE Configuration Module for Telepathy Instant Messaging Accounts
 Version: 22.04.0
@@ -85,8 +84,7 @@ to manipulate the accounts.
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

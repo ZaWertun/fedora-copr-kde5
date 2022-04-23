@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 Name:    kaccounts-providers
 Version: 22.04.0
 Release: 1%{?dist}
@@ -40,8 +39,7 @@ Obsoletes: kaccounts-providers < 15.12.0
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 

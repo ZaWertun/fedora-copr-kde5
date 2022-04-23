@@ -1,4 +1,3 @@
-%undefine __cmake_in_source_build
 %global bazaar_rev   64
 %global real_version 0.6+17.04.20170405-0ubuntu1
 
