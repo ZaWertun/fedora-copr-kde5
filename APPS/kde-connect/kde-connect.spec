@@ -5,7 +5,7 @@
 
 Name:           kde-connect
 Version:        22.04.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -23,6 +23,8 @@ Source0:        http://download.kde.org/%{stable}/release-service/%{version}/src
 
 # firewalld service definition, see https://bugzilla.redhat.com/show_bug.cgi?id=1257699#c2
 Source2:        kde-connect.xml
+
+Patch0:         kdeconnect-kde-22.04.0-fix-crash-in-plugin-settings.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  firewalld-filesystem
@@ -212,6 +214,9 @@ fi
 
 
 %changelog
+* Sat Apr 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-2
+- added kdeconnect-kde-22.04.0-fix-crash-in-plugin-settings.patch
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

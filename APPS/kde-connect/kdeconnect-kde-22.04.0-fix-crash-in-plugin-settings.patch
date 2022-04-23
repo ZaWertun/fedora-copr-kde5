@@ -1,0 +1,15 @@
+diff '--color=auto' -r -U3 kdeconnect-kde-22.04.0.orig/kcmplugin/kdeconnectpluginkcm.cpp kdeconnect-kde-22.04.0/kcmplugin/kdeconnectpluginkcm.cpp
+--- kdeconnect-kde-22.04.0.orig/kcmplugin/kdeconnectpluginkcm.cpp	2022-04-13 01:03:54.000000000 +0300
++++ kdeconnect-kde-22.04.0/kcmplugin/kdeconnectpluginkcm.cpp	2022-04-23 16:30:47.213596951 +0300
+@@ -23,7 +23,10 @@
+ 
+     d->m_deviceId = args.at(0).toString();
+     //The parent of the config should be the plugin itself
+-    d->m_pluginName = KService::serviceByDesktopName(componentName).constData()->property(QStringLiteral("X-KDE-ParentComponents")).toString();
++    const auto service = KService::serviceByDesktopName(componentName);
++    if (service) {
++        d->m_pluginName = service.constData()->property(QStringLiteral("X-KDE-ParentComponents")).toString();
++    }
+ 
+     d->m_config = new KdeConnectPluginConfig(d->m_deviceId, d->m_pluginName);
+ }
