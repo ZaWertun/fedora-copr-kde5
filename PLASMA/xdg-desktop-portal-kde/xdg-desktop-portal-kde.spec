@@ -2,8 +2,8 @@
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.24.4
-Release: 2%{?dist}
+Version: 5.24.5
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -81,6 +81,9 @@ pieces of KDE infrastructure.
 
 
 %changelog
+* Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
+- 5.24.5
+
 * Thu Mar 31 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.4-2
 - rebuild
 
