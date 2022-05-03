@@ -12,8 +12,8 @@
 %endif
 
 Name:    kwinft
-Version: 5.24.0
-Release: 2%{?dist}
+Version: 5.24.1
+Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
 Provides:  kwin = %{version}
@@ -35,8 +35,6 @@ URL:     https://gitlab.com/kwinft/kwinft
 %global stable stable
 %endif
 Source0: %{url}/-/archive/%{name}@%{version}/%{name}-%{name}@%{version}.tar.bz2
-
-Patch0:  kwinft-5.24.0-fix-create-symlink.patch
 
 ## upstream patches
 
@@ -379,6 +377,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.1-1
+- 5.24.1
+
 * Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-2
 - rebuild
 
