@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.24.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -44,6 +44,10 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 Source10:       kde
 Source11:       startkderc
 Source15:       fedora.desktop
+
+# backported breeze sddm from plasma 5.24.80~pre
+# lets us apply patches to fix the sddm theme
+Source19:       sddm-theme-5.24.80~pre.tar.gz
 
 # breeze fedora sddm theme components
 # includes f25-based preview (better than breeze or nothing at least)
@@ -454,9 +458,15 @@ BuildArch: noarch
 
 
 %prep
-%setup -q -a 20
+%setup -q -a 19 -a 20
 
-# FIXME/TODO:  it is unclear whether this is needed or even a good idea anymore -- rex
+## upstream patches
+
+## upstreamable patches
+
+## downstream patches
+%patch100 -p1 -b .konsole-in-contextmenu
+# XXX: This is horribly broken and needs fixes upstream -- ngompa
 %if 0%{?default_lookandfeel:1}
 %patch101 -p1 -b .set-fedora-default-look-and-feel
 sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfeel:org.kde.breeze.desktop}|g" \
@@ -804,6 +814,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue May 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-2
+- plasma-workspace-konsole-in-contextmenu.patch applied
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 
