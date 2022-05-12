@@ -1,6 +1,6 @@
 Name:    kiten
 Summary: Japanese Reference/Study Tool
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -113,6 +113,9 @@ done
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Fri Apr 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

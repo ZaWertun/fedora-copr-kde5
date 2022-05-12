@@ -1,6 +1,6 @@
 Name:    kfloppy
 Summary: Floppy formatting tool 
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -70,6 +70,9 @@ desktop-file-validate %{buildroot}%{_kde4_datadir}/applications/org.kde.kfloppy.
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

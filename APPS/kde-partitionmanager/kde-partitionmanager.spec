@@ -1,7 +1,7 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        22.04.0
+Version:        22.04.1
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
@@ -89,6 +89,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

@@ -2,7 +2,7 @@
 
 Name:    kf5-libktorrent
 Summary: Library providing torrent downloading code
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -82,6 +82,9 @@ Requires: cmake(Qt5Network)
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

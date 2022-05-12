@@ -1,5 +1,5 @@
 Name:    kalendar
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
@@ -112,6 +112,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

@@ -1,6 +1,6 @@
 Name:    ktp-send-file
 Summary: A File manager plugin to launch file transfer jobs
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -59,6 +59,9 @@ Provides:       telepathy-kde-send-file = %{version}-%{release}
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Fri Apr 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

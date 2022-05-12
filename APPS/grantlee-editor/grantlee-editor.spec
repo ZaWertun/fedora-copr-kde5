@@ -7,7 +7,7 @@
 
 Name:    grantlee-editor
 Summary: KMail Theme Editor
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -127,6 +127,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

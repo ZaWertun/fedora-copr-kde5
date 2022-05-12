@@ -1,6 +1,6 @@
 Name:    kanagram
 Summary: Letter Order Game 
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -82,6 +82,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Fri Apr 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

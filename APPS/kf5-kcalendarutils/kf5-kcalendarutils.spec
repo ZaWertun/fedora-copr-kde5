@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-kcalendarutils
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 Summary: The KCalendarUtils Library
 
@@ -97,12 +97,15 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 %files devel
 %{_kf5_includedir}/KCalUtils/
 %{_kf5_libdir}/libKF5CalendarUtils.so
-%{_kf5_libdir}/KTextTemplate/kcalendar_grantlee_plugin.so
+%{_kf5_libdir}/grantlee/5.2/kcalendar_grantlee_plugin.so
 %{_kf5_libdir}/cmake/KF5CalendarUtils/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KCalUtils.pri
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 

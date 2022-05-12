@@ -1,7 +1,7 @@
 %global framework libkleo
 
 Name:    kf5-%{framework}
-Version: 22.04.0
+Version: 22.04.1
 Release: 1%{?dist}
 Summary: KDE PIM cryptographic library
 
@@ -15,7 +15,6 @@ URL:     https://cgit.kde.org/%{framework}.git/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
-Patch0:  kf5-libkleo-22.04.0-include-iterator.patch
 
 ## upstream patches
 
@@ -101,6 +100,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
+- 22.04.1
+
 * Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
 - 22.04.0
 
