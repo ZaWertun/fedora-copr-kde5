@@ -1,7 +1,7 @@
 %global framework kguiaddons
 
 Name:           kf5-%{framework}
-Version: 5.93.0
+Version: 5.94.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with various classes on top of QtGui
 
@@ -28,6 +28,7 @@ BuildRequires:  qt5-qtbase-private-devel
 
 BuildRequires:  wayland-devel
 BuildRequires:  qt5-qtwayland-devel
+BuildRequires:  cmake(PlasmaWaylandProtocols) >= 1.7.0
 
 Requires:       kf5-filesystem >= %{majmin}
 
@@ -70,7 +71,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/wheelmap-geo-hand
 %license LICENSES/*.txt
 %{_kf5_bindir}/kde-geo-uri-handler
 %{_kf5_libdir}/libKF5GuiAddons.so.*
-%{_kf5_plugindir}/kguiaddons/
 %{_kf5_datadir}/applications/google-maps-geo-handler.desktop
 %{_kf5_datadir}/applications/openstreetmap-geo-handler.desktop
 %{_kf5_datadir}/applications/qwant-maps-geo-handler.desktop
@@ -85,6 +85,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/wheelmap-geo-hand
 
 
 %changelog
+* Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
+- 5.94.0
+
 * Sun Apr 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-1
 - 5.93.0
 

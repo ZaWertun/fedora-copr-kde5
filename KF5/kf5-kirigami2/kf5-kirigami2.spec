@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.93.0
-Release: 2%{?dist}
+Version: 5.94.0
+Release: 1%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 
 # All LGPLv2+ except for src/desktopicons.h (GPLv2+)
@@ -26,8 +26,6 @@ URL:     https://techbase.kde.org/Kirigami
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream paches
-# https://invent.kde.org/frameworks/kirigami/-/commit/57187b7e6a1c6396c95b9450ff4c8acb8e70f431
-Patch0: kf5-kirigami2-5.93.0-AboutPage-prevent-infinite-loop.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -113,6 +111,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
+- 5.94.0
+
 * Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-2
 - added kf5-kirigami2-5.93.0-AboutPage-prevent-infinite-loop.patch
 

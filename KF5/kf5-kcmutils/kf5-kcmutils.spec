@@ -8,13 +8,13 @@
 #global tests 1
 %endif
 
-Name:           kf5-%{framework}
-Version: 5.93.0
+Name:    kf5-%{framework}
+Version: 5.94.0
 Release: 1%{?dist}
-Summary:        KDE Frameworks 5 Tier 3 addon with extra API to write KConfigModules
+Summary: KDE Frameworks 5 Tier 3 addon with extra API to write KConfigModules
 
-License:        LGPLv2+
-URL:            https://cgit.kde.org/%{framework}.git
+License: LGPLv2+
+URL:     https://cgit.kde.org/%{framework}.git
 
 %global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
@@ -75,7 +75,6 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name
 
 # create/own dirs
@@ -98,18 +97,25 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %doc README.md
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5KCMUtils.so.*
+%{_kf5_libdir}/libKF5KCMUtilsCore.so.*
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_qmldir}/org/kde/kcmutils/
 %{_kf5_qtplugindir}/kcms/
 %{_kf5_datadir}/qlogging-categories5/kcmutils.categories
 
 %files devel
 %{_kf5_includedir}/KCMUtils/
+%{_kf5_includedir}/KCMUtilsCore/
 %{_kf5_libdir}/libKF5KCMUtils.so
+%{_kf5_libdir}/libKF5KCMUtilsCore.so
 %{_kf5_libdir}/cmake/KF5KCMUtils/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KCMUtils.pri
 
 
 %changelog
+* Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
+- 5.94.0
+
 * Sun Apr 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-1
 - 5.93.0
 

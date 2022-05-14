@@ -1,8 +1,8 @@
 %global framework plasma
 
 Name:    kf5-%{framework}
-Version: 5.93.0
-Release: 2%{?dist}
+Version: 5.94.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -22,7 +22,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches
-Patch0:   29d31c159503e454b3c483b0b7eb180ce0ee926a.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -99,7 +98,6 @@ developing applications that use %{name}.
 %prep
 %setup -n %{framework}-framework-%{version}
 install -m644 -p %{SOURCE10} .
-%patch0 -R -p1
 
 
 %build
@@ -145,7 +143,6 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 %{_kf5_qtplugindir}/kpackage/packagestructure/*.so
 %{_kf5_qtplugindir}/kf5/kirigami/KirigamiPlasmaStyle.so
 %{_kf5_datadir}/plasma/
-%{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_mandir}/man1/plasmapkg2.1.*
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -166,6 +163,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
+- 5.94.0
+
 * Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-2
 - reverting commit #29d31c15
 
