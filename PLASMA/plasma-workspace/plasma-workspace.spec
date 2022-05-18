@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.24.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -71,6 +71,8 @@ Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 ## upstreamable Patches
 
 ## upstream Patches (master branch)
+#  Bug 453830:  Plasma unable to detect installed styles
+Patch0:         plasma-workspace-5.24.5-fix-reading-metadata-in-ThemesModel.patch
 
 BuildRequires:  systemd-rpm-macros
 
@@ -461,6 +463,7 @@ BuildArch: noarch
 %setup -q -a 19 -a 20
 
 ## upstream patches
+%patch0 -p1 -b .fix-reading-metadata
 
 ## upstreamable patches
 
@@ -814,6 +817,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed May 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-3
+- added plasma-workspace-5.24.5-fix-reading-metadata-in-ThemesModel.patch
+
 * Tue May 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-2
 - plasma-workspace-konsole-in-contextmenu.patch applied
 
