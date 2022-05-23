@@ -1,0 +1,13 @@
+diff -rupN kio-extras-19.12.3/thumbnail/imagecreator.cpp kio-extras-19.12.3-new/thumbnail/imagecreator.cpp
+--- kio-extras-19.12.3/thumbnail/imagecreator.cpp	2020-03-03 20:33:29.000000000 +0100
++++ kio-extras-19.12.3-new/thumbnail/imagecreator.cpp	2020-04-17 03:13:31.630526008 +0200
+@@ -34,6 +34,9 @@ bool ImageCreator::create(const QString
+ {
+     // create image preview
+     QImageReader ir(path);
++    QSize sz = ir.size();
++    if(sz.width() > 10240 || sz.height() > 10240)
++        return false;
+     ir.setDecideFormatFromContent(true);
+     img = ir.read();
+     if (img.isNull())

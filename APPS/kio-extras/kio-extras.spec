@@ -7,7 +7,7 @@
 
 Name:    kio-extras
 Version: 22.04.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -20,6 +20,12 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+
+## upstramable patches
+
+# Don't eat up memory attempting to create thumbnail of huge images
+# https://bugs.kde.org/show_bug.cgi?id=420173
+Patch1001: kio-extras_largeimages.patch
 
 ## upstream patches
 
@@ -93,6 +99,9 @@ Recommends:     qt5-qtimageformats%{?_isa}
 
 # Available in RPMFusion: https://admin.rpmfusion.org/pkgdb/package/free/qt-heif-image-plugin/
 Recommends:     qt-heif-image-plugin%{?_isa}
+
+# .exe/.ico previews, will limit dep to only if wine-core is installed for now -- rdieter
+Recommends: (icoutils if wine-core)
 
 # when -info was split out
 Obsoletes: kio-extras < 19.04.1-1
@@ -211,6 +220,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Mon May 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-2
+- Merged changes from Fedora spec
+
 * Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
 - 22.04.1
 
