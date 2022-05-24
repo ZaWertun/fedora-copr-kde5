@@ -5,7 +5,7 @@
 
 Name:           kde-connect
 Version:        22.04.1
-Release:        1%{?dist}
+Release:        3%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -212,6 +212,9 @@ fi
 
 
 %changelog
+* Tue May 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-3
+- release bump
+
 * Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
 - 22.04.1
 
