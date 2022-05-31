@@ -1,7 +1,7 @@
 Name:    kscreen
 Epoch:   1
 Version: 5.24.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Display Management software
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -17,6 +17,10 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+
+## upstream patches
+# X11: fix kded xcb resource leak (BUG: 453280)
+Patch0:  kscreen-5.24.5-X11-fix-kded-xcb-resource-leak.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -84,6 +88,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue May 31 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.5-2
+- added kscreen-5.24.5-X11-fix-kded-xcb-resource-leak.patch
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.5-1
 - 5.24.5
 
