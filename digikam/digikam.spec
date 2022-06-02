@@ -1,7 +1,7 @@
 Name:    digikam
 Summary: A digital camera accessing & photo management application
-Version: 7.5.0
-Release: 1%{?dist}
+Version: 7.6.0
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     http://www.digikam.org/
@@ -96,6 +96,8 @@ BuildRequires: pkgconfig(lqr-1)
 BuildRequires: pkgconfig(libpgf) >= 6.12.24
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
+
+Requires: /usr/bin/exiftool
 
 Recommends: %{name}-doc = %{version}-%{release}
 # expoblending assistant
@@ -235,6 +237,12 @@ update-desktop-database -q &> /dev/null
 
 
 %changelog
+* Thu Jun 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 7.6.0-2
+- bump release
+
+* Thu Jun 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 7.6.0-1
+- 7.6.0
+
 * Mon Jan 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 7.5.0-1
 - 7.5.0
 
