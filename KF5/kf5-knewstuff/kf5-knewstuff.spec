@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.94.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module for downloading application assets
 
 License: LGPLv2+
@@ -18,6 +18,9 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches
+# The get new button in konsole shows behind the whole app and can't be interacted with searching does nothing
+# https://bugs.kde.org/show_bug.cgi?id=452593
+Patch0: kf5-knewstuff-5.94.0-Fix-QtQuickDialogWrapper-dialog-not-being-usable-in-konsole.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -102,6 +105,10 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-2
+- added
+  kf5-knewstuff-5.94.0-Fix-QtQuickDialogWrapper-dialog-not-being-usable-in-konsole.patch
+
 * Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
 - 5.94.0
 
