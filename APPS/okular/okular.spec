@@ -13,7 +13,7 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 22.04.1
+Version: 22.04.2
 Release: 1%{?dist}
 
 License: GPLv2
@@ -228,6 +228,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
+- 22.04.2
+
 * Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
 - 22.04.1
 

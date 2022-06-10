@@ -1,7 +1,7 @@
 %global unstable 0
 
 Name:           kde-partitionmanager
-Version:        22.04.1
+Version:        22.04.2
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
@@ -68,6 +68,7 @@ manipulate filesystems.
 %install
 %cmake_install
 %find_lang partitionmanager --with-kde --with-html
+sed -i 's|SingleMainWindow=True|SingleMainWindow=true|' %{buildroot}%{_kf5_datadir}/applications/org.kde.partitionmanager.desktop
 
 
 %check
@@ -89,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
+- 22.04.2
+
 * Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
 - 22.04.1
 

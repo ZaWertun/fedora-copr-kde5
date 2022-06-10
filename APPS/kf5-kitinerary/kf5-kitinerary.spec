@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.04.1
+Version: 22.04.2
 Release: 1%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
@@ -123,6 +123,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
+- 22.04.2
+
 * Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
 - 22.04.1
 

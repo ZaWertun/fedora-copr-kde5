@@ -7,7 +7,7 @@
 
 Name:    kmail
 Summary: Mail client
-Version: 22.04.1
+Version: 22.04.2
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -216,6 +216,9 @@ end
 
 
 %changelog
+* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
+- 22.04.2
+
 * Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
 - 22.04.1
 

@@ -1,8 +1,8 @@
 Name:    gwenview
 Summary: An image viewer
 Epoch:   1
-Version: 22.04.1
-Release: 2%{?dist}
+Version: 22.04.2
+Release: 1%{?dist}
 
 # app: GPLv2+
 # lib:  IJG and (LGPLv2 or LGPLv3 or LGPLv3+ (KDE e.V.)) and LGPLv2+ and GPLv2+
@@ -115,6 +115,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.2-1
+- 22.04.2
+
 * Mon May 30 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.1-2
 - BR: libtiff-devel, cfitsio-devel, kf5-purpose-devel
 
