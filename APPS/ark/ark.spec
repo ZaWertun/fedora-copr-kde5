@@ -5,7 +5,7 @@
 Name:    ark
 Summary: Archive manager
 Version: 22.04.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://www.kde.org/applications/utilities/ark/
@@ -47,8 +47,13 @@ BuildRequires: cmake(KF5KIO)
 BuildRequires: libappstream-glib
 BuildRequires: pkgconfig(libarchive)
 BuildRequires: pkgconfig(liblzma)
+BuildRequires: pkgconfig(libzip)
 BuildRequires: qt5-qtbase-devel
 BuildRequires: zlib-devel
+
+BuildRequires: /usr/bin/7z
+BuildRequires: /usr/bin/lzop
+BuildRequires: /usr/bin/unar
 
 # when split occured
 Conflicts: kdeutils-common < 6:4.7.80
@@ -75,6 +80,10 @@ Requires: unzip
 Suggests: lha
 Recommends: unar
 %endif
+
+Requires: /usr/bin/7z
+Requires: /usr/bin/lzop
+Requires: /usr/bin/unar
 
 %description
 Ark is a program for managing various archive formats.
@@ -107,11 +116,7 @@ Provides: ark-part%{?_isa} = %{version}-%{release}
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man
-
-# unpackaged files
-rm -fv %{buildroot}%{_kf5_libdir}/libkerfuffle.so
 
 
 %check
@@ -143,6 +148,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Sat Jun 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-2
+- BuilRequires and Requires added: 7z, lzop, unar, libzip
+
 * Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
 - 22.04.2
 
