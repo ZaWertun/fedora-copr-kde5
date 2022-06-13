@@ -1,7 +1,7 @@
 %global framework plasma
 
 Name:    kf5-%{framework}
-Version: 5.94.0
+Version: 5.95.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
@@ -22,6 +22,9 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches
+
+## upstreamable patches
+Patch0: kf5-plasma-5.95.0-fix-KF5-ConfigQml-not-found.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -96,7 +99,7 @@ developing applications that use %{name}.
 
 
 %prep
-%setup -n %{framework}-framework-%{version}
+%autosetup -p1 -n %{framework}-framework-%{version}
 install -m644 -p %{SOURCE10} .
 
 
@@ -163,6 +166,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Mon Jun 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-1
+- 5.95.0
+
 * Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
 - 5.94.0
 

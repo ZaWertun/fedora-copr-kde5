@@ -1,7 +1,7 @@
 %global framework kio
 
 Name:    kf5-%{framework}
-Version: 5.94.0
+Version: 5.95.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
@@ -180,7 +180,6 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 %build
 %cmake_kf5
-
 %cmake_build
 
 
@@ -208,10 +207,12 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 %{_kf5_plugindir}/kio/
 %{_kf5_plugindir}/kded/
 %{_kf5_qtplugindir}/kcm_trash.so
-%{_kf5_qtplugindir}/kcm_cookies.so
-%{_kf5_qtplugindir}/kcm_netpref.so
 %{_kf5_qtplugindir}/kcm_proxy.so
-%{_kf5_qtplugindir}/kcm_smb.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_smb.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_cookies.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_netpref.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_proxy.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_webshortcuts.so
 %{_kf5_plugindir}/kiod/
 %{_kf5_datadir}/kservices5/cookies.desktop
 %{_kf5_datadir}/kservices5/netpref.desktop
@@ -295,6 +296,9 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 
 %changelog
+* Mon Jun 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-1
+- 5.95.0
+
 * Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
 - 5.94.0
 

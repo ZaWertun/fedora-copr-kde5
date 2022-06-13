@@ -1,8 +1,8 @@
 %global framework knewstuff
 
 Name:    kf5-%{framework}
-Version: 5.94.0
-Release: 2%{?dist}
+Version: 5.95.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module for downloading application assets
 
 License: LGPLv2+
@@ -18,9 +18,6 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 
 ## upstream patches
-# The get new button in konsole shows behind the whole app and can't be interacted with searching does nothing
-# https://bugs.kde.org/show_bug.cgi?id=452593
-Patch0: kf5-knewstuff-5.94.0-Fix-QtQuickDialogWrapper-dialog-not-being-usable-in-konsole.patch
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
@@ -92,8 +89,8 @@ developing applications that use %{name}.
 %{_kf5_qmldir}/org/kde/newstuff/
 
 %files devel
-%{_kf5_includedir}/knewstuff*_version.h
 %{_kf5_includedir}/KNewStuff3/
+%{_kf5_includedir}/KMoreTools/
 %{_kf5_libdir}/libKF5NewStuff.so
 %{_kf5_libdir}/libKF5NewStuffCore.so
 %{_kf5_libdir}/libKF5NewStuffWidgets.so
@@ -105,6 +102,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Jun 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-1
+- 5.95.0
+
 * Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-2
 - added
   kf5-knewstuff-5.94.0-Fix-QtQuickDialogWrapper-dialog-not-being-usable-in-konsole.patch

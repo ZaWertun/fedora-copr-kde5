@@ -1,7 +1,7 @@
 %global framework kauth
 
 Name:    kf5-%{framework}
-Version: 5.94.0
+Version: 5.95.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 2 integration module to perform actions as privileged user
 
@@ -76,6 +76,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Jun 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-1
+- 5.95.0
+
 * Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
 - 5.94.0
 
