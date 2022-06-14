@@ -1,7 +1,7 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.24.5
-Release: 2%{?dist}
+Version: 5.25.0
+Release: 1%{?dist}
 Summary: KDE Display Management software
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -19,8 +19,6 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# X11: fix kded xcb resource leak (BUG: 453280)
-Patch0:  kscreen-5.24.5-X11-fix-kded-xcb-resource-leak.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -75,11 +73,7 @@ KCM and KDED modules for managing displays in KDE.
 %{_kf5_plugindir}/kded/kscreen.so
 %{_kf5_qtplugindir}/kcms/kcm_kscreen.so
 %{_datadir}/metainfo/org.kde.kscreen.appdata.xml
-%{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/PresentationModeItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/ScreenLayoutSelection.qml
-%{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.json
+%{_datadir}/plasma/plasmoids/org.kde.kscreen/
 %{_kf5_datadir}/kded_kscreen/qml/OsdSelector.qml
 %{_kf5_datadir}/kservices5/kcm_kscreen.desktop
 %{_kf5_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
@@ -88,6 +82,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.25.0-1
+- 5.25.0
+
 * Tue May 31 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.24.5-2
 - added kscreen-5.24.5-X11-fix-kded-xcb-resource-leak.patch
 

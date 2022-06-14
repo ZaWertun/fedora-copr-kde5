@@ -1,6 +1,6 @@
 Name:    plasma-integration
 Summary: Qt Platform Theme integration plugin for Plasma
-Version: 5.24.5
+Version: 5.25.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
@@ -22,9 +22,11 @@ BuildRequires:  extra-cmake-modules
 
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xcursor)
+BuildRequires:  pkgconfig(wayland-client) >= 1.9.0
 
 BuildRequires:  cmake(Qt5Widgets)
 BuildRequires:  cmake(Qt5DBus)
+BuildRequires:  cmake(Qt5WaylandClient)
 BuildRequires:  pkgconfig(Qt5X11Extras)
 BuildRequires:  pkgconfig(Qt5QuickControls2)
 # Qt5PlatformSupport
@@ -39,6 +41,8 @@ BuildRequires:  cmake(KF5Notifications)
 BuildRequires:  cmake(KF5WidgetsAddons)
 BuildRequires:  cmake(KF5WindowSystem)
 BuildRequires:  cmake(KF5Wayland)
+
+BuildRequires:  cmake(PlasmaWaylandProtocols) >= 1.6.0
 
 ## TODO: verify this is needed, not 100% sure -- rex
 BuildRequires: qt5-qtbase-private-devel
@@ -83,6 +87,9 @@ sed -i.breeze_version \
 
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 

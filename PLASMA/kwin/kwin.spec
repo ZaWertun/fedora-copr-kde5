@@ -16,7 +16,7 @@
 %endif
 
 Name:    kwin
-Version: 5.24.5
+Version: 5.25.0
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -125,7 +125,6 @@ BuildRequires:  cmake(KF5DBusAddons)
 BuildRequires:  kdecoration-devel >= %{majmin_ver}
 BuildRequires:  kscreenlocker-devel >= %{majmin_ver}
 BuildRequires:  plasma-breeze-devel >= %{majmin_ver}
-BuildRequires:  kwayland-server-devel >= %{majmin_ver}
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -163,6 +162,9 @@ Provides: firstboot(windowmanager) = kwin
 
 # Split of X11 variant into subpackage
 Obsoletes: kwin < 5.19.5-3
+
+# KWaylandServer has been merged with KWin
+Obsoletes: kwayland-server < 5.25.0
 
 %if ! %{with wayland_default}
 Recommends: %{name}-wayland = %{version}-%{release}
@@ -383,6 +385,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 

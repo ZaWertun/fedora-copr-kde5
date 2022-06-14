@@ -12,7 +12,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.24.5
+Version: 5.25.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -196,7 +196,6 @@ in %{name}.
 %build
 %cmake_kf5 \
   -DBUILD_RpmOstreeBackend:BOOL=ON
-
 %cmake_build
 
 
@@ -224,12 +223,14 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.di
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.discover.packagekit.appdata.xml ||:
 # disabled until desktop-file-validate supports xdg spec 1.5
 # desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.discover.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %files -f discover.lang
 %{_bindir}/plasma-discover
 %{_bindir}/plasma-discover-update
 %{_kf5_metainfodir}/org.kde.discover.appdata.xml
+%{_datadir}/applications/kcm_updates.desktop
 %{_datadir}/applications/org.kde.discover.desktop
 %{_datadir}/applications/org.kde.discover.urlhandler.desktop
 %{_datadir}/icons/hicolor/*/apps/plasmadiscover.*
@@ -300,6 +301,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.di
 
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 

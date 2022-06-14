@@ -1,6 +1,6 @@
 Name:    kinfocenter
-Version: 5.24.5
-Release: 3%{?dist}
+Version: 5.25.0
+Release: 1%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -91,14 +91,18 @@ Conflicts:      kde-workspace < 4.11.15-3
 %files -f %{name}.lang
 %{_bindir}/kinfocenter
 %{_kf5_libdir}/libKInfoCenterInternal.so
+%{_kf5_libexecdir}/kauth/kinfocenter-dmidecode-helper
 %{_kf5_qtplugindir}/plasma/kcms/*.so
 %{_kf5_qtplugindir}/plasma/kcms/kinfocenter/*.so
 %{_sysconfdir}/xdg/menus/kinfocenter.menu
+%{_datadir}/applications/kcm_about-distro.desktop
 %{_datadir}/applications/org.kde.kinfocenter.desktop
 %{_kf5_qmldir}/org/kde/kinfocenter/private/CommandOutputKCM.qml
 %{_kf5_qmldir}/org/kde/kinfocenter/private/qmldir
 %{_kf5_datadir}/kinfocenter/categories/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
+%{_kf5_datadir}/dbus-1/system-services/org.kde.kinfocenter.dmidecode.service
+%{_kf5_datadir}/dbus-1/system.d/org.kde.kinfocenter.dmidecode.conf
 %{_datadir}/desktop-directories/kinfocenter.directory
 %{_kf5_datadir}/kpackage/kcms/kcm_cpu/
 %{_kf5_datadir}/kpackage/kcms/kcm_egl/
@@ -112,10 +116,15 @@ Conflicts:      kde-workspace < 4.11.15-3
 %{_kf5_datadir}/kpackage/kcms/kcm_energyinfo/
 %{_kf5_datadir}/kpackage/kcms/kcm_interrupts/
 %{_kf5_datadir}/kpackage/kcms/kcm_about-distro/
+%{_kf5_datadir}/kpackage/kcms/kcm_firmware_security/
 %{_kf5_datadir}/metainfo/org.kde.kinfocenter.appdata.xml
+%{_kf5_datadir}/polkit-1/actions/org.kde.kinfocenter.dmidecode.policy
 
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-3
 - rebuild
 

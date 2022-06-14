@@ -2,7 +2,7 @@
 
 Name:    plasma-drkonqi
 Summary: DrKonqi crash handler for KF5/Plasma5
-Version: 5.24.5
+Version: 5.25.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -36,8 +36,10 @@ BuildRequires:  cmake(KF5XmlRpcClient)
 BuildRequires:  cmake(KF5Wallet)
 BuildRequires:  cmake(KF5IdleTime)
 BuildRequires:  cmake(KF5WindowSystem)
-BuildRequires:	cmake(KF5SyntaxHighlighting)
+BuildRequires:  cmake(KF5SyntaxHighlighting)
+BuildRequires:  cmake(KF5Declarative)
 
+BuildRequires:  cmake(Qt5Quick)
 BuildRequires:  cmake(Qt5X11Extras)
 
 # retired from plasma-workspace
@@ -92,6 +94,9 @@ fi
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 

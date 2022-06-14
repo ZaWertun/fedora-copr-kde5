@@ -1,7 +1,7 @@
-%global         base_name oxygen
+%global  base_name oxygen
 
 Name:    plasma-%{base_name}
-Version: 5.24.5
+Version: 5.25.0
 Release: 1%{?dist}
 Summary: Plasma and Qt widget style and window decorations for Plasma 5 and KDE 4
 
@@ -56,12 +56,11 @@ Requires:       qt4-style-oxygen = %{version}-%{release}
 %endif
 Requires:       qt5-style-oxygen = %{version}-%{release}
 Requires:       oxygen-cursor-themes = %{version}-%{release}
-Requires:       oxygen-sound-theme = %{version}-%{release}
 # for oxygen look-and-feel
 Requires:       oxygen-icon-theme
 
 # kwin-oxygen was removed in 5.1.95
-Obsoletes:	kwin-oxygen < 5.1.95-1
+Obsoletes:      kwin-oxygen < 5.1.95-1
 
 %description
 %{summary}.
@@ -91,13 +90,6 @@ Summary:        Oxygen cursor themes
 BuildArch:      noarch
 Obsoletes:      plasma-oxygen-common < 5.1.1-2
 %description -n oxygen-cursor-themes
-%{summary}.
-
-%package -n     oxygen-sound-theme
-Summary:        Sounds for Oxygen theme
-BuildArch:      noarch
-Obsoletes:      plasma-oxygen-common < 5.1.1-2
-%description -n oxygen-sound-theme
 %{summary}.
 
 
@@ -146,7 +138,6 @@ rm -fv %{buildroot}%{_kde4_libdir}/liboxygenstyle.so
 rm -fv %{buildroot}%{_kde4_libdir}/liboxygenstyleconfig.so
 %if ! 0%{?fedora}
 rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/oxygen_kdecoration.mo
-#rm -fv %{buildroot}%{_datadir}/sounds/Oxygen-*
 rm -rfv %{buildroot}%{_datadir}/icons/{KDE_Classic,Oxygen_*}
 rm -fv %{buildroot}%{_kf5_qtplugindir}/org.kde.kdecoration2/oxygendecoration.so
 rm -fv %{buildroot}%{_kf5_datadir}/kservices5/oxygendecorationconfig.desktop
@@ -203,11 +194,11 @@ rm -rfv %{buildroot}%{_kf5_datadir}/plasma/look-and-feel/org.kde.oxygen/
 %{_datadir}/icons/Oxygen_Zion/
 %endif
 
-%files -n   oxygen-sound-theme
-%{_datadir}/sounds/Oxygen-*
-
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 

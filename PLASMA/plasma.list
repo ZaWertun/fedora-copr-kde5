@@ -15,12 +15,12 @@ kscreenlocker
 ksshaskpass
 ksystemstats
 kwayland-integration
-kwayland-server
 kwin
 kwrited
 layer-shell-qt
 libkscreen-qt5
 libksysguard
+oxygen-sounds
 pam-kwallet
 plasma-breeze
 plasma-browser-integration

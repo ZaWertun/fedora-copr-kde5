@@ -2,7 +2,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.24.5
+Version: 5.25.0
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -116,13 +116,15 @@ Provides:       kde-plasma-nm-openconnect = %{version}-%{release}
 %description    openconnect
 %{summary}.
 
-%package        openswan
-Summary:        Openswan support for %{name}
+%package        libreswan
+Summary:        Libreswan support for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       NetworkManager-openswan
 Obsoletes:      kde-plasma-nm-openswan < 5.0.0-1
 Provides:       kde-plasma-nm-openswan = %{version}-%{release}
-%description    openswan
+Obsoletes:      plasma-nm-openswan < 5.25.0
+Provides:       plasma-nm-openswan = %{version}-%{release}
+%description    libreswan
 %{summary}.
 
 %package        strongswan
@@ -223,7 +225,7 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %find_lang plasmanetworkmanagement-libs
 %find_lang plasmanetworkmanagement_openvpnui
 %find_lang plasmanetworkmanagement_openconnectui
-%find_lang plasmanetworkmanagement_openswanui
+%find_lang plasmanetworkmanagement_libreswanui
 %find_lang plasmanetworkmanagement_strongswanui
 %find_lang plasmanetworkmanagement_l2tpui
 %find_lang plasmanetworkmanagement_pptpui
@@ -244,19 +246,17 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 # plasma-nm applet
 %{_qt5_qmldir}/org/kde/plasma/networkmanagement/
 %{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/
-#{_datadir}/plasma/updates/*.js
 # plasma-nm notifications
 %{_kf5_datadir}/knotifications5/networkmanagement.notifyrc
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.networkmanagement.desktop
 # plasma-nm kded
 %{_kf5_plugindir}/kded/networkmanagement.so
 # appdata
 %{_kf5_metainfodir}/org.kde.plasma.networkmanagement.appdata.xml
 
 # kcm
-%{_qt5_plugindir}/kcm_networkmanagement.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_networkmanagement.so
 %{_datadir}/kcm_networkmanagement/qml/
-%{_kf5_datadir}/kservices5/kcm_networkmanagement.desktop
+%{_kf5_datadir}/applications/kcm_networkmanagement.desktop
 %{_datadir}/locale/*/LC_MESSAGES/kcm_mobile_wifi.mo
 %{_datadir}/locale/*/LC_MESSAGES/kcm_mobile_hotspot.mo
 
@@ -274,8 +274,8 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
 
-%files openswan -f plasmanetworkmanagement_openswanui.lang
-%{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openswanui.so
+%files libreswan -f plasmanetworkmanagement_libreswanui.lang
+%{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
 
 %files strongswan -f plasmanetworkmanagement_strongswanui.lang
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_strongswanui.so
@@ -305,6 +305,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 

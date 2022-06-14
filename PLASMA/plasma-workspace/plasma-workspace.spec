@@ -20,8 +20,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.24.5
-Release: 3%{?dist}
+Version: 5.25.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -45,10 +45,6 @@ Source10:       kde
 Source11:       startkderc
 Source15:       fedora.desktop
 
-# backported breeze sddm from plasma 5.24.80~pre
-# lets us apply patches to fix the sddm theme
-Source19:       sddm-theme-5.24.80~pre.tar.gz
-
 # breeze fedora sddm theme components
 # includes f25-based preview (better than breeze or nothing at least)
 Source20:       breeze-fedora-0.2.tar.gz
@@ -61,7 +57,6 @@ Source41:       spice-vdagent.conf
 
 ## downstream Patches
 Patch100:       plasma-workspace-konsole-in-contextmenu.patch 
-Patch101:       plasma-workspace-5.3.0-set-fedora-default-look-and-feel.patch
 # default to folderview (instead of desktop) containment, see also
 # https://mail.kde.org/pipermail/distributions/2016-July/000133.html
 # and example,
@@ -116,6 +111,7 @@ BuildRequires:  pipewire-devel
 BuildRequires:  libraw1394-devel
 %endif
 BuildRequires:  gpsd-devel
+BuildRequires:  libicu-devel
 BuildRequires:  libqalculate-devel
 %global kf5_pim 1
 BuildRequires:  kf5-kholidays-devel
@@ -259,17 +255,12 @@ Requires:       iceauth xrdb xprop
 Requires:       kde-settings-plasma
 
 # Default look-and-feel theme
-%if 0%{?fedora}
 Requires:       plasma-lookandfeel-fedora = %{version}-%{release}
-%endif
-%if ! 0%{?default_lookandfeel:1}
-Requires:       desktop-backgrounds-compat
-%endif
 
 Requires:       systemd
 
 # Oxygen
-Requires:       oxygen-sound-theme >= %{majmin_ver}
+Requires:       oxygen-sounds >= %{majmin_ver}
 
 # PolicyKit authentication agent
 Requires:        polkit-kde >= %{majmin_ver}
@@ -463,25 +454,8 @@ BuildArch: noarch
 
 
 %prep
-%setup -q -a 19 -a 20
+%autosetup -q -a 20
 
-## upstream patches
-%patch0 -p1 -b .fix-reading-metadata
-%patch1 -p1 -b .find-metadata.json
-
-## upstreamable patches
-
-## downstream patches
-%patch100 -p1 -b .konsole-in-contextmenu
-# XXX: This is horribly broken and needs fixes upstream -- ngompa
-%if 0%{?default_lookandfeel:1}
-%patch101 -p1 -b .set-fedora-default-look-and-feel
-sed -i -e "s|@DEFAULT_LOOKANDFEEL@|%{?default_lookandfeel}%{!?default_lookandfeel:org.kde.breeze.desktop}|g" \
-  shell/packageplugins/lookandfeel/lookandfeel.cpp
-%endif
-%patch105 -p1
-
-%if 0%{?fedora}	
 # Populate initial lookandfeel package
 cp -a lookandfeel lookandfeel.fedora
 # Overwrite settings to configure twilight mode
@@ -490,7 +464,6 @@ install -m 0644 %{SOURCE15} lookandfeel.fedora/metadata.desktop
 cat >> CMakeLists.txt <<EOL
 plasma_install_package(lookandfeel.fedora org.fedoraproject.fedora.desktop look-and-feel lookandfeel)
 EOL
-%endif
 
 
 %build
@@ -821,6 +794,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Wed May 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-3
 - added plasma-workspace-5.24.5-fix-reading-metadata-in-ThemesModel.patch
 
