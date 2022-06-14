@@ -66,11 +66,6 @@ Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 ## upstreamable Patches
 
 ## upstream Patches (master branch)
-#  Bug 453830:  Plasma unable to detect installed styles
-#    1. https://invent.kde.org/plasma/plasma-workspace/-/commit/43ae993da35bb408b4fabb5c4514feff97628e0d
-Patch0:         plasma-workspace-5.24.5-fix-reading-metadata-in-ThemesModel.patch
-#    2. https://invent.kde.org/plasma/plasma-workspace/-/commit/f77b7284e39b14b0e9a8b4d2b77c0b93b2c9ea59
-Patch1:         plasma-workspace-5.24.5-find-metadata.json-when-loading-ThemesModel.patch
 
 BuildRequires:  systemd-rpm-macros
 
@@ -222,14 +217,14 @@ Requires:       qt5-qtgraphicaleffects
 
 # The new volume control for PulseAudio
 %if 0%{?fedora} || 0%{?rhel} > 7
-Recommends:       plasma-pa >= %{majmin_ver}
+Recommends:     plasma-pa >= %{majmin_ver}
 %endif
 
 # Without the platformtheme plugins we get broken fonts
 Requires:       kf5-frameworkintegration
 
 # For krunner
-Recommends:       plasma-milou >= %{majmin_ver}
+Recommends:     plasma-milou >= %{majmin_ver}
 
 # powerdevil has a versioned dep on libkworkspace5, so (may?)
 # need to avoid this dep when bootstrapping
@@ -263,13 +258,13 @@ Requires:       systemd
 Requires:       oxygen-sounds >= %{majmin_ver}
 
 # PolicyKit authentication agent
-Requires:        polkit-kde >= %{majmin_ver}
+Requires:       polkit-kde >= %{majmin_ver}
 
 # onscreen keyboard
-Requires:        maliit-keyboard
+Requires:       maliit-keyboard
 
 %if %{with systemdBoot}
-Requires:        (uresourced if systemd-oomd-defaults)
+Requires:       (uresourced if systemd-oomd-defaults)
 %endif
 
 # Require any plasmashell (plasma-desktop provides plasmashell(desktop))
@@ -454,7 +449,7 @@ BuildArch: noarch
 
 
 %prep
-%autosetup -q -a 20
+%autosetup -p1 -a 20
 
 # Populate initial lookandfeel package
 cp -a lookandfeel lookandfeel.fedora

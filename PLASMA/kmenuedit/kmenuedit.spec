@@ -18,6 +18,9 @@ URL:     https://cgit.kde.org/%{name}.git
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
+BuildRequires:  desktop-file-utils
+BuildRequires:  libappstream-glib
+
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
 
@@ -62,6 +65,8 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.desktop ||:
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
+
 
 %files -f kmenuedit5.lang
 %license LICENSES/*.txt
@@ -71,6 +76,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kmenuedit.des
 %{_datadir}/icons/hicolor/*/apps/kmenuedit.*
 %{_kf5_datadir}/kxmlgui5/kmenuedit/
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_libdir}/kconf_update_bin/kmenuedit_globalaccel
 
 

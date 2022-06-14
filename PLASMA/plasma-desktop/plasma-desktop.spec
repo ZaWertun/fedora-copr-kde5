@@ -274,8 +274,10 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_qmldir}/org/kde/plasma/private
 # TODO: -libs subpkg -- rex
 %{_kf5_qtplugindir}/*.so
+%{_kf5_qtplugindir}/plasma/applets/org.kde.plasma.marginsseparator.so
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings/*.so
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/*.so
+%{_kf5_qtplugindir}/plasma/kcms/desktop/kcm_krunnersettings.so
 %{_kf5_qtplugindir}/plasma/kcminit/kcm_mouse_init.so
 %{_kf5_qtplugindir}/plasma/kcminit/kcm_touchpad_init.so
 %{_kf5_plugindir}/kded/*.so

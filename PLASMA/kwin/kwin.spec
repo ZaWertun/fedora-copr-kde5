@@ -61,6 +61,7 @@ BuildRequires:  qt5-qttools-devel
 BuildRequires:  qt5-qttools-static
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  qt5-qtwayland-devel
+BuildRequires:  cmake(QAccessibilityClient)
 
 # X11/OpenGL
 BuildRequires:  mesa-libGL-devel
@@ -92,6 +93,7 @@ BuildRequires:  wayland-protocols-devel
 BuildRequires:  libxkbcommon-devel >= 0.4
 BuildRequires:  pkgconfig(libinput) >= 0.10
 BuildRequires:  pkgconfig(libudev)
+BuildRequires:  pkgconfig(libxcvt) >= 0.1.1
 BuildRequires:  cmake(PlasmaWaylandProtocols)
 
 # KF5
@@ -309,13 +311,18 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files common -f kwin5.lang
 %{_datadir}/kwin
-%{_kf5_qtplugindir}/*.so
 %{_kf5_qtplugindir}/kwin/
-%{_kf5_qtplugindir}/kcms/
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kwin_*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kwindecoration.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kwinrules.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_virtualkeyboard.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_kwin*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kwincompositing.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_*.so
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
 %dir %{_kf5_qtplugindir}/org.kde.kwin.platforms
 %{_qt5_qmldir}/org/kde/kwin
+%{_qt5_qmldir}/org/kde/kwin.2
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
 %{_libexecdir}/kwin_killer_helper
 %{_libexecdir}/kwin_rules_dialog
@@ -342,16 +349,19 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/kwin-5.23-remove-flip-switch.py
 %{_kf5_datadir}/kconf_update/kwin-5.23-remove-xrender-backend.py
 %{_kf5_datadir}/kconf_update/kwinrules-5.23-virtual-desktop-ids.py
+%{_kf5_datadir}/kconf_update/kwin-5.25-effect-pluginid-config-group.py
 %{_datadir}/icons/hicolor/*/apps/kwin.*
 %{_datadir}/knsrcfiles/*.knsrc
 %{_datadir}/krunner/dbusplugins/kwin-runner-windows.desktop
 %{_datadir}/applications/org.kde.kwin_rules_dialog.desktop
+%{_datadir}/applications/kcm_kwin*.desktop
+%{_datadir}/applications/kcm_virtualkeyboard.desktop
+%{_datadir}/applications/kwincompositing.desktop
 
 %files wayland
 %{_bindir}/kwin_wayland_wrapper
 %{_kf5_bindir}/kwin_wayland
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandDrmBackend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandFbdevBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandWaylandBackend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandX11Backend.so
 %{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandVirtualBackend.so
@@ -369,7 +379,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwineffects.so.*
 %{_libdir}/libkwinglutils.so.*
 %{_libdir}/libkcmkwincommon.so.*
-%{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml

@@ -10,14 +10,6 @@ diff -up plasma-workspace-5.23.90/containmentactions/contextmenu/menu.cpp.konsol
  #include <QDebug>
  #include <QIcon>
  
-@@ -29,6 +30,7 @@
- ContextMenu::ContextMenu(QObject *parent, const QVariantList &args)
-     : Plasma::ContainmentActions(parent, args)
-     , m_runCommandAction(nullptr)
-+    , m_runKonsoleAction(nullptr)
-     , m_lockScreenAction(nullptr)
-     , m_logoutAction(nullptr)
-     , m_configureDisplaysAction(nullptr)
 @@ -68,6 +70,7 @@ void ContextMenu::restore(const KConfigG
                        << QStringLiteral("configure shortcuts")
                        << QStringLiteral("_sep1")
@@ -72,8 +64,8 @@ diff -up plasma-workspace-5.23.90/containmentactions/contextmenu/menu.h.konsole-
      void configureDisplays();
  
  private:
-     QAction *m_runCommandAction;
-+    QAction *m_runKonsoleAction;
-     QAction *m_lockScreenAction;
-     QAction *m_logoutAction;
-     QAction *m_configureDisplaysAction;
+     QAction *m_runCommandAction = nullptr;
++    QAction *m_runKonsoleAction = nullptr;
+     QAction *m_lockScreenAction = nullptr;
+     QAction *m_logoutAction = nullptr;
+     QAction *m_configureDisplaysAction = nullptr;

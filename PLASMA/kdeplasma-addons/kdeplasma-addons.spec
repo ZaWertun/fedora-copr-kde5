@@ -109,7 +109,7 @@ developing applications that use %{name}.
 %{_datadir}/icons/hicolor/*/apps/accessories-dictionary.svgz
 %endif
 %{_kf5_datadir}/knsrcfiles/*.knsrc
-%{_kf5_libdir}/libplasmacomicprovidercore.so.*
+%{_kf5_datadir}/kservicetypes5/plasma-comic.desktop
 %{_kf5_libdir}/libplasmapotdprovidercore.so*
 %{_kf5_qtplugindir}/kpackage/packagestructure/plasma_comic.so
 %{_kf5_datadir}/qlogging-categories5/plasma_comic.categories
@@ -118,7 +118,7 @@ developing applications that use %{name}.
 %{_libdir}/cmake/PlasmaPotdProvider/*
 %{_libdir}/qt5/plugins/plasmacalendarplugins/*
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/*
-   /usr/share/kdevappwizard/templates/plasmapotdprovider.tar.bz2
+%{_datadir}/kdevfiletemplates/templates/plasmapotdprovider.tar.bz2
 
 %files devel
 %{_includedir}/plasma/potdprovider/*
