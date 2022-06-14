@@ -18,7 +18,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.95.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 
 License: GPLv2+ and LGPLv2+ and MIT
@@ -42,6 +42,7 @@ BuildRequires:  kf5-rpm-macros >= %{majmin}
 
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Xml)
+BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
 
@@ -137,7 +138,6 @@ export PYTHONPATH
 
 %install
 %cmake_install
-
 %find_lang_kf5 kconfig5_qt
 
 
@@ -161,6 +161,7 @@ xvfb-run -a \
 %{_kf5_bindir}/kreadconfig5
 %{_kf5_bindir}/kwriteconfig5
 %{_kf5_libdir}/libKF5ConfigCore.so.*
+%{_kf5_libdir}/libKF5ConfigQml.so.*
 %{_kf5_libexecdir}/kconfig_compiler_kf5
 %{_kf5_libexecdir}/kconf_update
 
@@ -173,8 +174,10 @@ xvfb-run -a \
 %{_kf5_includedir}/KConfig/kconfig_version.h
 %{_kf5_includedir}/KConfigCore/
 %{_kf5_includedir}/KConfigGui/
+%{_kf5_includedir}/KConfigQml/
 %{_kf5_libdir}/libKF5ConfigCore.so
 %{_kf5_libdir}/libKF5ConfigGui.so
+%{_kf5_libdir}/libKF5ConfigQml.so
 %{_kf5_libdir}/cmake/KF5Config/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KConfigCore.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_KConfigGui.pri
@@ -192,6 +195,9 @@ xvfb-run -a \
 
 
 %changelog
+* Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-2
+- BR: pkgconfig(Qt5Qml)
+
 * Mon Jun 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-1
 - 5.95.0
 
