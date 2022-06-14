@@ -165,9 +165,6 @@ Provides: firstboot(windowmanager) = kwin
 # Split of X11 variant into subpackage
 Obsoletes: kwin < 5.19.5-3
 
-# KWaylandServer has been merged with KWin
-Obsoletes: kwayland-server < 5.25.0
-
 %if ! %{with wayland_default}
 Recommends: %{name}-wayland = %{version}-%{release}
 Requires:   %{name}-x11 = %{version}-%{release}
@@ -184,7 +181,6 @@ Summary:        KDE Window Manager with Wayland support
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 Requires:       %{name}-common%{?_isa} = %{version}-%{release}
 Requires:       kwayland-integration%{?_isa} >= %{majmin_ver}
-Requires:       kwayland-server%{?_isa} >= %{majmin_ver}
 %if ! 0%{?bootstrap}
 BuildRequires:  xorg-x11-server-Xwayland
 %endif
@@ -199,6 +195,9 @@ Provides:       firstboot(windowmanager) = kwin_wayland
 # by kwin-wayland
 Obsoletes:      %{name}-wayland-nvidia < 5.20.2-2
 Provides:       %{name}-wayland-nvidia = %{version}-%{release}
+# KWaylandServer has been merged with KWin
+Obsoletes:      kwayland-server < 5.25.0
+Provides:       kwayland-server = %{version}-%{release}
 %description    wayland
 %{summary}.
 
