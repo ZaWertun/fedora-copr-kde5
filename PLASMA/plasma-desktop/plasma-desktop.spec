@@ -10,7 +10,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.25.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -106,6 +106,7 @@ BuildRequires:  kf5-kactivities-stats-devel >= %{kf5_version_min}
 BuildRequires:  libcanberra-devel
 BuildRequires:  boost-devel
 BuildRequires:  pulseaudio-libs-devel
+BuildRequires:  pkgconfig(signon-oauth2plugin)
 
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
@@ -329,6 +330,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Wed Jun 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-2
+- BR: pkgconfig(signon-oauth2plugin)
+
 * Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
 - 5.25.0
 
