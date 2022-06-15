@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.95.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -22,6 +22,9 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches
+# Task manager window thumbnails missing on x11
+#   (https://bugs.kde.org/show_bug.cgi?id=455231)
+Patch0:   kf5-plasma-5.95.0-revert-use_QT_FEATURE_foo-to-detect-opengl-support.patch
 
 ## upstreamable patches
 
@@ -165,6 +168,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Wed Jun 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-3
+- Added kf5-plasma-5.95.0-revert-use_QT_FEATURE_foo-to-detect-opengl-support.patch
+
 * Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-2
 - rebuild
 
