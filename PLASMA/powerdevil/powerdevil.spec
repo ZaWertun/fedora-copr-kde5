@@ -2,7 +2,7 @@
 
 Name:    powerdevil
 Version: 5.25.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -19,6 +19,8 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream patches
+# Brightness stuck at 30%% (https://bugs.kde.org/show_bug.cgi?id=454161)
+Patch0:  powerdevil-5.25.0-prevent-integer-overflow-during-new-brightness-computation.patch
 
 ## upstreamable patches
 
@@ -122,6 +124,10 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-2
+- Added
+  powerdevil-5.25.0-prevent-integer-overflow-during-new-brightness-computation.patch
+
 * Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
 - 5.25.0
 
