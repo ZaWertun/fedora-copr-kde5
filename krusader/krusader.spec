@@ -1,17 +1,23 @@
+%global commit 836176d25bc2c3ae0c8739f99a0f360c9c78b70d
+%global commitdate 20220613
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
 Name:		krusader
-Version:	2.7.2
-Release:	7%{?dist}
+Version:	2.7.2%{?commitdate:^git%{commitdate}.%{shortcommit}}
+Release:	8%{?dist}
 Summary:	An advanced twin-panel (commander-style) file-manager for KDE
 
 License:	GPLv2+
 URL:		https://www.krusader.org/
+%if 0%{?commitdate}
+Source0:	https://invent.kde.org/utilities/%{name}/-/archive/%{commit}/krusader-%{version}.tar.bz2
+%else
 Source0:	https://download.kde.org/stable/%{name}/%{version}/%{name}-%{version}.tar.xz
+%endif
 
 ## upstream patches
 
 ## upstreamable patches
-# Krusader not able to open archives (rar, zip, 7z) any more (https://bugs.kde.org/show_bug.cgi?id=455447)
-Patch0:	krusader-2.7.2-fix-opening-archives-with-kf5-kio-5.95.0.patch
 
 BuildRequires:	cmake
 BuildRequires:	qt5-qtbase-devel
@@ -51,12 +57,19 @@ It supports a wide variety of archive formats and can handle other KIO slaves
 such as smb or fish. It is (almost) completely customizable, very user
 friendly, fast and looks great on your desktop! You should give it a try.
 
+
 %prep
+%if 0%{?commitdate}
+%autosetup -p1 -n %{name}-%{commit}
+%else
 %autosetup -p1 -n %{name}-%{version}%{?beta:-%{beta}}
+%endif
+
 
 %build
 %cmake_kf5
 %cmake_build
+
 
 %install
 %cmake_install
@@ -90,30 +103,34 @@ do
 done
 popd
 
-%find_lang %{name} --with-kde
+%find_lang %{name} --with-kde || echo > %{name}.lang
 
 %check
 for i in %{buildroot}%{_datadir}/applications/org.kde.krusader*.desktop ; do
 	desktop-file-validate $i
 done
 
+
 %files -f %{name}.lang
+%license LICENSES/*.txt
 %doc doc-extras/actions_tutorial.txt
-%doc AUTHORS ChangeLog COPYING FAQ README NEWS TODO
+%doc AUTHORS ChangeLog README NEWS TODO
 %{_sysconfdir}/xdg/kio_isorc
 %{_bindir}/*
-%{_libdir}/qt5/plugins/*.so
+%{_kf5_plugindir}/kio/kio_{iso,krarc}.so
 %{_datadir}/metainfo/org.kde.%{name}*.appdata.xml
 %{_datadir}/applications/org.kde.krusader*.desktop
 %{_datadir}/doc/HTML/*/krusader/*
 %{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/krusader/*
-%{_datadir}/kservices5/*.protocol
 %{_datadir}/kxmlgui5/krusader/*.rc
 %{_mandir}/man1/krusader.1.gz
-%{_mandir}/*/man1/krusader.1.gz
+
 
 %changelog
+* Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.7.2-8
+- Build from commit 836176d2, 2022-06-13
+
 * Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.7.2-7
 - Added krusader-2.7.2-fix-opening-archives-with-kf5-kio-5.95.0.patch
 
