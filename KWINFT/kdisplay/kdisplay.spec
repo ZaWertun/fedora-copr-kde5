@@ -3,8 +3,8 @@
 %global min_disman_version 0.522.0
 
 Name:    kdisplay
-Version: 5.24.0
-Release: 2%{?dist}
+Version: 5.25.0
+Release: 1%{?dist}
 Summary: App and daemon for display managing
 
 %global  real_version %(echo %{version} |sed 's/~/-/')
@@ -31,7 +31,7 @@ BuildRequires:  cmake(KF5Plasma)      >= %{min_kf_version}
 BuildRequires:  cmake(KF5XmlGui)      >= %{min_kf_version}
 BuildRequires:  cmake(KF5Kirigami2)   >= %{min_kf_version}
 
-BuildRequires:  cmake(Disman) >= %{min_disman_version}
+BuildRequires:  cmake(disman) >= %{min_disman_version}
 
 
 %description
@@ -65,13 +65,16 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kwinft.%{name
 %{_kf5_datadir}/plasma/plasmoids/org.kwinft.kdisplay/
 %{_kf5_datadir}/qlogging-categories5/kdisplay.categories
 %{_kf5_metainfodir}/org.kwinft.kdisplay.appdata.xml
-%{_kf5_qtplugindir}/kcms/kcm_kdisplay.so
+%{_kf5_qtplugindir}/kcm_kdisplay.so
 %{_kf5_qtplugindir}/plasma/applets/plasma_applet_kdisplay.so
 %{_kf5_plugindir}/kded/kdisplayd.so
 %{_kf5_datadir}/applications/org.kwinft.%{name}.desktop
 
 
 %changelog
+* Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.0-2
 - rebuild
 

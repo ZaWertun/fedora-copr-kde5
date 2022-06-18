@@ -12,7 +12,7 @@
 %endif
 
 Name:    kwinft
-Version: 5.24.1
+Version: 5.25.0
 Release: 1%{?dist}
 Summary: KWin Fast Track - Wayland compositor and X11 window manager
 
@@ -319,6 +319,8 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kconf_update/kwin-5.21-desktop-grid-click-behavior.py
 %{_datadir}/kconf_update/kwin-5.23-placement.pl
 %{_datadir}/kconf_update/kwinrules-5.23-placement.pl
+%{_kf5_datadir}/applications/kcm_kwin*.desktop
+%{_kf5_datadir}/applications/kwincompositing.desktop
 %{_kf5_datadir}/applications/org.kde.kwin_rules_dialog.desktop
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
@@ -351,16 +353,16 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwineffects.so.*
 %{_libdir}/libkwinglutils.so.*
 %{_libdir}/libkcmkwincommon.so.*
-%{_kf5_qtplugindir}/*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kwincompositing.so
 %{_kf5_qtplugindir}/kwin/
-%{_kf5_qtplugindir}/kcms/
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_aurorae.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_decoration.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_effect.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_script.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_windowswitcher.so
-%{_qt5_plugindir}/kcms/kcm_kwin_virtualdesktops.so
 
 %files devel
 %{_datadir}/dbus-1/interfaces/*.xml
@@ -369,6 +371,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_libdir}/libkwineffects.so
 %{_libdir}/libkwinglutils.so
 %{_includedir}/kwin*.h
+%{_includedir}/kwingl/
+%{_includedir}/kwineffects/
+%{_includedir}/kwinxrender/
 %{_kf5_libdir}/cmake/KWinEffects/KWinEffects*.cmake
 
 %files doc -f %{name}-doc.lang
@@ -377,6 +382,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
+- 5.25.0
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.1-1
 - 5.24.1
 

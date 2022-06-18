@@ -1,7 +1,7 @@
 %global min_qt_version 5.14.0
 
 Name:    disman
-Version: 0.524.0
+Version: 0.525.0
 Release: 1%{?dist}
 Summary: Qt/C++ display management library
 
@@ -66,29 +66,31 @@ echo >> %{name}.lang
 %files -f %{name}.lang
 %license COPYING.LIB
 %{_bindir}/dismanctl
-%{_libdir}/libDisman.so.*
-%{_libdir}/libDismanWayland.so.*
+%{_libdir}/libdisman.so.*
+%{_libdir}/libdismanwl.so.*
 %{_datadir}/dbus-1/services/org.kwinft.disman.service
-%{_libexecdir}/disman_backend_launcher
+%{_libexecdir}/disman-launcher
 %{_kf5_qtplugindir}/disman/*.so
 %{_kf5_qtplugindir}/disman/wayland/*.so
-%{_kf5_datadir}/qlogging-categories5/Disman.categories
+%{_kf5_datadir}/qlogging-categories5/disman.categories
 
 
 %files devel
-%{_libdir}/libDisman.so
-%{_libdir}/libDismanWayland.so
-%{_libdir}/cmake/Disman/Disman*.cmake
-%{_libdir}/cmake/DismanWayland/DismanWayland*.cmake
+%{_libdir}/libdisman.so
+%{_libdir}/libdismanwl.so
+%{_libdir}/cmake/disman/disman-*.cmake
+%{_libdir}/cmake/dismanwl/dismanwl-*.cmake
 %{_libdir}/pkgconfig/disman.pc
-%{_libdir}/pkgconfig/disman-wayland.pc
+%{_libdir}/pkgconfig/dismanwl.pc
 %{_includedir}/disman/
 %{_includedir}/disman_version.h
-%{_includedir}/disman_wayland_version.h
-%{_kf5_archdatadir}/mkspecs/modules/qt_Disman.pri
+%{_includedir}/dismanwl_version.h
 
 
 %changelog
+* Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.525.0-1
+- 0.525.0
+
 * Mon Apr 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.524.0-1
 - 0.524.0
 
