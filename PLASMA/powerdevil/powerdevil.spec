@@ -1,8 +1,8 @@
 %global kf5_version 5.82.0
 
 Name:    powerdevil
-Version: 5.25.0
-Release: 2%{?dist}
+Version: 5.25.1
+Release: 1%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -124,6 +124,9 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Tue Jun 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.1-1
+- 5.25.1
+
 * Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-2
 - Added
   powerdevil-5.25.0-prevent-integer-overflow-during-new-brightness-computation.patch

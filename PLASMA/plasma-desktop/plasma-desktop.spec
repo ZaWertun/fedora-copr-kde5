@@ -9,8 +9,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.25.0
-Release: 3%{?dist}
+Version: 5.25.1
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -332,6 +332,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Tue Jun 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.1-1
+- 5.25.1
+
 * Wed Jun 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-3
 - Requires: signon-plugin-oauth2%{?_isa}
 
