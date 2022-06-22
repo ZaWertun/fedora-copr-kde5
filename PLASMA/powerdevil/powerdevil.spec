@@ -19,8 +19,6 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# Brightness stuck at 30%% (https://bugs.kde.org/show_bug.cgi?id=454161)
-Patch0:  powerdevil-5.25.0-prevent-integer-overflow-during-new-brightness-computation.patch
 
 ## upstreamable patches
 
