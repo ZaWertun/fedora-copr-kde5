@@ -8,7 +8,7 @@
 %endif
 
 Name:    plasma-firewall
-Version: 5.25.1
+Version: 5.25.2
 Release: 1%{?dist}
 Summary: Control Panel for your system firewall
 
@@ -126,6 +126,9 @@ rm -rfv %{buildroot}%{_datadir}/polkit-1/actions/org.kde.ufw.policy
 
 
 %changelog
+* Tue Jun 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.2-1
+- 5.25.2
+
 * Tue Jun 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.1-1
 - 5.25.1
 
