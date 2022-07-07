@@ -46,10 +46,11 @@ BuildRequires: pkgconfig(Qt5XmlPatterns)
 BuildRequires: pkgconfig(Qt5X11Extras)
 BuildRequires: pkgconfig(Qt5WebKit)
 BuildRequires: pkgconfig(x11) pkgconfig(xproto)
+BuildRequires: cmake(KF5AkonadiContact)
+BuildRequires: cmake(KF5GrantleeTheme)
 %if 0%{?qt5_qtwebengine_arches:1}
 %ifarch %{?qt5_qtwebengine_arches}
 %global qwebengine 1
-BuildRequires: cmake(KF5AkonadiContact)
 BuildRequires: pkgconfig(Qt5WebEngine)
 %else
 BuildRequires: pkgconfig(Qt5WebKit)
