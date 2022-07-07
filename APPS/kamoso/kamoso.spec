@@ -7,7 +7,7 @@
 
 Name:           kamoso
 Summary:        Application for taking pictures and videos from a webcam
-Version:        22.04.2
+Version:        22.04.3
 Release:        1%{?dist}
 
 License:        GPLv2+
@@ -104,6 +104,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
+- 22.04.3
+
 * Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
 - 22.04.2
 

@@ -1,6 +1,6 @@
 Name:           kdevelop-php
 Summary:        Php language and documentation plugins for KDevelop
-Version:        22.04.2
+Version:        22.04.3
 Release:        1%{?dist}
 
 # Most files LGPLv2+/GPLv2+
@@ -67,6 +67,9 @@ BuildRequires:  qt5-qtwebkit-devel
 
 
 %changelog
+* Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
+- 22.04.3
+
 * Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
 - 22.04.2
 

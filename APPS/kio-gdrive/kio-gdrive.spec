@@ -1,5 +1,5 @@
 Name:           kio-gdrive
-Version:        22.04.2
+Version:        22.04.3
 Release:        1%{?dist}
 Summary:        An Google Drive KIO slave for KDE
 
@@ -55,6 +55,9 @@ desktop-file-validate %{buildroot}%{_datadir}/remoteview/*.desktop
 %{_kf5_datadir}/metainfo/org.kde.kio_gdrive.metainfo.xml
 
 %changelog
+* Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
+- 22.04.3
+
 * Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
 - 22.04.2
 

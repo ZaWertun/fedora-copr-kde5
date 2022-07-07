@@ -4,8 +4,8 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 22.04.2
-Release: 2%{?dist}
+Version: 22.04.3
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://www.kde.org/applications/utilities/ark/
@@ -148,6 +148,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
+- 22.04.3
+
 * Sat Jun 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-2
 - BuilRequires and Requires added: 7z, lzop, unar, libzip
 

@@ -1,7 +1,7 @@
 %global framework eventviews
 
 Name:    kf5-%{framework}
-Version: 22.04.2
+Version: 22.04.3
 Release: 1%{?dist}
 Summary: KDE PIM library for displaying events and calendars
 
@@ -102,6 +102,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
+- 22.04.3
+
 * Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
 - 22.04.2
 
