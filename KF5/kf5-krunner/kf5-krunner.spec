@@ -31,6 +31,7 @@ BuildRequires:  kf5-kservice-devel >= %{majmin}
 BuildRequires:  kf5-plasma-devel >= %{majmin}
 BuildRequires:  kf5-solid-devel >= %{majmin}
 BuildRequires:  kf5-threadweaver-devel >= %{majmin}
+BuildRequires:  cmake(KF5Activities)
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel

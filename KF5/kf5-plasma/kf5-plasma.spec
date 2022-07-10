@@ -22,9 +22,6 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-fra
 Source10: fedora-plasma-cache.sh.in
 
 ## upstream patches
-# Task manager window thumbnails missing on x11
-#   (https://bugs.kde.org/show_bug.cgi?id=455231)
-Patch0:   kf5-plasma-5.95.0-revert-use_QT_FEATURE_foo-to-detect-opengl-support.patch
 
 ## upstreamable patches
 
