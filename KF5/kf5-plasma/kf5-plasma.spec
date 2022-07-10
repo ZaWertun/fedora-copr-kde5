@@ -1,8 +1,8 @@
 %global framework plasma
 
 Name:    kf5-%{framework}
-Version: 5.95.0
-Release: 3%{?dist}
+Version: 5.96.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -168,6 +168,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Sun Jul 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-1
+- 5.96.0
+
 * Wed Jun 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-3
 - Added kf5-plasma-5.95.0-revert-use_QT_FEATURE_foo-to-detect-opengl-support.patch
 

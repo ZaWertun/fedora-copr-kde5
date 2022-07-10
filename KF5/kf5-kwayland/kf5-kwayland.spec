@@ -13,7 +13,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.95.0
+Version: 5.96.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
@@ -110,6 +110,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Jul 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-1
+- 5.96.0
+
 * Mon Jun 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-1
 - 5.95.0
 

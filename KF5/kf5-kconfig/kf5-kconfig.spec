@@ -17,8 +17,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.95.0
-Release: 2%{?dist}
+Version: 5.96.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 
 License: GPLv2+ and LGPLv2+ and MIT
@@ -195,6 +195,9 @@ xvfb-run -a \
 
 
 %changelog
+* Sun Jul 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-1
+- 5.96.0
+
 * Tue Jun 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-2
 - BR: pkgconfig(Qt5Qml)
 
