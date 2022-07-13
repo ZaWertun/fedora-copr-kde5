@@ -20,7 +20,7 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.25.2
+Version: 5.25.3.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -34,7 +34,7 @@ URL:     https://invent.kde.org/plasma/%{name}
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{majmin_ver}.%{revision}/%{name}-%{version}.tar.xz
 
 # filter qml/plugins provides
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
@@ -176,7 +176,7 @@ BuildRequires:  qt5-qtbase-static
 
 BuildRequires:  kuserfeedback-devel
 BuildRequires:  plasma-wayland-protocols-devel
-BuildRequires:  plasma-breeze-devel >= %{version}
+BuildRequires:  plasma-breeze-devel >= %{majmin_ver}.%{revision}
 
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
@@ -789,6 +789,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Wed Jul 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3.1-1
+- 5.25.3.1
+
 * Tue Jun 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.2-1
 - 5.25.2
 
