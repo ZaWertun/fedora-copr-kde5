@@ -16,7 +16,7 @@
 %endif
 
 Name:    kwin
-Version: 5.24.5
+Version: 5.24.6
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -383,6 +383,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Jul 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.6-1
+- 5.24.6
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 

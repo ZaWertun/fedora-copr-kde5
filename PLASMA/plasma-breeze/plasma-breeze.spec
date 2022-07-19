@@ -4,7 +4,7 @@
 %global         base_name   breeze
 
 Name:    plasma-breeze
-Version: 5.24.5
+Version: 5.24.6
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
@@ -139,6 +139,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 
 %changelog
+* Tue Jul 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.6-1
+- 5.24.6
+
 * Tue May 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.24.5-1
 - 5.24.5
 
