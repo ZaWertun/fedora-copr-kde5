@@ -19,8 +19,6 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 
 ## upstream patches
-# X11: fix kded xcb resource leak (BUG: 453280)
-Patch0:  kscreen-5.24.5-X11-fix-kded-xcb-resource-leak.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
