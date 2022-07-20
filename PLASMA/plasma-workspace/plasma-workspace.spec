@@ -461,8 +461,6 @@ BuildArch: noarch
 %setup -q -a 19 -a 20
 
 ## upstream patches
-%patch0 -p1 -b .fix-reading-metadata
-%patch1 -p1 -b .find-metadata.json
 
 ## upstreamable patches
 
