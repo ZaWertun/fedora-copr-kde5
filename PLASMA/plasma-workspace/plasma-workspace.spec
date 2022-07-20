@@ -71,11 +71,6 @@ Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 ## upstreamable Patches
 
 ## upstream Patches (master branch)
-#  Bug 453830:  Plasma unable to detect installed styles
-#    1. https://invent.kde.org/plasma/plasma-workspace/-/commit/43ae993da35bb408b4fabb5c4514feff97628e0d
-Patch0:         plasma-workspace-5.24.5-fix-reading-metadata-in-ThemesModel.patch
-#    2. https://invent.kde.org/plasma/plasma-workspace/-/commit/f77b7284e39b14b0e9a8b4d2b77c0b93b2c9ea59
-Patch1:         plasma-workspace-5.24.5-find-metadata.json-when-loading-ThemesModel.patch
 
 BuildRequires:  systemd-rpm-macros
 
