@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.25.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -56,7 +56,7 @@ Source40:       ssh-agent.conf
 Source41:       spice-vdagent.conf
 
 ## downstream Patches
-Patch100:       plasma-workspace-konsole-in-contextmenu.patch 
+Patch100:       plasma-workspace-konsole-in-contextmenu.patch
 # default to folderview (instead of desktop) containment, see also
 # https://mail.kde.org/pipermail/distributions/2016-July/000133.html
 # and example,
@@ -65,7 +65,10 @@ Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
 
 ## upstreamable Patches
 
-## upstream Patches (master branch)
+## upstream Patches
+# Fix for 457019: Can't remove manually added wallpaper
+# (https://bugs.kde.org/show_bug.cgi?id=457019)
+Patch101:       plasma-workspace-5.25.3.1-fix-unable-to-remove-manually-added-wallpaper.patch
 
 BuildRequires:  systemd-rpm-macros
 
@@ -789,6 +792,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Sun Jul 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3.1-2
+- plasma-workspace-5.25.3.1-fix-unable-to-remove-manually-added-wallpaper.patch
+  added
+
 * Wed Jul 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3.1-1
 - 5.25.3.1
 
