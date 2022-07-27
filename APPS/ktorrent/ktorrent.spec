@@ -21,7 +21,7 @@ Source0: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%
 
 ## upstream patches
 # Bug 455451: "%% Complete" widget should be horizontal but is tiny and vertical instead
-# Bug 455367: Vertical unreadable `% Complete` progress bars
+# Bug 455367: Vertical unreadable `%% Complete` progress bars
 Patch0:  ktorrent-22.04.3-explicitly-set-progress-bar-to-horizontal-mode.patch
 
 ## upstreamable patches
