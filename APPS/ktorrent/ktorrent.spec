@@ -3,7 +3,7 @@
 
 Name:    ktorrent
 Version: 22.04.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A BitTorrent program
 
 License: GPLv2+
@@ -20,12 +20,13 @@ Source0: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 
 ## upstream patches
+# Bug 455451: "%% Complete" widget should be horizontal but is tiny and vertical instead
+# Bug 455367: Vertical unreadable `% Complete` progress bars
+Patch0:  ktorrent-22.04.3-explicitly-set-progress-bar-to-horizontal-mode.patch
 
 ## upstreamable patches
 
 ## downstream patches
-# Fix build for Fedora 34 (libQt5Qml.so.5: error adding symbols: DSO missing from command line)
-Patch1:  fix_fedora34_build.patch
 
 BuildRequires: boost-devel
 BuildRequires: cmake(Qca-qt5)
@@ -137,6 +138,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ktorrent.
 
 
 %changelog
+* Wed Jul 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-2
+- Added patch to fix #455451, #455367
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

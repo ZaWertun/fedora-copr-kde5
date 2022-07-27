@@ -1,0 +1,30 @@
+From e24e964aa2b40547d51240c626e98e8a4f38dc22 Mon Sep 17 00:00:00 2001
+From: Gabriel Souza Franco <gabrielfrancosouza@gmail.com>
+Date: Mon, 18 Jul 2022 09:34:50 -0300
+Subject: [PATCH] Explicitly set progress bar to horizontal mode
+
+Breeze and Oxygen default to a vertical progress bar.
+
+BUG: 455451
+BUG: 455367
+FIXED-IN: 22.08
+---
+ ktorrent/view/viewdelegate.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ktorrent/view/viewdelegate.cpp b/ktorrent/view/viewdelegate.cpp
+index 8de17708..2ea1b986 100644
+--- a/ktorrent/view/viewdelegate.cpp
++++ b/ktorrent/view/viewdelegate.cpp
+@@ -325,7 +325,7 @@ void ViewDelegate::paintProgressBar(QPainter *painter, const QStyleOptionViewIte
+ 
+     QStyleOptionProgressBar progressBarOption;
+     progressBarOption.palette = option.palette;
+-    progressBarOption.state = option.state;
++    progressBarOption.state = option.state | QStyle::State_Horizontal;
+     progressBarOption.rect = option.rect;
+     progressBarOption.minimum = 0;
+     progressBarOption.maximum = 100;
+-- 
+GitLab
+
