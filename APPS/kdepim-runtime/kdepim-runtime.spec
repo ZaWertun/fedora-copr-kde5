@@ -1,5 +1,3 @@
-%global _lto_cflags %{nil}
-
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
@@ -12,7 +10,7 @@ Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
 Version: 22.04.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2
 URL:     https://cgit.kde.org/%{framework}.git
@@ -198,6 +196,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Jul 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.3-2
+- rebuild
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.3-1
 - 22.04.3
 
