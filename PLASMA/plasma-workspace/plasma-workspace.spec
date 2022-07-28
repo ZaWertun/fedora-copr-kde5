@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.25.3.1
-Release: 2%{?dist}
+Release: 10%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -792,6 +792,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu Jul 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3.1-10
+- rebuild
+
 * Sun Jul 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3.1-2
 - plasma-workspace-5.25.3.1-fix-unable-to-remove-manually-added-wallpaper.patch
   added
