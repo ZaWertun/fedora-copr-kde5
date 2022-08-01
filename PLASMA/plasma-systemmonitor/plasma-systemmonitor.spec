@@ -4,7 +4,7 @@
 Name:    plasma-systemmonitor
 Summary: New version of KSysGuard built on top of the new KStats daemon
 Version: 5.25.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -19,6 +19,7 @@ BuildRequires:  qt5-qtbase-devel      >= %{min_qt_version}
 BuildRequires:  cmake(Qt5DBus)        >= %{min_qt_version}
 BuildRequires:  cmake(Qt5Quick)       >= %{min_qt_version}
 BuildRequires:  cmake(Qt5Widgets)     >= %{min_qt_version}
+BuildRequires:  cmake(Qt5QuickControls2) >= %{min_qt_version}
 
 BuildRequires:  cmake(KF5KIO)         >= %{min_kf_version}
 BuildRequires:  cmake(KF5I18n)        >= %{min_kf_version}
@@ -30,6 +31,7 @@ BuildRequires:  cmake(KF5IconThemes)  >= %{min_kf_version}
 BuildRequires:  cmake(KF5ItemModels)  >= %{min_kf_version}
 BuildRequires:  cmake(KF5Declarative) >= %{min_kf_version}
 BuildRequires:  cmake(KF5GlobalAccel) >= %{min_kf_version}
+BuildRequires:  cmake(KF5Kirigami2)   >= %{min_kf_version}
 
 BuildRequires:  cmake(KSysGuard)
 
@@ -84,6 +86,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/plasma/kinfocenter/externalmod
 
 
 %changelog
+* Mon Aug 01 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3-2
+- BR: Qt5QuickControls2, KF5Kirigami2
+
 * Wed Jul 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3-1
 - 5.25.3
 
