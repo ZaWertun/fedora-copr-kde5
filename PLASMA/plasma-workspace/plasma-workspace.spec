@@ -20,8 +20,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.25.3.1
-Release: 11%{?dist}
+Version: 5.25.4
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -56,11 +56,6 @@ Source40:       ssh-agent.conf
 Source41:       spice-vdagent.conf
 
 ## upstream Patches
-# https://invent.kde.org/plasma/plasma-workspace/-/merge_requests/1879
-Patch50:        disable-toplevel-fixed-positions-on-wayland.patch
-# Fix for 457019: Can't remove manually added wallpaper
-# (https://bugs.kde.org/show_bug.cgi?id=457019)
-Patch60:        plasma-workspace-5.25.3.1-fix-unable-to-remove-manually-added-wallpaper.patch
 
 ## downstream Patches
 Patch100:       plasma-workspace-konsole-in-contextmenu.patch
@@ -794,6 +789,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
+- 5.25.4
+
 * Fri Jul 29 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3.1-11
 - added disable-toplevel-fixed-positions-on-wayland.patch
 

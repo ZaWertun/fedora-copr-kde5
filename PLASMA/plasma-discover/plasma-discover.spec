@@ -12,7 +12,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.25.3
+Version: 5.25.4
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -288,7 +288,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 %{_datadir}/dbus-1/system.d/org.kde.discover.libsnapclient.conf
 %{_datadir}/dbus-1/system-services/org.kde.discover.libsnapclient.service
 %{_datadir}/polkit-1/actions/org.kde.discover.libsnapclient.policy
-%{_datadir}/libdiscover/categories/snap-backend-categories.xml
 %{_kf5_datadir}/applications/org.kde.discover.snap.desktop
 %endif
 
@@ -301,6 +300,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %changelog
+* Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
+- 5.25.4
+
 * Wed Jul 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.3-1
 - 5.25.3
 
