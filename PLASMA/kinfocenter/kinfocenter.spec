@@ -1,6 +1,6 @@
 Name:    kinfocenter
 Version: 5.25.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -60,6 +60,7 @@ BuildRequires:  kf5-kwayland-devel
 Requires:       kf5-filesystem
 Requires:       plasma-disks
 
+Recommends:     aha
 Recommends:     pciutils
 Recommends:     xdpyinfo
 Recommends:     egl-utils
@@ -122,6 +123,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Thu Aug 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-2
+- Recommends: aha
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 
