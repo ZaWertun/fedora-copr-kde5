@@ -1,6 +1,6 @@
 Name:    kinfocenter
 Version: 5.25.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -45,6 +45,8 @@ BuildRequires:  mesa-libGL-devel
 BuildRequires:  mesa-libGLES-devel
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  mesa-libGLU-devel
+
+BuildRequires:  libusb-devel
 BuildRequires:  libX11-devel
 BuildRequires:  pciutils-devel
 %ifnarch s390 s390x
@@ -57,8 +59,10 @@ BuildRequires:  libraw1394-devel
 BuildRequires:  kf5-kwayland-devel
 %endif
 
-Requires:       kf5-filesystem
 Requires:       plasma-disks
+Requires:       kf5-kirigami2%{?_isa}
+Requires:       kf5-filesystem
+Requires:       plasma-systemsettings%{?_isa}
 
 Recommends:     aha
 Recommends:     pciutils
@@ -123,6 +127,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Thu Aug 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-3
+- Requires: kf5-kirigami2, plasma-systemsettings; BuildRequires: libusb-devel
+
 * Thu Aug 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-2
 - Recommends: aha
 
