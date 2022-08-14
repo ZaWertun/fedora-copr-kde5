@@ -1,7 +1,7 @@
 %global framework kio
 
 Name:    kf5-%{framework}
-Version: 5.96.0
+Version: 5.97.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
@@ -256,11 +256,6 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 %{_kf5_qtplugindir}/kcm_webshortcuts.so
 %dir %{_kf5_plugindir}/urifilters/
 %{_kf5_plugindir}/urifilters/*.so
-#{_kf5_datadir}/kservices5/fixhosturifilter.desktop
-#{_kf5_datadir}/kservices5/kshorturifilter.desktop
-#{_kf5_datadir}/kservices5/kuriikwsfilter.desktop
-#{_kf5_datadir}/kservices5/kurisearchfilter.desktop
-#{_kf5_datadir}/kservices5/localdomainurifilter.desktop
 %{_kf5_datadir}/kservices5/webshortcuts.desktop
 %{_kf5_datadir}/kservices5/searchproviders
 %{_kf5_datadir}/kservicetypes5/*.desktop
@@ -292,10 +287,13 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 %{_kf5_archdatadir}/mkspecs/modules/qt_KIOGui.pri
 %{_datadir}/dbus-1/interfaces/*.xml
 %{_kf5_bindir}/protocoltojson
-%{_kf5_datadir}/kdevfiletemplates/templates/ioslave.tar.bz2
+%{_kf5_datadir}/kdevfiletemplates/templates/kioworker.tar.bz2
 
 
 %changelog
+* Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
+- 5.97.0
+
 * Sun Jul 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-1
 - 5.96.0
 

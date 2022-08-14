@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.96.0
+Version: 5.97.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for password management
 
@@ -42,6 +42,8 @@ BuildRequires:  kf5-kwidgetsaddons-devel >= %{majmin}
 BuildRequires:  kf5-kwindowsystem-devel >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 
+BuildRequires:  cmake(QGpgme)
+BuildRequires:  cmake(Qca-qt5)
 BuildRequires:  qt5-qtbase-devel
 
 BuildRequires:  libgcrypt-devel
@@ -130,6 +132,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
+- 5.97.0
+
 * Sun Jul 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-1
 - 5.96.0
 

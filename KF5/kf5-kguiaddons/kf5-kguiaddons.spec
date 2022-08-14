@@ -1,8 +1,8 @@
 %global framework kguiaddons
 
 Name:           kf5-%{framework}
-Version:        5.96.0
-Release:        10%{?dist}
+Version:        5.97.0
+Release:        1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with various classes on top of QtGui
 
 License:        GPLv2+ and LGPLv2+
@@ -85,6 +85,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/wheelmap-geo-hand
 
 
 %changelog
+* Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
+- 5.97.0
+
 * Thu Jul 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-10
 - rebuild
 

@@ -1,8 +1,8 @@
 %global framework ki18n
 
 Name:           kf5-%{framework}
-Version:        5.96.0
-Release:        10%{?dist}
+Version:        5.97.0
+Release:        1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon for localization
 
 License:        LGPLv2+
@@ -98,6 +98,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
+- 5.97.0
+
 * Wed Jul 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-10
 - rebuild
 

@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.96.0
+Version: 5.97.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon with extra API to write KConfigModules
 
@@ -98,6 +98,7 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5KCMUtils.so.*
 %{_kf5_libdir}/libKF5KCMUtilsCore.so.*
+%{_kf5_libexecdir}/kcmdesktopfilegenerator
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_qmldir}/org/kde/kcmutils/
 %{_kf5_qtplugindir}/kcms/
@@ -113,6 +114,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
+- 5.97.0
+
 * Sun Jul 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-1
 - 5.96.0
 
