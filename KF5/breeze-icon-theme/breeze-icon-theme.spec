@@ -7,7 +7,7 @@
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
 Version: 5.97.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
 License: LGPLv3+
@@ -36,8 +36,9 @@ BuildRequires:  qt5-qtbase-devel
 # icon optimizations
 BuildRequires: hardlink
 # for optimizegraphics
-#BuildRequires: kde-dev-scripts
 BuildRequires: time
+# for generate-24px-versions.py
+BuildRequires: python3-lxml
 
 # inheritance, though could consider Recommends: if needed -- rex
 Requires: hicolor-icon-theme
@@ -153,6 +154,9 @@ fi
 
 
 %changelog
+* Mon Aug 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-2
+- BR: python3-lxml
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 
