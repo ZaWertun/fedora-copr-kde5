@@ -1,0 +1,34 @@
+From 8455f30062f0acfaa542871652cd78332a8508a9 Mon Sep 17 00:00:00 2001
+From: Kai Uwe Broulik <kde@privat.broulik.de>
+Date: Wed, 10 Aug 2022 16:11:58 +0000
+Subject: [PATCH] Skip minimize and progress logic in case of no timeout
+
+If we minimize the window, there's a chance we'll have a frame of the
+minimize animation on the screenshot. Instead, restore the behavior
+before introducing the timeout progress indicator and call `hide()`
+on ourselves instead.
+
+CCBUG: 376865
+
+
+(cherry picked from commit a484880c1d3ea7e5c762e739d5ea851c3decef09)
+---
+ src/Gui/KSMainWindow.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Gui/KSMainWindow.cpp b/src/Gui/KSMainWindow.cpp
+index 71d7916e..a504ab32 100644
+--- a/src/Gui/KSMainWindow.cpp
++++ b/src/Gui/KSMainWindow.cpp
+@@ -331,7 +331,7 @@ void KSMainWindow::moveEvent(QMoveEvent *event)
+ // slots
+ void KSMainWindow::captureScreenshot(Spectacle::CaptureMode theCaptureMode, int theTimeout, bool theIncludePointer, bool theIncludeDecorations)
+ {
+-    if (theTimeout < 0) { // OnClick is checked (always the case on Wayland)
++    if (theTimeout <= 0) { // OnClick is checked (always the case on Wayland)
+         hide();
+         Q_EMIT newScreenshotRequest(theCaptureMode, theTimeout, theIncludePointer, theIncludeDecorations);
+         return;
+-- 
+GitLab
+

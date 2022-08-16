@@ -1,7 +1,7 @@
 Name:    spectacle
 Summary: Screenshot capture utility
 Version: 22.04.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/spectacle/
@@ -15,6 +15,8 @@ URL:     https://www.kde.org/applications/graphics/spectacle/
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstream patches
+# https://bugs.kde.org/show_bug.cgi?id=376865
+Patch0:  spectacle-22.04.3-skip-minimize-and-progress-logic.patch
 
 %global majmin %(echo %{version} | cut -d. -f1,2)
 
@@ -125,6 +127,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 
 
 %changelog
+* Tue Aug 16 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-2
+- Added spectacle-22.04.3-skip-minimize-and-progress-logic.patch
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 
