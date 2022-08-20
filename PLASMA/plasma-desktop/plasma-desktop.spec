@@ -69,7 +69,7 @@ BuildRequires:  scim-devel
 BuildRequires:  kf5-rpm-macros >= %{kf5_version_min}
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-plasma-devel >= %{kf5_version_min}
-Requires:       kf5-plasma%{?_isa} >= %{_kf5_version}
+Requires:       kf5-plasma%{?_isa} >= %{kf5_version_min}
 BuildRequires:  kf5-kdoctools-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ki18n-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kcmutils-devel >= %{kf5_version_min}
@@ -176,6 +176,8 @@ Conflicts:      kdeplasma-addons < 5.6.0
 
 # kcm_activities.mo moved here (#1325724)
 Conflicts:      kde-l10n < 15.12.3-4
+
+Recommends:     %{name}-emojier%{?_isa}
 
 %description
 %{summary}.
