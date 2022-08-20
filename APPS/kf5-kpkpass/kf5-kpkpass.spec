@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: Library to deal with Apple Wallet pass files
 
@@ -90,6 +90,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

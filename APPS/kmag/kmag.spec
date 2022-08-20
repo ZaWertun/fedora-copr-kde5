@@ -1,5 +1,5 @@
 Name:    kmag
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: A screen magnifier
 
@@ -71,6 +71,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

@@ -1,7 +1,7 @@
 Name:           kdevelop
 Summary:        Integrated Development Environment for C++/C
 Epoch:          9
-Version:        22.04.3
+Version:        22.08.0
 Release:        1%{?dist}
 License:        GPLv2
 URL:            http://www.kdevelop.org/
@@ -229,6 +229,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kdevelop.desk
 %{rpm_macros_dir}/macros.kdevelop
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 9:22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 9:22.04.3-1
 - 22.04.3
 

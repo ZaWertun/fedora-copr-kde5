@@ -7,7 +7,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -158,26 +158,21 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libkorganizer_core.so.*
 %{_kf5_libdir}/libkorganizerprivate.so.*
 %{_kf5_qtplugindir}/korganizerpart.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configcolorsandfonts.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configdesignerfields.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configfreebusy.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configgroupscheduling.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configmain.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configplugins.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configtime.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_configviews.so
-%{_kf5_qtplugindir}/pim/kcms/korganizer/korganizer_userfeedback.so
+%{_kf5_qtplugindir}/pim5/kcms/korganizer/
 # Kontact integration
-%{_kf5_qtplugindir}/pim/kcms/summary/kcmapptsummary.so
-%{_kf5_qtplugindir}/pim/kcms/summary/kcmsdsummary.so
-%{_kf5_qtplugindir}/pim/kcms/summary/kcmtodosummary.so
-%{_kf5_qtplugindir}/kontact5/kontact_korganizerplugin.so
-%{_kf5_qtplugindir}/kontact5/kontact_todoplugin.so
-%{_kf5_qtplugindir}/kontact5/kontact_journalplugin.so
-%{_kf5_qtplugindir}/kontact5/kontact_specialdatesplugin.so
+%{_kf5_qtplugindir}/pim5/kcms/summary/kcmapptsummary.so
+%{_kf5_qtplugindir}/pim5/kcms/summary/kcmsdsummary.so
+%{_kf5_qtplugindir}/pim5/kcms/summary/kcmtodosummary.so
+%{_kf5_qtplugindir}/pim5/kontact/kontact_korganizerplugin.so
+%{_kf5_qtplugindir}/pim5/kontact/kontact_todoplugin.so
+%{_kf5_qtplugindir}/pim5/kontact/kontact_journalplugin.so
+%{_kf5_qtplugindir}/pim5/kontact/kontact_specialdatesplugin.so
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

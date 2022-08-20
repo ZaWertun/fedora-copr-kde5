@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: The KIMAP Library
 
@@ -97,14 +97,17 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files devel
 %{_kf5_includedir}/KIMAP/
+%{_kf5_includedir}/KIMAPTest/
 %{_kf5_libdir}/libKF5IMAP.so
 %{_kf5_libdir}/cmake/KF5IMAP/
-%{_kf5_includedir}/kimaptest/
 %{_kf5_libdir}/libkimaptest.a
 %{_kf5_archdatadir}/mkspecs/modules/qt_KIMAP.pri
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

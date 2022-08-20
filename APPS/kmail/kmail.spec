@@ -7,7 +7,7 @@
 
 Name:    kmail
 Summary: Mail client
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -127,6 +127,9 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
+sed -i 's|set(GPGMEPP_LIB_VERSION "1.16.0")|set(GPGMEPP_LIB_VERSION "1.15.0")|' \
+  CMakeLists.txt
+
 %cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 %cmake_build
@@ -190,7 +193,7 @@ end
 # ktnef
 %{_kf5_bindir}/ktnef
 %{_kf5_datadir}/applications/org.kde.ktnef.desktop
-%{_kf5_qtplugindir}/akonadi/config/*.so
+#{_kf5_qtplugindir}/akonadi/config/*.so
 # kmail-refresh-settings
 %{_kf5_bindir}/kmail-refresh-settings
 %{_kf5_datadir}/applications/org.kde.kmail-refresh-settings.desktop
@@ -203,19 +206,17 @@ end
 %files libs
 %{_kf5_libdir}/libkmailprivate.so.*
 %{_kf5_qtplugindir}/kmailpart.so
-%{_kf5_qtplugindir}/kontact5/kontact_kmailplugin.so
-%{_kf5_qtplugindir}/kontact5/kontact_summaryplugin.so
-%{_kf5_qtplugindir}/pim/kcms/kmail/kcm_kmail_accounts.so
-%{_kf5_qtplugindir}/pim/kcms/kmail/kcm_kmail_appearance.so
-%{_kf5_qtplugindir}/pim/kcms/kmail/kcm_kmail_composer.so
-%{_kf5_qtplugindir}/pim/kcms/kmail/kcm_kmail_misc.so
-%{_kf5_qtplugindir}/pim/kcms/kmail/kcm_kmail_plugins.so
-%{_kf5_qtplugindir}/pim/kcms/kmail/kcm_kmail_security.so
-%{_kf5_qtplugindir}/pim/kcms/summary/kcmkmailsummary.so
-%{_kf5_qtplugindir}/pim/kcms/summary/kcmkontactsummary.so
+%{_kf5_qtplugindir}/pim5/kcms/kmail/
+%{_kf5_qtplugindir}/pim5/kcms/summary/*.so
+%{_kf5_qtplugindir}/pim5/kontact/*.so
+%{_kf5_qtplugindir}/pim5/akonadi/config/archivemailagentconfig.so
+%{_kf5_qtplugindir}/pim5/akonadi/config/followupreminderagentconfig.so
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

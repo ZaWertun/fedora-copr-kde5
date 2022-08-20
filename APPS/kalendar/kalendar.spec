@@ -1,5 +1,5 @@
 Name:    kalendar
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
@@ -93,7 +93,7 @@ while keeping changes syncronised across your Plasma desktop or phone.
 
 %install
 %cmake_install
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 
 %check
@@ -105,13 +105,18 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 %license LICENSES/*.txt
 %doc README.md
 %{_kf5_bindir}/%{name}
+%{_qt5_qmldir}/org/kde/akonadi/
+%{_qt5_qmldir}/org/kde/kalendar/
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
-%{_kf5_datadir}/qlogging-categories5/%{name}.categories
+%{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

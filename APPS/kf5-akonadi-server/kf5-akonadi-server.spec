@@ -21,8 +21,8 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 22.04.3
-Release: 2%{?dist}
+Version: 22.08.0
+Release: 1%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -238,11 +238,11 @@ fi
 %{_kf5_datadir}/akonadi/
 %{_kf5_datadir}/config.kcfg/resourcebase.kcfg
 %{_kf5_datadir}/kf5/akonadi/
-%{_kf5_qtplugindir}/akonadi/
 %if ! 0%{?bootstrap}
 %{_kf5_qtplugindir}/designer/akonadiwidgets.so
 %endif
 %{_kf5_qtplugindir}/sqldrivers/libqsqlite3.so
+%{_kf5_qtplugindir}/pim5/akonadi/akonadi_test_searchplugin.so
 %{_kf5_libdir}/libKF5AkonadiAgentBase.so.5*
 %{_kf5_libdir}/libKF5AkonadiCore.so.5*
 %{_kf5_libdir}/libKF5AkonadiPrivate.so.5*
@@ -263,7 +263,6 @@ fi
 %{_kf5_bindir}/asapcat
 
 %{_kf5_datadir}/dbus-1/interfaces/org.freedesktop.Akonadi.*.xml
-%{_kf5_includedir}/akonadi_version.h
 %{_kf5_includedir}/Akonadi/
 %{_kf5_includedir}/AkonadiXml/
 %{_kf5_includedir}/AkonadiCore/
@@ -298,6 +297,9 @@ fi
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Wed Jul 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-2
 - rebuild
 

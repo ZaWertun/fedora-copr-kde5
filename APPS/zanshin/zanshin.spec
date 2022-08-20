@@ -11,7 +11,7 @@
 %endif
 
 Name:           zanshin
-Version:        22.04.3
+Version:        22.08.0
 Release:        1%{?dist}
 Summary:        Todo/action management software
 
@@ -114,11 +114,14 @@ time \
 %{_kf5_datadir}/kservices5/plasma-runner-zanshin.desktop
 %{_kf5_datadir}/kservices5/zanshin_part.desktop
 %{_kf5_datadir}/kxmlgui5/zanshin/
-%{_qt5_plugindir}/kontact5/kontact_zanshinplugin.so
 %{_qt5_plugindir}/krunner_zanshin.so
 %{_qt5_plugindir}/zanshin_part.so
+%{_kf5_qtplugindir}/pim5/kontact/kontact_zanshinplugin.so
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

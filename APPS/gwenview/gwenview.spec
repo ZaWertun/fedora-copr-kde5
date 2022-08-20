@@ -1,7 +1,7 @@
 Name:    gwenview
 Summary: An image viewer
 Epoch:   1
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -44,6 +44,8 @@ BuildRequires: pkgconfig(phonon4qt5)
 BuildRequires: pkgconfig(Qt5DBus) pkgconfig(Qt5Widgets) pkgconfig(Qt5Script) pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Concurrent) pkgconfig(Qt5Svg) pkgconfig(Qt5OpenGL)
 BuildRequires: pkgconfig(Qt5X11Extras)
+BuildRequires: cmake(kImageAnnotator)
+BuildRequires: cmake(kColorPicker)
 
 Requires: %{name}-libs%{?_isa} = %{epoch}:%{version}-%{release}
 
@@ -115,6 +117,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.3-1
 - 22.04.3
 

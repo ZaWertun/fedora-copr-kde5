@@ -1,6 +1,6 @@
 Name:    kdnssd
 Summary: KDE Network Monitor for DNS-SD services (Zeroconf)
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -13,7 +13,7 @@ URL:     https://cgit.kde.org/zeroconf-ioslave.git
 %else
 %global stable stable
 %endif
-Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/zeroconf-ioslave-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/kio-zeroconf-%{version}.tar.xz
 
 # new upstream name in 4.12.95
 Provides: zeroconf-ioslave = %{version}-%{release}
@@ -37,7 +37,7 @@ Provides:  kdenetwork-kdnssd = 7:%{version}-%{release}
 
 
 %prep
-%autosetup -n zeroconf-ioslave-%{version} -p1
+%autosetup -n kio-zeroconf-%{version} -p1
 
 
 %build
@@ -61,6 +61,9 @@ Provides:  kdenetwork-kdnssd = 7:%{version}-%{release}
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

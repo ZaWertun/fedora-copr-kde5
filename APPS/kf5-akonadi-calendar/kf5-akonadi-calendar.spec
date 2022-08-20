@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Calendar Library
 
@@ -97,6 +97,7 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_bindir}/kalendarac
 %{_kf5_libdir}/libKF5AkonadiCalendar.so.*
+%{_kf5_plugindir}/org.kde.kcalendarcore.calendars/libakonadicalendarplugin.so
 %{_kf5_qtplugindir}/akonadi_serializer_kcalcore.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -112,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

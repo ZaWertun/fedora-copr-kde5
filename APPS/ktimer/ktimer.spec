@@ -1,10 +1,9 @@
 Name:    ktimer
 Summary: Task Scheduler 
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
-#URL:     http://utils.kde.org/projects/%{name}
 URL:     https://cgit.kde.org/%{name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
@@ -69,32 +68,26 @@ KTimer is a little tool to execute programs after some time.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml ||:
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
 
 
 %files -f %{name}.lang
 %license COPYING*
-#doc README
 %{_kf5_bindir}/%{name}
-#{_sysconfdir}/xdg/%{name}.knsrc
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
-#{_kf5_datadir}/%{name}/
-#{_kf5_datadir}/kconf_update/%{name}*
-#{_kf5_datadir}/knotifications5/%{name}.notifyrc
-#{_kf5_datadir}/kxmlgui5/%{name}/
-#{_kf5_datadir}/sounds/%{name}/
-#{_kf5_datadir}/config.kcfg/%{name}.kcfg
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

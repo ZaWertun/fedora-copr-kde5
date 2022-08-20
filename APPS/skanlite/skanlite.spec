@@ -1,5 +1,5 @@
 Name:           skanlite
-Version:        22.04.3
+Version:        22.08.0
 Release:        1%{?dist}
 Summary:        Lightweight scanning program
 # Actually: GPLv2 or GPLv3 or any later Version approved by KDE e.V.
@@ -20,6 +20,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  libappstream-glib
 BuildRequires:  libpng-devel
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  cmake(KSaneCore)
 
 Requires:       kde-filesystem
 Requires:       khotkeys
@@ -59,6 +60,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/org.kde.
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

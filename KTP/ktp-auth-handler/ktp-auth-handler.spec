@@ -1,6 +1,6 @@
 Name:    ktp-auth-handler
 Summary: Provide UI/KWallet Integration
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -70,6 +70,9 @@ Provide UI/KWallet Integration For Passwords and SSL Errors on Account Connect.
 
 
 %changelog
+* Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

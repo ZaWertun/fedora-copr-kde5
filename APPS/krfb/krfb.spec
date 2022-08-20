@@ -1,6 +1,6 @@
 Name:    krfb
 Summary: Desktop sharing
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -91,7 +91,6 @@ Provides:  kdenetwork-krfb-libs = 7:%{version}-%{release}
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -109,9 +108,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.virt
 %{_kf5_datadir}/applications/org.kde.krfb.desktop
 %{_kf5_datadir}/applications/org.kde.krfb.virtualmonitor.desktop
 %{_kf5_metainfodir}/org.kde.krfb.appdata.xml
-%{_kf5_datadir}/kservicetypes5/krfb-framebuffer.desktop
 %{_datadir}/icons/hicolor/*/apps/krfb.*
-%{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 %ldconfig_scriptlets libs
@@ -122,6 +119,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.virt
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

@@ -7,7 +7,7 @@
 
 Name:    kontact
 Summary: Personal Information Manager
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -113,7 +113,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_metainfodir}/org.kde.kontact.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kontact.desktop
 %{_kf5_datadir}/config.kcfg/kontact.kcfg
-%{_kf5_datadir}/kservices5/kontactconfig.desktop
 %{_kf5_datadir}/messageviewer/about/default/introduction_kontact.html
 %{_kf5_datadir}/messageviewer/about/default/loading_kontact.html
 %{_kf5_datadir}/icons/hicolor/*/apps/kontact.*
@@ -124,10 +123,13 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 %files libs
 %{_kf5_libdir}/libkontactprivate.so.*
-%{_kf5_qtplugindir}/pim/kcms/kontact/kcm_kontact.so
+%{_kf5_qtplugindir}/pim5/kcms/kontact/kcm_kontact.so
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

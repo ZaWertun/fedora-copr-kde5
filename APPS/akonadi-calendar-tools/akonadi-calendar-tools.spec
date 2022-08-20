@@ -7,7 +7,7 @@
 
 Name:    akonadi-calendar-tools
 Summary: Akonadi Calendar Tools
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -96,6 +96,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

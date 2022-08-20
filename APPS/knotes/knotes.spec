@@ -7,7 +7,7 @@
 
 Name:    knotes
 Summary: Popup notes
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -150,18 +150,15 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %files libs
 %{_kf5_libdir}/libknotesprivate.so.*
 %{_kf5_libdir}/libnotesharedprivate.so.*
-%{_kf5_qtplugindir}/kontact5/kontact_knotesplugin.so
-%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_action.so
-%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_collection.so
-%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_display.so
-%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_editor.so
-%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_misc.so
-%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_network.so
-%{_kf5_qtplugindir}/pim/kcms/knotes/kcm_knote_print.so
-%{_kf5_qtplugindir}/pim/kcms/summary/kcmknotessummary.so
+%{_kf5_qtplugindir}/pim5/kcms/knotes/
+%{_kf5_qtplugindir}/pim5/kcms/summary/kcmknotessummary.so
+%{_kf5_qtplugindir}/pim5/kontact/kontact_knotesplugin.so
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

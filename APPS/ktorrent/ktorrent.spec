@@ -2,8 +2,8 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:    ktorrent
-Version: 22.04.3
-Release: 2%{?dist}
+Version: 22.08.0
+Release: 1%{?dist}
 Summary: A BitTorrent program
 
 License: GPLv2+
@@ -20,9 +20,6 @@ Source0: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 
 ## upstream patches
-# Bug 455451: "%% Complete" widget should be horizontal but is tiny and vertical instead
-# Bug 455367: Vertical unreadable `%% Complete` progress bars
-Patch0:  ktorrent-22.04.3-explicitly-set-progress-bar-to-horizontal-mode.patch
 
 ## upstreamable patches
 
@@ -106,6 +103,10 @@ Requires: kf5-libktorrent%{?_isa} >= %{version}
 %install
 %cmake_install
 
+# Make desktop file valid
+sed -i 's|SingleMainWindow=True|SingleMainWindow=true|' \
+  %{buildroot}%{_kf5_datadir}/applications/org.kde.ktorrent.desktop
+
 # ensure this exists (sometimes not, e.g. when qtwebengine support isn't available)
 mkdir -p %{buildroot}%{_kf5_datadir}/ktorrent
 
@@ -138,6 +139,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ktorrent.
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Wed Jul 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-2
 - Added patch to fix #455451, #455367
 

@@ -1,5 +1,5 @@
 Name:    kleopatra
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -18,6 +18,10 @@ URL:     http://projects.kde.org/?p=%{name}.git
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstreamable patches
+
+## downstream patches
+# Reverting https://invent.kde.org/pim/kleopatra/-/commit/b9d9cd3ab15d1c7f5e97b80a5f19ffde2448c4cb
+Patch0:         kleopatra-22.08.0-reverse-require-GpgME-version-1.16.0.patch
 
 BuildRequires:  boost-devel
 BuildRequires:  extra-cmake-modules >= 5.23.0
@@ -60,7 +64,11 @@ Requires:       %{name} = %{version}-%{release}
 
 
 %prep
-%autosetup -p1
+%setup -q
+
+%if 0%{fedora} == 36
+%patch0 -p1 -b .reverse-require-GpgME-version-1.16.0
+%endif
 
 
 %build
@@ -89,7 +97,6 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 %{_kf5_datadir}/kio/servicemenus/kleopatra_decryptverifyfolders.desktop
 %{_kf5_datadir}/kio/servicemenus/kleopatra_signencryptfiles.desktop
 %{_kf5_datadir}/kio/servicemenus/kleopatra_signencryptfolders.desktop
-%{_kf5_datadir}/kservices5/kleopatra_config_gnupgsystem.desktop
 %{_kf5_datadir}/kleopatra/
 %{_kf5_datadir}/kwatchgnupg/
 %{_kf5_datadir}/mime/packages/application-vnd-kde-%{name}.xml
@@ -101,10 +108,13 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 %files libs
 %{_kf5_libdir}/libkleopatraclientcore.so.*
 %{_kf5_libdir}/libkleopatraclientgui.so.*
-%{_kf5_qtplugindir}/pim/kcms/kleopatra/kleopatra_config_gnupgsystem.so
+%{_kf5_qtplugindir}/pim5/kcms/kleopatra/kleopatra_config_gnupgsystem.so
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

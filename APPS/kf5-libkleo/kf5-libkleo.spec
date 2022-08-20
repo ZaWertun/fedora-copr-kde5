@@ -1,7 +1,7 @@
 %global framework libkleo
 
 Name:    kf5-%{framework}
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: KDE PIM cryptographic library
 
@@ -38,6 +38,7 @@ BuildRequires:  cmake(KF5I18n)
 BuildRequires:  cmake(KF5ItemModels)
 BuildRequires:  cmake(KF5WidgetsAddons)
 BuildRequires:  cmake(KF5WindowSystem)
+BuildRequires:  cmake(KF5ConfigWidgets)
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-kpimtextedit-devel >= %{majmin_ver}
@@ -100,6 +101,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

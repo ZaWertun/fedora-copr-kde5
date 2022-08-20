@@ -7,7 +7,7 @@
 
 Name:    kalarm
 Summary: Personal Alarm Scheduler
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -125,8 +125,10 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_bindir}/kalarm
 %{_kf5_bindir}/kalarmautostart
-%{_kf5_libdir}/libkalarmprivate.so.5*
+%{_kf5_libdir}/libkalarmplugin.so.5*
+%{_kf5_libdir}/libkalarmcalendar.so.5*
 %{_kf5_libexecdir}/kauth/kalarm_helper
+%{_kf5_qtplugindir}/pim5/kalarm/
 %{_kf5_metainfodir}/org.kde.kalarm.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kalarm.desktop
 %{_sysconfdir}/xdg/autostart/kalarm.autostart.desktop
@@ -143,6 +145,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

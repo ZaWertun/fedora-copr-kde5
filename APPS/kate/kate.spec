@@ -10,7 +10,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -139,6 +139,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %doc README.md
 %{_kf5_bindir}/kate
+%{_kf5_libdir}/libkateprivate.so.%{version}
 %{_kf5_datadir}/applications/org.kde.kate.desktop
 %{_kf5_metainfodir}/org.kde.kate.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kate.*
@@ -192,6 +193,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

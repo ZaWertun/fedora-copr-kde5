@@ -7,7 +7,7 @@
 
 Name:    krdc
 Summary: Remote desktop client
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -116,13 +116,12 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %files -f %{name}.lang
 %license LICENSES/*
 %{_kf5_bindir}/krdc
+%{_kf5_datadir}/kio/servicemenus/smb2rdc.desktop
 %{_kf5_datadir}/applications/org.kde.krdc.desktop
-%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
-%{_datadir}/icons/hicolor/*/apps/krdc.*
+%{_kf5_datadir}/icons/hicolor/*/apps/krdc.*
 %{_kf5_datadir}/config.kcfg/krdc.kcfg
-%{_kf5_datadir}/kservices5/ServiceMenus/smb2rdc.desktop
-%{_kf5_datadir}/kservicetypes5/krdc_plugin.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 %ldconfig_scriptlets libs
 
@@ -138,6 +137,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

@@ -4,8 +4,8 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        22.04.3
-Release:        2%{?dist}
+Version:        22.08.0
+Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -70,6 +70,7 @@ BuildRequires:  cmake(KF5PulseAudioQt)
 BuildRequires:  libXtst-devel
 BuildRequires:  pkgconfig(libfakekey)
 BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  cmake(PlasmaWaylandProtocols)
 
 Obsoletes: kde-connect-kde4-ioslave < %{version}-%{release}
 Obsoletes: kde-connect-kde4-libs < %{version}-%{release}
@@ -212,6 +213,9 @@ fi
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Wed Jul 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-2
 - rebuild
 

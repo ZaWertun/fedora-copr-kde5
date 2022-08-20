@@ -9,8 +9,8 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 22.04.3
-Release: 2%{?dist}
+Version: 22.08.0
+Release: 1%{?dist}
 
 License: GPLv2
 URL:     https://cgit.kde.org/%{framework}.git
@@ -179,8 +179,8 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/mime/packages/kdepim-mime.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/*
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
-%{_kf5_datadir}/kservices5/kcmldap.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_datadir}/applications/org.kde.akonadi_*.desktop
 
 %ldconfig_scriptlets libs
 
@@ -191,11 +191,14 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libkmindexreader.so.5*
 %{_kf5_libdir}/libmaildir.so.5*
 %{_kf5_plugindir}/kio/akonadi.so
-%{_kf5_qtplugindir}/akonadi/config/*.so
-%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kcm_ldap.so
+%{_kf5_qtplugindir}/pim5/akonadi/config/*.so
+%{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kcm_ldap.so
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.08.0-1
+- 22.08.0
+
 * Wed Jul 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.3-2
 - rebuild
 

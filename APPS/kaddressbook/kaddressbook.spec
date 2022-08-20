@@ -9,7 +9,7 @@
 
 Name:    kaddressbook
 Summary: Contact Manager
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -133,12 +133,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/applications/kaddressbook-importer.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/kaddressbook.*
 %{_kf5_datadir}/kaddressbook/
-%{_kf5_datadir}/kservices5/kaddressbook_config_plugins.desktop
-%if 0%{?with_kuserfeedback}
-%{_kf5_datadir}/kservices5/kaddressbook_config_userfeedback.desktop
-%endif
 # Kontact integration
-%{_kf5_datadir}/kservices5/kontact/kaddressbookplugin.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets libs
@@ -147,13 +142,13 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKPimAddressbookImportExport.so.*
 %{_kf5_libdir}/libkaddressbookprivate.so.*
 %{_kf5_qtplugindir}/kaddressbookpart.so
+%{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kaddressbook_config_plugins.so
 %if 0%{?with_kuserfeedback}
-%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kaddressbook_config_userfeedback.so
+%{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kaddressbook_config_userfeedback.so
 %endif
 # Kontact integration
+%{_kf5_qtplugindir}/pim5/kontact/kontact_kaddressbookplugin.so
 %{_kf5_datadir}/applications/kaddressbook-view.desktop
-%{_kf5_qtplugindir}/kontact5/kontact_kaddressbookplugin.so
-%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kaddressbook_config_plugins.so
 
 
 %files devel
@@ -166,6 +161,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

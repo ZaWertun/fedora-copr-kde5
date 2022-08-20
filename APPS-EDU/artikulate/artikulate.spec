@@ -1,6 +1,6 @@
 Name:    artikulate
 Summary: Improve your pronunciation by listening to native speakers
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # artwork: LGPL3
@@ -92,6 +92,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

@@ -6,7 +6,7 @@
 %endif
 
 Name:    kio-extras
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -22,10 +22,6 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
 ## upstramable patches
-
-# Don't eat up memory attempting to create thumbnail of huge images
-# https://bugs.kde.org/show_bug.cgi?id=420173
-Patch1001: kio-extras_largeimages.patch
 
 ## upstream patches
 
@@ -71,6 +67,7 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtsvg-devel
 BuildRequires:  taglib-devel > 1.11
 BuildRequires:  cmake(KDSoap)
+BuildRequires:  cmake(KF5KExiv2)
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -82,7 +79,7 @@ BuildRequires: xorg-x11-server-Xvfb
 Conflicts: kde-l10n < 17.03
 
 # short-lived subpkg, locale conflicts fixed in kio_mtp instead
-Obsoletes:      kio-extras-mtp-common < 5.2.2-3
+Obsoletes: kio-extras-mtp-common < 5.2.2-3
 
 Obsoletes: kde-runtime-docs < 5.0.0-1
 # when went noarch
@@ -95,10 +92,10 @@ Provides:  kio-extras-docs = %{version}-%{release}
 Obsoletes: kio-extras-htmlthumbnail < 18.08.3
 
 # helpful for  imagethumbnail plugin
-Recommends:     qt5-qtimageformats%{?_isa}
+Recommends: qt5-qtimageformats%{?_isa}
 
 # Available in RPMFusion: https://admin.rpmfusion.org/pkgdb/package/free/qt-heif-image-plugin/
-Recommends:     qt-heif-image-plugin%{?_isa}
+Recommends: qt-heif-image-plugin%{?_isa}
 
 # .exe/.ico previews, will limit dep to only if wine-core is installed for now -- rdieter
 Recommends: (icoutils if wine-core)
@@ -186,7 +183,8 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 %{_kf5_plugindir}/thumbcreator/textthumbnail.so
 %{_kf5_plugindir}/thumbcreator/windowsexethumbnail.so
 %{_kf5_plugindir}/thumbcreator/windowsimagethumbnail.so
-%{_kf5_qtplugindir}/kf5/kfileitemaction/kactivitymanagerd_fileitem_linking_plugin.so
+%{_kf5_plugindir}/kfileitemaction/forgetfileitemaction.so
+%{_kf5_plugindir}/kfileitemaction/kactivitymanagerd_fileitem_linking_plugin.so
 %{_kf5_qtplugindir}/kfileaudiopreview.so
 %{_datadir}/kio_docfilter/
 %{_datadir}/kio_bookmarks/
@@ -220,6 +218,9 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

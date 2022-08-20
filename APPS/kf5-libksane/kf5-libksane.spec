@@ -2,7 +2,7 @@
 
 Name:    kf5-libksane
 Summary: SANE Library interface for KDE
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 %global version_major %(echo %{version} |cut -d. -f1)
@@ -27,6 +27,7 @@ BuildRequires: kf5-ktextwidgets-devel
 BuildRequires: kf5-rpm-macros
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: pkgconfig(sane-backends)
+BuildRequires: cmake(KSaneCore)
 
 # translations moved here
 Conflicts: kde-l10n < 17.03
@@ -55,7 +56,6 @@ Requires: cmake(Qt5Widgets)
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html 
 
 
@@ -76,6 +76,9 @@ Requires: cmake(Qt5Widgets)
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

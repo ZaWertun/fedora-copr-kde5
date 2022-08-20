@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Contacts Library
 
@@ -111,11 +111,10 @@ xvfb-run -a \
 %files -f %{name}.lang
 %{_kf5_libdir}/libKF5AkonadiContact.so.*
 %{_kf5_libdir}/libKF5ContactEditor.so.*
-%{_kf5_qtplugindir}/akonadi/contacts/
 %{_kf5_qtplugindir}/akonadi_serializer_*.so
-%{_kf5_qtplugindir}/pim/kcms/kaddressbook/kcm_akonadicontact_actions.so
+%{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kcm_akonadicontact_actions.so
+%{_kf5_qtplugindir}/pim5/akonadi/contacts/plugins/categorieseditwidgetplugin.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
-%{_kf5_datadir}/kservices5/akonadicontact_actions.desktop
 %{_kf5_datadir}/kf5/akonadi/contact/
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -131,6 +130,9 @@ xvfb-run -a \
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Search library and indexing agent
 
@@ -98,9 +98,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5AkonadiSearchDebug.so.*
 %{_kf5_bindir}/akonadi_indexing_agent
 %{_kf5_datadir}/akonadi/agents/akonadiindexingagent.desktop
-%{_kf5_qtplugindir}/akonadi/
 %{_kf5_plugindir}/krunner/krunner_pimcontacts.so
 %{_kf5_plugindir}/krunner/kcms/kcm_krunner_pimcontacts.so
+%{_kf5_qtplugindir}/pim5/akonadi/*.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
@@ -113,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

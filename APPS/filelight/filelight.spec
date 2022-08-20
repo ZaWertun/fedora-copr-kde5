@@ -1,13 +1,12 @@
-Name:    filelight 
+Name:    filelight
 Summary: Graphical disk usage statistics 
 Epoch:   1
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
 URL:     http://utils.kde.org/projects/filelight
-#URL:    https://cgit.kde.org/%{name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -23,13 +22,16 @@ BuildRequires: libappstream-glib
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
 BuildRequires: cmake(KF5KIO)
-BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5XmlGui)
+BuildRequires: cmake(KF5DocTools)
+BuildRequires: cmake(KF5Declarative)
 
 BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Svg)
+BuildRequires: cmake(Qt5Quick)
 BuildRequires: cmake(Qt5Widgets)
+BuildRequires: cmake(Qt5QuickControls2)
 
 # when split occured
 Conflicts: kdeutils-common < 6:4.7.80
@@ -78,6 +80,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.3-1
 - 22.04.3
 

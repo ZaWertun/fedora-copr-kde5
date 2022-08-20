@@ -1,6 +1,6 @@
 Name:    kompare
 Summary: Diff tool
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

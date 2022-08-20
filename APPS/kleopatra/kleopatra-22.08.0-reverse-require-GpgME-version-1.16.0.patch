@@ -1,0 +1,147 @@
+diff '--color=auto' -r -U3 kleopatra-22.08.0.orig/CMakeLists.txt kleopatra-22.08.0/CMakeLists.txt
+--- kleopatra-22.08.0.orig/CMakeLists.txt	2022-08-19 23:45:48.964016811 +0300
++++ kleopatra-22.08.0/CMakeLists.txt	2022-08-20 00:09:52.764115892 +0300
+@@ -36,7 +36,7 @@
+ set(KMIME_VERSION "5.21.0")
+ set(LIBKLEO_VERSION "5.21.0")
+ set(QT_REQUIRED_VERSION "5.15.2")
+-set(GPGME_REQUIRED_VERSION "1.16.0")
++set(GPGME_REQUIRED_VERSION "1.15.0")
+ 
+ if (WIN32)
+   set(KF5_WANT_VERSION "5.70.0")
+@@ -109,6 +109,10 @@
+ else()
+     find_package(QGpgme ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
+ endif()
++if (QGpgme_VERSION VERSION_GREATER_EQUAL "1.16.0")
++    set(QGPGME_SUPPORTS_TRUST_SIGNATURES 1)
++    set(QGPGME_SUPPORTS_SIGNATURE_EXPIRATION 1)
++endif()
+ if (QGpgme_VERSION VERSION_GREATER_EQUAL "1.17.0")
+     set(QGPGME_SUPPORTS_CHANGING_EXPIRATION_OF_COMPLETE_KEY 1)
+     set(QGPGME_CRYPTOCONFIGENTRY_HAS_DEFAULT_VALUE 1)
+diff '--color=auto' -r -U3 kleopatra-22.08.0.orig/config-kleopatra.h.cmake kleopatra-22.08.0/config-kleopatra.h.cmake
+--- kleopatra-22.08.0.orig/config-kleopatra.h.cmake	2022-08-19 23:45:48.965016819 +0300
++++ kleopatra-22.08.0/config-kleopatra.h.cmake	2022-08-20 00:09:52.764115892 +0300
+@@ -24,6 +24,15 @@
+ /* DBus available */
+ #cmakedefine01 HAVE_QDBUS
+ 
++/* Defined if GpgME++ supports trust signatures */
++#cmakedefine GPGMEPP_SUPPORTS_TRUST_SIGNATURES 1
++
++/* Defined if QGpgME supports trust signatures */
++#cmakedefine QGPGME_SUPPORTS_TRUST_SIGNATURES 1
++
++/* Defined if QGpgME supports setting an expiration date for signatures */
++#cmakedefine QGPGME_SUPPORTS_SIGNATURE_EXPIRATION 1
++
+ /* Defined if QGpgME supports changing the expiration date of the primary key and the subkeys simultaneously */
+ #cmakedefine QGPGME_SUPPORTS_CHANGING_EXPIRATION_OF_COMPLETE_KEY 1
+ 
+diff '--color=auto' -r -U3 kleopatra-22.08.0.orig/src/commands/certifycertificatecommand.cpp kleopatra-22.08.0/src/commands/certifycertificatecommand.cpp
+--- kleopatra-22.08.0.orig/src/commands/certifycertificatecommand.cpp	2022-08-19 23:45:48.965016819 +0300
++++ kleopatra-22.08.0/src/commands/certifycertificatecommand.cpp	2022-08-20 00:09:52.764115892 +0300
+@@ -251,13 +251,17 @@
+         job->setRemark(dialog->tags());
+     }
+     job->setDupeOk(true);
++#ifdef QGPGME_SUPPORTS_TRUST_SIGNATURES
+     if (dialog->trustSignatureSelected() && !dialog->trustSignatureDomain().isEmpty()) {
+         // always create level 1 trust signatures with complete trust
+         job->setTrustSignature(TrustSignatureTrust::Complete, 1, dialog->trustSignatureDomain());
+     }
++#endif
++#ifdef QGPGME_SUPPORTS_SIGNATURE_EXPIRATION
+     if (!dialog->expirationDate().isNull()) {
+         job->setExpirationDate(dialog->expirationDate());
+     }
++#endif
+ 
+     if (const Error err = job->start(key())) {
+         slotResult(err);
+diff '--color=auto' -r -U3 kleopatra-22.08.0.orig/src/dialogs/certificatedetailswidget.cpp kleopatra-22.08.0/src/dialogs/certificatedetailswidget.cpp
+--- kleopatra-22.08.0.orig/src/dialogs/certificatedetailswidget.cpp	2022-08-19 23:45:48.971016869 +0300
++++ kleopatra-22.08.0/src/dialogs/certificatedetailswidget.cpp	2022-08-20 00:12:58.619679342 +0300
+@@ -1034,6 +1034,7 @@
+     return updateInProgress ? i18n("Updating...") : Formatting::validityShort(uid);
+ }
+ 
++#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+ namespace
+ {
+ auto isGood(const GpgME::UserID::Signature &signature)
+@@ -1070,16 +1071,21 @@
+     );
+ }
+ }
++#endif
+ 
+ void CertificateDetailsWidget::Private::setupPGPProperties()
+ {
+     setUpUserIDTable();
+ 
++#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+     const auto trustDomains = accumulateTrustDomains(key.userIDs());
+     ui.trustedIntroducerField->setVisible(!trustDomains.empty());
+     ui.trustedIntroducerField->setValue(QStringList(std::begin(trustDomains), std::end(trustDomains)).join(u", "));
+ 
+     ui.refreshBtn->setToolTip(i18nc("@info:tooltip", "Update the key from external sources."));
++#else
++    ui.trustedIntroducerField->setVisible(false);
++#endif
+ }
+ 
+ static QString formatDNToolTip(const Kleo::DN &dn)
+diff '--color=auto' -r -U3 kleopatra-22.08.0.orig/src/dialogs/certifywidget.cpp kleopatra-22.08.0/src/dialogs/certifywidget.cpp
+--- kleopatra-22.08.0.orig/src/dialogs/certifywidget.cpp	2022-08-19 23:45:48.971016869 +0300
++++ kleopatra-22.08.0/src/dialogs/certifywidget.cpp	2022-08-20 00:09:52.764115892 +0300
+@@ -251,6 +251,7 @@
+     return infoBtn;
+ }
+ 
++#ifdef QGPGME_SUPPORTS_SIGNATURE_EXPIRATION
+ QString dateFormatWithFourDigitYear(QLocale::FormatType format)
+ {
+     // Force the year to be formatted as four digit number, so that
+@@ -264,6 +265,7 @@
+ {
+     return QLocale{}.toString(date, dateFormatWithFourDigitYear(format));
+ }
++#endif
+ 
+ }
+ 
+@@ -349,6 +351,10 @@
+             advLay->addLayout(tagsLay);
+         }
+ 
++#ifndef QGPGME_SUPPORTS_SIGNATURE_EXPIRATION
++        mExpirationCheckBox->setVisible(false);
++        mExpirationDateEdit->setVisible(false);
++#else
+         {
+             auto layout = new QHBoxLayout;
+ 
+@@ -385,7 +391,12 @@
+ 
+             advLay->addLayout(layout);
+         }
++#endif
+ 
++#ifndef QGPGME_SUPPORTS_TRUST_SIGNATURES
++        mTrustSignatureCB->setVisible(false);
++        mTrustSignatureDomainLE->setVisible(false);
++#else
+         {
+             auto layout = new QHBoxLayout;
+ 
+@@ -417,6 +428,7 @@
+ 
+             advLay->addLayout(layout);
+         }
++#endif
+ 
+         expander->setContentLayout(advLay);
+ 

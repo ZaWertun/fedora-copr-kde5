@@ -7,7 +7,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -130,7 +130,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %doc README.md
 %{_kf5_bindir}/dolphin
 %{_kf5_bindir}/servicemenuinstaller
-%{_kf5_datadir}/kservices5/kcmdolphin*.desktop
 %{_kf5_datadir}/config.kcfg/dolphin_*
 %{_kf5_datadir}/kglobalaccel/*.desktop
 %{_datadir}/dbus-1/services/org.kde.dolphin.FileManager1.service
@@ -141,16 +140,15 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_userunitdir}/plasma-%{name}.service
+%{_kf5_datadir}/kconf_update/dolphin_detailsmodesettings.upd
 
 %ldconfig_scriptlets libs
 
 %files libs
 %{_kf5_libdir}/libdolphinprivate.so.*
 %{_kf5_libdir}/libdolphinvcs.so.*
-%{_kf5_qtplugindir}/dolphin/kcms/libkcm_dolphingeneral.so
-%{_kf5_qtplugindir}/dolphin/kcms/libkcm_dolphinnavigation.so
-%{_kf5_qtplugindir}/dolphin/kcms/libkcm_dolphinviewmodes.so
 %{_kf5_plugindir}/parts/%{name}part.so
+%{_kf5_qtplugindir}/dolphin/kcms/
 %{_kf5_datadir}/kservices5/dolphinpart.desktop
 
 %files devel
@@ -162,6 +160,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
 - 22.04.3
 

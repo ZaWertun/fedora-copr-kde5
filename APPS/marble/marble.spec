@@ -1,7 +1,7 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 22.04.3
+Version: 22.08.0
 Release: 1%{?dist}
 
 %global maj_ver %(echo %{version} | cut -d. -f1)
@@ -253,6 +253,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.08.0-1
+- 22.08.0
+
 * Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.04.3-1
 - 22.04.3
 
