@@ -1,5 +1,5 @@
 Name:           skanpage
-Version:        22.03.80
+Version:        22.08.0
 Release:        1%{?dist}
 Summary:        Utility to scan images and multi-page documents
 License:        BSD and GPLv2 and GPLv3
@@ -31,7 +31,16 @@ BuildRequires:  cmake(KF5Purpose)    >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Kirigami2)  >= %{kf5_min_version}
 BuildRequires:  cmake(KF5CoreAddons) >= %{kf5_min_version}
 
+BuildRequires:  cmake(KSaneCore)
+
+BuildRequires:  pkgconfig(lept)
+BuildRequires:  pkgconfig(tesseract)
+
 Requires:       hicolor-icon-theme
+Requires:       qt5-qtquickcontrols2
+Requires:       kf5-kirigami2        >= %{kf5_min_version}
+
+Recommends:     sane-backends-drivers-scanners
 
 %description
 Skanpage is a multi-page scanning application built using the libksane library
@@ -43,7 +52,10 @@ and a QML interface. It supports saving to image and PDF files.
 
 
 %build
-%cmake
+sed -i 's|set(CMAKE_CXX_FLAGS "-fopenmp")|set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")|' \
+  CMakeLists.txt
+
+%cmake_kf5
 %cmake_build
 
 
@@ -66,6 +78,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
+- 22.08.0
+
 * Sun Mar 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.03.80-1
 - first spec for version 22.03.80
 

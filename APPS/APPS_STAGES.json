@@ -42,7 +42,6 @@
     "kfind",
     "kfloppy",
     "khelpcenter",
-    "kio-extras",
     "kmag",
     "kmix",
     "kmousetool",
@@ -85,6 +84,7 @@
     "kf5-ksmtp",
     "kf5-libkleo",
     "kget",
+    "kio-extras",
     "kio-gdrive",
     "kolourpaint",
     "kompare",
@@ -93,6 +93,7 @@
     "kwave",
     "okular",
     "skanlite",
+    "skanpage",
     "spectacle"
   ],
   "2": [
