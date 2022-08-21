@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.97.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for global shortcuts
 
 License: LGPLv2+
@@ -16,6 +16,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+
+## upstream
+# https://bugs.kde.org/show_bug.cgi?id=440507
+Patch0:         kf5-kglobalaccel-5.97.0-dont-pass-exec-arguments-to-kstart.patch
 
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros
@@ -105,6 +109,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Aug 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-2
+- Added kf5-kglobalaccel-5.97.0-dont-pass-exec-arguments-to-kstart.patch
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 
