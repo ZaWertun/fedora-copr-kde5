@@ -11,7 +11,7 @@
 Name:    kate
 Summary: Advanced Text Editor
 Version: 22.08.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # kwrite LGPLv2+
 # kate: app LGPLv2, plugins, LGPLv2 and LGPLv2+ and GPLv2+
@@ -94,6 +94,11 @@ Recommends: konsole5
 %description plugins
 %{summary}.
 
+%package -n libkateprivate
+Summary: Kate editor private library
+%description -n libkateprivate
+Kate editor private library.
+
 %package -n kwrite
 Summary: Text Editor
 License: LGPLv2+
@@ -104,7 +109,7 @@ Conflicts: kde-l10n < 17.03
 
 
 %prep
-%autosetup -n kate-%{version} -p1
+%autosetup -p1
 
 
 %build
@@ -131,7 +136,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kwrite.de
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test -C %{_target_platform} ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %endif
 
 
@@ -139,7 +144,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %doc README.md
 %{_kf5_bindir}/kate
-%{_kf5_libdir}/libkateprivate.so.%{version}
 %{_kf5_datadir}/applications/org.kde.kate.desktop
 %{_kf5_metainfodir}/org.kde.kate.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kate.*
@@ -185,6 +189,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/kateproject/
 %{_kf5_datadir}/katexmltools/
 
+%files -n libkateprivate
+%{_kf5_libdir}/libkateprivate.so.%{version}
+
 %files -n kwrite -f kwrite.lang
 %{_kf5_bindir}/kwrite
 %{_kf5_datadir}/applications/org.kde.kwrite.desktop
@@ -193,6 +200,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Aug 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-2
+- libkateprivate.so moved to separate package
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 
