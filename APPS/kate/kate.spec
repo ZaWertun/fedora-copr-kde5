@@ -136,7 +136,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kwrite.de
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
-make test -C %{_target_platform} ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 %endif
 
 
