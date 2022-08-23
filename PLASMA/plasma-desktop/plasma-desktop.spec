@@ -10,7 +10,7 @@
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
 Version: 5.25.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -69,7 +69,7 @@ BuildRequires:  scim-devel
 BuildRequires:  kf5-rpm-macros >= %{kf5_version_min}
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-plasma-devel >= %{kf5_version_min}
-Requires:       kf5-plasma%{?_isa} >= %{_kf5_version}
+Requires:       kf5-plasma%{?_isa} >= %{kf5_version_min}
 BuildRequires:  kf5-kdoctools-devel >= %{kf5_version_min}
 BuildRequires:  kf5-ki18n-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kcmutils-devel >= %{kf5_version_min}
@@ -159,9 +159,6 @@ Requires:       kf5-kirigami2%{?_isa}
 BuildRequires:  qqc2-desktop-style
 Requires:       qqc2-desktop-style%{?_isa}
 
-# for ibus-ui-emojier-plasma
-Recommends: ibus
-
 # Virtual provides for plasma-workspace
 Provides:       plasmashell(desktop) = %{version}-%{release}
 Provides:       plasmashell = %{version}-%{release}
@@ -180,8 +177,17 @@ Conflicts:      kdeplasma-addons < 5.6.0
 # kcm_activities.mo moved here (#1325724)
 Conflicts:      kde-l10n < 15.12.3-4
 
+Recommends:     %{name}-emojier%{?_isa}
+
 %description
 %{summary}.
+
+%package        kimpanel-ibus
+Summary:        IBus backend for kimpanel
+Requires:       %{name} = %{version}-%{release}
+%description    kimpanel-ibus
+A backend for the kimpanel panel icon for input methods using the IBus input
+method framework.
 
 %package        kimpanel-scim
 Summary:        SCIM backend for kimpanel
@@ -189,6 +195,14 @@ Requires:       %{name} = %{version}-%{release}
 %description    kimpanel-scim
 A backend for the kimpanel panel icon for input methods using the SCIM input
 method framework.
+
+%package        emojier
+Summary:        Selection window for emoji text input
+Requires:       %{name} = %{version}-%{release}
+Recommends:     ibus
+Recommends:     ibus-uniemoji
+%description    emojier
+%{summary}.
 
 %package        doc
 Summary:        Documentation and user manuals for %{name}
@@ -268,12 +282,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_bindir}/kaccess
 %{_bindir}/knetattach
 %{_bindir}/solid-action-desktop-gen
-%{_bindir}/ibus-ui-emojier-plasma
 %{_bindir}/tastenbrett
 %{_bindir}/krunner-plugininstaller
 %{_kf5_libexecdir}/kauth/kcmdatetimehelper
-%{_libexecdir}/kimpanel-ibus-panel
-%{_libexecdir}/kimpanel-ibus-panel-launcher
 %{_kf5_qmldir}/org/kde/plasma/private
 # TODO: -libs subpkg -- rex
 %{_kf5_qtplugindir}/*.so
@@ -300,7 +311,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_datadir}/kcmmouse/
 %endif
 %{_datadir}/config.kcfg/*.kcfg
-%{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
 %{_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/kconf_update/*
 %{_kf5_datadir}/kcmkeys
@@ -317,21 +327,34 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %endif
 %{_kf5_metainfodir}/*.xml
 %{_datadir}/applications/*.desktop
+%exclude %{_datadir}/applications/org.kde.plasma.emojier.desktop
 %{_datadir}/dbus-1/system-services/*.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmclock.policy
 %{_sysconfdir}/xdg/autostart/*.desktop
 %{_kf5_datadir}/accounts/providers/kde/
 %{_kf5_datadir}/accounts/services/kde/
 
+%files kimpanel-ibus
+%{_libexecdir}/kimpanel-ibus-panel
+%{_libexecdir}/kimpanel-ibus-panel-launcher
+
 %if 0%{?scim}
 %files kimpanel-scim
 %{_libexecdir}/kimpanel-scim-panel
 %endif
 
+%files emojier
+%{_bindir}/ibus-ui-emojier-plasma
+%{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
+%{_datadir}/applications/org.kde.plasma.emojier.desktop
+
 %files doc -f %{name}-doc.lang
 
 
 %changelog
+* Fri Aug 19 2022 Christian Tosta <devel@cpuhouse.com.br> - 5.25.4-2
+- Split IBus and Emojier packages
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

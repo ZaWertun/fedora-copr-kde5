@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.25.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -47,7 +47,7 @@ Source15:       fedora.desktop
 
 # breeze fedora sddm theme components
 # includes f25-based preview (better than breeze or nothing at least)
-Source20:       breeze-fedora-0.2.tar.gz
+Source20:       https://github.com/ZaWertun/fedora-copr-kde5/raw/master/PLASMA/plasma-workspace/breeze-fedora-0.2.tar.gz
 
 ## systemd user service dependencies
 ## (debating whether these be owned here or somewhere better...
@@ -152,7 +152,7 @@ BuildRequires:  kf5-kwallet-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kxmlrpcclient-devel >= %{kf5_version_min}
 BuildRequires:  kf5-networkmanager-qt-devel >= %{kf5_version_min}
 BuildRequires:  kf5-plasma-devel >= %{kf5_version_min}
-Requires:       kf5-plasma%{?_isa} >= %{_kf5_version}
+Requires:       kf5-plasma%{?_isa} >= %{kf5_version_min}
 BuildRequires:  kf5-threadweaver-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kded-devel >= %{kf5_version_min}
 BuildRequires:  kf5-kirigami2-devel >= %{kf5_version_min}
@@ -250,7 +250,7 @@ Requires:       iceauth xrdb xprop
 Requires:       kde-settings-plasma
 
 # Default look-and-feel theme
-Requires:       plasma-lookandfeel-fedora = %{version}-%{release}
+Recommends:     plasma-lookandfeel-default >= %{version}-%{release}
 
 Requires:       systemd
 
@@ -281,7 +281,7 @@ Requires:       plasmashell >= %{majmin_ver}
 Obsoletes:      plasma-workspace < 5.4.2-2
 
 # plasmashell provides dbus service org.freedesktop.Notifications
-Provides: desktop-notification-daemon
+Provides: desktop-notification-daemon > 0
 
 # upgrade path, when sddm-breeze was split out
 Obsoletes: plasma-workspace < 5.3.2-8
@@ -370,7 +370,30 @@ Requires: %{name}-geolocation = %{version}-%{release}
 Summary:        SDDM breeze theme
 # upgrade path, when sddm-breeze was split out
 Obsoletes: plasma-workspace < 5.3.2-8
-Requires:       kf5-plasma >= %{_kf5_version}
+Requires:       kf5-plasma >= %{kf5_version_min}
+# Background.qml:import QtQuick
+Requires:       qt5-qtquickcontrols
+# on-screen keyboard
+Recommends:     qt5-qtvirtualkeyboard
+# QML imports:
+# org.kde.plasma.workspace.components
+# org.kde.plasma.workspace.keyboardlayout
+Requires:       %{name} = %{version}-%{release}
+%if 0%{?fedora}
+Recommends:     sddm-breeze-fedora
+%endif
+%if 0%{?rhel}
+Recommends:     system-logos
+%endif
+BuildArch: noarch
+%description -n sddm-breeze
+%{summary}.
+
+%package -n sddm-breeze-fedora
+Summary:        SDDM breeze theme (Fedora variant)
+# upgrade path, when sddm-breeze was split out
+Obsoletes:      plasma-workspace < 5.3.2-8
+Requires:       kf5-plasma >= %{kf5_version_min}
 # Background.qml:import QtQuick
 Requires:       qt5-qtquickcontrols
 # on-screen keyboard
@@ -384,16 +407,13 @@ Requires:       %{name} = %{version}-%{release}
 BuildRequires:  desktop-backgrounds-compat
 Requires:       desktop-backgrounds-compat
 %endif
-%if 0%{?rhel}
-Requires:       system-logos
-%endif
 BuildArch: noarch
-%description -n sddm-breeze
+%description -n sddm-breeze-fedora
 %{summary}.
 
 %package -n sddm-wayland-plasma
 Summary:        Plasma Wayland SDDM greeter configuration
-Provides:       sddm-greeter-displayserver
+Provides:       sddm-greeter-displayserver > 0
 Conflicts:      sddm-greeter-displayserver
 Requires:       kwin-wayland >= %{majmin_ver}
 Requires:       maliit-keyboard
@@ -443,6 +463,7 @@ Obsoletes: f22-kde-theme < 22.4
 Obsoletes: f23-kde-theme < 23.1
 Obsoletes: f24-kde-theme < 24.6
 Obsoletes: f24-kde-theme-core < 5.10.5-2
+Provides:  plasma-lookandfeel-default = %{version}-%{release}
 BuildArch: noarch
 %description -n plasma-lookandfeel-fedora
 %{summary}.
@@ -757,8 +778,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 %files -n sddm-breeze
 %{_datadir}/sddm/themes/breeze/
+
+%files -n sddm-breeze-fedora
 %{_datadir}/sddm/themes/01-breeze-fedora/
-#%config(noreplace) %{_datadir}/sddm/themes/01-breeze-fedora/theme.conf.user
+#%#config(noreplace) %#{_datadir}/sddm/themes/01-breeze-fedora/theme.conf.user
 
 %files -n sddm-wayland-plasma
 %{_prefix}/lib/sddm/sddm.conf.d/plasma-wayland.conf
@@ -789,6 +812,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Fri Aug 19 2022 Christian Tosta <devel@cpuhouse.com.br> - 5.25.4-2
+- do not hard-enforce use of Fedora's LookAndFeel
+- validated spec file against rpmlint
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 
