@@ -7,7 +7,7 @@ Version: 5.25.0
 Release: 2%{?dist}
 Summary: App and daemon for display managing
 
-Conflicts: kdisplay
+Conflicts: kscreen
 
 %global  real_version %(echo %{version} |sed 's/~/-/')
 License: GPLv2
@@ -75,7 +75,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kwinft.%{name
 
 %changelog
 * Tue Aug 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-2
-- Conflicts: kdisplay
+- Conflicts: kscreen
 
 * Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.0-1
 - 5.25.0
