@@ -3,7 +3,7 @@
 
 Name:           yakuake
 Version:        22.08.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A drop-down terminal emulator
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -49,6 +49,7 @@ BuildRequires:  libappstream-glib
 %endif
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  cmake(Qt5Svg)
+BuildRequires:  cmake(KF5Wayland)
 
 %description
 Yakuake is a drop-down terminal emulator.
@@ -89,6 +90,9 @@ desktop-file-validate  %{buildroot}%{_kf5_datadir}/applications/org.kde.yakuake.
 
 
 %changelog
+* Thu Aug 25 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-2
+- BR: cmake(KF5Wayland)
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 
