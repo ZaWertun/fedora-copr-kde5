@@ -1,4 +1,3 @@
-
 Name:    libksysguard
 Summary: Library for managing processes running on the system
 Version: 5.25.4
@@ -98,13 +97,11 @@ developing applications that use %{name}.
 %build
 %cmake_kf5 \
   -DKDE_INSTALL_INCLUDEDIR:PATH=%{_kf5_includedir}
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang ksysguard_qt5 --with-qt --with-kde --all-name
 
 
@@ -129,7 +126,7 @@ developing applications that use %{name}.
 
 %{_kf5_libdir}/libKSysGuardSystemStats.so.*
 %{_qt5_plugindir}/ksysguard/
-%{_libexecdir}/ksysguard/
+%caps(cap_net_raw=pe) %{_libexecdir}/ksysguard/ksgrd_network_helper
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.ksystemstats.xml
 
 %files common
