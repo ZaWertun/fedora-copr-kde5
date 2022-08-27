@@ -33,11 +33,11 @@
     "kf5-kontactinterface",
     "kf5-kpimtextedit",
     "kf5-kpkpass",
+    "kf5-ksanecore",
     "kf5-libkcddb",
     "kf5-libkdcraw",
     "kf5-libkexiv2",
     "kf5-libkipi",
-    "kf5-libksane",
     "kf5-libktorrent",
     "kfind",
     "kfloppy",
@@ -83,17 +83,15 @@
     "kf5-kmbox",
     "kf5-ksmtp",
     "kf5-libkleo",
+    "kf5-libksane",
     "kget",
     "kio-extras",
     "kio-gdrive",
-    "kolourpaint",
     "kompare",
     "kpat",
     "ktorrent",
     "kwave",
     "okular",
-    "skanlite",
-    "skanpage",
     "spectacle"
   ],
   "2": [
@@ -104,7 +102,10 @@
     "kf5-akonadi-notes",
     "kf5-kcalendarutils",
     "kf5-kldap",
-    "kleopatra"
+    "kleopatra",
+    "kolourpaint",
+    "skanlite",
+    "skanpage"
   ],
   "3": [
     "kf5-akonadi-contacts",
