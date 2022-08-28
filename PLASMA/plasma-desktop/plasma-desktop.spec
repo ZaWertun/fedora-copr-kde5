@@ -43,7 +43,7 @@ Source200: synaptics-properties.h
 # filter qmk/plugins provides
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
 
-BuildRequires:  libusb-devel
+BuildRequires:  pkgconfig(libusb-1.0)
 BuildRequires:  fontconfig-devel
 BuildRequires:  libX11-devel
 BuildRequires:  libxkbfile-devel

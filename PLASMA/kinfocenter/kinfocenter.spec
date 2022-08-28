@@ -46,7 +46,7 @@ BuildRequires:  mesa-libGLES-devel
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  mesa-libGLU-devel
 
-BuildRequires:  libusb-devel
+BuildRequires:  pkgconfig(libusb-1.0)
 BuildRequires:  libX11-devel
 BuildRequires:  pciutils-devel
 %ifnarch s390 s390x

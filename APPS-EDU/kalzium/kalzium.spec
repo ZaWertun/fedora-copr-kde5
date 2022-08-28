@@ -61,7 +61,12 @@ BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5OpenGL)
 BuildRequires: cmake(Qt5Svg)
 
+%if 0%{?fedora} >= 37
+BuildRequires: pkgconfig(openbabel-3)
+%else
 BuildRequires: pkgconfig(openbabel-2.0)
+%endif
+
 %if 0%{?avogadro}
 # Eigen is only used for the Avogadro-based compound viewer.
 BuildRequires: pkgconfig(eigen3)
