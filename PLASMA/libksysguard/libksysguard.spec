@@ -1,7 +1,7 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
 Version: 5.25.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -149,6 +149,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Aug 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-2
+- rebuild
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 
