@@ -81,6 +81,7 @@ BuildRequires: kf5-kitemviews-devel
 BuildRequires: kf5-kbookmarks-devel
 BuildRequires: kf5-rpm-macros
 
+BuildRequires: cmake(KF5GrantleeTheme)
 BuildRequires: cmake(KF5AkonadiContact)
 BuildRequires: cmake(KSaneCore)
 
