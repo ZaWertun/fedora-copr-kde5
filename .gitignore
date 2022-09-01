@@ -3,5 +3,6 @@
 *.tar.gz
 *.tar.gz.sig
 *.tar.xz
+*.tar.xz.sig
 *.tar.bz2
 deps.db
