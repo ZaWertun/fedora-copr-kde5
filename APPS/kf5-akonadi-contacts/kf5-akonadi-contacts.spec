@@ -74,9 +74,12 @@ Requires:  %{name}%{?_isa} = %{version}-%{release}
 Obsoletes: kf5-akonadi-devel < 16.07
 Obsoletes: kf5-akonadi-contact-devel < 16.07
 Provides:  kf5-akonadi-contact-devel = %{version}-%{release}
-Requires:  cmake(KF5Akonadi)
-Requires:  cmake(KF5Contacts)
-Requires:  cmake(KF5CalendarCore)
+Requires:   cmake(Qt5Widgets)
+Requires:   cmake(KF5Akonadi)
+Requires:   cmake(KF5Contacts)
+Requires:   cmake(KF5GrantleeTheme)
+Requires:   cmake(KF5ContactEditor)
+Recommends: cmake(KF5CalendarCore)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
