@@ -51,6 +51,7 @@ BuildRequires: pkgconfig(Qt5WebKit)
 BuildRequires: pkgconfig(x11) pkgconfig(xproto)
 BuildRequires: cmake(KF5AkonadiContact)
 BuildRequires: cmake(KF5GrantleeTheme)
+BuildRequires: cmake(KSaneCore)
 %if 0%{?qt5_qtwebengine_arches:1}
 %ifarch %{?qt5_qtwebengine_arches}
 %global qwebengine 1
@@ -80,10 +81,6 @@ BuildRequires: kf5-solid-devel
 BuildRequires: kf5-kitemviews-devel
 BuildRequires: kf5-kbookmarks-devel
 BuildRequires: kf5-rpm-macros
-
-BuildRequires: cmake(KF5GrantleeTheme)
-BuildRequires: cmake(KF5AkonadiContact)
-BuildRequires: cmake(KSaneCore)
 
 ## not actually checked-for or used -- rex
 ## rely on explicit cmake build options instead
