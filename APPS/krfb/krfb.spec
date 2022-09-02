@@ -1,7 +1,7 @@
 Name:    krfb
 Summary: Desktop sharing
 Version: 22.08.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+ and GFDL
 URL:     https://www.kde.org/applications/system/krfb/
@@ -51,6 +51,8 @@ BuildRequires: pkgconfig(xcb-shm)
 BuildRequires: pkgconfig(xcb-xfixes)
 BuildRequires: pkgconfig(xdamage)
 BuildRequires: pkgconfig(wayland-client)
+BuildRequires: pkgconfig(gbm)
+BuildRequires: pkgconfig(epoxy)
 
 BuildRequires: pkgconfig(xtst)
 BuildRequires: libjpeg-devel
@@ -119,6 +121,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.virt
 
 
 %changelog
+* Fri Sep 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-2
+- BR: pkgconfig(gbm), pkgconfig(epoxy)
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 
