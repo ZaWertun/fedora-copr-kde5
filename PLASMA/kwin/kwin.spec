@@ -16,7 +16,7 @@
 %endif
 
 Name:    kwin
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -38,6 +38,8 @@ URL:     https://userbase.kde.org/KWin
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
 
@@ -46,6 +48,7 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 ## proposed patches
 
 # Base
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  systemd-rpm-macros
@@ -255,6 +258,7 @@ BuildArch:      noarch
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 sed -i \
@@ -393,6 +397,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

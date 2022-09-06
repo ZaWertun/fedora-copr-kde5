@@ -1,5 +1,5 @@
 Name:    breeze-gtk
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 Summary: Breeze widget theme for GTK
 
@@ -13,11 +13,14 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstreamable patches
 
 BuildArch:      noarch
 
+BuildRequires:  gnupg2
 BuildRequires:  gtk2-engines
 BuildRequires:  plasma-breeze-devel >= 5.20.2-2
 BuildRequires:  python2-cairo-devel
@@ -69,6 +72,7 @@ Supplements:    (plasma-breeze and gtk4)
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1 -n %{name}-%{version}
 
 
@@ -108,6 +112,9 @@ Supplements:    (plasma-breeze and gtk4)
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

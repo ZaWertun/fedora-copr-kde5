@@ -2,7 +2,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -15,6 +15,8 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
 
@@ -23,6 +25,7 @@ Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
 
+BuildRequires:  gnupg2
 BuildRequires:  gettext
 
 BuildRequires:  kf5-rpm-macros
@@ -196,6 +199,7 @@ Requires:       NetworkManager-iodine
 %endif
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -305,6 +309,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

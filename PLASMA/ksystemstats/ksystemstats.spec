@@ -1,5 +1,5 @@
 Name:    ksystemstats
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 Summary: KSystemStats is a daemon that collects statistics about the running system.
 
@@ -16,7 +16,10 @@ URL:     https://invent.kde.org/plasma/%{name}
 %endif
 
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
 BuildRequires: libksysguard-devel >= %{majmin}
@@ -54,6 +57,7 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version}
 
 
@@ -86,6 +90,9 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

@@ -2,7 +2,7 @@
 
 Name:    plasma-drkonqi
 Summary: DrKonqi crash handler for KF5/Plasma5
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -15,11 +15,14 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz.sig
+Source2:        https://jriddell.org/esk-riddell.gpg
 
 ## upstreamable Patches
 # dnf debuginfo-install
 Patch52:        drkonqi-installdbgsymbols.patch
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
@@ -57,6 +60,7 @@ Requires(post): policycoreutils
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q -n %{base_name}-%{version}
 
 %patch52 -p1 -b .installdgbsymbols
@@ -94,6 +98,9 @@ fi
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

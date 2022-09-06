@@ -12,7 +12,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -27,6 +27,8 @@ URL:     https://invent.kde.org/plasma/discover
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{verdir}/%{base_name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## override some defaults, namely to enable offline updates
 Source10: discoverrc
@@ -48,6 +50,7 @@ Patch200: discover-5.21.4-pk_refresh_force.patch
 
 ## upstreamable patches
 
+BuildRequires: gnupg2
 BuildRequires: appstream-qt-devel >= 0.11.1
 BuildRequires: appstream-devel
 BuildRequires: flatpak-devel >= %{flatpak_version}
@@ -190,6 +193,7 @@ in %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{base_name}-%{version} -p1
 
 
@@ -300,6 +304,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

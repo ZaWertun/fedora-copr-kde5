@@ -1,7 +1,7 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.25.4
-Release: 2%{?dist}
+Version: 5.25.5
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -13,7 +13,10 @@ URL:     https://invent.kde.org/plasma/%{name}
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 # kf5 required
@@ -91,6 +94,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version} -p1
 
 
@@ -149,6 +153,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Sun Aug 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-2
 - rebuild
 

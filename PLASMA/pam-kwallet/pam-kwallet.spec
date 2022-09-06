@@ -2,7 +2,7 @@
 
 Name:    pam-kwallet
 Summary: PAM module for KWallet
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -15,11 +15,14 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
 
 Provides: %{base_name} = %{version}-%{release}
 
+BuildRequires: gnupg2
 BuildRequires: systemd-rpm-macros
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -47,6 +50,7 @@ Requires: kf5-kwallet
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n kwallet-pam-%{version} -p1
 
 
@@ -75,6 +79,9 @@ Requires: kf5-kwallet
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

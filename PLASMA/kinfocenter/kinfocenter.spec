@@ -1,6 +1,6 @@
 Name:    kinfocenter
-Version: 5.25.4
-Release: 3%{?dist}
+Version: 5.25.5
+Release: 1%{?dist}
 Summary: KDE Info Center
 
 License: GPLv2+ and LGPLv2+
@@ -13,9 +13,12 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
 
+BuildRequires:  gnupg2
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtscript-devel
 
@@ -80,6 +83,7 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -127,6 +131,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Thu Aug 04 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-3
 - Requires: kf5-kirigami2, plasma-systemsettings; BuildRequires: libusb-devel
 

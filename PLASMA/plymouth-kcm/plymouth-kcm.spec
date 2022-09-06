@@ -2,7 +2,7 @@
 
 Name:    plymouth-kcm
 Summary: Plymouth configuration module for systemsettings
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -15,6 +15,8 @@ URL:     https://invent.kde.org/plasma/%{base_name}
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz.sig
+Source2:        https://jriddell.org/esk-riddell.gpg
 
 ## FIXME/TODO: document why this patch is needed, ideally work to make upstreamable
 Patch1:         0001-fedora.patch
@@ -22,6 +24,7 @@ Patch1:         0001-fedora.patch
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  desktop-file-utils
 BuildRequires:  kf5-rpm-macros
@@ -47,6 +50,7 @@ plymouth splash screen.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{base_name}-%{version} -p1
 
 
@@ -78,6 +82,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_plymouth.desktop
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

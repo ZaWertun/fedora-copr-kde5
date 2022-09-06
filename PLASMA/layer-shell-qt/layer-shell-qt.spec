@@ -1,5 +1,5 @@
 Name:    layer-shell-qt
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 Summary: Library to easily use clients based on wlr-layer-shell
 
@@ -13,7 +13,10 @@ URL:     https://invent.kde.org/plasma/%{name}
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
+BuildRequires: gnupg2
 BuildRequires: extra-cmake-modules >= 5.82
 
 BuildRequires: qt5-qtbase-devel
@@ -43,6 +46,7 @@ Requires: cmake(Qt5Gui) >= 5.15.0
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup
 
 
@@ -68,6 +72,9 @@ Requires: cmake(Qt5Gui) >= 5.15.0
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

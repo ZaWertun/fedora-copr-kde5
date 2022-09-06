@@ -15,7 +15,10 @@ URL:     https://invent.kde.org/plasma/%{name}
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/%{name}/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/%{name}/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
 
@@ -70,6 +73,7 @@ Conflicts: %{name} < 5.21.1-2
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup
 
 

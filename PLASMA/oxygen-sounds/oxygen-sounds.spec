@@ -1,7 +1,7 @@
 %global kf5_version_min 5.94.0
 
 Name:           oxygen-sounds
-Version:        5.25.4
+Version:        5.25.5
 Release:        %autorelease
 Summary:        The Oxygen Sound Theme
 
@@ -18,10 +18,13 @@ URL:            https://invent.kde.org/plasma/oxygen-sounds
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.tar.xz.sig
+Source2:        https://jriddell.org/esk-riddell.gpg
 
 Provides:       oxygen-sound-theme = %{version}-%{release}
 Obsoletes:      oxygen-sound-theme <= 5.24.50
 
+BuildRequires:  gnupg2
 BuildRequires:  cmake
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros >= %{kf5_version_min}
@@ -34,6 +37,7 @@ BuildArch:      noarch
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup
 
 %build

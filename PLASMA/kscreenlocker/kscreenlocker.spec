@@ -1,5 +1,5 @@
 Name:    kscreenlocker
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 Summary: Library and components for secure lock screen architecture
 
@@ -14,12 +14,15 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%(echo %{version} |cut -d. -f1-3).tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%(echo %{version} |cut -d. -f1-3).tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 # help upgrades, split from plasma-workspace since 5.5
 Conflicts: plasma-workspace < 5.5
 
 ## upstream patches
 
+BuildRequires:  gnupg2
 BuildRequires:  perl-generators
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
@@ -64,6 +67,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{plasmaver} -p1
 
 
@@ -101,6 +105,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

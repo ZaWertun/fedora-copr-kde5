@@ -8,7 +8,7 @@
 %endif
 
 Name:    plasma-firewall
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 Summary: Control Panel for your system firewall
 
@@ -25,7 +25,10 @@ URL:     https://invent.kde.org/plasma/%{name}
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
+BuildRequires: gnupg2
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: cmake
@@ -79,6 +82,7 @@ to interface with the Uncomplicated Firewall (UFW).
 %endif
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version} -p1
 
 %build
@@ -126,6 +130,9 @@ rm -rfv %{buildroot}%{_datadir}/polkit-1/actions/org.kde.ufw.policy
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

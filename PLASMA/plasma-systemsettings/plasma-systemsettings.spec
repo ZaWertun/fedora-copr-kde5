@@ -2,7 +2,7 @@
 
 Name:    plasma-%{base_name}
 Summary: KDE System Settings application
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -18,7 +18,10 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %endif
 %global dir_version %(echo %{version} |cut -d. -f1-3)
 Source0: http://download.kde.org/%{stable}/plasma/%{dir_version}/%{base_name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{dir_version}/%{base_name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 
 BuildRequires: extra-cmake-modules
@@ -72,6 +75,7 @@ Conflicts: kde-workspace < 5.0
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{base_name}-%{version} -p1
 
 
@@ -111,6 +115,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

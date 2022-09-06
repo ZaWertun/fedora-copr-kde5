@@ -1,5 +1,5 @@
 Name:    qqc2-breeze-style
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 Summary: Breeze inspired QQC2 Style
 
@@ -14,9 +14,12 @@ URL:     https://invent.kde.org/plasma/%{name}
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
 
+BuildRequires: gnupg2
 BuildRequires: extra-cmake-modules >= %{majmin}
 BuildRequires: kf5-rpm-macros
 
@@ -46,6 +49,7 @@ QQC2-Desktop-Style, it does not depend on Qt Widgets and the system QStyle.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version} -p1
 
 
@@ -69,6 +73,9 @@ QQC2-Desktop-Style, it does not depend on Qt Widgets and the system QStyle.
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

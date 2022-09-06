@@ -3,14 +3,17 @@
 
 Name:    plasma-systemmonitor
 Summary: New version of KSysGuard built on top of the new KStats daemon
-Version: 5.25.4
+Version: 5.25.5
 Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
 
 Source0: https://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  desktop-file-utils
 BuildRequires:  extra-cmake-modules
@@ -42,6 +45,7 @@ for its UI.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -86,6 +90,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/plasma/kinfocenter/externalmod
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 

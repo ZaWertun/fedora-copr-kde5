@@ -9,8 +9,8 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.25.4
-Release: 2%{?dist}
+Version: 5.25.5
+Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
 URL:     https://invent.kde.org/plasma/%{name}
@@ -25,6 +25,8 @@ URL:     https://invent.kde.org/plasma/%{name}
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{verdir}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
 
@@ -43,6 +45,7 @@ Source200: synaptics-properties.h
 # filter qmk/plugins provides
 %global __provides_exclude_from ^(%{_kf5_qmldir}/.*\\.so|%{_kf5_qtplugindir}/.*\\.so)$
 
+BuildRequires:  gnupg2
 BuildRequires:  pkgconfig(libusb-1.0)
 BuildRequires:  fontconfig-devel
 BuildRequires:  libX11-devel
@@ -218,6 +221,7 @@ BuildArch: noarch
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q
 
 ## upstream patches
@@ -352,6 +356,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Fri Aug 19 2022 Christian Tosta <devel@cpuhouse.com.br> - 5.25.4-2
 - Split IBus and Emojier packages
 

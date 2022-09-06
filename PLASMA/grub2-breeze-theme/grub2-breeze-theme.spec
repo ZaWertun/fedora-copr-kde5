@@ -1,7 +1,7 @@
 %global         base_name breeze-grub
 
 Name:     grub2-breeze-theme
-Version:  5.25.4
+Version:  5.25.5
 Release:  1%{?dist}
 Summary:  Breeze theme for GRUB
 
@@ -15,8 +15,12 @@ URL:      https://cgit.kde.org/%{base_name}.git
 %global stable stable
 %endif
 Source0:  http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
+Source1:  http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz.sig
+Source2:  https://jriddell.org/esk-riddell.gpg
 
 Source10: README.fedora
+
+BuildRequires: gnupg2
 
 # matches grub2 pkg archs
 ExcludeArch:    s390 s390x %{arm}
@@ -39,6 +43,7 @@ Provides: %{base_name} = %{version}-%{release}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{base_name}-%{version} -p1
 
 install -m644 -p %{SOURCE10} .
@@ -60,6 +65,9 @@ cp -r breeze %{buildroot}%{_grubthemedir}
 
 
 %changelog
+* Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
+- 5.25.5
+
 * Tue Aug 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.4-1
 - 5.25.4
 
