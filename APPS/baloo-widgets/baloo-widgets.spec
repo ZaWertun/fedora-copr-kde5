@@ -1,6 +1,6 @@
 Name:    baloo-widgets
 Summary: Widgets for Baloo
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
@@ -14,6 +14,8 @@ URL:     https://cgit.kde.org/%{name}.git/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 # translations moved here
 Conflicts: kde-l10n < 17.04.0-2
@@ -21,6 +23,7 @@ Conflicts: kde-l10n < 17.04.0-2
 Provides: kf5-baloo-widgets = %{version}-%{release}
 Provides: kf5-baloo-widgets%{?_isa} = %{version}-%{release}
 
+BuildRequires:  gnupg2
 BuildRequires:  cmake(Qt5Widgets)
 BuildRequires:  cmake(Qt5Test)
 
@@ -48,6 +51,7 @@ Requires: kf5-kio-devel
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup
 
 
@@ -79,6 +83,9 @@ Requires: kf5-kio-devel
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

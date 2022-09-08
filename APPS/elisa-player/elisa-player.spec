@@ -1,5 +1,5 @@
 Name:       elisa-player
-Version:    22.08.0
+Version:    22.08.1
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -15,12 +15,15 @@ URL:        https://community.kde.org/Elisa
 %global stable stable
 %endif
 Source0:    https://download.kde.org/%{stable}/release-service/%{version}/src/elisa-%{version}.tar.xz
+Source1:    https://download.kde.org/%{stable}/release-service/%{version}/src/elisa-%{version}.tar.xz.sig
+Source2:    gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 # Build tarball with translations.
 # git clone https://anongit.kde.org/releaseme.git
 # cd releaseme
 # RELEASEME_READONLY=1 ./tarme.rb --version 20.03.90 --origin trunk elisa
 # Source0:    elisa-%{version}.tar.xz
 
+BuildRequires:  gnupg2
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  extra-cmake-modules
@@ -65,6 +68,7 @@ users.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n elisa-%{version} -p1
 
 
@@ -96,6 +100,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

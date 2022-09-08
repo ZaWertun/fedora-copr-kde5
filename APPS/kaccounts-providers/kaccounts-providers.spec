@@ -1,5 +1,5 @@
 Name:    kaccounts-providers
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
@@ -12,7 +12,10 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  intltool
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -35,6 +38,7 @@ Obsoletes: kaccounts-providers < 15.12.0
 %{summary}.
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -68,6 +72,9 @@ Obsoletes: kaccounts-providers < 15.12.0
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

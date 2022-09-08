@@ -11,19 +11,22 @@
 %endif
 
 Name:           zanshin
-Version:        22.08.0
+Version:        22.08.1
 Release:        1%{?dist}
 Summary:        Todo/action management software
 
 License:        GPLv2
 URL:            http://zanshin.kde.org/
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
 
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  gettext
 BuildRequires:  intltool
@@ -75,6 +78,7 @@ BuildArch: noarch
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -119,6 +123,9 @@ time \
 %{_kf5_qtplugindir}/pim5/kontact/kontact_zanshinplugin.so
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

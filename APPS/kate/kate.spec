@@ -10,8 +10,8 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 22.08.0
-Release: 2%{?dist}
+Version: 22.08.1
+Release: 1%{?dist}
 
 # kwrite LGPLv2+
 # kate: app LGPLv2, plugins, LGPLv2 and LGPLv2+ and GPLv2+
@@ -26,9 +26,12 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/kate-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/kate-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
 BuildRequires: pkgconfig(x11)
@@ -109,6 +112,7 @@ Conflicts: kde-l10n < 17.03
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -200,6 +204,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Sun Aug 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-2
 - libkateprivate.so moved to separate package
 

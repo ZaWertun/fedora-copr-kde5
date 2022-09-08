@@ -2,7 +2,7 @@
 
 Name:    ktp-kded-integration-module
 Summary: KDE integration for telepathy
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -15,6 +15,8 @@ URL:     https://cgit.kde.org/%{module}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/stable/release-service/%{version}/src/%{module}-%{version}.tar.xz
+Source1: http://download.kde.org/stable/release-service/%{version}/src/%{module}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 # due to kaccounts-providers
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
@@ -22,6 +24,7 @@ Source0: http://download.kde.org/stable/release-service/%{version}/src/%{module}
 
 ## upstream patches
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  gettext
 BuildRequires:  kf5-rpm-macros
@@ -56,6 +59,7 @@ integration like setting user to auto-away or handling connection errors.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{module}-%{version} -p1
 
 
@@ -79,6 +83,9 @@ integration like setting user to auto-away or handling connection errors.
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

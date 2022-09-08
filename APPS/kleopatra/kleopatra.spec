@@ -1,5 +1,5 @@
 Name:    kleopatra
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -16,6 +16,8 @@ URL:     http://projects.kde.org/?p=%{name}.git
 %global stable stable
 %endif
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstreamable patches
 
@@ -23,6 +25,7 @@ Source0:        https://download.kde.org/%{stable}/release-service/%{version}/sr
 # Reverting https://invent.kde.org/pim/kleopatra/-/commit/b9d9cd3ab15d1c7f5e97b80a5f19ffde2448c4cb
 Patch0:         kleopatra-22.08.0-reverse-require-GpgME-version-1.16.0.patch
 
+BuildRequires:  gnupg2
 BuildRequires:  boost-devel
 BuildRequires:  extra-cmake-modules >= 5.23.0
 BuildRequires:  kf5-rpm-macros >= 5.23.0
@@ -64,6 +67,7 @@ Requires:       %{name} = %{version}-%{release}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q
 
 %if 0%{fedora} == 36
@@ -112,6 +116,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

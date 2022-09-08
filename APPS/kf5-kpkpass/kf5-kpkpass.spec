@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 Summary: Library to deal with Apple Wallet pass files
 
@@ -22,7 +22,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 
@@ -31,6 +34,9 @@ BuildRequires:  cmake(KF5Archive)
 BuildRequires:  qt5-qtbase-devel
 
 BuildRequires:  pkgconfig(shared-mime-info)
+%if "%(pkg-config --modversion shared-mime-info 2> /dev/null || echo 2.1)" < "2.2"
+%global mime 1
+%endif
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -49,6 +55,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
 
 
@@ -80,7 +87,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 %doc README.md
 %{_kf5_libdir}/libKPimPkPass.so.5*
 %{_kf5_datadir}/qlogging-categories5/*.categories
+%if 0%{?mime}
 %{_datadir}/mime/packages/application-vnd-apple-pkpass.xml
+%endif
 
 
 %files devel
@@ -90,6 +99,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

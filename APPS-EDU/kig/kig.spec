@@ -3,7 +3,7 @@
 
 Name:    kig
 Summary: Interactive Geometry
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -16,6 +16,8 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstreamable patches
 # https://bugzilla.redhat.com/show_bug.cgi?id=1238113
@@ -23,6 +25,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 # https://git.reviewboard.kde.org/r/126549/
 Patch1: 0001-explicitly-use-QLibrary-to-load-libpython-like-pykde.patch
 
+BuildRequires: gnupg2
 BuildRequires: boost-devel
 BuildRequires: boost-python3-devel
 BuildRequires: python3
@@ -60,6 +63,7 @@ Conflicts: kdeedu-math < 4.7.0-10
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 sed -ie "s|^#!/usr/bin/env python3|#!%{__python3}|" pykig/pykig.py
@@ -103,6 +107,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

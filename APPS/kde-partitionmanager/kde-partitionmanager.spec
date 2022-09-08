@@ -1,18 +1,15 @@
-%global unstable 0
-
 Name:           kde-partitionmanager
-Version:        22.08.0
+Version:        22.08.1
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
 License:        GPLv3+
 URL:            https://invent.kde.org/system/partitionmanager
-%if 0%{?unstable}
-Source0:        http://download.kde.org/unstable/release-service/%{version}/src/partitionmanager-%{version}.tar.xz
-%else
 Source0:        http://download.kde.org/stable/release-service/%{version}/src/partitionmanager-%{version}.tar.xz
-%endif
+Source1:        http://download.kde.org/stable/release-service/%{version}/src/partitionmanager-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  cmake
 BuildRequires:  desktop-file-utils
 BuildRequires:  extra-cmake-modules
@@ -57,6 +54,7 @@ manipulate filesystems.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1 -n partitionmanager-%{version}
 
 
@@ -90,6 +88,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

@@ -1,17 +1,16 @@
 %global unstable 0
 
 Name:           kpmcore
-Version:        22.08.0
+Version:        22.08.1
 Release:        1%{?dist}
 Summary:        Library for managing partitions by KDE programs
 License:        GPLv3+
 URL:            https://invent.kde.org/system/kpmcore
-%if 0%{?unstable}
-Source0:        http://download.kde.org/unstable/release-service/%{version}/src/%{name}-%{version}.tar.xz
-%else
 Source0:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
-%endif
+Source1:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  cmake
 BuildRequires:  extra-cmake-modules
 BuildRequires:  gettext
@@ -58,6 +57,7 @@ developing applications that use %{name}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 %build
@@ -88,6 +88,9 @@ sed -i 's|set(BLKID_MIN_VERSION "2.33.2")|set(BLKID_MIN_VERSION "2.32.1")|' CMak
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

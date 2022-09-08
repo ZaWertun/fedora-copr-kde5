@@ -1,10 +1,12 @@
 Name:       kdevelop-python
-Version:    22.08.0
+Version:    22.08.1
 %global py3_suffix -py3
 %global py3_tag .py3
 Release:    1%{?dist}
 License:    GPLv2
 Source0:    http://download.kde.org/stable/release-service/%{version}/src/kdev-python-%{version}.tar.xz
+Source1:    http://download.kde.org/stable/release-service/%{version}/src/kdev-python-%{version}.tar.xz.sig
+Source2:    gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## kdevelop-pg-qt FTBFS s390x
 ExcludeArch: s390x
@@ -24,6 +26,7 @@ Patch2:     kdev-python_async.patch
 Summary:    Python 3 Plugin for KDevelop
 URL:        https://www.kdevelop.org/
 
+BuildRequires:  gnupg2
 BuildRequires:  kdevelop-devel >= %{version}
 # Can't be built with python3 >= 3.10, see: https://bugzilla.redhat.com/show_bug.cgi?id=1898116#c12
 BuildRequires:  python3.9
@@ -56,6 +59,7 @@ Python 3 language support for the KDevelop Integrated Development Environment.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -qn kdev-python-%{version}
 
 # don't use backups because CMakeLists.txt installs the whole directory
@@ -96,6 +100,9 @@ rm -f %{buildroot}%{_datadir}/kdevpythonsupport/documentation_files/PyKDE4/parse
 %{_datadir}/metainfo/org.kde.kdev-python.metainfo.xml
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

@@ -10,7 +10,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -24,6 +24,8 @@ URL:     https://konqueror.org/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
 
@@ -40,6 +42,7 @@ Patch101: konqueror-18.12.2-preloaded.patch
 # https://bugs.kde.org/show_bug.cgi?id=401976
 Patch200: konqueror-21.04.0-webenginepart_priority.patch
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 
 BuildRequires: extra-cmake-modules
@@ -123,6 +126,7 @@ browsing the web in Konqueror.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -243,6 +247,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

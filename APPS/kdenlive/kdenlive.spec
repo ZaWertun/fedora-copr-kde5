@@ -3,7 +3,7 @@
 
 Name:    kdenlive
 Summary: Non-linear video editor
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -15,7 +15,9 @@ URL:     http://www.kdenlive.org
 %global stable stable
 %endif
 Source0:   https://download.kde.org/%{stable}/release-service/%{version}/src/kdenlive-%{version}.tar.xz
-Source1:   https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
+Source1:   https://download.kde.org/%{stable}/release-service/%{version}/src/kdenlive-%{version}.tar.xz.sig
+Source2:   gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source3:   https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Source100: kdenlive-find-lang.sh
 
 Patch1:   rttr_cmakelists.patch
@@ -30,6 +32,7 @@ Patch100: kdenlive-21.08.0-mlt_melt.patch
 %global find_lang %{_sourcedir}/kdenlive-find-lang.sh %{buildroot}
 %endif
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: gettext
@@ -95,12 +98,13 @@ recent video technologies.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
 %build
 mkdir -p %{__cmake_builddir}/rttr/src
-cp -v %{SOURCE1} %{__cmake_builddir}/rttr/src
+cp -v %{SOURCE3} %{__cmake_builddir}/rttr/src
 %cmake_kf5 \
   -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 %cmake_build
@@ -168,6 +172,9 @@ fi
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

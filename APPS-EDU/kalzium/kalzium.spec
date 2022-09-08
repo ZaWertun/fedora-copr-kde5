@@ -15,7 +15,7 @@
 
 Name:    kalzium
 Summary: Periodic Table of Elements
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -28,10 +28,13 @@ URL:     https://edu.kde.org/kalzium/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
 
 %if ! 0%{?bootstrap}
+BuildRequires: gnupg2
 BuildRequires: libappstream-glib
 BuildRequires: chemical-mime-data
 BuildRequires: desktop-file-utils
@@ -103,6 +106,7 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -158,6 +162,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kalzium_c
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

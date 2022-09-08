@@ -1,6 +1,6 @@
 Name:    ktp-contact-runner
 Summary: Plasma runner for KDE Telepathy
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv3+
@@ -13,11 +13,14 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 # due to kaccounts-providers
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
@@ -34,6 +37,7 @@ BuildRequires:  ktp-common-internals-devel >= %{majmin_ver}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -54,6 +58,9 @@ BuildRequires:  ktp-common-internals-devel >= %{majmin_ver}
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

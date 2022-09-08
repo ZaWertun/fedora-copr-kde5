@@ -1,6 +1,6 @@
 Name:    kgeography
 Summary: Geography Trainer 
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -13,7 +13,10 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires: gnupg2
 BuildRequires: cmake(KF5Crash)
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
@@ -50,6 +53,7 @@ Conflicts: kdeedu < 4.7.0-10
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q
 
 
@@ -89,6 +93,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

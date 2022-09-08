@@ -1,7 +1,7 @@
 %global framework libkcddb
 
 Name:    kf5-%{framework}
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 Summary: CDDB retrieval library
 
@@ -15,7 +15,10 @@ URL:     https://www.kde.org/applications/multimedia/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires: gnupg2
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
 BuildRequires: cmake(KF5Config)
@@ -59,6 +62,7 @@ Documentation for %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
 
 
@@ -104,6 +108,9 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

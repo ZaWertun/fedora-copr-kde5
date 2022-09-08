@@ -7,7 +7,7 @@
 
 Name:    kwalletmanager5
 Summary: Manage KDE passwords
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -20,11 +20,14 @@ URL:     https://cgit.kde.org/%{base_name}.git
 %global stable stable
 %endif
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{base_name}-%{version}.tar.xz
+Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{base_name}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstreamable patches
 # better/sane defaults (no autoclose mostly)
 Patch1: kwalletmanager-15.12.1-defaults.patch
 
+BuildRequires:  gnupg2
 BuildRequires:  desktop-file-utils
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-kauth-devel
@@ -56,6 +59,7 @@ KDE Wallet Manager is a tool to manage the passwords on your KDE system.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{base_name}-%{version} -p1
 
 
@@ -93,6 +97,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

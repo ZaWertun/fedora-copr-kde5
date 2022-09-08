@@ -1,6 +1,6 @@
 Name:    ksystemlog
 Summary: System Log Viewer for KDE
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -12,6 +12,8 @@ URL:     http://www.kde.org/applications/system/ksystemlog/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstreamable patches
 
@@ -19,6 +21,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 # fix ksystemlog to find log files in fedora locations
 Patch1: ksystemlog-21.04.0-fedora.patch
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -51,6 +54,7 @@ and less commands.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version} -p1
 
 
@@ -78,6 +82,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

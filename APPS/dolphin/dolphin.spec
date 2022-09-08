@@ -7,7 +7,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -20,9 +20,12 @@ URL:     https://cgit.kde.org/%{name}.git/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{majmin_ver}.%{revision}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{majmin_ver}.%{revision}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
 
+BuildRequires:  gnupg2
 BuildRequires:  systemd-rpm-macros
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qtbase-devel
@@ -91,6 +94,7 @@ Requires:       kf5-kio-devel%{?_isa}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version} -p1
 
 
@@ -160,6 +164,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

@@ -1,6 +1,6 @@
 Name:    kfloppy
 Summary: Floppy formatting tool 
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -14,7 +14,10 @@ URL:     http://utils.kde.org/projects/%{name}
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: kf5-rpm-macros
@@ -41,6 +44,7 @@ to format 3.5" and 5.25" floppy disks.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup
 
 
@@ -70,6 +74,9 @@ desktop-file-validate %{buildroot}%{_kde4_datadir}/applications/org.kde.kfloppy.
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

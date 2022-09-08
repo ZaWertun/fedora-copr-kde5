@@ -1,7 +1,7 @@
 %global framework ksmtp 
 
 Name:    kf5-%{framework}
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 Summary: KDE SMTP libraries
 
@@ -15,12 +15,15 @@ URL:     https://cgit.kde.org/%{framework}.git/
 %global stable stable
 %endif
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
+Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
 
 ## upstreamable patches
 
 %global kf5_ver 5.29
+BuildRequires: gnupg2
 BuildRequires: extra-cmake-modules >= %{kf5_ver}
 BuildRequires: cmake(KF5CoreAddons)
 BuildRequires: cmake(KF5I18n)
@@ -52,6 +55,7 @@ Requires:       kf5-kmime-devel >= %{version}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
 
 
@@ -82,6 +86,9 @@ Requires:       kf5-kmime-devel >= %{version}
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

@@ -7,7 +7,7 @@
 
 Name:    pim-sieve-editor
 Summary: Sieve Editor
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -21,10 +21,13 @@ URL:     https://docs.kde.org/trunk5/en/pim/sieveeditor/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
+BuildRequires: gnupg2
 BuildRequires: boost-devel
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
@@ -68,6 +71,7 @@ Sieve Editor is an editor for Sieve scripts used for email filtering
 on a mail server.
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version} -p1
 
 
@@ -106,6 +110,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

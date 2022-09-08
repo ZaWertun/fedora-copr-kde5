@@ -4,7 +4,7 @@
 %endif
 
 Name:    kdepim-addons
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -18,6 +18,8 @@ URL:     https://cgit.kde.org/%{name}.git/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
 
@@ -26,6 +28,7 @@ Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= 5.39.0
 BuildRequires:  kf5-rpm-macros
 
@@ -103,6 +106,7 @@ Supplements:    korganizer
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{name}-%{version} -p1
 
 
@@ -255,6 +259,9 @@ sed -i 's|find_package(Gpgmepp 1.16.0 CONFIG)|find_package(Gpgmepp 1.15.0 CONFIG
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

@@ -7,7 +7,7 @@
 
 Name:    analitza
 Summary: Library of mathematical features
-Version: 22.08.0
+Version: 22.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -20,7 +20,10 @@ URL:     https://cgit.kde.org/%{name}.git
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires: gnupg2
 BuildRequires: extra-cmake-modules >= 1.3
 BuildRequires: kf5-rpm-macros
 BuildRequires: pkgconfig(eigen3)
@@ -52,6 +55,7 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q
 
 
@@ -98,6 +102,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 

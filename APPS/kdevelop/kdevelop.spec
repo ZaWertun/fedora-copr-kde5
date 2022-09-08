@@ -1,11 +1,13 @@
 Name:           kdevelop
 Summary:        Integrated Development Environment for C++/C
 Epoch:          9
-Version:        22.08.0
+Version:        22.08.1
 Release:        1%{?dist}
 License:        GPLv2
 URL:            http://www.kdevelop.org/
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## kdevelop-pg-qt FTBFS s390x
 ExcludeArch: s390x
@@ -18,6 +20,7 @@ Patch0:         kdevelop-5.2.3-qmake.patch
 
 # upstream patches
 
+BuildRequires:  gnupg2
 BuildRequires:  gcc-c++ gcc
 BuildRequires:  boost-devel
 BuildRequires:  desktop-file-utils
@@ -142,6 +145,7 @@ Obsoletes: kdevplatform-libs < 5.1.80-1
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q -n kdevelop-%{version}
 %patch0 -p1 -b .qmake
 
@@ -229,6 +233,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kdevelop.desk
 %{rpm_macros_dir}/macros.kdevelop
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 9:22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 9:22.08.0-1
 - 22.08.0
 

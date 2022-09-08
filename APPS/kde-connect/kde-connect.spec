@@ -4,7 +4,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        22.08.0
+Version:        22.08.1
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -20,10 +20,13 @@ Url:            https://community.kde.org/KDEConnect
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/release-service/%{version}/src/%{module}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/release-service/%{version}/src/%{module}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 # firewalld service definition, see https://bugzilla.redhat.com/show_bug.cgi?id=1257699#c2
-Source2:        kde-connect.xml
+Source3:        kde-connect.xml
 
+BuildRequires:  gnupg2
 BuildRequires:  desktop-file-utils
 BuildRequires:  firewalld-filesystem
 BuildRequires:  libappstream-glib
@@ -125,6 +128,7 @@ Supplements: (kdeconnectd and nautilus)
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{module}-%{version} -p1
 
 
@@ -139,7 +143,7 @@ Supplements: (kdeconnectd and nautilus)
 
 # firewalld as shipped in f31+ provides it's own kdeconnect.xml
 %if 0%{?fedora} && 0%{?fedora} < 31
-install -m644 -p -D %{SOURCE2} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
+install -m644 -p -D %{SOURCE3} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 %endif
 
 %find_lang %{name} --all-name --with-html
@@ -213,6 +217,9 @@ fi
 
 
 %changelog
+* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
+- 22.08.1
+
 * Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
 - 22.08.0
 
