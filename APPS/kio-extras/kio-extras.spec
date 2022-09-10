@@ -7,7 +7,7 @@
 
 Name:    kio-extras
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
 License: GPLv2+
@@ -26,6 +26,8 @@ Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 ## upstramable patches
 
 ## upstream patches
+# https://bugs.kde.org/show_bug.cgi?id=453090
+Patch0:  kio-extras-22.08.1-check-error-code-EINVAL-to-prompt-password-dialog.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -222,6 +224,10 @@ time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||
 
 
 %changelog
+* Sat Sep 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- added
+  kio-extras-22.08.1-check-error-code-EINVAL-to-prompt-password-dialog.patch
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 
