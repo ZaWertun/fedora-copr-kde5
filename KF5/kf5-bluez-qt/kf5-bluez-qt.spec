@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A Qt wrapper for Bluez
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 
 License:        LGPLv2+
@@ -16,7 +16,10 @@ URL:            https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{framework}-%{version}.tar.xz.sig
+Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{version}
 BuildRequires:  kf5-rpm-macros >= %{version}
 BuildRequires:  qt5-qtbase-devel
@@ -53,6 +56,7 @@ Development files for %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version}
 
 
@@ -85,6 +89,9 @@ Development files for %{name}.
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

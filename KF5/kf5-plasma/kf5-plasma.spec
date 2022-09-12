@@ -1,7 +1,7 @@
 %global framework plasma
 
 Name:    kf5-%{framework}
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
@@ -16,6 +16,8 @@ URL:     https://invent.kde.org/frameworks/%{framework}
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-framework-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-framework-%{version}.tar.xz.sig
+Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
 # hackish cache invalidation
 # upstream has worked on this issue recently (.31 or .32?) so may consider dropping this -- rex
@@ -28,6 +30,7 @@ Source10: fedora-plasma-cache.sh.in
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kactivities-devel >= %{majmin}
 BuildRequires:  kf5-karchive-devel >= %{majmin}
@@ -98,6 +101,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1 -n %{framework}-framework-%{version}
 install -m644 -p %{SOURCE10} .
 
@@ -165,6 +169,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

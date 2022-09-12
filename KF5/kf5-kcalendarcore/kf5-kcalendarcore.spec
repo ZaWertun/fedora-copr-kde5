@@ -9,7 +9,7 @@
 
 Name:    kf5-kcalendarcore
 Epoch:   1
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 KCalendarCore Library
 
@@ -24,12 +24,15 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz.sig
+Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
 # libical (and thus kcalendarcore) not on all arches for RHEL8.
 %if 0%{?rhel} == 8
 ExclusiveArch: x86_64 ppc64le %{arm}
 %endif
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 
@@ -56,6 +59,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version}
 
 
@@ -102,6 +106,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.97.0-1
 - 5.97.0
 

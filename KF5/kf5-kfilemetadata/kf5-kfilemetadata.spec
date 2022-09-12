@@ -12,7 +12,7 @@
 
 Name:           kf5-%{framework}
 Summary:        A Tier 2 KDE Framework for extracting file metadata
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
@@ -27,10 +27,13 @@ URL:            https://cgit.kde.org/%{framework}
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz.sig
+Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_plugindir}/.*\\.so)$
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-karchive-devel >= %{majmin}
 BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
@@ -75,6 +78,7 @@ Requires:       qt5-qtbase-devel
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
 
 
@@ -114,6 +118,9 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kfilemetadata/writers/
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

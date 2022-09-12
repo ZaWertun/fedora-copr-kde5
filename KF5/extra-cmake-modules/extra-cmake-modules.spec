@@ -8,7 +8,7 @@
 
 Name:    extra-cmake-modules
 Summary: Additional modules for CMake build system
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 
 License: BSD
@@ -23,6 +23,8 @@ URL:     https://api.kde.org/ecm/
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{name}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/%{name}-%{version}.tar.xz.sig
+Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 BuildArch:      noarch
 
 ## bundle clang python bindings here, at least until they are properly packaged elsewhere, see:
@@ -43,6 +45,7 @@ Patch2: extra-cmake-modules-5.39.0-poppler_overlinking.patch
 # https://bugzilla.redhat.com/1435525
 Patch3: extra-cmake-modules-5.93.0-qt_prefix.patch
 
+BuildRequires: gnupg2
 BuildRequires: kf5-rpm-macros
 %if 0%{?docs}
 # qcollectiongenerator
@@ -75,6 +78,7 @@ Additional modules for CMake build system needed by KDE Frameworks.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1 %{?clang:-a1}
 
 
@@ -125,6 +129,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

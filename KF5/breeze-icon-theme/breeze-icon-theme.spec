@@ -6,8 +6,8 @@
 
 Name:    breeze-icon-theme
 Summary: Breeze icon theme
-Version: 5.97.0
-Release: 2%{?dist}
+Version: 5.98.0
+Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
 License: LGPLv3+
@@ -21,6 +21,8 @@ URL:     https://api.kde.org/frameworks-api/frameworks-apidocs/frameworks/breeze
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/breeze-icons-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/frameworks/%{versiondir}/breeze-icons-%{version}.tar.xz.sig
+Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
 ## upstream patches (lookaside cache)
 
@@ -29,6 +31,7 @@ Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/breeze-icons
 # must come *after* patches or %%autosetup sometimes doesn't work right -- rex
 BuildArch: noarch
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
@@ -67,6 +70,7 @@ Requires: %{name} = %{version}-%{release}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n breeze-icons-%{version} -p1
 
 %if 0%{?kf5_version:1}
@@ -154,6 +158,9 @@ fi
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Mon Aug 15 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-2
 - BR: python3-lxml
 

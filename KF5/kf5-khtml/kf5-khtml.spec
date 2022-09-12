@@ -1,7 +1,7 @@
 %global framework khtml
 
 Name:           kf5-%{framework}
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 4 solution with KHTML, a HTML rendering engine
 
@@ -16,10 +16,13 @@ URL:            https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/portingAids/%{framework}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/frameworks/%{versiondir}/portingAids/%{framework}-%{version}.tar.xz.sig
+Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_plugindir}/.*\\.so)$
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{version}
 BuildRequires:  fdupes
 BuildRequires:  giflib-devel
@@ -69,6 +72,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version}
 
 %build
@@ -105,6 +109,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

@@ -8,7 +8,7 @@
 %endif
 
 Name:           kf5-%{framework}
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 2 library to load and install packages as plugins
 
@@ -23,9 +23,12 @@ URL:            https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz.sig
+Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
 ## upstream patches
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-karchive-devel >= %{majmin}
@@ -50,6 +53,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
 
 
@@ -97,6 +101,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

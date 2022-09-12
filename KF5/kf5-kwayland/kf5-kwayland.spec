@@ -12,7 +12,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
@@ -27,10 +27,14 @@ URL:     https://cgit.kde.org/%{framework}.git
 %endif
 %global majmin %(echo %{version} | cut -d. -f1,2)
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz.sig
+Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{version}
 BuildRequires:  kf5-rpm-macros >= %{version}
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtbase-static
 # https://bugs.kde.org/show_bug.cgi?id=365569#c8 claims this is needed
 BuildRequires:  qt5-qtbase-private-devel
 %{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
@@ -64,6 +68,7 @@ developing applications that use %{name}.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
 
 
@@ -109,6 +114,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

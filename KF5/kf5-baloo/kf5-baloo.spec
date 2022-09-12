@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -26,10 +26,12 @@ URL:     https://community.kde.org/Baloo
 %global stable stable
 %endif
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz.sig
+Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
-Source1:        97-kde-baloo-filewatch-inotify.conf
+Source3:        97-kde-baloo-filewatch-inotify.conf
 # shutdown script to explictly stop baloo_file on logout
-Source2:        baloo_file_shutdown.sh
+Source4:        baloo_file_shutdown.sh
 
 ## upstreamable patches
 # http://bugzilla.redhat.com/1235026
@@ -37,6 +39,7 @@ Patch100: baloo-5.67.0-baloofile_config.patch
 
 ## upstream patches
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
@@ -113,6 +116,7 @@ License:        LGPLv2 or LGPLv3
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
 
 
@@ -128,8 +132,8 @@ License:        LGPLv2 or LGPLv3
 # baloodb not installed unless BUILD_EXPERIMENTAL is enabled, so omit translations
 rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/baloodb5.*
 
-install -p -m644 -D %{SOURCE1} %{buildroot}%{_prefix}/lib/sysctl.d/97-kde-baloo-filewatch-inotify.conf
-install -p -m755 -D %{SOURCE2} %{buildroot}%{_sysconfdir}/xdg/plasma-workspace/shutdown/baloo_file.sh
+install -p -m644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/sysctl.d/97-kde-baloo-filewatch-inotify.conf
+install -p -m755 -D %{SOURCE4} %{buildroot}%{_sysconfdir}/xdg/plasma-workspace/shutdown/baloo_file.sh
 
 %find_lang kio5_baloosearch
 %find_lang kio5_tags
@@ -204,6 +208,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

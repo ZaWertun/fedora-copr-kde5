@@ -4,7 +4,7 @@
 #global bootstrap 1
 
 Name:    kf5-%{framework}
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for Qt Designer
 
@@ -19,7 +19,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/portingAids/%{framework}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/frameworks/%{majmin}/portingAids/%{framework}-%{version}.tar.xz.sig
+Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
+BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-kconfig-devel >= %{majmin}
 BuildRequires:  kf5-kcoreaddons-devel >= %{majmin}
@@ -53,6 +56,7 @@ from ini-style description files.
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version}
 
 
@@ -86,6 +90,9 @@ cat kdesignerplugin5_qt.lang %{name}-man.lang > %{name}.lang
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
 - 5.97.0
 

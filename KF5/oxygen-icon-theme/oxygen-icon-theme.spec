@@ -12,7 +12,7 @@
 Name:    oxygen-icon-theme
 Summary: Oxygen icon theme
 Epoch:   1
-Version: 5.97.0
+Version: 5.98.0
 Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
@@ -27,6 +27,8 @@ URL:     https://techbase.kde.org/Projects/Oxygen
 %global stable stable
 %endif
 Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/oxygen-icons5-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/frameworks/%{versiondir}/oxygen-icons5-%{version}.tar.xz.sig
+Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 BuildArch: noarch
 
 # we are noarch, skip trying to find debuginfo
@@ -34,6 +36,7 @@ BuildArch: noarch
 
 ## upstreamable patches
 
+BuildRequires:  gnupg2
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  extra-cmake-modules >= %{?kf5_version}%{!?kf5_version:%{version}}
 BuildRequires:  qt5-qtbase-devel
@@ -68,6 +71,7 @@ Conflicts: kmail < 15.12.2
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n oxygen-icons5-%{version} -p1
 
 %if 0%{?kf5_version:1}
@@ -147,6 +151,9 @@ fi
 
 
 %changelog
+* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.98.0-1
+- 5.98.0
+
 * Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.97.0-1
 - 5.97.0
 
