@@ -1,7 +1,7 @@
 Name:    plasma-integration
 Summary: Qt Platform Theme integration plugin for Plasma
 Version: 5.25.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
 License: LGPLv2 or LGPLv3
@@ -18,6 +18,10 @@ URL:     https://cgit.kde.org/%{name}.git
 Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz.sig
 Source2: https://jriddell.org/esk-riddell.gpg
+
+## upstream patches
+# https://bugs.kde.org/show_bug.cgi?id=455575
+Patch0:  plasma-integration-5.25.5-bring-back-workaround-for-threaded-render-loop-not-working-on-NVIDIA-Wayland.patch
 
 BuildRequires:  gnupg2
 BuildRequires:  kf5-rpm-macros
@@ -91,6 +95,10 @@ sed -i.breeze_version \
 
 
 %changelog
+* Tue Sep 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
+- added
+  plasma-integration-5.25.5-bring-back-workaround-for-threaded-render-loop-not-working-on-NVIDIA-Wayland.patch
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 
