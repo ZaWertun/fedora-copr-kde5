@@ -3,7 +3,7 @@
 
 Name:           kf5-%{framework}
 Version: 5.98.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        KDE Frameworks 5 tier 3 solution for process launching
 
 License:        LGPLv2+ and BSD
@@ -86,7 +86,9 @@ install -p -m644 -D %{SOURCE10} \
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
 %{_kf5_bindir}/*
 %{_kf5_libdir}/libkdeinit5_klauncher.so
-%{_kf5_libexecdir}/*
+%{_kf5_libexecdir}/klauncher
+%caps(cap_sys_resource=ep) %{_kf5_libexecdir}/start_kdeinit
+%{_kf5_libexecdir}/start_kdeinit_wrapper
 %{_kf5_mandir}/man8/kdeinit5.8*
 
 %files devel
@@ -96,6 +98,9 @@ install -p -m644 -D %{SOURCE10} \
 
 
 %changelog
+* Wed Sep 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
++ %caps(cap_sys_resource=ep) for start_kdeinit
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 
