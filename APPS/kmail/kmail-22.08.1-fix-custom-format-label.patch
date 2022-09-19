@@ -1,0 +1,12 @@
+diff '--color=auto' -r -U3 kmail-22.08.1.orig/src/configuredialog/configureappearancepage.cpp kmail-22.08.1/src/configuredialog/configureappearancepage.cpp
+--- kmail-22.08.1.orig/src/configuredialog/configureappearancepage.cpp	2022-09-05 09:11:29.000000000 +0300
++++ kmail-22.08.1/src/configuredialog/configureappearancepage.cpp	2022-09-20 01:05:11.016934588 +0300
+@@ -622,7 +622,7 @@
+                               .subs(DateFormatter::formatCurrentDate(dateDisplayConfig[i].dateDisplay))
+                               .toString(); // i18n(label, DateFormatter::formatCurrentDate(dateDisplayConfig[i].dateDisplay));
+         } else {
+-            buttonLabel = i18n(label);
++            buttonLabel = KLocalizedString(dateDisplayConfig[i].displayName).toString();
+         }
+         if (dateDisplayConfig[i].dateDisplay == DateFormatter::Custom) {
+             auto hbox = new QWidget(this);

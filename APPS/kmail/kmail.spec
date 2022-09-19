@@ -8,7 +8,7 @@
 Name:    kmail
 Summary: Mail client
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -23,6 +23,8 @@ URL:     https://www.kde.org/applications/internet/kmail
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
 Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+
+Patch0:  kmail-22.08.1-fix-custom-format-label.patch
 
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
@@ -218,6 +220,9 @@ end
 
 
 %changelog
+* Mon Sep 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- added kmail-22.08.1-fix-custom-format-label.patch
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 
