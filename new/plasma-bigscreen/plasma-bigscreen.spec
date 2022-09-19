@@ -56,7 +56,10 @@ BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(wayland-scanner)
 BuildRequires: cmake(PlasmaWaylandProtocols)
 
-Requires:      kf5-plasma
+Requires:      kf5-plasma%{?_isa}
+Requires:      aura-browser%{?_isa}
+Requires:      plank-player%{?_isa}
+Requires:      plasma-remotecontrollers%{?_isa}
 
 %description
 A big launcher giving you easy access to any installed apps and skills.
