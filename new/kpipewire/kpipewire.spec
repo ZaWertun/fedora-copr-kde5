@@ -7,10 +7,21 @@ Summary: Components relating to Flatpak 'pipewire' use in Plasma
 
 License: LGPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
-Source0: https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
+%else
+%global stable stable
+%endif
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
+
+BuildRequires: gnupg2
 BuildRequires: cmake
 BuildRequires: gcc-c++
+BuildRequires: gettext
 BuildRequires: kf5-rpm-macros
 BuildRequires: extra-cmake-modules
 
@@ -45,17 +56,20 @@ BuildRequires: pkgconfig(libdrm) >= 2.4.62
 %description
 %{summary}.
 
-%package  devel
-Summary:  Development files for %{name}
-Requires: %{name}%{?_isa} = %{version}-%{release}
-
+%package   devel
+Summary:   Development files for %{name}
+Requires:  %{name}%{?_isa} = %{version}-%{release}
+Provides:  kpipewire-devel = %{version}-%{release}
+Provides:  kpipewire-devel%{?_isa} = %{version}-%{release}
+Obsoletes: kpipewire-devel <= 1:5.2.0
 %description devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
 
 %prep
-%autosetup -n %{name}-v%{version}
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
+%autosetup
 
 
 %build
@@ -65,10 +79,14 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
+%find_lang %{name} --with-qt --all-name
 
 
 %check
 %ctest
+
+
+%ldconfig_scriptlets
 
 
 %files

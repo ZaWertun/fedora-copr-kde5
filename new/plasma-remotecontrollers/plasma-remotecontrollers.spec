@@ -8,7 +8,16 @@ Summary: Multimedia Player for playing local files on Plasma Bigscreen
 
 License: BSD and GPLv2 and GPLv3
 URL:     https://invent.kde.org/plasma-bigscreen/%{name}
-Source0: https://invent.kde.org/plasma-bigscreen/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
+
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
+%else
+%global stable stable
+%endif
+Source0: https://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source2: https://jriddell.org/esk-riddell.gpg
 
 BuildRequires: cmake
 BuildRequires: gcc-c++
@@ -61,7 +70,7 @@ sed -i 's|${KDE_INSTALL_LIBDIR}/udev/rules.d|${CMAKE_INSTALL_PREFIX}/lib/udev/ru
 
 %install
 %cmake_install
-%find_lang %{name} || echo > %{name}.lang
+%find_lang %{name} --with-qt --all-name
 
 
 %check
