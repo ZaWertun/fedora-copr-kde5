@@ -23,11 +23,10 @@ BuildRequires: cmake(KF5Wayland)    >= %{kf5_min_version}
 BuildRequires: cmake(KF5I18n)       >= %{kf5_min_version}
 BuildRequires: cmake(KF5CoreAddons) >= %{kf5_min_version}
 
-BuildRequires: cmake(PlasmaWaylandProtocols)
-
 BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(wayland-scanner)
 BuildRequires: pkgconfig(libpipewire-0.3)
+BuildRequires: cmake(PlasmaWaylandProtocols)
 
 # FFmpeg
 BuildRequires: pkgconfig(libavcodec)
