@@ -42,10 +42,10 @@ Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
-# https://invent.kde.org/plasma/kwin/-/commit/e6ae8fb6755398d3512863c7de6493360962118e
-Patch0:  kwin-5.25.5-effects-set-timestamp-for-input-events.patch
 
 ## upstreamable patches
+# https://bugs.kde.org/show_bug.cgi?id=452858
+Patch0:  kwin-5.25.5-fix-keyboard-not-working-in-overview.patch
 
 ## proposed patches
 
