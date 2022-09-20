@@ -70,7 +70,7 @@ Requires:       %{name} = %{version}-%{release}
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q
 
-%if 0%{fedora} == 36
+%if 0%{fedora} <= 36
 %patch0 -p1 -b .reverse-require-GpgME-version-1.16.0
 %endif
 
