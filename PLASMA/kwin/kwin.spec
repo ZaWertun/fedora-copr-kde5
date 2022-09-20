@@ -17,7 +17,7 @@
 
 Name:    kwin
 Version: 5.25.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -42,6 +42,8 @@ Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
+# https://invent.kde.org/plasma/kwin/-/commit/e6ae8fb6755398d3512863c7de6493360962118e
+Patch0:  kwin-5.25.5-effects-set-timestamp-for-input-events.patch
 
 ## upstreamable patches
 
@@ -397,6 +399,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Sep 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
+- added kwin-5.25.5-effects-set-timestamp-for-input-events.patch
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 
