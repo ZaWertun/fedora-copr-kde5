@@ -1,0 +1,46 @@
+From 97a2a802948d7ff91be6db564472d2c82286bd2f Mon Sep 17 00:00:00 2001
+From: David Edmundson <kde@davidedmundson.co.uk>
+Date: Wed, 21 Sep 2022 12:44:03 +0100
+Subject: [PATCH] Fix QtQuickRenderSettings from loading
+
+Currently the firstCall guard is broken and the code is never run.
+
+BUG: 455575
+---
+ src/platformtheme/qtquickrenderersettings.cpp | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
+
+diff --git a/src/platformtheme/qtquickrenderersettings.cpp b/src/platformtheme/qtquickrenderersettings.cpp
+index fa99d5c..b8baed8 100644
+--- a/src/platformtheme/qtquickrenderersettings.cpp
++++ b/src/platformtheme/qtquickrenderersettings.cpp
+@@ -51,11 +51,24 @@ static bool checkBackend(QOpenGLContext &checkContext)
+ 
+ void initializeRendererSessions()
+ {
+-    static bool firstCall = true; // Otherwise this gets called twice, see QTBUG-54479
++    // This is loaded via Q_COREAPP_STARTUP_FUNCTION
++
++    // Due to a quirk this gets called twice, see QTBUG-54479
++
++    // The order of events is:
++    // Q*Application constructor starts
++    // We load the QPA
++    // We load the QPT (The first arguably incorrect invocation triggers)
++    // QPA gets initalised
++    // QCoreApplication constructor ends
++    // Second (correct) invocation
++    // it's important that we run after the QPA is initalised'
++
++    static bool firstCall = true;
+     if (firstCall) {
++        firstCall = false;
+         return;
+     }
+-    firstCall = false;
+ 
+     PlasmaQtQuickSettings::RendererSettings s;
+     QOpenGLContext checkContext;
+-- 
+GitLab
+

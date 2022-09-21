@@ -1,7 +1,7 @@
 Name:    plasma-integration
 Summary: Qt Platform Theme integration plugin for Plasma
 Version: 5.25.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
 License: LGPLv2 or LGPLv3
@@ -22,6 +22,7 @@ Source2: https://jriddell.org/esk-riddell.gpg
 ## upstream patches
 # https://bugs.kde.org/show_bug.cgi?id=455575
 Patch0:  plasma-integration-5.25.5-bring-back-workaround-for-threaded-render-loop-not-working-on-NVIDIA-Wayland.patch
+Patch1:  plasma-integration-5.25.5-fix-QtQuickRenderSettings-from-loading.patch
 
 BuildRequires:  gnupg2
 BuildRequires:  kf5-rpm-macros
@@ -95,6 +96,9 @@ sed -i.breeze_version \
 
 
 %changelog
+* Wed Sep 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-3
+- added plasma-integration-5.25.5-fix-QtQuickRenderSettings-from-loading.patch
+
 * Tue Sep 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
 - added
   plasma-integration-5.25.5-bring-back-workaround-for-threaded-render-loop-not-working-on-NVIDIA-Wayland.patch
