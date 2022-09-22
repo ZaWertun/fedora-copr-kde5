@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.25.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -58,6 +58,8 @@ Source40:       ssh-agent.conf
 Source41:       spice-vdagent.conf
 
 ## upstream Patches
+# https://invent.kde.org/plasma/plasma-workspace/-/merge_requests/2039
+Patch0:         plasma-workspace-5.25.5-widgetexplorer-dont-recurse-into-applets-containments.patch
 
 ## downstream Patches
 Patch100:       plasma-workspace-konsole-in-contextmenu.patch
@@ -816,6 +818,10 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Thu Sep 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
+- added
+  plasma-workspace-5.25.5-widgetexplorer-dont-recurse-into-applets-containments.patch
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 
