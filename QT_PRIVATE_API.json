@@ -12,8 +12,6 @@
   ],
   "2": [
     "kwin",
-    "kwin-lowlatency",
-    "kwinft",
     "plasma-integration",
     "xdg-desktop-portal-kde"
   ]
