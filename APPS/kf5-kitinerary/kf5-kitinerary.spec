@@ -32,7 +32,6 @@ BuildRequires:  shared-mime-info
 BuildRequires:  cmake(KF5I18n)
 
 BuildRequires:  qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 # kde-pim pkgs
 #global majmin_ver %(echo %{version} | cut -d. -f1,2)

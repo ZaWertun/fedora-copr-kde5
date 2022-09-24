@@ -2,7 +2,7 @@
 
 Name:    %{framework}
 Version: 5.98.0
-Release: 1%{?dist}
+Release: 10%{?dist}
 Summary: QtQuickControls2 style for consistency between QWidget and QML apps 
 
 # kirigami-plasmadesktop-integration: LGPLv2+
@@ -78,6 +78,9 @@ between QWidget-based and QML-based apps.
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
+- rebuild
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 

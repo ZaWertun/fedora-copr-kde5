@@ -174,7 +174,6 @@ Requires:       xorg-x11-server-Xwayland
 # http://bugzilla.redhat.com/605675
 Provides:       firstboot(windowmanager) = kwin_wayland
 # KWinQpaPlugin (and others?)
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 # libkdeinit5_kwin*
 %{?kf5_kinit_requires}
 # kwin-lowlatency <\>
@@ -199,7 +198,6 @@ Requires:       xorg-x11-server-Xorg
 # http://bugzilla.redhat.com/605675
 Provides:       firstboot(windowmanager) = kwin_x11
 # KWinX11Platform (and others?)
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 # libkdeinit5_kwin*
 %{?kf5_kinit_requires}
 %description    x11

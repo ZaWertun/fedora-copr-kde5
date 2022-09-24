@@ -13,7 +13,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.98.0
-Release: 1%{?dist}
+Release: 10%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
 License: GPLv2+
@@ -37,7 +37,6 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtbase-static
 # https://bugs.kde.org/show_bug.cgi?id=365569#c8 claims this is needed
 BuildRequires:  qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 BuildRequires:  wayland-devel >= %{wayland_min_version}
 BuildRequires:  wayland-protocols-devel
 BuildRequires:  qt5-qttools-devel
@@ -114,6 +113,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
+- rebuild
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 

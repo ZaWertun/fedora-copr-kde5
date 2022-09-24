@@ -22,7 +22,7 @@
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 10%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -82,7 +82,6 @@ BuildRequires:  cmake(KF5DesignerPlugin)
 
 # ^^ sqlite3 driver plugin needs versioned qt5 dep
 BuildRequires: qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 # backends, used at buildtime to query known locations of server binaries
 # FIXME/TODO: set these via cmake directives, avoids needless buildroot items
@@ -301,6 +300,9 @@ fi
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- rebuild
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 

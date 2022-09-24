@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.98.0
-Release: 1%{?dist}
+Release: 10%{?dist}
 Summary: KDE Frameworks 5 Tier 4 workspace and cross-framework integration plugins
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -51,7 +51,6 @@ Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 
 ## consider removing for f28+, since Qt5 tracks via versioned symbols now -- rex
 BuildRequires: qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 %description
 Framework Integration is a set of plugins responsible for better integration of
@@ -116,6 +115,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
+- rebuild
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 

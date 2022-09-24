@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.25.5
-Release: 2%{?dist}
+Release: 10%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -119,7 +119,6 @@ BuildRequires:  kf5-prison-devel
 
 BuildRequires:  qt5-qtbase-devel >= 5.15
 BuildRequires:  qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qtdeclarative-devel
@@ -818,6 +817,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %changelog
+* Sat Sep 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-3
+- rebuild
+
 * Thu Sep 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
 - added
   plasma-workspace-5.25.5-widgetexplorer-dont-recurse-into-applets-containments.patch

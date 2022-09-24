@@ -8,7 +8,7 @@
 Name:    analitza
 Summary: Library of mathematical features
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 10%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -32,7 +32,6 @@ BuildRequires: pkgconfig(Qt5Test) pkgconfig(Qt5Qml) pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5OpenGL)
 # technically QtQuick private api, but this should be good enough -- rex
 BuildRequires: qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 BuildRequires: readline-devel
 
 %if 0%{?tests}
@@ -102,6 +101,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- rebuild
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 

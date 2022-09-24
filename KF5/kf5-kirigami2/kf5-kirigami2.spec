@@ -42,7 +42,6 @@ BuildRequires: qt5-qtdeclarative-devel
 BuildRequires: qt5-qtquickcontrols2-devel
 BuildRequires: qt5-qtsvg-devel
 BuildRequires: qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 %if 0%{?tests}
 %if 0%{?fedora}

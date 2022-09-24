@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.98.0
-Release: 1%{?dist}
+Release: 10%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for user-configurable main windows
 
 # Library LGPLv2+, ksendbugmail is GPLv2+
@@ -42,7 +42,6 @@ BuildRequires:  libX11-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtbase-private-devel
 BuildRequires:  cmake(Qt5UiPlugin)
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 %description
 KDE Frameworks 5 Tier 3 solution for user-configurable main windows.
@@ -100,6 +99,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kxmlgui5/
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
+- rebuild
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 

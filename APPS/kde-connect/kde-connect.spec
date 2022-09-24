@@ -5,7 +5,7 @@
 
 Name:           kde-connect
 Version:        22.08.1
-Release:        1%{?dist}
+Release:        10%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -64,7 +64,6 @@ BuildRequires:  cmake(Qt5QuickControls2)
 BuildRequires:  cmake(Qt5WaylandClient)
 
 BuildRequires:  qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 BuildRequires:  cmake(Qca-qt5)
 
@@ -217,6 +216,9 @@ fi
 
 
 %changelog
+* Sat Sep 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- rebuild
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 

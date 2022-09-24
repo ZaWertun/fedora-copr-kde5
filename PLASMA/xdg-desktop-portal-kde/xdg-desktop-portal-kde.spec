@@ -3,7 +3,7 @@
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
 Version: 5.25.5
-Release: 1%{?dist}
+Release: 10%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -28,7 +28,6 @@ BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  qt5-qtbase-private-devel
 BuildRequires:  cmake(Qt5QuickWidgets)
 # libQt5PrintSupport.so.5(Qt_5_PRIVATE_API)(64bit)
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 BuildRequires:  glib2-devel
 BuildRequires:  libepoxy-devel
@@ -86,6 +85,9 @@ pieces of KDE infrastructure.
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
+- rebuild
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

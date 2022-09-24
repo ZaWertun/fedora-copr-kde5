@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.98.0
-Release: 1%{?dist}
+Release: 10%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon for Qt declarative
 
 License: LGPLv2+
@@ -49,7 +49,6 @@ BuildRequires:  qt5-qtbase-devel
 # https://bugs.kde.org/show_bug.cgi?id=365569#c8 claims this may be needed,
 # so err on the side of caution
 BuildRequires:  qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 BuildRequires:  qt5-qtdeclarative-devel
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -134,6 +133,9 @@ make test ARGS="--output-on-failure --timeout 10 --verbose" -C %{_target_platfor
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
+- rebuild
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 

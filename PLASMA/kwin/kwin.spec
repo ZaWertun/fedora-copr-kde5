@@ -17,7 +17,7 @@
 
 Name:    kwin
 Version: 5.25.5
-Release: 2%{?dist}
+Release: 10%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -193,7 +193,6 @@ Requires:       xorg-x11-server-Xwayland
 # http://bugzilla.redhat.com/605675
 Provides:       firstboot(windowmanager) = kwin_wayland
 # KWinQpaPlugin (and others?)
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 # libkdeinit5_kwin*
 %{?kf5_kinit_requires}
 # Obsolete kwin-wayland-nvidia package as this is now done automatically
@@ -217,7 +216,6 @@ Requires:       xorg-x11-server-Xorg
 # http://bugzilla.redhat.com/605675
 Provides:       firstboot(windowmanager) = kwin_x11
 # KWinX11Platform (and others?)
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 # libkdeinit5_kwin*
 %{?kf5_kinit_requires}
 %description    x11
@@ -399,6 +397,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-3
+- rebuild
+
 * Tue Sep 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
 - added kwin-5.25.5-effects-set-timestamp-for-input-events.patch
 

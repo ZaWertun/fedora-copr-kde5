@@ -1,7 +1,7 @@
 Name:    plasma-integration
 Summary: Qt Platform Theme integration plugin for Plasma
 Version: 5.25.5
-Release: 3%{?dist}
+Release: 10%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
 License: LGPLv2 or LGPLv3
@@ -54,7 +54,6 @@ BuildRequires:  cmake(PlasmaWaylandProtocols) >= 1.6.0
 
 ## TODO: verify this is needed, not 100% sure -- rex
 BuildRequires: qt5-qtbase-private-devel
-%{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 
 BuildRequires:  plasma-breeze-devel >= %{majmin_ver}
 Requires:       plasma-breeze >= %{majmin_ver}
