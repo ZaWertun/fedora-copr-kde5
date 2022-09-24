@@ -6,6 +6,7 @@
     "qqc2-desktop-style"
   ],
   "1": [
+    "kf5-kitinerary",
     "kf5-akonadi-server",
     "kf5-frameworkintegration",
     "kf5-kdeclarative"
