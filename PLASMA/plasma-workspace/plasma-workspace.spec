@@ -228,7 +228,7 @@ Recommends:     plasma-pa >= %{majmin_ver}
 Requires:       kf5-frameworkintegration
 
 # For krunner
-Recommends:     plasma-milou >= %{majmin_ver}
+Requires:       plasma-milou >= %{majmin_ver}
 
 # powerdevil has a versioned dep on libkworkspace5, so (may?)
 # need to avoid this dep when bootstrapping
