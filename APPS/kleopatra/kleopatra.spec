@@ -1,6 +1,6 @@
 Name:    kleopatra
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
 # code: GPLv2+
@@ -70,7 +70,7 @@ Requires:       %{name} = %{version}-%{release}
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q
 
-%if 0%{fedora} <= 36
+%if 0%{fedora} <= 35
 %patch0 -p1 -b .reverse-require-GpgME-version-1.16.0
 %endif
 
@@ -116,6 +116,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Mon Sep 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- rebuild
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 
