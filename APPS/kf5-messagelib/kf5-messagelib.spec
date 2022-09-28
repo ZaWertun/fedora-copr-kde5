@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Message libraries
 
 License: GPLv2
@@ -53,7 +53,6 @@ BuildRequires:  kf5-kxmlgui-devel >= %{kf5_ver}
 BuildRequires:  cmake(KF5SyntaxHighlighting)
 BuildRequires:  cmake(KF5NewStuff)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-notes-devel >= %{majmin_ver}
@@ -176,6 +175,9 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
 
 %changelog
+* Wed Sep 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- rebuild
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 

@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: PIM common libraries
 
 License: GPLv2+
@@ -62,7 +62,6 @@ BuildRequires:  cmake(Qt5Widgets)
 BuildRequires:  cmake(Qt5Xml)
 
 # kde-apps
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
@@ -149,6 +148,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Wed Sep 28 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- rebuild
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 
