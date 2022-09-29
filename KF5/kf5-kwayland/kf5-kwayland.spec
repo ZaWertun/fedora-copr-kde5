@@ -13,7 +13,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.98.0
-Release: 11%{?dist}
+Release: 12%{?dist}
 Summary: KDE Frameworks 5 library that wraps Client and Server Wayland libraries
 
 License: GPLv2+
@@ -29,6 +29,10 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 Source1: http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz.sig
 Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
+
+## upstream Patches
+# https://bugs.kde.org/show_bug.cgi?id=459188
+Patch0:         kf5-kwayland-5.98.0-fix-widget-pop-up-and-notification-placement.patch
 
 BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules >= %{version}
@@ -113,6 +117,10 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Sep 29 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-12
+- added
+  kf5-kwayland-5.98.0-fix-widget-pop-up-and-notification-placement.patch
+
 * Sat Sep 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-11
 - rebuild
 
