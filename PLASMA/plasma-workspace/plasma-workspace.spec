@@ -558,29 +558,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.{klipper,
 
 
 %post
-%systemd_user_post plasma-baloorunner.service
-%systemd_user_post plasma-gmenudbusmenuproxy.service
-%systemd_user_post plasma-kcminit-phase1.service
-%systemd_user_post plasma-kcminit.service
-%systemd_user_post plasma-krunner.service
-%systemd_user_post plasma-ksmserver.service
-%systemd_user_post plasma-ksplash-ready.service
-%systemd_user_post plasma-plasmashell.service
-%systemd_user_post plasma-restoresession.service
-%systemd_user_post plasma-xembedsniproxy.service
-
-
-%preun
-%systemd_user_post plasma-baloorunner.service
-%systemd_user_post plasma-gmenudbusmenuproxy.service
-%systemd_user_post plasma-kcminit-phase1.service
-%systemd_user_post plasma-kcminit.service
-%systemd_user_post plasma-krunner.service
-%systemd_user_post plasma-ksmserver.service
-%systemd_user_post plasma-ksplash-ready.service
-%systemd_user_post plasma-plasmashell.service
-%systemd_user_post plasma-restoresession.service
-%systemd_user_post plasma-xembedsniproxy.service
+if [ -s /usr/sbin/setsebool ] ; then
+  setsebool -P selinuxuser_execmod 1 ||:
+fi
 
 
 %files common
