@@ -3,7 +3,7 @@
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
 Version: 5.25.5
-Release: 10%{?dist}
+Release: 11%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -65,6 +65,8 @@ pieces of KDE infrastructure.
 
 
 %build
+sed -i '/Restart=no/d' data/plasma-xdg-desktop-portal-kde.service.in
+
 %cmake_kf5
 %cmake_build
 
@@ -85,6 +87,9 @@ pieces of KDE infrastructure.
 
 
 %changelog
+* Fri Sep 30 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-11
+- removed Restart=no from plasma-xdg-desktop-portal-kde.service
+
 * Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-2
 - rebuild
 
