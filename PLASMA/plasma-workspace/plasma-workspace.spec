@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.25.5
-Release: 11%{?dist}
+Release: 12%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -60,6 +60,8 @@ Source41:       spice-vdagent.conf
 ## upstream Patches
 # https://invent.kde.org/plasma/plasma-workspace/-/merge_requests/2039
 Patch0:         plasma-workspace-5.25.5-widgetexplorer-dont-recurse-into-applets-containments.patch
+# https://bugs.kde.org/show_bug.cgi?id=458865
+Patch1:         plasma-workspace-5.25.5-delay-ksplash-until-after-env-is-set-up.patch
 
 ## downstream Patches
 Patch100:       plasma-workspace-konsole-in-contextmenu.patch
@@ -797,6 +799,9 @@ fi
 
 
 %changelog
+* Sun Oct 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-12
+- added plasma-workspace-5.25.5-delay-ksplash-until-after-env-is-set-up.patch
+
 * Sat Sep 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-11
 - rebuild
 
