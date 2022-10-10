@@ -1,0 +1,12 @@
+diff '--color=auto' -r -U3 baloo-5.98.0.orig/src/lib/baloosettings.kcfg baloo-5.98.0/src/lib/baloosettings.kcfg
+--- baloo-5.98.0.orig/src/lib/baloosettings.kcfg	2022-09-05 15:00:02.000000000 +0300
++++ baloo-5.98.0/src/lib/baloosettings.kcfg	2022-10-10 11:41:04.542140507 +0300
+@@ -23,7 +23,7 @@
+     </entry>
+     <entry name="onlyBasicIndexing" key="only basic indexing" type="Bool">
+       <label>only basic indexing</label>
+-      <default>false</default>
++      <default>true</default>
+     </entry>
+     <entry name="disableInitialUpdate" key="disable initial update" type="Bool">
+       <!-- KF6 TODO remove -->

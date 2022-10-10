@@ -10,13 +10,12 @@
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
 Version: 5.98.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # libs are LGPL, tools are GPL
 # KDE e.V. may determine that future LGPL/GPL versions are accepted
 License: (LGPLv2 or LGPLv3) and (GPLv2 or GPLv3)
 URL:     https://community.kde.org/Baloo
-#URL:     https://cgit.kde.org/%{framework}.git
 
 %global majmin %(echo %{version} | cut -d. -f1-2)
 %global revision %(echo %{version} | cut -d. -f3)
@@ -34,8 +33,7 @@ Source3:        97-kde-baloo-filewatch-inotify.conf
 Source4:        baloo_file_shutdown.sh
 
 ## upstreamable patches
-# http://bugzilla.redhat.com/1235026
-Patch100: baloo-5.67.0-baloofile_config.patch
+Patch100:       kf5-baloo-5.98.0-disable-content-indexing-by-default.patch
 
 ## upstream patches
 
@@ -208,6 +206,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
+- added kf5-baloo-5.98.0-disable-content-indexing-by-default.patch
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 
