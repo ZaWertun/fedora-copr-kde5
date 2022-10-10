@@ -1,7 +1,7 @@
 %global framework krunner
 
 Name:    kf5-%{framework}
-Version: 5.98.0
+Version: 5.99.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution with parallelized query system
 
@@ -84,11 +84,14 @@ developing applications that use %{name}.
 %{_kf5_libdir}/cmake/KF5Runner/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KRunner.pri
 %{_kf5_datadir}/dbus-1/interfaces/*
-%{_kf5_datadir}/kdevfiletemplates/templates/runner.tar.bz2
-%{_kf5_datadir}/kdevfiletemplates/templates/runnerpython.tar.bz2
+%{_kf5_datadir}/kdevappwizard/templates/runner.tar.bz2
+%{_kf5_datadir}/kdevappwizard/templates/runnerpython.tar.bz2
 
 
 %changelog
+* Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
+- 5.99.0
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 

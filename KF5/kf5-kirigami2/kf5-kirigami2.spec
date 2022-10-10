@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.98.0
-Release: 10%{?dist}
+Version: 5.99.0
+Release: 1%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 
 # All LGPLv2+ except for src/desktopicons.h (GPLv2+)
@@ -114,6 +114,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
+- 5.99.0
+
 * Sat Sep 24 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-2
 - rebuild
 

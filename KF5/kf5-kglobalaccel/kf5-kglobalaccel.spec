@@ -1,7 +1,7 @@
 %global framework kglobalaccel
 
 Name:    kf5-%{framework}
-Version: 5.98.0
+Version: 5.99.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 integration module for global shortcuts
 
@@ -111,6 +111,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
+- 5.99.0
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 

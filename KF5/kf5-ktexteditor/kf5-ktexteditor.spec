@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.98.0
+Version: 5.99.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 with advanced embeddable text editor
 
@@ -139,10 +139,13 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libdir}/cmake/KF5TextEditor/
 %{_kf5_includedir}/KTextEditor/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KTextEditor.pri
-%{_kf5_datadir}/kdevfiletemplates/templates/ktexteditor-plugin.tar.bz2
+%{_kf5_datadir}/kdevappwizard/templates/ktexteditor-plugin.tar.bz2
 
 
 %changelog
+* Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
+- 5.99.0
+
 * Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
 - 5.98.0
 
