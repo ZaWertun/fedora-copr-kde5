@@ -1,5 +1,5 @@
 Name:    plasma-sdk
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: Development tools for Plasma 5
 
@@ -60,7 +60,6 @@ BuildRequires:  cmake(KF5SyntaxHighlighting)
 %if ! 0%{?bootstrap}
 # required kpackage plugins
 BuildRequires:  plasma-packagestructure
-#BuildRequires:  plasma-workspace-libs%{?_isa}
 %endif
 
 # lookandfeelexplorer deps
@@ -110,17 +109,14 @@ Plasma SDK contains the following tools for Plasma-related development:
 %{_bindir}/plasmathemeexplorer
 %{_bindir}/plasmoidviewer
 %{_qt5_plugindir}/ktexteditor/cuttlefishplugin.so
-%{_kf5_datadir}/kservices5/plasma-package-org.kde.plasma.cuttlefish.desktop
 %{_kf5_datadir}/kservices5/plasma-shell-org.kde.plasma.plasmoidviewershell.desktop
 %{_kf5_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/
 %{_kf5_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer
-%{_kf5_datadir}/plasma/packages/org.kde.plasma.cuttlefish
 %{_kf5_datadir}/plasma/shells/org.kde.plasma.plasmoidviewershell
-%{_kf5_datadir}/applications/org.kde.cuttlefish.desktop
 %{_kf5_datadir}/applications/org.kde.plasma.lookandfeelexplorer.desktop
 %{_kf5_datadir}/applications/org.kde.plasma.themeexplorer.desktop
-%{_kf5_metainfodir}/org.kde.cuttlefish.appdata.xml
 %{_kf5_metainfodir}/org.kde.plasma.cuttlefish.appdata.xml
+%{_kf5_datadir}/applications/org.kde.plasma.cuttlefish.desktop
 %{_kf5_datadir}/applications/org.kde.plasmaengineexplorer.desktop
 %{_kf5_datadir}/applications/org.kde.plasmoidviewer.desktop
 %{_kf5_datadir}/metainfo/org.kde.plasmaengineexplorer.appdata.xml
@@ -146,6 +142,9 @@ Plasma SDK contains the following tools for Plasma-related development:
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

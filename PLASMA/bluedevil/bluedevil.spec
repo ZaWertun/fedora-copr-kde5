@@ -1,6 +1,6 @@
 Name:    bluedevil
 Summary: Bluetooth stack for KDE
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -35,6 +35,8 @@ BuildRequires:  kf5-bluez-qt-devel >= 5.11
 BuildRequires:  kf5-kded-devel
 BuildRequires:  kf5-kwindowsystem-devel
 BuildRequires:  kf5-kdeclarative-devel
+BuildRequires:  cmake(KF5DocTools)
+BuildRequires:  cmake(KF5KCMUtils)
 
 BuildRequires:  shared-mime-info
 
@@ -100,6 +102,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.bluedevil
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

@@ -20,8 +20,8 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.25.5
-Release: 12%{?dist}
+Version: 5.26.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -58,18 +58,17 @@ Source40:       ssh-agent.conf
 Source41:       spice-vdagent.conf
 
 ## upstream Patches
-# https://invent.kde.org/plasma/plasma-workspace/-/merge_requests/2039
-Patch0:         plasma-workspace-5.25.5-widgetexplorer-dont-recurse-into-applets-containments.patch
-# https://bugs.kde.org/show_bug.cgi?id=458865
-Patch1:         plasma-workspace-5.25.5-delay-ksplash-until-after-env-is-set-up.patch
 
 ## downstream Patches
-Patch100:       plasma-workspace-konsole-in-contextmenu.patch
 # default to folderview (instead of desktop) containment, see also
 # https://mail.kde.org/pipermail/distributions/2016-July/000133.html
 # and example,
 # https://github.com/notmart/artwork-lnf-netrunner-core/blob/master/usr/share/plasma/look-and-feel/org.kde.netrunner-core.desktop/contents/defaults
 Patch105:       plasma-workspace-5.21.90-folderview_layout.patch
+# default to enable open terminal action
+Patch106:       plasma-workspace-5.25.90-enable-open-terminal-action.patch
+# default to enable the lock/logout actions
+Patch107:       plasma-workspace-5.25.90-enable-lock-logout-action.patch
 
 ## upstreamable Patches
 
@@ -127,6 +126,7 @@ BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtsvg-devel
 BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  phonon-qt5-devel
+BuildRequires:  cmake(PolkitQt5-1)
 
 BuildRequires:  kf5-rpm-macros >= %{kf5_version_min}
 BuildRequires:  extra-cmake-modules
@@ -480,12 +480,12 @@ BuildArch: noarch
 %autosetup -p1 -a 20
 
 # Populate initial lookandfeel package
-cp -a lookandfeel lookandfeel.fedora
+cp -a lookandfeel/org.kde.breeze lookandfeel/org.fedoraproject.fedora
 # Overwrite settings to configure twilight mode
-cp -a lookandfeel.twilight/* lookandfeel.fedora
-install -m 0644 %{SOURCE15} lookandfeel.fedora/metadata.desktop
-cat >> CMakeLists.txt <<EOL
-plasma_install_package(lookandfeel.fedora org.fedoraproject.fedora.desktop look-and-feel lookandfeel)
+cp -a lookandfeel/org.kde.breezetwilight/* lookandfeel/org.fedoraproject.fedora
+install -m 0644 %{SOURCE15} lookandfeel/org.fedoraproject.fedora/metadata.desktop
+cat >> lookandfeel/CMakeLists.txt <<EOL
+plasma_install_package(org.fedoraproject.fedora org.fedoraproject.fedora.desktop look-and-feel lookandfeel)
 EOL
 
 
@@ -583,6 +583,7 @@ fi
 %{_kf5_bindir}/plasma-interactiveconsole
 %{_kf5_bindir}/plasma-shutdown
 %{_kf5_bindir}/plasma_waitforname
+%{_kf5_bindir}/plasma-localegen-helper
 %{_kf5_bindir}/systemmonitor
 %{_kf5_bindir}/xembedsniproxy
 %{_kf5_bindir}/kcolorschemeeditor
@@ -597,8 +598,8 @@ fi
 %{_libexecdir}/kfontprint
 %{_libexecdir}/plasma-changeicons
 %{_libexecdir}/plasma-dbus-run-session-if-needed
-%{_kf5_datadir}/ksplash/
 %{_kf5_datadir}/plasma/avatars/
+%{_kf5_datadir}/plasma/nightcolor/
 %{_kf5_datadir}/plasma/plasmoids/
 %{_kf5_datadir}/plasma/services/
 %{_kf5_datadir}/plasma/wallpapers/
@@ -615,7 +616,9 @@ fi
 %{_datadir}/desktop-directories/*.directory
 %{_datadir}/dbus-1/services/*.service
 %{_datadir}/dbus-1/system-services/org.kde.fontinst.service
+%{_datadir}/dbus-1/system-services/org.kde.localegenhelper.service
 %{_datadir}/dbus-1/system.d/org.kde.fontinst.conf
+%{_datadir}/dbus-1/system.d/org.kde.localegenhelper.conf
 %{_datadir}/knsrcfiles/*.knsrc
 %{_datadir}/kfontinst/icons/hicolor/*/actions/*font*.png
 %{_datadir}/konqsidebartng/virtual_folders/services/fonts.desktop
@@ -623,7 +626,7 @@ fi
 %{_datadir}/kxmlgui5/kfontview/kfontviewpart.rc
 %{_datadir}/kxmlgui5/kfontview/kfontviewui.rc
 %{_kf5_datadir}/kservices5/ServiceMenus/installfont.desktop
-%{_kf5_datadir}/kservices5/ServiceMenus/setaswallpaper.desktop
+%{_kf5_datadir}/kio/servicemenus/setaswallpaper.desktop
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/knotifications5/*.notifyrc
@@ -645,7 +648,6 @@ fi
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_sysconfdir}/xdg/plasmanotifyrc
 %{_kf5_datadir}/kpackage/kcms/kcm_autostart/
-%{_kf5_datadir}/kpackage/kcms/kcm_translations/
 %{_kf5_datadir}/kpackage/kcms/kcm_colors/
 %{_kf5_datadir}/kpackage/kcms/kcm_cursortheme/
 %{_kf5_datadir}/kpackage/kcms/kcm_desktoptheme/
@@ -657,8 +659,9 @@ fi
 %{_kf5_datadir}/kpackage/kcms/kcm_style/
 %{_kf5_datadir}/kpackage/kcms/kcm_users/
 %{_kf5_datadir}/kpackage/kcms/kcm_icons/
-%{_kf5_datadir}/kpackage/kcms/kcm_formats/
+%{_kf5_datadir}/kpackage/kcms/kcm_regionandlang/
 %{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
+%{_kf5_datadir}/polkit-1/actions/org.kde.localegenhelper.policy
 %{_userunitdir}/plasma-baloorunner.service
 %{_userunitdir}/plasma-gmenudbusmenuproxy.service
 %{_userunitdir}/plasma-kcminit-phase1.service
@@ -799,6 +802,9 @@ fi
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Sun Oct 02 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-12
 - added plasma-workspace-5.25.5-delay-ksplash-until-after-env-is-set-up.patch
 

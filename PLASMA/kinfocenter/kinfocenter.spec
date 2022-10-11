@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -109,7 +109,6 @@ Conflicts:      kde-workspace < 4.11.15-3
 %{_kf5_qmldir}/org/kde/kinfocenter/private/CommandOutputKCM.qml
 %{_kf5_qmldir}/org/kde/kinfocenter/private/qmldir
 %{_kf5_datadir}/kinfocenter/categories/*.desktop
-%{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/dbus-1/system-services/org.kde.kinfocenter.dmidecode.service
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kinfocenter.dmidecode.conf
 %{_datadir}/desktop-directories/kinfocenter.directory
@@ -125,12 +124,16 @@ Conflicts:      kde-workspace < 4.11.15-3
 %{_kf5_datadir}/kpackage/kcms/kcm_energyinfo/
 %{_kf5_datadir}/kpackage/kcms/kcm_interrupts/
 %{_kf5_datadir}/kpackage/kcms/kcm_about-distro/
+%{_kf5_datadir}/kpackage/kcms/kcm_kwinsupportinfo/
 %{_kf5_datadir}/kpackage/kcms/kcm_firmware_security/
 %{_kf5_datadir}/metainfo/org.kde.kinfocenter.appdata.xml
 %{_kf5_datadir}/polkit-1/actions/org.kde.kinfocenter.dmidecode.policy
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

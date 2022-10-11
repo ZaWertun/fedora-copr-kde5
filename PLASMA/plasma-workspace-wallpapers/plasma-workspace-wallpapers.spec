@@ -1,5 +1,5 @@
 Name:    plasma-workspace-wallpapers
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: Additional wallpapers for Plasma workspace
 License: LGPLv3
@@ -75,12 +75,16 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 %{_datadir}/wallpapers/PastelHills/
 %{_datadir}/wallpapers/Patak/
 %{_datadir}/wallpapers/Path/
+%{_datadir}/wallpapers/SafeLanding/
 %{_datadir}/wallpapers/Shell/
 %{_datadir}/wallpapers/Volna/
 %{_datadir}/wallpapers/summer_1am/
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

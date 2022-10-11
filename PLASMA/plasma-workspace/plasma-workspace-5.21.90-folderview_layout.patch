@@ -1,6 +1,7 @@
-diff -up plasma-workspace-5.21.90/lookandfeel/contents/defaults.folderview_layout plasma-workspace-5.21.90/lookandfeel/contents/defaults
---- plasma-workspace-5.21.90/lookandfeel/contents/defaults.folderview_layout	2021-05-14 16:15:40.647354536 -0500
-+++ plasma-workspace-5.21.90/lookandfeel/contents/defaults	2021-05-14 16:16:21.580720452 -0500
+diff --git a/lookandfeel/org.kde.breeze/contents/defaults b/lookandfeel/org.kde.breeze/contents/defaults
+index d8df939b3..b050a7a87 100644
+--- a/lookandfeel/org.kde.breeze/contents/defaults
++++ b/lookandfeel/org.kde.breeze/contents/defaults
 @@ -27,3 +27,7 @@ library=org.kde.breeze
  
  [KSplash]

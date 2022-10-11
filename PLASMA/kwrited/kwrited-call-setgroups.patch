@@ -19,7 +19,7 @@ diff '--color=auto' -r -U3 kwrited-5.22.0.orig/kwrited.cpp kwrited-5.22.0/kwrite
  
 @@ -105,6 +107,7 @@
  
- #if defined(BUILD_AS_EXECUTABLE)
+ #if BUILD_AS_EXECUTABLE
      // drop privileges again
 +    setgroups(0, 0);
      seteuid(getuid());
@@ -27,7 +27,7 @@ diff '--color=auto' -r -U3 kwrited-5.22.0.orig/kwrited.cpp kwrited-5.22.0/kwrite
  #endif
 @@ -125,6 +128,7 @@
  
- #if defined(BUILD_AS_EXECUTABLE)
+ #if BUILD_AS_EXECUTABLE
      // drop privileges again
 +    setgroups(0, 0);
      seteuid(getuid());

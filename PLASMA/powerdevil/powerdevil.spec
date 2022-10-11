@@ -1,7 +1,7 @@
 %global kf5_version 5.82.0
 
 Name:    powerdevil
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
@@ -51,6 +51,7 @@ BuildRequires:  kf5-plasma-devel
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-solid-devel
 BuildRequires:  cmake(KF5Kirigami2)
+BuildRequires:  cmake(KF5KCMUtils)
 BuildRequires:  libkscreen-qt5-devel
 
 BuildRequires:  libxcb-devel
@@ -117,15 +118,19 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 %{_kf5_libdir}/libpowerdevilcore.so.*
 %{_kf5_libdir}/libpowerdevilui.so.*
 %{_kf5_qtplugindir}/*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_powerdevil*.so
+%{_kf5_qtplugindir}/powerdevil/action/powerdevil_*.so
 %{_kf5_plugindir}/powerdevil/
+%{_kf5_datadir}/applications/kcm_powerdevil*.desktop
 %{_kf5_datadir}/knotifications5/powerdevil.notifyrc
-%{_kf5_datadir}/kservices5/*.desktop
-%{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/qlogging-categories5/%{name}.categories
 %{_userunitdir}/plasma-%{name}.service
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

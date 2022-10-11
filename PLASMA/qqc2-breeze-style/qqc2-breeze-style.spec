@@ -1,5 +1,5 @@
 Name:    qqc2-breeze-style
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: Breeze inspired QQC2 Style
 
@@ -28,6 +28,7 @@ BuildRequires: cmake(KF5GuiAddons)
 BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5ConfigWidgets)
+BuildRequires: cmake(KF5I18n)
 
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(Qt5Gui)
@@ -73,6 +74,9 @@ QQC2-Desktop-Style, it does not depend on Qt Widgets and the system QStyle.
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

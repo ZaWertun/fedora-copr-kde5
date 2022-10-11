@@ -16,8 +16,8 @@
 %endif
 
 Name:    kwin
-Version: 5.25.5
-Release: 10%{?dist}
+Version: 5.26.0
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -44,8 +44,6 @@ Source2: https://jriddell.org/esk-riddell.gpg
 ## upstream patches
 
 ## upstreamable patches
-# https://bugs.kde.org/show_bug.cgi?id=452858
-Patch0:  kwin-5.25.5-fix-keyboard-not-working-in-overview.patch
 
 ## proposed patches
 
@@ -73,6 +71,7 @@ BuildRequires:  mesa-libGL-devel
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  mesa-libgbm-devel
 BuildRequires:  libxkbcommon-devel
+BuildRequires:  libxkbcommon-x11-devel
 BuildRequires:  libX11-devel
 BuildRequires:  libXi-devel
 BuildRequires:  libxcb-devel
@@ -323,7 +322,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kwincompositing.so
 %{_kf5_qtplugindir}/kpackage/packagestructure/kwin_*.so
 %{_kf5_qtplugindir}/org.kde.kdecoration2/*.so
-%dir %{_kf5_qtplugindir}/org.kde.kwin.platforms
 %{_qt5_qmldir}/org/kde/kwin
 %{_qt5_qmldir}/org/kde/kwin.2
 %{_kf5_libdir}/kconf_update_bin/kwin5_update_default_rules
@@ -335,7 +333,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kconf_update/kwin-5.18-move-animspeed.py
 %{_datadir}/kconf_update/kwin-5.21-desktop-grid-click-behavior.py
 %{_datadir}/kconf_update/kwin-5.21-no-swap-encourage.py
-%{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/kpackage/kcms/kcm_*
@@ -364,21 +361,15 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files wayland
 %{_bindir}/kwin_wayland_wrapper
 %{_kf5_bindir}/kwin_wayland
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandDrmBackend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandWaylandBackend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandX11Backend.so
-%{_kf5_qtplugindir}/org.kde.kwin.waylandbackends/KWinWaylandVirtualBackend.so
 %{_userunitdir}/plasma-kwin_wayland.service
 
 %files x11
 %{_kf5_bindir}/kwin_x11
-%{_kf5_qtplugindir}/org.kde.kwin.platforms/KWinX11Platform.so
 %{_userunitdir}/plasma-%{name}_x11.service
 
 %files libs
 %{_kf5_datadir}/qlogging-categories5/org_kde_kwin.categories
 %{_libdir}/libkwin.so.*
-%{_libdir}/libkwinxrenderutils.so.*
 %{_libdir}/libkwineffects.so.*
 %{_libdir}/libkwinglutils.so.*
 %{_libdir}/libkcmkwincommon.so.*
@@ -387,7 +378,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/dbus-1/interfaces/*.xml
 %{_libdir}/cmake/KWinDBusInterface
 %{_libdir}/cmake/KWinEffects
-%{_libdir}/libkwinxrenderutils.so
 %{_libdir}/libkwineffects.so
 %{_libdir}/libkwinglutils.so
 %{_includedir}/kwin*.h
@@ -397,6 +387,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Fri Sep 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-3
 - rebuild
 

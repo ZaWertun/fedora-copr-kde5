@@ -1,6 +1,6 @@
 Name:    kdeplasma-addons
 Summary: Additional Plasmoids for Plasma 5
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -96,15 +96,11 @@ developing applications that use %{name}.
 %{_kf5_datadir}/plasma/desktoptheme/default/widgets/*
 %{_kf5_datadir}/plasma/desktoptheme/default/weather/*
 %{_kf5_datadir}/plasma/wallpapers/*
-%{_kf5_datadir}/plasma/services/*.operations
-%{_kf5_qtplugindir}/plasma/dataengine/*.so
 %{_kf5_qtplugindir}/plasma/applets/*.so
 %{_kf5_qtplugindir}/potd/plasma_potd*
 %{_kf5_plugindir}/krunner/unitconverter.so
 %{_kf5_plugindir}/krunner/krunner_*.so
 %{_kf5_plugindir}/krunner/kcms/kcm_krunner_{charrunner,dictionary,spellcheck}.so
-%{_kf5_datadir}/kservices5/*.desktop
-%{_kf5_datadir}/kservices5/kwin/*.desktop
 %{_kf5_qmldir}/org/kde/plasma/*
 %{_datadir}/kwin/desktoptabbox/
 %{_datadir}/kwin/tabbox/
@@ -121,13 +117,17 @@ developing applications that use %{name}.
 
 %{_libdir}/cmake/PlasmaPotdProvider/*
 %{_libdir}/qt5/plugins/plasmacalendarplugins/*
+%{_kf5_qmldir}/org/kde/plasmacalendar/alternatecalendarconfig/
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/*
-%{_datadir}/kdevfiletemplates/templates/plasmapotdprovider.tar.bz2
+%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 
 %files devel
 %{_includedir}/plasma/potdprovider/*
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

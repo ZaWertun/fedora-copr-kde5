@@ -9,7 +9,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -59,9 +59,11 @@ BuildRequires:  libxkbcommon-devel
 BuildRequires:  pkgconfig(xkeyboard-config)
 
 BuildRequires:  qt5-qtbase-devel >= 5.9
+BuildRequires:  qt5-qtbase-private-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  qt5-qtsvg-devel
 BuildRequires:  qt5-qtdeclarative-devel
+BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  phonon-qt5-devel
 
 BuildRequires:  ibus-devel
@@ -136,6 +138,9 @@ BuildRequires:  pkgconfig(xorg-libinput)
 BuildRequires:  pkgconfig(xorg-synaptics)
 %endif
 %endif
+
+BuildRequires:  cmake(Qt5WaylandClient)
+BuildRequires:  pkgconfig(wayland-protocols) >= 1.25
 
 # kcm_users
 Requires:       accountsservice
@@ -292,7 +297,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_qmldir}/org/kde/plasma/private
 # TODO: -libs subpkg -- rex
 %{_kf5_qtplugindir}/*.so
-%{_kf5_qtplugindir}/plasma/applets/org.kde.plasma.marginsseparator.so
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings/*.so
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/*.so
 %{_kf5_qtplugindir}/plasma/kcms/desktop/kcm_krunnersettings.so
@@ -321,6 +325,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %{_kf5_datadir}/kpackage/kcms/*
 %{_kf5_datadir}/knsrcfiles/
 %{_kf5_datadir}/kf5/kactivitymanagerd/workspace/
+%{_kf5_datadir}/kf5/kcm_recentFiles/workspace/settings/qml/recentFiles/BlacklistApplicationView.qml
 %{_kf5_datadir}/kcmsolidactions/
 %{_kf5_datadir}/solid/devices/*.desktop
 %{_kf5_datadir}/dbus-1/system.d/*.conf
@@ -356,6 +361,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

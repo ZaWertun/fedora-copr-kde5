@@ -12,7 +12,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -37,9 +37,7 @@ Source10: discoverrc
 # git format-patch v%%{version}
 
 ## downstream patches
-# workaround PK metadata refresh issues (always force refresh)
-# adjust periodic refresh from 1/24hr to 1/12hr
-Patch200: discover-5.21.4-pk_refresh_force.patch
+Patch0:   plasma-discover-5.26.0-AppStreamQt-0.15.2-compatibility.patch
 
 # Do not use system appstream cache (#2011322)
 # Not sure if this is upstreamable yet, or just a hack
@@ -90,6 +88,7 @@ BuildRequires: kf5-kwidgetsaddons-devel
 BuildRequires: kf5-plasma-devel
 BuildRequires: kf5-rpm-macros
 BuildRequires: kf5-solid-devel
+BuildRequires: cmake(KF5Purpose)
 
 BuildRequires: cmake(KUserFeedback)
 BuildRequires: pkgconfig(packagekitqt5)
@@ -104,6 +103,8 @@ BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5Xml)
 BuildRequires: pkgconfig(Qt5X11Extras)
+BuildRequires: cmake(Qt5WebView)
+BuildRequires: cmake(AppStreamQt)
 
 BuildRequires: kf5-kirigami2-devel >= 2.2
 Requires: kf5-kirigami2%{?_isa} >= 2.2
@@ -198,6 +199,7 @@ in %{name}.
 
 
 %build
+sed -i 's|AppStreamQt 0.15.3|AppStreamQt 0.15.2|' CMakeLists.txt
 %cmake_kf5 \
   -DBUILD_RpmOstreeBackend:BOOL=ON
 %cmake_build
@@ -239,7 +241,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 %{_datadir}/applications/org.kde.discover.urlhandler.desktop
 %{_datadir}/icons/hicolor/*/apps/plasmadiscover.*
 %{_datadir}/icons/hicolor/*/apps/flatpak-discover.*
-%{_datadir}/discover/
 %{_datadir}/kxmlgui5/plasmadiscover/
 %{_kf5_libexecdir}/discover/
 %{_kf5_datadir}/kpackage/kcms/kcm_updates/
@@ -304,6 +305,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.5-1
 - 5.25.5
 

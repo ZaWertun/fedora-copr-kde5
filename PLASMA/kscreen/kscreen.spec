@@ -1,6 +1,6 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.25.5
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -49,6 +49,10 @@ BuildRequires:  cmake(KF5KCMUtils)
 BuildRequires:  pkgconfig(xi)
 BuildRequires:  pkgconfig(xcb-atom)
 
+BuildRequires:  cmake(LayerShellQt)
+
+BuildRequires:  systemd-rpm-macros
+
 Requires:       kf5-filesystem
 Requires:       qt5-qtgraphicaleffects
 
@@ -70,22 +74,34 @@ KCM and KDED modules for managing displays in KDE.
 %cmake_install
 %find_lang %{name} --with-kde --with-qt --all-name
 
+%post
+%systemd_user_post plasma-kscreen-osd.service
+
+%preun
+%systemd_user_preun plasma-kscreen-osd.service
+
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_bindir}/kscreen-console
+%{_libexecdir}/kscreen_osd_service
+%{_userunitdir}/plasma-kscreen-osd.service
 %{_kf5_qtplugindir}/plasma/applets/plasma_applet_kscreen.so
 %{_kf5_plugindir}/kded/kscreen.so
-%{_kf5_qtplugindir}/kcms/kcm_kscreen.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kscreen.so
 %{_datadir}/metainfo/org.kde.kscreen.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/
+%{_kf5_datadir}/dbus-1/services/org.kde.kscreen.osdService.service
 %{_kf5_datadir}/kded_kscreen/qml/OsdSelector.qml
-%{_kf5_datadir}/kservices5/kcm_kscreen.desktop
+%{_kf5_datadir}/applications/kcm_kscreen.desktop
 %{_kf5_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
 %{_kf5_datadir}/kpackage/kcms/kcm_kscreen/contents/ui/*.qml
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.26.0-1
+- 5.26.0
+
 * Tue Sep 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.25.5-1
 - 5.25.5
 
