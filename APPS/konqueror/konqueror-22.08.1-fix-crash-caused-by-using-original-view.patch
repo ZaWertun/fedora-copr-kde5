@@ -1,0 +1,69 @@
+From 2d050101105638f5d72f1e3486d80a0ead1fd721 Mon Sep 17 00:00:00 2001
+From: Stefano Crocco <stefano.crocco@alice.it>
+Date: Tue, 20 Sep 2022 20:23:27 +0200
+Subject: [PATCH] Fix crash caused by using original view rather than actual
+ view
+
+UrlLoader::decideEmbedOrSave used the original view when deciding
+whether it could be reused to open the URL, instead of using the view
+provided using UrlLoader::setView. If the URL was opened by clicking on
+a sidebar item, this caused a sidebar view to be used, rather than the
+correct dolphin part. This lead to a crash because the sidebar view is
+a passive view, which caused KonqViewManager::chooseNextView to return
+nullptr
+
+BUG: 458933
+---
+ src/konqmainwindow.cpp |  2 +-
+ src/urlloader.cpp      | 14 ++++++--------
+ 2 files changed, 7 insertions(+), 9 deletions(-)
+
+diff --git a/src/konqmainwindow.cpp b/src/konqmainwindow.cpp
+index a96f97270..3befeaa45 100644
+--- a/src/konqmainwindow.cpp
++++ b/src/konqmainwindow.cpp
+@@ -586,7 +586,7 @@ void KonqMainWindow::openUrl(KonqView *_view, const QUrl &_url,
+     loader->setView(view);
+     loader->setOldLocationBarUrl(oldLocationBarURL);
+ 
+-    if (!loader->isReady()) {
++    if (loader->isAsync()) {
+         bool earlySetLocationBarURL = false;
+         if (!view && !m_currentView) { // no view yet, e.g. starting with url as argument
+             earlySetLocationBarURL = true;
+diff --git a/src/urlloader.cpp b/src/urlloader.cpp
+index f04df57c3..37f6eea92 100644
+--- a/src/urlloader.cpp
++++ b/src/urlloader.cpp
+@@ -105,11 +105,7 @@ void UrlLoader::start()
+         }
+     }
+ 
+-    if (isMimeTypeKnown(m_mimeType)) {
+-        decideAction();
+-    } else {
+-        m_isAsync = true;
+-    }
++    m_isAsync = !isMimeTypeKnown(m_mimeType);
+ }
+ 
+ bool UrlLoader::isViewLocked() const
+@@ -152,10 +148,12 @@ void UrlLoader::abort()
+ 
+ void UrlLoader::goOn()
+ {
+-    if (m_ready) {
+-        performAction();
+-    } else {
++    if (m_isAsync) {
+         launchOpenUrlJob(true);
++    } else {
++        decideAction();
++        m_ready = true;
++        performAction();
+     }
+ }
+ 
+-- 
+GitLab
+

@@ -11,7 +11,7 @@
 
 Name:    konqueror
 Version: 22.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE File Manager and Browser
 
 License: GPLv2+ and LGPLv2+ and GFDL
@@ -28,6 +28,8 @@ Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{nam
 Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## upstream patches
+# https://bugs.kde.org/show_bug.cgi?id=458933
+Patch0:  konqueror-22.08.1-fix-crash-caused-by-using-original-view.patch
 
 ## upstreamable patches
 # toggle 'Always try to have one preloaded instance' to default off
@@ -247,6 +249,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Sat Oct 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
+- added konqueror-22.08.1-fix-crash-caused-by-using-original-view.patch
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 
