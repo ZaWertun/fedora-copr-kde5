@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.26.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -108,6 +108,7 @@ BuildRequires:  pam-devel
 BuildRequires:  lm_sensors-devel
 BuildRequires:  pciutils-devel
 BuildRequires:  pipewire-devel
+BuildRequires:  cmake(KPipeWire)
 %ifnarch s390 s390x
 BuildRequires:  libraw1394-devel
 %endif
@@ -802,6 +803,9 @@ fi
 
 
 %changelog
+* Wed Oct 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-2
+- BR: cmake(KPipeWire)
+
 * Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
 - 5.26.0
 
