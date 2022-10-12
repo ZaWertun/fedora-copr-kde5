@@ -2,7 +2,7 @@
 %global kf5_min_version 5.98.0
 
 Name:    plasma-remotecontrollers
-Version: 5.25.90
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: Multimedia Player for playing local files on Plasma Bigscreen
 
@@ -59,7 +59,7 @@ Requires:      systemd-udev
 
 
 %prep
-%autosetup -n %{name}-v%{version}
+%autosetup
 
 
 %build
@@ -97,6 +97,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.pl
 
 
 %changelog
+* Wed Oct 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Mon Sep 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.90-1
 - first spec for version 5.25.90
 

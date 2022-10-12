@@ -2,7 +2,7 @@
 %global kf5_min_version 5.98.0
 
 Name:    plasma-bigscreen
-Version: 5.25.90
+Version: 5.26.0
 Release: 1%{?dist}
 Summary: A big launcher giving you easy access to any installed apps and skills
 
@@ -109,6 +109,9 @@ find %{buildroot}%{_kf5_metainfodir} -name '*.xml' -exec appstream-util validate
 
 
 %changelog
+* Wed Oct 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
+- 5.26.0
+
 * Mon Sep 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.25.90-1
 - first spec for version 5.25.90
 
