@@ -1,7 +1,7 @@
 %global framework mailcommon
 
 Name:    kf5-%{framework}
-Version: 22.08.1
+Version: 22.08.2
 Release: 1%{?dist}
 Summary: Mail applications support library
 
@@ -88,6 +88,9 @@ Requires:       cmake(KF5PimCommon)
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version}
 
+%if 0%{fedora} <= 35
+sed -i 's|GPGMEPP_LIB_VERSION "1.16.0"|GPGMEPP_LIB_VERSION "1.15.1"|' CMakeLists.txt
+%endif
 
 %build
 %cmake_kf5
@@ -115,6 +118,9 @@ Requires:       cmake(KF5PimCommon)
 
 
 %changelog
+* Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
+- 22.08.2
+
 * Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
 - 22.08.1
 

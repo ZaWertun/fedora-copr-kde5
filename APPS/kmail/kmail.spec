@@ -7,8 +7,8 @@
 
 Name:    kmail
 Summary: Mail client
-Version: 22.08.1
-Release: 2%{?dist}
+Version: 22.08.2
+Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -220,6 +220,9 @@ end
 
 
 %changelog
+* Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
+- 22.08.2
+
 * Mon Sep 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
 - added kmail-22.08.1-fix-custom-format-label.patch
 

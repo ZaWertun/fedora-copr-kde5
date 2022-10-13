@@ -1,6 +1,6 @@
 Name:    kleopatra
-Version: 22.08.1
-Release: 2%{?dist}
+Version: 22.08.2
+Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
 # code: GPLv2+
@@ -116,6 +116,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
+- 22.08.2
+
 * Mon Sep 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-2
 - rebuild
 
