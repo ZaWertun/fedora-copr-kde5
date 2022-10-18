@@ -1,6 +1,6 @@
 Name:    libksysguard
 Summary: Library for managing processes running on the system
-Version: 5.26.0
+Version: 5.26.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -153,6 +153,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Oct 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.1-1
+- 5.26.1
+
 * Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
 - 5.26.0
 

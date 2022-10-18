@@ -2,7 +2,7 @@
 %global kf5_min_version 5.98.0
 
 Name:    aura-browser
-Version: 5.26.0
+Version: 5.26.1
 Release: 1%{?dist}
 Summary: Multimedia Player for playing local files on Plasma Bigscreen
 
@@ -74,6 +74,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.in
 
 
 %changelog
+* Tue Oct 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.1-1
+- 5.26.1
+
 * Wed Oct 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
 - 5.26.0
 

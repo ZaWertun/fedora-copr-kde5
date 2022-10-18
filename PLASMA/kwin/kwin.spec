@@ -16,8 +16,8 @@
 %endif
 
 Name:    kwin
-Version: 5.26.0
-Release: 2%{?dist}
+Version: 5.26.1
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -42,8 +42,6 @@ Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
-# https://bugs.kde.org/show_bug.cgi?id=460247
-Patch0:  kwin-5.26.0-wayland-sync-output-devices-enabled-property.patch
 
 ## upstreamable patches
 
@@ -389,6 +387,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Oct 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.1-1
+- 5.26.1
+
 * Fri Oct 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-2
 - added kwin-5.26.0-wayland-sync-output-devices-enabled-property.patch
 

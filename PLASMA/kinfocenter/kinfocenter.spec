@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.26.0
+Version: 5.26.1
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -131,6 +131,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Oct 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.1-1
+- 5.26.1
+
 * Tue Oct 11 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.0-1
 - 5.26.0
 
