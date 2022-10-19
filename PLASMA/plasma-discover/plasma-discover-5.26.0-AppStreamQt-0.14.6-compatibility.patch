@@ -1,0 +1,27 @@
+diff '--color=auto' -r -U3 discover-5.26.1.orig/libdiscover/appstream/AppStreamUtils.cpp discover-5.26.1/libdiscover/appstream/AppStreamUtils.cpp
+--- discover-5.26.1.orig/libdiscover/appstream/AppStreamUtils.cpp	2022-10-18 13:22:19.000000000 +0300
++++ discover-5.26.1/libdiscover/appstream/AppStreamUtils.cpp	2022-10-19 13:14:34.330277052 +0300
+@@ -10,13 +10,22 @@
+ #include <AppStreamQt/release.h>
+ #include <AppStreamQt/screenshot.h>
+ #include <AppStreamQt/spdx.h>
+-#include <AppStreamQt/version.h>
+ #include <KLocalizedString>
+ #include <QDebug>
+ #include <QJsonArray>
+ #include <QJsonObject>
+ #include <QUrlQuery>
+ 
++#define ASQ_MAJOR_VERSION                               0
++#define ASQ_MINOR_VERSION                               14
++#define ASQ_MICRO_VERSION                               6
++
++#define ASQ_CHECK_VERSION(major,minor,micro)    \
++    (ASQ_MAJOR_VERSION > (major) || \
++     (ASQ_MAJOR_VERSION == (major) && ASQ_MINOR_VERSION > (minor)) || \
++     (ASQ_MAJOR_VERSION == (major) && ASQ_MINOR_VERSION == (minor) && \
++      ASQ_MICRO_VERSION >= (micro)))
++
+ using namespace AppStreamUtils;
+ 
+ QUrl AppStreamUtils::imageOfKind(const QList<AppStream::Image> &images, AppStream::Image::Kind kind)

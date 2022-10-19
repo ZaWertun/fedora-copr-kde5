@@ -38,6 +38,7 @@ Source10: discoverrc
 
 ## downstream patches
 Patch0:   plasma-discover-5.26.0-AppStreamQt-0.15.2-compatibility.patch
+Patch1:   plasma-discover-5.26.0-AppStreamQt-0.14.6-compatibility.patch
 
 # Do not use system appstream cache (#2011322)
 # Not sure if this is upstreamable yet, or just a hack
@@ -195,11 +196,15 @@ in %{name}.
 
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
-%autosetup -n %{base_name}-%{version} -p1
+%setup -q -n %{base_name}-%{version}
+%if 0%{?fedora} < 36
+sed -i 's|AppStreamQt 0.15.3|AppStreamQt 0.14.6|' CMakeLists.txt
+%patch0 -p1
+%patch1 -p1
+%endif
 
 
 %build
-sed -i 's|AppStreamQt 0.15.3|AppStreamQt 0.15.2|' CMakeLists.txt
 %cmake_kf5 \
   -DBUILD_RpmOstreeBackend:BOOL=ON
 %cmake_build

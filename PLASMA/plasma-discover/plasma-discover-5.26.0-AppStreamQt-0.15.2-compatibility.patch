@@ -1,46 +1,24 @@
-diff '--color=auto' -r -U3 discover-5.26.0.orig/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp discover-5.26.0/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp
---- discover-5.26.0.orig/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp	2022-10-11 17:48:04.055984953 +0300
-+++ discover-5.26.0/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp	2022-10-11 17:56:42.323555206 +0300
-@@ -16,6 +16,7 @@
- #include <AppStreamQt/icon.h>
- #include <AppStreamQt/screenshot.h>
- #include <AppStreamQt/utils.h>
-+#include <AppStreamQt/version.h>
- #include <appstream/AppStreamUtils.h>
- 
- #include <KConfigGroup>
-@@ -298,7 +299,11 @@
+diff '--color=auto' -r -U3 discover-5.26.1.orig/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp discover-5.26.1/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp
+--- discover-5.26.1.orig/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp	2022-10-18 13:22:19.000000000 +0300
++++ discover-5.26.1/libdiscover/backends/FlatpakBackend/FlatpakResource.cpp	2022-10-19 13:23:05.742794033 +0300
+@@ -298,7 +298,7 @@
  
  QUrl FlatpakResource::contributeURL()
  {
-+#if ASQ_CHECK_VERSION(0, 15, 3)
-     return m_appdata.url(AppStream::Component::UrlKindContribute);
-+#else
+-    return m_appdata.url(AppStream::Component::UrlKindContribute);
 +    return QUrl();
-+#endif
  }
  
  FlatpakResource::FlatpakFileType FlatpakResource::flatpakFileType() const
-diff '--color=auto' -r -U3 discover-5.26.0.orig/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp discover-5.26.0/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp
---- discover-5.26.0.orig/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp	2022-10-11 17:48:04.055984953 +0300
-+++ discover-5.26.0/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp	2022-10-11 17:56:54.114657310 +0300
-@@ -10,6 +10,7 @@
- #include <AppStreamQt/image.h>
- #include <AppStreamQt/release.h>
- #include <AppStreamQt/screenshot.h>
-+#include <AppStreamQt/version.h>
- #include <KLocalizedString>
- #include <PackageKit/Daemon>
- #include <QDebug>
-@@ -164,7 +165,11 @@
+diff '--color=auto' -r -U3 discover-5.26.1.orig/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp discover-5.26.1/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp
+--- discover-5.26.1.orig/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp	2022-10-18 13:22:19.000000000 +0300
++++ discover-5.26.1/libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp	2022-10-19 13:23:20.900779742 +0300
+@@ -164,7 +164,7 @@
  
  QUrl AppPackageKitResource::contributeURL()
  {
-+#if ASQ_CHECK_VERSION(0, 15, 3)
-     return m_appdata.url(AppStream::Component::UrlKindContribute);
-+#else
+-    return m_appdata.url(AppStream::Component::UrlKindContribute);
 +    return QUrl();
-+#endif
  }
  
  AbstractResource::Type AppPackageKitResource::type() const

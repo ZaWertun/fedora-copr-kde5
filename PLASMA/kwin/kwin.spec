@@ -1,13 +1,6 @@
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
-%if !0%{?bootstrap}
-# avoid slow arm arch for now
-%ifnarch %{arm}
-%global tests 1
-%endif
-%endif
-
 # Control wayland by default
 %if (0%{?fedora} && 0%{?fedora} < 34) || (0%{?rhel} && 0%{?rhel} < 9)
 %bcond_with wayland_default

@@ -108,7 +108,9 @@ BuildRequires:  pam-devel
 BuildRequires:  lm_sensors-devel
 BuildRequires:  pciutils-devel
 BuildRequires:  pipewire-devel
+%if 0%{?fedora} > 35
 BuildRequires:  cmake(KPipeWire)
+%endif
 %ifnarch s390 s390x
 BuildRequires:  libraw1394-devel
 %endif
