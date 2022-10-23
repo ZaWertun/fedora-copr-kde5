@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Version:        5.99.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with additional image plugins for QtGui
 
 License:        LGPLv2+
@@ -18,6 +18,10 @@ URL:            https://cgit.kde.org/%{framework}.git
 Source0:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz
 Source1:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framework}-%{version}.tar.xz.sig
 Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
+
+# Upastream patches
+Patch0:         1190e53e9b69da6f9663ceb75c4813c5708b7cbd.diff
+Patch1:         350ce1b990460cb2178f369f22fe80803f5645f3.diff
 
 %global __provides_exclude_from ^(%{_kf5_plugindir}/.*\\.so)$
 
@@ -45,7 +49,7 @@ image formats.
 
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
-%autosetup -n %{framework}-%{version}
+%autosetup -n %{framework}-%{version} -p1
 
 
 %build
@@ -68,6 +72,9 @@ image formats.
 
 
 %changelog
+* Sun Oct 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-2
+- avif patches added
+
 * Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
 - 5.99.0
 

@@ -1,0 +1,14 @@
+diff --git a/src/imageformats/avif.cpp b/src/imageformats/avif.cpp
+index c4f7a0f8a36a03b4f2cc9c15bde7fcd1eba51f76..24aec84423b2595eb0175c95552d85b0493eb16f 100644
+--- a/src/imageformats/avif.cpp
++++ b/src/imageformats/avif.cpp
+@@ -1024,7 +1024,8 @@ int QAVIFHandler::loopCount() const
+         return 0;
+     }
+ 
+-    return 1;
++    // Endless loop to work around https://github.com/AOMediaCodec/libavif/issues/347
++    return -1;
+ }
+ 
+ QPointF QAVIFHandler::CompatibleChromacity(qreal chrX, qreal chrY)
