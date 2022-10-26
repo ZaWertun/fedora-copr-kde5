@@ -2,7 +2,7 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.26.1
+Version: 5.26.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -76,6 +76,7 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
+%find_lang %{name} --with-qt --all-name
 
 # Fix: Service file '...' is not named after the D-Bus name 'org.kde.KScreen'
 pushd %{buildroot}/%{_datadir}/dbus-1/services/
@@ -86,7 +87,7 @@ popd
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_bindir}/kscreen-doctor
 %{_kf5_libexecdir}/kscreen_backend_launcher
@@ -108,6 +109,9 @@ popd
 
 
 %changelog
+* Wed Oct 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.2-1
+- 5.26.2
+
 * Tue Oct 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.1-1
 - 5.26.1
 
