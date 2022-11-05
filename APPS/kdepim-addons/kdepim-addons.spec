@@ -4,7 +4,7 @@
 %endif
 
 Name:    kdepim-addons
-Version: 22.08.2
+Version: 22.08.3
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -259,6 +259,9 @@ sed -i 's|find_package(Gpgmepp 1.16.0 CONFIG)|find_package(Gpgmepp 1.15.0 CONFIG
 
 
 %changelog
+* Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
+- 22.08.3
+
 * Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
 - 22.08.2
 

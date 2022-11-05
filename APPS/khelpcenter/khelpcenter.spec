@@ -2,7 +2,7 @@ Name:    khelpcenter
 Summary: Show documentation for KDE applications
 # Override khelpcenter subpackage from kde-runtime-15.04 (no longer built)
 Epoch:   1
-Version: 22.08.2
+Version: 22.08.3
 Release: 1%{?dist}
 
 License: GPLv2 or GPLv3
@@ -101,6 +101,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kh
 
 
 %changelog
+* Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.08.3-1
+- 22.08.3
+
 * Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.08.2-1
 - 22.08.2
 

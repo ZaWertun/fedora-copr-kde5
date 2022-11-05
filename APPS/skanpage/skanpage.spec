@@ -1,5 +1,5 @@
 Name:           skanpage
-Version:        22.08.2
+Version:        22.08.3
 Release:        1%{?dist}
 Summary:        Utility to scan images and multi-page documents
 License:        BSD and GPLv2 and GPLv3
@@ -78,6 +78,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
+- 22.08.3
+
 * Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
 - 22.08.2
 

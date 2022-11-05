@@ -2,8 +2,8 @@ diff '--color=auto' -r -U3 kleopatra-22.08.0.orig/CMakeLists.txt kleopatra-22.08
 --- kleopatra-22.08.0.orig/CMakeLists.txt	2022-08-19 23:45:48.964016811 +0300
 +++ kleopatra-22.08.0/CMakeLists.txt	2022-08-20 00:09:52.764115892 +0300
 @@ -36,7 +36,7 @@
- set(KMIME_VERSION "5.21.2")
- set(LIBKLEO_VERSION "5.21.2")
+ set(KMIME_VERSION "5.21.3")
+ set(LIBKLEO_VERSION "5.21.3")
  set(QT_REQUIRED_VERSION "5.15.2")
 -set(GPGME_REQUIRED_VERSION "1.16.0")
 +set(GPGME_REQUIRED_VERSION "1.15.0")

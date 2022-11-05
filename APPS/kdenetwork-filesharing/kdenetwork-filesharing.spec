@@ -1,6 +1,6 @@
 Name:    kdenetwork-filesharing
 Summary: Network filesharing
-Version: 22.08.2
+Version: 22.08.3
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -76,6 +76,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
+- 22.08.3
+
 * Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
 - 22.08.2
 
