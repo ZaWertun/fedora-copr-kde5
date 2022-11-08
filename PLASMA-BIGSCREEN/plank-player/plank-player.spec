@@ -2,7 +2,7 @@
 %global kf5_min_version 5.98.0
 
 Name:    plank-player
-Version: 5.26.2
+Version: 5.26.3
 Release: 1%{?dist}
 Summary: Multimedia Player for playing local files on Plasma Bigscreen
 
@@ -71,6 +71,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.in
 
 
 %changelog
+* Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-1
+- 5.26.3
+
 * Wed Oct 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.2-1
 - 5.26.2
 

@@ -2,7 +2,7 @@
 
 Name:    plasma-nm
 Summary: Plasma for managing network connections
-Version: 5.26.2
+Version: 5.26.3
 Release: 1%{?dist}
 
 License: LGPLv2+ and GPLv2+
@@ -313,6 +313,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-1
+- 5.26.3
+
 * Wed Oct 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.2-1
 - 5.26.2
 

@@ -2,7 +2,7 @@
 
 Name:    kmenuedit
 Summary: KDE menu editor
-Version: 5.26.2
+Version: 5.26.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -85,6 +85,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-1
+- 5.26.3
+
 * Wed Oct 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.2-1
 - 5.26.2
 

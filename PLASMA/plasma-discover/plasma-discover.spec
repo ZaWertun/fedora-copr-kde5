@@ -12,7 +12,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.26.2
+Version: 5.26.3
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -310,6 +310,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %changelog
+* Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-1
+- 5.26.3
+
 * Wed Oct 26 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.2-1
 - 5.26.2
 

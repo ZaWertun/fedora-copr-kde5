@@ -9,8 +9,8 @@
 %endif
 
 Name:    kwin
-Version: 5.26.2.1
-Release: 2%{?dist}
+Version: 5.26.3
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -35,8 +35,6 @@ Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
-# https://bugs.kde.org/show_bug.cgi?id=461032
-Patch0:  kwin-5.26.2-x11window-revert-more-from-3a28c02f.patch
 
 ## upstreamable patches
 
@@ -381,6 +379,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-1
+- 5.26.3
+
 * Thu Oct 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.2.1-2
 - added kwin-5.26.2-x11window-revert-more-from-3a28c02f.patch
 
