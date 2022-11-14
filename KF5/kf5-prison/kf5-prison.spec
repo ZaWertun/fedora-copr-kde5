@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 1 barcode library
-Version: 5.99.0
+Version: 5.100.0
 Release: 1%{?dist}
 
 License: BSD
@@ -76,6 +76,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
+- 5.100.0
+
 * Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
 - 5.99.0
 

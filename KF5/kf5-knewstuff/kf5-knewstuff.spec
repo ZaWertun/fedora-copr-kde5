@@ -1,7 +1,7 @@
 %global framework knewstuff
 
 Name:    kf5-%{framework}
-Version: 5.99.0
+Version: 5.100.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module for downloading application assets
 
@@ -45,6 +45,9 @@ BuildRequires:  kf5-rpm-macros
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
 
+BuildRequires:  cmake(Qt5UiPlugin)
+BuildRequires:  cmake(KF5Syndication)
+
 %description
 KDE Frameworks 5 Tier 3 module for downloading and sharing additional
 application data like plugins, themes, motives, etc.
@@ -86,6 +89,7 @@ developing applications that use %{name}.
 %{_kf5_libdir}/libKF5NewStuff.so.*
 %{_kf5_libdir}/libKF5NewStuffCore.so.*
 %{_kf5_libdir}/libKF5NewStuffWidgets.so.*
+%{_kf5_qtplugindir}/designer/knewstuffwidgets.so
 %{_kf5_datadir}/kf5/kmoretools/
 %{_kf5_datadir}/qlogging-categories5/%{framework}*
 %dir %{_kf5_qmldir}/org/
@@ -106,6 +110,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
+- 5.100.0
+
 * Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
 - 5.99.0
 

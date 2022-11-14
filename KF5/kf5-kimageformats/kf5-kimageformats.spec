@@ -1,8 +1,8 @@
 %global framework kimageformats
 
 Name:           kf5-%{framework}
-Version:        5.99.0
-Release:        5%{?dist}
+Version:        5.100.0
+Release:        1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon with additional image plugins for QtGui
 
 License:        LGPLv2+
@@ -20,8 +20,6 @@ Source1:        http://download.kde.org/%{stable}/frameworks/%{majmin}/%{framewo
 Source2:        gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 
 # Upastream patches
-Patch0:         1190e53e9b69da6f9663ceb75c4813c5708b7cbd.diff
-Patch1:         350ce1b990460cb2178f369f22fe80803f5645f3.diff
 
 %global __provides_exclude_from ^(%{_kf5_plugindir}/.*\\.so)$
 
@@ -72,6 +70,9 @@ image formats.
 
 
 %changelog
+* Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
+- 5.100.0
+
 * Sun Oct 23 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-5
 - avif patches added
 

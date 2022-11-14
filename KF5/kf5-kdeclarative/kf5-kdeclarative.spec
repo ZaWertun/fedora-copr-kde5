@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.99.0
+Version: 5.100.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon for Qt declarative
 
@@ -133,6 +133,9 @@ make test ARGS="--output-on-failure --timeout 10 --verbose" -C %{_target_platfor
 
 
 %changelog
+* Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
+- 5.100.0
+
 * Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
 - 5.99.0
 

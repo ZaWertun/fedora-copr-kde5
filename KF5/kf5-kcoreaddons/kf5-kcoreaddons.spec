@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.99.0
+Version: 5.100.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with various classes on top of QtCore
 
@@ -76,7 +76,6 @@ developing applications that use %{name}.
 %cmake_install
 
 %find_lang_kf5 kcoreaddons5_qt
-%find_lang_kf5 kde5_xml_mimetypes
 
 
 %check
@@ -105,7 +104,7 @@ update-mime-database %{_datadir}/mime &> /dev/null || :
 %ldconfig_scriptlets
 %endif
 
-%files -f kcoreaddons5_qt.lang -f kde5_xml_mimetypes.lang
+%files -f kcoreaddons5_qt.lang
 %doc README.md
 %license LICENSES/*.txt
 %{_kf5_bindir}/desktoptojson
@@ -123,6 +122,9 @@ update-mime-database %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
+- 5.100.0
+
 * Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
 - 5.99.0
 

@@ -1,7 +1,7 @@
 %global framework krunner
 
 Name:    kf5-%{framework}
-Version: 5.99.0
+Version: 5.100.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution with parallelized query system
 
@@ -89,6 +89,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
+- 5.100.0
+
 * Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
 - 5.99.0
 
