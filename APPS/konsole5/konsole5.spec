@@ -10,7 +10,7 @@
 Name:    konsole5
 Summary: KDE Terminal emulator
 Version: 22.08.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
 License: GPLv2 and GFDL
@@ -30,6 +30,8 @@ Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 ## upstreamable patches
 
 ## upstream patches
+# https://bugs.kde.org/show_bug.cgi?id=461542
+Patch0:   konsole5-22.08.3-fix-trimmed-selections-in-scrollback-buffer.patch
 
 ## downstream patches
 Patch200: konsole-history_location_default.patch
@@ -118,25 +120,19 @@ Summary: Konsole5 kpart plugin
 
 %install
 %cmake_install
-
 install -m644 -p -b -D %{SOURCE10} %{buildroot}%{_kf5_sysconfdir}/xdg/konsolerc
-
 %find_lang konsole --with-html
-
-# add startupWMClass=konsole if not already present
-grep 'StartupWMClass=' %{buildroot}%{_kf5_datadir}/applications/org.kde.konsole.desktop >& /dev/null || \
-desktop-file-edit --set-key=StartupWMClass --set-value=konsole %{buildroot}%{_kf5_datadir}/applications/org.kde.konsole.desktop
 
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.konsole.appdata.xml ||:
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.konsole.appdata.xml
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.konsole.desktop
+
 %if 0%{?tests}
-test "$(xvfb-run -a %{_target_platform}/src/konsole --version)" = "konsole %{version}" ||:
+test "$(xvfb-run -a %{_vpath_builddir}/bin/konsole --version)" = "konsole %{version}" ||:
 export CTEST_OUTPUT_ON_FAILURE=1
 DBUS_SESSION_BUS_ADDRESS=
-xvfb-run -a \
-make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
+xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 %endif
 
 
@@ -171,6 +167,10 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Wed Nov 16 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-2
+- added konsole5-22.08.3-fix-trimmed-selections-in-scrollback-buffer.patch
+- fixed tests running
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 
