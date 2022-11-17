@@ -1,7 +1,7 @@
 Name:    plasma-integration
 Summary: Qt Platform Theme integration plugin for Plasma
 Version: 5.26.3
-Release: 1%{?dist}
+Release: 5%{?dist}
 
 # KDE e.V. may determine that future LGPL versions are accepted
 License: LGPLv2 or LGPLv3
@@ -92,6 +92,9 @@ sed -i.breeze_version \
 
 
 %changelog
+* Thu Nov 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-5
+- rebuild
+
 * Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-1
 - 5.26.3
 

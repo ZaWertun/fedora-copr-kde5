@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Version: 22.08.3
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
 License: LGPLv2+
@@ -126,6 +126,9 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %changelog
+* Thu Nov 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-5
+- rebuild
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 
