@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.26.3
-Release: 1%{?dist}
+Release: 5%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -805,6 +805,9 @@ fi
 
 
 %changelog
+* Fri Nov 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-5
+- rebuild
+
 * Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.3-1
 - 5.26.3
 
