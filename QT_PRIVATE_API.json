@@ -14,6 +14,7 @@
   ],
   "2": [
     "kwin",
+    "layer-shell-qt",
     "plasma-integration",
     "xdg-desktop-portal-kde"
   ]
