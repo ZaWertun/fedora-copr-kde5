@@ -1,0 +1,19 @@
+diff '--color=auto' -r -U3 kscreen-5.26.3.orig/kcm/kcm_kscreen.json kscreen-5.26.3/kcm/kcm_kscreen.json
+--- kscreen-5.26.3.orig/kcm/kcm_kscreen.json	2022-11-29 13:04:01.571871088 +0300
++++ kscreen-5.26.3/kcm/kcm_kscreen.json	2022-11-29 13:07:40.226683684 +0300
+@@ -19,6 +19,7 @@
+         "Description[pl]": "Zarządzanie i ustawienia ekranów",
+         "Description[pt]": "Gerir e configurar os monitores e ecrãs",
+         "Description[pt_BR]": "Gerenciar e configurar os monitores e telas",
++        "Description[ru]": "Настройка экранов и видеовыходов",
+         "Description[sk]": "Správa a nastavenie monitorov a obrazoviek",
+         "Description[sl]": "Upravljaj in konfiguriraj zaslone in prikazovalnike",
+         "Description[sv]": "Hantera och ställ in bildskärmar",
+@@ -51,6 +52,7 @@
+         "Name[pl]": "Ustawienia wyświetlania",
+         "Name[pt]": "Configuração do Ecrã",
+         "Name[pt_BR]": "Configurações da tela",
++        "Name[ru]": "Настройка экранов",
+         "Name[sk]": "Nastavenie obrazovky",
+         "Name[sl]": "Prikaži konfiguracijo",
+         "Name[sv]": "Inställning av bildskärm",

@@ -1,7 +1,7 @@
 Name:    kscreen
 Epoch:   1
 Version: 5.26.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Display Management software
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -21,6 +21,9 @@ Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
+
+## upstreamable patches
+Patch0:  kscreen-5.26.3-missing-ru-translation.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -99,6 +102,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue Nov 29 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.26.3-2
+- Added kscreen-5.26.3-missing-ru-translation.patch
+
 * Tue Nov 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.26.3-1
 - 5.26.3
 
