@@ -1,17 +1,11 @@
-%global commit 836176d25bc2c3ae0c8739f99a0f360c9c78b70d
-%global commitdate 20220613
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global last_stable_version 2.7.2
-
 Name:		krusader
-Version:	2.7.2%{?commitdate:^git%{commitdate}.%{shortcommit}}
-Release:	9%{?dist}
+Version:	2.8.0
+Release:	1%{?dist}
 Summary:	An advanced twin-panel (commander-style) file-manager for KDE
 
 License:	GPLv2+
 URL:		https://www.krusader.org/
-Source0:	https://invent.kde.org/utilities/%{name}/-/archive/%{commit}/krusader-%{version}.tar.bz2
-Source1:	https://download.kde.org/stable/%{name}/%{version}/%{name}-%{last_stable_version}.tar.xz
+Source0:	https://download.kde.org/stable/%{name}/%{version}/%{name}-%{version}.tar.xz
 
 ## upstream patches
 
@@ -57,17 +51,10 @@ friendly, fast and looks great on your desktop! You should give it a try.
 
 
 %prep
-%autosetup -p1 -b1 -n %{name}-%{commit}
+%autosetup -p1
 
 
 %build
-# Using translations from latest stable release:
-cp -rv ../%{name}-%{last_stable_version}/po .
-echo -e "find_package(KF5I18n CONFIG REQUIRED)\n\
-ki18n_install(po)\n\
-find_package(KF5DocTools CONFIG REQUIRED)\n\
-kdoctools_install(po)" >> CMakeLists.txt
-
 %cmake_kf5
 %cmake_build
 
@@ -114,7 +101,6 @@ done
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%doc doc-extras/actions_tutorial.txt
 %doc AUTHORS ChangeLog README NEWS TODO
 %{_sysconfdir}/xdg/kio_isorc
 %{_bindir}/*
@@ -130,6 +116,9 @@ done
 
 
 %changelog
+* Wed Nov 30 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.8.0-1
+- version 2.8.0
+
 * Sat Jun 18 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 2.7.2^git20220613.836176d-9
 - Using translations from latest stable release
 
