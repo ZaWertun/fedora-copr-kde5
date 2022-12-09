@@ -9,11 +9,11 @@ diff -up ktp-text-ui-15.04.2/image-sharer/CMakeLists.txt.soversion ktp-text-ui-1
 +                      SOVERSION ${KTP_TEXT_UI_VERSION}
 +)
  
- install(TARGETS ktpimagesharer ${INSTALL_TARGETS_DEFAULT_ARGS})
+ install(TARGETS ktpimagesharer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 diff -up ktp-text-ui-15.04.2/lib/CMakeLists.txt.soversion ktp-text-ui-15.04.2/lib/CMakeLists.txt
 --- ktp-text-ui-15.04.2/lib/CMakeLists.txt.soversion	2015-06-10 07:03:18.122890799 -0500
 +++ ktp-text-ui-15.04.2/lib/CMakeLists.txt	2015-06-10 07:04:07.198982480 -0500
-@@ -33,6 +33,9 @@ set(ktpchat_UI
+@@ -34,6 +34,9 @@ set(ktpchat_UI
  ki18n_wrap_ui(ktpchat_SRCS ${ktpchat_UI})
  
  add_library(ktpchat SHARED ${ktpchat_SRCS})

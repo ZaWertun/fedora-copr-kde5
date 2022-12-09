@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-kcalendarutils
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: The KCalendarUtils Library
 
@@ -107,6 +107,9 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

@@ -9,8 +9,8 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 22.08.3
-Release: 2%{?dist}
+Version: 22.12.0
+Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
 License: GPLv2 and GFDL
@@ -30,8 +30,6 @@ Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 ## upstreamable patches
 
 ## upstream patches
-# https://bugs.kde.org/show_bug.cgi?id=461542
-Patch0:   konsole5-22.08.3-fix-trimmed-selections-in-scrollback-buffer.patch
 
 ## downstream patches
 Patch200: konsole-history_location_default.patch
@@ -47,6 +45,7 @@ Provides:  konsole = %{version}-%{release}
 BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
+BuildRequires: libicu-devel
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(zlib)
 
@@ -167,6 +166,9 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Wed Nov 16 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-2
 - added konsole5-22.08.3-fix-trimmed-selections-in-scrollback-buffer.patch
 - fixed tests running

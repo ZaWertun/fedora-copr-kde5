@@ -3,7 +3,7 @@
 
 Name:    kig
 Summary: Interactive Geometry
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -81,7 +81,6 @@ sed -ie "s|^#!/usr/bin/env python3|#!%{__python3}|" pykig/pykig.py
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man
 
 
@@ -107,6 +106,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Dec 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

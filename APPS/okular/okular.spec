@@ -13,7 +13,7 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -67,10 +67,7 @@ BuildRequires: cmake(Qt5PrintSupport)
 BuildRequires: cmake(Qt5Svg)
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(Qt5Quick)
-
-# okular-mobile
-#BuildRequires: kf5-purpose-devel
-#Requires: kf5-purpose%{?_isa}
+BuildRequires: qt5-qtbase-private-devel
 
 BuildRequires: pkgconfig(phonon4qt5)
 BuildRequires: cmake(Qca-qt5)
@@ -232,6 +229,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

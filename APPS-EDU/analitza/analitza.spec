@@ -7,8 +7,8 @@
 
 Name:    analitza
 Summary: Library of mathematical features
-Version: 22.08.3
-Release: 5%{?dist}
+Version: 22.12.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -101,6 +101,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Fri Dec 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-5
 - rebuild
 

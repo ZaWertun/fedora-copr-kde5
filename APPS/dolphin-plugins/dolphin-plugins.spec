@@ -1,6 +1,6 @@
 Name:    dolphin-plugins
 Summary: Dolphin plugins for revision control systems
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -79,6 +79,9 @@ systems:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

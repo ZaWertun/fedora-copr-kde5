@@ -1,7 +1,7 @@
 %global framework libksieve
 
 Name:    kf5-%{framework}
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: Sieve support library
 
@@ -42,7 +42,6 @@ BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwindowsystem-devel >= %{kf5_ver}
 BuildRequires:  kf5-syntax-highlighting-devel >= %{kf5_ver}
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
@@ -93,7 +92,6 @@ Requires:       cmake(KF5SyntaxHighlighting)
 %{_kf5_libdir}/libKF5KSieve.so.*
 %{_kf5_libdir}/libKF5KSieveUi.so.*
 %{_kf5_datadir}/sieve/
-%{_kf5_plugindir}/kio/sieve.so
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -110,6 +108,9 @@ Requires:       cmake(KF5SyntaxHighlighting)
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

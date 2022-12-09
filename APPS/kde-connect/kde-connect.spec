@@ -4,7 +4,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        22.08.3
+Version:        22.12.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -162,6 +162,8 @@ done
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_bindir}/kdeconnect-*
+%dir %{_kf5_datadir}/kdeconnect/
+%{_kf5_datadir}/kdeconnect/kdeconnect_clipboard_config.qml
 %{_kf5_datadir}/plasma/plasmoids/org.kde.kdeconnect/
 %{_kf5_datadir}/knotifications5/*
 %{_kf5_datadir}/kservices5/*.desktop
@@ -216,6 +218,9 @@ fi
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

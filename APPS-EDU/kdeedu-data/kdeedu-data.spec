@@ -1,6 +1,6 @@
 Name:    kdeedu-data
 Summary: Shared icons, artwork and data files for educational applications
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -63,6 +63,9 @@ cp -alf \
 
 
 %changelog
+* Fri Dec 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

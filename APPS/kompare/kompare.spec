@@ -1,6 +1,6 @@
 Name:    kompare
 Summary: Diff tool
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -93,13 +93,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 %doc README
 %license LICENSES/*.txt
 %{_bindir}/kompare
-%{_datadir}/kservicetypes5/kompare*.desktop
 %{_datadir}/applications/org.kde.kompare.desktop
 %{_kf5_datadir}/kio/servicemenus/kompare.desktop
 %{_kf5_metainfodir}/org.kde.kompare.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/kompare.*
-%{_datadir}/kservices5/komparenavtreepart.desktop
-%{_datadir}/kservices5/komparepart.desktop
 %{_kf5_datadir}/qlogging-categories5/kompare.categories
 
 %ldconfig_scriptlets libs
@@ -116,6 +113,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kompare.deskt
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

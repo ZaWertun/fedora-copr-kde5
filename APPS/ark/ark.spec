@@ -4,7 +4,7 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -130,8 +130,11 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
+%{_kf5_sysconfdir}/xdg/arkrc
 %{_kf5_bindir}/ark
 %{_kf5_datadir}/config.kcfg/ark.kcfg
+%{_kf5_datadir}/kconf_update/ark.upd
+%{_kf5_datadir}/kconf_update/ark_add_hamburgermenu_to_toolbar.sh
 %{_kf5_metainfodir}/org.kde.ark.appdata.xml
 %{_kf5_datadir}/applications/org.kde.ark.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/ark.*
@@ -142,16 +145,17 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 %files libs
 %{_kf5_libdir}/libkerfuffle.so.*
-%{_kf5_datadir}/kservices5/ark_part.desktop
 %{_kf5_qtplugindir}/kerfuffle/
 %{_kf5_qtplugindir}/kf5/parts/%{name}part.so
 %{_kf5_plugindir}/kio_dnd/extracthere.so
 %{_kf5_plugindir}/kfileitemaction/compressfileitemaction.so
 %{_kf5_plugindir}/kfileitemaction/extractfileitemaction.so
-%{_kf5_datadir}/kservicetypes5/kerfufflePlugin.desktop
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

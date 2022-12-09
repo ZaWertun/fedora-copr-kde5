@@ -1,6 +1,6 @@
 Name:    kgpg
 Summary: Manage GPG encryption keys 
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -84,7 +84,6 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 # only plasma supports X-KDE-autostart-condition, else it starts unconditionally
@@ -92,12 +91,6 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 desktop-file-edit \
   --add-only-show-in=KDE \
   %{buildroot}%{_kf5_sysconfdir}/xdg/autostart/org.kde.kgpg.desktop
-
-# support kde4 servicemenu
-mkdir -p %{buildroot}%{_kde4_datadir}/kde4/services/ServiceMenus
-cp -alf \
-  %{buildroot}%{_kf5_datadir}/kservices5/ServiceMenus/*.desktop \
-  %{buildroot}%{_kde4_datadir}/kde4/services/ServiceMenus/
 
 
 %check
@@ -115,14 +108,16 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/config.kcfg/kgpg.kcfg
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.kgpg.Key.xml
 %{_kf5_datadir}/kgpg/
-%{_kf5_datadir}/kservices5/ServiceMenus/*.desktop
-%{_kde4_datadir}/kde4/services/ServiceMenus/*.desktop
+%{_kf5_datadir}/kio/servicemenus/%{name}_*.desktop
 %{_kf5_datadir}/kxmlgui5/kgpg/
 %{_kf5_datadir}/icons/hicolor/*/*/*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

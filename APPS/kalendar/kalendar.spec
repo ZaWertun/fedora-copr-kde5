@@ -1,5 +1,5 @@
 Name:    kalendar
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
@@ -29,7 +29,7 @@ BuildRequires:  libappstream-glib
 
 %global qt5_min_version     5.15.2
 %global kf5_min_version     5.86.0
-%global akonadi_min_version 5.18.0
+%global akonadi_min_version 5.21.0
 
 BuildRequires:  extra-cmake-modules       >= %{kf5_min_version}
 BuildRequires:  kf5-rpm-macros            >= %{kf5_min_version}
@@ -65,6 +65,8 @@ BuildRequires:  cmake(KF5AkonadiContact)  >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5CalendarSupport) >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5EventViews)      >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5GrantleeTheme)   >= %{akonadi_min_version}
+BuildRequires:  cmake(KF5MailCommon)      >= %{akonadi_min_version}
+BuildRequires:  cmake(KF5Libkdepim)       >= %{akonadi_min_version}
 
 BuildRequires:  cmake(Grantlee5)
 
@@ -113,7 +115,6 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 %{_qt5_qmldir}/org/kde/akonadi/
 %{_qt5_qmldir}/org/kde/%{name}/
 %{_kf5_datadir}/plasma/plasmoids/org.kde.%{name}.contact/
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.%{name}.contact.desktop
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
 %{_kf5_datadir}/qlogging-categories5/*.categories
@@ -122,6 +123,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

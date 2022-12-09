@@ -1,6 +1,6 @@
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GPLv2+ and BSD
@@ -57,7 +57,6 @@ KDE SDK scripts
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man
 
 # purge use of /usr/bin/env
@@ -153,6 +152,8 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 %{_kf5_bindir}/reviewboard-am
 %{_kf5_bindir}/uncrustify-kf5
 %{_kf5_datadir}/uncrustify/
+%{_kf5_bindir}/clean-forward-declaration.sh
+%{_kf5_bindir}/clean-includes.sh
 %{_mandir}/man1/adddebug.1*
 %{_mandir}/man1/cheatmake.1*
 %{_mandir}/man1/create_cvsignore.1*
@@ -172,6 +173,9 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

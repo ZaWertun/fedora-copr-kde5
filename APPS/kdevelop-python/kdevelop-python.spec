@@ -1,5 +1,5 @@
 Name:       kdevelop-python
-Version:    22.08.3
+Version:    22.12.0
 %global py3_suffix -py3
 %global py3_tag .py3
 Release:    1%{?dist}
@@ -28,8 +28,7 @@ URL:        https://www.kdevelop.org/
 
 BuildRequires:  gnupg2
 BuildRequires:  kdevelop-devel >= %{version}
-# Can't be built with python3 >= 3.10, see: https://bugzilla.redhat.com/show_bug.cgi?id=1898116#c12
-BuildRequires:  python3.9
+BuildRequires:  python3-devel >= 3.10
 BuildRequires:  python-rpm-macros
 BuildRequires:  gettext
 
@@ -100,6 +99,9 @@ rm -f %{buildroot}%{_datadir}/kdevpythonsupport/documentation_files/PyKDE4/parse
 %{_datadir}/metainfo/org.kde.kdev-python.metainfo.xml
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

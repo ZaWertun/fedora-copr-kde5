@@ -1,10 +1,19 @@
 Name:           skanpage
-Version:        22.08.3
+Version:        22.12.0
 Release:        1%{?dist}
 Summary:        Utility to scan images and multi-page documents
 License:        BSD and GPLv2 and GPLv3
 URL:            https://www.kde.org/applications/graphics/%{name}/
-Source0:        https://invent.kde.org/utilities/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
+
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
+%else
+%global stable stable
+%endif
+Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 BuildRequires:  libappstream-glib
 BuildRequires:  desktop-file-utils
@@ -48,7 +57,8 @@ and a QML interface. It supports saving to image and PDF files.
 
 
 %prep
-%autosetup -p1 -n %{name}-v%{version}
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
+%autosetup -p1
 
 
 %build
@@ -60,7 +70,8 @@ sed -i 's|set(CMAKE_CXX_FLAGS "-fopenmp")|set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS
 
 
 %install
-%cmake_install
+%cmake_install 
+%find_lang %{name} --with-kde
 
 
 %check
@@ -68,7 +79,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 
 
-%files
+%files -f %{name}.lang
 %license LICENSES/*.txt
 %{_bindir}/%{name}
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
@@ -78,6 +89,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

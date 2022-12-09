@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: The Kontact Interface Library
 
@@ -90,7 +90,6 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5KontactInterface.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
-%{_kf5_datadir}/kservicetypes5/kontactplugin.desktop
 
 
 %files devel
@@ -101,6 +100,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

@@ -1,7 +1,7 @@
-diff -r -U3 kig-20.08.0.orig/CMakeLists.txt kig-20.08.0/CMakeLists.txt
---- kig-20.08.0.orig/CMakeLists.txt	2020-08-07 09:54:58.000000000 +0300
-+++ kig-20.08.0/CMakeLists.txt	2020-08-16 23:18:22.463314427 +0300
-@@ -64,6 +64,9 @@
+diff -r -U3 kig-22.12.0.orig/CMakeLists.txt kig-22.12.0/CMakeLists.txt
+--- kig-22.12.0.orig/CMakeLists.txt	2020-08-07 09:54:58.000000000 +0300
++++ kig-22.12.0/CMakeLists.txt	2020-08-16 23:18:22.463314427 +0300
+@@ -72,6 +72,9 @@
  if(BoostPython_FOUND)
    add_subdirectory( scripting )
    add_definitions(-DKIG_ENABLE_PYTHON_SCRIPTING)
@@ -11,29 +11,27 @@ diff -r -U3 kig-20.08.0.orig/CMakeLists.txt kig-20.08.0/CMakeLists.txt
  endif(BoostPython_FOUND)
  
  set_package_properties(
-Только в kig-20.08.0/: CMakeLists.txt.orig
-diff -r -U3 kig-20.08.0.orig/scripting/python_scripter.cc kig-20.08.0/scripting/python_scripter.cc
---- kig-20.08.0.orig/scripting/python_scripter.cc	2020-08-07 08:49:45.000000000 +0300
-+++ kig-20.08.0/scripting/python_scripter.cc	2020-08-16 23:18:22.463314427 +0300
-@@ -23,6 +23,8 @@
- #include <Python.h>
+diff -r -U3 kig-22.12.0.orig/scripting/python_scripter.cc kig-22.12.0/scripting/python_scripter.cc
+--- kig-22.12.0.orig/scripting/python_scripter.cc	2020-08-07 08:49:45.000000000 +0300
++++ kig-22.12.0/scripting/python_scripter.cc	2020-08-16 23:18:22.463314427 +0300
+@@ -10,6 +10,8 @@
  #include "python_scripter.h"
+ #include <Python.h>
  
 +#include <QLibrary>
 +
  #include <iostream>
  #include <string>
  
-@@ -381,6 +383,11 @@
+@@ -311,6 +311,11 @@
  
-   PyImport_AppendInittab( "kig", PyInit_kig );
+     PyImport_AppendInittab("kig", PyInit_kig);
  
-+  QLibrary *pythonLib = new QLibrary();
-+  pythonLib->setLoadHints(QLibrary::ExportExternalSymbolsHint);
-+  pythonLib->setFileName(LIB_PYTHON);
-+  pythonLib->load();
++    QLibrary *pythonLib = new QLibrary();
++    pythonLib->setLoadHints(QLibrary::ExportExternalSymbolsHint);
++    pythonLib->setFileName(LIB_PYTHON);
++    pythonLib->load();
 +
-   Py_Initialize();
+     Py_Initialize();
  
-   PyRun_SimpleString( "import math; from math import *;" );
-Только в kig-20.08.0/scripting: python_scripter.cc.orig
+     PyRun_SimpleString("import math; from math import *;");

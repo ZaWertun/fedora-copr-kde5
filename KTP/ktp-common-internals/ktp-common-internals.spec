@@ -1,6 +1,6 @@
 Name:    ktp-common-internals
 Summary: Common internals for KDE Telepathy
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -134,6 +134,9 @@ Requires:       telepathy-logger-qt-devel
 
 
 %changelog
+* Fri Dec 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

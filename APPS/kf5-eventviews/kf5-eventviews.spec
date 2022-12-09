@@ -1,7 +1,7 @@
 %global framework eventviews
 
 Name:    kf5-%{framework}
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: KDE PIM library for displaying events and calendars
 
@@ -44,7 +44,6 @@ BuildRequires:  cmake(KF5Mime)
 BuildRequires:  cmake(KF5Holidays)
 BuildRequires:  cmake(KF5IdentityManagement)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
@@ -95,7 +94,7 @@ developing applications that use %{name}.
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5EventViews.so.*
-%{_kf5_datadir}/kservicetypes5/calendardecoration.desktop
+#{_kf5_datadir}/kservicetypes5/calendardecoration.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
@@ -106,6 +105,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

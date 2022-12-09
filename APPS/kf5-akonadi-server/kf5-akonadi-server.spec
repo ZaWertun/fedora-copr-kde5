@@ -21,8 +21,8 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 22.08.3
-Release: 5%{?dist}
+Version: 22.12.0
+Release: 1%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -112,10 +112,7 @@ Obsoletes: kf5-akonadi-socialutils < 16.07
 %package devel
 Summary:        Developer files for %{name}
 Obsoletes:      kf5-akonadi-devel < 16.03
-## see if we can get away with droping this in 16.08 -- rex
-#Provides:      kf5-akonadi-devel = %{version}-%{release}
-# when kf5-akonadi was split, -socialutils was dropped
-Obsoletes: kf5-akonadi-socialutils-devel < 16.07
+Obsoletes:      kf5-akonadi-socialutils-devel < 16.07
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       boost-devel
 Requires:       kf5-kcompletion-devel
@@ -264,8 +261,9 @@ fi
 %{_kf5_bindir}/akonadiselftest
 %{_kf5_bindir}/akonaditest
 %{_kf5_bindir}/asapcat
-
 %{_kf5_datadir}/dbus-1/interfaces/org.freedesktop.Akonadi.*.xml
+%{_kf5_datadir}/kdevappwizard/templates/akonadiresource.tar.bz2
+%{_kf5_datadir}/kdevappwizard/templates/akonadiserializer.tar.bz2
 %{_kf5_includedir}/Akonadi/
 %{_kf5_includedir}/AkonadiXml/
 %{_kf5_includedir}/AkonadiCore/
@@ -300,6 +298,9 @@ fi
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-5
 - rebuild
 

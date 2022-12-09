@@ -9,7 +9,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -179,7 +179,6 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/akonadi/firstrun/*
 %{_kf5_datadir}/knotifications5/*
 %{_kf5_datadir}/kservices5/akonadi/davgroupware-providers/*
-%{_kf5_datadir}/kservicetypes5/davgroupwareprovider.desktop
 %{_kf5_datadir}/mime/packages/kdepim-mime.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/*
 %{_kf5_datadir}/dbus-1/interfaces/*.xml
@@ -200,6 +199,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.08.3-1
 - 22.08.3
 

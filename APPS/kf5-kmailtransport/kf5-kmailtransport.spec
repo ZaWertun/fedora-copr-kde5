@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: The KMailTransport Library
 
@@ -40,7 +40,6 @@ BuildRequires:  cmake(KF5KCMUtils)
 BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(KF5Wallet)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
@@ -118,7 +117,8 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_libdir}/libKF5MailTransport.so.*
 %{_kf5_datadir}/config.kcfg/mailtransport.kcfg
 %{_kf5_qtplugindir}/kcm_mailtransport.so
-%{_kf5_plugindir}//mailtransport/mailtransport_*.so
+%{_kf5_qtplugindir}/pim5/mailtransport/mailtransport_smtpplugin.so
+%{_kf5_qtplugindir}/pim5/mailtransport/mailtransport_akonadiplugin.so
 %{_kf5_datadir}/kservices5/kcm_mailtransport.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -140,6 +140,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

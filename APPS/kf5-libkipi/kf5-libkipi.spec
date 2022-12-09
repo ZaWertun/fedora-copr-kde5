@@ -2,7 +2,7 @@
 
 Name:    kf5-libkipi
 Summary: Common plugin infrastructure for KDE image applications
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -39,10 +39,6 @@ image plugins among graphic applications.
 %package devel
 Summary:  Development files for %{name}
 Requires: %{name}%{?_isa} = %{version}-%{release}
-#Requires: qt5-qtbase-devel
-#Requires: kf5-kconfig-devel
-#Requires: kf5-kxmlgui-devel
-#Requires: kf5-kservice-devel
 Requires: cmake(Qt5Gui)
 Requires: cmake(KF5Config)
 Requires: cmake(KF5Service)
@@ -77,12 +73,15 @@ Requires: cmake(KF5XmlGui)
 
 %files devel
 %{_kf5_libdir}/libKF5Kipi.so
-%{_kf5_includedir}/libkipi_version.h
+#{_kf5_includedir}/libkipi_version.h
 %{_kf5_includedir}/KIPI/
 %{_kf5_libdir}/cmake/KF5Kipi/
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

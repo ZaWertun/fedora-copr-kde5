@@ -4,7 +4,7 @@
 %endif
 
 Name:    kdepim-addons
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -140,9 +140,9 @@ sed -i 's|find_package(Gpgmepp 1.16.0 CONFIG)|find_package(Gpgmepp 1.15.0 CONFIG
 %{_kf5_libdir}/libkmailconfirmbeforedeleting.so.5*
 %{_kf5_libdir}/libkmailquicktextpluginprivate.so.5*
 %{_kf5_libdir}/libexpireaccounttrashfolderconfig.so.5*
-%{_kf5_plugindir}/mailtransport/mailtransport_sendplugin.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents.so
 %{_kf5_qtplugindir}/plasmacalendarplugins/pimevents/
+%{_kf5_qtplugindir}/pim5/mailtransport/mailtransport_sendplugin.so
 %{_kf5_qtplugindir}/pim5/webengineviewer/urlinterceptor/webengineviewer_adblockplugin.so
 %{_kf5_qtplugindir}/pim5/webengineviewer/urlinterceptor/webengineviewer_donottrackplugin.so
 %{_kf5_qtplugindir}/pim5/messageviewer/configuresettings/messageviewer_openurlwithconfigplugin.so
@@ -259,6 +259,9 @@ sed -i 's|find_package(Gpgmepp 1.16.0 CONFIG)|find_package(Gpgmepp 1.15.0 CONFIG
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

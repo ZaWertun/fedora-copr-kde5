@@ -10,7 +10,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -134,7 +134,6 @@ cat all.lang plugins.lang kwrite.lang | sort | uniq -u > kate.lang
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kate.appdata.xml ||:
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.plasma.katesessions.appdata.xml ||:
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kate.desktop
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kwrite.desktop
 %if 0%{?tests}
@@ -149,20 +148,15 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 %doc README.md
 %{_kf5_bindir}/kate
 %{_kf5_datadir}/applications/org.kde.kate.desktop
+%{_kf5_datadir}/kconf_update/katesession_migration.upd
+%{_kf5_datadir}/kconf_update/migrate_kate_sessions_applet_to_kdeplasma-addons.sh
 %{_kf5_metainfodir}/org.kde.kate.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kate.*
-%{_kf5_datadir}/kservices5/plasma-applet-org.kde.plasma.katesessions.desktop
 %{_mandir}/man1/kate.1*
 
-# katesessions applet
-%{_kf5_metainfodir}/org.kde.plasma.katesessions.appdata.xml
-%{_kf5_datadir}/plasma/plasmoids/org.kde.plasma.katesessions/
-%{_kf5_datadir}/kservices5/plasma-dataengine-katesessions.desktop
-%{_kf5_datadir}/plasma/services/org.kde.plasma.katesessions.operations
-
 %files plugins -f plugins.lang
-%{_kf5_qtplugindir}/ktexteditor/compilerexplorer.so
 %{_kf5_qtplugindir}/ktexteditor/cmaketoolsplugin.so
+%{_kf5_qtplugindir}/ktexteditor/compilerexplorer.so
 %{_kf5_qtplugindir}/ktexteditor/externaltoolsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebacktracebrowserplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebuildplugin.so
@@ -182,14 +176,13 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 %{_kf5_qtplugindir}/ktexteditor/katesymbolviewerplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katexmlcheckplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katexmltoolsplugin.so
+%{_kf5_qtplugindir}/ktexteditor/keyboardmacrosplugin.so
 %{_kf5_qtplugindir}/ktexteditor/ktexteditorpreviewplugin.so
 %{_kf5_qtplugindir}/ktexteditor/latexcompletionplugin.so
 %{_kf5_qtplugindir}/ktexteditor/lspclientplugin.so
+%{_kf5_qtplugindir}/ktexteditor/rainbowparens.so
 %{_kf5_qtplugindir}/ktexteditor/tabswitcherplugin.so
 %{_kf5_qtplugindir}/ktexteditor/textfilterplugin.so
-%{_kf5_qtplugindir}/ktexteditor/rainbowparens.so
-
-%{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_katesessions.so
 %{_kf5_datadir}/kateproject/
 %{_kf5_datadir}/katexmltools/
 
@@ -204,6 +197,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

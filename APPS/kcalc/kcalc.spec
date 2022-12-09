@@ -1,6 +1,6 @@
 Name:    kcalc 
 Summary: Scientific Calculator 
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -80,7 +80,6 @@ functions than meet the eye on a first glance.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html --with-man
 
 
@@ -92,6 +91,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_bindir}/%{name}
+%{_kf5_datadir}/kglobalaccel/org.kde.%{name}.desktop
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/kconf_update/%{name}*
@@ -99,6 +99,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

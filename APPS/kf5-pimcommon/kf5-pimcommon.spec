@@ -1,7 +1,7 @@
 %global framework pimcommon
 
 Name:    kf5-%{framework}
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: PIM common libraries
 
@@ -126,6 +126,7 @@ developing applications that use %{name}.
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5PimCommon.so.5*
+%{_kf5_libdir}/libKF5PimCommonAutoCorrection.so.5*
 %{_qt5_plugindir}/designer/pimcommonwidgets.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -145,9 +146,17 @@ developing applications that use %{name}.
 %{_kf5_libdir}/cmake/KF5PimCommonAkonadi/
 %{_kf5_includedir}/PimCommonAkonadi/
 %{_kf5_archdatadir}/mkspecs/modules/qt_PimCommonAkonadi.pri
+# PimCommonAutoCorrection
+%{_kf5_libdir}/libKF5PimCommonAutoCorrection.so
+%{_kf5_libdir}/cmake/KF5PimCommonAutoCorrection/
+%{_kf5_includedir}/PimCommonAutoCorrection/
+%{_kf5_archdatadir}/mkspecs/modules/qt_PimCommonAutoCorrection.pri
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

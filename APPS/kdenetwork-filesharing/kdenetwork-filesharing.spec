@@ -1,6 +1,6 @@
 Name:    kdenetwork-filesharing
 Summary: Network filesharing
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -60,13 +60,13 @@ Conflicts: kde-l10n < 17.03
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %dir %{_kf5_plugindir}/propertiesdialog/
+%{_kf5_plugindir}/propertiesdialog/SambaAcl.so
 %{_kf5_plugindir}/propertiesdialog/sambausershareplugin.so
 %{_kf5_metainfodir}/*.metainfo.xml
 %{_kf5_libexecdir}/kauth/authhelper
@@ -76,6 +76,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

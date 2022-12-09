@@ -1,5 +1,5 @@
 Name:    kaccounts-integration
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
@@ -80,7 +80,6 @@ Headers, development libraries and documentation for %{name}.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -89,11 +88,9 @@ Headers, development libraries and documentation for %{name}.
 %files -f %{name}.lang
 %doc README
 %license LICENSES/*.txt
-%{_kf5_qtplugindir}/kcms/kcm_kaccounts.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kaccounts.so
 %{_kf5_qtplugindir}/kaccounts/daemonplugins/kaccounts_kio_webdav_plugin.so
 %{_kf5_datadir}/kpackage/kcms/kcm_kaccounts/contents/ui/*.qml
-%{_kf5_datadir}/kpackage/kcms/kcm_kaccounts/metadata.{desktop,json}
-%{_kf5_datadir}/kservices5/kcm_kaccounts.desktop
 %{_kf5_plugindir}/kded/kded_accounts.so
 %{_kf5_libdir}/libkaccounts.so.2
 %{_kf5_libdir}/libkaccounts.so.%{version}
@@ -106,6 +103,9 @@ Headers, development libraries and documentation for %{name}.
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

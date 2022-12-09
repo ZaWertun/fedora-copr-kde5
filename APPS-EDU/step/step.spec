@@ -1,6 +1,6 @@
 Name:    step
 Summary: Interactive Physics Simulator 
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -84,7 +84,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop ||:
 
 %files -f %{name}.lang
-%license COPYING*
+%license LICENSES/*.txt
 %doc README
 %{_kf5_bindir}/%{name}
 %{_kf5_datadir}/applications/org.kde.%{name}.desktop
@@ -92,13 +92,15 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/icons/hicolor/*/actions/*
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}*
 %{_kf5_datadir}/%{name}/
-%{_kf5_datadir}/kxmlgui5/%{name}/
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
 %{_datadir}/mime/packages/org.kde.%{name}.xml
 %{_kf5_datadir}/knsrcfiles/step.knsrc
 
 
 %changelog
+* Fri Dec 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

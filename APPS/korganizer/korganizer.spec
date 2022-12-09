@@ -7,7 +7,7 @@
 
 Name:    korganizer
 Summary: Personal Organizer
-Version: 22.08.3
+Version: 22.12.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -151,7 +151,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/icons/hicolor/*/apps/korganizer.*
 %{_kf5_datadir}/icons/hicolor/*/apps/quickview.*
 %{_kf5_datadir}/knsrcfiles/*.knsrc
-%{_kf5_datadir}/kservicetypes5/*.desktop
+#{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/dbus-1/services/*.service
 %{_kf5_datadir}/qlogging-categories5/*categories
 
@@ -174,6 +174,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 

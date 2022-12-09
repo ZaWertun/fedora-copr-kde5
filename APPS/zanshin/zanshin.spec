@@ -1,17 +1,5 @@
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
-## * significantly increases build-time and there at least several failures
-##   ping upstream if this is expected
-## * FTBFS on arm (disable for now)
-#ifnarch %{arm}
-#global tests 1
-#endif
-%endif
-
 Name:           zanshin
-Version:        22.08.3
+Version:        22.12.0
 Release:        1%{?dist}
 Summary:        Todo/action management software
 
@@ -108,13 +96,11 @@ time \
 %doc AUTHORS HACKING TODO
 %license LICENSES/*.txt
 %{_kf5_datadir}/icons/hicolor/*/*/zanshin.*
-%dir %{_kf5_datadir}/kservices5/kontact/
 
 %files
 %{_kf5_bindir}/zanshin*
 %{_kf5_metainfodir}/org.kde.zanshin.metainfo.xml
 %{_kf5_datadir}/applications/org.kde.zanshin.desktop
-%{_kf5_datadir}/kservices5/kontact/zanshin_plugin.desktop
 %{_kf5_datadir}/kservices5/plasma-runner-zanshin.desktop
 %{_kf5_datadir}/kservices5/zanshin_part.desktop
 %{_kf5_datadir}/kxmlgui5/zanshin/
@@ -123,6 +109,9 @@ time \
 %{_kf5_qtplugindir}/pim5/kontact/kontact_zanshinplugin.so
 
 %changelog
+* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
+- 22.12.0
+
 * Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
 - 22.08.3
 
