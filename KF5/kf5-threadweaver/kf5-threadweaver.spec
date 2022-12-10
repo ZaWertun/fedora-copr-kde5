@@ -1,7 +1,7 @@
 %global framework threadweaver
 
 Name:           kf5-%{framework}
-Version: 5.100.0
+Version: 5.101.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 addon for advanced thread management
 
@@ -67,6 +67,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Dec 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.101.0-1
+- 5.101.0
+
 * Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
 - 5.100.0
 

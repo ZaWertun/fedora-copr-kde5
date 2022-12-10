@@ -17,7 +17,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.100.1
+Version: 5.101.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 
@@ -199,6 +199,9 @@ xvfb-run -a \
 
 
 %changelog
+* Sat Dec 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.101.0-1
+- 5.101.0
+
 * Sun Nov 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.1-1
 - 5.100.1
 

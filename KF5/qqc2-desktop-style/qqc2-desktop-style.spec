@@ -1,8 +1,8 @@
 %global framework qqc2-desktop-style
 
 Name:    %{framework}
-Version: 5.100.0
-Release: 5%{?dist}
+Version: 5.101.0
+Release: 1%{?dist}
 Summary: QtQuickControls2 style for consistency between QWidget and QML apps 
 
 # kirigami-plasmadesktop-integration: LGPLv2+
@@ -78,6 +78,9 @@ between QWidget-based and QML-based apps.
 
 
 %changelog
+* Sat Dec 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.101.0-1
+- 5.101.0
+
 * Thu Nov 17 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-5
 - rebuild
 
