@@ -1,7 +1,7 @@
 %global kf5_version_min 5.94.0
 
 Name:           oxygen-sounds
-Version:        5.26.4
+Version:        5.26.5
 Release:        %autorelease
 Summary:        The Oxygen Sound Theme
 

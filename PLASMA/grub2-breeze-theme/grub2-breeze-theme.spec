@@ -1,7 +1,7 @@
 %global         base_name breeze-grub
 
 Name:     grub2-breeze-theme
-Version:  5.26.4
+Version:  5.26.5
 Release:  1%{?dist}
 Summary:  Breeze theme for GRUB
 
@@ -65,6 +65,9 @@ cp -r breeze %{buildroot}%{_grubthemedir}
 
 
 %changelog
+* Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
+- 5.26.5
+
 * Tue Nov 29 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.4-1
 - 5.26.4
 
