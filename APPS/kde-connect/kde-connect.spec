@@ -5,7 +5,7 @@
 
 Name:           kde-connect
 Version:        22.12.1
-Release:        %{?dist}
+Release:        2%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -223,7 +223,7 @@ fi
 
 
 %changelog
-* Fri Jan 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-
+* Fri Jan 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-2
 - added
   kdeconnect-kde-22.12.1-fix-ssh-authentication-using-pubkey-on-recent-openssh-versions.patch
 
