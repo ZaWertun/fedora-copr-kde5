@@ -26,6 +26,11 @@ Source2:        gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 # firewalld service definition, see https://bugzilla.redhat.com/show_bug.cgi?id=1257699#c2
 Source3:        kde-connect.xml
 
+## upstream patches
+# Fix ssh authentication using pubkey on recent openssh versions
+# https://bugs.kde.org/show_bug.cgi?id=443155
+Patch0:         kdeconnect-kde-22.12.1-fix-ssh-authentication-using-pubkey-on-recent-openssh-versions.patch
+
 BuildRequires:  gnupg2
 BuildRequires:  desktop-file-utils
 BuildRequires:  firewalld-filesystem

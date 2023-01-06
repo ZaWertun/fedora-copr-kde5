@@ -1,0 +1,26 @@
+From 204207f2e66e87e7696ff1c98d70ce41b3e2d396 Mon Sep 17 00:00:00 2001
+From: Albert Vaca Cintora <albertvaka@gmail.com>
+Date: Mon, 12 Dec 2022 21:21:46 +0100
+Subject: [PATCH] Fix ssh authentication using pubkey on recent openssh
+ versions
+
+BUG: 443155
+---
+ plugins/sftp/mounter.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/plugins/sftp/mounter.cpp b/plugins/sftp/mounter.cpp
+index 10059960..518213ec 100644
+--- a/plugins/sftp/mounter.cpp
++++ b/plugins/sftp/mounter.cpp
+@@ -127,6 +127,7 @@ void Mounter::onPackageReceived(const NetworkPacket &np)
+                       << QStringLiteral("StrictHostKeyChecking=no") // Do not ask for confirmation because it is not a known host
+                       << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") // Prevent storing as a known host
+                       << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-dss\\,ssh-rsa") // https://bugs.kde.org/show_bug.cgi?id=351725
++                      << QStringLiteral("-o") << QStringLiteral("PubkeyAcceptedKeyTypes=+ssh-rsa") // https://bugs.kde.org/show_bug.cgi?id=443155
+                       << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid()) << QStringLiteral("-o")
+                       << QStringLiteral("gid=") + QString::number(getgid()) << QStringLiteral("-o") << QStringLiteral("reconnect") << QStringLiteral("-o")
+                       << QStringLiteral("ServerAliveInterval=30") << QStringLiteral("-o") << QStringLiteral("password_stdin");
+-- 
+GitLab
+
