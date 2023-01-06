@@ -4,7 +4,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        22.12.0
+Version:        22.12.1
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -21,7 +21,7 @@ Url:            https://community.kde.org/KDEConnect
 %endif
 Source0:        http://download.kde.org/%{stable}/release-service/%{version}/src/%{module}-%{version}.tar.xz
 Source1:        http://download.kde.org/%{stable}/release-service/%{version}/src/%{module}-%{version}.tar.xz.sig
-Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source2:        gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 
 # firewalld service definition, see https://bugzilla.redhat.com/show_bug.cgi?id=1257699#c2
 Source3:        kde-connect.xml
@@ -218,6 +218,9 @@ fi
 
 
 %changelog
+* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
+- 22.12.1
+
 * Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
 - 22.12.0
 

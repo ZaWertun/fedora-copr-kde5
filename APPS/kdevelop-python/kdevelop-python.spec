@@ -1,12 +1,12 @@
 Name:       kdevelop-python
-Version:    22.12.0
+Version:    22.12.1
 %global py3_suffix -py3
 %global py3_tag .py3
 Release:    1%{?dist}
 License:    GPLv2
 Source0:    http://download.kde.org/stable/release-service/%{version}/src/kdev-python-%{version}.tar.xz
 Source1:    http://download.kde.org/stable/release-service/%{version}/src/kdev-python-%{version}.tar.xz.sig
-Source2:    gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source2:    gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 
 ## kdevelop-pg-qt FTBFS s390x
 ExcludeArch: s390x
@@ -99,6 +99,9 @@ rm -f %{buildroot}%{_datadir}/kdevpythonsupport/documentation_files/PyKDE4/parse
 %{_datadir}/metainfo/org.kde.kdev-python.metainfo.xml
 
 %changelog
+* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
+- 22.12.1
+
 * Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
 - 22.12.0
 

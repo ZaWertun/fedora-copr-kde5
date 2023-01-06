@@ -1,6 +1,6 @@
 Name:           kdevelop-php
 Summary:        Php language and documentation plugins for KDevelop
-Version:        22.12.0
+Version:        22.12.1
 Release:        1%{?dist}
 
 # Most files LGPLv2+/GPLv2+
@@ -8,7 +8,7 @@ License:        GPLv2+
 URL:            http://www.kde.org/
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/kdev-php-%{version}.tar.xz
 Source1:        https://download.kde.org/stable/release-service/%{version}/src/kdev-php-%{version}.tar.xz.sig
-Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source2:        gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 
 ## kdevelop-pg-qt FTBFS s390x
 ExcludeArch: s390x
@@ -71,6 +71,9 @@ BuildRequires:  qt5-qtwebkit-devel
 
 
 %changelog
+* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
+- 22.12.1
+
 * Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
 - 22.12.0
 

@@ -5,7 +5,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 22.12.0
+Version: 22.12.1
 Release: 1%{?dist}
 Summary:        Library to access to Google services
 
@@ -20,7 +20,7 @@ URL:            https://cgit.kde.org/%{name}.git
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
-Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source2: gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
@@ -123,6 +123,9 @@ resources.
 
 
 %changelog
+* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
+- 22.12.1
+
 * Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
 - 22.12.0
 

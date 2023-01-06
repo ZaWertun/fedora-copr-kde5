@@ -1,6 +1,6 @@
 Name:    ktp-send-file
 Summary: A File manager plugin to launch file transfer jobs
-Version: 22.12.0
+Version: 22.12.1
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -14,7 +14,7 @@ URL:     https://cgit.kde.org/%{name}.git
 %endif
 Source0: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Source1: http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
-Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source2: gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 
 # due to kaccounts-providers
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
@@ -63,6 +63,9 @@ Provides:       telepathy-kde-send-file = %{version}-%{release}
 
 
 %changelog
+* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
+- 22.12.1
+
 * Fri Dec 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
 - 22.12.0
 

@@ -1,5 +1,5 @@
 Name:       elisa-player
-Version:    22.12.0
+Version:    22.12.1
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -16,7 +16,7 @@ URL:        https://community.kde.org/Elisa
 %endif
 Source0:    https://download.kde.org/%{stable}/release-service/%{version}/src/elisa-%{version}.tar.xz
 Source1:    https://download.kde.org/%{stable}/release-service/%{version}/src/elisa-%{version}.tar.xz.sig
-Source2:    gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source2:    gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 # Build tarball with translations.
 # git clone https://anongit.kde.org/releaseme.git
 # cd releaseme
@@ -100,6 +100,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 
 
 %changelog
+* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
+- 22.12.1
+
 * Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
 - 22.12.0
 

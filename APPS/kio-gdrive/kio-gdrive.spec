@@ -1,5 +1,5 @@
 Name:           kio-gdrive
-Version:        22.12.0
+Version:        22.12.1
 Release:        1%{?dist}
 Summary:        An Google Drive KIO slave for KDE
 
@@ -8,7 +8,7 @@ URL:            https://community.kde.org/KIO_GDrive
 # use releaseme
 Source0:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Source1:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
-Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
+Source2:        gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
 
 # handled by qt5-srpm-macros, which defines %%qt5_qtwebengine_arches
 # arch's where libkgapi is available (due to inderect dependencies on qtwebengine)
@@ -59,6 +59,9 @@ desktop-file-validate %{buildroot}%{_datadir}/remoteview/*.desktop
 %{_kf5_datadir}/metainfo/org.kde.kio_gdrive.metainfo.xml
 
 %changelog
+* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
+- 22.12.1
+
 * Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
 - 22.12.0
 
