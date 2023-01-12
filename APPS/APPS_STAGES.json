@@ -5,6 +5,7 @@
     "cervisia",
     "dragon",
     "elisa-player",
+    "ffmpegthumbs",
     "filelight",
     "juk",
     "kaccounts-integration",
@@ -138,7 +139,6 @@
     "akonadiconsole",
     "akregator",
     "grantlee-editor",
-    "kalendar",
     "kf5-incidenceeditor",
     "kf5-mailcommon",
     "pim-sieve-editor"
@@ -147,6 +147,7 @@
     "akonadi-import-wizard",
     "kaddressbook",
     "kalarm",
+    "kalendar",
     "kmail",
     "kmail-account-wizard",
     "kontact",
