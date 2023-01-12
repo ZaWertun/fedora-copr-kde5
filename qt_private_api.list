@@ -2,11 +2,12 @@ analitza
 kf5-akonadi-server
 kf5-frameworkintegration
 kf5-kdeclarative
+kf5-ki18n
+kf5-kiconthemes
+kf5-kitinerary
 kf5-kwayland
 kf5-kxmlgui
-kwin
-kwinft
-kwin-lowlatency
+kwayland-integration
+layer-shell-qt
 plasma-integration
-qqc2-desktop-style
 xdg-desktop-portal-kde

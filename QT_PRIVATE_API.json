@@ -1,21 +1,23 @@
 {
   "0": [
     "analitza",
+    "kf5-ki18n",
     "kf5-kwayland",
-    "kf5-kxmlgui",
-    "kf5-kirigami2",
-    "qqc2-desktop-style"
+    "layer-shell-qt"
   ],
   "1": [
+    "kf5-kiconthemes",
     "kf5-kitinerary",
-    "kf5-akonadi-server",
-    "kf5-frameworkintegration",
-    "kf5-kdeclarative"
+    "kwayland-integration"
   ],
   "2": [
-    "kwin",
-    "layer-shell-qt",
-    "plasma-integration",
+    "kf5-akonadi-server",
+    "kf5-frameworkintegration",
+    "kf5-kdeclarative",
+    "kf5-kxmlgui",
+    "plasma-integration"
+  ],
+  "3": [
     "xdg-desktop-portal-kde"
   ]
 }

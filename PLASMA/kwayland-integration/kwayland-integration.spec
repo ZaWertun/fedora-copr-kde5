@@ -2,7 +2,7 @@
 
 Name:    kwayland-integration
 Version: 5.26.5
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: Provides integration plugins for various KDE Frameworks for Wayland
 
 License: LGPLv2+
@@ -66,6 +66,9 @@ Requires:       kf5-filesystem
 
 
 %changelog
+* Thu Jan 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-5
+- rebuild
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 
