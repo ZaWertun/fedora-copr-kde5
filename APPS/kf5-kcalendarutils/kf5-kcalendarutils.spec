@@ -9,7 +9,7 @@
 
 Name:    kf5-kcalendarutils
 Version: 22.12.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The KCalendarUtils Library
 
 License: LGPLv2+
@@ -36,7 +36,6 @@ BuildRequires:  kf5-kconfig-devel >= 5.15
 BuildRequires:  kf5-ki18n-devel >= 5.15
 BuildRequires:  kf5-kdelibs4support-devel >= 5.15
 BuildRequires:  kf5-kcodecs-devel >= 5.15
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-kcalendarcore-devel >= %{majmin_ver}
 BuildRequires:  kf5-kidentitymanagement-devel >= %{majmin_ver}
@@ -96,17 +95,20 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 %doc README.md
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5CalendarUtils.so.*
+%{_kf5_libdir}/grantlee/5.2/kcalendar_grantlee_plugin.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
 %{_kf5_includedir}/KCalUtils/
 %{_kf5_libdir}/libKF5CalendarUtils.so
-%{_kf5_libdir}/grantlee/5.2/kcalendar_grantlee_plugin.so
 %{_kf5_libdir}/cmake/KF5CalendarUtils/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KCalUtils.pri
 
 
 %changelog
+* Sat Jan 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-2
+- fix: kcalendar_grantlee_plugin.so moved to kf5-kcalendarutils
+
 * Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
 - 22.12.1
 
