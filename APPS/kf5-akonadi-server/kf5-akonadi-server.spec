@@ -21,8 +21,8 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 22.12.1
-Release: 5%{?dist}
+Version: 22.12.2
+Release: 1%{?dist}
 
 License: LGPLv2+
 URL:     https://cgit.kde.org/%{framework}.git
@@ -35,7 +35,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/akonadi-%{version}.tar.xz
 Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/akonadi-%{version}.tar.xz.sig
-Source2: gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 ## mysql config
 Source10:       akonadiserverrc.mysql
@@ -298,6 +298,9 @@ fi
 
 
 %changelog
+* Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
+- 22.12.2
+
 * Thu Jan 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-5
 - rebuild
 

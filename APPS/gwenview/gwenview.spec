@@ -1,7 +1,7 @@
 Name:    gwenview
 Summary: An image viewer
 Epoch:   1
-Version: 22.12.1
+Version: 22.12.2
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -16,7 +16,7 @@ URL:     https://www.kde.org/applications/graphics/gwenview/
 %endif 
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
-Source2: gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 
@@ -121,6 +121,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.12.2-1
+- 22.12.2
+
 * Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.12.1-1
 - 22.12.1
 

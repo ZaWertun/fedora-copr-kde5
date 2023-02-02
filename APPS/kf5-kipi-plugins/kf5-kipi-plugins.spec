@@ -3,7 +3,7 @@
 
 Name:    kf5-%{framework}
 Summary: Plugins to use with kf5-libkipi applications
-Version: 22.12.1
+Version: 22.12.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/kipiplugins.deskt
 
 
 %changelog
+* Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
+- 22.12.2
+
 * Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
 - 22.12.1
 

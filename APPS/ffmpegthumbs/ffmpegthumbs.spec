@@ -1,5 +1,5 @@
 Name:    ffmpegthumbs
-Version: 22.12.1
+Version: 22.12.2
 Release: 1%{?dist}
 Summary: KDE ffmpegthumbnailer service
 
@@ -12,7 +12,10 @@ URL:     https://apps.kde.org/%{name}/
 %global stable stable
 %endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+BuildRequires: gnupg2
 BuildRequires: gcc-c++
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
@@ -33,6 +36,7 @@ Provides: kdemultimedia-extras-freeworld = %{version}-%{release}
 
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 
@@ -63,6 +67,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
+- 22.12.2
+
 * Wed Jan 04 2023 Justin Zobel <justin@1707.io> - 22.12.1-1
 - Update to 22.12.1
 

@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-kcalendarutils
-Version: 22.12.1
-Release: 2%{?dist}
+Version: 22.12.2
+Release: 1%{?dist}
 Summary: The KCalendarUtils Library
 
 License: LGPLv2+
@@ -23,7 +23,7 @@ URL:     https://cgit.kde.org/%{framework}.git
 %endif
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz.sig
-Source2:        gpgkey-CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7.gpg
+Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
@@ -106,6 +106,9 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
+- 22.12.2
+
 * Sat Jan 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-2
 - fix: kcalendar_grantlee_plugin.so moved to kf5-kcalendarutils
 
