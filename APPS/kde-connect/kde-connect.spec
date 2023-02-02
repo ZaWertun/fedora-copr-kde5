@@ -27,9 +27,6 @@ Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 Source3:        kde-connect.xml
 
 ## upstream patches
-# Fix ssh authentication using pubkey on recent openssh versions
-# https://bugs.kde.org/show_bug.cgi?id=443155
-Patch0:         kdeconnect-kde-22.12.1-fix-ssh-authentication-using-pubkey-on-recent-openssh-versions.patch
 
 BuildRequires:  gnupg2
 BuildRequires:  desktop-file-utils
