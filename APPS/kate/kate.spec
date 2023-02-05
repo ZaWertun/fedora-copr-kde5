@@ -11,7 +11,7 @@
 Name:    kate
 Summary: Advanced Text Editor
 Version: 22.12.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # kwrite LGPLv2+
 # kate: app LGPLv2, plugins, LGPLv2 and LGPLv2+ and GPLv2+
@@ -86,6 +86,13 @@ Conflicts: kde-l10n < 17.03
 %description
 %{summary}.
 
+%package libs
+Summary:     Private runtime libraries for %{name}
+Obsoletes:   libkateprivate < 22.12.2-2
+Provides:    libkateprivate = %{version}-%{release}
+%description libs
+%{summary}.
+
 %package plugins
 Summary: Kate plugins
 License: LGPLv2
@@ -96,11 +103,6 @@ Requires: %{name} = %{version}-%{release}
 Recommends: konsole5
 %description plugins
 %{summary}.
-
-%package -n libkateprivate
-Summary: Kate editor private library
-%description -n libkateprivate
-Kate editor private library.
 
 %package -n kwrite
 Summary: Text Editor
@@ -186,7 +188,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 %{_kf5_datadir}/kateproject/
 %{_kf5_datadir}/katexmltools/
 
-%files -n libkateprivate
+%files libs
 %{_kf5_libdir}/libkateprivate.so.%{version}
 
 %files -n kwrite -f kwrite.lang
@@ -197,6 +199,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Sun Feb 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-2
+- libkateprivate -> kate-libs
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 
