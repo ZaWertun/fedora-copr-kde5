@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.102.0
+Version: 5.103.0
 Release: 1%{?dist}
 Summary: The KContacts Library
 
@@ -97,6 +97,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Feb 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.103.0-1
+- 5.103.0
+
 * Sat Jan 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.102.0-1
 - 5.102.0
 
