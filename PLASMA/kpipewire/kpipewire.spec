@@ -1,7 +1,7 @@
 %global kf5_min_version 5.98.0
 
 Name:    kpipewire
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 Summary: Components relating to Flatpak 'pipewire' use in Plasma
 
@@ -94,6 +94,7 @@ developing applications that use %{name}.
 %license LICENSES/*.txt
 %{_kf5_qmldir}/org/kde/pipewire/
 %{_kf5_libdir}/libKPipeWire.so.5*
+%{_kf5_libdir}/libKPipeWireDmaBuf.so.5*
 %{_kf5_libdir}/libKPipeWireRecord.so.5*
 %{_kf5_datadir}/qlogging-categories5/kpipewire.categories
 %{_kf5_datadir}/qlogging-categories5/kpipewirerecord.categories
@@ -101,12 +102,16 @@ developing applications that use %{name}.
 
 %files devel
 %{_kf5_libdir}/libKPipeWire.so
+%{_kf5_libdir}/libKPipeWireDmaBuf.so
 %{_kf5_libdir}/libKPipeWireRecord.so
 %{_kf5_libdir}/cmake/KPipeWire/KPipeWire*.cmake
 %{_includedir}/KPipeWire/
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 

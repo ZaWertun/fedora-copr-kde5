@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -118,6 +118,7 @@ Conflicts:      kde-workspace < 4.11.15-3
 %{_kf5_datadir}/kpackage/kcms/kcm_nic/
 %{_kf5_datadir}/kpackage/kcms/kcm_pci/
 %{_kf5_datadir}/kpackage/kcms/kcmsamba/
+%{_kf5_datadir}/kpackage/kcms/kcm_opencl/
 %{_kf5_datadir}/kpackage/kcms/kcm_vulkan/
 %{_kf5_datadir}/kpackage/kcms/kcm_wayland/
 %{_kf5_datadir}/kpackage/kcms/kcm_xserver/
@@ -131,6 +132,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 

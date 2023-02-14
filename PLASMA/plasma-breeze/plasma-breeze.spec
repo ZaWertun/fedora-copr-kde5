@@ -4,7 +4,7 @@
 %global         base_name   breeze
 
 Name:    plasma-breeze
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
@@ -107,8 +107,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 %license LICENSES/*.txt
 %{_kf5_qtplugindir}/org.kde.kdecoration2/breezedecoration.so
 %{_kf5_qtplugindir}/styles/breeze.so
+%{_kf5_qtplugindir}/plasma/kcms/breeze/kcm_breezedecoration.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/breezestyleconfig.so
 %{_kf5_datadir}/kstyle/themes/breeze.themerc
-%{_kf5_qtplugindir}/kstyle_breeze_config.so
 # used by breezedecoration
 %{_libdir}/libbreezecommon5.so.5*
 %{_bindir}/breeze-settings5
@@ -118,9 +119,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 %{_kf5_datadir}/kconf_update/breezetobreezelight.upd
 %{_kf5_datadir}/kconf_update/breezehighcontrasttobreezedark.upd
 %{_kf5_datadir}/kconf_update/breezetobreezeclassic.upd
+%{_kf5_datadir}/applications/breezestyleconfig.desktop
+%{_kf5_datadir}/applications/kcm_breezedecoration.desktop
 %{_datadir}/icons/hicolor/*/apps/breeze-settings.*
-%{_kf5_datadir}/kservices5/breezedecorationconfig.desktop
-%{_kf5_datadir}/kservices5/breezestyleconfig.desktop
 # fedora does autodep on cmake-filesystem, others?
 %if ! 0%{?fedora}
 %dir %{_libdir}/cmake/
@@ -144,6 +145,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 

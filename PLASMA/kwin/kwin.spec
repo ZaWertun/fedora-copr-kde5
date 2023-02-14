@@ -9,7 +9,7 @@
 %endif
 
 Name:    kwin
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -307,6 +307,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kwin
 %{_kf5_qtplugindir}/kwin/
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kwin_*.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kwinxwayland.so
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kwindecoration.so
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kwinrules.so
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_virtualkeyboard.so
@@ -325,14 +326,13 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_datadir}/kconf_update/kwin-5.18-move-animspeed.py
 %{_datadir}/kconf_update/kwin-5.21-desktop-grid-click-behavior.py
 %{_datadir}/kconf_update/kwin-5.21-no-swap-encourage.py
-%{_kf5_datadir}/kservices5/kwin
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_datadir}/kpackage/kcms/kcm_*
 %{_kf5_datadir}/knotifications5/kwin.notifyrc
 %{_kf5_datadir}/config.kcfg/kwin.kcfg
+%{_kf5_datadir}/config.kcfg/nightcolorsettings.kcfg
 %{_kf5_datadir}/config.kcfg/kwindecorationsettings.kcfg
 %{_kf5_datadir}/config.kcfg/virtualdesktopssettings.kcfg
-%{_kf5_datadir}/config.kcfg/kwin_colorcorrect.kcfg
 %{_kf5_datadir}/kconf_update/kwinrules-5.19-placement.pl
 %{_kf5_datadir}/kconf_update/kwinrules.upd
 %{_kf5_datadir}/kconf_update/kwin-5.23-disable-translucency-effect.sh
@@ -342,6 +342,7 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %{_kf5_datadir}/kconf_update/kwin-5.23-remove-xrender-backend.py
 %{_kf5_datadir}/kconf_update/kwinrules-5.23-virtual-desktop-ids.py
 %{_kf5_datadir}/kconf_update/kwin-5.25-effect-pluginid-config-group.py
+%{_kf5_datadir}/kconf_update/kwin-5.27-replace-cascaded-zerocornered.sh
 %{_datadir}/icons/hicolor/*/apps/kwin.*
 %{_datadir}/knsrcfiles/*.knsrc
 %{_datadir}/krunner/dbusplugins/kwin-runner-windows.desktop
@@ -379,6 +380,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 

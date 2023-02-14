@@ -1,6 +1,6 @@
 Name:    kscreen
 Epoch:   1
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 Summary: KDE Display Management software
 
@@ -23,7 +23,6 @@ Source2: https://jriddell.org/esk-riddell.gpg
 ## upstream patches
 
 ## upstreamable patches
-Patch0:  kscreen-5.26.3-missing-ru-translation.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -94,7 +93,6 @@ KCM and KDED modules for managing displays in KDE.
 %{_datadir}/metainfo/org.kde.kscreen.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/
 %{_kf5_datadir}/dbus-1/services/org.kde.kscreen.osdService.service
-%{_kf5_datadir}/kded_kscreen/qml/OsdSelector.qml
 %{_kf5_datadir}/applications/kcm_kscreen.desktop
 %{_kf5_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
 %{_kf5_datadir}/kpackage/kcms/kcm_kscreen/contents/ui/*.qml
@@ -102,6 +100,9 @@ KCM and KDED modules for managing displays in KDE.
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.26.5-1
 - 5.26.5
 

@@ -2,8 +2,8 @@
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.26.5
-Release: 5%{?dist}
+Version: 5.27.0
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{base_name}.git
@@ -24,6 +24,7 @@ BuildRequires:  kf5-rpm-macros
 BuildRequires:  systemd-rpm-macros
 
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtbase-static
 BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  qt5-qtbase-private-devel
 BuildRequires:  cmake(Qt5QuickWidgets)
@@ -45,8 +46,11 @@ BuildRequires:  cmake(KF5Declarative)
 BuildRequires:  cmake(KF5Kirigami2)
 BuildRequires:  cmake(KF5Plasma)
 BuildRequires:  cmake(KF5IconThemes)
+BuildRequires:  cmake(KF5GuiAddons)
+BuildRequires:  cmake(KF5GlobalAccel)
 
 BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  cmake(PlasmaWaylandProtocols)
 
 Requires:   xdg-desktop-portal
@@ -80,13 +84,17 @@ sed -i '/Restart=no/d' data/plasma-xdg-desktop-portal-kde.service.in
 %license LICENSES/*.txt
 %{_libexecdir}/xdg-desktop-portal-kde
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
-%{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
+%{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
+%{_kf5_datadir}/qlogging-categories5/xdp-kde.categories
 %{_kf5_datadir}/knotifications5/xdg-desktop-portal-kde.notifyrc
 %{_userunitdir}/plasma-xdg-desktop-portal-kde.service
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Thu Jan 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-5
 - rebuild
 

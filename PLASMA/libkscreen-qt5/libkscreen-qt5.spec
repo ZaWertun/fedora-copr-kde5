@@ -2,7 +2,7 @@
 
 Name:    libkscreen-qt5
 Summary: KDE display configuration library
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -36,6 +36,7 @@ BuildRequires:  libXrandr-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtwayland-devel
 BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  qt5-qtbase-private-devel
 BuildRequires:  cmake(PlasmaWaylandProtocols)
 BuildRequires:  cmake(KF5Config)
 
@@ -92,8 +93,11 @@ popd
 %{_kf5_bindir}/kscreen-doctor
 %{_kf5_libexecdir}/kscreen_backend_launcher
 %{_kf5_libdir}/libKF5Screen.so.5.*
-%{_kf5_libdir}/libKF5Screen.so.7*
+%{_kf5_libdir}/libKF5Screen.so.8*
+%{_kf5_libdir}/libKF5ScreenDpms.so.5.*
+%{_kf5_libdir}/libKF5ScreenDpms.so.8*
 %{_kf5_plugindir}/kscreen/
+%{_datadir}/zsh/site-functions/_kscreen-doctor
 %{_datadir}/dbus-1/services/org.kde.KScreen.service
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_userunitdir}/plasma-kscreen.service
@@ -103,12 +107,16 @@ popd
 %{_kf5_includedir}/KScreen/
 %{_kf5_includedir}/kscreen_version.h
 %{_kf5_libdir}/libKF5Screen.so
+%{_kf5_libdir}/libKF5ScreenDpms.so
 %{_kf5_libdir}/cmake/KF5Screen/
 %{_libdir}/pkgconfig/kscreen2.pc
 %{_kf5_archdatadir}/mkspecs/modules/qt_KScreen.pri
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 

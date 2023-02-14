@@ -1,5 +1,5 @@
 Name:    plasma-workspace-wallpapers
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 Summary: Additional wallpapers for Plasma workspace
 License: LGPLv3
@@ -67,6 +67,7 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 %{_datadir}/wallpapers/Grey/
 %{_datadir}/wallpapers/Honeywave/
 %{_datadir}/wallpapers/IceCold/
+%{_datadir}/wallpapers/Kay/
 %{_datadir}/wallpapers/Kite/
 %{_datadir}/wallpapers/Kokkini/
 %{_datadir}/wallpapers/MilkyWay/
@@ -82,6 +83,9 @@ Obsoletes:      plasma-workspace-wallpapers < 5.2.0-2
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 

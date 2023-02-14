@@ -12,7 +12,7 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -247,7 +247,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 %{_datadir}/icons/hicolor/*/apps/plasmadiscover.*
 %{_datadir}/icons/hicolor/*/apps/flatpak-discover.*
 %{_datadir}/kxmlgui5/plasmadiscover/
-%{_kf5_libexecdir}/discover/
 %{_kf5_datadir}/kpackage/kcms/kcm_updates/
 
 %files notifier -f plasma-discover-notifier.lang
@@ -310,6 +309,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 

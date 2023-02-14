@@ -1,8 +1,8 @@
 %global  wayland_min_version 1.3
 
 Name:    kwayland-integration
-Version: 5.26.5
-Release: 5%{?dist}
+Version: 5.27.0
+Release: 1%{?dist}
 Summary: Provides integration plugins for various KDE Frameworks for Wayland
 
 License: LGPLv2+
@@ -60,12 +60,14 @@ Requires:       kf5-filesystem
 
 %files
 %license LICENSES/*.txt
-%{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeKWaylandPlugin.so
 %{_kf5_plugindir}/kwindowsystem/KF5WindowSystemKWaylandPlugin.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Thu Jan 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-5
 - rebuild
 

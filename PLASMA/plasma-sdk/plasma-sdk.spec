@@ -1,5 +1,5 @@
 Name:    plasma-sdk
-Version: 5.26.5
+Version: 5.27.0
 Release: 1%{?dist}
 Summary: Development tools for Plasma 5
 
@@ -109,6 +109,7 @@ Plasma SDK contains the following tools for Plasma-related development:
 %{_bindir}/plasmathemeexplorer
 %{_bindir}/plasmoidviewer
 %{_qt5_plugindir}/ktexteditor/cuttlefishplugin.so
+%{_kf5_datadir}/zsh/site-functions/_plasmoidviewer
 %{_kf5_datadir}/kservices5/plasma-shell-org.kde.plasma.plasmoidviewershell.desktop
 %{_kf5_datadir}/kpackage/genericqml/org.kde.plasma.lookandfeelexplorer/
 %{_kf5_datadir}/kpackage/genericqml/org.kde.plasma.themeexplorer
@@ -142,6 +143,9 @@ Plasma SDK contains the following tools for Plasma-related development:
 
 
 %changelog
+* Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
+- 5.27.0
+
 * Wed Jan 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.26.5-1
 - 5.26.5
 
