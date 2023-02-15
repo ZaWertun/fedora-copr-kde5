@@ -353,7 +353,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 %endif
 
 %files emojier
-%{_bindir}/ibus-ui-emojier-plasma
+%{_bindir}/plasma-emojier
 %{_datadir}/kglobalaccel/org.kde.plasma.emojier.desktop
 %{_datadir}/applications/org.kde.plasma.emojier.desktop
 

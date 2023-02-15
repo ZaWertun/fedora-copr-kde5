@@ -112,6 +112,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/systemsettings.deskto
 %{_kf5_datadir}/kpackage/genericqml/org.kde.systemsettings.*/
 %{_kf5_metainfodir}/*.metainfo.xml
 %{_kf5_datadir}/qlogging-categories5/*categories
+%{_kf5_datadir}/zsh/site-functions/_systemsettings
 
 
 %changelog

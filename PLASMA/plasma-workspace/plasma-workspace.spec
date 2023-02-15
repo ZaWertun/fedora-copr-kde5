@@ -192,6 +192,7 @@ BuildRequires:  desktop-file-utils
 
 # Optional
 BuildRequires:  kf5-kactivities-devel
+BuildRequires:  cmake(KF5KExiv2)
 %if 0%{?fedora}
 BuildRequires:  cmake(AppStreamQt) >= 0.10.4
 %endif
@@ -640,6 +641,7 @@ fi
 %{_kf5_datadir}/kconf_update/icons_remove_effects.upd
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.pl
 %{_kf5_datadir}/kconf_update/style_widgetstyle_default_breeze.upd
+%{_kf5_datadir}/kconf_update/plasmashell-5.27-use-panel-thickness-in-default-group.upd
 %{_kf5_metainfodir}/*.xml
 %{_kf5_datadir}/applications/kcm_*
 %{_kf5_datadir}/applications/org.kde.klipper.desktop
@@ -665,6 +667,7 @@ fi
 %{_kf5_datadir}/kpackage/kcms/kcm_regionandlang/
 %{_kf5_datadir}/polkit-1/actions/org.kde.fontinst.policy
 %{_kf5_datadir}/polkit-1/actions/org.kde.localegenhelper.policy
+%{_kf5_datadir}/zsh/site-functions/_plasmashell
 %{_userunitdir}/plasma-baloorunner.service
 %{_userunitdir}/plasma-gmenudbusmenuproxy.service
 %{_userunitdir}/plasma-kcminit-phase1.service
@@ -710,7 +713,6 @@ fi
 %if 0%{?kf5_pim}
 %{_kf5_qtplugindir}/plasmacalendarplugins/
 %endif
-%{_kf5_qtplugindir}/*.so
 %exclude %{_kf5_qtplugindir}/plasma/dataengine/plasma_engine_geolocation.so
 %exclude %{_kf5_qtplugindir}/plasma/geolocationprovider/plasma-geolocation-gps.so
 %exclude %{_kf5_qtplugindir}/plasma/geolocationprovider/plasma-geolocation-ip.so
@@ -720,9 +722,11 @@ fi
 %{_kf5_plugindir}/kio/*.so
 %{_kf5_plugindir}/kded/*.so
 %{_kf5_plugindir}/krunner/*
+%{_kf5_plugindir}/thumbcreator/fontthumbnail.so
 %{_qt5_plugindir}/plasma/kcms/systemsettings/kcm_*.so
 %{_libdir}/kconf_update_bin/krunnerhistory
 %{_libdir}/kconf_update_bin/krunnerglobalshortcuts
+%{_libdir}/kconf_update_bin/plasmashell-5.27-use-panel-thickness-in-default-group
 %{_kf5_qtplugindir}/kf5/parts/kfontviewpart.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_applauncher.so
 %{_kf5_qtplugindir}/plasma/containmentactions/plasma_containmentactions_contextmenu.so

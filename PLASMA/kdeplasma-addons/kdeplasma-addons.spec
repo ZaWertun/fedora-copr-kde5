@@ -99,6 +99,7 @@ developing applications that use %{name}.
 %{_kf5_qtplugindir}/plasma/applets/*.so
 %{_kf5_qtplugindir}/potd/plasma_potd*
 %{_kf5_plugindir}/krunner/unitconverter.so
+%{_kf5_plugindir}/krunner/org.kde.datetime.so
 %{_kf5_plugindir}/krunner/krunner_*.so
 %{_kf5_plugindir}/krunner/kcms/kcm_krunner_{charrunner,dictionary,spellcheck}.so
 %{_kf5_qmldir}/org/kde/plasma/*
