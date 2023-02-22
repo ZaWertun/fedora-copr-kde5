@@ -1,5 +1,5 @@
 Name:    kinfocenter
-Version: 5.27.0
+Version: 5.27.1
 Release: 1%{?dist}
 Summary: KDE Info Center
 
@@ -132,6 +132,9 @@ Conflicts:      kde-workspace < 4.11.15-3
 
 
 %changelog
+* Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
+- 5.27.1
+
 * Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
 - 5.27.0
 

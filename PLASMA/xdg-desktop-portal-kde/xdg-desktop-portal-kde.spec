@@ -2,7 +2,7 @@
 
 Name:    xdg-desktop-portal-kde
 Summary: Backend implementation for xdg-desktop-portal using Qt/KF5
-Version: 5.27.0
+Version: 5.27.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -92,6 +92,9 @@ sed -i '/Restart=no/d' data/plasma-xdg-desktop-portal-kde.service.in
 
 
 %changelog
+* Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
+- 5.27.1
+
 * Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
 - 5.27.0
 

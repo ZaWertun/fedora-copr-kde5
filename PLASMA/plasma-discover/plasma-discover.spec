@@ -12,8 +12,8 @@
 
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
-Version: 5.27.0
-Release: 2%{?dist}
+Version: 5.27.1
+Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
@@ -310,6 +310,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %changelog
+* Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
+- 5.27.1
+
 * Wed Feb 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-2
 - require flatpak-kcm if systemsettings is installed
 

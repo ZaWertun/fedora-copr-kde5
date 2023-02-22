@@ -1,5 +1,5 @@
 Name:    kscreenlocker
-Version: 5.27.0
+Version: 5.27.1
 Release: 1%{?dist}
 Summary: Library and components for secure lock screen architecture
 
@@ -89,14 +89,15 @@ developing applications that use %{name}.
 %files -f %{name}.lang
 %license COPYING
 %{_kf5_libdir}/libKScreenLocker.so.*
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_screenlocker.so
 %{_kf5_datadir}/knotifications5/*.notifyrc
 %{_kf5_datadir}/kconf_update/*
 %{_libexecdir}/kscreenlocker_greet
 %dir %{_kf5_datadir}/ksmserver/
 %{_kf5_datadir}/ksmserver/screenlocker/
 %{_kf5_datadir}/applications/kcm_screenlocker.desktop
-%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_screenlocker.so
 %{_kf5_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/*.qml
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
 
 %files devel
 %{_kf5_libdir}/libKScreenLocker.so
@@ -107,6 +108,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
+- 5.27.1
+
 * Tue Feb 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.0-1
 - 5.27.0
 
