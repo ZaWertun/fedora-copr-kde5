@@ -1,8 +1,8 @@
 %global framework kidletime
 
 Name:           kf5-%{framework}
-Version: 5.103.0
-Release: 1%{?dist}
+Version:        5.103.0
+Release:        5%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 integration module for idle time detection
 
 License:        GPLv2+ and LGPLv2+
@@ -34,6 +34,12 @@ BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-sync)
 
 BuildRequires:  pkgconfig(xscrnsaver)
+
+BuildRequires:  wayland-protocols-devel
+BuildRequires:  cmake(Qt5WaylandClient)
+BuildRequires:  qt5-qtbase-private-devel
+BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  cmake(PlasmaWaylandProtocols)
 
 Requires:       kf5-filesystem >= %{majmin}
 
@@ -73,6 +79,7 @@ developing applications that use %{name}.
 %dir %{_kf5_plugindir}/org.kde.kidletime.platforms/
 %{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeXcbPlugin0.so
 %{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeXcbPlugin1.so
+%{_kf5_plugindir}/org.kde.kidletime.platforms/KF5IdleTimeWaylandPlugin.so
 
 %files devel
 %{_kf5_includedir}/KIdleTime/
@@ -82,6 +89,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Feb 23 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.103.0-5
+- BR: cmake(Qt5WaylandClient)
+
 * Sun Feb 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.103.0-1
 - 5.103.0
 
