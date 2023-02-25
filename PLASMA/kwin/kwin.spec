@@ -10,7 +10,7 @@
 
 Name:    kwin
 Version: 5.27.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -35,6 +35,8 @@ Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
+# https://bugs.kde.org/show_bug.cgi?id=465456
+Patch0:  kwin-5.27.1-fix-crash-upon-receiving-motion-absolute-events.patch
 
 ## upstreamable patches
 
@@ -216,7 +218,7 @@ Provides:       firstboot(windowmanager) = kwin_x11
 %package        common
 Summary:        Common files for KWin X11 and KWin Wayland
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
-Requires:       kf5-kwayland%{?_isa} >= %{_kf5_version}
+Requires:       kf5-kwayland%{?_isa} >= 5.91.0
 # Split of X11 variant into subpackage
 Obsoletes:      %{name}-common < 5.19.5-3
 %description    common
@@ -380,6 +382,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Feb 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-2
+- added patch to fix https://bugs.kde.org/show_bug.cgi?id=465456
+
 * Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
 - 5.27.1
 
