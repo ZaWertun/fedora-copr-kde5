@@ -126,7 +126,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       NetworkManager-openswan
 Obsoletes:      kde-plasma-nm-openswan < 5.0.0-1
 Provides:       kde-plasma-nm-openswan = %{version}-%{release}
-Obsoletes:      plasma-nm-libreswan < 5.27.2-1
+Obsoletes:      plasma-nm-libreswan <= 5.27.2-1
 Provides:       plasma-nm-libreswan = %{version}-%{release}
 %description    openswan
 %{summary}.
