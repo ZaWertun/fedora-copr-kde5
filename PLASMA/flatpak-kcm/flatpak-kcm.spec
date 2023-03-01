@@ -1,12 +1,13 @@
 Name:          flatpak-kcm
-Version:       5.27.2
+Version:       5.27.2.2
 Release:       1%{?dist}
 License:       BSD-2-Clause and BSD-3-Clause and CC0-1.0 and GPL-2.0-or-later
 Summary:       Flatpak Permissions Management KCM
 Url:           https://invent.kde.org/plasma/flatpak-kcm
 
-Source0:       http://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz
-Source1:       http://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+%global verdir %(echo %{version} | cut -d. -f1-3)
+Source0:       http://download.kde.org/stable/plasma/%{verdir}/%{name}-%{version}.tar.xz
+Source1:       http://download.kde.org/stable/plasma/%{verdir}/%{name}-%{version}.tar.xz.sig
 Source2:       https://jriddell.org/esk-riddell.gpg
 
 BuildRequires: extra-cmake-modules
@@ -41,6 +42,9 @@ BuildRequires: pkgconfig(flatpak)
 %{_kf5_datadir}/applications/kcm_flatpak.desktop
 
 %changelog
+* Wed Mar 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.2.2-1
+- 5.27.2.2
+
 * Tue Feb 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.2-1
 - 5.27.2
 
