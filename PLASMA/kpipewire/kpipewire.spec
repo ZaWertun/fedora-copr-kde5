@@ -1,7 +1,7 @@
 %global kf5_min_version 5.98.0
 
 Name:    kpipewire
-Version: 5.27.1
+Version: 5.27.2
 Release: 1%{?dist}
 Summary: Components relating to Flatpak 'pipewire' use in Plasma
 
@@ -109,6 +109,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Tue Feb 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.2-1
+- 5.27.2
+
 * Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
 - 5.27.1
 

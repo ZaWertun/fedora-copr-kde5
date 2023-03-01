@@ -20,7 +20,7 @@
 
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
-Version: 5.27.1
+Version: 5.27.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -809,6 +809,9 @@ fi
 
 
 %changelog
+* Tue Feb 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.2-1
+- 5.27.2
+
 * Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
 - 5.27.1
 

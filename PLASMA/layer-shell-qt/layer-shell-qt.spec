@@ -1,5 +1,5 @@
 Name:    layer-shell-qt
-Version: 5.27.1
+Version: 5.27.2
 Release: 1%{?dist}
 Summary: Library to easily use clients based on wlr-layer-shell
 
@@ -71,6 +71,9 @@ Requires: cmake(Qt5Gui) >= 5.15.0
 
 
 %changelog
+* Tue Feb 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.2-1
+- 5.27.2
+
 * Tue Feb 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-1
 - 5.27.1
 

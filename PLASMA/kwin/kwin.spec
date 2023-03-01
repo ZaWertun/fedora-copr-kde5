@@ -9,8 +9,8 @@
 %endif
 
 Name:    kwin
-Version: 5.27.1
-Release: 2%{?dist}
+Version: 5.27.2
+Release: 1%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -35,8 +35,6 @@ Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
-# https://bugs.kde.org/show_bug.cgi?id=465456
-Patch0:  kwin-5.27.1-fix-crash-upon-receiving-motion-absolute-events.patch
 
 ## upstreamable patches
 
@@ -382,6 +380,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Feb 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.2-1
+- 5.27.2
+
 * Sat Feb 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.1-2
 - added patch to fix https://bugs.kde.org/show_bug.cgi?id=465456
 
