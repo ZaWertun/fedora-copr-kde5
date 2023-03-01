@@ -3,7 +3,7 @@
 Name:    plasma-nm
 Summary: Plasma for managing network connections
 Version: 5.27.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv2+ and GPLv2+
 URL:     https://cgit.kde.org/%{name}.git
@@ -120,15 +120,15 @@ Provides:       kde-plasma-nm-openconnect = %{version}-%{release}
 %description    openconnect
 %{summary}.
 
-%package        libreswan
+%package        openswan
 Summary:        Libreswan support for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       NetworkManager-openswan
 Obsoletes:      kde-plasma-nm-openswan < 5.0.0-1
 Provides:       kde-plasma-nm-openswan = %{version}-%{release}
-Obsoletes:      plasma-nm-openswan < 5.25.0
-Provides:       plasma-nm-openswan = %{version}-%{release}
-%description    libreswan
+Obsoletes:      plasma-nm-libreswan < 5.27.2-1
+Provides:       plasma-nm-libreswan = %{version}-%{release}
+%description    openswan
 %{summary}.
 
 %package        strongswan
@@ -282,7 +282,7 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
 
-%files libreswan -f plasmanetworkmanagement_libreswanui.lang
+%files openswan -f plasmanetworkmanagement_libreswanui.lang
 %{_kf5_qtplugindir}/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
 
 %files strongswan -f plasmanetworkmanagement_strongswanui.lang
@@ -313,6 +313,9 @@ rm -f %{buildroot}/usr/share/locale/*/LC_MESSAGES/plasmanetworkmanagement_vpncui
 %endif
 
 %changelog
+* Wed Mar 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com>
+- renamed libreswan → openswan
+
 * Tue Feb 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.2-1
 - 5.27.2
 
