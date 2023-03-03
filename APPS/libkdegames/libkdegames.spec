@@ -1,6 +1,6 @@
 Name:    libkdegames
 Summary: Common code and data for many KDE games
-Version: 22.12.2
+Version: 22.12.3
 Release: 1%{?dist}
 
 # libKF5KDEGames is LGPLv2, libKF5KDEGamesPrivate is GPLv2+
@@ -112,6 +112,9 @@ Requires: kf5-kwidgetsaddons-devel
 
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 

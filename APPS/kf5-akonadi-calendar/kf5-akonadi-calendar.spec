@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.12.2
+Version: 22.12.3
 Release: 1%{?dist}
 Summary: The Akonadi Calendar Library
 
@@ -117,6 +117,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 

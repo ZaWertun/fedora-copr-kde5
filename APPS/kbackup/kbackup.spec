@@ -2,7 +2,7 @@
 %global build_ldflags %{build_ldflags} -flto
 
 Name:           kbackup
-Version:        22.12.2
+Version:        22.12.3
 Release:        1%{?dist}
 Summary:        Back up your data in a simple, user friendly way
 Summary(fr):    Sauvegarder vos données de manière simple et conviviale
@@ -102,6 +102,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 

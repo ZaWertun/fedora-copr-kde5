@@ -9,7 +9,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 22.12.2
+Version: 22.12.3
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -166,6 +166,9 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 

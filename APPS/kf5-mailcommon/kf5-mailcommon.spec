@@ -1,7 +1,7 @@
 %global framework mailcommon
 
 Name:    kf5-%{framework}
-Version: 22.12.2
+Version: 22.12.3
 Release: 1%{?dist}
 Summary: Mail applications support library
 
@@ -118,6 +118,9 @@ sed -i 's|GPGMEPP_LIB_VERSION "1.16.0"|GPGMEPP_LIB_VERSION "1.15.1"|' CMakeLists
 
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 

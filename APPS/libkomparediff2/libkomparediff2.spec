@@ -3,7 +3,7 @@
 
 Name:    libkomparediff2
 Summary: Library to compare files and strings
-Version: 22.12.2
+Version: 22.12.3
 Release: 1%{?dist}
 
 # Library: GPLv2+ (some files LGPLv2+), CMake scripts: BSD
@@ -101,6 +101,9 @@ make test/fast -C %{__cmake_builddir}
 
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 

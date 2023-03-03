@@ -1,5 +1,5 @@
 Name:           kde-partitionmanager
-Version:        22.12.2
+Version:        22.12.3
 Release:        1%{?dist}
 Summary:        KDE Partition Manager
 
@@ -88,6 +88,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdat
 %{_datadir}/metainfo/*partitionmanager.appdata.xml
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 

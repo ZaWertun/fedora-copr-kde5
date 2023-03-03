@@ -10,8 +10,8 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 22.12.2
-Release: 2%{?dist}
+Version: 22.12.3
+Release: 1%{?dist}
 
 # kwrite LGPLv2+
 # kate: app LGPLv2, plugins, LGPLv2 and LGPLv2+ and GPLv2+
@@ -199,6 +199,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
+- 22.12.3
+
 * Sun Feb 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-2
 - libkateprivate -> kate-libs
 
