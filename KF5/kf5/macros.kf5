@@ -68,3 +68,32 @@
     (find %{buildroot}/%{_datadir}/locale/ -name "%1.qm" -type f | sed ' \
         s:%{buildroot}/:: \
         s:%{_datadir}/locale/\\([a-zA-Z_\\@]*\\)/\\([a-zA-Z_]*\\)/%1.qm:%lang(\\1) %{_datadir}/locale/\\1/\\2/%1.qm:' > %1.lang)
+
+# Start of backwards compatible macros
+# Used mostly in plasma and gear packages:
+# %%maj_ver_kf5
+# %%min_ver_kf5
+# %%bug_ver_kf5
+# %%majmin_ver_kf5
+# %%stable_kf5
+
+%maj_ver_kf5 %(echo %{version} | cut -d. -f1)
+%min_ver_kf5 %(echo %{version} | cut -d. -f2)
+%bug_ver_kf5 %(echo %{version} | cut -d. -f3)
+
+%stable_kf5 %( \
+    if test %bug_ver_kf5 -ge 50 ; then
+        echo "unstable"
+    else
+        echo "stable"
+    fi
+    )
+
+%majmin_ver_kf5 %( \
+    if test %bug_ver_kf5 -ge 50 ; then
+        echo %{maj_ver_kf5}.%{min_ver_kf5}.50
+    else
+        echo %{maj_ver_kf5}.%{min_ver_kf5}
+    fi
+    )
+# End of backwards compatible macros
