@@ -1,8 +1,8 @@
 %global framework kidletime
 
 Name:           kf5-%{framework}
-Version:        5.103.0
-Release:        5%{?dist}
+Version:        5.104.0
+Release:        1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 integration module for idle time detection
 
 License:        GPLv2+ and LGPLv2+
@@ -89,6 +89,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Mar 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-1
+- 5.104.0
+
 * Thu Feb 23 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.103.0-5
 - BR: cmake(Qt5WaylandClient)
 

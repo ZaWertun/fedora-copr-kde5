@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
-Version: 5.103.0
+Version: 5.104.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -133,18 +133,7 @@ rm -fv %{buildroot}%{_datadir}/locale/*/LC_MESSAGES/baloodb5.*
 install -p -m644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/sysctl.d/97-kde-baloo-filewatch-inotify.conf
 install -p -m755 -D %{SOURCE4} %{buildroot}%{_sysconfdir}/xdg/plasma-workspace/shutdown/baloo_file.sh
 
-%find_lang kio5_baloosearch
-%find_lang kio5_tags
-%find_lang kio5_timeline
-%find_lang balooctl5
-%find_lang balooengine5
-%find_lang baloosearch5
-%find_lang balooshow5
-
-cat kio5_tags.lang kio5_baloosearch.lang kio5_timeline.lang \
-    balooctl5.lang balooengine5.lang baloosearch5.lang \
-    balooshow5.lang \
-    > %{name}.lang
+%find_lang %{name} --all-name --with-kde
 
 
 %check
@@ -206,6 +195,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Mar 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-1
+- 5.104.0
+
 * Sun Feb 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.103.0-1
 - 5.103.0
 
