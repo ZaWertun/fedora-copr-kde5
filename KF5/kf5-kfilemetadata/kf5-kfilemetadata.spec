@@ -4,16 +4,17 @@
 #global         ffmpeg 1
 
 %if 0%{?fedora}
-%global         catdoc 1
-%global         ebook 1
+%global         ffmpeg  1
+%global         catdoc  1
+%global         ebook   1
 %global         poppler 1
-%global         taglib 1
+%global         taglib  1
 %endif
 
 Name:           kf5-%{framework}
 Summary:        A Tier 2 KDE Framework for extracting file metadata
-Version: 5.104.0
-Release: 1%{?dist}
+Version:        5.104.0
+Release:        2%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
 License:        LGPLv2 or LGPLv3
@@ -89,9 +90,7 @@ Requires:       qt5-qtbase-devel
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name
-
 mkdir -p %{buildroot}%{_kf5_plugindir}/kfilemetadata/writers/
 
 
@@ -118,6 +117,9 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kfilemetadata/writers/
 
 
 %changelog
+* Mon Mar 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-2
+- ffmpeg support enabled
+
 * Sat Mar 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-1
 - 5.104.0
 
