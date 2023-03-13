@@ -59,13 +59,8 @@ BuildRequires:  ebook-tools-devel
 %endif
 %if 0%{?ffmpeg}
 BuildRequires:  pkgconfig(libavcodec)
-BuildRequires:  pkgconfig(libavdevice)
-BuildRequires:  pkgconfig(libavfilter)
 BuildRequires:  pkgconfig(libavformat)
 BuildRequires:  pkgconfig(libavutil)
-BuildRequires:  pkgconfig(libpostproc)
-BuildRequires:  pkgconfig(libswresample)
-BuildRequires:  pkgconfig(libswscale)
 %endif
 %if 0%{?poppler}
 BuildRequires:  pkgconfig(poppler-qt5)
