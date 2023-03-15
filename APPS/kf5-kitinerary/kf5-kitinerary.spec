@@ -25,6 +25,8 @@ Source0:        https://download.kde.org/%{stable}/release-service/%{version}/sr
 Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz.sig
 Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
+Patch0:         kf5-kitinerary-22.12.3-fix-missing-include.patch
+
 BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
@@ -34,7 +36,6 @@ BuildRequires:  cmake(KF5I18n)
 BuildRequires:  qt5-qtbase-private-devel
 
 # kde-pim pkgs
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires: kf5-kmime-devel >= %{majmin_ver}
 BuildRequires: kf5-kcalendarcore-devel >= %{majmin_ver}
@@ -58,8 +59,7 @@ BuildRequires:  pkgconfig(openssl) >= 1.1
 BuildRequires:  pkgconfig(protobuf)
 
 BuildRequires:  libphonenumber-devel
-# TODO: https://github.com/glassechidna/zxing-cpp
-#BuildRequires:  zxing-cpp-devel
+BuildRequires:  pkgconfig(zxing)
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -95,7 +95,6 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name
 
 

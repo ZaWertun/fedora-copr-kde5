@@ -1,0 +1,11 @@
+diff '--color=auto' -r -U3 kitinerary-22.12.3.orig/src/lib/asn1/bitvectorview.h kitinerary-22.12.3/src/lib/asn1/bitvectorview.h
+--- kitinerary-22.12.3.orig/src/lib/asn1/bitvectorview.h	2023-02-25 08:06:33.000000000 +0300
++++ kitinerary-22.12.3/src/lib/asn1/bitvectorview.h	2023-03-15 11:29:29.089332044 +0300
+@@ -10,6 +10,7 @@
+ #include <cassert>
+ #include <string_view>
+ #include <type_traits>
++#include <cstdint>
+ 
+ class QByteArray;
+ 
