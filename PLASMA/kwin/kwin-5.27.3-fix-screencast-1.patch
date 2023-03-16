@@ -1,0 +1,32 @@
+From 90c5a5850c21b78910b7c4ad16318b43ee95ba2d Mon Sep 17 00:00:00 2001
+From: Jan Grulich <jgrulich@redhat.com>
+Date: Tue, 14 Mar 2023 15:42:00 +0100
+Subject: [PATCH] Screencast: avoid using DMABufs exclusively to allow
+ renegotiation
+
+Using DMABufs only will not allow clients to fallback to MemFD buffers
+in case they fail to import DMABufs for whatever reason and completely
+break screen sharing in such case.
+
+
+(cherry picked from commit 3807b41c665d3af312a643a11578c7c2a5576e05)
+---
+ src/plugins/screencast/screencaststream.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/plugins/screencast/screencaststream.cpp b/src/plugins/screencast/screencaststream.cpp
+index 46545af7e5a..baa49c0e0a9 100644
+--- a/src/plugins/screencast/screencaststream.cpp
++++ b/src/plugins/screencast/screencaststream.cpp
+@@ -119,7 +119,7 @@ void ScreenCastStream::newStreamParams()
+     qCDebug(KWIN_SCREENCAST) << "announcing stream params. with dmabuf:" << m_dmabufParams.has_value();
+     uint8_t paramsBuffer[1024];
+     spa_pod_builder pod_builder = SPA_POD_BUILDER_INIT(paramsBuffer, sizeof(paramsBuffer));
+-    const int buffertypes = m_dmabufParams ? (1 << SPA_DATA_DmaBuf) : (1 << SPA_DATA_MemFd);
++    const int buffertypes = m_dmabufParams ? (1 << SPA_DATA_DmaBuf) | (1 << SPA_DATA_MemFd) : (1 << SPA_DATA_MemFd);
+     const int bpp = videoFormat.format == SPA_VIDEO_FORMAT_RGB || videoFormat.format == SPA_VIDEO_FORMAT_BGR ? 3 : 4;
+     const int stride = SPA_ROUND_UP_N(m_resolution.width() * bpp, 4);
+ 
+-- 
+GitLab
+

@@ -10,7 +10,7 @@
 
 Name:    kwin
 Version: 5.27.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -33,6 +33,12 @@ URL:     https://userbase.kde.org/KWin
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
 Source2: https://jriddell.org/esk-riddell.gpg
+
+# https://bugs.kde.org/show_bug.cgi?id=448839
+# https://invent.kde.org/plasma/kwin/-/merge_requests/3821 
+Patch0:  kwin-5.27.3-fix-screencast-1.patch
+# https://invent.kde.org/plasma/kwin/-/merge_requests/3827
+Patch1:  kwin-5.27.3-fix-screencast-2.patch
 
 ## upstream patches
 
@@ -380,6 +386,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Mar 16 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-2
+- added kwin-5.27.3-fix-screencast-1.patch, kwin-5.27.3-fix-screencast-2.patch
+
 * Tue Mar 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-1
 - 5.27.3
 
