@@ -2,7 +2,7 @@
 
 Name:    kpipewire
 Version: 5.27.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Components relating to Flatpak 'pipewire' use in Plasma
 
 License: LGPLv2+
@@ -17,6 +17,10 @@ URL:     https://invent.kde.org/plasma/%{name}
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
 Source2: https://jriddell.org/esk-riddell.gpg
+
+# https://bugs.kde.org/show_bug.cgi?id=448839
+# https://invent.kde.org/plasma/kpipewire/-/commit/c325f8269a36694867938394af57af5500e87c71
+Patch0:  kpipewire-5.27.3-use-glReadPixels-to-capture-screen.patch
 
 BuildRequires: gnupg2
 BuildRequires: cmake
@@ -109,6 +113,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Mar 16 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-2
+- added kpipewire-5.27.3-use-glReadPixels-to-capture-screen.patch
+
 * Tue Mar 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-1
 - 5.27.3
 

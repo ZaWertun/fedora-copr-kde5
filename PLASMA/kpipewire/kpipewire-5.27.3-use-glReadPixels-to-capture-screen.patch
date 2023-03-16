@@ -1,0 +1,52 @@
+From c325f8269a36694867938394af57af5500e87c71 Mon Sep 17 00:00:00 2001
+From: Jan Grulich <jgrulich@redhat.com>
+Date: Thu, 16 Mar 2023 12:16:51 +0100
+Subject: [PATCH] Use a different API call to make importing DmaBufs work on
+ Nvidia
+
+Use glReadPixels() instead of glGetTexImage() to import DmaBufs into
+memory. This makes Nvidia happy and it no longer gives us just black
+screen.
+
+BUG: 448839
+---
+ src/dmabufhandler.cpp | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/src/dmabufhandler.cpp b/src/dmabufhandler.cpp
+index d636abb..55a96b8 100644
+--- a/src/dmabufhandler.cpp
++++ b/src/dmabufhandler.cpp
+@@ -193,6 +193,7 @@ bool DmaBufHandler::downloadFrame(QImage &qimage, const PipeWireFrame &frame)
+     GLHelpers::initDebugOutput();
+     // create GL 2D texture for framebuffer
+     GLuint texture;
++    GLuint fbo;
+     glGenTextures(1, &texture);
+     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+@@ -201,8 +202,20 @@ bool DmaBufHandler::downloadFrame(QImage &qimage, const PipeWireFrame &frame)
+     glBindTexture(GL_TEXTURE_2D, texture);
+ 
+     glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, image);
+-    glGetTexImage(GL_TEXTURE_2D, 0, closestGLType(qimage), GL_UNSIGNED_BYTE, qimage.bits());
++    glGenFramebuffers(1, &fbo);
++    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
++    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,
++                           texture, 0);
++    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
++        glDeleteFramebuffers(1, &fbo);
++        glDeleteTextures(1, &texture);
++        eglDestroyImageKHR(m_egl.display, image);
++        return false;
++    }
++
++    glReadPixels(0, 0, frame.dmabuf->width, frame.dmabuf->height, closestGLType(qimage), GL_UNSIGNED_BYTE, qimage.bits());
+ 
++    glDeleteFramebuffers(1, &fbo);
+     glDeleteTextures(1, &texture);
+     eglDestroyImageKHR(m_egl.display, image);
+     return true;
+-- 
+GitLab
+
