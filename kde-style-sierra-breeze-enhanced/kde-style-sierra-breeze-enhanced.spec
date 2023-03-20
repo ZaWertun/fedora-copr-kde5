@@ -1,5 +1,5 @@
 Name:    kde-style-sierra-breeze-enhanced
-Version: 1.3.1
+Version: 1.3.2
 Release: 1%{?dist}
 Summary: A fork of BreezeEnhanced to make it (arguably) more minimalistic and informative
 
@@ -57,6 +57,9 @@ sed -i "s|0.4.4|0.4.5|" CMakeLists.txt
 
 
 %changelog
+* Mon Mar 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.2-1
+- version 1.3.2
+
 * Sat Feb 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.3.1-1
 - version 1.3.1
 
