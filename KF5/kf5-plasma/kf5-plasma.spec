@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.104.0
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
 License: GPLv2+ and LGPLv2+ and BSD
@@ -169,6 +169,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Mon Mar 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-5
+- rebuild
+
 * Sat Mar 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-1
 - 5.104.0
 
