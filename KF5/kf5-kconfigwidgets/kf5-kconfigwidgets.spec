@@ -2,7 +2,7 @@
 
 Name:           kf5-%{framework}
 Version: 5.104.0
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary:        KDE Frameworks 5 Tier 3 addon for creating configuration dialogs
 
 License:        GPLv2+ and LGPLv2+ and MIT
@@ -87,6 +87,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-5
+- rebuild
+
 * Sat Mar 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-1
 - 5.104.0
 
