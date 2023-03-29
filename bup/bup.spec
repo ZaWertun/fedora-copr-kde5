@@ -35,7 +35,7 @@ BuildRequires:  python3-pytest-xdist
 
 Requires:       git-core >= %{git_min_ver}
 Requires:       par2cmdline
-Requires:       python3
+Requires:       python3 >= 3.7
 Requires:       python3-fuse
 Requires:       python3-pylibacl
 Requires:       python3-pyxattr
@@ -52,7 +52,6 @@ providing fast incremental saves and global deduplication
 
 
 %build
-%{__sed} -i 's|export LC_CTYPE=iso-8859-1||' dev/install-python-script
 # Macros `%%configure` can't be used - it's not configure from autotools
 ./configure
 %make_build
@@ -72,6 +71,7 @@ providing fast incremental saves and global deduplication
 %files
 %license LICENSE
 %doc README.md
+%doc note/*.md
 %doc %{_datadir}/doc/%{name}/
 %{_bindir}/%{name}
 %{_prefix}/lib/%{name}/
