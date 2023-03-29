@@ -5,7 +5,7 @@
 
 Name:    kdepim-addons
 Version: 22.12.3
-Release: 1%{?dist}
+Release: 6%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
 License: GPLv2 and LGPLv2+
@@ -259,6 +259,9 @@ sed -i 's|find_package(Gpgmepp 1.16.0 CONFIG)|find_package(Gpgmepp 1.15.0 CONFIG
 
 
 %changelog
+* Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-6
+- rebuild
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

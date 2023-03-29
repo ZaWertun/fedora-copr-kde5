@@ -9,7 +9,7 @@
 
 Name:    kf5-kcalendarutils
 Version: 22.12.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: The KCalendarUtils Library
 
 License: LGPLv2+
@@ -95,7 +95,7 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 %doc README.md
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5CalendarUtils.so.*
-%{_kf5_libdir}/grantlee/5.2/kcalendar_grantlee_plugin.so
+%{_kf5_libdir}/grantlee/5.3/kcalendar_grantlee_plugin.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
@@ -106,6 +106,9 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-6
+- rebuild
+
 * Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-5
 - rebuild
 

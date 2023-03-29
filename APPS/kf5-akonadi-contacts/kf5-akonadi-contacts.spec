@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Version: 22.12.3
-Release: 1%{?dist}
+Release: 6%{?dist}
 Summary: The Akonadi Contacts Library
 
 License: LGPLv2+
@@ -137,6 +137,9 @@ xvfb-run -a \
 
 
 %changelog
+* Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-6
+- rebuild
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 22.12.3
-Release: 1%{?dist}
+Release: 6%{?dist}
 Summary: KDE Message libraries
 
 License: GPLv2
@@ -175,6 +175,9 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
 
 %changelog
+* Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-6
+- rebuild
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 
