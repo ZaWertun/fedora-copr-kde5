@@ -1,6 +1,6 @@
 Name:           bup
-Version:        0.32
-Release:        2%{?dist}
+Version:        0.33
+Release:        1%{?dist}
 Summary:        Very efficient backup system based on the git packfile format
 
 License:        GPLv2
@@ -80,6 +80,9 @@ providing fast incremental saves and global deduplication
 
 
 %changelog
+* Wed Mar 29 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.33-1
+- version 0.33
+
 * Tue Dec 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.32-2
 - added par2cmdline to Requires & BuildRequires
 
