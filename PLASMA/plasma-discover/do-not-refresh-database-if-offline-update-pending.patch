@@ -1,0 +1,33 @@
+From 23eead2841c291f11f399fbd605e0a53b62d1a89 Mon Sep 17 00:00:00 2001
+From: Alessandro Astone <ales.astone@gmail.com>
+Date: Tue, 21 Mar 2023 20:06:03 +0100
+Subject: [PATCH] PackageKitNotifier: Do not refresh database if an offline
+ update is pending
+
+This causes the update to be canceled
+
+
+(cherry picked from commit 0cc41d9d49ebbeb4273a8f902915895d2a33f0e3)
+---
+ .../backends/PackageKitBackend/PackageKitNotifier.cpp        | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp b/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
+index abbff51d0..5332e0b8a 100644
+--- a/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
++++ b/libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp
+@@ -261,6 +261,11 @@ void PackageKitNotifier::onDistroUpgrade(PackageKit::Transaction::DistroUpgrade
+ 
+ void PackageKitNotifier::refreshDatabase()
+ {
++    if (auto offline = PackageKit::Daemon::global()->offline();
++            offline->updatePrepared() || offline->upgradePrepared() || offline->updateTriggered() || offline->upgradeTriggered()) {
++        return;
++    }
++
+     if (!m_refresher) {
+         m_refresher = PackageKit::Daemon::refreshCache(false);
+         connect(m_refresher.data(), &PackageKit::Transaction::finished, this, &PackageKitNotifier::recheckSystemUpdateNeeded);
+-- 
+GitLab
+

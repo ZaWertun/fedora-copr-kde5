@@ -13,7 +13,7 @@
 Name:    plasma-discover
 Summary: KDE and Plasma resources management GUI
 Version: 5.27.3
-Release: 1%{?dist}
+Release: 5%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
 License: GPLv2 or GPLv3
@@ -34,7 +34,8 @@ Source2: https://jriddell.org/esk-riddell.gpg
 Source10: discoverrc
 
 ## upstream patches
-# git format-patch v%%{version}
+# https://invent.kde.org/plasma/discover/-/merge_requests/511
+Patch100: do-not-refresh-database-if-offline-update-pending.patch
 
 ## downstream patches
 Patch0:   plasma-discover-5.26.0-AppStreamQt-0.15.2-compatibility.patch
@@ -310,6 +311,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_updates.desktop
 
 
 %changelog
+* Thu Mar 30 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-5
+- rebuild
+
 * Tue Mar 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-1
 - 5.27.3
 
