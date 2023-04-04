@@ -2,7 +2,7 @@
 
 Name:    plymouth-kcm
 Summary: Plymouth configuration module for systemsettings
-Version: 5.27.3
+Version: 5.27.4.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -14,8 +14,8 @@ URL:     https://invent.kde.org/plasma/%{base_name}
 %else
 %global stable stable
 %endif
-Source0:        http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz
-Source1:        http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{version}.tar.xz.sig
+Source0:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz
+Source1:        http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{base_name}-%{version}.tar.xz.sig
 Source2:        https://jriddell.org/esk-riddell.gpg
 
 ## FIXME/TODO: document why this patch is needed, ideally work to make upstreamable
@@ -83,6 +83,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_plymouth.desktop
 
 
 %changelog
+* Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4.1-1
+- version 5.27.4.1
+
+* Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-1
+- 5.27.4
+
 * Tue Mar 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-1
 - 5.27.3
 

@@ -1,12 +1,12 @@
 Name:           plasma-welcome
-Version:        5.27.3
+Version:        5.27.4.1
 Release:        1%{?dist}
 Summary:        A friendly onboarding wizard for Plasma
 
 License:        GPLv2+
 URL:            https://invent.kde.org/plasma/%{name}
-Source0:        http://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz
-Source1:        http://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source0:        http://download.kde.org/stable/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+Source1:        http://download.kde.org/stable/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz.sig
 Source2:        https://jriddell.org/esk-riddell.gpg
 
 BuildRequires:  gnupg2
@@ -72,6 +72,12 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4.1-1
+- version 5.27.4.1
+
+* Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-1
+- 5.27.4
+
 * Tue Mar 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-1
 - 5.27.3
 

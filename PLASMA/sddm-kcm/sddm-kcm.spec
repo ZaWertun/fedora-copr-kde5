@@ -1,5 +1,5 @@
 Name:    sddm-kcm
-Version: 5.27.3
+Version: 5.27.4.1
 Release: 1%{?dist}
 Summary: SDDM KDE configuration module
 
@@ -81,6 +81,12 @@ SDDM Display Manager
 
 
 %changelog
+* Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4.1-1
+- version 5.27.4.1
+
+* Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-1
+- 5.27.4
+
 * Tue Mar 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.3-1
 - 5.27.3
 
