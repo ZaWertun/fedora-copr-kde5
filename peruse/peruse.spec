@@ -1,6 +1,6 @@
 Name:    peruse
 Version: 1.80
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A comic book viewer and creator
 
 License: LGPLv2.1
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}cr
 
 
 %changelog
+* Wed Apr 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.80-2
+- rebuild
+
 * Wed Apr 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.80-1
 - first spec for version 1.80 (2.0 Beta 1)
 
