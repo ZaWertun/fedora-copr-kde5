@@ -54,6 +54,7 @@ BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: pkgconfig(zlib)
 
 Requires:      kf5-kirigami2%{?_isa}
+Requires:      okular-kirigami%{?_isa}
 Requires:      hicolor-icon-theme
 
 %description

@@ -8,13 +8,13 @@
 %endif
 # uncomment to include -mobile (currently doesn't work)
 # it links libokularpart.so, but fails to file/load at runtime
-#global mobile 1
+%global mobile 1
 %endif
 
 Name:    okular 
 Summary: A document viewer
 Version: 22.12.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/okular/
@@ -155,7 +155,11 @@ sed -i -e 's|^add_subdirectory( mobile )|#add_subdirectory( mobile )|' CMakeList
 
 %build
 %cmake_kf5 \
-  -DBUILD_OKULARKIRIGAMI:BOOL=OFF
+%if 0%{?mobile}
+  -DOKULAR_UI=both
+%else
+  -DOKULAR_UI=desktop
+%endif
 %cmake_build
 
 
@@ -179,7 +183,8 @@ rm -fv %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.okular_*.desktop
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.okular.desktop
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.okular.appdata.xml
 %if 0%{?mobile}
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.okular.desktop
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.okular.kirigami.desktop
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.okular.kirigami.appdata.xml
 %endif
 
 %files -f okular.lang
@@ -197,10 +202,11 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 %if 0%{?mobile}
 %files mobile
+%{_bindir}/okularkirigami
 %{_qt5_qmldir}/org/kde/okular/
-%{_kf5_datadir}/applications/org.kde.mobile.okular.desktop
+%{_kf5_metainfodir}/org.kde.okular.kirigami.appdata.xml
+%{_kf5_datadir}/applications/org.kde.okular.kirigami.desktop
 %{_kf5_datadir}/applications/org.kde.mobile.okular_*.desktop
-%{_kf5_datadir}/kpackage/genericqml/org.kde.mobile.okular/
 %endif
 
 %files devel
@@ -229,6 +235,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.mobile.ok
 
 
 %changelog
+* Wed Apr 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-2
+- build okular kirigami
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 
