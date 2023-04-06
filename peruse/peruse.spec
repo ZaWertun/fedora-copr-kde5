@@ -1,6 +1,6 @@
 Name:    peruse
 Version: 1.80
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A comic book viewer and creator
 
 License: LGPLv2.1
@@ -54,7 +54,7 @@ BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: pkgconfig(zlib)
 
 Requires:      kf5-kirigami2%{?_isa}
-Requires:      okular-kirigami%{?_isa}
+Requires:      okular-mobile%{?_isa}
 Requires:      hicolor-icon-theme
 
 %description
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}cr
 
 
 %changelog
+* Thu Apr 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.80-3
+- okular-kirigami → okular-mobile
+
 * Wed Apr 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.80-2
 - rebuild
 
