@@ -5,7 +5,7 @@
 
 Name:    plasma-breeze
 Version: 5.27.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
 License: GPLv2+
@@ -24,6 +24,8 @@ Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{base_name}-%{vers
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream
+# https://bugs.kde.org/show_bug.cgi?id=465948
+Patch0:  plasma-breeze-5.27.4-outline-intensity-setting.patch
 
 # filter plugin provides
 %global __provides_exclude_from ^(%{_kf5_qtplugindir}/.*\\.so)$
@@ -145,6 +147,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 
 %changelog
+* Fri Apr 07 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-2
+- added plasma-breeze-5.27.4-outline-intensity-setting.patch
+
 * Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-1
 - 5.27.4
 
