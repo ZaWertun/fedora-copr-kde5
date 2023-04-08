@@ -13,8 +13,8 @@
 
 Name:           kf5-%{framework}
 Summary:        A Tier 2 KDE Framework for extracting file metadata
-Version:        5.104.0
-Release:        2%{?dist}
+Version:        5.105.0
+Release:        1%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
 License:        LGPLv2 or LGPLv3
@@ -119,6 +119,9 @@ mkdir -p %{buildroot}%{_kf5_plugindir}/kfilemetadata/writers/
 
 
 %changelog
+* Sat Apr 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.105.0-1
+- 5.105.0
+
 * Mon Mar 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-2
 - ffmpeg support enabled
 

@@ -1,7 +1,7 @@
 %global framework kdnssd
 
 Name:           kf5-%{framework}
-Version: 5.104.0
+Version: 5.105.0
 Release: 1%{?dist}
 Summary:        KDE Frameworks 5 Tier 1 integration module for DNS-SD services (Zeroconf)
 
@@ -72,6 +72,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sat Apr 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.105.0-1
+- 5.105.0
+
 * Sat Mar 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.104.0-1
 - 5.104.0
 
