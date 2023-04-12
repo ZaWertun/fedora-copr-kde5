@@ -9,7 +9,7 @@
 %endif
 
 Name:    kwin
-Version: 5.27.4
+Version: 5.27.4.1
 Release: 1%{?dist}
 Summary: KDE Window manager
 
@@ -30,8 +30,8 @@ URL:     https://userbase.kde.org/KWin
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
-Source1: http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz.sig
+Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} | cut -d. -f1-3)/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} | cut -d. -f1-3)/%{name}-%{version}.tar.xz.sig
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
@@ -380,6 +380,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Apr 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4.1-1
+- version 5.27.4.1
+
 * Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-1
 - 5.27.4
 
