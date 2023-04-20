@@ -1,7 +1,8 @@
-%global framework ksmtp 
+%global framework ksmtp
+%global tests 0
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: KDE SMTP libraries
 
@@ -36,6 +37,11 @@ BuildRequires: cmake(KF5Mime)
 
 BuildRequires: pkgconfig(libsasl2)
 
+%if 0%{?tests}
+BuildRequires: dbus-x11
+BuildRequires: xorg-x11-server-Xvfb
+%endif
+
 # runtime sasl plugins
 Suggests: cyrus-sasl-gssapi%{?_isa}
 Suggests: cyrus-sasl-md5%{?_isa}
@@ -60,32 +66,44 @@ Requires:       kf5-kmime-devel >= %{version}
 
 
 %build
-%cmake_kf5
+%cmake_kf5 \
+  -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
+
+
+%check
+%if 0%{?tests}
+export CTEST_OUTPUT_ON_FAILURE=1
+make test/fast ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
+%endif
 
 
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKPimSMTP.so.*
+%{_kf5_libdir}/libKPim5SMTP.so.*
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %files devel
-%{_kf5_libdir}/libKPimSMTP.so
+%{_includedir}/KPim5/KSMTP/
+%{_includedir}/KPim5/ksmtp_version.h
+%{_kf5_libdir}/libKPim5SMTP.so
+%{_kf5_libdir}/cmake/KPim5SMTP/
 %{_kf5_libdir}/cmake/KPimSMTP/
-%{_includedir}/KPim/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KSMTP.pri
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

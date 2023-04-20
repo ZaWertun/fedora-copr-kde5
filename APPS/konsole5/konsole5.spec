@@ -9,7 +9,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -83,6 +83,7 @@ BuildRequires: cmake(KF5XmlGui)
 BuildRequires: libappstream-glib
 BuildRequires: qt5-qtbase-devel
 BuildRequires: qt5-qtscript-devel
+BuildRequires: cmake(Qt5Multimedia)
 
 %if 0%{?tests}
 BuildRequires: xorg-x11-server-Xvfb dbus-x11
@@ -121,6 +122,7 @@ Summary: Konsole5 kpart plugin
 %cmake_install
 install -m644 -p -b -D %{SOURCE10} %{buildroot}%{_kf5_sysconfdir}/xdg/konsolerc
 %find_lang konsole --with-html
+rm -v %{buildroot}%{_kf5_sysconfdir}/xdg/konsolerc~
 
 
 %check
@@ -141,6 +143,7 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 %{_kf5_bindir}/konsoleprofile
 %{_kf5_libdir}/libkonsoleapp.so.%{maj_ver}*
 %{_kf5_libdir}/kconf_update_bin/konsole_globalaccel
+%{_kf5_libdir}/kconf_update_bin/konsole_show_menubar
 %{_kf5_datadir}/applications/org.kde.konsole.desktop
 %{_kf5_metainfodir}/org.kde.konsole.appdata.xml
 %{_kf5_datadir}/knotifications5/konsole.notifyrc
@@ -148,7 +151,9 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/kio/servicemenus/konsolerun.desktop
-%{_kf5_datadir}/kconf_update/konsole_globalaccel.upd
+%{_kf5_datadir}/kconf_update/konsole.upd
+%{_kf5_datadir}/kconf_update/konsole_add_hamburgermenu_to_toolbar.sh
+%{_kf5_datadir}/zsh/site-functions/_konsole
 
 %ldconfig_scriptlets part
 
@@ -166,6 +171,9 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

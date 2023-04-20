@@ -1,6 +1,6 @@
 Name:    kdialog
 Summary: Nice dialog boxes from shell scripts
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -47,8 +47,11 @@ KDialog can be used to show nice dialog boxes from shell scripts.
 
 %install
 %cmake_install
-
 %find_lang %{name} --with-html --with-man
+
+
+%check
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
 
 
 %files -f %{name}.lang
@@ -57,10 +60,14 @@ KDialog can be used to show nice dialog boxes from shell scripts.
 %{_kf5_bindir}/kdialog
 %{_kf5_bindir}/kdialog_progress_helper
 %{_kf5_metainfodir}/org.kde.kdialog.metainfo.xml
+%{_kf5_datadir}/applications/org.kde.%{name}.desktop
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.kdialog.ProgressDialog.xml
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

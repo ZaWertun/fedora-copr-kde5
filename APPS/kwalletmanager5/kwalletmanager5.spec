@@ -7,7 +7,7 @@
 
 Name:    kwalletmanager5
 Summary: Manage KDE passwords
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -81,7 +81,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %license LICENSES/*.txt
 %{_kf5_bindir}/kwalletmanager5
 %{_kf5_libexecdir}/kauth/kcm_kwallet_helper5
-%{_kf5_qtplugindir}/kcm_kwallet5.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_kwallet5.so
 %{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmkwallet5.service
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmkwallet5.policy
 %{_kf5_datadir}/applications/kwalletmanager5-kwalletd.desktop
@@ -97,6 +97,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

@@ -5,7 +5,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary:        Library to access to Google services
 
@@ -87,42 +87,46 @@ resources.
 %files -f libkgapi_qt.lang
 %doc README*
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKPimGAPIBlogger.so.5*
-%{_kf5_libdir}/libKPimGAPICalendar.so.*
-%{_kf5_libdir}/libKPimGAPIContacts.so.*
-%{_kf5_libdir}/libKPimGAPICore.so.*
-%{_kf5_libdir}/libKPimGAPIDrive.so.*
-%{_kf5_libdir}/libKPimGAPILatitude.so.*
-%{_kf5_libdir}/libKPimGAPIMaps.so.*
-%{_kf5_libdir}/libKPimGAPITasks.so.*
+%{_kf5_libdir}/libKPim5GAPIBlogger.so.5*
+%{_kf5_libdir}/libKPim5GAPICalendar.so.*
+%{_kf5_libdir}/libKPim5GAPICore.so.*
+%{_kf5_libdir}/libKPim5GAPIDrive.so.*
+%{_kf5_libdir}/libKPim5GAPILatitude.so.*
+%{_kf5_libdir}/libKPim5GAPIMaps.so.*
+%{_kf5_libdir}/libKPim5GAPITasks.so.*
+%{_kf5_libdir}/libKPim5GAPIPeople.so.*
 %{_libdir}/sasl2/libkdexoauth2.so*
 %{_kf5_datadir}/qlogging-categories5/*.categories
 
 
 %files devel
-%{_kf5_libdir}/libKPimGAPIBlogger.so
+%{_kf5_libdir}/libKPim5GAPIBlogger.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KGAPIBlogger.pri
-%{_kf5_libdir}/libKPimGAPICalendar.so
+%{_kf5_libdir}/libKPim5GAPICalendar.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KGAPICalendar.pri
-%{_kf5_libdir}/libKPimGAPIContacts.so
-%{_kf5_archdatadir}/mkspecs/modules/qt_KGAPIContacts.pri
-%{_kf5_libdir}/libKPimGAPICore.so
+%{_kf5_libdir}/libKPim5GAPICore.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KGAPICore.pri
-%{_kf5_libdir}/libKPimGAPIDrive.so
+%{_kf5_libdir}/libKPim5GAPIDrive.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KGAPIDrive.pri
-%{_kf5_libdir}/libKPimGAPILatitude.so
+%{_kf5_libdir}/libKPim5GAPILatitude.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KGAPILatitude.pri
-%{_kf5_libdir}/libKPimGAPIMaps.so
+%{_kf5_libdir}/libKPim5GAPIMaps.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KGAPIMaps.pri
-%{_kf5_libdir}/libKPimGAPITasks.so
+%{_kf5_libdir}/libKPim5GAPITasks.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_KGAPITasks.pri
+%{_kf5_libdir}/libKPim5GAPIPeople.so
+%{_kf5_archdatadir}/mkspecs/modules/qt_KGAPIPeople.pri
 %{_kf5_libdir}/cmake/KPimGAPI/
-%dir %{_includedir}/KPim/
-%{_includedir}/KPim/KGAPI/
-%{_includedir}/KPim/kgapi_version.h
+%{_kf5_libdir}/cmake/KPim5GAPI/
+%dir %{_includedir}/KPim5/
+%{_includedir}/KPim5/KGAPI/
+%{_includedir}/KPim5/kgapi_version.h
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

@@ -1,5 +1,5 @@
 Name:    kmouth
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: A program that speaks for you 
 
@@ -80,6 +80,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kmouth.de
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

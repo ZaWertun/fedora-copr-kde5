@@ -1,5 +1,5 @@
 Name:    kaccounts-integration
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
@@ -20,6 +20,7 @@ Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 ## upstreamable fixes
 
 BuildRequires:  gnupg2
+BuildRequires:  desktop-file-utils
 BuildRequires:  extra-cmake-modules
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-kcmutils-devel
@@ -35,6 +36,7 @@ BuildRequires:  kf5-kdbusaddons-devel
 
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  cmake(QCoro5)
 
 BuildRequires:  pkgconfig(accounts-qt5) >= 1.13
 BuildRequires:  pkgconfig(libaccounts-glib) >= 1.21
@@ -83,6 +85,10 @@ Headers, development libraries and documentation for %{name}.
 %find_lang %{name} --all-name --with-html
 
 
+%check
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/kcm_kaccounts.desktop
+
+
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
@@ -90,6 +96,7 @@ Headers, development libraries and documentation for %{name}.
 %license LICENSES/*.txt
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_kaccounts.so
 %{_kf5_qtplugindir}/kaccounts/daemonplugins/kaccounts_kio_webdav_plugin.so
+%{_kf5_datadir}/applications/kcm_kaccounts.desktop
 %{_kf5_datadir}/kpackage/kcms/kcm_kaccounts/contents/ui/*.qml
 %{_kf5_plugindir}/kded/kded_accounts.so
 %{_kf5_libdir}/libkaccounts.so.2
@@ -103,6 +110,9 @@ Headers, development libraries and documentation for %{name}.
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

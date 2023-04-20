@@ -1,6 +1,6 @@
 
 Name:           colord-kde
-Version:        22.12.3
+Version:        23.04.0
 Release:        1%{?dist}
 Summary:        Colord support for KDE
 
@@ -27,6 +27,8 @@ BuildRequires:  kf5-knotifications-devel
 BuildRequires:  kf5-plasma-devel
 BuildRequires:  kf5-kwidgetsaddons-devel
 BuildRequires:  kf5-kwindowsystem-devel
+BuildRequires:  cmake(KF5Declarative)
+BuildRequires:  cmake(KF5ItemModels)
 
 BuildRequires:  lcms2-devel
 BuildRequires:  libXrandr-devel
@@ -53,7 +55,6 @@ KDE support for colord including KDE Daemon module and System Settings module.
 
 %install
 %cmake_install
-
 %find_lang colord-kde
 
 
@@ -61,13 +62,16 @@ KDE support for colord including KDE Daemon module and System Settings module.
 %license COPYING
 %doc MAINTAINERS TODO
 %{_kf5_bindir}/colord-kde-icc-importer
-%{_kf5_qtplugindir}/kcm_colord.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings/kcm_colord.so
 %{_kf5_plugindir}/kded/colord.so
 %{_kf5_datadir}/applications/colordkdeiccimporter.desktop
-%{_kf5_datadir}/kservices5/kcm_colord.desktop
+%{_kf5_datadir}/kpackage/kcms/kcm_colord/contents/ui/*.qml
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Marc Deop i Argemí <marcdeop@fedoraproject.org> - 22.12.3-1
 - 22.12.3
 

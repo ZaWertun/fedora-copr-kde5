@@ -1,6 +1,6 @@
 Name:    spectacle
 Summary: Screenshot capture utility
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -45,6 +45,7 @@ BuildRequires: cmake(KF5Screen)
 BuildRequires: cmake(KF5GlobalAccel)
 BuildRequires: cmake(KF5Kipi)
 BuildRequires: cmake(KF5GuiAddons)
+BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: kf5-libkipi-devel
 
 BuildRequires: cmake(Qt5DBus)
@@ -52,6 +53,8 @@ BuildRequires: cmake(Qt5PrintSupport)
 BuildRequires: cmake(Qt5Quick)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5Svg)
+BuildRequires: cmake(Qt5QuickControls2)
+BuildRequires: qt5-qtbase-private-devel
 
 BuildRequires: pkgconfig(xcb-cursor)
 BuildRequires: pkgconfig(xcb-image)
@@ -62,6 +65,13 @@ BuildRequires: cmake(KDEExperimentalPurpose)
 
 BuildRequires: kimageannotator-devel
 BuildRequires: kcolorpicker-devel
+
+BuildRequires: pkgconfig(wayland-client)
+BuildRequires: cmake(PlasmaWaylandProtocols)
+BuildRequires: cmake(Qt5WaylandClient)
+
+BuildRequires: cmake(KPipeWire)
+BuildRequires: pkgconfig(libpipewire-0.3)
 
 # f26+ upgrade path
 %if 0%{?fedora} > 25
@@ -129,6 +139,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.spectacle
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

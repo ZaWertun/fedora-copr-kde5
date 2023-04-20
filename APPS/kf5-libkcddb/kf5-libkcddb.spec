@@ -1,7 +1,7 @@
 %global framework libkcddb
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: CDDB retrieval library
 
@@ -27,6 +27,7 @@ BuildRequires: cmake(KF5Codecs)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5WidgetsAddons)
+BuildRequires: cmake(KF5KCMUtils)
 
 BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(Qt5Widgets)
@@ -91,16 +92,15 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5Cddb.so.5*
-%{_qt5_plugindir}/kcm_cddb.so
+%{_qt5_plugindir}/plasma/kcms/systemsettings_qwidgets/kcm_cddb.so
 %{_kf5_datadir}/config.kcfg/libkcddb5.kcfg
-%{_kf5_datadir}/kservices5/libkcddb.desktop
+%{_kf5_datadir}/applications/kcm_cddb.desktop
 %{_kf5_datadir}/qlogging-categories5/%{framework}.categories
 
 %files devel
 %{_kf5_libdir}/libKF5Cddb.so
 %{_includedir}/KCddb5/
 %{_kf5_includedir}/KCddb/
-%{_kf5_includedir}/kcddb_version.h
 %{_kf5_libdir}/cmake/KF5Cddb/
 %{_qt5_archdatadir}/mkspecs/modules/qt_KCddb.pri
 
@@ -108,6 +108,9 @@ echo '%{_kf5_docdir}/HTML/*/kcontrol' > %{name}-doc.lang
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

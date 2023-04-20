@@ -10,7 +10,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -220,6 +220,7 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_qtplugindir}/konqueror_kcms/kcm_performance.so
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_appearance.so
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_behavior.so
+%{_kf5_qtplugindir}/konqueror_kcms/khtml_cache.so
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_filter.so
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_general.so
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_java_js.so
@@ -247,6 +248,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

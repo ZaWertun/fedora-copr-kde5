@@ -1,6 +1,6 @@
 Name:    kamera
 Summary: Digital camera support for KDE 
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -25,6 +25,8 @@ BuildRequires: kf5-ki18n-devel
 BuildRequires: kf5-kio-devel
 BuildRequires: kf5-kxmlgui-devel
 BuildRequires: kf5-rpm-macros
+BuildRequires: cmake(KF5KCMUtils)
+
 BuildRequires: pkgconfig(libgphoto2)
 BuildRequires: cmake(Qt5Core)
 
@@ -56,20 +58,24 @@ Requires: kde-cli-tools
 
 
 %check
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/%{name}.desktop
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/kcm_%{name}.desktop
 
 
 %files -f %{name}.lang
 %doc AUTHORS README
-%license COPYING*
+%license LICENSES/*.txt
 %{_kf5_qtplugindir}/kf5/kio/kio_%{name}.so
 %{_kf5_datadir}/solid/actions/solid_camera.desktop
-%{_kf5_datadir}/applications/%{name}.desktop
-%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/%{name}.so
+%{_kf5_datadir}/applications/kcm_%{name}.desktop
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_%{name}.so
 %{_kf5_metainfodir}/*.metainfo.xml
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

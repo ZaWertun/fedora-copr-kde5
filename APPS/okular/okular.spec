@@ -13,8 +13,8 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 22.12.3
-Release: 2%{?dist}
+Version: 23.04.0
+Release: 1%{?dist}
 
 License: GPLv2
 URL:     https://www.kde.org/applications/graphics/okular/
@@ -67,6 +67,7 @@ BuildRequires: cmake(Qt5PrintSupport)
 BuildRequires: cmake(Qt5Svg)
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(Qt5Quick)
+BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: qt5-qtbase-private-devel
 
 BuildRequires: pkgconfig(phonon4qt5)
@@ -235,6 +236,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.ok
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Wed Apr 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-2
 - build okular kirigami
 

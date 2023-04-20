@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
-Release: 5%{?dist}
+Version: 23.04.0
+Release: 1%{?dist}
 Summary: The Akonadi Calendar Library
 
 License: LGPLv2+
@@ -117,6 +117,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-5
 - rebuild
 

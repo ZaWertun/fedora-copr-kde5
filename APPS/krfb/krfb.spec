@@ -1,6 +1,6 @@
 Name:    krfb
 Summary: Desktop sharing
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2+ and GFDL
@@ -62,6 +62,8 @@ BuildRequires: libjpeg-devel
 BuildRequires: pipewire-devel
 BuildRequires: zlib-devel
 BuildRequires: libvncserver-devel
+
+BuildRequires: cmake(KPipeWire)
 
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
@@ -125,6 +127,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.krfb.virt
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

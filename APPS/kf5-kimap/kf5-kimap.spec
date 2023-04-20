@@ -1,14 +1,8 @@
 %global framework kimap
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: The KIMAP Library
 
@@ -87,7 +81,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -95,20 +89,24 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5IMAP.so.*
+%{_kf5_libdir}/libKPim5IMAP.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %files devel
-%{_kf5_includedir}/KIMAP/
-%{_kf5_includedir}/KIMAPTest/
-%{_kf5_libdir}/libKF5IMAP.so
+%{_includedir}/KPim5/KIMAP/
+%{_includedir}/KPim5/KIMAPTest/
+%{_kf5_libdir}/libKPim5IMAP.so
 %{_kf5_libdir}/cmake/KF5IMAP/
+%{_kf5_libdir}/cmake/KPim5IMAP/
 %{_kf5_libdir}/libkimaptest.a
 %{_kf5_archdatadir}/mkspecs/modules/qt_KIMAP.pri
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

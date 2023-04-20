@@ -1,14 +1,8 @@
 %global framework kidentitymanagement
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: The KIdentityManagement Library
 
@@ -37,7 +31,6 @@ BuildRequires:  kf5-kio-devel >= 5.15
 BuildRequires:  kf5-kconfig-devel >= 5.15
 BuildRequires:  kf5-kemoticons-devel >= 5.15
 BuildRequires:  kf5-kcodecs-devel >= 5.15
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-kpimtextedit-devel >= %{majmin_ver}
 BuildRequires:  qt5-qtbase-devel
@@ -80,7 +73,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -88,22 +81,26 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5IdentityManagement.so.*
-%{_kf5_libdir}/libKF5IdentityManagementWidgets.so.*
+%{_kf5_libdir}/libKPim5IdentityManagement.so.*
+%{_kf5_libdir}/libKPim5IdentityManagementWidgets.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/KIdentityManagement/
-%{_kf5_includedir}/KIdentityManagementWidgets/
-%{_kf5_libdir}/libKF5IdentityManagement.so
-%{_kf5_libdir}/libKF5IdentityManagementWidgets.so
+%{_includedir}/KPim5/KIdentityManagement/
+%{_includedir}/KPim5/KIdentityManagementWidgets/
+%{_kf5_libdir}/libKPim5IdentityManagement.so
+%{_kf5_libdir}/libKPim5IdentityManagementWidgets.so
 %{_kf5_libdir}/cmake/KF5IdentityManagement/
+%{_kf5_libdir}/cmake/KPim5IdentityManagement/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KIdentityManagement.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_KIdentityManagementWidgets.pri
 %{_datadir}/dbus-1/interfaces/kf5_org.kde.pim.IdentityManager.xml
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

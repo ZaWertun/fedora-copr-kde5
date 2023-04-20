@@ -1,6 +1,6 @@
 Name:    sweeper 
 Summary: Clean unwanted traces the user leaves on the system 
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -78,6 +78,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.sweeper.d
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

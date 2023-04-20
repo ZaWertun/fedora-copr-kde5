@@ -1,15 +1,9 @@
 %global framework kpimtextedit
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
-Release: 5%{?dist}
+Version: 23.04.0
+Release: 1%{?dist}
 Summary: The KPimTextEdit Library
 
 License: LGPLv2+
@@ -100,8 +94,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-time \
-make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -109,19 +102,23 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5PimTextEdit.so.*
+%{_kf5_libdir}/libKPim5TextEdit.so.*
 %{_kf5_datadir}/qlogging-categories5/*.categories
-%{_qt5_plugindir}/designer/kpimtexteditwidgets.so
+%{_qt5_plugindir}/designer/kpimtextedit5widgets.so
 
 
 %files devel
-%{_kf5_includedir}/KPIMTextEdit/
-%{_kf5_libdir}/libKF5PimTextEdit.so
+%{_includedir}/KPim5/KPIMTextEdit/
+%{_kf5_libdir}/libKPim5TextEdit.so
+%{_kf5_libdir}/cmake/KPim5TextEdit/
 %{_kf5_libdir}/cmake/KF5PimTextEdit/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KPIMTextEdit.pri
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-5
 - rebuild
 

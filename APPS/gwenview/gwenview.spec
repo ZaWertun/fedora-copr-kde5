@@ -1,7 +1,7 @@
 Name:    gwenview
 Summary: An image viewer
 Epoch:   1
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 # app: GPLv2+
@@ -49,6 +49,11 @@ BuildRequires: pkgconfig(Qt5Concurrent) pkgconfig(Qt5Svg) pkgconfig(Qt5OpenGL)
 BuildRequires: pkgconfig(Qt5X11Extras)
 BuildRequires: cmake(kImageAnnotator)
 BuildRequires: cmake(kColorPicker)
+
+BuildRequires: wayland-protocols-devel
+BuildRequires: cmake(Qt5WaylandClient)
+BuildRequires: pkgconfig(wayland-client)
+BuildRequires: qt5-qtbase-private-devel
 
 Requires: %{name}-libs%{?_isa} = %{epoch}:%{version}-%{release}
 
@@ -121,6 +126,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.12.3-1
 - 22.12.3
 

@@ -1,8 +1,8 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 22.12.3
-Release: 6%{?dist}
+Version: 23.04.0
+Release: 1%{?dist}
 Summary: KDE Message libraries
 
 License: GPLv2
@@ -175,6 +175,9 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-6
 - rebuild
 

@@ -1,6 +1,6 @@
 Name:    kdenetwork-filesharing
 Summary: Network filesharing
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -21,17 +21,21 @@ BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: gettext
+
 BuildRequires: kf5-kcoreaddons-devel
 BuildRequires: kf5-kdoctools-devel
 BuildRequires: kf5-ki18n-devel
 BuildRequires: kf5-kio-devel
 BuildRequires: kf5-kwidgetsaddons-devel
 BuildRequires: kf5-rpm-macros
-BuildRequires: pkgconfig(packagekitqt5)
-BuildRequires: pkgconfig(Qt5Widgets)
-
-BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(KF5Declarative)
+
+BuildRequires: pkgconfig(packagekitqt5)
+
+BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: cmake(Qt5Qml)
+BuildRequires: cmake(QCoro5)
+
 
 # or gets pulled in via PK at runtime
 Recommends: samba
@@ -76,6 +80,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

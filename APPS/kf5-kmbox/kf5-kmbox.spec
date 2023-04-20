@@ -1,14 +1,8 @@
 %global framework kmbox
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: The KMbox Library
 
@@ -31,9 +25,10 @@ BuildRequires:  kf5-rpm-macros
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
 BuildRequires:  qt5-qtbase-devel
+
 %if 0%{?tests}
 BuildRequires: dbus-x11
-BuildRequires: time
+BuildRequires: procmail
 BuildRequires: xorg-x11-server-Xvfb
 %endif
 
@@ -69,8 +64,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-time \
-make test ARGS="--output-on-failure --timeout 120" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -78,18 +72,22 @@ make test ARGS="--output-on-failure --timeout 120" -C %{_target_platform} ||:
 
 %files
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5Mbox.so.*
+%{_kf5_libdir}/libKPim5Mbox.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %files devel
-%{_kf5_includedir}/KMbox
-%{_kf5_libdir}/libKF5Mbox.so
-%{_kf5_libdir}/cmake/KF5Mbox
+%{_includedir}/KPim5/KMbox/
+%{_kf5_libdir}/libKPim5Mbox.so
+%{_kf5_libdir}/cmake/KF5Mbox/
+%{_kf5_libdir}/cmake/KPim5Mbox/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KMbox.pri
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

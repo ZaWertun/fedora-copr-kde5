@@ -4,7 +4,7 @@
 %global module kdeconnect-kde
 
 Name:           kde-connect
-Version:        22.12.3
+Version:        23.04.0
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
@@ -52,6 +52,8 @@ BuildRequires:  cmake(KF5PeopleVCard)
 BuildRequires:  cmake(KF5QQC2DesktopStyle)
 BuildRequires:  cmake(KF5Package)
 BuildRequires:  cmake(KF5GuiAddons)
+BuildRequires:  cmake(KF5PulseAudioQt)
+BuildRequires:  cmake(KF5ModemManagerQt)
 
 %if 0%{?bluetooth}
 BuildRequires:  cmake(Qt5Bluetooth)
@@ -69,12 +71,12 @@ BuildRequires:  qt5-qtbase-private-devel
 
 BuildRequires:  cmake(Qca-qt5)
 
-BuildRequires:  cmake(KF5PulseAudioQt)
-
 BuildRequires:  libXtst-devel
+BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(libfakekey)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  cmake(PlasmaWaylandProtocols)
+BuildRequires:  wayland-protocols-devel
 
 Obsoletes: kde-connect-kde4-ioslave < %{version}-%{release}
 Obsoletes: kde-connect-kde4-libs < %{version}-%{release}
@@ -87,6 +89,7 @@ Requires:       kdeconnectd = %{version}-%{release}
 
 Requires:       fuse-sshfs
 Requires:       qca-qt5-ossl%{?_isa}
+Requires:       kf5-kirigami2-addons%{?_isa}
 # /usr/bin/plasmawindowed (make optional at least until this is split out for bug #1286431)
 #Recommends:     plasma-workspace
 # /usr/bin/kcmshell5
@@ -156,6 +159,7 @@ desktop-file-edit --remove-key=OnlyShowIn %{buildroot}%{_sysconfdir}/xdg/autosta
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.appdata.xml ||:
 appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kdeconnect.metainfo.xml
+desktop-file-validate %{buildroot}%{_datadir}/applications/kcm_kdeconnect.desktop
 for i in %{buildroot}%{_datadir}/applications/org.kde.kdeconnect*.desktop ; do
 desktop-file-validate $i ||:
 done
@@ -170,13 +174,14 @@ done
 %{_kf5_datadir}/knotifications5/*
 %{_kf5_datadir}/kservices5/*.desktop
 %{_kf5_datadir}/qlogging-categories5/kdeconnect-kde.categories
-%{_qt5_plugindir}/kcm_kdeconnect.so
+%{_qt5_plugindir}/plasma/kcms/systemsettings_qwidgets/kcm_kdeconnect.so
 %{_kf5_plugindir}/kfileitemaction/kdeconnectfileitemaction.so
 %{_kf5_plugindir}/kio/kdeconnect.so
 %{_datadir}/icons/hicolor/*/apps/kdeconnect*
 %{_datadir}/icons/hicolor/*/status/{laptop,smartphone,tablet,tv}{connected,disconnected,trusted}.svg
 %{_kf5_metainfodir}/org.kde.kdeconnect.appdata.xml
 %{_kf5_metainfodir}/org.kde.kdeconnect.metainfo.xml
+%{_datadir}/applications/kcm_kdeconnect.desktop
 %{_datadir}/applications/org.kde.kdeconnect*.desktop
 %{_qt5_archdatadir}/qml/org/kde/kdeconnect/
 %{_datadir}/contractor/
@@ -220,6 +225,9 @@ fi
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

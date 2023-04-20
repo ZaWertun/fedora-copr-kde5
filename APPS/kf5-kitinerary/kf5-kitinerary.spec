@@ -1,14 +1,8 @@
 %global framework kitinerary
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
@@ -24,8 +18,6 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz.sig
 Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
-
-Patch0:         kf5-kitinerary-22.12.3-fix-missing-include.patch
 
 BuildRequires:  gnupg2
 BuildRequires:  extra-cmake-modules
@@ -83,11 +75,6 @@ developing applications that use %{name}.
 
 
 %build
-%if 0%{fedora} == 29
-# popplerutils.cpp:88:47: error: passing 'const GfxPath' as 'this' argument discards qualifiers [-fpermissive]
-%global optflags %(echo %{optflags} -fpermissive)
-%endif
-
 %cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 %cmake_build
@@ -101,9 +88,7 @@ developing applications that use %{name}.
 %check
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
-#xvfb-run -a \
-#dbus-launch --exit-with-session \
-make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
+make test/fast ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -112,19 +97,25 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 %files -f %{name}.lang
 %doc README.md
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKPimItinerary.so.5*
+%{_kf5_libdir}/libKPim5Itinerary.so.5*
 %{_kf5_datadir}/mime/packages/*.xml
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_libexecdir}/kitinerary-extractor
 
 
 %files devel
-%{_includedir}/KPim/
-%{_kf5_libdir}/libKPimItinerary.so
+%{_includedir}/KPim5/KItinerary/
+%{_includedir}/KPim5/kitinerary/
+%{_includedir}/KPim5/kitinerary_version.h
+%{_kf5_libdir}/libKPim5Itinerary.so
+%{_kf5_libdir}/cmake/KPim5Itinerary/
 %{_kf5_libdir}/cmake/KPimItinerary/
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

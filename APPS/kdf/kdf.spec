@@ -1,11 +1,10 @@
 Name:    kdf
 Summary: View disk usage
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
 URL:     http://utils.kde.org/projects/%{name}
-#URL:    https://cgit.kde.org/%{name}.git
 
 %global revision %(echo %{version} | cut -d. -f3)
 %if %{revision} >= 50
@@ -58,7 +57,6 @@ free space, type and mount point.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
@@ -79,11 +77,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/*kdf.desktop ||:
 %{_kf5_datadir}/applications/org.kde.kdf.desktop
 %{_kf5_datadir}/applications/org.kde.kwikdisk.desktop
 %{_kf5_metainfodir}/org.kde.*.appdata.xml
-%{_kf5_datadir}/kservices5/kcmdf.desktop
 %{_kf5_datadir}/kxmlgui5/kdf/
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

@@ -2,8 +2,8 @@ Name:    khelpcenter
 Summary: Show documentation for KDE applications
 # Override khelpcenter subpackage from kde-runtime-15.04 (no longer built)
 Epoch:   1
-Version: 22.12.3
-Release: 6%{?dist}
+Version: 23.04.0
+Release: 1%{?dist}
 
 License: GPLv2 or GPLv3
 URL:     https://cgit.kde.org/%{name}.git
@@ -101,6 +101,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kh
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.04.0-1
+- 23.04.0
+
 * Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:22.12.3-6
 - rebuild
 

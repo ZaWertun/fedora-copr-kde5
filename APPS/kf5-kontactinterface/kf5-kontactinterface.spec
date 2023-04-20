@@ -1,14 +1,8 @@
 %global framework kontactinterface
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: The Kontact Interface Library
 
@@ -34,8 +28,9 @@ BuildRequires:  kf5-kwindowsystem-devel >= 5.15
 BuildRequires:  kf5-ki18n-devel >= 5.15
 BuildRequires:  kf5-kxmlgui-devel >= 5.15
 BuildRequires:  kf5-kiconthemes-devel >= 5.15
-BuildRequires:  libX11-devel
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  libX11-devel
+BuildRequires:  cmake(Qt5X11Extras)
 %if 0%{?tests}
 BuildRequires: dbus-x11
 BuildRequires: time
@@ -79,8 +74,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-time \
-make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -88,18 +82,22 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5KontactInterface.so.*
+%{_kf5_libdir}/libKPim5KontactInterface.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 
 %files devel
-%{_kf5_includedir}/KontactInterface/
-%{_kf5_libdir}/libKF5KontactInterface.so
+%{_includedir}/KPim5/KontactInterface/
+%{_kf5_libdir}/libKPim5KontactInterface.so
 %{_kf5_libdir}/cmake/KF5KontactInterface/
+%{_kf5_libdir}/cmake/KPim5KontactInterface/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KontactInterface.pri
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

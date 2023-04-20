@@ -2,7 +2,7 @@
 
 Name:    kf5-libkexiv2
 Summary: A wrapper around Exiv2 library
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -41,7 +41,7 @@ Requires: cmake(Qt5Gui)
 
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
-%autosetup  -n %{framework}-%{version} -p1
+%autosetup -n %{framework}-%{version} -p1
 
 
 %build
@@ -62,13 +62,15 @@ Requires: cmake(Qt5Gui)
 
 %files devel
 %{_kf5_libdir}/libKF5KExiv2.so
-%{_kf5_includedir}/libkexiv2_version.h
 %{_kf5_includedir}/KExiv2/
 %{_kf5_libdir}/cmake/KF5KExiv2/
 %{_kf5_datadir}/qlogging-categories5/libkexiv2.categories
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

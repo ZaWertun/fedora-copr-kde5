@@ -1,14 +1,8 @@
 %global framework kpkpass
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: Library to deal with Apple Wallet pass files
 
@@ -68,15 +62,11 @@ developing applications that use %{name}.
 %install
 %cmake_install
 
-#find_lang %{name} --all-name
-
 
 %check
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
-#xvfb-run -a \
-#dbus-launch --exit-with-session \
-make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
+make test/fast ARGS="--output-on-failure --timeout 10" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -85,7 +75,7 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 %files
 %license LICENSES/*.txt
 %doc README.md
-%{_kf5_libdir}/libKPimPkPass.so.5*
+%{_kf5_libdir}/libKPim5PkPass.so.5*
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %if 0%{?mime}
 %{_datadir}/mime/packages/application-vnd-apple-pkpass.xml
@@ -93,12 +83,16 @@ make test/fast ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||
 
 
 %files devel
-%{_includedir}/KPim/
-%{_kf5_libdir}/libKPimPkPass.so
+%{_includedir}/KPim5/KPkPass/
+%{_kf5_libdir}/libKPim5PkPass.so
 %{_kf5_libdir}/cmake/KPimPkPass/
+%{_kf5_libdir}/cmake/KPim5PkPass/
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

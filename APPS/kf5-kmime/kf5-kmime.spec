@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 Summary: The KMime Library
 
@@ -74,7 +74,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 300" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -82,17 +82,21 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5Mime.so.*
+%{_kf5_libdir}/libKPim5Mime.so.*
 %{_kf5_datadir}/qlogging-categories5/%{framework}.categories
 
 %files devel
-%{_kf5_includedir}/KMime/
-%{_kf5_libdir}/libKF5Mime.so
+%{_includedir}/KPim5/KMime/
+%{_kf5_libdir}/libKPim5Mime.so
 %{_kf5_libdir}/cmake/KF5Mime/
+%{_kf5_libdir}/cmake/KPim5Mime/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KMime.pri
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

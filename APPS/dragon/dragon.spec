@@ -1,6 +1,6 @@
 Name:    dragon
 Summary: Media player
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 # code: KDE e.V. may determine that future GPL versions are accepted
@@ -86,7 +86,6 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.dragonpla
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%doc README HACKING TODO
 #{_kf5_datadir}/kxmlgui5/dragonplayer
 %{_kf5_datadir}/solid/actions/dragonplayer-opendvd.desktop
 %{_kf5_datadir}/solid/actions/dragonplayer-openaudiocd.desktop
@@ -100,11 +99,13 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.dragonpla
 %{_mandir}/man1/dragon.1*
 #lang(en) %{_kf5_datadir}/doc/HTML/en/dragonplayer/
 # -libs subpkg ? --rex
-%{_kf5_datadir}/kservices5/dragonplayer_part.desktop
 %{_kf5_plugindir}/parts/dragonpart.so
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

@@ -10,7 +10,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -56,6 +56,7 @@ BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5Script)
 BuildRequires: cmake(Qt5Sql)
 BuildRequires: cmake(Qt5Test)
+BuildRequires: cmake(Qt5X11Extras)
 
 %if ! 0%{?bootstrap}
 BuildRequires: cmake(KF5Activities)
@@ -159,7 +160,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 %files plugins -f plugins.lang
 %{_kf5_qtplugindir}/ktexteditor/cmaketoolsplugin.so
 %{_kf5_qtplugindir}/ktexteditor/compilerexplorer.so
+%{_kf5_qtplugindir}/ktexteditor/eslintplugin.so
 %{_kf5_qtplugindir}/ktexteditor/externaltoolsplugin.so
+%{_kf5_qtplugindir}/ktexteditor/formatplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebacktracebrowserplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katebuildplugin.so
 %{_kf5_qtplugindir}/ktexteditor/katecloseexceptplugin.so
@@ -199,6 +202,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

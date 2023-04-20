@@ -8,8 +8,8 @@
 %endif
 
 Name:    kf5-kcalendarutils
-Version: 22.12.3
-Release: 6%{?dist}
+Version: 23.04.0
+Release: 1%{?dist}
 Summary: The KCalendarUtils Library
 
 License: LGPLv2+
@@ -106,6 +106,9 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Sat Mar 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-6
 - rebuild
 
