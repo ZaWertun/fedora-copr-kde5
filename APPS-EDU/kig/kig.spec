@@ -3,7 +3,7 @@
 
 Name:    kig
 Summary: Interactive Geometry
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -99,13 +99,15 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_kf5_datadir}/icons/hicolor/*/mimetypes/application-x-%{name}.*
 %{_kf5_datadir}/%{name}/
-%{_kf5_datadir}/kservices5/kig_part.desktop
 %{_kf5_datadir}/kxmlgui5/%{name}/
 %{_kf5_datadir}/katepart5/syntax/python-kig.xml
 %{_mandir}/man1/kig.1*
 
 
 %changelog
+* Fri Apr 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

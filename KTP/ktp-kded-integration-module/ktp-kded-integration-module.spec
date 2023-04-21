@@ -2,7 +2,7 @@
 
 Name:    ktp-kded-integration-module
 Summary: KDE integration for telepathy
-Version: 22.12.3
+Version: 23.04.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -83,6 +83,9 @@ integration like setting user to auto-away or handling connection errors.
 
 
 %changelog
+* Fri Apr 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
+- 23.04.0
+
 * Thu Mar 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.3-1
 - 22.12.3
 

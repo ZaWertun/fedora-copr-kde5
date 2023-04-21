@@ -1,7 +1,4 @@
-%if 0%{?fedora} >= 32
-# Qt >= 5.14 needed
 %global with_markdown 1
-%endif
 
 Name:    kdepim-addons
 Version: 23.04.0
@@ -46,6 +43,8 @@ BuildRequires:  cmake(KF5Holidays)
 BuildRequires:  cmake(KF5Prison)
 BuildRequires:  cmake(KF5XmlGui)
 
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 BuildRequires:  cmake(KF5Akonadi)
 BuildRequires:  cmake(KF5AkonadiNotes)
 BuildRequires:  cmake(KF5CalendarSupport)
@@ -61,10 +60,10 @@ BuildRequires:  cmake(KF5Libkdepim)
 BuildRequires:  cmake(KF5Libkleo)
 BuildRequires:  cmake(KF5MailCommon)
 BuildRequires:  cmake(KF5MailImporterAkonadi)
-BuildRequires:  cmake(KF5MessageComposer)
+BuildRequires:  cmake(KPim5MessageComposer)
 BuildRequires:  cmake(KPim5MessageCore)
-BuildRequires:  cmake(KF5MessageList)
-BuildRequires:  cmake(KF5MessageViewer)
+BuildRequires:  cmake(KPim5MessageList)
+BuildRequires:  cmake(KPim5MessageViewer)
 BuildRequires:  cmake(KF5PimCommon)
 BuildRequires:  cmake(KF5Tnef)
 BuildRequires:  cmake(KF5KontactInterface)
@@ -111,9 +110,6 @@ Supplements:    korganizer
 
 
 %build
-sed -i 's|find_package(Gpgmepp 1.16.0 CONFIG)|find_package(Gpgmepp 1.15.0 CONFIG)|' \
-  CMakeLists.txt
-
 %cmake_kf5 \
   -DKDEPIMADDONS_BUILD_EXAMPLES:BOOL=FALSE
 %cmake_build
@@ -128,9 +124,9 @@ sed -i 's|find_package(Gpgmepp 1.16.0 CONFIG)|find_package(Gpgmepp 1.15.0 CONFIG
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libgrammarcommon.so.5*
-%{_kf5_libdir}/libkmailgrammalecte.so.5*
-%{_kf5_libdir}/libkmaillanguagetool.so.5*
+#{_kf5_libdir}/libgrammarcommon.so.5*
+#{_kf5_libdir}/libkmailgrammalecte.so.5*
+#{_kf5_libdir}/libkmaillanguagetool.so.5*
 %{_kf5_libdir}/libadblocklibprivate.so.5*
 %{_kf5_libdir}/libakonadidatasetools.so.5*
 %{_kf5_libdir}/libdkimverifyconfigure.so.5*
