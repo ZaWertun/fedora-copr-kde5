@@ -1,10 +1,5 @@
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 ## skipping tests, seem to hang indefinitely starting with 18.04.0
 #global tests 1
-%endif
 
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
@@ -147,8 +142,6 @@ Requires: kf5-akonadi-server%{?_isa} >= %{version}
 
 
 %build
-sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' CMakeLists.txt
-
 %cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 %cmake_build
@@ -167,7 +160,7 @@ rm -fv %{buildroot}%{_kf5_libdir}/lib{akonadi-filestore,folderarchivesettings,li
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 %files -f %{name}.lang

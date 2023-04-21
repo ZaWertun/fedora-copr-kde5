@@ -46,7 +46,8 @@ BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5MailTransport)
 BuildRequires:  cmake(Grantlee5)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
@@ -98,13 +99,14 @@ developing applications that use %{name}.
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5IncidenceEditor.so.*
+%{_kf5_libdir}/libKPim5IncidenceEditor.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/IncidenceEditor/
-%{_kf5_libdir}/libKF5IncidenceEditor.so
+%{_includedir}/KPim5/IncidenceEditor/
+%{_kf5_libdir}/libKPim5IncidenceEditor.so
 %{_kf5_libdir}/cmake/KF5IncidenceEditor/
+%{_kf5_libdir}/cmake/KPim5IncidenceEditor/
 %{_kf5_archdatadir}/mkspecs/modules/qt_IncidenceEditor.pri
 
 

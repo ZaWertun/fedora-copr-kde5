@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 #global tests 1
-%endif
 
 Name:    kio-extras
 Version: 23.04.0
@@ -143,7 +138,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a dbus-launch --exit-with-session \
-time make test -C %{_target_platform} ARGS="--output-on-failure --timeout 10" ||:
+time make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 30" ||:
 %endif
 
 

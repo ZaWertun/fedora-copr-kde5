@@ -1,11 +1,5 @@
 %global framework kcalutils
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-kcalendarutils
 Version: 23.04.0
@@ -85,7 +79,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 60" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -94,14 +88,15 @@ make test ARGS="--output-on-failure --timeout 60" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README.md
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5CalendarUtils.so.*
+%{_kf5_libdir}/libKPim5CalendarUtils.so.*
 %{_kf5_libdir}/grantlee/5.3/kcalendar_grantlee_plugin.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/KCalUtils/
-%{_kf5_libdir}/libKF5CalendarUtils.so
+%{_includedir}/KPim5/KCalUtils/
+%{_kf5_libdir}/libKPim5CalendarUtils.so
 %{_kf5_libdir}/cmake/KF5CalendarUtils/
+%{_kf5_libdir}/cmake/KPim5CalendarUtils/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KCalUtils.pri
 
 

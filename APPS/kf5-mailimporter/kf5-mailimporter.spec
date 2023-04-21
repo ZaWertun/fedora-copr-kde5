@@ -35,7 +35,8 @@ BuildRequires:  kf5-kwidgetsaddons-devel >= %{kf5_ver}
 BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
 BuildRequires:  kf5-kcmutils-devel => %{kf5_ver}
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 %global majmin_ver %{version}
 # kf5-akonadi-contacts/kf5-libkdepim available only where qt5-qtwebengine is
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
@@ -92,23 +93,25 @@ Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5MailImporter.so.*
+%{_kf5_libdir}/libKPim5MailImporter.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets akonadi
 
 %files akonadi
-%{_kf5_libdir}/libKF5MailImporterAkonadi.so.*
+%{_kf5_libdir}/libKPim5MailImporterAkonadi.so.*
 
 %files devel
-%{_kf5_libdir}/libKF5MailImporter.so
+%{_kf5_libdir}/libKPim5MailImporter.so
 %{_kf5_libdir}/cmake/KF5MailImporter/
-%{_kf5_includedir}/MailImporter/
+%{_kf5_libdir}/cmake/KPim5MailImporter/
+%{_includedir}/KPim5/MailImporter/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MailImporter.pri
 # akonadi
-%{_kf5_libdir}/libKF5MailImporterAkonadi.so
+%{_kf5_libdir}/libKPim5MailImporterAkonadi.so
 %{_kf5_libdir}/cmake/KF5MailImporterAkonadi/
-%{_kf5_includedir}/MailImporterAkonadi/
+%{_kf5_libdir}/cmake/KPim5MailImporterAkonadi/
+%{_includedir}/KPim5/MailImporterAkonadi/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MailImporterAkonadi.pri
 
 

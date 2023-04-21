@@ -76,6 +76,8 @@ BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-search-devel >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 BuildRequires:  pkgconfig(libxslt)
 
 Obsoletes:      kdepim-libs < 7:16.04.0
@@ -126,31 +128,25 @@ developing applications that use %{name}.
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKF5PimCommon.so.5*
-%{_kf5_libdir}/libKF5PimCommonAutoCorrection.so.5*
-%{_qt5_plugindir}/designer/pimcommonwidgets.so
+%{_qt5_plugindir}/designer/pimcommon5widgets.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets akonadi
 
 %files akonadi
 %{_kf5_libdir}/libKF5PimCommonAkonadi.so.5*
-%{_kf5_qtplugindir}/designer/pimcommonakonadiwidgets.so
+%{_kf5_qtplugindir}/designer/pimcommon5akonadiwidgets.so
 
 %files devel
 %{_kf5_libdir}/libKF5PimCommon.so
 %{_kf5_libdir}/cmake/KF5PimCommon/
 %{_kf5_includedir}/PimCommon/
 %{_kf5_archdatadir}/mkspecs/modules/qt_PimCommon.pri
-# akonadi
+# Akonadi
 %{_kf5_libdir}/libKF5PimCommonAkonadi.so
 %{_kf5_libdir}/cmake/KF5PimCommonAkonadi/
 %{_kf5_includedir}/PimCommonAkonadi/
 %{_kf5_archdatadir}/mkspecs/modules/qt_PimCommonAkonadi.pri
-# PimCommonAutoCorrection
-%{_kf5_libdir}/libKF5PimCommonAutoCorrection.so
-%{_kf5_libdir}/cmake/KF5PimCommonAutoCorrection/
-%{_kf5_includedir}/PimCommonAutoCorrection/
-%{_kf5_archdatadir}/mkspecs/modules/qt_PimCommonAutoCorrection.pri
 
 
 %changelog

@@ -55,7 +55,7 @@ BuildRequires:  pkgconfig(gstreamer-base-1.0)
 BuildRequires:  pkgconfig(gstreamer-video-1.0)
 
 %if 0%{?tests}
-BuildRequires: time
+BuildRequires: dbus-x11
 BuildRequires: xorg-x11-server-Xvfb
 %endif
 
@@ -89,8 +89,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kamoso.de
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
-time \
-make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
+dbus-launch --exit-with-session \
+make test ARGS="--output-on-failure --timeout 300" -C %{_vpath_builddir} ||:
 %endif
 
 

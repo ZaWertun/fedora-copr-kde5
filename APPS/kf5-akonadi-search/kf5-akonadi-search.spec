@@ -1,11 +1,5 @@
 %global framework akonadi-search
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
 Version: 23.04.0
@@ -87,7 +81,7 @@ export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
 time \
-make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -96,10 +90,10 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README.md
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5AkonadiSearchPIM.so.*
-%{_kf5_libdir}/libKF5AkonadiSearchCore.so.*
-%{_kf5_libdir}/libKF5AkonadiSearchXapian.so.*
-%{_kf5_libdir}/libKF5AkonadiSearchDebug.so.*
+%{_kf5_libdir}/libKPim5AkonadiSearchPIM.so.*
+%{_kf5_libdir}/libKPim5AkonadiSearchCore.so.*
+%{_kf5_libdir}/libKPim5AkonadiSearchXapian.so.*
+%{_kf5_libdir}/libKPim5AkonadiSearchDebug.so.*
 %{_kf5_bindir}/akonadi_indexing_agent
 %{_kf5_datadir}/akonadi/agents/akonadiindexingagent.desktop
 %{_kf5_plugindir}/krunner/krunner_pimcontacts.so
@@ -108,12 +102,13 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_libdir}/libKF5AkonadiSearchPIM.so
-%{_kf5_libdir}/libKF5AkonadiSearchCore.so
-%{_kf5_libdir}/libKF5AkonadiSearchXapian.so
-%{_kf5_libdir}/libKF5AkonadiSearchDebug.so
-%{_kf5_includedir}/AkonadiSearch/
+%{_includedir}/KPim5/AkonadiSearch/
+%{_kf5_libdir}/libKPim5AkonadiSearchPIM.so
+%{_kf5_libdir}/libKPim5AkonadiSearchCore.so
+%{_kf5_libdir}/libKPim5AkonadiSearchXapian.so
+%{_kf5_libdir}/libKPim5AkonadiSearchDebug.so
 %{_kf5_libdir}/cmake/KF5AkonadiSearch/
+%{_kf5_libdir}/cmake/KPim5AkonadiSearch/
 
 
 %changelog

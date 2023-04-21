@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    korganizer
 Summary: Personal Organizer
@@ -57,6 +52,8 @@ BuildRequires: cmake(KF5GlobalAccel)
 BuildRequires: cmake(KF5KCMUtils)
 BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Service)
+
+BuildRequires: cmake(KF5TextAutoCorrection)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -132,8 +129,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
+
 
 %files -f %{name}.lang
 %license LICENSES/*.txt

@@ -1,11 +1,5 @@
 %global framework kldap
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
 Version: 23.04.0
@@ -37,7 +31,6 @@ BuildRequires:  kf5-kio-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{kf5_ver}
 BuildRequires:  kf5-ki18n-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwallet-devel >= %{kf5_ver}
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-kmbox-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
@@ -87,7 +80,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 10" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -96,14 +89,15 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README.md
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5Ldap.so.*
+%{_kf5_libdir}/libKPim5Ldap.so.*
 %{_kf5_plugindir}/kio/ldap.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/KLDAP/
-%{_kf5_libdir}/libKF5Ldap.so
+%{_includedir}/KPim5/KLDAP/
+%{_kf5_libdir}/libKPim5Ldap.so
 %{_kf5_libdir}/cmake/KF5Ldap/
+%{_kf5_libdir}/cmake/KPim5Ldap/
 %{_kf5_archdatadir}/mkspecs/modules/qt_Ldap.pri
 
 

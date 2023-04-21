@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    pim-data-exporter
 Summary: Pim Data Exporter
@@ -45,6 +40,9 @@ BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5AkonadiNotes)
+
+BuildRequires: cmake(KF5TextAutoCorrection)
+
 BuildRequires: cmake(Grantlee5)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -101,7 +99,7 @@ Requires: %{name} = %{version}-%{release}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 

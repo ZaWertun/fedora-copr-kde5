@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    pim-sieve-editor
 Summary: Sieve Editor
@@ -47,6 +42,8 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5KIO)
+
+BuildRequires: cmake(KF5TextAutoCorrection)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -92,7 +89,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.sieveedit
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 

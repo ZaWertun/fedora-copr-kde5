@@ -93,14 +93,14 @@ developing applications that use %{name}.
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5EventViews.so.*
-#{_kf5_datadir}/kservicetypes5/calendardecoration.desktop
+%{_kf5_libdir}/libKPim5EventViews.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/EventViews/
-%{_kf5_libdir}/libKF5EventViews.so
+%{_includedir}/KPim5/EventViews/
+%{_kf5_libdir}/libKPim5EventViews.so
 %{_kf5_libdir}/cmake/KF5EventViews/
+%{_kf5_libdir}/cmake/KPim5EventViews/
 %{_kf5_archdatadir}/mkspecs/modules/qt_EventViews.pri
 
 

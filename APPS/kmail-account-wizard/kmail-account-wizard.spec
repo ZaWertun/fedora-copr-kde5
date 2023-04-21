@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kmail-account-wizard
 Summary: KMail Account Wizard
@@ -59,6 +54,8 @@ BuildRequires: cmake(KF5Kross)
 BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5SyntaxHighlighting)
 
+BuildRequires: cmake(KF5TextAutoCorrection)
+
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires: kf5-akonadi-contacts-devel >= %{majmin_ver}
@@ -109,7 +106,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.accountwi
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 %files -f %{name}.lang

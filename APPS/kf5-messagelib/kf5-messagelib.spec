@@ -53,6 +53,8 @@ BuildRequires:  kf5-kxmlgui-devel >= %{kf5_ver}
 BuildRequires:  cmake(KF5SyntaxHighlighting)
 BuildRequires:  cmake(KF5NewStuff)
 
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-notes-devel >= %{majmin_ver}
@@ -88,7 +90,6 @@ Requires:       cmake(KF5AkonadiMime)
 Requires:       cmake(KF5Contacts)
 Requires:       cmake(KF5IdentityManagement)
 Requires:       cmake(KF5Libkleo)
-Requires:       cmake(KF5MessageCore)
 Requires:       cmake(KF5Mime)
 Requires:       cmake(KF5PimCommon)
 Requires:       cmake(Qt5WebEngine)
@@ -102,8 +103,6 @@ Requires:       cmake(Qt5WebEngine)
 
 
 %build
-sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
-
 %cmake_kf5
 %cmake_build
 
@@ -117,21 +116,21 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5MessageComposer.so.*
-%{_kf5_libdir}/libKF5MessageCore.so.*
-%{_kf5_libdir}/libKF5MessageList.so.*
+%{_kf5_libdir}/libKPim5MessageComposer.so.*
+%{_kf5_libdir}/libKPim5MessageCore.so.*
+%{_kf5_libdir}/libKPim5MessageList.so.*
 %{_kf5_datadir}/messagelist/
-%{_kf5_libdir}/libKF5MessageViewer.so.*
+%{_kf5_libdir}/libKPim5MessageViewer.so.*
 %{_kf5_qtplugindir}/pim5/messageviewer/headerstyle/messageviewer_defaultgrantleeheaderstyleplugin.so
 %{_kf5_qtplugindir}/pim5/messageviewer/grantlee/5.0/messageviewer_grantlee_extension.so
 %{_kf5_datadir}/libmessageviewer/
 %{_kf5_datadir}/messageviewer/
 %{_kf5_datadir}/knotifications5/messageviewer.notifyrc
-%{_kf5_libdir}/libKF5MimeTreeParser.so.*
-%{_kf5_libdir}/libKF5TemplateParser.so.*
+%{_kf5_libdir}/libKPim5MimeTreeParser.so.*
+%{_kf5_libdir}/libKPim5TemplateParser.so.*
 %{_kf5_datadir}/config.kcfg/customtemplates_kfg.kcfg
 %{_kf5_datadir}/config.kcfg/templatesconfiguration_kfg.kcfg
-%{_kf5_libdir}/libKF5WebEngineViewer.so.*
+%{_kf5_libdir}/libKPim5WebEngineViewer.so.*
 ## check this -- rex
 %dir %{_kf5_datadir}/org.kde.syntax-highlighting/
 %{_kf5_datadir}/org.kde.syntax-highlighting/syntax/kmail-template.xml
@@ -139,38 +138,38 @@ sed -i 's|Qca-qt5 2.3.0|Qca-qt5 2.2.1|' messageviewer/src/CMakeLists.txt
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_libdir}/libKF5MessageComposer.so
-%{_kf5_libdir}/cmake/KF5MessageComposer/
-%{_kf5_includedir}/MessageComposer/
+%{_kf5_libdir}/libKPim5MessageComposer.so
+%{_kf5_libdir}/cmake/KPim5MessageComposer/
+%{_includedir}/KPim5/MessageComposer/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageComposer.pri
 
-%{_kf5_libdir}/libKF5MessageCore.so
-%{_kf5_libdir}/cmake/KF5MessageCore/
-%{_kf5_includedir}/MessageCore/
+%{_kf5_libdir}/libKPim5MessageCore.so
+%{_kf5_libdir}/cmake/KPim5MessageCore/
+%{_includedir}/KPim5/MessageCore/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageCore.pri
 
-%{_kf5_libdir}/libKF5MessageList.so
-%{_kf5_libdir}/cmake/KF5MessageList/
-%{_kf5_includedir}/MessageList/
+%{_kf5_libdir}/libKPim5MessageList.so
+%{_kf5_libdir}/cmake/KPim5MessageList/
+%{_includedir}/KPim5/MessageList/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageList.pri
 
-%{_kf5_libdir}/libKF5MessageViewer.so
-%{_kf5_libdir}/cmake/KF5MessageViewer/
-%{_kf5_includedir}/MessageViewer/
+%{_kf5_libdir}/libKPim5MessageViewer.so
+%{_kf5_libdir}/cmake/KPim5MessageViewer/
+%{_includedir}/KPim5/MessageViewer/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MessageViewer.pri
 
-%{_kf5_libdir}/libKF5MimeTreeParser.so
-%{_kf5_libdir}/cmake/KF5MimeTreeParser/
-%{_kf5_includedir}/MimeTreeParser/
+%{_kf5_libdir}/libKPim5MimeTreeParser.so
+%{_kf5_libdir}/cmake/KPim5MimeTreeParser/
+%{_includedir}/KPim5/MimeTreeParser/
 
-%{_kf5_libdir}/libKF5TemplateParser.so
-%{_kf5_libdir}/cmake/KF5TemplateParser/
-%{_kf5_includedir}/TemplateParser/
+%{_kf5_libdir}/libKPim5TemplateParser.so
+%{_kf5_libdir}/cmake/KPim5TemplateParser/
+%{_includedir}/KPim5/TemplateParser/
 %{_kf5_archdatadir}/mkspecs/modules/qt_TemplateParser.pri
 
-%{_kf5_libdir}/libKF5WebEngineViewer.so
-%{_kf5_libdir}/cmake/KF5WebEngineViewer/
-%{_kf5_includedir}/WebEngineViewer/
+%{_kf5_libdir}/libKPim5WebEngineViewer.so
+%{_kf5_libdir}/cmake/KPim5WebEngineViewer/
+%{_includedir}/KPim5/WebEngineViewer/
 %{_kf5_archdatadir}/mkspecs/modules/qt_WebEngineViewer.pri
 
 

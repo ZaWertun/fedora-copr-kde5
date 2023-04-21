@@ -1,10 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
-
 %global with_kuserfeedback 1
 
 Name:    kaddressbook
@@ -50,11 +44,12 @@ BuildRequires: cmake(KF5KCMUtils)
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5Prison)
 
+BuildRequires: cmake(KF5TextAutoCorrection)
+
 BuildRequires: cmake(Gpgmepp)
 BuildRequires: cmake(Grantlee5)
 
 # kde-apps
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires: kf5-akonadi-search-devel >= %{majmin_ver}
 BuildRequires: kf5-akonadi-server-devel >= %{majmin_ver}
@@ -110,7 +105,6 @@ developing applications that use %{name}.
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 ## unpackaged files
@@ -125,13 +119,12 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
 %files -f %{name}.lang
 %{_kf5_bindir}/kaddressbook
-#{_kf5_datadir}/kservices5/kaddressbookpart.desktop
 %{_kf5_metainfodir}/org.kde.kaddressbook.appdata.xml
 %{_kf5_datadir}/applications/org.kde.kaddressbook.desktop
 %{_kf5_datadir}/applications/kaddressbook-importer.desktop
@@ -143,7 +136,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %ldconfig_scriptlets libs
 
 %files libs
-%{_kf5_libdir}/libKPimAddressbookImportExport.so.*
+%{_kf5_libdir}/libKPim5AddressbookImportExport.so.*
 %{_kf5_libdir}/libkaddressbookprivate.so.*
 %{_kf5_qtplugindir}/kaddressbookpart.so
 %{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kaddressbook_config_plugins.so
@@ -156,11 +149,12 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 
 
 %files devel
-%{_kf5_libdir}/libKPimAddressbookImportExport.so
-%{_includedir}/KPim/KAddressBookImportExport/
-%{_includedir}/KPim/kaddressbookimportexport/
-%{_includedir}/KPim/kaddressbookimportexport_version.h
+%{_includedir}/KPim5/KAddressBookImportExport/
+%{_includedir}/KPim5/kaddressbookimportexport/
+%{_includedir}/KPim5/kaddressbookimportexport_version.h
+%{_kf5_libdir}/libKPim5AddressbookImportExport.so
 %{_kf5_libdir}/cmake/KPimAddressbookImportExport/
+%{_kf5_libdir}/cmake/KPim5AddressbookImportExport/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KAddressbookImportExport.pri
 
 

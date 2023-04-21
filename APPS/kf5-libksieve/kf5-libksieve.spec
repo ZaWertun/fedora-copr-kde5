@@ -42,6 +42,8 @@ BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwindowsystem-devel >= %{kf5_ver}
 BuildRequires:  kf5-syntax-highlighting-devel >= %{kf5_ver}
 
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
@@ -88,21 +90,22 @@ Requires:       cmake(KF5SyntaxHighlighting)
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5KManageSieve.so.*
-%{_kf5_libdir}/libKF5KSieve.so.*
-%{_kf5_libdir}/libKF5KSieveUi.so.*
+%{_kf5_libdir}/libKPim5KManageSieve.so.*
+%{_kf5_libdir}/libKPim5KSieve.so.*
+%{_kf5_libdir}/libKPim5KSieveUi.so.*
 %{_kf5_datadir}/sieve/
 %{_kf5_datadir}/knsrcfiles/*.knsrc
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_libdir}/cmake/KF5LibKSieve/
-%{_kf5_libdir}/libKF5KManageSieve.so
-%{_kf5_includedir}/KManageSieve/
+%{_includedir}/KPim5/KSieveUi/
+%{_includedir}/KPim5/KManageSieve/
 %{_kf5_includedir}/KSieve/libksieve_version.h
-%{_kf5_libdir}/libKF5KSieve.so
-%{_kf5_libdir}/libKF5KSieveUi.so
-%{_kf5_includedir}/KSieveUi/
+%{_kf5_libdir}/libKPim5KManageSieve.so
+%{_kf5_libdir}/libKPim5KSieve.so
+%{_kf5_libdir}/libKPim5KSieveUi.so
+%{_kf5_libdir}/cmake/KF5LibKSieve/
+%{_kf5_libdir}/cmake/KPim5LibKSieve/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KSieveUi.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_KManageSieve.pri
 

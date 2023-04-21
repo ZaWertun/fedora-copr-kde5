@@ -1,11 +1,5 @@
 %global framework ktnef
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
 Version: 23.04.0
@@ -74,7 +68,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -82,13 +76,14 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5Tnef.so.*
+%{_kf5_libdir}/libKPim5Tnef.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/KTNEF/
-%{_kf5_libdir}/libKF5Tnef.so
+%{_includedir}/KPim5/KTNEF/
+%{_kf5_libdir}/libKPim5Tnef.so
 %{_kf5_libdir}/cmake/KF5Tnef/
+%{_kf5_libdir}/cmake/KPim5Tnef/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KTNef.pri
 
 

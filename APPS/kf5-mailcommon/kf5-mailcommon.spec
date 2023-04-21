@@ -50,7 +50,8 @@ BuildRequires:  cmake(KF5XmlGui)
 BuildRequires:  cmake(KF5SyntaxHighlighting)
 BuildRequires:  cmake(Grantlee5)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
@@ -78,7 +79,7 @@ Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       cmake(KF5Akonadi)
 Requires:       cmake(KF5AkonadiMime)
-Requires:       cmake(KF5MessageComposer)
+Requires:       cmake(KPim5MessageComposer)
 Requires:       cmake(KF5PimCommon)
 %description    devel
 %{summary}.
@@ -88,9 +89,6 @@ Requires:       cmake(KF5PimCommon)
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version}
 
-%if 0%{fedora} <= 35
-sed -i 's|GPGMEPP_LIB_VERSION "1.16.0"|GPGMEPP_LIB_VERSION "1.15.1"|' CMakeLists.txt
-%endif
 
 %build
 %cmake_kf5
@@ -106,14 +104,15 @@ sed -i 's|GPGMEPP_LIB_VERSION "1.16.0"|GPGMEPP_LIB_VERSION "1.15.1"|' CMakeLists
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5MailCommon.so.*
-%{_qt5_plugindir}/designer/mailcommonwidgets.so
+%{_kf5_libdir}/libKPim5MailCommon.so.*
+%{_qt5_plugindir}/designer/mailcommon5widgets.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_libdir}/libKF5MailCommon.so
+%{_includedir}/KPim5/MailCommon/
+%{_kf5_libdir}/libKPim5MailCommon.so
 %{_kf5_libdir}/cmake/KF5MailCommon/
-%{_kf5_includedir}/MailCommon/
+%{_kf5_libdir}/cmake/KPim5MailCommon/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MailCommon.pri
 
 

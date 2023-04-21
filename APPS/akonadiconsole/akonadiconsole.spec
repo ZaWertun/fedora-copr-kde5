@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    akonadiconsole
 Summary: Akonadi developer tool
@@ -31,7 +26,6 @@ BuildRequires: gnupg2
 BuildRequires: boost-devel
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
-#BuildRequires: libappstream-glib
 BuildRequires: perl-generators
 
 BuildRequires: cmake(Qt5DBus)
@@ -52,6 +46,8 @@ BuildRequires: cmake(KF5ItemModels)
 BuildRequires: cmake(KF5TextWidgets)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5XmlGui)
+
+BuildRequires: cmake(KF5TextAutoCorrection)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
@@ -99,24 +95,22 @@ other tools.
 
 %install
 %cmake_install
-
-#find_lang %{name} --all-name --with-html
+%find_lang %{name} --with-qt
 
 
 %check
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
-#appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
 %ldconfig_scriptlets
 
-%files
+%files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_bindir}/akonadiconsole
 %{_kf5_datadir}/applications/org.kde.akonadiconsole.desktop

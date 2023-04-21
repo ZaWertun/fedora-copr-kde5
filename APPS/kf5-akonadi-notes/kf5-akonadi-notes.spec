@@ -1,11 +1,5 @@
 %global framework akonadi-notes
-
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
 Version: 23.04.0
@@ -34,7 +28,6 @@ BuildRequires:  kf5-ki18n-devel >= %{kf5_ver}
 
 BuildRequires:  cmake(Qt5Xml)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-kmime-devel >= %{majmin_ver}
@@ -83,7 +76,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 DBUS_SESSION_BUS_ADDRESS=
 xvfb-run -a \
-make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -92,12 +85,13 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README.md
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5AkonadiNotes.so.*
+%{_kf5_libdir}/libKPim5AkonadiNotes.so.*
 
 %files devel
+%{_includedir}/KPim5/AkonadiNotes/
 %{_kf5_libdir}/cmake/KF5AkonadiNotes/
-%{_kf5_libdir}/libKF5AkonadiNotes.so
-%{_kf5_includedir}/AkonadiNotes/
+%{_kf5_libdir}/cmake/KPim5AkonadiNotes/
+%{_kf5_libdir}/libKPim5AkonadiNotes.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_AkonadiNotes.pri
 
 

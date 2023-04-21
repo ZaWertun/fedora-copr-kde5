@@ -44,7 +44,6 @@ BuildRequires:  cmake(KF5Holidays)
 BuildRequires:  cmake(KF5AkonadiCalendar)
 BuildRequires:  cmake(KF5PimCommon)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-calendar-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
@@ -97,13 +96,14 @@ developing applications that use %{name}.
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5CalendarSupport.so.*
+%{_kf5_libdir}/libKPim5CalendarSupport.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_includedir}/CalendarSupport/
-%{_kf5_libdir}/libKF5CalendarSupport.so
+%{_includedir}/KPim5/CalendarSupport/
+%{_kf5_libdir}/libKPim5CalendarSupport.so
 %{_kf5_libdir}/cmake/KF5CalendarSupport/
+%{_kf5_libdir}/cmake/KPim5CalendarSupport/
 %{_kf5_archdatadir}/mkspecs/modules/qt_CalendarSupport.pri
 
 

@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kmail
 Summary: Mail client
@@ -71,6 +66,8 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(Grantlee5)
 
+BuildRequires: cmake(KF5TextAutoCorrection)
+
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires: kf5-akonadi-contacts-devel >= %{majmin_ver}
@@ -131,9 +128,6 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-sed -i 's|set(GPGMEPP_LIB_VERSION "1.16.0")|set(GPGMEPP_LIB_VERSION "1.15.0")|' \
-  CMakeLists.txt
-
 %cmake_kf5 \
   -DBUILD_TESTING:BOOL=%{?tests:ON}%{!?tests:OFF}
 %cmake_build
@@ -158,7 +152,7 @@ done
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 

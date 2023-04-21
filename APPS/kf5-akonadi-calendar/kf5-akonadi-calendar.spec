@@ -1,11 +1,5 @@
 %global framework akonadi-calendar
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
 Version: 23.04.0
@@ -91,7 +85,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -100,7 +94,7 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %{_kf5_bindir}/kalendarac
-%{_kf5_libdir}/libKF5AkonadiCalendar.so.*
+%{_kf5_libdir}/libKPim5AkonadiCalendar.so.*
 %{_kf5_plugindir}/org.kde.kcalendarcore.calendars/libakonadicalendarplugin.so
 %{_kf5_qtplugindir}/akonadi_serializer_kcalcore.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
@@ -110,9 +104,10 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %{_sysconfdir}/xdg/autostart/org.kde.kalendarac.desktop
 
 %files devel
-%{_kf5_libdir}/libKF5AkonadiCalendar.so
+%{_includedir}/KPim5/AkonadiCalendar/
+%{_kf5_libdir}/libKPim5AkonadiCalendar.so
 %{_kf5_libdir}/cmake/KF5AkonadiCalendar/
-%{_kf5_includedir}/AkonadiCalendar/
+%{_kf5_libdir}/cmake/KPim5AkonadiCalendar/
 %{_kf5_archdatadir}/mkspecs/modules/qt_AkonadiCalendar.pri
 
 

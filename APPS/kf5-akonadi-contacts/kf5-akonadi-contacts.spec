@@ -1,11 +1,5 @@
 %global framework akonadi-contacts
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
 Version: 23.04.0
@@ -46,7 +40,6 @@ BuildRequires:  cmake(Grantlee5) >= 5.1
 BuildRequires:  qt5-qtwebengine-devel
 BuildRequires:  cmake(Qt5Widgets) >= 5.8
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
@@ -109,15 +102,15 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 DBUS_SESSION_BUS_ADDRESS=
 xvfb-run -a \
-%make_build test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
+%make_build test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
 %ldconfig_scriptlets
 
 %files -f %{name}.lang
-%{_kf5_libdir}/libKF5AkonadiContact.so.*
-%{_kf5_libdir}/libKF5ContactEditor.so.*
+%{_kf5_libdir}/libKPim5AkonadiContact.so.*
+%{_kf5_libdir}/libKPim5ContactEditor.so.*
 %{_kf5_qtplugindir}/akonadi_serializer_*.so
 %{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kcm_akonadicontact_actions.so
 %{_kf5_qtplugindir}/pim5/akonadi/contacts/plugins/categorieseditwidgetplugin.so
@@ -126,14 +119,16 @@ xvfb-run -a \
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
+%{_includedir}/KPim5/AkonadiContact/
+%{_includedir}/KPim5/AkonadiContactEditor/
 %{_kf5_libdir}/cmake/KF5AkonadiContact/
-%{_kf5_libdir}/cmake/KF5ContactEditor/
-%{_kf5_libdir}/libKF5AkonadiContact.so
-%{_kf5_libdir}/libKF5ContactEditor.so
+%{_kf5_libdir}/cmake/KPim5AkonadiContact/
+%{_kf5_libdir}/cmake/KF5AkonadiContactEditor/
+%{_kf5_libdir}/cmake/KPim5ContactEditor/
+%{_kf5_libdir}/libKPim5AkonadiContact.so
+%{_kf5_libdir}/libKPim5ContactEditor.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_AkonadiContact.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_ContactEditor.pri
-%{_kf5_includedir}/AkonadiContact/
-%{_kf5_includedir}/AkonadiContactEditor/
 
 
 %changelog

@@ -33,7 +33,6 @@ BuildRequires:  cmake(KF5ItemViews)
 BuildRequires:  cmake(Qt5Designer)
 BuildRequires:  cmake(Qt5UiTools)
 BuildRequires:  cmake(Qt5Widgets)
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 # kf5-akonadi-contacts available only where qt5-qtwebengine is
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
@@ -84,16 +83,18 @@ developing applications that use %{name}.
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5Libkdepim.so.5*
-%{_qt5_plugindir}/designer/kdepimwidgets.so
+%{_kf5_libdir}/libKPim5Libkdepim.so.5*
+%{_qt5_plugindir}/designer/kdepim5widgets.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_libdir}/libKF5Libkdepim.so
+%{_includedir}/KPim5/Libkdepim/
+%{_kf5_libdir}/libKPim5Libkdepim.so
 %{_kf5_libdir}/cmake/KF5Libkdepim/
-%{_kf5_includedir}/Libkdepim/
+%{_kf5_libdir}/cmake/KPim5Libkdepim/
 %{_kf5_archdatadir}/mkspecs/modules/qt_Libkdepim.pri
 %{_kf5_libdir}/cmake/MailTransportDBusService/
+%{_kf5_libdir}/cmake/KPim5MailTransportDBusService/
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.addressbook.service.xml
 %{_kf5_datadir}/dbus-1/interfaces/org.kde.mailtransport.service.xml
 

@@ -101,10 +101,8 @@ time \
 %{_kf5_bindir}/zanshin*
 %{_kf5_metainfodir}/org.kde.zanshin.metainfo.xml
 %{_kf5_datadir}/applications/org.kde.zanshin.desktop
-%{_kf5_datadir}/kservices5/plasma-runner-zanshin.desktop
-%{_kf5_datadir}/kservices5/zanshin_part.desktop
 %{_kf5_datadir}/kxmlgui5/zanshin/
-%{_qt5_plugindir}/krunner_zanshin.so
+%{_kf5_plugindir}/krunner/org.kde.%{name}.so
 %{_qt5_plugindir}/zanshin_part.so
 %{_kf5_qtplugindir}/pim5/kontact/kontact_zanshinplugin.so
 

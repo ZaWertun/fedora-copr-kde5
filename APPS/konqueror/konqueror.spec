@@ -1,11 +1,6 @@
-## uncomment to enable bootstrap mode
-#global bootstrap 1
-
 ## use webengine by default or not
 %global webengine_default 1
 
-## experimental ninja support
-#global ninja 1
 ## FIXME: many tests require GLX, which doesn't appear to work as-is under koji
 #global tests 1
 
@@ -64,10 +59,6 @@ BuildRequires: cmake(Qt5Script)
 %endif
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5X11Extras)
-
-%if 0%{?ninja}
-BuildRequires:  ninja-build
-%endif
 
 %if 0%{?tests}
 BuildRequires: dbus-x11
@@ -132,27 +123,17 @@ browsing the web in Konqueror.
 
 %build
 %cmake_kf5 \
-  %{?ninja:-G Ninja} \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
-%if 0%{?ninja}
-%ninja_build -C %{_target_platform}
-%else
 %cmake_build
-%endif
 
 
 %install
-%if 0%{?ninja}
-%ninja_install -C %{_target_platform}
-%else
 %cmake_install
-%endif
 
 # omit some extraneous webenginepart files when building without webengine support
 %if ! 0%{?webengine}
 rm -rfv %{buildroot}%{_kf5_datadir}/webenginepart/
 %endif
-
 
 %find_lang %{name} --all-name --with-html
 
@@ -165,13 +146,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/kfmclient_war.des
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/konqbrowser.desktop
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
-## cant use %%ninja_test here for some reason, doesn't inherit env vars from xvfb or dbus -- rex
 xvfb-run -a \
-%if 0%{?ninja}
-ninja test -v -C %{_target_platform} ||:
-%else
-make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
-%endif
+make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 300" ||:
 %endif
 
 

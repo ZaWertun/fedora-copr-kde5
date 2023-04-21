@@ -59,6 +59,7 @@ BuildRequires:  cmake(KF5WindowSystem)    >= %{kf5_min_version}
 BuildRequires:  cmake(KF5XmlGui)          >= %{kf5_min_version}
 BuildRequires:  cmake(KF5QQC2DesktopStyle) >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Plasma)          >= %{kf5_min_version}
+BuildRequires:  cmake(KF5KirigamiAddons)
 
 BuildRequires:  cmake(KF5Akonadi)         >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5AkonadiContact)  >= %{akonadi_min_version}
@@ -67,6 +68,10 @@ BuildRequires:  cmake(KF5EventViews)      >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5GrantleeTheme)   >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5MailCommon)      >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5Libkdepim)       >= %{akonadi_min_version}
+BuildRequires:  cmake(KF5PimCommon)
+BuildRequires:  cmake(KF5PimCommonAkonadi)
+
+BuildRequires:  cmake(KF5TextAutoCorrection)
 
 BuildRequires:  cmake(Grantlee5)
 

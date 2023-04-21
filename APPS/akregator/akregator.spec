@@ -57,6 +57,8 @@ BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5SyntaxHighlighting)
 
+BuildRequires: cmake(KF5TextAutoCorrection)
+
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
 BuildRequires: kf5-akonadi-mime-devel >= %{majmin_ver}
@@ -117,7 +119,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 

@@ -1,11 +1,5 @@
 %global framework akonadi-mime
-
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    kf5-%{framework}
 Version: 23.04.0
@@ -39,7 +33,6 @@ BuildRequires:  cmake(Qt5Gui)
 BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  pkgconfig(shared-mime-info)
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
@@ -89,7 +82,7 @@ developing applications that use %{name}.
 export CTEST_OUTPUT_ON_FAILURE=1
 DBUS_SESSION_BUS_ADDRESS=
 xvfb-run -a \
-make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -98,7 +91,7 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %files -f %{name}.lang
 %doc README.md
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5AkonadiMime.so.*
+%{_kf5_libdir}/libKPim5AkonadiMime.so.*
 %{_kf5_datadir}/config.kcfg/specialmailcollections.kcfg
 %{_kf5_datadir}/mime/packages/x-vnd.kde.contactgroup.xml
 %{_kf5_qtplugindir}/akonadi_serializer_mail.so
@@ -110,9 +103,10 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %if 0%{?tests}
 %{_kf5_bindir}/akonadi_benchmarker
 %endif
+%{_includedir}/KPim5/AkonadiMime/
 %{_kf5_libdir}/cmake/KF5AkonadiMime/
-%{_kf5_libdir}/libKF5AkonadiMime.so
-%{_kf5_includedir}/AkonadiMime/
+%{_kf5_libdir}/cmake/KPim5AkonadiMime/
+%{_kf5_libdir}/libKPim5AkonadiMime.so
 %{_kf5_archdatadir}/mkspecs/modules/qt_AkonadiMime.pri
 
 

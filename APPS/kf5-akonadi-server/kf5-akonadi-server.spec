@@ -199,7 +199,7 @@ rm -fv %{buildroot}%{_sysconfdir}/apparmor.d/*
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 300" -C %{_vpath_builddir} ||:
 %endif
 
 

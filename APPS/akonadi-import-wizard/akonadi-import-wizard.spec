@@ -1,9 +1,4 @@
-# uncomment to enable bootstrap mode
-%global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
 
 Name:    akonadi-import-wizard
 Summary: Akonadi Import Wizard
@@ -43,6 +38,9 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5Wallet)
+
+BuildRequires: cmake(KF5TextAutoCorrection)
+
 BuildRequires: cmake(Grantlee5)
 
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -90,18 +88,16 @@ Requires:       cmake(KF5MailTransport)
 
 %install
 %cmake_install
-
 %find_lang %{name} --all-name --with-html
 
 
 %check
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.akonadiimportwizard.desktop
-#appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %if 0%{?tests}
 export CTEST_OUTPUT_ON_FAILURE=1
 xvfb-run -a \
 dbus-launch --exit-with-session \
-make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
+make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %endif
 
 
@@ -114,19 +110,17 @@ make test ARGS="--output-on-failure --timeout 20" -C %{_target_platform} ||:
 %{_kf5_datadir}/icons/hicolor/*/apps/kontact-import-wizard.*
 %{_kf5_datadir}/importwizard/
 # -libs?
-%{_kf5_libdir}/libKPimImportWizard.so.5*
+%{_kf5_libdir}/libKPim5ImportWizard.so.5*
 %{_kf5_qtplugindir}/pim5/importwizard/
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_libdir}/libKPimImportWizard.so
+%{_includedir}/KPim5/ImportWizard/
+%{_includedir}/KPim5/importwizard/
+%{_includedir}/KPim5/importwizard_version.h
+%{_kf5_libdir}/libKPim5ImportWizard.so
 %{_kf5_libdir}/cmake/KPimImportWizard/
-# wtf, *not* kf5_includedir? --rex
-%dir %{_includedir}/KPim/
-%{_includedir}/KPim/importwizard_version.h
-%dir %{_kf5_includedir}/KPim/
-%{_kf5_includedir}/KPim/ImportWizard/
-%{_kf5_includedir}/KPim/importwizard/
+%{_kf5_libdir}/cmake/KPim5ImportWizard/
 
 %changelog
 * Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1

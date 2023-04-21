@@ -34,7 +34,8 @@ BuildRequires:  kf5-kconfig-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwidgetsaddons-devel >= %{kf5_ver}
 BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
 
-#global majmin_ver %(echo %{version} | cut -d. -f1,2)
+BuildRequires:  cmake(KF5TextAutoCorrection)
+
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-kcalendarcore-devel >= %{majmin_ver}
@@ -75,13 +76,14 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5Gravatar.so.5*
+%{_kf5_libdir}/libKPim5Gravatar.so.5*
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %files devel
-%{_kf5_libdir}/libKF5Gravatar.so
+%{_includedir}/KPim5/Gravatar/
+%{_kf5_libdir}/libKPim5Gravatar.so
 %{_kf5_libdir}/cmake/KF5Gravatar/
-%{_kf5_includedir}/Gravatar/
+%{_kf5_libdir}/cmake/KPim5Gravatar/
 %{_kf5_archdatadir}/mkspecs/modules/qt_Gravatar.pri
 
 
