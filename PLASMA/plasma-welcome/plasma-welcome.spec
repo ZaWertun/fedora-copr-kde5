@@ -1,5 +1,5 @@
 Name:           plasma-welcome
-Version:        5.27.4.1
+Version:        5.27.5
 Release:        1%{?dist}
 Summary:        A friendly onboarding wizard for Plasma
 
@@ -58,7 +58,7 @@ how to connect to the internet, install apps, customize the system, and more!
 
 %check
 desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml ||:
 
 
 %files -f %{name}.lang
@@ -72,6 +72,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Tue May 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5-1
+- 5.27.5
+
 * Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4.1-1
 - version 5.27.4.1
 

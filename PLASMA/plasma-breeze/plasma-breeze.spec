@@ -4,8 +4,8 @@
 %global         base_name   breeze
 
 Name:    plasma-breeze
-Version: 5.27.4
-Release: 2%{?dist}
+Version: 5.27.5
+Release: 1%{?dist}
 Summary: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 
 License: GPLv2+
@@ -147,6 +147,9 @@ Provides:       breeze-cursor-themes = %{version}-%{release}
 
 
 %changelog
+* Tue May 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5-1
+- 5.27.5
+
 * Fri Apr 07 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-2
 - added plasma-breeze-5.27.4-outline-intensity-setting.patch
 

@@ -1,5 +1,5 @@
 Name:    kde-cli-tools
-Version: 5.27.4
+Version: 5.27.5
 Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
@@ -107,6 +107,7 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 %{_bindir}/kstart
 %{_bindir}/ksvgtopng
 %{_bindir}/plasma-open-settings
+%{_bindir}/kinfo
 %{_kf5_libexecdir}/kdeeject
 %{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_filetypes.so
 %{_datadir}/doc/HTML/*/kcontrol5
@@ -121,6 +122,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Tue May 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5-1
+- 5.27.5
+
 * Tue Apr 04 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.4-1
 - 5.27.4
 
