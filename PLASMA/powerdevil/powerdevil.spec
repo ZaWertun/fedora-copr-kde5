@@ -2,7 +2,7 @@
 
 Name:    powerdevil
 Version: 5.27.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -65,9 +65,7 @@ BuildRequires:  xcb-util-keysyms-devel
 BuildRequires:  xcb-util-wm-devel
 
 BuildRequires:  pkgconfig(libcap)
-
-BuildRequires:  ddcutil
-Requires:       ddcutil
+BuildRequires:  pkgconfig(ddcutil)
 
 %{?_qt5:Requires: %{_qt5}%{?_isa} >= %{_qt5_version}}
 
@@ -82,7 +80,7 @@ of a daemon (a KDED module) and a KCModule for its configuration.
 
 
 %build
-%cmake_kf5 -DWITH_DDCUTIL:BOOL=ON
+%cmake_kf5 -DHAVE_DDCUTIL=On
 %cmake_build
 
 
@@ -131,6 +129,9 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Sat May 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5-3
+- force enable ddcutil
+
 * Sat May 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5-2
 - BR: libcap, ddcutil
 
