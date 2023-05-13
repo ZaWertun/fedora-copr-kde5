@@ -9,7 +9,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.105.0
+Version: 5.106.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 addon with extra API to write KConfigModules
 
@@ -118,6 +118,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sat May 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.106.0-1
+- 5.106.0
+
 * Sat Apr 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.105.0-1
 - 5.105.0
 
