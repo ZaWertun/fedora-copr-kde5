@@ -1,15 +1,9 @@
-# uncomment to enable bootstrap mode
-#global bootstrap 1
-
-%if !0%{?bootstrap}
 %global tests 1
-%endif
-
-%global  base_name konsole
+%global base_name konsole
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 23.04.0
+Version: 23.04.1
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -144,15 +138,16 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 %{_kf5_libdir}/libkonsoleapp.so.%{maj_ver}*
 %{_kf5_libdir}/kconf_update_bin/konsole_globalaccel
 %{_kf5_libdir}/kconf_update_bin/konsole_show_menubar
-%{_kf5_datadir}/applications/org.kde.konsole.desktop
 %{_kf5_metainfodir}/org.kde.konsole.appdata.xml
-%{_kf5_datadir}/knotifications5/konsole.notifyrc
-%{_kf5_datadir}/kservicetypes5/terminalemulator.desktop
-%{_kf5_datadir}/knsrcfiles/*.knsrc
-%{_kf5_datadir}/qlogging-categories5/*.categories
-%{_kf5_datadir}/kio/servicemenus/konsolerun.desktop
+%{_kf5_datadir}/applications/org.kde.konsole.desktop
 %{_kf5_datadir}/kconf_update/konsole.upd
 %{_kf5_datadir}/kconf_update/konsole_add_hamburgermenu_to_toolbar.sh
+%{_kf5_datadir}/kglobalaccel/org.kde.%{base_name}.desktop
+%{_kf5_datadir}/kio/servicemenus/konsolerun.desktop
+%{_kf5_datadir}/knotifications5/konsole.notifyrc
+%{_kf5_datadir}/knsrcfiles/*.knsrc
+%{_kf5_datadir}/kservicetypes5/terminalemulator.desktop
+%{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/zsh/site-functions/_konsole
 
 %ldconfig_scriptlets part
@@ -171,6 +166,9 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 
 
 %changelog
+* Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
+- 23.04.1
+
 * Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
 - 23.04.0
 

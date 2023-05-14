@@ -7,7 +7,7 @@
 
 Name:    libkeduvocdocument
 Summary: Library to parse, convert, and manipulate KVTML files
-Version: 23.04.0
+Version: 23.04.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -94,6 +94,9 @@ make test -C %{_target_platform} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
+- 23.04.1
+
 * Fri Apr 21 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
 - 23.04.0
 

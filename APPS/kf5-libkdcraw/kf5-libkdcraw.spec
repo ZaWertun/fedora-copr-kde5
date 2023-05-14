@@ -2,7 +2,7 @@
 
 Name:    kf5-libkdcraw
 Summary: A C++ interface around LibRaw library
-Version: 23.04.0
+Version: 23.04.1
 Release: 1%{?dist}
 
 # libkdcraw is GPLv2+,
@@ -73,6 +73,9 @@ Requires: cmake(Qt5Gui)
 
 
 %changelog
+* Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
+- 23.04.1
+
 * Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
 - 23.04.0
 

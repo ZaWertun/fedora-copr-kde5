@@ -2,7 +2,7 @@
 
 Name:    kalarm
 Summary: Personal Alarm Scheduler
-Version: 23.04.0
+Version: 23.04.1
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -144,6 +144,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
+- 23.04.1
+
 * Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
 - 23.04.0
 

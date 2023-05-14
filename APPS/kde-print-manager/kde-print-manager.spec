@@ -2,7 +2,7 @@
 
 Name:    kde-print-manager
 Summary: Printer management for KDE
-Version: 23.04.0
+Version: 23.04.1
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/kcm_printer_manag
 
 
 %changelog
+* Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
+- 23.04.1
+
 * Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.0-1
 - 23.04.0
 

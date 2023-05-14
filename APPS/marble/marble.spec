@@ -1,7 +1,7 @@
 Name:    marble
 Summary: Virtual globe and world atlas 
 Epoch:   1
-Version: 23.04.0
+Version: 23.04.1
 Release: 1%{?dist}
 
 %global maj_ver %(echo %{version} | cut -d. -f1)
@@ -207,7 +207,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 %{_datadir}/kservices5/marble_thumbnail_shp.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.worldclock.desktop
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.plasma.worldmap.desktop
-#{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 
 %files common -f %{name}.lang
 %license LICENSE.txt
@@ -257,6 +256,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.marble-qt.des
 
 
 %changelog
+* Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.04.1-1
+- 23.04.1
+
 * Thu Apr 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.04.0-1
 - 23.04.0
 
