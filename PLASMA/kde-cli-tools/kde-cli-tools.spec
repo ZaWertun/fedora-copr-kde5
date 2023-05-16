@@ -1,21 +1,14 @@
 Name:    kde-cli-tools
-Version: 5.27.5
+Version: 5.27.5.1
 Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{name}
 
-%global revision %(echo %{version} | cut -d. -f3)
-%if %{revision} >= 50
-%global majmin_ver %(echo %{version} | cut -d. -f1,2).50
-%global stable unstable
-%else
-%global majmin_ver %(echo %{version} | cut -d. -f1,2)
-%global stable stable
-%endif
-Source0: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
-Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz.sig
+%global version_3parts %(echo %{version} |cut -d. -f1-3)
+Source0: http://download.kde.org/%{stable_kf5}/plasma/%{version_3parts}/%{name}-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable_kf5}/plasma/%{version_3parts}/%{name}-%{version}.tar.xz.sig
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
@@ -39,11 +32,11 @@ BuildRequires:  kf5-kwindowsystem-devel
 BuildRequires:  kf5-kactivities-devel
 BuildRequires:  kf5-kdeclarative-devel
 # todo: consider adjusting things to allow majmin
-BuildRequires:  plasma-workspace-devel >= %{version}
-Requires: libkworkspace5%{?_isa} >= %{version}
+BuildRequires:  plasma-workspace-devel >= %{version_3parts}
+Requires:       libkworkspace5%{?_isa} >= %{version_3parts}
 
 # probably could be unversioned, but let's play it safe so we can avoid adding Conflicts: -- rex
-Requires:       kdesu = 1:%{version}-%{release}
+Requires:       kdesu >= 1:%{version_3parts}
 
 # unversioned utilitized landed here in 5.23.90, see also
 # https://phabricator.kde.org/T14763
@@ -122,6 +115,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Mon May 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5.1-1
+- 5.27.5.1
+
 * Tue May 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5-1
 - 5.27.5
 
