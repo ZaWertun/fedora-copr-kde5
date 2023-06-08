@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Summary: Provides a Qt interface for the SANE library for scanner hardware
-Version: 23.04.1
+Version: 23.04.2
 Release: 1%{?dist}
 
 %global version_major %(echo %{version} |cut -d. -f1)
@@ -68,6 +68,9 @@ Requires: cmake(Qt5Widgets)
 
 
 %changelog
+* Thu Jun 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-1
+- 23.04.2
+
 * Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
 - 23.04.1
 
@@ -79,22 +82,4 @@ Requires: cmake(Qt5Widgets)
 
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
-
-* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
-- 22.12.1
-
-* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
-- 22.12.0
-
-* Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
-- 22.08.3
-
-* Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
-- 22.08.2
-
-* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
-- 22.08.1
-
-* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
-- First spec for version 22.08.0
 

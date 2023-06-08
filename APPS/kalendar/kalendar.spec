@@ -1,5 +1,5 @@
 Name:    kalendar
-Version: 23.04.1
+Version: 23.04.2
 Release: 1%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
@@ -128,6 +128,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Jun 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-1
+- 23.04.2
+
 * Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
 - 23.04.1
 
@@ -140,77 +143,3 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 * Thu Feb 02 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.2-1
 - 22.12.2
 
-* Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
-- 22.12.1
-
-* Thu Dec 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
-- 22.12.0
-
-* Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
-- 22.08.3
-
-* Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
-- 22.08.2
-
-* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
-- 22.08.1
-
-* Mon Aug 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-2
-- BR: cmake(KF5Plasma)
-
-* Fri Aug 19 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
-- 22.08.0
-
-* Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
-- 22.04.3
-
-* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
-- 22.04.2
-
-* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
-- 22.04.1
-
-* Thu Apr 21 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
-- 22.04.0
-
-* Sun Feb 27 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.0-2
-- package kalendar-reminder-daemon obsolete
-
-* Sun Feb 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 1.0.0-1
-- 1.0.0
-
-* Sat Dec 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.1-2
-- rebuild
-
-* Thu Dec 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.1-1
-- version 0.3.1
-
-* Wed Dec 01 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.3.0-1
-- version 0.3.0, commit cbae6952de88034b148ce449f06083eace3521b5
-
-* Sun Nov 28 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.2.1-3.20211128git0cbfd47
-- 2021-11-28, commit 0cbfd4745767a8ff5165e2924344ea7f4bf6a102
-
-* Sun Nov 21 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.2.1-2.20211121git79116ec
-- 2021-11-21, commit 79116ec8b5bc7f5738ec9f2ced73793057f8a73e
-
-* Mon Nov 15 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.2.1-1.20211115gitb8ced3f
-- 2021-11-15, commit b8ced3f4f4accd51c3e3d24b5ce9277ee22e0d37
-
-* Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.2.0-1.20211113git66c6563
-- 2021-11-13, commit 66c65630bc61192615e06f118cab3861728e6d8b
-
-* Wed Nov 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-5.20211110git9f24a9a
-- 2021-11-10, commit 9f24a9a7070b5740fa554c40f36ab0d36a22fbe9
-
-* Tue Nov 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-4.20211108gitab0b5bd
-- 2021-11-08, commit ab0b5bd9eb75c4b86083a79190afc7bcfc76e4fe
-
-* Sat Nov 06 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-3.20211106git1ec5c7f
-- 2021-11-06, commit 1ec5c7ff82ad24ca70c7f7a55993daa00663dad6
-
-* Sun Oct 24 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-2.20211021git20b34f7
-- 2021-10-24, commit ba5a1306970c3ef90a94694dada81c85b61f80f1
-
-* Fri Oct 22 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.1-2.20211021git20b34f7
-- first spec for version 0.1 (2021-10-21, commit 20b34f7)

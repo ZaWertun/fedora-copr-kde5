@@ -1,6 +1,6 @@
 Name:    minuet
 Summary: Minuet is an application for music education
-Version: 23.04.1
+Version: 23.04.2
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -84,6 +84,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Thu Jun 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-1
+- 23.04.2
+
 * Thu May 11 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.1-1
 - 23.04.1
 
@@ -95,104 +98,4 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 * Thu Jan 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.1-1
 - 22.12.1
-
-* Fri Dec 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.12.0-1
-- 22.12.0
-
-* Thu Nov 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.3-1
-- 22.08.3
-
-* Thu Oct 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.2-1
-- 22.08.2
-
-* Thu Sep 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.1-1
-- 22.08.1
-
-* Sat Aug 20 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.08.0-1
-- 22.08.0
-
-* Thu Jul 07 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.3-1
-- 22.04.3
-
-* Thu Jun 09 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.2-1
-- 22.04.2
-
-* Thu May 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.1-1
-- 22.04.1
-
-* Fri Apr 22 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 22.04.0-1
-- 22.04.0
-
-* Thu Mar 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.3-1
-- 21.12.3
-
-* Thu Feb 03 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.2-1
-- 21.12.2
-
-* Thu Jan 06 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.1-1
-- 21.12.1
-
-* Thu Dec 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.12.0-1
-- 21.12.0
-
-* Thu Nov 04 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.3-1
-- 21.08.3
-
-* Thu Oct 07 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.2-1
-- 21.08.2
-
-* Thu Sep 02 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.1-1
-- 21.08.1
-
-* Thu Aug 12 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.08.0-1
-- 21.08.0
-
-* Thu Jul 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.3-1
-- 21.04.3
-
-* Fri Jun 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.2-1
-- 21.04.2
-
-* Fri May 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.1-1
-- 21.04.1
-
-* Fri Apr 23 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 21.04.0-1
-- 21.04.0
-
-* Tue Mar 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.3-1
-- 20.12.3
-
-* Fri Feb  5 00:48:08 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.2-1
-- 20.12.2
-
-* Fri Jan  8 18:03:02 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.1-1
-- 20.12.1
-
-* Mon Dec 14 13:04:38 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.12.0-1
-- 20.12.0
-
-* Sat Nov  7 02:22:32 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.3-1
-- 20.08.3
-
-* Fri Oct 09 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.2-1
-- 20.08.2
-
-* Fri Sep 04 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.1-1
-- 20.08.1
-
-* Sun Aug 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.08.0-1
-- 20.08.0
-
-* Fri Jul 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.3-1
-- 20.04.3
-
-* Sat Jun 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.2-1
-- 20.04.2
-
-* Thu May 21 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.1-1
-- 20.04.1
-
-* Fri Apr 24 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 20.04.0-1
-- 20.04.0
-
 
