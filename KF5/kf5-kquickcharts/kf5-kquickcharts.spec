@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Summary: A QtQuick module providing high-performance charts
-Version: 5.106.0
+Version: 5.107.0
 Release: 1%{?dist}
 
 # libs are LGPL, tools are GPL
@@ -90,6 +90,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 %{_kf5_libdir}/cmake/KF5QuickCharts/
 
 %changelog
+* Sat Jun 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.107.0-1
+- 5.107.0
+
 * Sat May 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.106.0-1
 - 5.106.0
 
@@ -102,125 +105,3 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 * Sun Feb 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.103.0-1
 - 5.103.0
 
-* Sat Jan 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.102.0-1
-- 5.102.0
-
-* Sat Dec 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.101.0-1
-- 5.101.0
-
-* Mon Nov 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.100.0-1
-- 5.100.0
-
-* Mon Oct 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.99.0-1
-- 5.99.0
-
-* Mon Sep 12 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.98.0-1
-- 5.98.0
-
-* Sun Aug 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.97.0-1
-- 5.97.0
-
-* Sun Jul 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.96.0-1
-- 5.96.0
-
-* Mon Jun 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.95.0-1
-- 5.95.0
-
-* Sat May 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.94.0-1
-- 5.94.0
-
-* Sun Apr 10 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.93.0-1
-- 5.93.0
-
-* Sun Mar 13 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.92.0-1
-- 5.92.0
-
-* Mon Feb 14 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.91.0-1
-- 5.91.0
-
-* Sat Jan 08 2022 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.90.0-1
-- 5.90.0
-
-* Mon Dec 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.89.0-1
-- 5.89.0
-
-* Sat Nov 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.88.0-1
-- 5.88.0
-
-* Sat Oct 09 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.87.0-1
-- 5.87.0
-
-* Sat Sep 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.86.0-1
-- 5.86.0
-
-* Sat Aug 14 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.85.0-1
-- 5.85.0
-
-* Sat Jul 10 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.84.0-1
-- 5.84.0
-
-* Sun Jun 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.83.0-1
-- 5.83.0
-
-* Sat May 08 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.82.0-1
-- 5.82.0
-
-* Sun Apr 11 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.81.0-1
-- 5.81.0
-
-* Sat Mar 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.80.0-1
-- 5.80.0
-
-* Sat Feb 13 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.79.0-1
-- 5.79.0
-
-* Sat Jan  9 16:30:29 MSK 2021 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.78.0-1
-- 5.78.0
-
-* Mon Dec 14 16:50:21 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.77.0-1
-- 5.77.0
-
-* Sun Nov 15 22:13:51 MSK 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.76.0-1
-- 5.76.0
-
-* Sat Oct 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.75.0-1
-- 5.75.0
-
-* Thu Sep 17 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.74.0-1
-- 5.74.0
-
-* Mon Aug 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.73.0-1
-- 5.73.0
-
-* Mon Jul 13 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.72.0-1
-- 5.72.0
-
-* Thu Jun 18 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-2
-- added kquickcharts-5.71.0-pi-should-be-constant.patch
-
-* Sun Jun 14 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.71.0-1
-- 5.71.0
-
-* Sun May 10 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.70.0-1
-- 5.70.0
-
-* Sat Apr 11 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.69.0-1
-- 5.69.0
-
-* Mon Mar 16 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.68.0-1
-- 5.68.0
-
-* Thu Feb 27 2020 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.67.0-2
-- rebuild
-
-* Fri Feb 14 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.67.0-1
-- 5.67.0
-
-* Fri Jan 31 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.66.0-3
-- simplify %%files
-
-* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.66.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
-
-* Mon Jan 20 2020 Martin Kyral <martin.kyral@gmail.com> - 5.66.0-1
-- 5.66.0
