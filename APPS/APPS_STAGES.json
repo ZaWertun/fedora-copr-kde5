@@ -1,6 +1,7 @@
 {
   "0": [
     "ark",
+    "audiotube",
     "baloo-widgets",
     "cervisia",
     "colord-kde",
@@ -12,6 +13,7 @@
     "kaccounts-integration",
     "kamera",
     "kamoso",
+    "kasts",
     "kate",
     "kbackup",
     "kcachegrind",
@@ -50,6 +52,7 @@
     "konqueror",
     "konsole5",
     "kpmcore",
+    "kpublictransport",
     "kqtquickcharts",
     "krdc",
     "krfb",
@@ -67,6 +70,7 @@
     "signon-kwallet-extension",
     "svgpart",
     "sweeper",
+    "tokodon",
     "yakuake"
   ],
   "1": [

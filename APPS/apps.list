@@ -3,6 +3,7 @@ akonadiconsole
 akonadi-import-wizard
 akregator
 ark
+audiotube
 baloo-widgets
 cervisia
 colord-kde
@@ -23,6 +24,7 @@ kalarm
 kalendar
 kamera
 kamoso
+kasts
 kate
 kbackup
 kcachegrind
@@ -109,6 +111,7 @@ kontact
 korganizer
 kpat
 kpmcore
+kpublictransport
 kqtquickcharts
 krdc
 krfb
@@ -134,6 +137,7 @@ skanpage
 spectacle
 svgpart
 sweeper
+tokodon
 umbrello
 yakuake
 zanshin
