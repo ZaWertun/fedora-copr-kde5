@@ -10,7 +10,7 @@
 Name:    kf5-%{framework}
 Summary: A Tier 3 KDE Frameworks 5 module that provides indexing and search functionality
 Version: 5.107.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 # libs are LGPL, tools are GPL
 # KDE e.V. may determine that future LGPL/GPL versions are accepted
@@ -34,6 +34,8 @@ Source4:        baloo_file_shutdown.sh
 
 ## upstreamable patches
 Patch100:       kf5-baloo-5.98.0-disable-content-indexing-by-default.patch
+# https://invent.kde.org/frameworks/baloo/-/merge_requests/131
+Patch101:       use_the_FSID_as_the_device_identifier_where_possible.patch 
 
 ## upstream patches
 
@@ -195,6 +197,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Wed Jun 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.107.0-2
+- merged changes from official package
+
 * Sat Jun 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.107.0-1
 - 5.107.0
 
