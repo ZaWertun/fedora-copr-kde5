@@ -1,8 +1,8 @@
 %global kf5_version 5.82.0
 
 Name:    powerdevil
-Version: 5.27.5
-Release: 3%{?dist}
+Version: 5.27.6
+Release: 1%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -129,6 +129,9 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Tue Jun 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.6-1
+- 5.27.6
+
 * Sat May 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.5-3
 - force enable ddcutil
 
