@@ -2,7 +2,7 @@
 
 Name:    akonadi-import-wizard
 Summary: Akonadi Import Wizard
-Version: 23.04.2
+Version: 23.04.3
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -123,6 +123,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %{_kf5_libdir}/cmake/KPim5ImportWizard/
 
 %changelog
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+- 23.04.3
+
 * Thu Jun 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-1
 - 23.04.2
 

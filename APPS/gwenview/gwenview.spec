@@ -1,8 +1,8 @@
 Name:    gwenview
 Summary: An image viewer
 Epoch:   1
-Version: 23.04.2
-Release: 5%{?dist}
+Version: 23.04.3
+Release: 1%{?dist}
 
 # app: GPLv2+
 # lib:  IJG and (LGPLv2 or LGPLv3 or LGPLv3+ (KDE e.V.)) and LGPLv2+ and GPLv2+
@@ -126,6 +126,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.gwenview.
 
 
 %changelog
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.04.3-1
+- 23.04.3
+
 * Wed Jun 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.04.2-5
 - rebuild
 

@@ -1,5 +1,5 @@
 Name:    kleopatra
-Version: 23.04.2
+Version: 23.04.3
 Release: 1%{?dist}
 Summary: KDE certificate manager and unified crypto GUI
 
@@ -116,6 +116,9 @@ rm -fv %{buildroot}%{_kf5_libdir}/libkleopatraclientgui.so
 
 
 %changelog
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+- 23.04.3
+
 * Thu Jun 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-1
 - 23.04.2
 

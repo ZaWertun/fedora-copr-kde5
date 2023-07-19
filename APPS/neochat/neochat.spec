@@ -1,11 +1,20 @@
 Name: neochat
-Version: 23.04.2
+Version: 23.04.3
 Release: 1%{?dist}
 
 License: GPL-2.0-only AND GPL-2.0-or-later AND GPL-3.0-only AND GPL-3.0-or-later AND BSD-3-Clause
 URL: https://invent.kde.org/network/%{name}
 Summary: Client for matrix, the decentralized communication protocol
-Source0: https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
+
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
+%else
+%global stable stable
+%endif
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 BuildRequires: cmake(Qt5Concurrent)
 BuildRequires: cmake(Qt5Core)
@@ -39,13 +48,13 @@ BuildRequires: pkgconfig(libcmark)
 
 BuildRequires: cmake
 BuildRequires: cmark
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: kf5-rpm-macros
 BuildRequires: libappstream-glib
-BuildRequires: ninja-build
 
 Requires: breeze-icon-theme
 Requires: hicolor-icon-theme
@@ -69,11 +78,11 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 %build
-%cmake_kf5 -G Ninja \
-    -DCMAKE_BUILD_TYPE=Release
+%cmake_kf5
 %cmake_build
 
 %install
@@ -95,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_kf5_datadir}/krunner/dbusplugins/*.desktop
 
 %changelog
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+- 23.04.3
+
 * Tue Jun 06 2023 Marc Deop i Argemí <marcdeop@fedoraproject.org> - 23.04.2-1
 - 23.04.2
 

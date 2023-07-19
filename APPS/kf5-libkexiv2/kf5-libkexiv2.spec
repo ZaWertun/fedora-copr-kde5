@@ -2,8 +2,8 @@
 
 Name:    kf5-libkexiv2
 Summary: A wrapper around Exiv2 library
-Version: 23.04.2
-Release: 5%{?dist}
+Version: 23.04.3
+Release: 1%{?dist}
 
 License: GPLv2+
 URL:     https://cgit.kde.org/%{framework}
@@ -68,6 +68,9 @@ Requires: cmake(Qt5Gui)
 
 
 %changelog
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+- 23.04.3
+
 * Wed Jun 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-5
 - rebuild
 

@@ -1,5 +1,5 @@
 Name:    kmousetool
-Version: 23.04.2
+Version: 23.04.3
 Release: 1%{?dist}
 Summary: A program that clicks the mouse for you
 
@@ -76,6 +76,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+- 23.04.3
+
 * Thu Jun 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-1
 - 23.04.2
 

@@ -1,11 +1,20 @@
 Name: ghostwriter
-Version: 23.04.2
-Release: 1%{?dist}
+Version: 23.04.3
+Release: 2%{?dist}
 
 License: GPL-3.0-or-later AND Apache-2.0 AND CC-BY-4.0 AND CC-BY-SA-4.0 AND MPL-1.1 AND BSD AND LGPL-3.0-only AND MIT AND ISC
 Summary: Cross-platform, aesthetic, distraction-free Markdown editor
 URL: https://invent.kde.org/office/%{name}
+
+%global revision %(echo %{version} | cut -d. -f3)
+%if %{revision} >= 50
+%global stable unstable
+%else
+%global stable stable
+%endif
 Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Source1: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz.sig
+Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 
 BuildRequires: cmake(KF5ConfigWidgets)
 BuildRequires: cmake(KF5CoreAddons)
@@ -27,12 +36,12 @@ BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5Xml)
 BuildRequires: cmake(Qt5XmlPatterns)
 
+BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: gcc-c++
 BuildRequires: hunspell-devel
 BuildRequires: libappstream-glib
-BuildRequires: ninja-build
 
 Provides: bundled(cmark-gfm) = 0.29.0.gfm.6
 Provides: bundled(fontawesome-fonts) = 5.10.2
@@ -59,11 +68,11 @@ whether your masterpiece be that next blog post, your school paper,
 or your novel.
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
 
 %build
-%cmake_kf5 -G Ninja \
-    -DCMAKE_BUILD_TYPE=Release
+%cmake_kf5
 %cmake_build
 
 %check
@@ -83,6 +92,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 %{_metainfodir}/org.kde.%{name}.metainfo.xml
 
 %changelog
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-2
+- rebuild
+
+* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+- 23.04.3
+
 * Tue Jun 06 2023 Marc Deop i Argemí <marcdeop@fedoraproject.org> - 23.04.2-1
 - 23.04.2
 
