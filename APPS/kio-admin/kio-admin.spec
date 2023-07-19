@@ -28,6 +28,9 @@ BuildRequires:  cmake(KF5I18n)
 BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(PolkitQt5-1)
 
+# %%check
+BuildRequires:  /usr/bin/appstream-util
+
 
 %description
 kio-admin implements a new protocol "admin:///" 
@@ -38,17 +41,25 @@ helper binary that in turn uses
 existing KIO infrastructure to run file://
 operations in root-scope.
 
+
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
+
 
 %build
 %cmake_kf5
 %cmake_build
 
+
 %install
 %cmake_install
 %find_lang kio5_admin %{name}.lang
+
+
+%check
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.kio.admin.metainfo.xml
+
 
 %files -f %{name}.lang
 %doc README.md
@@ -62,6 +73,7 @@ operations in root-scope.
 %{_kf5_datadir}/dbus-1/system.d/org.kde.kio.admin.conf
 %{_kf5_datadir}/dbus-1/system-services/org.kde.kio.admin.service
 %{_kf5_datadir}/polkit-1/actions/org.kde.kio.admin.policy
+
 
 %changelog	
 * Wed Jul 19 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
