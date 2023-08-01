@@ -111,7 +111,7 @@ Requires:       cmake(KF5SyntaxHighlighting)
 
 
 %changelog
-* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+* Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 
 * Thu Jun 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-1

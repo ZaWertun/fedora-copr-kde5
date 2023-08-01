@@ -68,7 +68,7 @@ Requires: cmake(Qt5Gui)
 
 
 %changelog
-* Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
+* Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 
 * Wed Jun 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.2-5
