@@ -1,5 +1,5 @@
 Name:          flatpak-kcm
-Version:       5.27.6
+Version:       5.27.7
 Release:       1%{?dist}
 License:       BSD-2-Clause and BSD-3-Clause and CC0-1.0 and GPL-2.0-or-later
 Summary:       Flatpak Permissions Management KCM
@@ -14,6 +14,7 @@ BuildRequires: extra-cmake-modules
 BuildRequires: gcc-c++
 BuildRequires: kf5-rpm-macros
 BuildRequires: cmake(KF5Declarative)
+BuildRequires: cmake(KF5ItemModels)
 BuildRequires: cmake(KF5KCMUtils)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(Qt5Svg)
@@ -42,6 +43,9 @@ BuildRequires: pkgconfig(flatpak)
 %{_kf5_datadir}/applications/kcm_flatpak.desktop
 
 %changelog
+* Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
+- 5.27.7
+
 * Tue Jun 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.6-1
 - 5.27.6
 

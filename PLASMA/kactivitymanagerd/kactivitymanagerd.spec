@@ -1,6 +1,6 @@
 Name:           kactivitymanagerd
 Summary:        Plasma service to manage user's activities
-Version: 5.27.6
+Version: 5.27.7
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -90,6 +90,9 @@ Provides:       kactivities = %{version}-%{release}
 
 
 %changelog
+* Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
+- 5.27.7
+
 * Tue Jun 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.6-1
 - 5.27.6
 

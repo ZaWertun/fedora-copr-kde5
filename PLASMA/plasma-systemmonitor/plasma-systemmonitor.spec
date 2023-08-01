@@ -3,7 +3,7 @@
 
 Name:    plasma-systemmonitor
 Summary: New version of KSysGuard built on top of the new KStats daemon
-Version: 5.27.6
+Version: 5.27.7
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -91,6 +91,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/plasma/kinfocenter/externalmod
 
 
 %changelog
+* Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
+- 5.27.7
+
 * Tue Jun 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.6-1
 - 5.27.6
 
