@@ -10,7 +10,7 @@
 
 Name:    kwin
 Version: 5.27.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -35,6 +35,9 @@ Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} | cut -d. -f
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
+# Possible fix for https://bugs.kde.org/show_bug.cgi?id=459389
+#  (Copy and paste do not work in Wayland when using some text editors in konsole and some applications)
+Patch0: kwin-5.27.7-wayland-send-data-device-selections-to-data-control-on-bind.patch
 
 ## upstreamable patches
 
@@ -380,6 +383,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Thu Aug 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-2
+- added patch to fix #459389
+
 * Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
 - 5.27.7
 
