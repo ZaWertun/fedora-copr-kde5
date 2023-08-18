@@ -9,7 +9,7 @@
 
 Name:    kf5-%{framework}
 Epoch:   1
-Version: 5.108.0
+Version: 5.109.0
 Release: 1%{?dist}
 Summary: The Syndication Library
 
@@ -95,6 +95,9 @@ time \
 
 
 %changelog
+* Fri Aug 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.109.0-1
+- 5.109.0
+
 * Sun Jul 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.108.0-1
 - 5.108.0
 

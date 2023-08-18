@@ -1,7 +1,7 @@
 %global framework kdoctools
 
 Name:    kf5-%{framework}
-Version: 5.108.0
+Version: 5.109.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 2 addon for generating documentation
 
@@ -99,6 +99,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Fri Aug 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-1
+- 5.109.0
+
 * Sun Jul 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.108.0-1
 - 5.108.0
 
