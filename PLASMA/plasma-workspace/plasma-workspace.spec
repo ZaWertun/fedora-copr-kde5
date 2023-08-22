@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.27.7
-Release: 1%{?dist}
+Release: 6%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -58,6 +58,8 @@ Source40:       ssh-agent.conf
 Source41:       spice-vdagent.conf
 
 ## upstream Patches
+# Fix for https://bugs.kde.org/show_bug.cgi?id=473054
+Patch0:         plasma-workspace-5.27.7-avoid-potential-crash-when-previous-window-is-gone.patch0.723s
 
 ## downstream Patches
 # default to folderview (instead of desktop) containment, see also
@@ -809,6 +811,12 @@ fi
 
 
 %changelog
+* Tue Aug 22 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-6
+- added patch to fix #473054
+
+* Tue Aug 22 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-5
+- rebuild
+
 * Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
 - 5.27.7
 
