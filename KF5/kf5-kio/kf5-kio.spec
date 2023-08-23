@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.109.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: KDE Frameworks 5 Tier 3 solution for filesystem abstraction
 
 License: GPLv2+ and MIT and BSD
@@ -168,6 +168,7 @@ its components.
 %package        gui
 Summary:        Gui components for the KIO Framework
 Requires:       %{name}-core%{?_isa} = %{version}-%{release}
+Recommends:     switcheroo-control
 %description    gui
 %{summary}.
 
@@ -295,6 +296,9 @@ KIONTLM provides support for NTLM authentication mechanism in KIO
 
 
 %changelog
+* Wed Aug 23 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-2
+- upstream changes
+
 * Fri Aug 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-1
 - 5.109.0
 
