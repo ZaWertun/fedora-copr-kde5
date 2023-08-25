@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 5.109.0
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module that provides hardware information
 
 License: LGPLv2+
@@ -75,20 +75,20 @@ developing applications that use %{name}.
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -n %{framework}-%{version} -p1
-
+# do not build the solid-power executable, it conflicts with KF6 Solid
+sed -i -e 's/if(WITH_NEW_SOLID_JOB AND WITH_NEW_POWER_ASYNC_API)/if(0)/g' \
+    src/tools/CMakeLists.txt
 
 %build
 %cmake_kf5 \
     -DWITH_NEW_SOLID_JOB:BOOL=ON \
     -DWITH_NEW_POWER_ASYNC_API:BOOL=ON \
     -DWITH_NEW_POWER_ASYNC_FREEDESKTOP:BOOL=ON
-
 %cmake_build
 
 
 %install
 %cmake_install
-
 %find_lang_kf5 solid5_qt
 
 
@@ -112,6 +112,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Fri Aug 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-5
+- merged upstream changes
+
 * Fri Aug 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-1
 - 5.109.0
 
