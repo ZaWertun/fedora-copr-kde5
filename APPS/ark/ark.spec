@@ -4,7 +4,7 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -136,6 +136,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 %{_kf5_datadir}/kconf_update/ark.upd
 %{_kf5_datadir}/kconf_update/ark_add_hamburgermenu_to_toolbar.sh
 %{_kf5_metainfodir}/org.kde.ark.appdata.xml
+%{_kf5_datadir}/kservices5/ark_part.desktop
 %{_kf5_datadir}/applications/org.kde.ark.desktop
 %{_kf5_datadir}/icons/hicolor/*/apps/ark.*
 %{_kf5_datadir}/qlogging-categories5/*.categories
@@ -153,6 +154,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

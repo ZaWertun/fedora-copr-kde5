@@ -1,7 +1,7 @@
 %global framework calendarsupport
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: KDE PIM library for calendar and even handling
 
@@ -33,16 +33,16 @@ BuildRequires:  cmake(Qt5Widgets)
 BuildRequires:  cmake(Qt5Test)
 BuildRequires:  cmake(Qt5UiTools)
 
-BuildRequires:  cmake(KF5Akonadi)
+BuildRequires:  cmake(KPim5Akonadi)
 BuildRequires:  cmake(KF5Mime)
-BuildRequires:  cmake(KF5AkonadiMime)
+BuildRequires:  cmake(KPim5AkonadiMime)
 BuildRequires:  cmake(KF5Codecs)
-BuildRequires:  cmake(KF5CalendarUtils)
+BuildRequires:  cmake(KPim5CalendarUtils)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5IdentityManagement)
 BuildRequires:  cmake(KF5Holidays)
-BuildRequires:  cmake(KF5AkonadiCalendar)
-BuildRequires:  cmake(KF5PimCommon)
+BuildRequires:  cmake(KPim5AkonadiCalendar)
+BuildRequires:  cmake(KPim5PimCommon)
 
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-calendar-devel >= %{majmin_ver}
@@ -66,7 +66,7 @@ Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       cmake(KF5Mime)
 Requires:       cmake(KF5IdentityManagement)
-Requires:       cmake(KF5AkonadiCalendar)
+Requires:       cmake(KPim5AkonadiCalendar)
 Requires:       kf5-akonadi-calendar-devel >= %{majmin_ver}
 Requires:       kf5-kidentitymanagement-devel >= %{majmin_ver}
 Requires:       kf5-kmime-devel >= %{majmin_ver}
@@ -108,6 +108,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

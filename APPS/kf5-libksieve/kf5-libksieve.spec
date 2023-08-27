@@ -1,7 +1,7 @@
 %global framework libksieve
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: Sieve support library
 
@@ -104,13 +104,15 @@ Requires:       cmake(KF5SyntaxHighlighting)
 %{_kf5_libdir}/libKPim5KManageSieve.so
 %{_kf5_libdir}/libKPim5KSieve.so
 %{_kf5_libdir}/libKPim5KSieveUi.so
-%{_kf5_libdir}/cmake/KF5LibKSieve/
 %{_kf5_libdir}/cmake/KPim5LibKSieve/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KSieveUi.pri
 %{_kf5_archdatadir}/mkspecs/modules/qt_KManageSieve.pri
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

@@ -1,6 +1,6 @@
 Name:    kdegraphics-thumbnailers
 Summary: Thumbnailers for various graphic types 
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 # most sources GPLv2+, dscparse.* GPL, gscreator.* LGPLv2+, 
@@ -48,18 +48,17 @@ BuildRequires: cmake(QMobipocket)
 
 %files
 %license COPYING*
-%{_kf5_qtplugindir}/gsthumbnail.so
-%{_kf5_datadir}/kservices5/gsthumbnail.desktop
-%{_kf5_qtplugindir}/rawthumbnail.so
-%{_kf5_datadir}/kservices5/rawthumbnail.desktop
-%{_kf5_qtplugindir}/blenderthumbnail.so
-%{_kf5_datadir}/kservices5/blenderthumbnail.desktop
-%{_kf5_qtplugindir}/mobithumbnail.so
-%{_kf5_datadir}/kservices5/mobithumbnail.desktop
+%{_kf5_qtplugindir}/kf5/thumbcreator/blenderthumbnail.so
+%{_kf5_qtplugindir}/kf5/thumbcreator/gsthumbnail.so
+%{_kf5_qtplugindir}/kf5/thumbcreator/mobithumbnail.so
+%{_kf5_qtplugindir}/kf5/thumbcreator/rawthumbnail.so
 %{_kf5_metainfodir}/org.kde.%{name}.metainfo.xml
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

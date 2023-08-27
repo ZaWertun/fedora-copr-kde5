@@ -2,7 +2,7 @@
 %global tests 1
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: The KPimTextEdit Library
 
@@ -18,10 +18,6 @@ URL:     https://cgit.kde.org/%{framework}.git
 Source0:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz
 Source1:        https://download.kde.org/%{stable}/release-service/%{version}/src/%{framework}-%{version}.tar.xz.sig
 Source2:        gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
-
-# upstream says we should just patch this downstream, see the discussion on:
-# https://phabricator.kde.org/D17947
-Patch100: kpimtextedit-21.08-install_and_export_for_blogilo.patch
 
 BuildRequires:  gnupg2
 BuildRequires:  grantlee-qt5-devel
@@ -116,6 +112,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

@@ -1,7 +1,7 @@
 %global framework incidenceeditor
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: KDE PIM library for creating and editing calendar incidences
 
@@ -33,15 +33,15 @@ BuildRequires:  cmake(Qt5WebKitWidgets)
 
 BuildRequires:  cmake(KGantt)
 
-BuildRequires:  cmake(KF5Akonadi)
-BuildRequires:  cmake(KF5AkonadiMime)
+BuildRequires:  cmake(KPim5Akonadi)
+BuildRequires:  cmake(KPim5AkonadiMime)
 BuildRequires:  cmake(KF5I18n)
-BuildRequires:  cmake(KF5Ldap)
+BuildRequires:  cmake(KPim5Ldap)
 BuildRequires:  cmake(KF5Codecs)
 BuildRequires:  cmake(KF5CalendarSupport)
 BuildRequires:  cmake(KF5EventViews)
 BuildRequires:  cmake(KF5Libkdepim)
-BuildRequires:  cmake(KF5CalendarUtils)
+BuildRequires:  cmake(KPim5CalendarUtils)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5MailTransport)
 BuildRequires:  cmake(Grantlee5)
@@ -71,7 +71,7 @@ Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       cmake(KF5EventViews)
 Requires:       cmake(KF5CalendarSupport)
-Requires:       cmake(KF5CalendarUtils)
+Requires:       cmake(KPim5CalendarUtils)
 Requires:       cmake(KF5CalendarCore)
 Requires:       cmake(KF5MailTransport)
 Requires:       cmake(KF5Mime)
@@ -111,6 +111,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

@@ -13,7 +13,7 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -218,7 +218,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.ok
 %ldconfig_scriptlets libs
 
 %files libs
-%{_libdir}/libOkular5Core.so.10*
+%{_libdir}/libOkular5Core.so.11*
 
 %files part -f okular-part.lang
 %if 0%{?fedora}
@@ -236,6 +236,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.ok
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

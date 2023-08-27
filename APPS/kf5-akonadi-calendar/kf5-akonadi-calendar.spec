@@ -2,7 +2,7 @@
 %global tests 1
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Calendar Library
 
@@ -40,8 +40,11 @@ BuildRequires:  kf5-kcalendarutils-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
+BuildRequires:  kf5-messagelib-devel >= %{majmin_ver}
+BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  cmake(Grantlee5)
+BuildRequires:  cmake(KF5TextAutoCorrection)
 %if 0%{?tests}
 BuildRequires: kf5-akonadi-server >= %{majmin_ver}
 BuildRequires: kf5-akonadi-server-mysql
@@ -112,6 +115,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

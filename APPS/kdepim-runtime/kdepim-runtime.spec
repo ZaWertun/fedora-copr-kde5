@@ -4,7 +4,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPLv2
@@ -98,7 +98,7 @@ BuildRequires:  cmake(Grantlee5)
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1662756
 Requires: libkgapi%{?_isa} >= %{majmin_ver}
-BuildRequires:  cmake(KF5PimCommon)
+BuildRequires:  cmake(KPim5PimCommon)
 
 ## bundled patched version, as stock one FTBFS at the moment
 #BuildRequires:  libkolab-devel >= 1.0
@@ -189,9 +189,13 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %{_kf5_plugindir}/kio/akonadi.so
 %{_kf5_qtplugindir}/pim5/akonadi/config/*.so
 %{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kcm_ldap.so
+%{_kf5_qtplugindir}/pim5/mailtransport/mailtransport_akonadiplugin.so
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.04.3-1
 - 23.04.3
 

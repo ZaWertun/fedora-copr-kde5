@@ -1,7 +1,7 @@
 %global framework pimcommon
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: PIM common libraries
 
@@ -99,10 +99,9 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       cmake(KF5Config)
 # akonadi
 Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
-Requires:       cmake(KF5Akonadi)
-Requires:       cmake(KF5AkonadiContact)
-Requires:       cmake(KF5Contacts)
-Requires:       cmake(KF5IMAP)
+Requires:       cmake(KPim5Akonadi)
+Requires:       cmake(KPim5AkonadiContact)
+Requires:       cmake(KPim5IMAP)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -127,29 +126,32 @@ developing applications that use %{name}.
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
-%{_kf5_libdir}/libKF5PimCommon.so.5*
+%{_kf5_libdir}/libKPim5PimCommon.so.5*
 %{_qt5_plugindir}/designer/pimcommon5widgets.so
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets akonadi
 
 %files akonadi
-%{_kf5_libdir}/libKF5PimCommonAkonadi.so.5*
+%{_kf5_libdir}/libKPim5PimCommonAkonadi.so.5*
 %{_kf5_qtplugindir}/designer/pimcommon5akonadiwidgets.so
 
 %files devel
-%{_kf5_libdir}/libKF5PimCommon.so
-%{_kf5_libdir}/cmake/KF5PimCommon/
-%{_kf5_includedir}/PimCommon/
+%{_kf5_libdir}/libKPim5PimCommon.so
+%{_kf5_libdir}/cmake/KPim5PimCommon/
+%{_includedir}/KPim5/PimCommon/
 %{_kf5_archdatadir}/mkspecs/modules/qt_PimCommon.pri
 # Akonadi
-%{_kf5_libdir}/libKF5PimCommonAkonadi.so
-%{_kf5_libdir}/cmake/KF5PimCommonAkonadi/
-%{_kf5_includedir}/PimCommonAkonadi/
+%{_kf5_libdir}/libKPim5PimCommonAkonadi.so
+%{_kf5_libdir}/cmake/KPim5PimCommonAkonadi/
+%{_includedir}/KPim5/PimCommonAkonadi/
 %{_kf5_archdatadir}/mkspecs/modules/qt_PimCommonAkonadi.pri
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

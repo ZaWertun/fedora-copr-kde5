@@ -1,6 +1,6 @@
 Name:    kgpg
 Summary: Manage GPG encryption keys 
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -45,9 +45,9 @@ BuildRequires: cmake(KF5WindowSystem)
 
 # pim-related deps below are available only where qtwebengine is
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
-BuildRequires: cmake(KF5AkonadiContact)
-BuildRequires: cmake(KF5GrantleeTheme)
-BuildRequires: cmake(KF5Contacts)
+BuildRequires: cmake(KPim5AkonadiContact)
+BuildRequires: cmake(KPim5ContactEditor)
+BuildRequires: cmake(KPim5GrantleeTheme)
 BuildRequires: cmake(Grantlee5)
 
 # support kde4 servicemenus too
@@ -115,6 +115,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

@@ -1,7 +1,7 @@
 %global framework libgravatar
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: Gravatar support library
 
@@ -82,12 +82,14 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %files devel
 %{_includedir}/KPim5/Gravatar/
 %{_kf5_libdir}/libKPim5Gravatar.so
-%{_kf5_libdir}/cmake/KF5Gravatar/
 %{_kf5_libdir}/cmake/KPim5Gravatar/
 %{_kf5_archdatadir}/mkspecs/modules/qt_Gravatar.pri
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

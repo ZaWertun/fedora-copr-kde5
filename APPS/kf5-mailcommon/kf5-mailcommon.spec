@@ -1,7 +1,7 @@
 %global framework mailcommon
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: Mail applications support library
 
@@ -77,10 +77,10 @@ Requires:       kf5-filesystem
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       cmake(KF5Akonadi)
-Requires:       cmake(KF5AkonadiMime)
+Requires:       cmake(KPim5Akonadi)
+Requires:       cmake(KPim5AkonadiMime)
 Requires:       cmake(KPim5MessageComposer)
-Requires:       cmake(KF5PimCommon)
+Requires:       cmake(KPim5PimCommon)
 %description    devel
 %{summary}.
 
@@ -117,6 +117,9 @@ Requires:       cmake(KF5PimCommon)
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

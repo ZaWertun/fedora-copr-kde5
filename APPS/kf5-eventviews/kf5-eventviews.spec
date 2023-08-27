@@ -1,7 +1,7 @@
 %global framework eventviews
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: KDE PIM library for displaying events and calendars
 
@@ -32,14 +32,14 @@ BuildRequires:  cmake(Qt5UiTools)
 
 BuildRequires:  cmake(KGantt)
 
-BuildRequires:  cmake(KF5Akonadi)
+BuildRequires:  cmake(KPim5Akonadi)
 BuildRequires:  cmake(KF5I18n)
 BuildRequires:  cmake(KF5Codecs)
 BuildRequires:  cmake(KF5Libkdepim)
-BuildRequires:  cmake(KF5CalendarUtils)
+BuildRequires:  cmake(KPim5CalendarUtils)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5CalendarSupport)
-BuildRequires:  cmake(KF5AkonadiCalendar)
+BuildRequires:  cmake(KPim5AkonadiCalendar)
 BuildRequires:  cmake(KF5Mime)
 BuildRequires:  cmake(KF5Holidays)
 BuildRequires:  cmake(KF5IdentityManagement)
@@ -64,11 +64,11 @@ Obsoletes:      kdepim-libs < 7:16.04.0
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       cmake(KF5Akonadi)
+Requires:       cmake(KPim5Akonadi)
 Requires:       cmake(KF5CalendarSupport)
 Requires:       cmake(KF5CalendarCore)
-Requires:       cmake(KF5CalendarUtils)
-Requires:       cmake(KF5AkonadiCalendar)
+Requires:       cmake(KPim5CalendarUtils)
+Requires:       cmake(KPim5AkonadiCalendar)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -99,12 +99,14 @@ developing applications that use %{name}.
 %files devel
 %{_includedir}/KPim5/EventViews/
 %{_kf5_libdir}/libKPim5EventViews.so
-%{_kf5_libdir}/cmake/KF5EventViews/
 %{_kf5_libdir}/cmake/KPim5EventViews/
 %{_kf5_archdatadir}/mkspecs/modules/qt_EventViews.pri
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

@@ -1,6 +1,6 @@
 Name:    kdf
 Summary: View disk usage
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -73,7 +73,8 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/*kdf.desktop ||:
 %{_kf5_datadir}/icons/hicolor/*/apps/*
 %{_kf5_bindir}/kwikdisk
 %{_kf5_libdir}/libkdfprivate.so.*
-%{_kf5_qtplugindir}/libkcm_kdf.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_kdf.so
+%{_kf5_datadir}/applications/kcm_kdf.desktop
 %{_kf5_datadir}/applications/org.kde.kdf.desktop
 %{_kf5_datadir}/applications/org.kde.kwikdisk.desktop
 %{_kf5_metainfodir}/org.kde.*.appdata.xml
@@ -81,6 +82,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/*kdf.desktop ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

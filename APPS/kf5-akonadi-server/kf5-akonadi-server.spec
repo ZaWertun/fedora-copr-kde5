@@ -21,7 +21,7 @@
 
 Name:    kf5-%{framework}
 Summary: PIM Storage Service
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -241,7 +241,6 @@ fi
 %if ! 0%{?bootstrap}
 %{_kf5_qtplugindir}/designer/akonadi5widgets.so
 %endif
-%{_kf5_qtplugindir}/sqldrivers/libqsqlite3.so
 %{_kf5_qtplugindir}/pim5/akonadi/akonadi_test_searchplugin.so
 %{_kf5_libdir}/libKPim5AkonadiAgentBase.so.5*
 %{_kf5_libdir}/libKPim5AkonadiCore.so.5*
@@ -299,6 +298,9 @@ fi
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

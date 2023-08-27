@@ -2,7 +2,7 @@
 
 Name:    kf5-libksane
 Summary: SANE Library interface for KDE
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 %global version_major %(echo %{version} |cut -d. -f1)
@@ -74,12 +74,14 @@ Requires: cmake(Qt5Widgets)
 
 %files devel
 %{_kf5_includedir}/KSane/
-%{_kf5_includedir}/ksane_version.h
 %{_kf5_libdir}/libKF5Sane.so
 %{_kf5_libdir}/cmake/KF5Sane/
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

@@ -1,5 +1,5 @@
 Name:       kdevelop-python
-Version:    23.04.3
+Version:    23.08.0
 %global py3_suffix -py3
 %global py3_tag .py3
 Release:    1%{?dist}
@@ -99,6 +99,9 @@ rm -f %{buildroot}%{_datadir}/kdevpythonsupport/documentation_files/PyKDE4/parse
 %{_datadir}/metainfo/org.kde.kdev-python.metainfo.xml
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

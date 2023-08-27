@@ -2,7 +2,7 @@
 %global tests 1
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Contacts Library
 
@@ -71,11 +71,11 @@ Obsoletes: kf5-akonadi-devel < 16.07
 Obsoletes: kf5-akonadi-contact-devel < 16.07
 Provides:  kf5-akonadi-contact-devel = %{version}-%{release}
 Requires:   cmake(Qt5Widgets)
-Requires:   cmake(KF5Akonadi)
+Requires:   cmake(KPim5Akonadi)
 Requires:   cmake(KF5Contacts)
-Requires:   cmake(KF5GrantleeTheme)
-Requires:   cmake(KF5ContactEditor)
-Recommends: cmake(KF5CalendarCore)
+Requires:   cmake(KPim5GrantleeTheme)
+Requires:   cmake(KPim5ContactEditor)
+Recommends: cmake(KPim5CalendarCore)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -112,8 +112,6 @@ xvfb-run -a \
 %{_kf5_libdir}/libKPim5AkonadiContact.so.*
 %{_kf5_libdir}/libKPim5ContactEditor.so.*
 %{_kf5_qtplugindir}/akonadi_serializer_*.so
-%{_kf5_qtplugindir}/pim5/kcms/kaddressbook/kcm_akonadicontact_actions.so
-%{_kf5_qtplugindir}/pim5/akonadi/contacts/plugins/categorieseditwidgetplugin.so
 %{_kf5_datadir}/akonadi/plugins/serializer/
 %{_kf5_datadir}/kf5/akonadi/contact/
 %{_kf5_datadir}/qlogging-categories5/*categories
@@ -121,7 +119,6 @@ xvfb-run -a \
 %files devel
 %{_includedir}/KPim5/AkonadiContact/
 %{_includedir}/KPim5/AkonadiContactEditor/
-%{_kf5_libdir}/cmake/KF5AkonadiContact/
 %{_kf5_libdir}/cmake/KPim5AkonadiContact/
 %{_kf5_libdir}/cmake/KF5AkonadiContactEditor/
 %{_kf5_libdir}/cmake/KPim5ContactEditor/
@@ -132,6 +129,9 @@ xvfb-run -a \
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

@@ -1,5 +1,5 @@
 Name: neochat
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPL-2.0-only AND GPL-2.0-or-later AND GPL-3.0-only AND GPL-3.0-or-later AND BSD-3-Clause
@@ -77,21 +77,26 @@ Neochat is a client for Matrix, the decentralized communication protocol for
 instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
+
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %autosetup -p1
+
 
 %build
 %cmake_kf5
 %cmake_build
 
+
 %install
 %cmake_install
 %find_lang %{name} --with-qt
 
+
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.appdata.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
+
 
 %files -f %{name}.lang
 %license LICENSES/*
@@ -102,8 +107,13 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_metainfodir}/*.appdata.xml
 %{_kf5_datadir}/knotifications5/%{name}.notifyrc
 %{_kf5_datadir}/krunner/dbusplugins/*.desktop
+%{_kf5_datadir}/qlogging-categories5/%{name}.categories
+
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Tue Jul 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

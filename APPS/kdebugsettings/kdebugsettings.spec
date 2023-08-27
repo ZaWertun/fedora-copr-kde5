@@ -1,6 +1,6 @@
 Name:    kdebugsettings
 Summary: Configure debug output from Qt5 applications
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -66,6 +66,7 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kdebugset
 %license LICENSES/*.txt
 %{_kf5_bindir}/kdebugsettings
 %{_kf5_libdir}/libkdebugsettings.so.*
+%{_kf5_libdir}/libkdebugsettingscore.so.*
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_datadir}/applications/org.kde.kdebugsettings.desktop
 "%{_kf5_datadir}/kdebugsettings/groups/Full Debug Ruqola"
@@ -73,6 +74,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kdebugset
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

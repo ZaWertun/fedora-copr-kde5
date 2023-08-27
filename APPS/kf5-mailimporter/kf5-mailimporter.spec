@@ -1,7 +1,7 @@
 %global framework mailimporter
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: Mail importer library
 
@@ -103,19 +103,20 @@ Requires:       %{name}-akonadi%{?_isa} = %{version}-%{release}
 
 %files devel
 %{_kf5_libdir}/libKPim5MailImporter.so
-%{_kf5_libdir}/cmake/KF5MailImporter/
 %{_kf5_libdir}/cmake/KPim5MailImporter/
 %{_includedir}/KPim5/MailImporter/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MailImporter.pri
 # akonadi
 %{_kf5_libdir}/libKPim5MailImporterAkonadi.so
-%{_kf5_libdir}/cmake/KF5MailImporterAkonadi/
 %{_kf5_libdir}/cmake/KPim5MailImporterAkonadi/
 %{_includedir}/KPim5/MailImporterAkonadi/
 %{_kf5_archdatadir}/mkspecs/modules/qt_MailImporterAkonadi.pri
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

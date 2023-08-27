@@ -2,7 +2,7 @@
 
 Name:    knotes
 Summary: Popup notes
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
@@ -61,7 +61,7 @@ BuildRequires: cmake(KF5TextWidgets)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
-BuildRequires: cmake(KF5GrantleeTheme)
+BuildRequires: cmake(KPim5GrantleeTheme)
 
 BuildRequires: cmake(KF5TextAutoCorrection)
 
@@ -157,6 +157,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

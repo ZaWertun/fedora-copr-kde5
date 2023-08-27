@@ -1,5 +1,5 @@
-Name:    kalendar
-Version: 23.04.3
+Name:    merkuro
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
@@ -45,7 +45,6 @@ BuildRequires:  cmake(KF5CalendarCore)    >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Completion)      >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Config)          >= %{kf5_min_version}
 BuildRequires:  cmake(KF5ConfigWidgets)   >= %{kf5_min_version}
-BuildRequires:  cmake(KF5Contacts)        >= %{kf5_min_version}
 BuildRequires:  cmake(KF5CoreAddons)      >= %{kf5_min_version}
 BuildRequires:  cmake(KF5I18n)            >= %{kf5_min_version}
 BuildRequires:  cmake(KF5ItemModels)      >= %{kf5_min_version}
@@ -61,18 +60,18 @@ BuildRequires:  cmake(KF5QQC2DesktopStyle) >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Plasma)          >= %{kf5_min_version}
 BuildRequires:  cmake(KF5KirigamiAddons)
 
-BuildRequires:  cmake(KF5Akonadi)         >= %{akonadi_min_version}
-BuildRequires:  cmake(KF5AkonadiContact)  >= %{akonadi_min_version}
+BuildRequires:  cmake(KPim5Akonadi)         >= %{akonadi_min_version}
+BuildRequires:  cmake(KPim5AkonadiContact)>= %{akonadi_min_version}
 BuildRequires:  cmake(KF5CalendarSupport) >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5EventViews)      >= %{akonadi_min_version}
-BuildRequires:  cmake(KF5GrantleeTheme)   >= %{akonadi_min_version}
+BuildRequires:  cmake(KPim5GrantleeTheme) >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5MailCommon)      >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5Libkdepim)       >= %{akonadi_min_version}
-BuildRequires:  cmake(KF5PimCommon)
-BuildRequires:  cmake(KF5PimCommonAkonadi)
+BuildRequires:  cmake(KPim5PimCommon)
+BuildRequires:  cmake(KPim5PimCommonAkonadi)
+BuildRequires:  cmake(KPim5AkonadiCalendar)
 
 BuildRequires:  cmake(KF5TextAutoCorrection)
-
 BuildRequires:  cmake(Grantlee5)
 
 Requires:       akonadi-calendar-tools
@@ -81,11 +80,13 @@ Requires:       kdepim-runtime
 Requires:       kf5-kirigami2
 Requires:       kf5-kirigami2-addons
 Requires:       kf5-kirigami2-addons-treeview
-
 Requires:       hicolor-icon-theme
 
-Provides:       %{name}-reminder-daemon = %{version}
-Obsoletes:      %{name}-reminder-daemon < 1.0.0-2
+Provides:       kalendar-reminder-daemon = %{version}
+Obsoletes:      kalendar-reminder-daemon < 1.0.0-2
+
+Provides:       kalendar = %{version}-%{release}
+Obsoletes:      kalendar < 23.08.0-1
 
 %description
 Kalendar is a Kirigami-based calendar application that uses Akonadi. It lets
@@ -128,6 +129,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

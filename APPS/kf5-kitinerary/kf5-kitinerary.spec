@@ -2,7 +2,7 @@
 %global tests 1
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: A library containing itinerary data model and itinerary extraction code
 
@@ -37,7 +37,7 @@ BuildRequires: kf5-kpkpass-devel >= %{majmin_ver}
 # kde-pim cmake
 BuildRequires:  cmake(KF5Mime)
 BuildRequires:  cmake(KF5CalendarCore)
-BuildRequires:  cmake(KF5Contacts)
+BuildRequires:  cmake(KPim5AkonadiContact)
 BuildRequires:  cmake(KPimPkPass)
 BuildRequires:  cmake(KF5CalendarCore)
 
@@ -113,6 +113,9 @@ make test/fast ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

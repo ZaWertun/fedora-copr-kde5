@@ -2,7 +2,7 @@
 %global tests 1
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: The Akonadi Mime Library
 
@@ -55,7 +55,7 @@ Summary:   Development files for %{name}
 Requires:  %{name}%{?_isa} = %{version}-%{release}
 # split from kf5-akonadi/kdepimlibs in 16.07
 Obsoletes: kf5-akonadi-devel < 16.07
-Requires: cmake(KF5Akonadi)
+Requires: cmake(KPim5Akonadi)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -111,6 +111,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

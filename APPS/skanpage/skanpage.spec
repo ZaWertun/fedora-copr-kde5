@@ -1,5 +1,5 @@
 Name:           skanpage
-Version:        23.04.3
+Version:        23.08.0
 Release:        1%{?dist}
 Summary:        Utility to scan images and multi-page documents
 License:        BSD and GPLv2 and GPLv3
@@ -39,8 +39,10 @@ BuildRequires:  cmake(KF5Config)     >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Purpose)    >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Kirigami2)  >= %{kf5_min_version}
 BuildRequires:  cmake(KF5CoreAddons) >= %{kf5_min_version}
+BuildRequires:  cmake(KF5XmlGui)
 
 BuildRequires:  cmake(KSaneCore)
+BuildRequires:  cmake(KQuickImageEditor)
 
 BuildRequires:  pkgconfig(lept)
 BuildRequires:  pkgconfig(tesseract)
@@ -89,6 +91,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

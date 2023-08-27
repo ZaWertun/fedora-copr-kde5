@@ -2,7 +2,7 @@
 %global tests 1
 
 Name:    kf5-%{framework}
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: The KMailTransport Library
 
@@ -40,10 +40,9 @@ BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-server-devel >= %{majmin_ver}
 BuildRequires:  kf5-ksmtp-devel >= %{majmin_ver}
 BuildRequires:  libkgapi-devel >= %{majmin_ver}
-BuildRequires:  cmake(KF5Akonadi)
-BuildRequires:  cmake(KF5AkonadiMime)
+BuildRequires:  cmake(KPim5Akonadi)
+BuildRequires:  cmake(KPim5AkonadiMime)
 BuildRequires:  cmake(KF5Mime)
-BuildRequires:  cmake(KPimSMTP)
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  cmake(Qt5Keychain)
@@ -61,6 +60,7 @@ Conflicts: kf5-akonadi < 16.07
 %description
 %{summary}.
 
+# TODO: remove
 %package        akonadi
 Summary:        The KmailTransportAkonadi Library
 Requires:       %{name}%{?_isa} = %{version}-%{release}
@@ -110,16 +110,13 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %license LICENSES/*.txt
 %{_kf5_libdir}/libKPim5MailTransport.so.*
 %{_kf5_datadir}/config.kcfg/mailtransport.kcfg
-%{_kf5_qtplugindir}/kcm_mailtransport.so
 %{_kf5_qtplugindir}/pim5/mailtransport/mailtransport_smtpplugin.so
-%{_kf5_qtplugindir}/pim5/mailtransport/mailtransport_akonadiplugin.so
-%{_kf5_datadir}/kservices5/kcm_mailtransport.desktop
 %{_kf5_datadir}/qlogging-categories5/*categories
 
 %ldconfig_scriptlets akonadi
 
 %files akonadi
-%{_kf5_libdir}/libKPim5MailTransportAkonadi.so.5*
+#{_kf5_libdir}/libKPim5MailTransportAkonadi.so.5*
 
 %files devel
 %{_includedir}/KPim5/MailTransport/
@@ -127,15 +124,12 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %{_kf5_libdir}/cmake/KF5MailTransport/
 %{_kf5_libdir}/cmake/KPim5MailTransport/
 %{_kf5_archdatadir}/mkspecs/modules/qt_KMailTransport.pri
-# akonadi
-%{_includedir}/KPim5/MailTransportAkonadi/
-%{_kf5_libdir}/libKPim5MailTransportAkonadi.so
-%{_kf5_libdir}/cmake/KF5MailTransportAkonadi/
-%{_kf5_libdir}/cmake/KPim5MailTransportAkonadi/
-%{_kf5_archdatadir}/mkspecs/modules/qt_KMailTransportAkonadi.pri
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

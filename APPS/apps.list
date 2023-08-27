@@ -22,7 +22,6 @@ kaccounts-integration
 kaccounts-providers
 kaddressbook
 kalarm
-kalendar
 kamera
 kamoso
 kasts
@@ -90,7 +89,6 @@ kf5-mailimporter
 kf5-messagelib
 kf5-pimcommon
 kfind
-kfloppy
 kget
 kgpg
 khelpcenter
@@ -129,6 +127,8 @@ libkgapi
 libkomparediff2
 lokalize
 marble
+markdownpart
+merkuro
 neochat
 okular
 pim-data-exporter

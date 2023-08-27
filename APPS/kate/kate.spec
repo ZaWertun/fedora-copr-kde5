@@ -10,7 +10,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -185,6 +185,7 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 %{_kf5_qtplugindir}/ktexteditor/ktexteditorpreviewplugin.so
 %{_kf5_qtplugindir}/ktexteditor/latexcompletionplugin.so
 %{_kf5_qtplugindir}/ktexteditor/lspclientplugin.so
+%{_kf5_qtplugindir}/ktexteditor/openlinkplugin.so
 %{_kf5_qtplugindir}/ktexteditor/rainbowparens.so
 %{_kf5_qtplugindir}/ktexteditor/tabswitcherplugin.so
 %{_kf5_qtplugindir}/ktexteditor/textfilterplugin.so
@@ -202,6 +203,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

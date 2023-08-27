@@ -1,5 +1,5 @@
 Name:           zanshin
-Version:        23.04.3
+Version:        23.08.0
 Release:        1%{?dist}
 Summary:        Todo/action management software
 
@@ -19,13 +19,14 @@ BuildRequires:  extra-cmake-modules
 BuildRequires:  gettext
 BuildRequires:  intltool
 ## kf5
-BuildRequires:  cmake(KF5Akonadi)
-BuildRequires:  cmake(KF5AkonadiCalendar) cmake(KF5AkonadiContact)
-BuildRequires:  cmake(KF5AkonadiNotes)
-BuildRequires:  cmake(KF5AkonadiSearch)
+BuildRequires:  cmake(KPim5Akonadi)
+BuildRequires:  cmake(KPim5AkonadiContact)
+BuildRequires:  cmake(KPim5AkonadiCalendar)
+BuildRequires:  cmake(KPim5AkonadiNotes)
+BuildRequires:  cmake(KPim5AkonadiSearch)
 BuildRequires:  cmake(KF5IdentityManagement)
-BuildRequires:  cmake(KF5KontactInterface)
-BuildRequires:  cmake(KF5Ldap)
+BuildRequires:  cmake(KPim5KontactInterface)
+BuildRequires:  cmake(KPim5Ldap)
 BuildRequires:  cmake(KF5Runner)
 BuildRequires:  cmake(KF5Wallet)
 BuildRequires:  cmake(Qt5Gui)
@@ -107,6 +108,9 @@ time \
 %{_kf5_qtplugindir}/pim5/kontact/kontact_zanshinplugin.so
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

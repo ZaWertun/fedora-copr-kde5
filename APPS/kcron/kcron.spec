@@ -1,6 +1,6 @@
 Name:    kcron
 Summary: Cron KDE configuration module
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -24,6 +24,7 @@ BuildRequires: kf5-kdoctools-devel
 BuildRequires: kf5-ki18n-devel
 BuildRequires: kf5-kiconthemes-devel
 BuildRequires: kf5-kio-devel
+BuildRequires: cmake(KF5KCMUtils)
 BuildRequires: cmake(Qt5PrintSupport)
 BuildRequires: cmake(Qt5Widgets)
 
@@ -55,9 +56,9 @@ Systemsettings module for the cron task scheduler.
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %doc README
-%{_kf5_qtplugindir}/kcm_cron.so
+%{_kf5_qtplugindir}/plasma/kcms/systemsettings_qwidgets/kcm_cron.so
 %{_kf5_libexecdir}/kauth/kcron_helper
-%{_kf5_datadir}/kservices5/kcm_cron.desktop
+%{_kf5_datadir}/applications/kcm_cron.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/polkit-1/actions/local.kcron.crontab.policy
 %{_kf5_datadir}/dbus-1/system.d/local.kcron.crontab.conf
@@ -66,6 +67,9 @@ Systemsettings module for the cron task scheduler.
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

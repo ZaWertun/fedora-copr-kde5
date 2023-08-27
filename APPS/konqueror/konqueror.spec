@@ -5,7 +5,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -154,7 +154,6 @@ make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 300" ||:
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %doc AUTHORS ChangeLog
-%{_kf5_sysconfdir}/xdg/konqsidebartngrc
 %{_kf5_bindir}/fsview
 %{_kf5_bindir}/kfmclient
 %{_kf5_bindir}/konqueror
@@ -176,8 +175,10 @@ make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_datadir}/konqueror/
 %{_kf5_datadir}/konqsidebartng/entries/*.desktop
 %{_kf5_datadir}/konqsidebartng/plugins/*.desktop
-%{_kf5_sysconfdir}/xdg/autostart/konqy_preload.desktop
 %{_kf5_sysconfdir}/xdg/translaterc
+%{_kf5_sysconfdir}/xdg/konqsidebartngrc
+%{_kf5_sysconfdir}/xdg/useragenttemplatesrc
+%{_kf5_sysconfdir}/xdg/autostart/konqy_preload.desktop
 %{_kf5_datadir}/qlogging-categories5/*.categories
 %{_kf5_datadir}/kxmlgui5/fsview/fsview_part.rc
 %{_kf5_datadir}/kconf_update/webenginepart.upd
@@ -200,6 +201,7 @@ make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 300" ||:
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_filter.so
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_general.so
 %{_kf5_qtplugindir}/konqueror_kcms/khtml_java_js.so
+%{_kf5_qtplugindir}/konqueror_kcms/khtml_useragent.so
 %{_kf5_qtplugindir}/*.so
 %{_kf5_plugindir}/kfileitemaction/akregatorplugin.so
 %dir %{_kf5_plugindir}/parts/
@@ -211,6 +213,7 @@ make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 300" ||:
 %{_includedir}/konqsidebarplugin.h
 %{_kf5_includedir}/konq_*.h
 %{_kf5_includedir}/libkonq_export.h
+%{_kf5_includedir}/asyncselectorinterface.h
 %{_kf5_libdir}/cmake/KF5Konq/
 %{_kf5_libdir}/libKF5Konq.so
 
@@ -224,6 +227,9 @@ make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

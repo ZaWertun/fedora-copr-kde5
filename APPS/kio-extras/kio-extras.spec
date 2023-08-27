@@ -1,7 +1,7 @@
 #global tests 1
 
 Name:    kio-extras
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -154,7 +154,6 @@ time make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 30" ||:
 %dir %{_kf5_plugindir}/kio/
 %dir %{_kf5_plugindir}/kiod/
 %{_kf5_plugindir}/kio/kio_filenamesearch.so
-%{_kf5_plugindir}/kio/about.so
 %{_kf5_plugindir}/kio/activities.so
 %{_kf5_plugindir}/kio/archive.so
 %{_kf5_plugindir}/kio/bookmarks.so
@@ -176,7 +175,7 @@ time make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 30" ||:
 %{_kf5_plugindir}/thumbcreator/exrthumbnail.so
 %{_kf5_plugindir}/thumbcreator/imagethumbnail.so
 %{_kf5_plugindir}/thumbcreator/jpegthumbnail.so
-%{_kf5_plugindir}/thumbcreator/kritathumbnail.so
+%{_kf5_plugindir}/thumbcreator/kraorathumbnail.so
 %{_kf5_plugindir}/thumbcreator/opendocumentthumbnail.so
 %{_kf5_plugindir}/thumbcreator/svgthumbnail.so
 %{_kf5_plugindir}/thumbcreator/textthumbnail.so
@@ -211,12 +210,15 @@ time make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 30" ||:
 %{_datadir}/kio_info/kde-info2html*
 
 %files devel
-%{_kf5_includedir}/*.h
+%{_includedir}/KioArchive/
 # no soname symlink? --rex
 %{_kf5_libdir}/cmake/KioArchive/
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

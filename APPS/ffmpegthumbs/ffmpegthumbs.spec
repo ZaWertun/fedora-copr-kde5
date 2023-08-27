@@ -1,5 +1,5 @@
 Name:    ffmpegthumbs
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: KDE ffmpegthumbnailer service
 
@@ -41,8 +41,7 @@ Provides: kdemultimedia-extras-freeworld = %{version}-%{release}
 
 
 %build
-%{cmake_kf5}
-
+%cmake_kf5
 %cmake_build
 
 
@@ -56,9 +55,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 %files
 %license LICENSES/GPL-2.0-or-later.txt
-%{_kf5_qtplugindir}/ffmpegthumbs.so
-%dir %{_kf5_datadir}/kservices5
-%{_kf5_datadir}/kservices5/ffmpegthumbs.desktop
+%{_kf5_qtplugindir}/kf5/thumbcreator/ffmpegthumbs.so
 %dir %{_kf5_datadir}/config.kcfg
 %{_kf5_datadir}/config.kcfg/ffmpegthumbnailersettings5.kcfg
 %dir %{_kf5_datadir}/qlogging-categories5
@@ -67,6 +64,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

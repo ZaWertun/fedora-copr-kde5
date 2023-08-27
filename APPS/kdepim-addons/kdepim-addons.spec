@@ -1,7 +1,7 @@
 %global with_markdown 1
 
 Name:    kdepim-addons
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
@@ -45,12 +45,12 @@ BuildRequires:  cmake(KF5XmlGui)
 
 BuildRequires:  cmake(KF5TextAutoCorrection)
 
-BuildRequires:  cmake(KF5Akonadi)
-BuildRequires:  cmake(KF5AkonadiNotes)
+BuildRequires:  cmake(KPim5Akonadi)
+BuildRequires:  cmake(KPim5AkonadiNotes)
 BuildRequires:  cmake(KF5CalendarSupport)
 BuildRequires:  cmake(KF5EventViews)
-BuildRequires:  cmake(KF5GrantleeTheme)
-BuildRequires:  cmake(KF5Gravatar)
+BuildRequires:  cmake(KPim5GrantleeTheme)
+BuildRequires:  cmake(KPim5Gravatar)
 BuildRequires:  cmake(KF5IncidenceEditor)
 BuildRequires:  cmake(KPimImportWizard)
 BuildRequires:  cmake(KPimItinerary)
@@ -64,9 +64,9 @@ BuildRequires:  cmake(KPim5MessageComposer)
 BuildRequires:  cmake(KPim5MessageCore)
 BuildRequires:  cmake(KPim5MessageList)
 BuildRequires:  cmake(KPim5MessageViewer)
-BuildRequires:  cmake(KF5PimCommon)
+BuildRequires:  cmake(KPim5PimCommon)
 BuildRequires:  cmake(KF5Tnef)
-BuildRequires:  cmake(KF5KontactInterface)
+BuildRequires:  cmake(KPim5KontactInterface)
 
 #global majmin_ver %%(echo %%{version} | cut -d. -f1,2)
 %global majmin_ver %{version}
@@ -255,6 +255,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

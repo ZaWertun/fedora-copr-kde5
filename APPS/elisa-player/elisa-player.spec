@@ -1,5 +1,5 @@
 Name:       elisa-player
-Version:    23.04.3
+Version:    23.08.0
 Release:    1%{?dist}
 Summary:    Elisa music player
 
@@ -100,6 +100,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.el
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

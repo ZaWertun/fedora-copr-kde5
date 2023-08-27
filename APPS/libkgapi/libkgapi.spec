@@ -5,7 +5,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:           libkgapi
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 Summary:        Library to access to Google services
 
@@ -120,10 +120,12 @@ resources.
 %{_kf5_libdir}/cmake/KPim5GAPI/
 %dir %{_includedir}/KPim5/
 %{_includedir}/KPim5/KGAPI/
-%{_includedir}/KPim5/kgapi_version.h
 
 
 %changelog
+* Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

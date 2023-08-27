@@ -1,0 +1,25 @@
+From 13710ff317b573bde84f635bdd219a3ec58fbe56 Mon Sep 17 00:00:00 2001
+From: Troy Dawson <tdawson@redhat.com>
+Date: Mon, 3 Apr 2023 13:40:27 -0700
+Subject: [PATCH] Lower cmake minimum
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 16c6c62..6569189 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: BSD-3-Clause
+ # SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
+ 
+-cmake_minimum_required(VERSION 3.22)
++cmake_minimum_required(VERSION 3.20)
+ 
+ # KDE Application Version, managed by release script
+ set(RELEASE_SERVICE_VERSION_MAJOR "23")
+-- 
+2.31.1
+
