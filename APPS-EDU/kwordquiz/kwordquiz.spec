@@ -24,6 +24,13 @@ BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
 BuildRequires: gettext
+
+BuildRequires: cmake(Qt5) >= 5.15.0
+BuildRequires: cmake(Qt5QuickControls2)
+BuildRequires: cmake(Qt5Multimedia)
+BuildRequires: cmake(KF5Kirigami2) >= 5.92.0
+BuildRequires: cmake(KF5KirigamiAddons) >= 0.9.0
+
 BuildRequires: kf5-kcompletion-devel
 BuildRequires: kf5-kconfig-devel
 BuildRequires: kf5-kconfigwidgets-devel
@@ -88,9 +95,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_datadir}/icons/hicolor/*/mimetypes/application-x-%{name}.*
 %{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
+%{_kf5_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
 %{_kf5_datadir}/%{name}/
 %{_kf5_datadir}/knotifications5/%{name}.notifyrc
-%{_kf5_datadir}/kxmlgui5/%{name}/
 %{_kf5_datadir}/config.kcfg/%{name}.kcfg
 %{_kf5_datadir}/knsrcfiles/%{name}.knsrc
 
