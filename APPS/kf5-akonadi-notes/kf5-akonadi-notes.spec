@@ -49,7 +49,7 @@ Summary:   Development files for %{name}
 Requires:  %{name}%{?_isa} = %{version}-%{release}
 # split from kf5-akonadi/kdepimlibs in 16.07
 Obsoletes: kf5-akonadi-devel < 16.07
-Requires:  cmake(KF5Mime)
+Requires:  cmake(KPim5Mime)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.

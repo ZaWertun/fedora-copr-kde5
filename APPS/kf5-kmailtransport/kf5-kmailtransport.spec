@@ -42,7 +42,7 @@ BuildRequires:  kf5-ksmtp-devel >= %{majmin_ver}
 BuildRequires:  libkgapi-devel >= %{majmin_ver}
 BuildRequires:  cmake(KPim5Akonadi)
 BuildRequires:  cmake(KPim5AkonadiMime)
-BuildRequires:  cmake(KF5Mime)
+BuildRequires:  cmake(KPim5Mime)
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  cmake(Qt5Keychain)

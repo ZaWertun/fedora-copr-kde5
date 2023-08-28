@@ -35,10 +35,10 @@ BuildRequires: kf5-kcontacts-devel >= %{majmin_ver}
 BuildRequires: kf5-kpkpass-devel >= %{majmin_ver}
 
 # kde-pim cmake
-BuildRequires:  cmake(KF5Mime)
+BuildRequires:  cmake(KPim5Mime)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KPim5AkonadiContact)
-BuildRequires:  cmake(KPimPkPass)
+BuildRequires:  cmake(KPim5PkPass)
 BuildRequires:  cmake(KF5CalendarCore)
 
 BuildRequires:  pkgconfig(Qt5Gui)

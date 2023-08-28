@@ -1,6 +1,6 @@
 Name:    kigo
 Summary: Go Board game
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -91,6 +91,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Mon Aug 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

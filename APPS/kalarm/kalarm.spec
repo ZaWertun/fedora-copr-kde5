@@ -138,6 +138,8 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %{_datadir}/polkit-1/actions/org.kde.kalarm.rtcwake.policy
 %{_datadir}/dbus-1/interfaces/org.kde.kalarm.kalarm.xml
 %{_kf5_datadir}/icons/hicolor/*/apps/kalarm.*
+%{_kf5_datadir}/icons/breeze/*/actions/show-today.svg
+%{_kf5_datadir}/icons/breeze-dark/*/actions/show-today.svg
 %{_kf5_datadir}/kxmlgui5/kalarm/kalarmui.rc
 %{_kf5_datadir}/qlogging-categories5/*categories
 %{_kf5_datadir}/knotifications5/kalarm.notifyrc

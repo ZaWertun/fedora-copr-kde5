@@ -1,6 +1,6 @@
 Name:    kwordquiz
 Summary: Flash Card Trainer 
-Version: 23.04.3
+Version: 23.08.0
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -19,9 +19,6 @@ Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 ## upstream patches
 
 ## upstreamable patches
-# https://bugzilla.redhat.com/1590019
-# https://bugs.kde.org/365312
-Patch100: kwordquiz-entries.patch
 
 BuildRequires: gnupg2
 BuildRequires: desktop-file-utils
@@ -99,6 +96,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Mon Aug 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
+- 23.08.0
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 

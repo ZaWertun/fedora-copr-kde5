@@ -33,7 +33,7 @@ BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(Qt5Network)
 
 BuildRequires: kf5-kmime-devel >= %{version}
-BuildRequires: cmake(KF5Mime)
+BuildRequires: cmake(KPim5Mime)
 
 BuildRequires: pkgconfig(libsasl2)
 
@@ -54,7 +54,7 @@ Requires: cyrus-sasl-plain%{?_isa}
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       cmake(KF5CoreAddons)
-Requires:       cmake(KF5Mime)
+Requires:       cmake(KPim5Mime)
 Requires:       kf5-kmime-devel >= %{version}
 %description    devel
 %{summary}.

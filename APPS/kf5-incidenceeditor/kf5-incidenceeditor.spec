@@ -39,8 +39,8 @@ BuildRequires:  cmake(KF5I18n)
 BuildRequires:  cmake(KPim5Ldap)
 BuildRequires:  cmake(KF5Codecs)
 BuildRequires:  cmake(KF5CalendarSupport)
-BuildRequires:  cmake(KF5EventViews)
-BuildRequires:  cmake(KF5Libkdepim)
+BuildRequires:  cmake(KPim5EventViews)
+BuildRequires:  cmake(KPim5Libkdepim)
 BuildRequires:  cmake(KPim5CalendarUtils)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5MailTransport)
@@ -69,12 +69,12 @@ Conflicts:      kdepim-libs < 7:16.04.0
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       cmake(KF5EventViews)
+Requires:       cmake(KPim5EventViews)
 Requires:       cmake(KF5CalendarSupport)
 Requires:       cmake(KPim5CalendarUtils)
 Requires:       cmake(KF5CalendarCore)
 Requires:       cmake(KF5MailTransport)
-Requires:       cmake(KF5Mime)
+Requires:       cmake(KPim5Mime)
 %description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
@@ -105,7 +105,6 @@ developing applications that use %{name}.
 %files devel
 %{_includedir}/KPim5/IncidenceEditor/
 %{_kf5_libdir}/libKPim5IncidenceEditor.so
-%{_kf5_libdir}/cmake/KF5IncidenceEditor/
 %{_kf5_libdir}/cmake/KPim5IncidenceEditor/
 %{_kf5_archdatadir}/mkspecs/modules/qt_IncidenceEditor.pri
 

@@ -150,8 +150,6 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 %files devel
 %{_includedir}/KPim5/KAddressBookImportExport/
-%{_includedir}/KPim5/kaddressbookimportexport/
-%{_includedir}/KPim5/kaddressbookimportexport_version.h
 %{_kf5_libdir}/libKPim5AddressbookImportExport.so
 %{_kf5_libdir}/cmake/KPimAddressbookImportExport/
 %{_kf5_libdir}/cmake/KPim5AddressbookImportExport/

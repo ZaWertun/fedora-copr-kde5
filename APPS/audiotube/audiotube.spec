@@ -8,6 +8,7 @@ Summary:        AudioTube can search YouTube Music, list albums and artists, pla
 Url:            https://apps.kde.org/audiotube/
 Source:         https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
+BuildRequires:  gnupg2
 BuildRequires:  desktop-file-utils
 BuildRequires:  libappstream-glib
 
@@ -36,6 +37,8 @@ BuildRequires: cmake(KF5I18n)         >= %{kf5_min_version}
 BuildRequires: cmake(KF5Kirigami2)    >= %{kf5_min_version}
 BuildRequires: cmake(KF5KirigamiAddons)
 BuildRequires: cmake(KF5WindowSystem) >= %{kf5_min_version}
+
+BuildRequires: cmake(FutureSQL5)
 
 Requires:   hicolor-icon-theme
 Requires:   kf5-kirigami2

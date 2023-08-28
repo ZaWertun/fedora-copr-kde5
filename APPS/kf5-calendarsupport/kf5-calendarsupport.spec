@@ -34,7 +34,7 @@ BuildRequires:  cmake(Qt5Test)
 BuildRequires:  cmake(Qt5UiTools)
 
 BuildRequires:  cmake(KPim5Akonadi)
-BuildRequires:  cmake(KF5Mime)
+BuildRequires:  cmake(KPim5Mime)
 BuildRequires:  cmake(KPim5AkonadiMime)
 BuildRequires:  cmake(KF5Codecs)
 BuildRequires:  cmake(KPim5CalendarUtils)
@@ -64,7 +64,7 @@ Obsoletes:      kdepim-libs < 7:16.04.0
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       cmake(KF5Mime)
+Requires:       cmake(KPim5Mime)
 Requires:       cmake(KF5IdentityManagement)
 Requires:       cmake(KPim5AkonadiCalendar)
 Requires:       kf5-akonadi-calendar-devel >= %{majmin_ver}

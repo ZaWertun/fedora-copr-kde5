@@ -60,13 +60,13 @@ BuildRequires:  cmake(KF5QQC2DesktopStyle) >= %{kf5_min_version}
 BuildRequires:  cmake(KF5Plasma)          >= %{kf5_min_version}
 BuildRequires:  cmake(KF5KirigamiAddons)
 
-BuildRequires:  cmake(KPim5Akonadi)         >= %{akonadi_min_version}
-BuildRequires:  cmake(KPim5AkonadiContact)>= %{akonadi_min_version}
+BuildRequires:  cmake(KPim5Akonadi)       >= %{akonadi_min_version}
+BuildRequires:  cmake(KPim5AkonadiContact) >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5CalendarSupport) >= %{akonadi_min_version}
-BuildRequires:  cmake(KF5EventViews)      >= %{akonadi_min_version}
+BuildRequires:  cmake(KPim5EventViews)    >= %{akonadi_min_version}
 BuildRequires:  cmake(KPim5GrantleeTheme) >= %{akonadi_min_version}
 BuildRequires:  cmake(KF5MailCommon)      >= %{akonadi_min_version}
-BuildRequires:  cmake(KF5Libkdepim)       >= %{akonadi_min_version}
+BuildRequires:  cmake(KPim5Libkdepim)       >= %{akonadi_min_version}
 BuildRequires:  cmake(KPim5PimCommon)
 BuildRequires:  cmake(KPim5PimCommonAkonadi)
 BuildRequires:  cmake(KPim5AkonadiCalendar)
@@ -110,22 +110,22 @@ while keeping changes syncronised across your Plasma desktop or phone.
 
 
 %check
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop ||:
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
+desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.*.desktop
+appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.*.xml ||:
 
 
 %files -f %{name}.lang
 %license LICENSES/*.txt
 %doc README.md
-%{_kf5_bindir}/%{name}
+%{_kf5_bindir}/%{name}-{calendar,contact,mail}
 %{_qt5_qmldir}/org/kde/akonadi/
 %{_qt5_qmldir}/org/kde/%{name}/
 %{_kf5_datadir}/plasma/plasmoids/org.kde.%{name}.contact/
-%{_kf5_datadir}/applications/org.kde.%{name}.desktop
-%{_kf5_datadir}/icons/hicolor/scalable/apps/org.kde.%{name}.svg
+%{_kf5_datadir}/applications/org.kde.%{name}.{calendar,contact,mail}.desktop
+%{_kf5_datadir}/icons/hicolor/*/apps/org.kde.%{name}.{calendar,contact,mail}.png
 %{_kf5_datadir}/qlogging-categories5/*.categories
-%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
 %{_kf5_metainfodir}/org.kde.%{name}.contact.appdata.xml
+%{_kf5_metainfodir}/org.kde.%{name}.{calendar,contact,mail}.metainfo.xml
 
 
 %changelog

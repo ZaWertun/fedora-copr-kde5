@@ -116,8 +116,6 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 %files devel
 %{_includedir}/KPim5/ImportWizard/
-%{_includedir}/KPim5/importwizard/
-%{_includedir}/KPim5/importwizard_version.h
 %{_kf5_libdir}/libKPim5ImportWizard.so
 %{_kf5_libdir}/cmake/KPimImportWizard/
 %{_kf5_libdir}/cmake/KPim5ImportWizard/

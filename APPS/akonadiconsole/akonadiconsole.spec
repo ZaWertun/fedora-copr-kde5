@@ -63,7 +63,7 @@ BuildRequires:  kf5-libkdepim-devel >= %{majmin_ver}
 BuildRequires:  kf5-libkleo-devel  >= %{majmin_ver}
 BuildRequires:  kf5-messagelib-devel  >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
-BuildRequires:  cmake(KF5AkonadiSearch)
+BuildRequires:  cmake(KPim5AkonadiSearch)
 BuildRequires:  cmake(Grantlee5)
 
 BuildRequires: pkgconfig(xapian-core)
