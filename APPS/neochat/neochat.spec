@@ -1,6 +1,6 @@
 Name: neochat
 Version: 23.08.0
-Release: 1%{?dist}
+Release: 5%{?dist}
 
 License: GPL-2.0-only AND GPL-2.0-or-later AND GPL-3.0-only AND GPL-3.0-or-later AND BSD-3-Clause
 URL: https://invent.kde.org/network/%{name}
@@ -111,6 +111,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 
 
 %changelog
+* Tue Sep 05 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-5
+- rebuilt
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 
