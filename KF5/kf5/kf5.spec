@@ -1,5 +1,5 @@
 Name:    kf5
-Version: 5.109.0
+Version: 5.110.0
 Release: 1%{?dist}
 Summary: Filesystem and RPM macros for KDE Frameworks 5
 License: BSD
@@ -80,6 +80,9 @@ sed -i \
 
 
 %changelog
+* Sun Sep 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.110.0-1
+- 5.110.0
+
 * Fri Aug 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-1
 - 5.109.0
 

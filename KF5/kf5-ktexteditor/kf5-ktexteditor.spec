@@ -8,7 +8,7 @@
 %endif
 
 Name:    kf5-%{framework}
-Version: 5.109.0
+Version: 5.110.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 with advanced embeddable text editor
 
@@ -143,6 +143,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Sep 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.110.0-1
+- 5.110.0
+
 * Fri Aug 18 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-1
 - 5.109.0
 

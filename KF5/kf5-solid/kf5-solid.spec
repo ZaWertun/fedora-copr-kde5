@@ -1,8 +1,8 @@
 %global framework solid
 
 Name:    kf5-%{framework}
-Version: 5.109.0
-Release: 5%{?dist}
+Version: 5.110.0
+Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 integration module that provides hardware information
 
 License: LGPLv2+
@@ -112,6 +112,9 @@ sed -i -e 's/if(WITH_NEW_SOLID_JOB AND WITH_NEW_POWER_ASYNC_API)/if(0)/g' \
 
 
 %changelog
+* Sun Sep 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.110.0-1
+- 5.110.0
+
 * Fri Aug 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.109.0-5
 - merged upstream changes
 
