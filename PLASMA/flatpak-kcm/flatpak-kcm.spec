@@ -1,5 +1,5 @@
 Name:          flatpak-kcm
-Version:       5.27.7
+Version:       5.27.8
 Release:       1%{?dist}
 License:       BSD-2-Clause and BSD-3-Clause and CC0-1.0 and GPL-2.0-or-later
 Summary:       Flatpak Permissions Management KCM
@@ -43,6 +43,9 @@ BuildRequires: pkgconfig(flatpak)
 %{_kf5_datadir}/applications/kcm_flatpak.desktop
 
 %changelog
+* Tue Sep 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-1
+- 5.27.8
+
 * Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
 - 5.27.7
 

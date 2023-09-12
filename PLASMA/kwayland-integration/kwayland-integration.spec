@@ -1,7 +1,7 @@
 %global  wayland_min_version 1.3
 
 Name:    kwayland-integration
-Version: 5.27.7
+Version: 5.27.8
 Release: 1%{?dist}
 Summary: Provides integration plugins for various KDE Frameworks for Wayland
 
@@ -65,6 +65,9 @@ Requires:       kf5-filesystem
 
 
 %changelog
+* Tue Sep 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-1
+- 5.27.8
+
 * Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
 - 5.27.7
 

@@ -1,5 +1,5 @@
 Name:    qqc2-breeze-style
-Version: 5.27.7
+Version: 5.27.8
 Release: 1%{?dist}
 Summary: Breeze inspired QQC2 Style
 
@@ -74,6 +74,9 @@ QQC2-Desktop-Style, it does not depend on Qt Widgets and the system QStyle.
 
 
 %changelog
+* Tue Sep 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-1
+- 5.27.8
+
 * Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
 - 5.27.7
 

@@ -2,7 +2,7 @@
 
 Name:    plasma-thunderbolt
 Summary: Plasma integration for controlling Thunderbolt devices
-Version: 5.27.7
+Version: 5.27.8
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -63,6 +63,9 @@ Requires:       bolt%{?_isa}
 
 
 %changelog
+* Tue Sep 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-1
+- 5.27.8
+
 * Tue Aug 01 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.7-1
 - 5.27.7
 
