@@ -84,6 +84,7 @@ sed -i '/Restart=no/d' data/plasma-xdg-desktop-portal-kde.service.in
 %license LICENSES/*.txt
 %{_libexecdir}/xdg-desktop-portal-kde
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
+%{_datadir}/xdg-desktop-portal/kde-portals.conf
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
 %{_kf5_datadir}/applications/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_kf5_datadir}/qlogging-categories5/xdp-kde.categories
