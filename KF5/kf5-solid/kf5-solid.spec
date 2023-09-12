@@ -98,7 +98,6 @@ sed -i -e 's/if(WITH_NEW_SOLID_JOB AND WITH_NEW_POWER_ASYNC_API)/if(0)/g' \
 %doc README.md TODO
 %license LICENSES/*.txt
 %{_kf5_datadir}/qlogging-categories5/%{framework}.*
-%{_kf5_bindir}/solid-power
 %{_kf5_bindir}/solid-hardware5
 #files libs
 %{_kf5_qmldir}/org/kde/solid/
