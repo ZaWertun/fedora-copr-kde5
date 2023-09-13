@@ -35,9 +35,6 @@ Source1: http://download.kde.org/%{stable}/plasma/%(echo %{version} | cut -d. -f
 Source2: https://jriddell.org/esk-riddell.gpg
 
 ## upstream patches
-# Possible fix for https://bugs.kde.org/show_bug.cgi?id=459389
-#  (Copy and paste do not work in Wayland when using some text editors in konsole and some applications)
-Patch0: kwin-5.27.7-wayland-send-data-device-selections-to-data-control-on-bind.patch
 
 ## upstreamable patches
 

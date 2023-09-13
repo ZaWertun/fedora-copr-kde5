@@ -58,8 +58,6 @@ Source40:       ssh-agent.conf
 Source41:       spice-vdagent.conf
 
 ## upstream Patches
-# Fix for https://bugs.kde.org/show_bug.cgi?id=473054
-Patch0:         plasma-workspace-5.27.7-avoid-potential-crash-when-previous-window-is-gone.patch
 
 ## downstream Patches
 # default to folderview (instead of desktop) containment, see also
