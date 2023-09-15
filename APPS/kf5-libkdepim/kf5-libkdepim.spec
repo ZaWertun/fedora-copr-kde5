@@ -1,7 +1,7 @@
 %global framework libkdepim
 
 Name:    kf5-%{framework}
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 Summary: Library for common kdepim apps
 
@@ -100,6 +100,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

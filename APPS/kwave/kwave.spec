@@ -1,5 +1,5 @@
 Name:           kwave
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 Summary:        Sound Editor for KDE
 Summary(de):    Sound-Editor für KDE
@@ -113,6 +113,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 %{_kf5_docdir}/HTML/*/%{name}
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

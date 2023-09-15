@@ -10,7 +10,7 @@
 
 Name:    kate
 Summary: Advanced Text Editor
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 
 # kwrite LGPLv2+
@@ -203,6 +203,9 @@ make test ARGS="--output-on-failure --timeout 20" -C %{__cmake_builddir} ||:
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

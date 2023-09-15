@@ -1,5 +1,5 @@
 Name:    merkuro
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
@@ -129,6 +129,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

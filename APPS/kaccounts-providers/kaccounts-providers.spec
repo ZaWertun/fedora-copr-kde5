@@ -1,5 +1,5 @@
 Name:    kaccounts-providers
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 Summary: Additional service providers for KAccounts framework
 License: GPLv2
@@ -72,6 +72,9 @@ Obsoletes: kaccounts-providers < 15.12.0
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

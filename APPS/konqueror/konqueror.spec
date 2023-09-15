@@ -5,7 +5,7 @@
 #global tests 1
 
 Name:    konqueror
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 Summary: KDE File Manager and Browser
 
@@ -227,6 +227,9 @@ make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 300" ||:
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

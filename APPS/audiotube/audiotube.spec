@@ -1,7 +1,7 @@
 %global kf5_min_version 5.86.0
 
 Name:           audiotube
-Version:        23.08.0
+Version:        23.08.1
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        AudioTube can search YouTube Music, list albums and artists, play automatically generated playlists, albums and allows to put your own playlist together.
@@ -73,6 +73,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

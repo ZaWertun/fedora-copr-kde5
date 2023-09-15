@@ -1,5 +1,5 @@
 Name:           kio-admin
-Version:        23.08.0
+Version:        23.08.1
 Release:        1%{?dist}
 Summary:        Manage files as administrator using the admin:// KIO protocol
 License:        (GPL-2.0-only or GPL-3.0-only) and BSD-3-Clause and CC0-1.0 and FSFAP
@@ -76,6 +76,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.ki
 
 
 %changelog	
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

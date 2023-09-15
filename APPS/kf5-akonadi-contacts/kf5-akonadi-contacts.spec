@@ -2,7 +2,7 @@
 %global tests 1
 
 Name:    kf5-%{framework}
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 Summary: The Akonadi Contacts Library
 
@@ -129,6 +129,9 @@ xvfb-run -a \
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

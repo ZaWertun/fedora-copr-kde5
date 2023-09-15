@@ -1,6 +1,6 @@
 Name:    kdegraphics-mobipocket 
 Summary: A collection of plugins to handle mobipocket files 
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -67,6 +67,9 @@ Provides:  qmobipocket-devel%{?_isa} = %{version}-%{release}
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

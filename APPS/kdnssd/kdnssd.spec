@@ -1,6 +1,6 @@
 Name:    kdnssd
 Summary: KDE Network Monitor for DNS-SD services (Zeroconf)
-Version: 23.08.0
+Version: 23.08.1
 Release: 1%{?dist}
 
 # KDE e.V. may determine that future GPL versions are accepted
@@ -65,6 +65,9 @@ Provides:  kdenetwork-kdnssd = 7:%{version}-%{release}
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Sun Aug 27 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.0-1
 - 23.08.0
 

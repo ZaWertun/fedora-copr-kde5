@@ -88,7 +88,6 @@
     "kf5-kidentitymanagement",
     "kf5-kimap",
     "kf5-kipi-plugins",
-    "kf5-kitinerary",
     "kf5-kmbox",
     "kf5-ksmtp",
     "kf5-libkleo",
@@ -125,29 +124,23 @@
     "kf5-libkdepim"
   ],
   "4": [
-    "kf5-akonadi-calendar",
+    "kf5-kitinerary",
     "kf5-pimcommon",
     "kgpg"
   ],
   "5": [
-    "kdepim-runtime",
-    "kf5-calendarsupport",
     "kf5-libgravatar",
     "kf5-libksieve",
     "kf5-mailimporter",
-    "knotes",
-    "zanshin"
+    "knotes"
   ],
   "6": [
-    "akonadi-calendar-tools",
-    "kf5-eventviews",
     "kf5-messagelib"
   ],
   "7": [
-    "akonadiconsole",
     "akregator",
     "grantlee-editor",
-    "kf5-incidenceeditor",
+    "kf5-akonadi-calendar",
     "kf5-mailcommon",
     "pim-sieve-editor"
   ],
@@ -155,14 +148,25 @@
     "akonadi-import-wizard",
     "kaddressbook",
     "kalarm",
+    "kdepim-runtime",
+    "kf5-calendarsupport",
     "kmail",
     "kmail-account-wizard",
     "kontact",
-    "korganizer",
-    "merkuro",
-    "pim-data-exporter"
+    "zanshin"
   ],
   "9": [
-    "kdepim-addons"
+    "akonadi-calendar-tools",
+    "akonadiconsole",
+    "kf5-eventviews",
+    "pim-data-exporter"
+  ],
+  "10": [
+    "kf5-incidenceeditor",
+    "merkuro"
+  ],
+  "11": [
+    "kdepim-addons",
+    "korganizer"
   ]
 }

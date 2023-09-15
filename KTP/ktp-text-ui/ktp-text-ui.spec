@@ -1,6 +1,6 @@
 Name:    ktp-text-ui
 Summary: Telepathy text chat handler
-Version: 23.04.3
+Version: 23.08.1
 Release: 1%{?dist}
 
 # GPLv2+: most code
@@ -134,6 +134,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.ktplogviewer.
 
 
 %changelog
+* Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
+- 23.08.1
+
 * Thu Jul 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.04.3-1
 - 23.04.3
 
