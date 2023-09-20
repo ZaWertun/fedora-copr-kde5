@@ -5,7 +5,7 @@ Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
 Version: 23.08.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv2
 URL:     https://cgit.kde.org/%{framework}.git
@@ -24,6 +24,8 @@ Source2: gpgkey-D81C0CB38EB725EF6691C385BB463350D6EF31EF.gpg
 %{?qt5_qtwebengine_arches:ExclusiveArch: %{qt5_qtwebengine_arches}}
 
 ## upstream patches
+# Fix for https://bugs.kde.org/show_bug.cgi?id=470820
+Patch0:         c99afc75a503fff6ca83df2f47a5d5d951579524.patch 
 
 ## upstreamable patches
 
@@ -193,6 +195,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Wed Sep 20 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.08.1-2
+- added patch to fix #470820
+
 * Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.08.1-1
 - 23.08.1
 
