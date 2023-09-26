@@ -21,7 +21,7 @@
 Name:    plasma-workspace
 Summary: Plasma workspace, applications and applets
 Version: 5.27.8
-Release: 1%{?dist}
+Release: 5%{?dist}
 
 License: GPLv2+
 URL:     https://invent.kde.org/plasma/%{name}
@@ -236,6 +236,15 @@ Requires:       kf5-frameworkintegration
 # For krunner
 Requires:       plasma-milou >= %{majmin_ver}
 
+# https://pagure.io/fedora-kde/SIG/issue/303
+Recommends: kde-inotify-survey
+ 
+# https://pagure.io/fedora-kde/SIG/issue/354
+Recommends: kf5-audiocd-kio
+ 
+# For a11y
+Recommends: orca
+
 # powerdevil has a versioned dep on libkworkspace5, so (may?)
 # need to avoid this dep when bootstrapping
 %if ! 0%{?bootstrap}
@@ -252,8 +261,7 @@ Requires:       coreutils
 Requires:       socat
 Requires:       xmessage
 Requires:       qt5-qttools
-# start with soft dep -- rdieter
-Recommends:     xdg-desktop-portal-kde >= %{majmin_ver}
+Requires:       xdg-desktop-portal-kde >= %{majmin_ver}
 
 Requires:       iceauth xrdb xprop
 
@@ -809,6 +817,12 @@ fi
 
 
 %changelog
+* Tue Sep 26 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-6
+- merged changes from Fedora spec
+
+* Tue Sep 26 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-5
+- rebuilt
+
 * Tue Sep 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-1
 - 5.27.8
 
