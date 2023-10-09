@@ -28,6 +28,7 @@ BuildRequires:  extra-cmake-modules >= %{majmin}
 BuildRequires:  kf5-rpm-macros >= %{majmin}
 BuildRequires:  qt5-qtbase-devel
 
+BuildRequires:  cmake(libheif)
 BuildRequires:  cmake(KF5Archive)
 
 BuildRequires:  jasper-devel
