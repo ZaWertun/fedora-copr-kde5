@@ -1,0 +1,347 @@
+# translation of akonadi_singlefile_resource.po to Low Saxon
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Manfred Wiese <m.j.wiese@web.de>, 2009, 2010, 2011.
+# Sönke Dibbern <s_dibbern@web.de>, 2009, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_singlefile_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-23 00:50+0000\n"
+"PO-Revision-Date: 2014-08-14 00:02+0200\n"
+"Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:29
+#, kde-format
+msgid "Directory settings of the resource."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:32
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select the directory whose contents should be represented by this "
+#| "resource. If the directory does not exist, it will be created."
+msgid ""
+"Select settings of the directory whose contents should be represented by "
+"this resource."
+msgstr ""
+"Den Orner utsöken, den sien Inholt disse Ressource praatstellen schall. "
+"Gifft em dat nich, warrt he opstellt."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settingsdialog.ui:39
+#, kde-format
+msgid "Directory"
+msgstr "Orner"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: settingsdialog.ui:45
+#, kde-format
+msgid "Directory Name"
+msgstr "Ornernaam"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settingsdialog.ui:53
+#, fuzzy, kde-format
+#| msgid "&Directory:"
+msgid "Director&y:"
+msgstr "&Orner:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: settingsdialog.ui:68
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Den Orner utsöken, den sien Inholt disse Ressource praatstellen schall. "
+"Gifft em dat nich, warrt he opstellt."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: settingsdialog.ui:81
+#, kde-format
+msgid "Access Rights"
+msgstr "Togriepverlöven"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:87
+#, fuzzy, kde-format
+#| msgid ""
+#| "If read-only mode is enabled, no changes will be written to the directory "
+#| "selected above. Read-only mode will be automatically enabled if you do "
+#| "not have write access to the directory."
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above."
+msgstr ""
+"Is de Bloots-lesen-Bedrief anmaakt, warrt keen Ännern na den baven utsöchten "
+"Orner schreven. De Bloots-lesen-Bedrief warrt automaatsch anmaakt, wenn Du "
+"keen Schriefverlöven för den Orner hest."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ReadOnly)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: settingsdialog.ui:90 settingsdialog.ui:100
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Is de Bloots-lesen-Bedrief anmaakt, warrt keen Ännern na den baven utsöchten "
+"Orner schreven. De Bloots-lesen-Bedrief warrt automaatsch anmaakt, wenn Du "
+"keen Schriefverlöven för den Orner hest."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:93 singlefileresourceconfigwidget_desktop.ui:92
+#, kde-format
+msgid "Read only"
+msgstr "Bloots leesbor"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: settingsdialog.ui:127
+#, kde-format
+msgid "Tuning"
+msgstr "Fieninstellen"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: settingsdialog.ui:133
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Mit de Optschonen op disse Siet kannst Du de Balangs twischen Datensekerheit "
+"un -konsistenz op de een un de Leisten op de anner Siet topassen. Wees man "
+"vörsichtig mit de Instellen op disse Siet, de Vörinstellen passt tomehrst."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: settingsdialog.ui:145
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Töövtiet för't automaatsche Sekern:"
+
+#. i18n: ectx: property (toolTip), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:152
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:155
+#, kde-format
+msgid "Select autosave interval time for the resource data (in minutes)."
+msgstr ""
+
+#: singlefileresource.h:65
+#, kde-format
+msgid "No file selected."
+msgstr "Keen Datei utsöcht"
+
+#: singlefileresource.h:67
+#, kde-format
+msgid "The resource not configured yet"
+msgstr "De Ressource is noch nich inricht."
+
+#: singlefileresource.h:98 singlefileresource.h:127 singlefileresource.h:212
+#: singlefileresourcebase.cpp:277 singlefileresourcebase.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Praat"
+
+#: singlefileresource.h:100
+#, kde-format
+msgid "Could not create file '%1'."
+msgstr "Datei \"%1\" lett sik nich opstellen."
+
+#: singlefileresource.h:114
+#, kde-format
+msgid "Could not read file '%1'"
+msgstr "De Datei \"%1\" lett sik nich lesen."
+
+#: singlefileresource.h:130
+#, kde-format
+msgid "Another download is still in progress."
+msgstr "Dor warrt noch wat anners daallaadt."
+
+#: singlefileresource.h:140 singlefileresource.h:226
+#, kde-format
+msgid "Another file upload is still in progress."
+msgstr "Dor warrt noch wat anners hoochlaadt."
+
+#: singlefileresource.h:156
+#, kde-format
+msgid "Downloading remote file."
+msgstr "Feern Datei warrt daallaadt."
+
+#: singlefileresource.h:176
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'."
+msgstr "Schrieven op bloots-leesbor Datei \"%1\" nich mööglich."
+
+#: singlefileresource.h:188
+#, kde-format
+msgid "No file specified."
+msgstr "Keen Datei angeven."
+
+#: singlefileresource.h:216
+#, kde-format
+msgid "A download is still in progress."
+msgstr "Dor warrt noch wat daallaadt."
+
+#: singlefileresource.h:256
+#, kde-format
+msgid "Uploading cached file to remote location."
+msgstr "Twischenspiekert Datei warrt na anner Reekner hoochlaadt."
+
+#: singlefileresourcebase.cpp:240
+#, kde-format
+msgid ""
+"The file '%1' was changed on disk. As a precaution, a backup of its previous "
+"contents has been created at '%2'."
+msgstr ""
+"De Datei \"%1\" wöör op de Fastplaat ännert. Dormit keen Daten wegkaamt, "
+"wöör en Kopie mit den verleden Inholt as \"%2\" sekert."
+
+#: singlefileresourcebase.cpp:264
+#, kde-format
+msgid "Could not load file '%1'."
+msgstr "Datei \"%1\" lett sik nich laden."
+
+#: singlefileresourcebase.cpp:283
+#, kde-format
+msgid "Could not save file '%1'."
+msgstr "Datei \"%1\" lett sik nich sekern."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: singlefileresourceconfigwidget_desktop.ui:39
+#, kde-format
+msgid "File"
+msgstr "Datei"
+
+#. i18n: ectx: property (text), widget (QLabel, filenameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:47
+#, fuzzy, kde-format
+#| msgid "&Filename:"
+msgid "File Name:"
+msgstr "&Dateinaam:"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: singlefileresourceconfigwidget_desktop.ui:66
+#, kde-format
+msgid ""
+"Select a file. A new file will be created if it doesn't exist. You can also "
+"use a URL, but in that case, monitoring for file changes is not possible."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, displayNameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:79
+#, fuzzy, kde-format
+#| msgid "Display Name"
+msgid "Display Name:"
+msgstr "Wiesnaam"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: singlefileresourceconfigwidget_desktop.ui:108
+#, fuzzy, kde-format
+#| msgid ""
+#| "If read-only mode is enabled, no changes will be written to the file "
+#| "selected above. Read-only mode will be automatically enabled if you do "
+#| "not have write access to the file or the file is on a remote server that "
+#| "does not support write access."
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"Is de Bloots-leesbor-Bedrief anmaakt, warrt keen Ännern na de baven utsöchte "
+"Datei schreven. Hest Du keen Schriefverlöven för de Datei oder liggt se op "
+"en Server, na den Du nich schrieven muttst, warrt de Bloots-leesbor-Bedrief "
+"automaatsch anmaakt."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MonitorFile)
+#: singlefileresourceconfigwidget_desktop.ui:121
+#, kde-format
+msgid "Enable file &monitoring"
+msgstr "Datei&beluern anmaken"
+
+#. i18n: ectx: property (text), widget (QLabel, monitoringLabel)
+#: singlefileresourceconfigwidget_desktop.ui:134
+#, kde-format
+msgid ""
+"Changes made by other applications will reload the file when monitoring is "
+"enabled. Backups will be created to avoid conflicts when possible."
+msgstr ""
+
+#: singlefileresourceconfigwidgetbase.cpp:126
+#, kde-format
+msgctxt "@info:status"
+msgid "Checking file information..."
+msgstr "Datei-Informatschonen warrt pröövt..."
+
+#~ msgid "Filename"
+#~ msgstr "Dateinaam"
+
+#~ msgid "Status:"
+#~ msgstr "Status:"
+
+#~ msgid ""
+#~ "Select the file whose contents should be represented by this resource. If "
+#~ "the file does not exist, it will be created. A URL of a remote file can "
+#~ "also be specified, but note that monitoring for file changes will not "
+#~ "work in this case."
+#~ msgstr ""
+#~ "De Datei utsöken, de ehr Inholt disse Ressource praatstellen schall. "
+#~ "Gifft dat de Datei nich, warrt se opstellt. Du kannst ok en URL vun en "
+#~ "Datei op en anner Reekner angeven, man denn funkscheneert dat beluern op "
+#~ "Ännern nich."
+
+#~ msgid "&Name:"
+#~ msgstr "&Naam:"
+
+#~ msgid ""
+#~ "Enter the name used to identify this resource in displays. If not "
+#~ "specified, the filename will be used."
+#~ msgstr ""
+#~ "Giff den Wiesnaam för disse Ressource in. Lettst Du dit leddig, warrt de "
+#~ "Dateinaam bruukt."
+
+#~ msgid "Monitoring"
+#~ msgstr "Beluern"
+
+#~ msgid ""
+#~ "If file monitoring is enabled the resource will reload the file when "
+#~ "changes are made by other programs. It also tries to create a backup in "
+#~ "case of conflicts whenever possible."
+#~ msgstr ""
+#~ "Is Dateibeluern anmaakt, laadt de Ressource de Datei na Ännern dör anner "
+#~ "Programmen nieg. Wenn mööglich, warrt bi Konflikten ok en Sekerheitkopie "
+#~ "opstellt."
+
+#~ msgid "Could not find account"
+#~ msgstr "Konto lett sik nich finnen"
+
+#~ msgid "Could not find credentials"
+#~ msgstr "Anmelldaten laat sik nich finnen"
+
+#~ msgid "&Display name:"
+#~ msgstr "&Wiesnaam:"
+
+#~ msgid " minute"
+#~ msgid_plural " minutes"
+#~ msgstr[0] " Minuut"
+#~ msgstr[1] " Minuten"
+
+#~ msgid "min"
+#~ msgstr "Min"

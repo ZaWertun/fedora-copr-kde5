@@ -1,0 +1,282 @@
+Return-Path: <commitfilter@new.kstuff.org>
+Received: from localhost (localhost [127.0.0.1])
+	 by smykowski.kdab.net (Cyrus v2.2.12) with LMTPA;
+	 Sun, 22 Mar 2009 12:10:48 +0100
+X-Sieve: CMU Sieve 2.2
+Received: from localhost (localhost [127.0.0.1])
+	by smykowski.kdab.net (Postfix) with ESMTP id 4BDF8E6C790
+	for <asok@kdab.net>; Sun, 22 Mar 2009 12:10:48 +0100 (CET)
+Received: from smykowski.kdab.net ([127.0.0.1])
+ by localhost (smykowski.kdab.net [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 03694-02 for <asok@kdab.net>;
+ Sun, 22 Mar 2009 12:10:45 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by smykowski.kdab.net (Postfix) with ESMTP id B289FE6C79B
+	for <asok@kdab.net>; Sun, 22 Mar 2009 12:10:45 +0100 (CET)
+Received: from kdeget.osuosl.org (kdeget.osuosl.org [140.211.166.77])
+	by smykowski.kdab.net (Postfix) with ESMTP id 3B465E6C790
+	for <asok@kdab.net>; Sun, 22 Mar 2009 12:10:45 +0100 (CET)
+Received: from ktown.kde.org ([131.246.120.250])
+	by kdeget.osuosl.org with smtp (Exim 4.63)
+	(envelope-from <kde-commits-bounces-+commitfilter=new.kstuff.org@kde.org>)
+	id 1LlLfE-0001OT-K7
+	for commitfilter@new.kstuff.org; Sun, 22 Mar 2009 12:16:25 +0100
+Received: (qmail 23006 invoked by uid 72); 22 Mar 2009 11:16:19 -0000
+Received: (qmail 22986 invoked from network); 22 Mar 2009 11:16:14 -0000
+Received: from unknown (HELO office.kde.org) (195.135.221.67)
+	by ktown.kde.org with SMTP; 22 Mar 2009 11:16:11 -0000
+Received: from svn.kde.org (localhost [127.0.0.1])
+	by office.kde.org (Postfix) with SMTP id 85EE718E
+	for <kde-commits@kde.org>; Sun, 22 Mar 2009 12:16:12 +0100 (CET)
+Received: (nullmailer pid 13467 invoked by uid 30);
+	Sun, 22 Mar 2009 11:16:12 -0000
+From: Volker Krause <vkrause@kde.org>
+To: kde-commits@kde.org
+Subject: playground/pim/akonaditest/resourcetester
+X-Commit-Directories: (0) trunk/playground/pim/akonaditest/resourcetester
+	trunk/playground/pim/akonaditest/resourcetester/tests
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Date: Sun, 22 Mar 2009 11:16:12 +0000
+Message-Id: <1237720572.493438.13466.nullmailer@svn.kde.org>
+X-BeenThere: kde-commits@kde.org
+X-Mailman-Version: 2.1.9
+Precedence: list
+Reply-To: kde-commits@kde.org
+List-Id: Notification of KDE commits <kde-commits.kde.org>
+List-Unsubscribe: <https://mail.kde.org/mailman/listinfo/kde-commits>,
+	<mailto:kde-commits-request@kde.org?subject=unsubscribe>
+List-Post: <mailto:kde-commits@kde.org>
+List-Help: <mailto:kde-commits-request@kde.org?subject=help>
+List-Subscribe: <https://mail.kde.org/mailman/listinfo/kde-commits>,
+	<mailto:kde-commits-request@kde.org?subject=subscribe>
+X-Virus-Scanned: by amavisd-new at kdab.net
+X-Kolab-Scheduling-Message: FALSE
+X-UID: 26666
+X-Length: 11240
+Status: RO
+X-Status: ORC
+X-KMail-EncryptionState:  
+X-KMail-SignatureState:  
+X-KMail-MDN-Sent:  
+
+SVN commit 942640 by vkrause:
+
+Allow to specifiy the collection property used to identify corresponding
+collections.
+
+
+ M  +2 -0      tests/vcardtest.js  
+ M  +1 -1      tests/vcardtest.xml  
+ M  +29 -14    xmloperations.cpp  
+ M  +46 -0     xmloperations.h  
+
+
+--- trunk/playground/pim/akonaditest/resourcetester/tests/vcardtest.js #942639:942640
+@@ -4,6 +4,8 @@
+ 
+ XmlOperations.setXmlFile( "vcardtest.xml" );
+ XmlOperations.setRootCollections( Resource.identifier() );
++XmlOperations.setCollectionKey( "None" ); // we only expect one collection
+ XmlOperations.ignoreCollectionField( "Name" ); // name is the resource identifier and thus unpredictable
++XmlOperations.ignoreCollectionField( "RemoteId" ); // remote id is the absolute path
+ XmlOperations.assertEqual();
+ 
+--- trunk/playground/pim/akonaditest/resourcetester/tests/vcardtest.xml #942639:942640
+@@ -1,5 +1,5 @@
+ <knut>
+-  <collection rid="/k/kde4/src/playground/pim/akonaditest/resourcetester/tests/vcardtest.vcf" name="akonadi_vcard_resource_0" content="text/directory">
++  <collection rid="vcardtest.vcf" name="akonadi_vcard_resource_0" content="text/directory">
+     <attribute type="AccessRights" >wcdW</attribute>
+     <attribute type="ENTITYDISPLAY" >("vcardtest.vcf" "office-address-book")</attribute>
+     <item rid="bb2slGmqxb" mimetype="text/directory">
+--- trunk/playground/pim/akonaditest/resourcetester/xmloperations.cpp #942639:942640
+@@ -31,9 +31,6 @@
+ #include <QFileInfo>
+ #include <QStringList>
+ 
+-#include <boost/bind.hpp>
+-#include <algorithm>
+-
+ using namespace Akonadi;
+ 
+ template <typename T> QTextStream& operator<<( QTextStream &s, const QSet<T> &set )
+@@ -53,7 +50,8 @@
+ 
+ XmlOperations::XmlOperations(QObject* parent) :
+   QObject( parent ),
+-  mCollectionFields( 0xFF )
++  mCollectionFields( 0xFF ),
++  mCollectionKey( RemoteId )
+ {
+ }
+ 
+@@ -99,6 +97,17 @@
+   return mErrorMsg;
+ }
+ 
++void XmlOperations::setCollectionKey(XmlOperations::CollectionField field)
++{
++  mCollectionKey = field;
++}
++
++void XmlOperations::setCollectionKey(const QString& fieldName)
++{
++  const QMetaEnum me = metaObject()->enumerator( metaObject()->indexOfEnumerator( "CollectionField" ) );
++  setCollectionKey( static_cast<CollectionField>( me.keyToValue( fieldName.toLatin1() ) ) );
++}
++
+ void XmlOperations::ignoreCollectionField(XmlOperations::CollectionField field)
+ {
+   mCollectionFields = mCollectionFields & ~field;
+@@ -137,8 +146,20 @@
+ {
+   Collection::List cols( _cols );
+   Collection::List refCols( _refCols );
+-  std::sort( cols.begin(), cols.end(), boost::bind( &Collection::remoteId, _1 ) < boost::bind( &Collection::remoteId, _2 ) );
+-  std::sort( refCols.begin(), refCols.end(), boost::bind( &Collection::remoteId, _1 ) < boost::bind( &Collection::remoteId, _2 ) );
++  switch ( mCollectionKey ) {
++    case RemoteId:
++      sortCollectionList( cols, &Collection::remoteId );
++      sortCollectionList( refCols, &Collection::remoteId );
++      break;
++    case Name:
++      sortCollectionList( cols, &Collection::name );
++      sortCollectionList( refCols, &Collection::name );
++      break;
++    case None:
++      break;
++    default:
++      Q_ASSERT( false );
++  }
+ 
+   for ( int i = 0; i < cols.count(); ++i ) {
+     const Collection col = cols.at( i );
+@@ -148,11 +169,6 @@
+     }
+ 
+     const Collection refCol = refCols.at( i );
+-    if ( col.remoteId() != refCol.remoteId() ) {
+-      mErrorMsg = QString::fromLatin1( "Collection with remote id '%1' is missing." ).arg( refCol.remoteId() );
+-      return false;
+-    }
+-
+     if ( !compareCollection( col, refCol ) )
+       return false;
+   }
+@@ -177,14 +193,13 @@
+ 
+ bool XmlOperations::compareCollection(const Collection& _col, const Collection& _refCol)
+ {
+-  Q_ASSERT( _col.remoteId() == _refCol.remoteId() );
+-
+   // normalize
+   Collection col( normalize( _col ) );
+   Collection refCol( normalize( _refCol ) );
+   
+   // compare the two collections
+-  if ( !compareValue( col, refCol, &Collection::contentMimeTypes, ContentMimeType ) ||
++  if ( !compareValue( col, refCol, &Collection::remoteId, RemoteId ) ||
++       !compareValue( col, refCol, &Collection::contentMimeTypes, ContentMimeType ) ||
+        !compareValue( col, refCol, &Collection::name, Name ) )
+     return false;
+ 
+--- trunk/playground/pim/akonaditest/resourcetester/xmloperations.h #942639:942640
+@@ -28,6 +28,10 @@
+ #include <QtCore/QObject>
+ #include <QtCore/QTextStream>
+ 
++#include <boost/bind.hpp>
++#include <algorithm>
++
++
+ /**
+   Compares a Akonadi collection sub-tree with reference data supplied in an XML file.
+ */
+@@ -49,6 +53,7 @@
+ 
+     Q_DECLARE_FLAGS( CollectionFields, CollectionField )
+ 
++    void setCollectionKey( CollectionField field );
+     void ignoreCollectionField( CollectionField field );
+ 
+   public slots:
+@@ -59,6 +64,7 @@
+     Akonadi::Item getItemByRemoteId(const QString& rid);
+     Akonadi::Collection getCollectionByRemoteId(const QString& rid);
+ 
++    void setCollectionKey( const QString &fieldName );
+     void ignoreCollectionField( const QString &fieldName );
+ 
+     bool compare();
+@@ -78,16 +84,25 @@
+     template <typename T> bool compareValue( const Akonadi::Collection &col, const Akonadi::Collection &refCol,
+                                              T (Akonadi::Collection::*property)() const,
+                                              CollectionField propertyType );
++    template <typename T> bool compareValue( const Akonadi::Collection &col, const Akonadi::Collection &refCol,
++                                             T (Akonadi::Entity::*property)() const,
++                                             CollectionField propertyType );
+     template <typename T> bool compareValue( const Akonadi::Item& item, const Akonadi::Item& refItem,
+                                              T (Akonadi::Item::*property)() const,
+                                              const char* propertyName );
+     template <typename T> bool compareValue( const T& value, const T& refValue );
+ 
++    template <typename T> void sortCollectionList( Akonadi::Collection::List &list,
++                                                   T ( Akonadi::Collection::*property)() const ) const;
++    template <typename T> void sortCollectionList( Akonadi::Collection::List &list,
++                                                   T ( Akonadi::Entity::*property)() const ) const;
++
+   private:
+     Akonadi::Collection::List mRoots;
+     Akonadi::XmlDocument mDocument;
+     QString mErrorMsg;
+     CollectionFields mCollectionFields;
++    CollectionField mCollectionKey;
+ };
+ 
+ 
+@@ -109,6 +124,23 @@
+ }
+ 
+ template <typename T>
++bool XmlOperations::compareValue( const Akonadi::Collection& col, const Akonadi::Collection& refCol,
++                                  T (Akonadi::Entity::*property)() const,
++                                  CollectionField propertyType )
++{
++  if ( mCollectionFields & propertyType ) {
++    const bool result = compareValue<T>( ((col).*(property))(), ((refCol).*(property))() );
++    if ( !result ) {
++      const QMetaEnum me = metaObject()->enumerator( metaObject()->indexOfEnumerator( "CollectionField" ) );
++      mErrorMsg.prepend( QString::fromLatin1( "Collection with remote id '%1' differs in property '%2':\n" )
++      .arg( col.remoteId() ).arg( me.valueToKey( propertyType ) ) );
++    }
++    return result;
++  }
++  return true;
++}
++
++template <typename T>
+ bool XmlOperations::compareValue( const Akonadi::Item& item, const Akonadi::Item& refItem,
+                                   T (Akonadi::Item::*property)() const,
+                                   const char* propertyName )
+@@ -131,4 +163,18 @@
+   return false;
+ }
+ 
++template <typename T>
++void XmlOperations::sortCollectionList( Akonadi::Collection::List &list,
++                                        T ( Akonadi::Collection::*property)() const ) const
++{
++  std::sort( list.begin(), list.end(), boost::bind( property, _1 ) < boost::bind( property, _2 ) );
++}
++
++template <typename T>
++void XmlOperations::sortCollectionList( Akonadi::Collection::List &list,
++                                        T ( Akonadi::Entity::*property)() const ) const
++{
++  std::sort( list.begin(), list.end(), boost::bind( property, _1 ) < boost::bind( property, _2 ) );
++}
++
+ #endif

@@ -1,0 +1,65 @@
+# Translation of akonadi_vcard_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_vcard_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-02-22 03:22+0100\n"
+"PO-Revision-Date: 2014-04-05 22:19+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: vcardconfig.cpp:29
+#, kde-format
+msgctxt "Filedialog filter for *.vcf"
+msgid "vCard Address Book File"
+msgstr "фајл в‑кард адресара"
+
+#: vcardresource.cpp:51
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Контакт са УИД‑ом „%1“ није нађен."
+
+#: vcardresource.cpp:146 vcardresource.cpp:166
+#, kde-format
+msgid "Unable to open vCard file '%1'."
+msgstr "Не могу да отворим в‑кард фајл „%1“."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcardresource.kcfg:10
+#, kde-format
+msgid "Path to vCard file."
+msgstr "Путања до в‑кард фајла"
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: vcardresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Приказно име"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcardresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Не мењај заиста позадинске податке."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: vcardresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Надгледај фајл за изменама."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcardwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Име фајла:"

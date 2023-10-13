@@ -1,0 +1,173 @@
+# translation of akonadi_contacts_resource.po to Thai
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Thanomsub Noppaburana <donga.nb@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_contacts_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2010-02-28 10:31+0700\n"
+"Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: contactsagentsettingswidget.ui:29
+#, kde-format
+msgid "Directory Name"
+msgstr "ชื่อไดเรกทอรี"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: contactsagentsettingswidget.ui:37
+#, fuzzy, kde-format
+#| msgid "&Directory:"
+msgid "Di&rectory:"
+msgstr "ไ&ดเรกทอรี:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: contactsagentsettingswidget.ui:52
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"เลือกไดเรกทอรีของเนื้อหาที่ควรจะแสดงโดยทรัพยากรนี้ หากยังไม่มีไดเรกทอรีอยู่ มันจะถูกสร้างขึ้น"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: contactsagentsettingswidget.ui:65
+#, kde-format
+msgid "Access Rights"
+msgstr "สิทธิ์การเข้าใช้งาน"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: contactsagentsettingswidget.ui:71
+#, fuzzy, kde-format
+#| msgid "Read only"
+msgctxt "if the access is limited to read-only"
+msgid "Read only"
+msgstr "อ่านได้อย่างเดียว"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: contactsagentsettingswidget.ui:78
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"หากโหมดอ่านได้อย่างเดียวถูกเปิดใช้อยู่ จะไม่มีการเขียนความเปลี่ยนแปลงใด ๆ "
+"ไปยังไดเรกทอรีที่เลือกไว้ทางด้านบนนี้ โหมดอ่านได้อย่างเดียวนั้นจะถูกเปิดใช้โดยอัตโนมัติ "
+"หากคุณไม่มีสิทธิ์ในการเขียนไปยังไดเรกทอรี"
+
+#: contactsresource.cpp:44
+#, kde-format
+msgid "Personal Contacts"
+msgstr "ที่อยู่ติดต่อส่วนตัว"
+
+#: contactsresource.cpp:124
+#, kde-format
+msgid "Directory '%1' does not exists"
+msgstr "ยังไม่มีไดเรกทอรี '%1' อยู่"
+
+#: contactsresource.cpp:148 contactsresource.cpp:223
+#, kde-format
+msgid "Found file of unknown format: '%1'"
+msgstr "พบแฟ้มที่ไม่ทราบประเภท: '%1'"
+
+#: contactsresource.cpp:197
+#, kde-format
+msgid "Unable to open file '%1'"
+msgstr "ไม่สามารถเปิดแฟ้ม '%1' ได้"
+
+#: contactsresource.cpp:207
+#, kde-format
+msgid "Found invalid contact in file '%1'"
+msgstr "พบที่อยู่ติดต่อที่ใช้งานไม่ได้ในแฟ้ม '%1'"
+
+#: contactsresource.cpp:217
+#, kde-format
+msgid "Found invalid contact group in file '%1': %2"
+msgstr "พบกลุ่มที่อยู่ติดต่อที่ใช้งานไม่ได้ในแฟ้ม '%1': %2"
+
+#: contactsresource.cpp:233 contactsresource.cpp:358 contactsresource.cpp:379
+#: contactsresource.cpp:412
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "กำลังพยายามทำการเขียนไปยังไดเรกทอรีที่อ่านได้อย่างเดียว: '%1'"
+
+#: contactsresource.cpp:251 contactsresource.cpp:266 contactsresource.cpp:301
+#: contactsresource.cpp:313
+#, kde-format
+msgid "Unable to write to file '%1': %2"
+msgstr "ไม่สามารถเขียนไปยังแฟ้ม '%1' ได้: %2"
+
+#: contactsresource.cpp:285 contactsresource.cpp:333
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'"
+msgstr "กำลังพยายามทำการเขียนไปยังแฟ้มที่อ่านได้อย่างเดียว: '%1'"
+
+#: contactsresource.cpp:323
+#, kde-format
+msgid "Received item with unknown payload %1"
+msgstr "ได้รับรายการที่ไม่ทราบถึงระดับการถ่วงน้ำหนัก %1"
+
+#: contactsresource.cpp:348
+#, kde-format
+msgid "Unable to remove file '%1'"
+msgstr "ไม่สามารถลบแฟ้ม '%1' ได้"
+
+#: contactsresource.cpp:365
+#, kde-format
+msgid "Unable to create folder '%1'."
+msgstr "ไม่สามารถสร้างโฟลเดอร์ '%1' ได้"
+
+#: contactsresource.cpp:400
+#, kde-format
+msgid "Unable to rename folder '%1'."
+msgstr "ไม่สามารถเปลี่ยนชื่อของโฟลเดอร์ '%1' ได้"
+
+#: contactsresource.cpp:418
+#, kde-format
+msgid "Unknown folder to delete."
+msgstr ""
+
+#: contactsresource.cpp:422
+#, kde-format
+msgid "Unable to delete folder '%1'."
+msgstr "ไม่สามารถลบโฟลเดอร์ '%1' ได้"
+
+#: contactsresource.cpp:437
+#, fuzzy, kde-format
+#| msgid "Unable to remove file '%1'"
+msgid "Unable to move file '%1' to '%2', '%2' already exists."
+msgstr "ไม่สามารถลบแฟ้ม '%1' ได้"
+
+#: contactsresource.cpp:451
+#, kde-format
+msgid "Unable to move directory '%1' to '%2', '%2' already exists."
+msgstr ""
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: contactsresource.kcfg:10
+#, kde-format
+msgid "Path to contacts directory"
+msgstr "พาธไปยังไดเรกทอรีเก็บที่อยู่ติดต่อต่าง ๆ"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: contactsresource.kcfg:14
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "ไม่ต้องเปลี่ยนข้อมูลจริงของโปรแกรมเบื้องหลัง"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/contactswizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr ""

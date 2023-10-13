@@ -1,0 +1,53 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-05-10 00:46+0000\n"
+"PO-Revision-Date: 2014-02-12 08:58+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: folderarchivesettingpage.cpp:33
+#, kde-format
+msgctxt "@item:inlistbox for option \"Archive folder name\""
+msgid "Unique"
+msgstr "Uniek"
+
+#: folderarchivesettingpage.cpp:34
+#, kde-format
+msgctxt "@item:inlistbox for option \"Archive folder name\""
+msgid "Month and year"
+msgstr "Maand en jaar"
+
+#: folderarchivesettingpage.cpp:35
+#, kde-format
+msgctxt "@item:inlistbox for option \"Archive folder name\""
+msgid "Year"
+msgstr "Jaar"
+
+#: folderarchivesettingpage.cpp:56
+#, kde-format
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: folderarchivesettingpage.cpp:65
+#, kde-format
+msgctxt "@label:chooser for the folder that messages will be archived under"
+msgid "Archive into:"
+msgstr "Archiveren in:"
+
+#: folderarchivesettingpage.cpp:67
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Archive folder name:"
+msgstr "Naam van archiefmap:"

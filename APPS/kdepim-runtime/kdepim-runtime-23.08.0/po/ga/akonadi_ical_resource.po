@@ -1,0 +1,87 @@
+# Irish translation of akonadi_ical_resource
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the akonadi_ical_resource package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_ical_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2009-04-06 08:33-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icalresource.kcfg:10 notes/notesresource.kcfg:10
+#, kde-format
+msgid "Path to iCal file."
+msgstr "Conair go dtí an comhad iCal."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: icalresource.kcfg:14 notes/notesresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Ainm taispeána."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icalresource.kcfg:18 notes/notesresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ná hathraigh na sonraí féin."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: icalresource.kcfg:22 notes/notesresource.kcfg:26
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Déan monatóireacht ar athruithe."
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: notes/notesresource.kcfg:22
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr ""
+
+#: shared/icalresource.cpp:47
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr ""
+
+#: shared/icalresourcebase.cpp:46 shared/icalresourcebase.cpp:59
+#: shared/icalresourcebase.cpp:90 shared/icalresourcebase.h:88
+#, kde-format
+msgid "Calendar not loaded."
+msgstr ""
+
+#: shared/icalresourcebase.cpp:134
+#, kde-format
+msgid "Failed to save calendar file to %1"
+msgstr ""
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve added item %1."
+msgstr ""
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve modified item %1."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/icalwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Ainm comhaid:"
+
+#~ msgid "Select Calendar"
+#~ msgstr "Roghnaigh Féilire"
+
+#~ msgctxt "Filedialog filter for *.ics *.ical"
+#~ msgid "iCal Calendar File"
+#~ msgstr "Comhad Féilire iCal"

@@ -1,0 +1,176 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2010-2011.
+# Ozan Çağlayan <ozan@pardus.org.tr>, 2010.
+# obsoleteman <tulliana@gmail.com>, 2009,2012.
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2017.
+# Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2022-04-05 13:21+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: contactsagentsettingswidget.ui:29
+#, kde-format
+msgid "Directory Name"
+msgstr "Dizin Adı"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: contactsagentsettingswidget.ui:37
+#, kde-format
+msgid "Di&rectory:"
+msgstr "&Dizin:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: contactsagentsettingswidget.ui:52
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Bu özkaynak tarafından sağlanacak içeriğin bulunduğu dizini seçin. Dizin "
+"mevcut değilse oluşturulacaktır."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: contactsagentsettingswidget.ui:65
+#, kde-format
+msgid "Access Rights"
+msgstr "Erişim Hakları"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: contactsagentsettingswidget.ui:71
+#, kde-format
+msgctxt "if the access is limited to read-only"
+msgid "Read only"
+msgstr "Saltokunur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: contactsagentsettingswidget.ui:78
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Saltokunur kipi etkinse yukarıda seçili dizinde hiçbir değişiklik "
+"yapılmayacak. Bu dizine yazma yetkiniz yoksa saltokunur kipi otomatik olarak "
+"etkinleştirilecek."
+
+#: contactsresource.cpp:44
+#, kde-format
+msgid "Personal Contacts"
+msgstr "Kişisel Bağlantılar"
+
+#: contactsresource.cpp:124
+#, kde-format
+msgid "Directory '%1' does not exists"
+msgstr "'%1' dizini oluşturulmamış"
+
+#: contactsresource.cpp:148 contactsresource.cpp:223
+#, kde-format
+msgid "Found file of unknown format: '%1'"
+msgstr "Bilinmeyen dosya biçimi bulundu: '%1'"
+
+#: contactsresource.cpp:197
+#, kde-format
+msgid "Unable to open file '%1'"
+msgstr "'%1' dosyası açılamadı"
+
+#: contactsresource.cpp:207
+#, kde-format
+msgid "Found invalid contact in file '%1'"
+msgstr "'%1' dosyasında geçersiz kişi bulundu"
+
+#: contactsresource.cpp:217
+#, kde-format
+msgid "Found invalid contact group in file '%1': %2"
+msgstr "'%1' dosyasında geçersiz bağlantı grubu bulundu: %2"
+
+#: contactsresource.cpp:233 contactsresource.cpp:358 contactsresource.cpp:379
+#: contactsresource.cpp:412
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Saltokunur bir dizine yazılmaya çalışılıyor: '%1'"
+
+#: contactsresource.cpp:251 contactsresource.cpp:266 contactsresource.cpp:301
+#: contactsresource.cpp:313
+#, kde-format
+msgid "Unable to write to file '%1': %2"
+msgstr "'%1' dosyasına yazılamadı: %2"
+
+#: contactsresource.cpp:285 contactsresource.cpp:333
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'"
+msgstr "Saltokunur bir dosyaya yazılmaya çalışılıyor: '%1'"
+
+#: contactsresource.cpp:323
+#, kde-format
+msgid "Received item with unknown payload %1"
+msgstr "%1 bilinmeyen veri içeren öge alındı"
+
+#: contactsresource.cpp:348
+#, kde-format
+msgid "Unable to remove file '%1'"
+msgstr "'%1' dosyası silinemedi"
+
+#: contactsresource.cpp:365
+#, kde-format
+msgid "Unable to create folder '%1'."
+msgstr "'%1' dizini oluşturulamadı."
+
+#: contactsresource.cpp:400
+#, kde-format
+msgid "Unable to rename folder '%1'."
+msgstr "'%1' dizini yeniden adlandırılamadı."
+
+#: contactsresource.cpp:418
+#, kde-format
+msgid "Unknown folder to delete."
+msgstr "Silinecek bilinmeyen klasör."
+
+#: contactsresource.cpp:422
+#, kde-format
+msgid "Unable to delete folder '%1'."
+msgstr "'%1' dizini silinemedi."
+
+#: contactsresource.cpp:437
+#, kde-format
+msgid "Unable to move file '%1' to '%2', '%2' already exists."
+msgstr "'%1' dosyası '%2' konumuna taşınamadı, '%2' zaten mevcut."
+
+#: contactsresource.cpp:451
+#, kde-format
+msgid "Unable to move directory '%1' to '%2', '%2' already exists."
+msgstr "'%1' dizini '%2' konumuna taşınamadı, '%2' zaten mevcut."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: contactsresource.kcfg:10
+#, kde-format
+msgid "Path to contacts directory"
+msgstr "Kişiler dizininin yolu"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: contactsresource.kcfg:14
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Güncel arka uç verilerini değiştirme."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/contactswizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Dosya adı:"

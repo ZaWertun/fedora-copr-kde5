@@ -1,0 +1,752 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-01-13 00:57+0000\n"
+"PO-Revision-Date: 2022-05-07 02:06+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: configdialog.cpp:33
+#, kde-format
+msgctxt "@title:window"
+msgid "DAV Resource Configuration"
+msgstr "DAV 리소스 설정"
+
+#: configdialog.cpp:46
+#, kde-format
+msgid "Protocol"
+msgstr "프로토콜"
+
+#: configdialog.cpp:46 urlconfigurationdialog.cpp:266
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: configdialog.cpp:59
+#, kde-format
+msgid "Days"
+msgstr "일"
+
+#: configdialog.cpp:60
+#, kde-format
+msgid "Months"
+msgstr "개월"
+
+#: configdialog.cpp:61
+#, kde-format
+msgid "Years"
+msgstr "년"
+
+#: configdialog.cpp:137
+#, kde-format
+msgid ""
+"Another configuration entry already uses the same URL/protocol couple.\n"
+"Please use a different URL"
+msgstr ""
+"같은 URL/프로토콜 쌍에 대해서 설정 항목이 이미 존재합니다.\n"
+"다른 URL을 사용하십시오"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configdialog.ui:29
+#, kde-format
+msgid "Display name:"
+msgstr "표시 이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configdialog.ui:39
+#, kde-format
+msgid "Refresh every:"
+msgstr "새로 고침 간격:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_refreshInterval)
+#: configdialog.ui:48
+#, kde-format
+msgid "Never"
+msgstr "하지 않음"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configdialog.ui:58
+#, kde-format
+msgid "minutes"
+msgstr "분"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configdialog.ui:80 urlconfigurationdialog.ui:111
+#, kde-format
+msgid "Username:"
+msgstr "사용자 이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:108 setupwizard.cpp:222 urlconfigurationdialog.ui:127
+#, kde-format
+msgid "Password:"
+msgstr "암호:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:136
+#, kde-format
+msgid ""
+"Select this if your calendars contain a lot of events and the server cannot "
+"fulfill the requests"
+msgstr ""
+"달력에 일정이 많이 들어 있고 서버에서 요청을 처리할 수 없으면 선택하십시오"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:139
+#, kde-format
+msgid "Limit CalDav retrieval time range"
+msgstr "CalDav 가져오기 시간 제한"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:151
+#, kde-format
+msgid "Only sync events more recent than"
+msgstr "다음 이후의 이벤트만 가져오기"
+
+#. i18n: ectx: property (text), widget (QLabel, label_41)
+#: configdialog.ui:190
+#, kde-format
+msgid "Server Configuration:"
+msgstr "서버 설정:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: configdialog.ui:204
+#, kde-format
+msgid "Add"
+msgstr "추가"
+
+#. i18n: ectx: property (text), widget (QPushButton, searchButton)
+#: configdialog.ui:211 searchdialog.ui:151
+#, kde-format
+msgid "Search"
+msgstr "찾기"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: configdialog.ui:218
+#, kde-format
+msgid "Remove"
+msgstr "삭제"
+
+#. i18n: ectx: property (text), widget (QPushButton, editButton)
+#: configdialog.ui:225
+#, kde-format
+msgid "Edit"
+msgstr "편집"
+
+#: daverror-kdepim-runtime.cpp:26
+#, kde-format
+msgid "Invalid username/password"
+msgstr "잘못된 사용자 이름 및 암호"
+
+#: daverror-kdepim-runtime.cpp:28
+#, kde-format
+msgid "Access forbidden"
+msgstr "접근 거부됨"
+
+#: daverror-kdepim-runtime.cpp:30
+#, kde-format
+msgid "Resource not found"
+msgstr "리소스를 찾을 수 없음"
+
+#: daverror-kdepim-runtime.cpp:32
+#, kde-format
+msgid "HTTP error"
+msgstr "HTTP 오류"
+
+#: daverror-kdepim-runtime.cpp:35
+#, kde-format
+msgid ""
+"There was a problem with the request.\n"
+"%1 (%2)."
+msgstr ""
+"요청에 문제가 있습니다.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:41
+#, kde-format
+msgid "Protocol for the collection does not support MULTIGET"
+msgstr "모음집에 대한 프로토콜이 MULTIGET을 지원하지 않음"
+
+#: daverror-kdepim-runtime.cpp:44
+#, kde-format
+msgid ""
+"The server encountered an error that prevented it from completing your "
+"request: %1 (%2)"
+msgstr "서버에서 요청을 처리할 수 없는 오류가 발생했습니다: %1(%2)"
+
+#: daverror-kdepim-runtime.cpp:48
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been deleted "
+"from the server.\n"
+"%1 (%2)."
+msgstr ""
+"요청에 문제가 있습니다. 서버에서 모음집이 삭제되지 않았습니다:\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:54
+#, kde-format
+msgid "Invalid responses from backend"
+msgstr "백엔드에서 잘못된 응답이 돌아옴"
+
+#: daverror-kdepim-runtime.cpp:57
+#, kde-format
+msgid "Error setting focus for XQuery"
+msgstr "XQuery 포커스 설정 오류"
+
+#: daverror-kdepim-runtime.cpp:60
+#, kde-format
+msgid "Invalid XQuery submitted by DAV implementation"
+msgstr "DAV 구현에서 잘못된 XQuery를 보냄"
+
+#: daverror-kdepim-runtime.cpp:64
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been modified "
+"on the server.\n"
+"%1 (%2)."
+msgstr ""
+"요청에 문제가 있습니다. 서버에서 모음집이 수정되지 않았습니다:\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:70
+#, kde-format
+msgid "No properties to change or remove"
+msgstr "변경하거나 삭제할 속성 없음"
+
+#: daverror-kdepim-runtime.cpp:73
+#, kde-format
+msgid "There was an error when modifying the properties"
+msgstr "속성을 수정하는 중 오류가 발생함"
+
+#: daverror-kdepim-runtime.cpp:75
+#, kde-format
+msgid ""
+"\n"
+"The server returned more information:\n"
+"%1"
+msgstr ""
+"\n"
+"서버에서 부가 정보를 돌려 줌:\n"
+"%1"
+
+#: daverror-kdepim-runtime.cpp:80
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been created on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"요청에 문제가 있습니다. 서버에서 모음집이 생성되지 않았습니다:\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:87
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been deleted from the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"요청에 문제가 있습니다. 서버에서 항목이 삭제되지 않았습니다:\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:94
+#, kde-format
+msgid ""
+"There was a problem with the request. The item was not modified on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"요청에 문제가 있습니다. 서버에서 항목이 수정되지 않았습니다:\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:100
+#, kde-format
+msgid "There was a problem with the request."
+msgstr "요청에 문제가 있습니다."
+
+#: daverror-kdepim-runtime.cpp:104
+#, kde-format
+msgid ""
+"There was a problem with the request. The requested MIME types are not "
+"supported."
+msgstr "요청에 문제가 있습니다. 지정한 MIME 형식을 지원하지 않습니다."
+
+#: davfreebusyhandler.cpp:57
+#, kde-format
+msgid "No schedule-outbox found for %1"
+msgstr "%1에서 schedule-outbox를 찾을 수 없음"
+
+#: davfreebusyhandler.cpp:186 davfreebusyhandler.cpp:197
+#, kde-format
+msgid "Invalid response from the server"
+msgstr "서버에서 잘못된 응답이 돌아옴"
+
+#: davfreebusyhandler.cpp:208
+#, kde-format
+msgid "Unable to parse free-busy data received"
+msgstr "받은 free-busy 데이터를 해석할 수 없음"
+
+#: davgroupwareresource.cpp:163
+#, kde-format
+msgid "Unable to retrieve free-busy info while offline"
+msgstr "오프라인일 때 free-busy 정보를 가져올 수 없음"
+
+#: davgroupwareresource.cpp:246
+#, kde-format
+msgid "Fetching collections"
+msgstr "모음집 가져오는 중"
+
+#: davgroupwareresource.cpp:314
+#, kde-format
+msgid "Asked to retrieve items for an unknown collection: %1"
+msgstr "알 수 없는 모음집에서 항목을 가져와야 함: %1"
+
+#: davgroupwareresource.cpp:371
+#, kde-format
+msgid "Invalid collection for item %1."
+msgstr "항목 %1의 모음집이 올바르지 않습니다."
+
+#: davgroupwareresource.cpp:608
+#, kde-format
+msgid "Unable to modify collection: %1"
+msgstr "모음집을 수정할 수 없음: %1"
+
+#: davgroupwareresource.cpp:677
+#, kde-format
+msgid "Unable to remove collection: %1"
+msgstr "모음집을 삭제하는 중: %1"
+
+#: davgroupwareresource.cpp:697
+#, kde-format
+msgid "Unable to retrieve collections: %1"
+msgstr "모음집을 가져올 수 없음: %1"
+
+#: davgroupwareresource.cpp:830 davgroupwareresource.cpp:929
+#, kde-format
+msgid "Unable to retrieve items: %1"
+msgstr "항목을 가져올 수 없음: %1"
+
+#: davgroupwareresource.cpp:1009
+#, kde-format
+msgid "Unable to retrieve item: %1"
+msgstr "항목을 가져올 수 없음: %1"
+
+#: davgroupwareresource.cpp:1029
+#, kde-format
+msgid ""
+"Unable to retrieve item: failed to parse item data. Maybe it was deleted "
+"already."
+msgstr ""
+"항목을 가져올 수 없음: 항목 데이터를 해석할 수 없습니다. 이미 삭제되었을 수"
+"도 있습니다."
+
+#: davgroupwareresource.cpp:1066
+#, kde-format
+msgid "Unable to add item: %1"
+msgstr "항목을 추가할 수 없음: %1"
+
+#: davgroupwareresource.cpp:1110 davgroupwareresource.cpp:1223
+#: davgroupwareresource.cpp:1235
+#, kde-format
+msgid "Unable to change item: %1"
+msgstr "항목을 변경할 수 없음: %1"
+
+#: davgroupwareresource.cpp:1197 davgroupwareresource.cpp:1254
+#, kde-format
+msgid "Unable to remove item: %1"
+msgstr "항목을 삭제할 수 없음: %1"
+
+#: davgroupwareresource.cpp:1341 davgroupwareresource.cpp:1342
+#, kde-format
+msgid "The resource is not configured yet"
+msgstr "리소스가 설정되지 않음"
+
+#. i18n: ectx: label, entry (settingsVersion), group (General)
+#: davgroupwareresource.kcfg:10
+#, kde-format
+msgid "Settings Version"
+msgstr "설정 버전"
+
+#. i18n: ectx: label, entry (displayName), group (General)
+#: davgroupwareresource.kcfg:14
+#, kde-format
+msgid "Display name"
+msgstr "표시 이름"
+
+#. i18n: ectx: label, entry (refreshInterval), group (General)
+#: davgroupwareresource.kcfg:18
+#, kde-format
+msgid "Refresh every"
+msgstr "새로 고침 간격"
+
+#. i18n: ectx: label, entry (remoteUrls), group (General)
+#: davgroupwareresource.kcfg:22
+#, kde-format
+msgid "Remote URLs"
+msgstr "원격 URL"
+
+#. i18n: ectx: label, entry (defaultUsername), group (General)
+#: davgroupwareresource.kcfg:26
+#, kde-format
+msgid "User name"
+msgstr "사용자 이름"
+
+#. i18n: ectx: label, entry (limitSyncRange), group (General)
+#: davgroupwareresource.kcfg:30
+#, kde-format
+msgid "Limit the events retrieval to the specified time range"
+msgstr "지정한 시간 범위로 이벤트 가져오기 제한"
+
+#. i18n: ectx: label, entry (syncRangeStartNumber), group (General)
+#: davgroupwareresource.kcfg:34
+#, kde-format
+msgid "Period for which to retrieve events, quantity"
+msgstr "이벤트를 가져올 주기, 항목 수"
+
+#. i18n: ectx: label, entry (syncRangeStartType), group (General)
+#: davgroupwareresource.kcfg:38
+#, kde-format
+msgid "Period for which to retrieve events, type"
+msgstr "이벤트를 가져올 주기, 형식"
+
+#. i18n: ectx: label, entry (collectionsUrlsMappings), group (General)
+#: davgroupwareresource.kcfg:42
+#, kde-format
+msgid ""
+"String representation of the mappings between discovered collections and "
+"configured URLs"
+msgstr "발견한 모음집과 설정된 URL의 쌍을 나타내는 문자열"
+
+#. i18n: ectx: label, entry (readOnly), group (General)
+#: davgroupwareresource.kcfg:46
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "실제 백엔드 데이터를 변경하지 않습니다."
+
+#. i18n: ectx: label, entry (AccountId), group (General)
+#: davgroupwareresource.kcfg:50
+#, kde-format
+msgid "The account id in WebAccounts framework."
+msgstr "WebAccounts 프레임워크의 계정 ID입니다."
+
+#. i18n: ectx: label, entry (AccountServices), group (General)
+#: davgroupwareresource.kcfg:53
+#, kde-format
+msgid "Account enabled services"
+msgstr "계정 활성화된 서비스"
+
+#: searchdialog.cpp:26
+#, kde-format
+msgctxt "@title:window"
+msgid "Search"
+msgstr "검색"
+
+#: searchdialog.cpp:41
+#, kde-format
+msgid "Add Selected Items"
+msgstr "선택한 항목 추가"
+
+#: searchdialog.cpp:126 searchdialog.cpp:169
+#, kde-format
+msgid ""
+"An error occurred when executing search:\n"
+"%1"
+msgstr ""
+"검색을 실행하는 중 오류가 발생했습니다:\n"
+"%1"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useDefaultCreds)
+#: searchdialog.ui:32 urlconfigurationdialog.ui:85
+#, kde-format
+msgid "Use global creden&tials"
+msgstr "전역 자격 증명 사용(&T)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useSpecificCreds)
+#: searchdialog.ui:42 urlconfigurationdialog.ui:95
+#, kde-format
+msgid "Use specific credentials"
+msgstr "지정 자격 증명 사용"
+
+#. i18n: ectx: property (title), widget (QGroupBox, credentialsGroup)
+#: searchdialog.ui:49
+#, kde-format
+msgid "Credentials"
+msgstr "자격 증명"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: searchdialog.ui:61
+#, kde-format
+msgid "Username"
+msgstr "사용자 이름"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: searchdialog.ui:77
+#, kde-format
+msgid "Password"
+msgstr "암호"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: searchdialog.ui:96
+#, kde-format
+msgid "Search URL"
+msgstr "검색 URL"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: searchdialog.ui:106
+#, kde-format
+msgid "Search for"
+msgstr "다음을 검색"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:116
+#, kde-format
+msgid "a person named"
+msgstr "다음 이름을 가지는 사람"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:121
+#, kde-format
+msgid "a contact with email"
+msgstr "다음 이메일 주소를 가지는 사람"
+
+#: settings.cpp:481
+#, kde-format
+msgid "A password is required for user %1"
+msgstr "사용자 %1의 암호가 필요함"
+
+#: settings.cpp:484
+#, kde-format
+msgid "Password: "
+msgstr "암호:"
+
+#: setupwizard.cpp:140
+#, kde-format
+msgctxt "@title:window"
+msgid "DAV groupware configuration wizard"
+msgstr "DAV 그룹웨어 설정 마법사"
+
+#: setupwizard.cpp:213
+#, kde-format
+msgid "Login Credentials"
+msgstr "로그인 자격 증명"
+
+#: setupwizard.cpp:214
+#, kde-format
+msgid "Enter your credentials to login to the groupware server"
+msgstr "그룹웨어 서버에 연결하려면 자격 증명을 입력하십시오"
+
+#: setupwizard.cpp:218
+#, kde-format
+msgid "User:"
+msgstr "사용자:"
+
+#: setupwizard.cpp:258
+#, kde-format
+msgid "No, choose another server"
+msgstr "아니요, 다른 서버를 선택합니다"
+
+#: setupwizard.cpp:260
+#, kde-format
+msgid "Predefined provider found"
+msgstr "미리 정의된 공급자를 찾았음"
+
+#: setupwizard.cpp:261
+#, kde-format
+msgid "Select if you want to use the auto-detected provider"
+msgstr "미리 정의된 공급자를 사용하려면 선택하십시오"
+
+#: setupwizard.cpp:280
+#, kde-format
+msgid ""
+"Based on the email address you used as a login, this wizard\n"
+"can configure automatically an account for %1 services.\n"
+"Do you wish to do so?"
+msgstr ""
+"입력한 이메일 주소를 기반으로 하여, 이 마법사에서는\n"
+"%1 서비스에 사용하는 계정을 자동으로 설정할 수 있습니다.\n"
+"계속 진행하시겠습니까?"
+
+#: setupwizard.cpp:285
+#, kde-format
+msgid "Yes, use %1 as provider"
+msgstr "예, %1을(를) 공급자로 사용합니다"
+
+#: setupwizard.cpp:311
+#, kde-format
+msgid "Groupware Server"
+msgstr "그룹웨어 서버"
+
+#: setupwizard.cpp:312
+#, kde-format
+msgid "Select the groupware server the resource shall be configured for"
+msgstr "리소스를 구성할 그룹웨어 서버 선택"
+
+#: setupwizard.cpp:343
+#, kde-format
+msgid "Use one of those servers:"
+msgstr "다음 서버 중 하나 사용:"
+
+#: setupwizard.cpp:352
+#, kde-format
+msgid "Configure the resource manually"
+msgstr "리소스를 수동으로 설정"
+
+#: setupwizard.cpp:390
+#, kde-format
+msgid "Connection"
+msgstr "연결"
+
+#: setupwizard.cpp:391
+#, kde-format
+msgid "Enter the connection information for the groupware server"
+msgstr "그룹웨어 서버 연결 정보 입력"
+
+#: setupwizard.cpp:398
+#, kde-format
+msgid "Host"
+msgstr "호스트"
+
+#: setupwizard.cpp:401
+#, kde-format
+msgid "Installation path"
+msgstr "설치 경로"
+
+#: setupwizard.cpp:404
+#, kde-format
+msgid "Use secure connection"
+msgstr "보안 연결 사용"
+
+#: setupwizard.cpp:432
+#, kde-format
+msgid "Final URL (CalDav)"
+msgstr "최종 URL (CalDav)"
+
+#: setupwizard.cpp:437
+#, kde-format
+msgid "Final URL (CardDav)"
+msgstr "최종 URL (CardDav)"
+
+#: setupwizard.cpp:442
+#, kde-format
+msgid "Final URL (GroupDav)"
+msgstr "최종 URL (GroupDav)"
+
+#: setupwizard.cpp:506 setupwizard.cpp:512
+#, kde-format
+msgid "Test Connection"
+msgstr "연결 시험"
+
+#: setupwizard.cpp:507
+#, kde-format
+msgid ""
+"You can test now whether the groupware server can be accessed with the "
+"current configuration"
+msgstr ""
+"현재 설정으로 그룹웨어 서비스에 접근할 수 있는지 테스트해 볼 수 있습니다"
+
+#: setupwizard.cpp:552
+#, kde-format
+msgid "An error occurred: %1"
+msgstr "오류 발생: %1"
+
+#: setupwizard.cpp:555
+#, kde-format
+msgid "Connected successfully"
+msgstr "성공적으로 연결됨"
+
+#: urlconfigurationdialog.cpp:266
+#, kde-format
+msgid "Display Name"
+msgstr "표시 이름"
+
+#. i18n: ectx: property (text), widget (QLabel, remoteProtocol)
+#: urlconfigurationdialog.ui:35
+#, kde-format
+msgid "Access protocol:"
+msgstr "접근 프로토콜:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, caldav)
+#: urlconfigurationdialog.ui:42
+#, kde-format
+msgid "CalDA&V"
+msgstr "CalDAV(&V)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, carddav)
+#: urlconfigurationdialog.ui:52
+#, kde-format
+msgid "CardDAV"
+msgstr "CardDAV"
+
+#. i18n: ectx: property (text), widget (QRadioButton, groupdav)
+#: urlconfigurationdialog.ui:59
+#, kde-format
+msgid "GroupDAV"
+msgstr "GroupDAV"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: urlconfigurationdialog.ui:66
+#, kde-format
+msgid "Remote URL:"
+msgstr "원격 URL:"
+
+#. i18n: ectx: property (text), widget (QLabel, label1)
+#: urlconfigurationdialog.ui:76
+#, kde-format
+msgid "Access:"
+msgstr "접근:"
+
+#. i18n: ectx: property (text), widget (QLabel, collectionsLabel)
+#: urlconfigurationdialog.ui:146
+#, kde-format
+msgid "Discovered collections:"
+msgstr "발견한 모음집:"
+
+#. i18n: ectx: property (text), widget (QPushButton, fetchButton)
+#: urlconfigurationdialog.ui:174
+#, kde-format
+msgid "Fetch"
+msgstr "가져오기"
+
+#: utils.cpp:47 utils.cpp:64
+#, kde-format
+msgid "CalDav"
+msgstr "CalDav"
+
+#: utils.cpp:50 utils.cpp:66
+#, kde-format
+msgid "CardDav"
+msgstr "CardDav"
+
+#: utils.cpp:53 utils.cpp:68
+#, kde-format
+msgid "GroupDav"
+msgstr "GroupDav"
+
+#~ msgid "General Configuration"
+#~ msgstr "일반 설정"
+
+#~ msgid "Synchronization"
+#~ msgstr "동기화"
+
+#~ msgid "Remote calendar access protocol"
+#~ msgstr "원격 달력 접근 프로토콜"
+
+#~ msgid "Remote calendar access"
+#~ msgstr "원격 달력 접근"
+
+#~ msgid "The server returned invalid data"
+#~ msgstr "서버에서 잘못된 데이터를 반환함"

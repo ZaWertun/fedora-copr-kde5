@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "tomboynotesconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_tomboynotes_resource"
+}

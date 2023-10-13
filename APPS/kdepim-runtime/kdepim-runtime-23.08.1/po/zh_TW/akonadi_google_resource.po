@@ -1,0 +1,470 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Franklin Weng <franklin@goodhorse.idv.tw>, 2012, 2013, 2014.
+# Jeff Huang <s8321414@gmail.com>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-09-12 02:26+0000\n"
+"PO-Revision-Date: 2017-03-25 17:43+0800\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: calendarhandler.cpp:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving calendars"
+msgstr ""
+
+#: calendarhandler.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving events for calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:197 taskhandler.cpp:170
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding event to calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:221
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing event in calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 event"
+msgid_plural "Removing %1 events"
+msgstr[0] ""
+
+#: calendarhandler.cpp:248
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 event from calendar '%2' to calendar '%3'"
+msgid_plural "Moving %1 events from calendar '%2' to calendar '%3'"
+msgstr[0] ""
+
+#: calendarhandler.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:307
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing calendar '%1'"
+msgstr ""
+
+#: generichandler.cpp:24
+#, kde-format
+msgid "Cannot handle item linking"
+msgstr ""
+
+#: generichandler.cpp:29
+#, kde-format
+msgid "Cannot handle item unlinking"
+msgstr ""
+
+#: generichandler.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Ready"
+msgctxt "@status"
+msgid "Ready"
+msgstr "已就緒"
+
+#: generichandler.h:65 generichandler.h:77
+#, fuzzy, kde-format
+#| msgid "Invalid item payload."
+msgid "Invalid item."
+msgstr "不合法的項目資料。"
+
+#: googleresource.cpp:84
+#, kde-format
+msgid "Fetching password..."
+msgstr ""
+
+#: googleresource.cpp:93
+#, kde-format
+msgid "Can't fetch password"
+msgstr ""
+
+#: googleresource.cpp:137
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "已就緒"
+
+#: googleresource.cpp:157 googleresource.cpp:195
+#, kde-format
+msgid "Configured account does not exist"
+msgstr "設定的帳號不存在"
+
+#: googleresource.cpp:188
+#, kde-format
+msgid "not configured"
+msgstr "未設定"
+
+#: googleresource.cpp:188
+#, kde-format
+msgctxt "%1 is account name (user@gmail.com)"
+msgid "Google Groupware (%1)"
+msgstr ""
+
+#: googleresource.cpp:241
+#, fuzzy, kde-format
+#| msgid "Configured account has been removed"
+msgid "Account has been logged out."
+msgstr "設定的帳號已被移除"
+
+#: googleresource.cpp:244
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from your account. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+
+#: googleresource.cpp:245
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from account %1. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+
+#: googleresource.cpp:249
+#, kde-format
+msgctxt "@title"
+msgid "%1 needs your attention."
+msgstr ""
+
+#: googleresource.cpp:254
+#, kde-format
+msgctxt "@action"
+msgid "Log in"
+msgstr ""
+
+#: googleresource.cpp:268 googleresource.cpp:269
+#, kde-format
+msgctxt "@info:status"
+msgid "Resource is not configured"
+msgstr "資源未設定"
+
+#: googleresource.cpp:284
+#, kde-format
+msgid "Failed to refresh tokens"
+msgstr "刷新標記時失敗"
+
+#: googleresource.cpp:471 googleresource.cpp:485 googleresource.cpp:499
+#: googleresource.cpp:514 googleresource.cpp:528 googleresource.cpp:542
+#, kde-format
+msgid "Invalid payload type"
+msgstr "不合法的資料（payload）型態"
+
+#: googleresource.cpp:556 googleresource.cpp:570 googleresource.cpp:584
+#, kde-format
+msgid "Unknown collection mimetype"
+msgstr "未知的收藏 MIME 型態"
+
+#: googlesettingsdialog.cpp:57
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " 分鐘"
+
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: googlesettingsdialog.cpp:123 googlesettingsdialog.ui:30
+#, fuzzy, kde-format
+#| msgid "not configured"
+msgid "<b>not configured</b>"
+msgstr "未設定"
+
+#. i18n: ectx: property (text), widget (QLabel, accountTextLabel)
+#: googlesettingsdialog.ui:23
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account:"
+msgstr "帳號"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureBtn)
+#: googlesettingsdialog.ui:42
+#, fuzzy, kde-format
+#| msgid "not configured"
+msgid "Configure..."
+msgstr "未設定"
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableRefresh)
+#: googlesettingsdialog.ui:49
+#, kde-format
+msgid "Enable interval refresh"
+msgstr "開啟間隔刷新"
+
+#. i18n: ectx: property (text), widget (QLabel, refreshLabel)
+#: googlesettingsdialog.ui:56
+#, kde-format
+msgid "Refresh interval:"
+msgstr "刷新間隔："
+
+#. i18n: ectx: property (text), widget (QLabel, eventsLimitLabel)
+#: googlesettingsdialog.ui:79
+#, fuzzy, kde-format
+#| msgctxt "Followed by a date picker widget"
+#| msgid "&Fetch only new events since"
+msgid "Fetch only events since:"
+msgstr "只抓何時以後的新事件(&F)"
+
+#. i18n: ectx: property (text), widget (QLabel, calendarsLabel)
+#: googlesettingsdialog.ui:92
+#, fuzzy, kde-format
+#| msgid "Calendars"
+msgid "Enabled Calendars:"
+msgstr "行事曆"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadCalendarsBtn)
+#. i18n: ectx: property (text), widget (QPushButton, reloadTaskListsBtn)
+#: googlesettingsdialog.ui:123 googlesettingsdialog.ui:168
+#, kde-format
+msgid "Reload"
+msgstr "重新載入"
+
+#. i18n: ectx: property (text), widget (QLabel, taskListsLabel)
+#: googlesettingsdialog.ui:137
+#, fuzzy, kde-format
+#| msgid "Tasklists"
+msgid "Enabled Tasklists:"
+msgstr "工作清單"
+
+#: personhandler.cpp:88
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Coworkers"
+msgstr ""
+
+#: personhandler.cpp:90
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Friends"
+msgstr ""
+
+#: personhandler.cpp:92
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Family"
+msgstr ""
+
+#: personhandler.cpp:94
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "My Contacts"
+msgstr ""
+
+#: personhandler.cpp:118
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts groups"
+msgstr ""
+
+#: personhandler.cpp:125 personhandler.cpp:131
+#, kde-format
+msgid "Other Contacts"
+msgstr ""
+
+#: personhandler.cpp:172
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts for group '%1'"
+msgstr ""
+
+#: personhandler.cpp:376
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding contact to group '%1'"
+msgstr ""
+
+#: personhandler.cpp:410
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact"
+msgstr ""
+
+#: personhandler.cpp:424
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 contact"
+msgid_plural "Removing %1 contacts"
+msgstr[0] ""
+
+#: personhandler.cpp:444
+#, fuzzy, kde-format
+#| msgid "IDs of calendars in collection"
+msgid "Invalid source or destination collection"
+msgstr "收藏中行事曆的代碼"
+
+#: personhandler.cpp:450
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 contact from group '%2' to '%3'"
+msgid_plural "Moving %1 contacts from group '%2' to '%3'"
+msgstr[0] ""
+
+#: personhandler.cpp:467
+#, kde-format
+msgctxt "@info:status"
+msgid "Linking %1 contact"
+msgid_plural "Linking %1 contacts"
+msgstr[0] ""
+
+#: personhandler.cpp:481
+#, kde-format
+msgctxt "@info:status"
+msgid "Unlinking %1 contact"
+msgid_plural "Unlinking %1 contacts"
+msgstr[0] ""
+
+#: personhandler.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new contact group '%1'"
+msgstr ""
+
+#: personhandler.cpp:535
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact group '%1'"
+msgstr ""
+
+#: personhandler.cpp:560
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing contact group '%1'"
+msgstr ""
+
+#. i18n: ectx: label, entry (Calendars), group (General)
+#: settingsbase.kcfg:21
+#, kde-format
+msgid "IDs of calendars in collection"
+msgstr "收藏中行事曆的代碼"
+
+#. i18n: ectx: label, entry (TaskLists), group (General)
+#: settingsbase.kcfg:25
+#, kde-format
+msgid "IDs of task lists in collection"
+msgstr "收藏中工作清單的代碼"
+
+#: taskhandler.cpp:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving task lists"
+msgstr ""
+
+#: taskhandler.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving tasks for list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:195
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task in list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:215
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 task"
+msgid_plural "Removing %1 tasks"
+msgstr[0] ""
+
+#: taskhandler.cpp:225
+#, kde-format
+msgid "Failed to delete task: %1"
+msgstr "刪除工作失敗：%1"
+
+#: taskhandler.cpp:261
+#, fuzzy, kde-format
+#| msgid "Failed to delete task: %1"
+msgid "Failed to reparent subtasks: %1"
+msgstr "刪除工作失敗：%1"
+
+#: taskhandler.cpp:292
+#, kde-format
+msgid "Moving tasks between task lists is not supported"
+msgstr "在事件清單間移動事件的功能尚未支援"
+
+#: taskhandler.cpp:297
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new task list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:322
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:335
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing task list '%1'"
+msgstr ""
+
+#~ msgid "Waiting for KWallet..."
+#~ msgstr "等待 KWallet..."
+
+#~ msgid "Can't access KWallet"
+#~ msgstr "無法存取 KWallet"
+
+#~ msgid "Refresh"
+#~ msgstr "刷新"
+
+#~ msgid "Aborted"
+#~ msgstr "已中止"
+
+#~ msgid "Invalid payload MIME type. Expected %1, found %2"
+#~ msgstr "不合法的資料（payload）MIME 型態。應該是 %1，但得到 %2"
+
+#~ msgid "&Add"
+#~ msgstr "新增(&A)"
+
+#~ msgid "&Remove"
+#~ msgstr "移除(&R)"
+
+#~ msgid ""
+#~ "Do you really want to revoke access to account <b>%1</b>?<p>This will "
+#~ "revoke access to all resources using this account!</p>"
+#~ msgstr ""
+#~ "您確定要撤銷對帳號 <b>%1</b> 的存取嗎？ <p>這會撤銷此帳號對所有資源的存"
+#~ "取。</p>"
+
+#~ msgid "Revoke Access?"
+#~ msgstr "要撤銷存取嗎？"
+
+#~ msgctxt "%1 is account name (user@gmail.com)"
+#~ msgid "Google Calendars and Tasks (%1)"
+#~ msgstr "Google 行事曆與工作（%1）"
+
+#~ msgid "The top-level collection cannot contain any tasks or events"
+#~ msgstr "頂層的收藏不能包含任何工作或事件"
+
+#~ msgid "Invalid payload type. Expected event or todo, got %1"
+#~ msgstr "不合法的資料（payload）型態。應該是事件或待辦事項，但得到 %1"

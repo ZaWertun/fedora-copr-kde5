@@ -1,0 +1,275 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdepim-runtime package.
+#
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2020-11-19 08:33+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.08.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#: etesyncresource.cpp:49
+#, kde-format
+msgid "EteSync Resource"
+msgstr "Vir EteSync"
+
+#: etesyncresource.cpp:187
+#, kde-format
+msgid "Temporary server error"
+msgstr "Napaka začasnega strežnika"
+
+#: etesyncresource.cpp:191
+#, kde-format
+msgid "You do not have permission to perform this action."
+msgstr "Nimate dovoljenja za izvedbo tega dejanja."
+
+#: etesyncresource.cpp:194
+#, kde-format
+msgid "Permission denied"
+msgstr "Dovoljenje zavrnjeno"
+
+#: etesyncresource.cpp:198
+#, kde-format
+msgid "A server error occurred."
+msgstr "Prišlo je do napake na strežniku."
+
+#: etesyncresource.cpp:201
+#, kde-format
+msgid "Server error"
+msgstr "Napaka strežnika"
+
+#: etesyncresource.cpp:220
+#, kde-format
+msgid ""
+"Your EteSync credentials were changed. Please click OK to re-enter your "
+"credentials."
+msgstr ""
+"Poverilnice za EteSync so bile spremenjene. Kliknite V redu, če želite znova "
+"vnesti svoje poverilnice."
+
+#: etesyncresource.cpp:222
+#, kde-format
+msgid "Credentials Changed"
+msgstr "Poverilnice spremenjene"
+
+#: etesyncresource.cpp:270
+#, kde-format
+msgid "Cannot retrieve items - account is null"
+msgstr "Elementov ni mogoče pridobiti - račun je ničen"
+
+#: etesyncresource.cpp:277 etesyncresource.cpp:383 etesyncresource.cpp:456
+#: etesyncresource.cpp:514 etesyncresource.cpp:643 etesyncresource.cpp:701
+#, kde-format
+msgid "Could not get etesyncCollection from cache '%1'"
+msgstr "Iz predpomnilnika '%1' ni bilo mogoče dobiti etesyncCollection"
+
+#: etesyncresource.cpp:411
+#, kde-format
+msgid "Could not create new etesyncItem '%1'"
+msgstr "Ni bilo mogoče ustvariti novega etesyncItem '%1'"
+
+#: etesyncresource.cpp:463 etesyncresource.cpp:521
+#, kde-format
+msgid "Could not get etesyncItem from cache '%1'"
+msgstr "Iz predpomnilnika '%1' ni bilo mogoče dobiti etesyncItem"
+
+#: etesyncresource.cpp:583
+#, kde-format
+msgid "Could not create new etesyncCollection"
+msgstr "Ni bilo mogoče ustvariti novega etesyncCollection"
+
+#: etesyncresource.h:62
+#, kde-format
+msgid "Something went wrong"
+msgstr "Nekaj je šlo narobe"
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "URL strežnika"
+
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:11 etesyncresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the EteSync server, should be something like https://myserver.org/"
+msgstr ""
+"URL strežnika EteSync bi moral biti približno tak: https://myserver.org/"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: etesyncresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Uporabniško ime"
+
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: etesyncresource.kcfg:16 etesyncresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the EteSync server"
+msgstr "Uporabniško ime, ki se uporablja za prijavo v strežnik EteSync"
+
+#. i18n: ectx: label, entry (BasePath), group (General)
+#: etesyncresource.kcfg:20
+#, kde-format
+msgid "Path to base directory"
+msgstr "Pot do osnovnega direktorija"
+
+#: setupwizard.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "EteSync configuration wizard"
+msgstr "Nastavitveni čarovnik za EteSync"
+
+#: setupwizard.cpp:66
+#, kde-format
+msgid "Login Credentials"
+msgstr "Poverilnice za prijavo"
+
+#: setupwizard.cpp:67
+#, kde-format
+msgid "Enter your credentials to login to the EteSync server"
+msgstr "Vnesite svoje poverilnice za prijavo na strežnik EteSync"
+
+#: setupwizard.cpp:76
+#, kde-format
+msgid "Username:"
+msgstr "Uporabniško ime:"
+
+#: setupwizard.cpp:81
+#, kde-format
+msgid "Password:"
+msgstr "Geslo:"
+
+#: setupwizard.cpp:84
+#, kde-format
+msgid "Advanced settings"
+msgstr "Napredne nastavitve"
+
+#: setupwizard.cpp:89
+#, kde-format
+msgid "Server:"
+msgstr "Strežnik:"
+
+#: setupwizard.cpp:102
+#, kde-format
+msgid ""
+"🛈 The password field is empty because EteSync does not store it for security "
+"reasons."
+msgstr ""
+"🛈 Geslo je prazno, ker EteSync zaradi varnostnih razlogov ne shranjuje gesel."
+
+#: setupwizard.cpp:134
+#, kde-format
+msgid ""
+"Please ensure that the server URL is correct. The URL should start with "
+"http:// or https://."
+msgstr ""
+"Zagotovite, da je URL strežnika pravilen. URL se mora začeti s http:// ali "
+"https://."
+
+#: setupwizard.cpp:136
+#, kde-format
+msgid ""
+"Could not connect to the server. Please ensure that the server URL is "
+"correct."
+msgstr ""
+"Ni bilo mogoče vzpostaviti povezave s strežnikom. Prepričajte se, da je URL "
+"strežnika pravilen."
+
+#: setupwizard.cpp:138
+#, kde-format
+msgid "EteSync server not found. Please ensure that the server URL is correct."
+msgstr ""
+"Strežnika EteSync ni mogoče najti. Prepričajte se, da je spletni naslov "
+"strežnika pravilen."
+
+#~ msgid "Could not get journal"
+#~ msgstr "Ni bilo mogoče dobiti dnevnika"
+
+#~ msgid "Received item with unknown payload %1"
+#~ msgstr "Prejeta postavka z neznanim tovorom %1"
+
+#~ msgid "Received item of different type"
+#~ msgstr "Prejeti predmet drugačne vrste"
+
+#~ msgid "Could not get local calendar"
+#~ msgstr "Ni bilo mogoče dobiti lokalnega koledarja"
+
+#~ msgid "Could not set journal info"
+#~ msgstr "Ni bilo mogoče nastaviti podatkov o dnevniku"
+
+#~ msgid "Could not create vcard from payload"
+#~ msgstr "Ni mogoče ustvariti vcard iz tovora"
+
+#~ msgid "Could not create vcard from content"
+#~ msgstr "Ni bilo mogoče ustvariti vcarda Iz vsebine"
+
+#~ msgid "Could not get local contact"
+#~ msgstr "NI bilo mogoče dobiti lokalnega stika"
+
+#~ msgid "My Calendar"
+#~ msgstr "Moj koledar"
+
+#~ msgid "My Contacts"
+#~ msgstr "Moji stiki"
+
+#~ msgid "My Tasks"
+#~ msgstr "Moje zadolžitve"
+
+#~ msgid "Invalid payload type"
+#~ msgstr "Neznana zvrst tovora"
+
+#~ msgid "Unknown collection mimetype"
+#~ msgstr "Neznan mime tip zbirke"
+
+#~ msgid "Password"
+#~ msgstr "Geslo"
+
+#~ msgid "The password that is used to log into the EteSync server"
+#~ msgstr "Geslo, ki se uporablja za prijavo v strežnik EteSync"
+
+#~ msgid "Encryption Password"
+#~ msgstr "Geslo šifriranja"
+
+#~ msgid "Encryption password for your EteSync account"
+#~ msgstr "Geslo šifriranja za vaš račun na EteSync"
+
+#~ msgid "Email:"
+#~ msgstr "E-pošta:"
+
+#~ msgid "Incorrect login credentials. Please try again."
+#~ msgstr "Nepravilne poverilnice za prijavo. Prosim poskusite znova."
+
+#~ msgid "Encryption password"
+#~ msgstr "Geslo šifriranja"
+
+#~ msgid "Enter the encryption password for your EteSync account"
+#~ msgstr "Vnesite geslo šifriranja za vaš račun EteSync"
+
+#~ msgid "Encryption Password:"
+#~ msgstr "Geslo šifriranja:"
+
+#~ msgid ""
+#~ "Welcome to EteSync! Please set your encryption password below, and make "
+#~ "sure you got it right, as it can't be recovered if lost!"
+#~ msgstr ""
+#~ "Dobrodošli v EteSync! Spodaj nastavite geslo za šifriranje in se "
+#~ "prepričajte prav ga pravilno dojeli, saj ga ni mogoče obnoviti, če ga "
+#~ "izgubite!"
+
+#~ msgid "Incorrect encryption password. Please try again."
+#~ msgstr "Napačno geslo za šifriranje. Prosim poskusite ponovno."

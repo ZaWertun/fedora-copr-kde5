@@ -1,0 +1,81 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2009, 2010.
+# Franklin Weng <franklin at goodhorse dot idv dot tw>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_ical_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2010-12-11 15:02+0800\n"
+"Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
+"Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icalresource.kcfg:10 notes/notesresource.kcfg:10
+#, kde-format
+msgid "Path to iCal file."
+msgstr "iCal 檔案路徑。"
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: icalresource.kcfg:14 notes/notesresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "顯示名稱。"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icalresource.kcfg:18 notes/notesresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "不要變更實際的後端資料。"
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: icalresource.kcfg:22 notes/notesresource.kcfg:26
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "監控檔案變更。"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: notes/notesresource.kcfg:22
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "自動儲存間隔時間（分）。"
+
+#: shared/icalresource.cpp:47
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "找不到使用者代碼 %1 的事件。"
+
+#: shared/icalresourcebase.cpp:46 shared/icalresourcebase.cpp:59
+#: shared/icalresourcebase.cpp:90 shared/icalresourcebase.h:88
+#, kde-format
+msgid "Calendar not loaded."
+msgstr "行事曆未載入。"
+
+#: shared/icalresourcebase.cpp:134
+#, kde-format
+msgid "Failed to save calendar file to %1"
+msgstr "無法儲存行事曆檔案到 %1。"
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve added item %1."
+msgstr "無法取得新增項目 %1。"
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve modified item %1."
+msgstr "無法取得變更項目 %1。"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/icalwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "檔案名稱："

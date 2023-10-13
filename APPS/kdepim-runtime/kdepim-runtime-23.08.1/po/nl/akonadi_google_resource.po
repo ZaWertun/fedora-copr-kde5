@@ -1,0 +1,446 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdepim-runtime package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-09-12 02:26+0000\n"
+"PO-Revision-Date: 2023-05-07 15:22+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#: calendarhandler.cpp:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving calendars"
+msgstr "Agenda's ophalen"
+
+#: calendarhandler.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving events for calendar '%1'"
+msgstr "Gebeurtenissen voor agenda '%1' ophalen"
+
+#: calendarhandler.cpp:197 taskhandler.cpp:170
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding event to calendar '%1'"
+msgstr "Gebeurtenis aan agenda '%1' wordt toegevoegd"
+
+#: calendarhandler.cpp:221
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing event in calendar '%1'"
+msgstr "Gebeurtenis in agenda '%1' wordt gewijzigd"
+
+#: calendarhandler.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 event"
+msgid_plural "Removing %1 events"
+msgstr[0] "%1 gebeurtenissen worden verwijderd"
+msgstr[1] "%1 gebeurtenissen worden verwijderd"
+
+#: calendarhandler.cpp:248
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 event from calendar '%2' to calendar '%3'"
+msgid_plural "Moving %1 events from calendar '%2' to calendar '%3'"
+msgstr[0] "%1 gebeurtenis uit agenda '%2' wordt verplaatst naar agenda '%3'"
+msgstr[1] ""
+"%1 gebeurtenissen uit agenda '%2' worden verplaatst naar agenda '%3'"
+
+#: calendarhandler.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating calendar '%1'"
+msgstr "Agenda '%1' wordt aangemaakt"
+
+#: calendarhandler.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing calendar '%1'"
+msgstr "Agenda '%1' wordt gewijzigd"
+
+#: calendarhandler.cpp:307
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing calendar '%1'"
+msgstr "Agenda '%1' wordt verwijderd"
+
+#: generichandler.cpp:24
+#, kde-format
+msgid "Cannot handle item linking"
+msgstr "Koppeling naar item kan niet worden behandeld"
+
+#: generichandler.cpp:29
+#, kde-format
+msgid "Cannot handle item unlinking"
+msgstr "Koppeling naar item ongedaan maken kan niet worden behandeld"
+
+#: generichandler.cpp:56
+#, kde-format
+msgctxt "@status"
+msgid "Ready"
+msgstr "Gereed"
+
+#: generichandler.h:65 generichandler.h:77
+#, kde-format
+msgid "Invalid item."
+msgstr "Ongeldig item."
+
+#: googleresource.cpp:84
+#, kde-format
+msgid "Fetching password..."
+msgstr "Wachtwoord ophalen..."
+
+#: googleresource.cpp:93
+#, kde-format
+msgid "Can't fetch password"
+msgstr "Kan wachtwoord niet ophalen"
+
+#: googleresource.cpp:137
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Gereed"
+
+#: googleresource.cpp:157 googleresource.cpp:195
+#, kde-format
+msgid "Configured account does not exist"
+msgstr "Ingesteld account bestaat niet"
+
+#: googleresource.cpp:188
+#, kde-format
+msgid "not configured"
+msgstr "niet ingesteld"
+
+#: googleresource.cpp:188
+#, kde-format
+msgctxt "%1 is account name (user@gmail.com)"
+msgid "Google Groupware (%1)"
+msgstr "Google Groupware (%1)"
+
+#: googleresource.cpp:241
+#, kde-format
+msgid "Account has been logged out."
+msgstr "Account is afgemeld."
+
+#: googleresource.cpp:244
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from your account. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"Google Groupware is afgemeld uit uw account. Meld u weer aan om Google "
+"contactpersonen en agenda opnieuw te synchroniseren."
+
+#: googleresource.cpp:245
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from account %1. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"Google Groupware is afgemeld uit account %1. Meld u weer aan om Google "
+"contactpersonen en agenda opnieuw te synchroniseren."
+
+#: googleresource.cpp:249
+#, kde-format
+msgctxt "@title"
+msgid "%1 needs your attention."
+msgstr "%1 heeft uw aandacht nodig."
+
+#: googleresource.cpp:254
+#, kde-format
+msgctxt "@action"
+msgid "Log in"
+msgstr "Aanmelden"
+
+#: googleresource.cpp:268 googleresource.cpp:269
+#, kde-format
+msgctxt "@info:status"
+msgid "Resource is not configured"
+msgstr "Hulpbron is niet ingesteld"
+
+#: googleresource.cpp:284
+#, kde-format
+msgid "Failed to refresh tokens"
+msgstr "Tokens verversen is mislukt"
+
+#: googleresource.cpp:471 googleresource.cpp:485 googleresource.cpp:499
+#: googleresource.cpp:514 googleresource.cpp:528 googleresource.cpp:542
+#, kde-format
+msgid "Invalid payload type"
+msgstr "Ongeldig type inhoud"
+
+#: googleresource.cpp:556 googleresource.cpp:570 googleresource.cpp:584
+#, kde-format
+msgid "Unknown collection mimetype"
+msgstr "Onbekende mimetype van verzameling"
+
+#: googlesettingsdialog.cpp:57
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuut"
+msgstr[1] " minuten"
+
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: googlesettingsdialog.cpp:123 googlesettingsdialog.ui:30
+#, kde-format
+msgid "<b>not configured</b>"
+msgstr "<b>niet geconfigureerd</b>"
+
+#. i18n: ectx: property (text), widget (QLabel, accountTextLabel)
+#: googlesettingsdialog.ui:23
+#, kde-format
+msgid "Account:"
+msgstr "Account:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureBtn)
+#: googlesettingsdialog.ui:42
+#, kde-format
+msgid "Configure..."
+msgstr "Configureren..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableRefresh)
+#: googlesettingsdialog.ui:49
+#, kde-format
+msgid "Enable interval refresh"
+msgstr "Met interval verversen inschakelen"
+
+#. i18n: ectx: property (text), widget (QLabel, refreshLabel)
+#: googlesettingsdialog.ui:56
+#, kde-format
+msgid "Refresh interval:"
+msgstr "Verversingsinterval:"
+
+#. i18n: ectx: property (text), widget (QLabel, eventsLimitLabel)
+#: googlesettingsdialog.ui:79
+#, kde-format
+msgid "Fetch only events since:"
+msgstr "Alleen gebeurtenissen ophalen vanaf:"
+
+#. i18n: ectx: property (text), widget (QLabel, calendarsLabel)
+#: googlesettingsdialog.ui:92
+#, kde-format
+msgid "Enabled Calendars:"
+msgstr "Agenda's inschakelen"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadCalendarsBtn)
+#. i18n: ectx: property (text), widget (QPushButton, reloadTaskListsBtn)
+#: googlesettingsdialog.ui:123 googlesettingsdialog.ui:168
+#, kde-format
+msgid "Reload"
+msgstr "Herladen"
+
+#. i18n: ectx: property (text), widget (QLabel, taskListsLabel)
+#: googlesettingsdialog.ui:137
+#, kde-format
+msgid "Enabled Tasklists:"
+msgstr "Ingeschakelde lijsten met taken:"
+
+#: personhandler.cpp:88
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Coworkers"
+msgstr "Collega's"
+
+#: personhandler.cpp:90
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Friends"
+msgstr "Vrienden"
+
+#: personhandler.cpp:92
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Family"
+msgstr "Familie"
+
+#: personhandler.cpp:94
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "My Contacts"
+msgstr "Mijn contactpersonen"
+
+#: personhandler.cpp:118
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts groups"
+msgstr "Contactpersoongroepen worden opgehaald"
+
+#: personhandler.cpp:125 personhandler.cpp:131
+#, kde-format
+msgid "Other Contacts"
+msgstr "Andere contactpersonen"
+
+#: personhandler.cpp:172
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts for group '%1'"
+msgstr "Contactpersonen voor groep '%1' worden opgehaald"
+
+#: personhandler.cpp:376
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding contact to group '%1'"
+msgstr "Contactpersoon wordt toegevoegd aan groep '%1'"
+
+#: personhandler.cpp:410
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact"
+msgstr "Contactpersoon wordt gewijzigd"
+
+#: personhandler.cpp:424
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 contact"
+msgid_plural "Removing %1 contacts"
+msgstr[0] "%1 contactpersonen worden verwijderd"
+msgstr[1] "%1 contactpersonen worden verwijderd"
+
+#: personhandler.cpp:444
+#, kde-format
+msgid "Invalid source or destination collection"
+msgstr "Ongeldige bron- of doelverzameling"
+
+#: personhandler.cpp:450
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 contact from group '%2' to '%3'"
+msgid_plural "Moving %1 contacts from group '%2' to '%3'"
+msgstr[0] "%1 contactpersonen uit groep '%2' worden verplaatst naar '%3'"
+msgstr[1] "%1 contactpersonen uit groep '%2' worden verplaatst naar '%3'"
+
+#: personhandler.cpp:467
+#, kde-format
+msgctxt "@info:status"
+msgid "Linking %1 contact"
+msgid_plural "Linking %1 contacts"
+msgstr[0] "%1 contactpersoon wordt gekoppeld"
+msgstr[1] "%1 contactpersonen worden gekoppeld"
+
+#: personhandler.cpp:481
+#, kde-format
+msgctxt "@info:status"
+msgid "Unlinking %1 contact"
+msgid_plural "Unlinking %1 contacts"
+msgstr[0] "%1 koppeling naar een contactpersoon wordt ongedaan gemaakt"
+msgstr[1] "%1 koppelingen naar contactpersonen worden ongedaan gemaakt"
+
+#: personhandler.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new contact group '%1'"
+msgstr "Een nieuwe contactpersonengroep '%1' wordt aangemaakt"
+
+#: personhandler.cpp:535
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact group '%1'"
+msgstr "Contactpersoongroep '%1' wordt gewijzigd"
+
+#: personhandler.cpp:560
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing contact group '%1'"
+msgstr "Contactpersoongroep '%1' wordt verwijderd"
+
+#. i18n: ectx: label, entry (Calendars), group (General)
+#: settingsbase.kcfg:21
+#, kde-format
+msgid "IDs of calendars in collection"
+msgstr "ID's van agenda's in verzameling"
+
+#. i18n: ectx: label, entry (TaskLists), group (General)
+#: settingsbase.kcfg:25
+#, kde-format
+msgid "IDs of task lists in collection"
+msgstr "ID's van takenlijsten in verzameling"
+
+#: taskhandler.cpp:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving task lists"
+msgstr "Taaklijsten worden opgehaald"
+
+#: taskhandler.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving tasks for list '%1'"
+msgstr "Taken voor lijst '%1' worden opgehaald"
+
+#: taskhandler.cpp:195
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task in list '%1'"
+msgstr "Taken in lijst '%1' worden gewijzigd"
+
+#: taskhandler.cpp:215
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 task"
+msgid_plural "Removing %1 tasks"
+msgstr[0] "%1 taak wordt verwijderd"
+msgstr[1] "%1 taken worden verwijderd"
+
+#: taskhandler.cpp:225
+#, kde-format
+msgid "Failed to delete task: %1"
+msgstr "Taak verwijderen is mislukt: %1"
+
+#: taskhandler.cpp:261
+#, kde-format
+msgid "Failed to reparent subtasks: %1"
+msgstr "Van nieuwe ouder voorzien is mislukt van subtaken: %1"
+
+#: taskhandler.cpp:292
+#, kde-format
+msgid "Moving tasks between task lists is not supported"
+msgstr "Taken tussen takenlijsten verplaatsen wordt niet ondersteund"
+
+#: taskhandler.cpp:297
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new task list '%1'"
+msgstr "Nieuwe takenlijst '%1' wordt aangemaakt"
+
+#: taskhandler.cpp:322
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task list '%1'"
+msgstr "Takenlijst '%1' wordt gewijzigd"
+
+#: taskhandler.cpp:335
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing task list '%1'"
+msgstr "Takenlijst '%1' wordt verwijderd"
+
+#~ msgid "Waiting for KWallet..."
+#~ msgstr "Wacht op KWallet..."
+
+#~ msgid "Can't access KWallet"
+#~ msgstr "Kan geen toegang krijgen tot KWallet"
+
+#~ msgctxt "@info:status"
+#~ msgid "Retrieving %1 contact photo for group '%2'"
+#~ msgid_plural "Retrieving %1 contact photos for group '%2'"
+#~ msgstr[0] "%1 contactpersoonfoto's voor groep '%2' worden opgehaald"
+#~ msgstr[1] "%1 contactpersoonfoto's voor groep '%2' worden opgehaald"
+
+#~ msgid "Refresh"
+#~ msgstr "Vernieuwen"
+
+#~ msgid "<b>not confgured</b>"
+#~ msgstr "<b>niet geconfigureerd</b>"

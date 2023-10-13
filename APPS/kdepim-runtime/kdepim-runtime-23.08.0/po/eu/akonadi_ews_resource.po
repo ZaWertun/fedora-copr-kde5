@@ -1,0 +1,1293 @@
+# Translation for akonadi_ews_reource.po
+# Copyright (C) 2022 This file is copyright:
+# This file is distributed under the same license as the kdepim-runtime package.
+# KDE euskaratzeko proiektuko ardurandu <xalba@ni.eus>.
+#
+# Translator:
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-28 00:49+0000\n"
+"PO-Revision-Date: 2022-09-04 23:11+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.08.0\n"
+
+#: ewsautodiscoveryjob.cpp:44 ewsautodiscoveryjob.cpp:51
+#, kde-format
+msgid "Incorrect email address"
+msgstr "E-posta helbide akastuna"
+
+#: ewsautodiscoveryjob.cpp:114
+#, kde-format
+msgid "Exchange protocol information not found"
+msgstr "Ez da aurkitu Exchange protokoloaren informaziorik"
+
+#: ewsclient/auth/ewsoauth.cpp:527
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Microsoft Exchange credentials for the account <b>%1</b> are no longer "
+"valid. You need to authenticate in order to continue using it."
+msgstr ""
+"<b>%1</b> konturako Microsoft Exchange egiaztagiriak dagoeneko ez du balio. "
+"Autentifikazioa egin behar duzu hura erabiltzen jarraitzeko."
+
+#: ewsclient/auth/ewsoauth.cpp:536
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Failed to obtain credentials for Microsoft Exchange account <b>%1</b>. "
+"Please update it in the account settings page."
+msgstr ""
+"<b>%1</b> konturako Microsoft Exchange egiaztagiria lortzea huts egin du. "
+"Mesedez, eguneratu ezazu kontuaren ezarpenen orrian."
+
+#: ewsclient/auth/ewspasswordauth.cpp:57
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The username/password for the Microsoft Exchange EWS account <b>%1</b> is "
+"not valid. Please update it in the account settings page."
+msgstr ""
+"<b>%1</b> Microsoft Exchange EWS konturako erabiltzaile-izenak/pasahitzak ez "
+"du balio. Mesedez, eguneratu ezazu kontuaren ezarpenen orrian."
+
+#: ewsconfigdialog.cpp:76
+#, kde-format
+msgctxt "@title:window"
+msgid "Microsoft Exchange Configuration"
+msgstr "Microsoft Exchange-ren konfigurazioa"
+
+#: ewsconfigdialog.cpp:101
+#, kde-format
+msgctxt "Server status"
+msgid "OK"
+msgstr "Ados"
+
+#: ewsconfigdialog.cpp:138
+#, kde-format
+msgctxt "User Agent"
+msgid "Custom"
+msgstr "Norberak finkatua"
+
+#: ewsconfigdialog.cpp:149
+#, kde-format
+msgctxt "@info"
+msgid "Akonadi Resource for Microsoft Exchange Web Services (EWS)"
+msgstr "Microsoft Exchange Web zerbitzuetarako (EWS) Akonadi baliabidea"
+
+#: ewsconfigdialog.cpp:150
+#, kde-format
+msgctxt "@info"
+msgid "Copyright (c) Krzysztof Nowicki 2015-2020"
+msgstr "Copyright (c) Krzysztof Nowicki 2015-2020"
+
+#: ewsconfigdialog.cpp:151
+#, kde-format
+msgctxt "@info"
+msgid "Version %1"
+msgstr "%1 bertsioa"
+
+#: ewsconfigdialog.cpp:152
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Distributed under the GNU Library General Public License version 2.0 or "
+"later."
+msgstr ""
+"GNU Liburutegietarako Lizentzia Publiko Orokorraren 2.0 bertsioa edo bertsio "
+"berriagoaren arabera banatua."
+
+#: ewsconfigdialog.cpp:247
+#, kde-format
+msgctxt "Exchange server autodiscovery"
+msgid "Autodiscovery failed"
+msgstr "Auto-aurkikuntzak huts egin du"
+
+#: ewsconfigdialog.cpp:262
+#, kde-format
+msgctxt "Exchange server connection"
+msgid "Connection failed"
+msgstr "Konexioak huts egin du"
+
+#: ewsconfigdialog.cpp:263 ewsconfigdialog.cpp:421
+#, kde-format
+msgctxt "Exchange server status"
+msgid "Failed"
+msgstr "Huts egin du"
+
+#: ewsconfigdialog.cpp:264 ewsconfigdialog.cpp:422
+#, kde-format
+msgctxt "Exchange server version"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ewsconfigdialog.cpp:267 ewsconfigdialog.cpp:426
+#, kde-format
+msgctxt "Exchange server status"
+msgid "OK"
+msgstr "Ados"
+
+#: ewsconfigdialog.cpp:337
+#, kde-format
+msgid ""
+"Autodiscovery failed. This can be caused by incorrect parameters. Do you "
+"still want to save your settings?"
+msgstr ""
+"Auto-aurkikuntzak huts egin du. Okerreko parametroen eragina izan daiteke. "
+"Hala eta guztiz ere zure ezarpenak gorde nahi dituzu?"
+
+#: ewsconfigdialog.cpp:338
+#, kde-format
+msgid "Exchange server autodiscovery"
+msgstr "Exchange zerbitzariaren auto-aurkikuntza"
+
+#: ewsconfigdialog.cpp:368
+#, kde-format
+msgid ""
+"Connecting to Exchange failed. This can be caused by incorrect parameters. "
+"Do you still want to save your settings?"
+msgstr ""
+"Exchange-ra konektatzea huts egin du. Okerreko parametroen eragina izan "
+"daiteke. Hala eta guztiz ere zure ezarpenak gorde nahi dituzu?"
+
+#: ewsconfigdialog.cpp:369
+#, kde-format
+msgid "Exchange server connection"
+msgstr "Exchange zerbitzariaren konexioa"
+
+#: ewsconfigdialog.cpp:423
+#, kde-format
+msgid "Connection failed"
+msgstr "Konexioak huts egin du"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SetupServerView)
+#: ewsconfigdialog.ui:14
+#, kde-format
+msgid "EWS Configuration"
+msgstr "EWS konfigurazioa"
+
+#. i18n: ectx: attribute (title), widget (QWidget, generalTab)
+#: ewsconfigdialog.ui:24
+#, kde-format
+msgctxt "General settings tab"
+msgid "General"
+msgstr "Orokorra"
+
+#. i18n: ectx: property (title), widget (QGroupBox, accountInfoGroupBox)
+#: ewsconfigdialog.ui:45
+#, kde-format
+msgid "Account Information"
+msgstr "Kontuaren informazioa"
+
+#. i18n: ectx: property (text), widget (QLabel, accountNameLabel)
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: ewsconfigdialog.ui:57 ewsmtaconfigdialog.ui:32
+#, kde-format
+msgid "Account Name:"
+msgstr "Kontuaren izena:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, accountName)
+#: ewsconfigdialog.ui:64
+#, kde-format
+msgid "This is the account name that will appear in all Akonadi applications"
+msgstr "Hori, Akonadi aplikazioetan azalduko den kontu-izena da."
+
+#. i18n: ectx: property (text), widget (QLabel, emailLabel)
+#: ewsconfigdialog.ui:71
+#, kde-format
+msgctxt "Exchange account e-mail address"
+msgid "Email:"
+msgstr "E-posta:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Email)
+#: ewsconfigdialog.ui:78
+#, kde-format
+msgid "The e-mail address of this account"
+msgstr "Kontu horretako e-posta helbidea"
+
+#. i18n: ectx: property (title), widget (QGroupBox, authenticationGroupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, advAuthenticationGroupBox)
+#: ewsconfigdialog.ui:88 ewsconfigdialog.ui:492
+#, kde-format
+msgid "Authentication"
+msgstr "Autentifikazioa"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, authUsernameRadioButton)
+#: ewsconfigdialog.ui:94
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enables traditional username/password authentication "
+"against the Exchange server. This includes methods like Basic, NTLM or "
+"Kerberos.</p><p>This authentication method is considered to be somewhat "
+"legacy and is mostly used for smaller on-premise Exchange installations and "
+"hosted Office 365 instances, where the administrator has chosen to enable it."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Exchange zerbitzariarekin erabiltzaile-izen/pasahitz "
+"bidez autentifikatzeko era tradizionala gaitzen du. Barnean hartzen ditu "
+"«Basic», «NTLM» edo «Kerberos» bezalako metodoak.</p><p>Autentifikazio-"
+"metodo hori, iraganeko ondare gisa hartzen da eta administratzaileak hura "
+"gaitzea erabakitzen duen Exchange-ren instalazio lokal txikiagoetan eta "
+"ostatutako «Office 365» instantziatan erabiltzen da gehienbat.</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, authUsernameRadioButton)
+#: ewsconfigdialog.ui:97
+#, kde-format
+msgctxt "authentication type"
+msgid "&Username/Password"
+msgstr "&Erabiltzaile-izena/pasahitza"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_HasDomain)
+#: ewsconfigdialog.ui:143
+#, kde-format
+msgid ""
+"<html><head/><body><p>Allows to specify an Active Directory domain for the "
+"user.</p><p><span style=\" font-weight:600;\">Note:</span> There is a subtle "
+"difference between &quot;empty domain&quot; and &quot;no-domain&quot;.</"
+"p><p>With an empty domain (Domain checkbox checked, empty domain in edit "
+"box) the EWS resource will pass the user with an explicitly empty domain "
+"(&quot;\\username&quot;).</p><p>With no domain set (Domain checkbox cleared) "
+"the username will be passed without the domain (&quot;username&quot;), which "
+"will cause the server to set the domain to the default one its configured "
+"with.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Erabiltzailearentzako Direktorio Aktibo bat zehazten "
+"uzten du.</p><p><span style=\" font-weight:600;\">Oharra:</"
+"span>Ezberdintasun txiki bat dago &quot;domeinu hutsa&quot; eta &quot;"
+"domeinu ezaren&quot; artean.</p><p>Domeinu huts batekin (Domeinuaren "
+"egiaztapen-laukia markatuta, domeinuaren edizio-laukia hutsik), EWS "
+"baliabideak erabiltzailea domeinu huts esplizitu batekin pasako du (&quot;"
+"\\erabiltzaile-izena&quot;).</p><p>Domeinurik ezarri gabe (Domeinuaren "
+"egiaztapen-laukia markatzeke), erabiltzaile-izena domeinurik gabe pasako da "
+"(&quot;erabiltzaile-izena&quot;), horrek domeinua, zerbitzariak "
+"konfiguratuta duen domeinu lehenetsiarekin ezartzea eragingo du.</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HasDomain)
+#: ewsconfigdialog.ui:146
+#, kde-format
+msgid "Domain:"
+msgstr "Domeinua:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Domain)
+#: ewsconfigdialog.ui:156
+#, kde-format
+msgid "The Active Directory domain the user belongs to."
+msgstr "Erabiltzailearen Direktorio Aktiboko domeinua."
+
+#. i18n: ectx: property (text), widget (QLabel, usernameLabel)
+#: ewsconfigdialog.ui:169
+#, kde-format
+msgctxt "Exchange account username/login"
+msgid "Username:"
+msgstr "Erabiltzaile-izena:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: ewsconfigdialog.ui:179
+#, kde-format
+msgid "Password:"
+msgstr "Pasahitza:"
+
+#. i18n: ectx: property (whatsThis), widget (KPasswordLineEdit, passwordEdit)
+#: ewsconfigdialog.ui:186
+#, kde-format
+msgid ""
+"<html><head/><body><p>The password used to login to the Exchange server.</"
+"p><p><span style=\" font-weight:600;\">Note:</span> This can be left empty "
+"when using Kerberos authentication.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Exchange zerbitzarian saio-hasteko erabilitako "
+"pasahitza.</p><p><span style=\" font-weight:600;\">Oharra:</span> Hau hutsik "
+"utzi daiteke Kerberos autentifikazioa erabiltzean.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Username)
+#: ewsconfigdialog.ui:193
+#, kde-format
+msgid ""
+"<html><head/><body><p>The username used to login to the Exchange server.</"
+"p><p><span style=\" font-weight:600;\">Note:</span> This can be left empty "
+"when using Kerberos authentication.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Exchange zerbitzarian saio-hasteko erabilitako "
+"erabiltzaile-izena.</p><p><span style=\" font-weight:600;\">Oharra:</span> "
+"Hau hutsik utzi daiteke Kerberos autentifikazioa erabiltzean.</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, kerberosNoteLabel)
+#: ewsconfigdialog.ui:203
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> "
+"Username and password are not needed (can be empty) when Kerberos is "
+"properly configured on your system.</p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Oharra:</span> "
+"Erabiltzaile-izena eta pasahitza ez dira behar (hutsik egon daitezke), zure "
+"sisteman Kerberos behar bezala konfiguratuta dagoenean.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, authOAuth2RadioButton)
+#: ewsconfigdialog.ui:222
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enables more modern and stronger authentication based "
+"on OAuth2.</p><p>This type of authentication will open an organization-"
+"supplied webpage, where the user will be able to enter authentication "
+"information, which may also include multifactor authentication in form of "
+"one-time-passwords generated by tokens.</p><p>This method is mostly used for "
+"hosted Office 365 instances.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>«OAuth2»an oinarritutako autentifikazio sendoagoa "
+"gaitzen du.</p><p>Autentifikazio mota horrek erakundeak emandako web orri "
+"bat irekiko du, eta bertan erabiltzaileak autentifikazio informazioa sartu "
+"ahalko du, faktore-anitzeko autentifikazioa ere barneratu dezake token bidez "
+"sortutako erabilera bakarreko pasahitzen forman.</p><p>Metodoa hau, batez "
+"ere, ostatutako Office 365en instantziekin erabiltzen da.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, authOAuth2RadioButton)
+#: ewsconfigdialog.ui:225
+#, kde-format
+msgid "OAuth&2 (Office 365)"
+msgstr "OAuth&2 (Office 365)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ewsSettingsGroupBox)
+#: ewsconfigdialog.ui:235
+#, kde-format
+msgid "EWS Settings"
+msgstr "EWS ezarpenak"
+
+#. i18n: ectx: property (text), widget (QLabel, serverUrlLabel)
+#: ewsconfigdialog.ui:250
+#, kde-format
+msgid "EWS URL:"
+msgstr "EWS URLa:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_BaseUrl)
+#: ewsconfigdialog.ui:263
+#, kde-format
+msgid "The Microsoft Exchange server URL used to send EWS requests."
+msgstr ""
+"EWS eskaerak bidaltzeko erabilitako Microsoft Exchange zerbitzariaren URLa."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoDiscovery)
+#: ewsconfigdialog.ui:285
+#, kde-format
+msgid ""
+"<html><head/><body><p>Attempts to find out the Microsoft Exchange server "
+"address relevant to the supplied e-mail address.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Emandako e-posta helbidearentzat aproposa den Exchange "
+"zerbitzariaren helbidea aurkitzen saiatzen da.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoDiscovery)
+#. i18n: ectx: label, entry (AutoDiscovery), group (General)
+#: ewsconfigdialog.ui:288 ewsresource.kcfg:34
+#, kde-format
+msgid "Server Autodiscovery"
+msgstr "Zerbitzari auto-aurkikuntza"
+
+#. i18n: ectx: property (text), widget (QPushButton, autodiscoverButton)
+#: ewsconfigdialog.ui:298
+#, kde-format
+msgid "Perform"
+msgstr "Egin"
+
+#. i18n: ectx: property (text), widget (QPushButton, tryConnectButton)
+#: ewsconfigdialog.ui:308
+#, kde-format
+msgid "Try connect"
+msgstr "Probatu konektatzea"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, pkeyAuthGroupBox)
+#: ewsconfigdialog.ui:324
+#, kde-format
+msgid ""
+"<html><head/><body><p>Private Key (PKey) Authentication is used as an "
+"additional authentication step to OAuth2-based authentication. It uses an "
+"X.509 certificate and private key that identifies a trusted device, which "
+"was joined to the Azure Directory using a Workplace Join.</p><p>Some "
+"administrators may mandate use of PKey authentication when connecting to "
+"Office 365 from outside of corporate network. In other cases, when multi-"
+"factor authentication is set-up, using the PKey authentication can satisfy "
+"requirements for strong authentication, in which case entering the MFA code "
+"is not required.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Gako pribatuko (PKey) autentifikazioa, OAuth2 "
+"oinarriko autentifikazioaren urrats gehigarri gisa erabiltzen da. Lantokira "
+"konektatuz Azure direktoriora batu zen konfiantzazko gailu bat "
+"identifikatzen duten X.509 ziurtagiri bat eta gako pribatu bat erabiltzen "
+"ditu.</p><p>Administratzaile batzuek, korporazioaren saretik kanpo Office "
+"365era konektatzean, PKey autentifikazioa erabiltzea agindu dezakete. Beste "
+"kasu batzuetan, faktore-anitzeko autentifikazioa ezartzen denean, PKey "
+"autentifikazioa erabiltzeak autentifikazio zorrotzaren eskakizunak ase "
+"ditzake, kasu horretan, ez da beharrezkoa MFA code kodea sartzea.</p></"
+"body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, pkeyAuthGroupBox)
+#: ewsconfigdialog.ui:327
+#, kde-format
+msgid "Private Key (PKey) Authentication (Office 365)"
+msgstr "Gako pribatuko (PKey) autentifikazioa (Office 365)"
+
+#. i18n: ectx: property (text), widget (QLabel, pkeyAuthCertLabel)
+#: ewsconfigdialog.ui:339
+#, kde-format
+msgid "Certificate:"
+msgstr "Ziurtagiria:"
+
+#. i18n: ectx: property (text), widget (QLabel, pkeyAuthKeyLabel)
+#: ewsconfigdialog.ui:356
+#, kde-format
+msgid "Private key:"
+msgstr "Gako pribatua:"
+
+#. i18n: ectx: property (text), widget (QLabel, pkeyAuthPasswordLabel)
+#: ewsconfigdialog.ui:370
+#, kde-format
+msgid "Key password:"
+msgstr "Gakoaren pasahitza:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, subscriptionTab)
+#: ewsconfigdialog.ui:401
+#, kde-format
+msgid "Subscriptions"
+msgstr "Harpidetzak"
+
+#. i18n: ectx: attribute (title), widget (QWidget, advancedTab)
+#: ewsconfigdialog.ui:407
+#, kde-format
+msgctxt "Advanced settings tab"
+msgid "Advanced"
+msgstr "Aurreratua"
+
+#. i18n: ectx: property (title), widget (QGroupBox, retrievalMethodGroupBox)
+#. i18n: ectx: label, entry (RetrievalMethod), group (General)
+#: ewsconfigdialog.ui:413 ewsresource.kcfg:44
+#, kde-format
+msgid "Retrieval"
+msgstr "Eskuratzea"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, pollRadioButton)
+#: ewsconfigdialog.ui:419
+#, kde-format
+msgid ""
+"<html><head/><body><p>Periodically asks for new item change events.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Aldizka elementu-aldaketa gertakari berriengatik "
+"galdetzen du.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, pollRadioButton)
+#: ewsconfigdialog.ui:422
+#, kde-format
+msgid "Po&ll for new messages"
+msgstr "&Jaso mezu berriak"
+
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, kcfg_PollInterval)
+#: ewsconfigdialog.ui:447
+#, kde-format
+msgid " minutes"
+msgstr " minutu"
+
+#. i18n: ectx: property (text), widget (QLabel, pollIntervalLabel)
+#: ewsconfigdialog.ui:466
+#, kde-format
+msgid "Interval"
+msgstr "Bitartea"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, streamingRadioButton)
+#: ewsconfigdialog.ui:476
+#, kde-format
+msgid ""
+"<html><head/><body><p>Streaming notifications behave similarly to push mode "
+"- a connection is kept alive and notifications about item changes are "
+"delivered instantly.</p><p><br/></p><p>This option requires Exchange server "
+"version 2010 SP1 or later.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Datu-korronte jakinarazpenak «push» moduaren "
+"antzerakojokabidea dute - konexio bat bizirik mantentzen da eta elementu-"
+"aldaketei buruzko jakinarazpenak bat-batean banatzen dira.</p><p><br/></"
+"p><p>Aukera honek Exchange server 2010 SP1 bertsioa edo berriagoa behar du.</"
+"p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, streamingRadioButton)
+#: ewsconfigdialog.ui:479
+#, kde-format
+msgid "&Use streaming notifications"
+msgstr "Era&bili datu-korronte jakinarazpenak"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_EnableNTLMv2)
+#: ewsconfigdialog.ui:498
+#, kde-format
+msgid ""
+"<html><head/><body><p>By default KDE uses the less secure NTLMv1 "
+"authentication. Enabling this will cause the more secure NTLMv2 protocol to "
+"be used.</p><p>Some newer Microsoft Exchange servers are configured to only "
+"allow NTLMv2 authentication. In such case this option must be enabled in "
+"order to connect successfully.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>KDEk, era lehenetsian, NTLMv1 autentifikazioa "
+"erabiltzen du. Hau gaitzeak, seguruagoa den NTLMv2 protokoloa erabiltzea "
+"eragingo du.</p><p>Microsoft Exchange zerbitzari berriagoak NTLMv2 "
+"autentifikazioa bakarrik onartzeko konfiguratuta daude. Halakoetan aukera "
+"hau gaitu behar da konexio arrakastatsua lortzeko.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_EnableNTLMv2)
+#: ewsconfigdialog.ui:501
+#, kde-format
+msgid "Enable NTLMv2"
+msgstr "Gaitu NTLMv2"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, userAgentGroupBox)
+#: ewsconfigdialog.ui:511
+#, kde-format
+msgid ""
+"<html><head/><body><p>Some organizations restrict access to mail only to "
+"approved clients, such as Microsoft Outlook. On the server-side this is "
+"implemented by analyzing the User-Agent string and only allowing a list of "
+"approved clients.</p><p>This setting allows to emulate some well known "
+"clients as well as providing a custom User-Agent string.</p><p>Please be "
+"advised that bypassing company policies may result in personal consequences."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Erakunde batzuek postara sartzea onetsitako "
+"bezeroetara, Microsoft Outlook esaerako, murrizten dute. Zerbitzariaren "
+"aldean, hori, Erabiltzaile-agentearen katea aztertu eta onetsitako bezero "
+"zerrenda bat bakarrik baimenduz inplementatzen da.</p><p>Ezarpen honek "
+"bezero ezagun batzuk emulatzeko aukera ematen du, bai eta norberak "
+"finkatutako Erabiltzaile-agentearen kate bat emateko ere.</p><p>Kontuan izan "
+"enpresen gidalerroak saihesteak ondorio pertsonalak izan ditzakeela.</p></"
+"body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, userAgentGroupBox)
+#: ewsconfigdialog.ui:514
+#, kde-format
+msgid "Use custo&m User Agent"
+msgstr "Erabili norberak &finkatutako erabiltzaile-agentea"
+
+#. i18n: ectx: property (title), widget (QGroupBox, clearSyncStateGroupBox)
+#: ewsconfigdialog.ui:539
+#, kde-format
+msgid "Clear Synchronization State"
+msgstr "Garbitu sinkronizatze egoera"
+
+#. i18n: ectx: property (text), widget (QLabel, clearSyncStateLabel)
+#: ewsconfigdialog.ui:545
+#, kde-format
+msgid ""
+"Resets synchronization state between Exchange and Akonadi. Use in case some "
+"items or folders are not showing up despite existing in Exchange."
+msgstr ""
+"Exchange eta Akonadi-ren arteko sinkronizatze egoera berrezartzen du. "
+"Erabili, Exchange-n dauden elementu batzuk edo karpeta batzuk erakusten ez "
+"direnean."
+
+#. i18n: ectx: property (text), widget (QPushButton, clearFolderTreeSyncStateButton)
+#: ewsconfigdialog.ui:570
+#, kde-format
+msgid "Clear Folder Tree State"
+msgstr "Garbitu karpeta-zuhaitzaren egoera"
+
+#. i18n: ectx: property (text), widget (QPushButton, clearFolderItemSyncStateButton)
+#: ewsconfigdialog.ui:577
+#, kde-format
+msgid "Clear Folder Item State"
+msgstr "Garbitu karpeta-elementuaren egoera"
+
+#. i18n: ectx: attribute (title), widget (QWidget, statusTab)
+#: ewsconfigdialog.ui:604
+#, kde-format
+msgid "Status"
+msgstr "Egoera"
+
+#. i18n: ectx: property (title), widget (QGroupBox, serverStatusGroupBox)
+#: ewsconfigdialog.ui:610
+#, kde-format
+msgid "Server Status"
+msgstr "Zerbitzariaren egoera"
+
+#. i18n: ectx: property (text), widget (QLabel, serverStatusLabel)
+#: ewsconfigdialog.ui:616
+#, kde-format
+msgid "Status:"
+msgstr "Egoera:"
+
+#. i18n: ectx: property (text), widget (QLabel, serverStatusText)
+#: ewsconfigdialog.ui:623
+#, kde-format
+msgctxt "Unknown server status"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#. i18n: ectx: property (text), widget (QLabel, serverVersionLabel)
+#: ewsconfigdialog.ui:633
+#, kde-format
+msgid "Version:"
+msgstr "Bertsioa:"
+
+#. i18n: ectx: property (text), widget (QLabel, serverVersionText)
+#: ewsconfigdialog.ui:640
+#, kde-format
+msgctxt "Unknown server version"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#. i18n: ectx: attribute (title), widget (QWidget, aboutTab)
+#: ewsconfigdialog.ui:664
+#, kde-format
+msgid "About"
+msgstr "Honi buruz"
+
+#: ewsfetchitempayloadjob.cpp:63
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process items retrieval request"
+msgstr "Elementuak eskuratzeko eskaera prozesatzea huts egin du"
+
+#: ewsfetchitempayloadjob.cpp:71 ewsresource.cpp:333 ewsresource.cpp:338
+#: ewsresource.cpp:529
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to retrieve items"
+msgstr "Elementuak eskuratzea huts egin du"
+
+#: ewsfetchitempayloadjob.cpp:78
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to retrieve items - incorrect number of responses"
+msgstr "Elementuak eskuratzea huts egin du - erantzun-kopuru okerra"
+
+#: ewsfetchitempayloadjob.cpp:91
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to retrieve items - Akonadi item not found for item %1"
+msgstr ""
+"Elementuak eskuratzea huts egin du - %1 elementuaren Akonadi-elementua ez da "
+"aurkitu"
+
+#: ewsfetchitempayloadjob.cpp:98
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to retrieve items - Unknown item type for item %1"
+msgstr ""
+"Elementuak eskuratzea huts egin du - %1 elementuaren elementu-mota ezezaguna"
+
+#: ewsfetchitempayloadjob.cpp:104
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to fetch item payload"
+msgstr "Elementuaren zama erabilgarria eskuratzea huts egin du"
+
+#: ewsfetchitemsjob.cpp:98
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving %1 item list"
+msgstr "%1 elementu-zerrenda eskuratzen"
+
+#: ewsfetchitemsjob.cpp:214
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving %1 item list (%2 items)"
+msgstr "%1 elementu-zerrenda eskuratzen (%2 elementu)"
+
+#: ewsfetchitemsjob.cpp:399
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving %1 items"
+msgstr "%1 elementuak eskuratzen"
+
+#: ewsmtaconfigdialog.cpp:45
+#, kde-format
+msgctxt "@title:window"
+msgid "Microsoft Exchange Mail Transport Configuration"
+msgstr "Microsoft Exchange posta garraioaren konfigurazioa"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SetupServerView)
+#: ewsmtaconfigdialog.ui:14
+#, kde-format
+msgid "EWS Mail Transport Configuration"
+msgstr "EWS posta garraioaren konfigurazioa"
+
+#. i18n: ectx: property (text), widget (QLabel, recourceLabel)
+#: ewsmtaconfigdialog.ui:42
+#, kde-format
+msgid "Parent Exchange account:"
+msgstr "Exchange guraso-kontua:"
+
+#: ewsmtaresource.cpp:57
+#, kde-format
+msgid "Unable to connect to master EWS resource"
+msgstr "Ez da EWS baliabide nagusiarekin konektatu"
+
+#. i18n: ectx: label, entry (EwsResource), group (General)
+#: ewsmtaresource.kcfg:10
+#, kde-format
+msgid "Ews Resource"
+msgstr "Ews baliabidea"
+
+#. i18n: ectx: tooltip, entry (EwsResource), group (General)
+#. i18n: ectx: whatsthis, entry (EwsResource), group (General)
+#: ewsmtaresource.kcfg:11 ewsmtaresource.kcfg:12
+#, kde-format
+msgid "The name of the parent EWS Resource to use when sending mail"
+msgstr "Posta bidaltzean erabili beharreko EWS guraso-baliabidearen izena"
+
+#: ewsprogressdialog.cpp:34
+#, kde-format
+msgid "Cancel"
+msgstr "Utzi"
+
+#: ewsprogressdialog.cpp:48
+#, kde-format
+msgctxt "@title:window"
+msgid "Exchange server autodiscovery"
+msgstr "Exchange zerbitzariaren auto-aurkikuntza"
+
+#: ewsprogressdialog.cpp:49
+#, kde-format
+msgid "Performing Microsoft Exchange server autodiscovery..."
+msgstr "Exchange zerbitzariaren auto-aurkikuntza egiten..."
+
+#: ewsprogressdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Connecting to Exchange"
+msgstr "Exchange-ra konektatzea"
+
+#: ewsprogressdialog.cpp:53
+#, kde-format
+msgid "Connecting to Microsoft Exchange server..."
+msgstr "Microsoft Exchange zerbitzariarekin konektatzen..."
+
+#: ewsresource.cpp:143
+#, kde-format
+msgctxt "@info:status"
+msgid "Connecting to Exchange server"
+msgstr "Exchange zerbitzarira konektatzen"
+
+#: ewsresource.cpp:161 ewsresource.cpp:168 ewsresource.cpp:175
+#: ewsresource.cpp:313
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to connect to Exchange server"
+msgstr "Ez da Exchange zerbitzariarekin konektatzeko gai"
+
+#: ewsresource.cpp:253
+#, kde-format
+msgctxt "@info:status"
+msgid "Root folder id not known."
+msgstr "Erroko karpeta ez da ezagutzen."
+
+#: ewsresource.cpp:257
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving collection tree"
+msgstr "Bilduma-zuhaitza eskuratzen"
+
+#: ewsresource.cpp:406
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving items"
+msgstr "Elementuak eskuratzea"
+
+#: ewsresource.cpp:428 ewsresource.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to retrieve items - internal error"
+msgstr "Elementuak eskuratzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:462
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to retrieve folders - internal error"
+msgstr "Karpetak eskuratzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:468
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process folders retrieval request"
+msgstr "Karpetak eskuratzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:485
+#, kde-format
+msgctxt "@info:status"
+msgid "Invalid incremental folders retrieval request job object"
+msgstr "Karpeten eskuratze inkrementaleko eskaera-lan objektu baliogabea"
+
+#: ewsresource.cpp:548
+#, kde-format
+msgctxt "@info:status"
+msgid "Item type not supported for changing"
+msgstr "Elementu-mota ez da onartzen aldaketarako"
+
+#: ewsresource.cpp:561
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating item flags"
+msgstr "Elementuaren banderak eguneratzen"
+
+#: ewsresource.cpp:573
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process item flags update request"
+msgstr "Elementuaren banderak eguneratzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:580
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to update item flags - internal error"
+msgstr "Elementuaren banderak eguneratzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:594
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process item update request"
+msgstr "Elementua eguneratzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:601
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to update item - internal error"
+msgstr "Elementua eguneratzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:636
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process item move request"
+msgstr "Elementua mugitzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:643
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to move item - internal error"
+msgstr "Elementua mugitzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:650
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to move item - invalid number of responses received from server"
+msgstr ""
+"Elementua mugitzea huts egin du - zerbitzaritik erantzun-kopuru baliogabea "
+"jaso da"
+
+#: ewsresource.cpp:720
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process item delete request"
+msgstr "Elementua ezabatzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:727
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to delete item - internal error"
+msgstr "Elementua ezabatzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:734
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Failed to delete item - invalid number of responses received from server"
+msgstr ""
+"Elementua ezabatzea huts egin du - zerbitzaritik erantzun-kopuru baliogabea "
+"jaso da"
+
+#: ewsresource.cpp:779 ewsresource.cpp:992
+#, kde-format
+msgctxt "@info:status"
+msgid "Item type not supported for creation"
+msgstr "Elementu mota sortzeko euskarririk ez"
+
+#: ewsresource.cpp:790
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process item create request"
+msgstr "Elementua sortzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:796
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to create item - internal error"
+msgstr "Elementua sortzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:817
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to add collection - cannot determine EWS folder type"
+msgstr "Bilduma gehitzea huts egin du - ezin du zehaztu EWS karpeta-mota"
+
+#: ewsresource.cpp:836
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process folder create request"
+msgstr "Karpeta sortzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:842
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to create folder - internal error"
+msgstr "Karpeta sortzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:854
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to create folder"
+msgstr "Karpeta sortzea huts egin du"
+
+#: ewsresource.cpp:877
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process folder move request"
+msgstr "Karpeta mugitzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:883
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to move folder - internal error"
+msgstr "Karpeta mugitzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:889
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Failed to move folder - invalid number of responses received from server"
+msgstr ""
+"Karpeta mugitzea huts egin du - zerbitzaritik erantzun-kopuru baliogabea "
+"jaso da"
+
+#: ewsresource.cpp:900
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to move folder"
+msgstr "Karpeta mugitzea huts egin du"
+
+#: ewsresource.cpp:928
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process folder update request"
+msgstr "Karpeta eguneratzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:934
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to update folder - internal error"
+msgstr "Karpeta eguneratzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:940
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Failed to update folder - invalid number of responses received from server"
+msgstr ""
+"Karpeta eguneratzea huts egin du - zerbitzaritik erantzun-kopuru baliogabea "
+"jaso da"
+
+#: ewsresource.cpp:951
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to update folder"
+msgstr "Karpeta eguneratzea huts egin du"
+
+#: ewsresource.cpp:968
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process folder delete request"
+msgstr "Karpeta ezabatzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:974
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to delete folder - internal error"
+msgstr "Karpeta ezabatzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:982
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to delete folder"
+msgstr "Karpeta ezabatzea huts egin du"
+
+#: ewsresource.cpp:1006 ewsresource.cpp:1040
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process item send request"
+msgstr "Elementua bidaltzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:1012 ewsresource.cpp:1046
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to send item - internal error"
+msgstr "Elementua bidaltzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:1051
+#, kde-format
+msgctxt "@info:status"
+msgid "Invalid number of responses received from server"
+msgstr "Zerbitzaritik erantzun-kopuru baliogabea jaso da"
+
+#: ewsresource.cpp:1243
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating item tags"
+msgstr "Elementuaren etiketak eguneratzen"
+
+#: ewsresource.cpp:1256
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process item tags update request"
+msgstr "Elementuaren etiketak eguneratzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:1262
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to update item tags - internal error"
+msgstr "Elementuaren etiketak eguneratzea huts egin du - barneko errorea"
+
+#: ewsresource.cpp:1299
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process global tag update request"
+msgstr "Etiketa globala eguneratzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:1315
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to process global tags retrieval request"
+msgstr "Etiketa globalak eskuratzeko eskaera prozesatzea huts egin du"
+
+#: ewsresource.cpp:1386
+#, kde-format
+msgctxt "@action:button"
+msgid "Authenticate"
+msgstr "Autentifikatu"
+
+#: ewsresource.cpp:1400 ewsresource.cpp:1415
+#, kde-format
+msgctxt "@info:status"
+msgid "Authentication failed"
+msgstr "Autentifikazioak huts egin du"
+
+#: ewsresource.cpp:1423
+#, kde-format
+msgctxt "@info:status Resource is ready"
+msgid "Ready"
+msgstr "Prest"
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: ewsresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "Zerbitzariaren URLa"
+
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: ewsresource.kcfg:11 ewsresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the Microsoft Exchange server, should be something like https://"
+"myserver.org/EWS/Exchange.asmx"
+msgstr ""
+"Microsoft Exchange zerbitzariaren URLa, honen gisako zerbait izan beharko "
+"litzatekehttps://nirezerbitzaria.org/EWS/Exchange.asmx"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: ewsresource.kcfg:15
+#, kde-format
+msgctxt "The username to login into the server"
+msgid "Username"
+msgstr "Erabiltzaile-izena"
+
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: ewsresource.kcfg:16 ewsresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the Microsoft Exchange server"
+msgstr ""
+"Microsoft Exchange zerbitzarian saio-hasteko erabiltzen den erabiltzaile-"
+"izena"
+
+#. i18n: ectx: label, entry (Domain), group (General)
+#: ewsresource.kcfg:20
+#, kde-format
+msgid "Domain"
+msgstr "Domeinua"
+
+#. i18n: ectx: tooltip, entry (Domain), group (General)
+#. i18n: ectx: whatsthis, entry (Domain), group (General)
+#: ewsresource.kcfg:21 ewsresource.kcfg:22
+#, kde-format
+msgid "The Active Directory domain the user belongs to"
+msgstr "Erabiltzailearen Direktorio Aktiboko domeinua."
+
+#. i18n: ectx: label, entry (HasDomain), group (General)
+#: ewsresource.kcfg:25
+#, kde-format
+msgid "Use a domain name during authentication"
+msgstr "Autentifikazio garaian erabili domeinu izen bat"
+
+#. i18n: ectx: label, entry (Email), group (General)
+#: ewsresource.kcfg:29
+#, kde-format
+msgctxt "Account e-mail address"
+msgid "E-mail"
+msgstr "E-posta"
+
+#. i18n: ectx: tooltip, entry (Email), group (General)
+#. i18n: ectx: whatsthis, entry (Email), group (General)
+#: ewsresource.kcfg:30 ewsresource.kcfg:31
+#, kde-format
+msgid "The primary e-mail address of this account"
+msgstr "Kontu honetako e-posta helbide nagusia"
+
+#. i18n: ectx: tooltip, entry (AutoDiscovery), group (General)
+#: ewsresource.kcfg:35
+#, kde-format
+msgid "Attempt to automatically discover Exchange server address"
+msgstr "Ahalegindu Exchange zerbitzariaren helbidea automatikoki aurkitzen"
+
+#. i18n: ectx: whatsthis, entry (AutoDiscovery), group (General)
+#: ewsresource.kcfg:36
+#, kde-format
+msgid ""
+"Attempts to find out the Microsoft Exchange server address relevant to the "
+"supplied e-mail address."
+msgstr ""
+"Emandako e-posta helbiderako beharrezkoa den Microsoft Exchange "
+"zerbitzariaren helbidea aurkitzen ahalegintzen da."
+
+#. i18n: ectx: label, entry (PollInterval), group (General)
+#: ewsresource.kcfg:39
+#, kde-format
+msgid "Poll Interval"
+msgstr "Jasotzeko bitartea"
+
+#. i18n: ectx: tooltip, entry (PollInterval), group (General)
+#: ewsresource.kcfg:40
+#, kde-format
+msgid "Sets the interval for checking for new mail"
+msgstr "Posta berria egiaztatzeko bitarteko denbora ezartzen du"
+
+#. i18n: ectx: whatsthis, entry (PollInterval), group (General)
+#: ewsresource.kcfg:41
+#, kde-format
+msgid "Sets the interval for checking for new mail."
+msgstr "Posta berria egiaztatzeko bitarteko denbora ezartzen du."
+
+#. i18n: ectx: label, entry (ServerSubscription), group (General)
+#: ewsresource.kcfg:47
+#, kde-format
+msgid "Enable Server-Side Subscriptions"
+msgstr "Gaitu zerbitzari-aldeko harpidetzak"
+
+#. i18n: ectx: label, entry (ServerSubscriptionList), group (General)
+#: ewsresource.kcfg:50
+#, kde-format
+msgid "List of folders to subscribe to"
+msgstr "Harpidetzeko karpeten zerrenda"
+
+#. i18n: ectx: label, entry (EnableNTLMv2), group (General)
+#: ewsresource.kcfg:54
+#, kde-format
+msgid "Enable NTLMv2 authentication"
+msgstr "Gaitu NTLMv2 bidezko autentifikazioa"
+
+#. i18n: ectx: label, entry (UserAgent), group (General)
+#: ewsresource.kcfg:58
+#, kde-format
+msgid "Forces a non-default User-Agent string"
+msgstr "Lehenetsitakoa ez den Erabiltzaile-agenteren kate bat behartzen du"
+
+#. i18n: ectx: label, entry (OAuth2AppId), group (General)
+#: ewsresource.kcfg:64
+#, kde-format
+msgid "OAuth2 application identifier"
+msgstr "OAuth2 aplikazioaren identifikatzailea"
+
+#. i18n: ectx: label, entry (OAuth2ReturnUri), group (General)
+#: ewsresource.kcfg:68
+#, kde-format
+msgid "OAuth2 return URI"
+msgstr "OAuth2-k itzulitako URI"
+
+#. i18n: ectx: label, entry (PKeyCert), group (General)
+#: ewsresource.kcfg:72
+#, kde-format
+msgid "Path to PKey authentication PEM certificate"
+msgstr "PKey autentifikaziorako PEM ziurtagirirako bide-izena"
+
+#. i18n: ectx: label, entry (PKeyKey), group (General)
+#: ewsresource.kcfg:75
+#, kde-format
+msgid "Path to PKey authentication PEM private key"
+msgstr "PKey autentifikaziorako PEM gako pribaturako bide-izena"
+
+#: ewssubscriptionwidget.cpp:171
+#, kde-format
+msgctxt "@info"
+msgid "Exchange server not configured."
+msgstr "Exchange server konfiguratu gabe."
+
+#: ewssubscriptionwidget.cpp:180 ewssubscriptionwidget.cpp:201
+#, kde-format
+msgctxt "@info"
+msgid "Failed to retrieve folder list."
+msgstr "Karpeta-zerrenda eskuratzea huts egin du."
+
+#: ewssubscriptionwidget.cpp:286
+#, kde-format
+msgctxt "@option:check"
+msgid "Enable server-side subscriptions"
+msgstr "Gaitu zerbitzari-aldeko harpidetzak"
+
+#: ewssubscriptionwidget.cpp:294
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Filter folders"
+msgstr "Iragazi karpetak"
+
+#: ewssubscriptionwidget.cpp:314
+#, kde-format
+msgctxt "@action:button"
+msgid "Reload &List"
+msgstr "Birzamatu &zerrenda"
+
+#: ewssubscriptionwidget.cpp:317
+#, kde-format
+msgctxt "@action:button"
+msgid "&Reset"
+msgstr "Be&rrezarri"
+
+#: ewssubscriptionwidget.cpp:326
+#, kde-format
+msgctxt "@option:check"
+msgid "Subscribed only"
+msgstr "Harpidetuak bakarrik"
+
+#: mail/ewscreatemailjob.cpp:148 mail/ewscreatemailjob.cpp:185
+#: mail/ewscreatemailjob.cpp:218
+#, kde-format
+msgid "Failed to create mail item"
+msgstr "Posta-elementua sortzea huts egin du"
+
+#: mail/ewsmodifymailjob.cpp:92
+#, kde-format
+msgctxt "@info:status"
+msgid "Item update failed: "
+msgstr "Elementua eguneratzea:"
+
+#: mail/ewsmodifymailjob.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Item out of order while processing update item response."
+msgstr "Elementua hondatuta elementua eguneratzeko erantzuna prozesatzean."
+
+#~ msgid "Please enter password for user '%1' and Exchange account '%2'."
+#~ msgstr ""
+#~ "Mesedez, sartu '%1' erabiltzailea eta '%2' Exchange konturako pasahitza ."

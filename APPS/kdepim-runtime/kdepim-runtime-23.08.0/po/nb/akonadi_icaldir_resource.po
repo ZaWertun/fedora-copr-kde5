@@ -1,0 +1,121 @@
+# Translation of akonadi_icaldir_resource to Norwegian Bokmål
+#
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-11-25 00:29+0000\n"
+"PO-Revision-Date: 2012-08-19 20:00+0200\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: icaldirresource.cpp:119
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Fant ikke forekomst med uid «%1»."
+
+#: icaldirresource.cpp:133 icaldirresource.cpp:166 icaldirresource.cpp:198
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Forsøker å skrive til en skrivebeskyttet mappe: «%1»"
+
+#: icaldirresource.cpp:248
+#, kde-format
+msgid "Calendar Folder"
+msgstr "Kalendermappe"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icaldirresource.kcfg:10
+#, kde-format
+msgid "Path to iCal directory"
+msgstr "Sti til iCal-mappe"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: icaldirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Intervall for autolagring (i minutter)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icaldirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ikke endre de faktiske bakenforliggende data."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: icaldirsagentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Mappe"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: icaldirsagentsettingswidget.ui:39
+#, kde-format
+msgid "Di&rectory:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: icaldirsagentsettingswidget.ui:58
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Velg den mappa der denne ressursen skal representere innholdet. Hvis mappa "
+"ikke finnes blir den opprettet."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: icaldirsagentsettingswidget.ui:68
+#, kde-format
+msgid "Read only"
+msgstr "Bare lesing"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: icaldirsagentsettingswidget.ui:84
+#, kde-format
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: icaldirsagentsettingswidget.ui:108
+#, kde-format
+msgid "Tuning"
+msgstr "Fininnstilling"
+
+#. i18n: ectx: property (text), widget (QLabel, runingLabel)
+#: icaldirsagentsettingswidget.ui:114
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Med valgene på denne sida kan du endre parametre som avveier datasikkerhet "
+"og konsistens mot ytelse. Som regel bør du være forsiktig med å endre noe, "
+"standardverdiene er gode nok i de fleste tilfeller."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: icaldirsagentsettingswidget.ui:124
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Forsinkelse for autolagring:"
+
+#: icaldirsettingswidget.cpp:36
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minutt"
+msgstr[1] " minutter"

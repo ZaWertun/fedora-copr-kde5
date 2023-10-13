@@ -1,0 +1,32 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Volkan Gezer <volkangezer@gmail.com>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2017-06-08 17:04+0100\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: vcardwizard.es.cmake:7
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: vcardwizard.es.cmake:24
+msgid "Default Contact"
+msgstr "Öntanımlı Kişi"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: vcardwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Dosya adı:"

@@ -1,0 +1,138 @@
+# Translation of akonadi_icaldir_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2012, 2014, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_icaldir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-06-21 03:22+0200\n"
+"PO-Revision-Date: 2016-08-14 23:47+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: icaldirresource.cpp:135
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Slučaj sa UID‑om „%1“ nije nađen."
+
+#: icaldirresource.cpp:149 icaldirresource.cpp:182 icaldirresource.cpp:214
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Pokušaj upisivanja u fasciklu samo‑za‑čitanje: „%1“."
+
+#: icaldirresource.cpp:263
+#, kde-format
+msgid "Calendar Folder"
+msgstr "Fascikla kalendara"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icaldirresource.kcfg:10
+#, kde-format
+msgid "Path to iCal directory"
+msgstr "Putanja do i‑kalendarske fascikle"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: icaldirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Period automatskog upisivanja (u minutima)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icaldirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ne menjaj zaista pozadinske podatke."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: icaldirsagentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Fascikla"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: icaldirsagentsettingswidget.ui:39
+#, kde-format
+msgid "Directory Name"
+msgstr "Ime fascikle"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: icaldirsagentsettingswidget.ui:47
+#, kde-format
+msgid "Di&rectory:"
+msgstr "&Fascikla:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: icaldirsagentsettingswidget.ui:62
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Izaberite fasciklu čiji sadržaj treba predstaviti ovim resursom. Ako "
+"fascikla ne postoji, biće napravljena."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: icaldirsagentsettingswidget.ui:75
+#, kde-format
+msgid "Access Rights"
+msgstr "Prava pristupa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: icaldirsagentsettingswidget.ui:81
+#, kde-format
+msgid "Read only"
+msgstr "Samo za čitanje"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: icaldirsagentsettingswidget.ui:88
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"U režimu samo‑za‑čitanje nikakve izmene neće biti upisivane u gore izabranu "
+"fasciklu. Ovaj režim biće automatski aktiviran ako nemate pristup za pisanje "
+"nad fasciklom."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: icaldirsagentsettingswidget.ui:115
+#, kde-format
+msgid "Tuning"
+msgstr "Štelovanje"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: icaldirsagentsettingswidget.ui:121
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Opcije na ovoj stranici omogućavaju zadavanje parametara u vezi sa "
+"ravnotežom između bezbednosti i doslednosti podataka s jedne strane, i "
+"performansi s druge strane. Budite oprezni ako išta menjate ovde, "
+"podrazumevane vrednosti su zadovoljavajuće u većini slučajeva."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: icaldirsagentsettingswidget.ui:133
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Zastoj automatskog upisivanja:"
+
+#: icaldirsettingswidget.cpp:48
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minut"
+msgstr[1] " minuta"
+msgstr[2] " minuta"
+msgstr[3] " minut"

@@ -1,0 +1,93 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Maciej Wikło <maciej.wiklo@wp.pl>, 2010.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-14 00:46+0000\n"
+"PO-Revision-Date: 2016-05-14 07:11+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: birthdaysconfigagentwidget.cpp:35
+#, kde-format
+msgid " day"
+msgid_plural " days"
+msgstr[0] " dzień"
+msgstr[1] " dni"
+msgstr[2] " dni"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: birthdaysconfigwidget.ui:29
+#, kde-format
+msgid "Reminder"
+msgstr "Przypomnienie"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_EnableAlarm)
+#: birthdaysconfigwidget.ui:38
+#, kde-format
+msgid "Set &reminder"
+msgstr "Ustaw p&rzypomnienie"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: birthdaysconfigwidget.ui:48
+#, kde-format
+msgid "&Remind prior to event:"
+msgstr "P&rzypomnij przed zdarzeniem:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: birthdaysconfigwidget.ui:74
+#, kde-format
+msgid "Filter"
+msgstr "Filtr"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FilterOnCategories)
+#: birthdaysconfigwidget.ui:80
+#, kde-format
+msgid "&Filter by categories"
+msgstr "&Filtruj wg kategorii"
+
+#: birthdaysresource.cpp:40
+#, kde-format
+msgid "Birthdays & Anniversaries"
+msgstr "Urodziny i rocznice"
+
+#: birthdaysresource.cpp:309
+#, kde-format
+msgid "%1's birthday"
+msgstr "Urodziny %1"
+
+#: birthdaysresource.cpp:320
+#, kde-format
+msgid "Birthday"
+msgstr "Urodziny"
+
+#: birthdaysresource.cpp:358
+#, kde-format
+msgctxt "insert names of both spouses"
+msgid "%1's & %2's anniversary"
+msgstr "Rocznica %1 i %2"
+
+#: birthdaysresource.cpp:360
+#, kde-format
+msgctxt "only one spouse in addressbook, insert the name"
+msgid "%1's anniversary"
+msgstr "Rocznica %1"
+
+#: birthdaysresource.cpp:372
+#, kde-format
+msgid "Anniversary"
+msgstr "Rocznica"
+
+#~ msgid "Categories"
+#~ msgstr "Kategorie"

@@ -1,0 +1,372 @@
+# translation of akonadi_mbox_resource.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2014.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_mbox_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-24 00:49+0000\n"
+"PO-Revision-Date: 2019-07-17 16:21+0200\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.04.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: compactpage.cpp:71
+#, kde-format
+msgid "(1 message marked for deletion)"
+msgid_plural "(%1 messages marked for deletion)"
+msgstr[0] "(1 správa označená na vymazanie)"
+msgstr[1] "(%1 správy označené na vymazanie)"
+msgstr[2] "(%1 správ označených na vymazanie)"
+
+#: compactpage.cpp:78
+#, kde-format
+msgid "Failed to fetch the collection."
+msgstr "Zlyhalo stiahnutie kolekcie."
+
+#: compactpage.cpp:94
+#, kde-format
+msgid "Failed to load the mbox file"
+msgstr "Zlyhalo načítanie súboru mbox"
+
+#: compactpage.cpp:96
+#, kde-format
+msgid "(Deleting 1 message)"
+msgid_plural "(Deleting %1 messages)"
+msgstr[0] "(Mažem 1 správu)"
+msgstr[1] "(Mažem %1 správy)"
+msgstr[2] "(Mažem %1 správ)"
+
+#: compactpage.cpp:107 compactpage.cpp:115
+#, kde-format
+msgid "Failed to compact the mbox file."
+msgstr "Zlyhalo skomprimovanie súboru mbox."
+
+#: compactpage.cpp:117
+#, kde-format
+msgid "MBox file compacted."
+msgstr "Súbor MBox skomprimovaný."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: compactpage.ui:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#| "REC-html40/strict.dtd\">\n"
+#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#| "css\">\n"
+#| "p, li { white-space: pre-wrap; }\n"
+#| "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
+#| "font-weight:400; font-style:normal;\">\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\">The only way to fully "
+#| "remove a mail from an mbox file is by removing it from the actual file. "
+#| "As this can be a rather expensive operation, the mbox resource keeps a "
+#| "list of deleted messages. Once in a while these messages are really "
+#| "removed from the file.</p>\n"
+#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#| "\"></p>\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#| "weight:600;\">Note:</span> The downside of this is that if the file is "
+#| "changed by another program, the list of deleted messages cannot be "
+#| "trusted any longer and deleted messages might reappear.</p></body></html>"
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-size:10pt; font-weight:400; font-style:"
+"normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">The only way to fully "
+"remove a mail from an mbox file is by removing it from the actual file. As "
+"this can be a rather expensive operation, the mbox resource keeps a list of "
+"deleted messages. Once in a while these messages are really removed from the "
+"file.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Note:</span> The downside of this is that if the file is "
+"changed by another program, the list of deleted messages cannot be trusted "
+"any longer and deleted messages might reappear.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Jediná možnost na plné "
+"odstránenie mailu zo súboru mbox je odstránenie z aktuálneho súboru. Môže to "
+"byť dosť drahá operácia, zdroj mbox ponecháva zoznamy vymazaných správ. Raz "
+"za čas sa správy naozaj vymažú zo súboru.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Poznámka:</span> Nevýhoda tohto je tá, že ak súbor zmení iný "
+"program, zoznam vymazaných správ už nemusí byť správny a vymazané správy sa "
+"môžu znova objaviť..</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, compactButton)
+#: compactpage.ui:49
+#, kde-format
+msgid "&Compact now"
+msgstr "Skomprimovať teraz"
+
+#. i18n: ectx: property (text), widget (QRadioButton, never)
+#: compactpage.ui:79
+#, kde-format
+msgid "&Never compact automatically"
+msgstr "Nikdy nekomprimovať automaticky"
+
+#. i18n: ectx: property (text), widget (QRadioButton, per_x_messages)
+#: compactpage.ui:86
+#, kde-format
+msgid "C&ompact every"
+msgstr "Skomprimovať každých"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_MessageCount)
+#: compactpage.ui:96
+#, kde-format
+msgid "msg"
+msgstr "msg"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LockFilePage)
+#: lockfilepage.ui:15
+#, kde-format
+msgid "MBox Settings"
+msgstr "Nastavenia MBox"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: lockfilepage.ui:27
+#, fuzzy, kde-format
+#| msgid ""
+#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#| "REC-html40/strict.dtd\">\n"
+#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#| "css\">\n"
+#| "p, li { white-space: pre-wrap; }\n"
+#| "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
+#| "font-weight:400; font-style:normal;\">\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\">Select a method to lock "
+#| "the mbox file when data is read from or written to the file.</p>\n"
+#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#| "\"></p>\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#| "weight:600;\">Note</span>: For some methods you might need to install "
+#| "additional software before they can be used.</p></body></html>"
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-size:10pt; font-weight:400; font-style:"
+"normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Select a method to lock "
+"the mbox file when data is read from or written to the file.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Note</span>: For some methods you might need to install "
+"additional software before they can be used.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Vyberte metódu na "
+"zamknutie súboru mbox pri čítaní a zápise dát do súboru.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Poznámka</span>: Pre niektoré metódy budete musieť "
+"nainštalovať dodatočný softvér predtým, ako ich použijete.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, procmail)
+#: lockfilepage.ui:43
+#, kde-format
+msgid "Procmail loc&kfile"
+msgstr "Súbor zámku Procmail"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mutt_dotlock)
+#: lockfilepage.ui:53
+#, kde-format
+msgid "&Mutt dotlock"
+msgstr "&Mutt dotlock"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mutt_dotlock_privileged)
+#: lockfilepage.ui:60
+#, kde-format
+msgid "M&utt dotlock privileged"
+msgstr "M&utt dotlock privilegované"
+
+#. i18n: ectx: property (text), widget (QRadioButton, none)
+#: lockfilepage.ui:67
+#, kde-format
+msgid "Non&e"
+msgstr "Žia&dne"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Lockfile)
+#: lockfilepage.ui:84
+#, kde-format
+msgid ".lock"
+msgstr ".lock"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: lockfilepage.ui:92
+#, kde-format
+msgid ""
+"None, the default configuration, should be safe in most cases.  However, if "
+"programs that do not make use of Akonadi are also accessing the configured "
+"mbox file, you will need to set an appropriate locking method. Note that if "
+"this is the case, the resource and the other programs must all use the same "
+"locking method."
+msgstr ""
+"Žiadne, predvolené nastavenie, malo by byť bezpečné pre väčšinu prípadov. "
+"Avšak, ak programy, ktoré nepoužívajú Akonadi, tiež pristupujú k nastavenému "
+"súboru mbox, budete musieť nastaviť vhodnú metódu zamykania. Toto je prípad, "
+"keď zdroj a ostatné programy musia používať rovnakú metódu zamykania."
+
+#: mboxconfig.cpp:20
+#, kde-format
+msgctxt "Filedialog filter for *.mbox"
+msgid "MBox file"
+msgstr "MBox súbor"
+
+#: mboxconfig.cpp:21
+#, kde-format
+msgid "Compact frequency"
+msgstr "Frekvencia komprimácie"
+
+#: mboxconfig.cpp:22
+#, kde-format
+msgid "Lock method"
+msgstr "Metóda zamknutia"
+
+#: mboxresource.cpp:87 mboxresource.cpp:140 mboxresource.cpp:179
+#, kde-format
+msgctxt "@info:status"
+msgid "MBox not configured."
+msgstr "MBox nie je nastavený."
+
+#: mboxresource.cpp:136 mboxresource.cpp:175
+#, kde-format
+msgid "MBox not loaded."
+msgstr "MBox nenačítaný."
+
+#: mboxresource.cpp:151
+#, kde-format
+msgid "Failed to read message with uid '%1'."
+msgstr "Zlyhalo načítanie správy s uid '%1'."
+
+#: mboxresource.cpp:185
+#, kde-format
+msgid "Only email messages can be added to the MBox resource."
+msgstr "Iba e-mailové správy sa môžu pridať do zdroja MBox."
+
+#: mboxresource.cpp:191
+#, kde-format
+msgid "Mail message not added to the MBox."
+msgstr "Mailová správa nepridaná do MBoxu."
+
+#: mboxresource.cpp:230
+#, kde-format
+msgid "Could not fetch the collection: %1"
+msgstr "Nemôžem stiahnuť kolekciu: %1"
+
+#: mboxresource.cpp:259
+#, kde-format
+msgid ""
+"The MBox file was changed by another program. A copy of the new file was "
+"made and pending changes are appended to that copy. To prevent this from "
+"happening use locking and make sure that all programs accessing the mbox use "
+"the same locking method."
+msgstr ""
+"Súbor MBox bol zmenený iným programom. Kópia nového súboru bola vytvorená a "
+"čakajúce zmeny sú pridané to tejto kópie. Aby ste tomuto predišli, použite "
+"zamykanie a uistite sa, že všetky programy pristupujúce k mboxu používajú "
+"rovnakú metódu zamykania."
+
+#: mboxresource.cpp:290
+#, kde-format
+msgid "Failed to save mbox file to %1"
+msgstr "Zlyhalo uloženie mbox súboru do %1"
+
+#: mboxresource.cpp:349
+#, kde-format
+msgid ""
+"Failed to update the changed item because the old item could not be deleted "
+"Reason: %1"
+msgstr ""
+"Zlyhala aktualizácia zmenej položky, pretože stará položka sa nedá vymazaž. "
+"Dôvod: %1"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mboxresource.kcfg:10
+#, kde-format
+msgid "Path to mbox file."
+msgstr "Cesta k súboru mbox."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: mboxresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Zobrazené meno."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mboxresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Nezmeniť aktuálne backend dáta."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: mboxresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Sledovať zmeny súboru."
+
+#. i18n: ectx: label, entry (Lockfile), group (Locking)
+#: mboxresource.kcfg:37
+#, kde-format
+msgid "Lockfile"
+msgstr "Súbor zámku"
+
+#. i18n: ectx: label, entry (MessageCount), group (Compacting)
+#: mboxresource.kcfg:50
+#, kde-format
+msgid "Number of deleted messages before a purge is started."
+msgstr "Počet vymazaných správ pred spustením čistenia."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/mailboxwizard.ui:19
+#, kde-format
+msgid "URL:"
+msgstr "URL:"

@@ -1,0 +1,13 @@
+
+# Convenience macro to add unit tests.
+macro( folderarchive_kmail _source )
+  set( _test ${_source} ../folderarchiveaccountinfo.cpp )
+  get_filename_component( _name ${_source} NAME_WE )
+  add_executable( ${_name} ${_test} ${_name}.h)
+  add_test(NAME ${_name} COMMAND ${_name} )
+  ecm_mark_as_test(folderararchive-${_name})
+
+  target_link_libraries( ${_name} Qt::Test Qt::Core  KPim${KF_MAJOR_VERSION}::AkonadiCore KF${KF_MAJOR_VERSION}::ConfigCore)
+endmacro()
+
+folderarchive_kmail(folderarchiveaccountinfotest.cpp folderarchiveaccountinfotest.h)

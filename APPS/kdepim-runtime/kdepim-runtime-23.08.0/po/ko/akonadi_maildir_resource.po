@@ -1,0 +1,226 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2010, 2013, 2014, 2015, 2020, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-02 00:55+0000\n"
+"PO-Revision-Date: 2021-07-30 15:28+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 20.12.3\n"
+
+#: configwidget.cpp:30
+#, kde-format
+msgid "Archive Folder"
+msgstr "폴더 아카이브"
+
+#: configwidget.cpp:45
+#, kde-format
+msgid "The selected path is empty."
+msgstr "선택한 경로가 비어 있습니다."
+
+#: configwidget.cpp:58
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "선택한 경로에 올바른 Maildir 폴더가 있습니다."
+
+#: configwidget.cpp:65
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "선택한 경로는 올바른 Maildir입니다."
+
+#: configwidget.cpp:71
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "선택한 경로가 비어 있으므로 새 Maildir을 만듭니다."
+
+#: configwidget.cpp:75
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "선택한 경로가 없습니다."
+
+#: libmaildir/maildir.cpp:214 libmaildir/maildir.cpp:219
+#, kde-format
+msgid "Error opening %1; this folder is missing."
+msgstr "%1 열기 오류: 폴더가 없습니다."
+
+#: libmaildir/maildir.cpp:225
+#, kde-format
+msgid ""
+"Error opening %1; either this is not a valid maildir folder, or you do not "
+"have sufficient access permissions."
+msgstr "%1 열기 오류: 올바른 maildir 폴더가 아니거나 권한이 거부되었습니다."
+
+#: libmaildir/maildir.cpp:452 libmaildir/maildir.cpp:474
+#: libmaildir/maildir.cpp:492 libmaildir/maildir.cpp:512
+#: libmaildir/maildir.cpp:531 libmaildir/maildir.cpp:555
+#: libmaildir/maildir.cpp:630 libmaildir/maildir.cpp:780
+#, kde-format
+msgid "Cannot locate mail file %1."
+msgstr "메일 파일 %1을(를) 찾을 수 없습니다."
+
+#: libmaildir/maildir.cpp:458 libmaildir/maildir.cpp:480
+#, kde-format
+msgid "Cannot open mail file %1."
+msgstr "메일 파일 %1을(를) 열 수 없습니다."
+
+#: libmaildir/maildir.cpp:563 libmaildir/maildir.cpp:590
+#, kde-format
+msgid "Cannot write to mail file %1."
+msgstr "메일 파일 %1에 쓸 수 없습니다."
+
+#: libmaildir/maildir.cpp:604
+#, kde-format
+msgid "Failed to create mail file %1. The error was: %2"
+msgstr "메일 파일 %1을(를) 만들 수 없습니다. 오류: %2"
+
+#: libmaildir/maildir.cpp:698
+#, kde-format
+msgid "Failed to update the file name %1 to %2 on the disk. The error was: %3."
+msgstr "디스크의 메일 파일 %1의 이름을 %2(으)로 바꿀 수 없습니다. 오류: %3."
+
+#: maildirresource.cpp:122 maildirresource.cpp:254 maildirresource.cpp:293
+#: maildirresource.cpp:387 maildirresource.cpp:428 maildirresource.cpp:548
+#: maildirresource.cpp:578 maildirresource.cpp:621 maildirresource.cpp:654
+#, kde-format
+msgid "Unusable configuration."
+msgstr "사용할 수 없는 설정입니다."
+
+#: maildirresource.cpp:187
+#, kde-format
+msgid "Unable to fetch item: The maildir folder \"%1\" is not valid."
+msgstr "항목을 가져올 수 없음: Maildir 폴더 \"%1\"이(가) 올바르지 않습니다."
+
+#: maildirresource.cpp:265
+#, kde-format
+msgid "Error: Unsupported type."
+msgstr "오류: 지원하지 않는 형식입니다."
+
+#: maildirresource.cpp:331
+#, kde-format
+msgid "Failed to change the flags for the mail. %1"
+msgstr "메일의 플래그를 변경할 수 없습니다. %1"
+
+#: maildirresource.cpp:366
+#, kde-format
+msgid "Maildir resource got a non-mail content."
+msgstr "Maildir 리소스에 메일이 아닌 것이 있습니다."
+
+#: maildirresource.cpp:393
+#, kde-format
+msgid "Source folder is invalid: '%1'."
+msgstr "원본 폴더가 잘못되었습니다: '%1'."
+
+#: maildirresource.cpp:399
+#, kde-format
+msgid "Destination folder is invalid: '%1'."
+msgstr "대상 폴더가 잘못되었습니다: '%1'."
+
+#: maildirresource.cpp:416
+#, kde-format
+msgid "Could not move message '%1' from '%2' to '%3'. The error was %4."
+msgstr ""
+"메시지 '%1'을(를) '%2'에서 '%3'(으)로 이동할 수 없습니다. 오류는 %4입니다."
+
+#: maildirresource.cpp:438
+#, kde-format
+msgid "Failed to delete message: %1"
+msgstr "메시지를 삭제할 수 없습니다: %1"
+
+#: maildirresource.cpp:527
+#, kde-format
+msgid "Maildir '%1' for collection '%2' is invalid."
+msgstr "모음집 '%2'의 Maildir '%1'이(가) 잘못되었습니다."
+
+#: maildirresource.cpp:606
+#, kde-format
+msgid "Unable to rename maildir folder '%1'."
+msgstr "Maildir 폴더 '%1'의 이름을 바꿀 수 없습니다."
+
+#: maildirresource.cpp:627
+#, kde-format
+msgid "Cannot move root maildir folder '%1'."
+msgstr "루트 Maildir 폴더 '%1'을(를) 이동할 수 없습니다."
+
+#: maildirresource.cpp:642
+#, kde-format
+msgid "Unable to move maildir folder '%1' from '%2' to '%3'."
+msgstr "Maildir 폴더 '%1'을(를) '%2'에서 '%3'(으)로 이동할 수 없습니다."
+
+#: maildirresource.cpp:660
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "최상위 Maildir 폴더 '%1'을(를) 삭제할 수 없습니다."
+
+#: maildirresource.cpp:669
+#, kde-format
+msgid "Failed to delete sub-folder '%1'."
+msgstr "하위 폴더 '%1'을(를) 삭제할 수 없습니다."
+
+#: maildirresource.cpp:683
+#, kde-format
+msgid "Unable to create maildir '%1'."
+msgstr "Maildir '%1'을(를) 만들 수 없습니다."
+
+#: maildirresource.cpp:693
+#, kde-format
+msgid "No usable storage location configured."
+msgstr "사용할 수 있는 저장소 위치가 설정되지 않았습니다."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: maildirresource.kcfg:10
+#, kde-format
+msgid "Path to maildir"
+msgstr "Maildir 경로"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: maildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"이 경로는 Maildir 자기 자신이 아닌 Maildir이 들어 있는 폴더를 가리킵니다."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: maildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "실제 백엔드 데이터를 바꾸지 않습니다."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "메일 디렉터리 설정"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settings.ui:37
+#, kde-format
+msgid "Maildir"
+msgstr "Maildir"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:43
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Maildir 정보가 있는 폴더를 선택하십시오:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:53
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "읽기 전용으로 열기"
+
+#~ msgid "Select a MailDir folder"
+#~ msgstr "MailDir 폴더 선택"
+
+#~ msgid "Folder Archive"
+#~ msgstr "폴더 보관"

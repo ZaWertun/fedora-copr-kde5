@@ -1,0 +1,284 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2011.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012, 2014.
+# Dimitris Kardarakos <dimkard@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_mixedmaildir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2014-11-04 19:01+0200\n"
+"Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: configwidget.cpp:28
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Η επιλεγμένη διαδρομή είναι κενή."
+
+#: configwidget.cpp:41
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Η επιλεγμένη διαδρομή περιέχει έγκυρους φακέλους MailDir."
+
+#: configwidget.cpp:48
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Η επιλεγμένη διαδρομή οδηγεί σε έγκυρο MailDir."
+
+#: configwidget.cpp:54
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr ""
+"Η επιλεγμένη διαδρομή δεν υπάρχει ακόμη, ένα νέο MailDir θα δημιουργηθεί"
+
+#: configwidget.cpp:57
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Η επιλεγμένη διαδρομή δεν υπάρχει."
+
+#: mixedmaildirresource.cpp:102 mixedmaildirresource.cpp:117
+#: mixedmaildirresource.cpp:148 mixedmaildirresource.cpp:178
+#: mixedmaildirresource.cpp:193 mixedmaildirresource.cpp:208
+#: mixedmaildirresource.cpp:240 mixedmaildirresource.cpp:253
+#: mixedmaildirresource.cpp:280 mixedmaildirresource.cpp:311
+#: mixedmaildirresource.cpp:339
+#, kde-format
+msgctxt "@info:status"
+msgid "Unusable configuration."
+msgstr "Διαμόρφωση ακατάλληλη για χρήση."
+
+#: mixedmaildirresource.cpp:171
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Item %1 belongs to invalid collection %2. Maybe it was deleted meanwhile?"
+msgstr ""
+"Το αντικείμενο %1 ανήκει στη μη έγκυρη συλλογή %2. Ενδεχομένως να διαγράφηκε "
+"στο μεταξύ;"
+
+#: mixedmaildirresource.cpp:202
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folders"
+msgstr "Συγχρονισμός φακέλων μηνυμάτων"
+
+#: mixedmaildirresource.cpp:217
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folder %1"
+msgstr "Συγχρονισμός φακέλου μηνυμάτων %1"
+
+#: mixedmaildirresource.cpp:318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Αδυναμία μετακίνησης του ριζικού φακέλου maildir '%1'."
+
+#: mixedmaildirresource.cpp:346
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Αδυναμία διαγραφής του ριζικού φακέλου maildir '%1'."
+
+#: mixedmaildirresource.cpp:360
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create maildir '%1'."
+msgstr "Αδυναμία δημιουργίας maildir '%1'."
+
+#: mixedmaildirresource.cpp:372
+#, kde-format
+msgctxt "@info:status"
+msgid "No usable storage location configured."
+msgstr "Δεν έχει διαμορφωθεί θέση αποθήκευσης κατάλληλη για χρήση."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mixedmaildirresource.kcfg:10
+#, kde-format
+msgid "Path to KMail mail folder"
+msgstr "Διαδρομή προς το φάκελο αλληλογραφίας του KMail"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: mixedmaildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Η διαδρομή οδηγεί προς ένα φάκελο που περιέχει Maildirs αντί για το ίδιο το "
+"maildir."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mixedmaildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Μην αλλάξετε τα δεδομένα του συστήματος υποστήριξης."
+
+#: mixedmaildirstore.cpp:550
+#, kde-format
+msgctxt "@info:status"
+msgid "Given folder name is empty"
+msgstr "Το όνομα του δοσμένου φακέλου είναι κενό"
+
+#: mixedmaildirstore.cpp:585 mixedmaildirstore.cpp:604
+#, kde-format
+msgctxt "@info:status"
+msgid "Folder %1 does not seem to be a valid email folder"
+msgstr "Ο φάκελος %1 δεν φαίνεται να είναι έγκυρος φάκελος μηνυμάτων"
+
+#: mixedmaildirstore.cpp:973
+#, kde-format
+msgctxt "@info:status"
+msgid "Unhandled operation %1"
+msgstr "Χωρίς χειρισμό λειτουργία %1"
+
+#: mixedmaildirstore.cpp:986 mixedmaildirstore.cpp:999
+#: mixedmaildirstore.cpp:1006 mixedmaildirstore.cpp:1014
+#: mixedmaildirstore.cpp:1025
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot create folder %1 inside folder %2"
+msgstr "Δεν μπορεί να δημιουργηθεί ο φάκελος %1 μέσα στον φάκελο %2"
+
+#: mixedmaildirstore.cpp:1053 mixedmaildirstore.cpp:1062
+#: mixedmaildirstore.cpp:1070 mixedmaildirstore.cpp:1077
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove folder %1 from folder %2"
+msgstr "Δεν αφαιρείται ο φάκελος %1 από τον φάκελο %2"
+
+#: mixedmaildirstore.cpp:1113 mixedmaildirstore.cpp:1652
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load MBox folder %1"
+msgstr "Αποτυχία φόρτωσης φακέλου MBox %1"
+
+#: mixedmaildirstore.cpp:1177 mixedmaildirstore.cpp:1193
+#: mixedmaildirstore.cpp:1228 mixedmaildirstore.cpp:1236
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot rename folder %1"
+msgstr "Αδυναμία μετονομασίας του φακέλου %1"
+
+#: mixedmaildirstore.cpp:1297 mixedmaildirstore.cpp:1314
+#: mixedmaildirstore.cpp:1335 mixedmaildirstore.cpp:1375
+#: mixedmaildirstore.cpp:1387 mixedmaildirstore.cpp:1421
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 from folder %2 to folder %3"
+msgstr "Δεν μεταφέρεται ο φάκελος %1 από τον φάκελο %2 στον φάκελο %3"
+
+#: mixedmaildirstore.cpp:1463 mixedmaildirstore.cpp:1477
+#: mixedmaildirstore.cpp:1502 mixedmaildirstore.cpp:1532
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add emails to folder %1"
+msgstr "Αδυναμία προσθήκης μηνυμάτων στον φάκελο %1"
+
+#: mixedmaildirstore.cpp:1555 mixedmaildirstore.cpp:1567
+#: mixedmaildirstore.cpp:1581 mixedmaildirstore.cpp:1613
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove emails from folder %1"
+msgstr "Αδυναμία αφαίρεσης μηνυμάτων από τον φάκελο %1"
+
+#: mixedmaildirstore.cpp:1679 mixedmaildirstore.cpp:1719
+#, kde-format
+msgctxt "@info:status"
+msgid "Error while reading mails from folder %1"
+msgstr "Σφάλμα κατά την ανάγνωση μηνυμάτων από τον φάκελο %1"
+
+#: mixedmaildirstore.cpp:1700
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load Maildirs folder %1"
+msgstr "Αποτυχία φόρτωσης φακέλου Maildirs %1"
+
+#: mixedmaildirstore.cpp:1759 mixedmaildirstore.cpp:1771
+#: mixedmaildirstore.cpp:1785 mixedmaildirstore.cpp:1819
+#: mixedmaildirstore.cpp:1843
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1"
+msgstr "Αδυναμία τροποποίησης μηνυμάτων στον φάκελο %1"
+
+#: mixedmaildirstore.cpp:1874
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1. %2"
+msgstr "Αδυναμία τροποποίησης μηνυμάτων στον φάκελο %1. %2"
+
+#: mixedmaildirstore.cpp:1899 mixedmaildirstore.cpp:1930
+#: mixedmaildirstore.cpp:1954
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails from folder %1"
+msgstr "Αδυναμία μετακίνησης μηνυμάτων από τον φάκελο %1"
+
+#: mixedmaildirstore.cpp:1913 mixedmaildirstore.cpp:1941
+#: mixedmaildirstore.cpp:1986 mixedmaildirstore.cpp:2010
+#: mixedmaildirstore.cpp:2017 mixedmaildirstore.cpp:2096
+#: mixedmaildirstore.cpp:2120
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails to folder %1"
+msgstr "Αδυναμία μετακίνησης μηνυμάτων στον φάκελο %1"
+
+#: mixedmaildirstore.cpp:1962 mixedmaildirstore.cpp:2062
+#: mixedmaildirstore.cpp:2084
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1"
+msgstr "Αδυναμία μετακίνησης μηνύματος από τον φάκελο %1"
+
+#: mixedmaildirstore.cpp:2040 mixedmaildirstore.cpp:2145
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1 to folder %2"
+msgstr "Αδυναμία μετακίνησης μηνύματος από τον φάκελο %1 στον φάκελο %2"
+
+#: mixedmaildirstore.cpp:2298
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 into one of its own subfolder tree"
+msgstr "Αδυναμία μετακίνησης του φακέλου %1 σε ένα δικό του δέντρο υποφακέλων"
+
+#: mixedmaildirstore.cpp:2310
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add email to folder %1 because there is no email content"
+msgstr "Αδυναμία προσθήκης κενού μηνύματος στον φάκελο %1"
+
+#: mixedmaildirstore.cpp:2318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify email in folder %1 because there is no email content"
+msgstr "Αδυναμία τροποποίησης κενού μηνύματος στον φάκελο %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Ρυθμίσεις καταλόγου"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:21
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Επιλογή του φακέλου με τις πληροφορίες για το maildir:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:31
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Άνοιγμα για ανάγνωση-μόνο"
+
+#~ msgid "Select a KMail Mail folder"
+#~ msgstr "Επιλογή φακέλου αλληλογραφίας του KMail"

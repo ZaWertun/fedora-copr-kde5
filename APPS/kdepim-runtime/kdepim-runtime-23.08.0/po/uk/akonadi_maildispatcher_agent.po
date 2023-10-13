@@ -1,0 +1,198 @@
+# Translation of akonadi_maildispatcher_agent.po to Ukrainian
+# Copyright (C) 2009-2012 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_maildispatcher_agent\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-04 00:48+0000\n"
+"PO-Revision-Date: 2012-10-16 19:27+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: maildispatcheragent.cpp:84 maildispatcheragent.cpp:233
+#, kde-format
+msgid "Sending messages (1 item in queue)..."
+msgid_plural "Sending messages (%1 items in queue)..."
+msgstr[0] "Надсилання повідомлень (%1 пункт у черзі)..."
+msgstr[1] "Надсилання повідомлень (%1 пункти у черзі)..."
+msgstr[2] "Надсилання повідомлень (%1 пунктів у черзі)..."
+msgstr[3] "Надсилання повідомлень (%1 пункт у черзі)..."
+
+#: maildispatcheragent.cpp:94
+#, kde-format
+msgid "Sending canceled."
+msgstr "Надсилання скасовано."
+
+#: maildispatcheragent.cpp:101
+#, kde-format
+msgid "Finished sending messages."
+msgstr "Надсилання повідомлень завершено."
+
+#: maildispatcheragent.cpp:107
+#, kde-format
+msgctxt "Notification title when email was sent"
+msgid "E-Mail Successfully Sent"
+msgstr "Пошту успішно надіслано"
+
+#: maildispatcheragent.cpp:108
+#, kde-format
+msgctxt "Notification when the email was sent"
+msgid "Your E-Mail has been sent successfully."
+msgstr "Вашу пошту успішно надіслано."
+
+#: maildispatcheragent.cpp:114
+#, kde-format
+msgid "No items in queue."
+msgstr "У черзі немає пунктів."
+
+#: maildispatcheragent.cpp:164
+#, kde-format
+msgid "Online, sending messages in queue."
+msgstr "У мережі, надсилання повідомлень з черги."
+
+#: maildispatcheragent.cpp:168
+#, kde-format
+msgid "Offline, message sending suspended."
+msgstr "Поза мережею, надсилання повідомлень призупинено"
+
+#: maildispatcheragent.cpp:193
+#, kde-format
+msgctxt "Message with given subject is being sent."
+msgid "Sending: %1"
+msgstr "Надсилання: %1"
+
+#: maildispatcheragent.cpp:258
+#, kde-format
+msgctxt "Notification title when email sending failed"
+msgid "E-Mail Sending Failed"
+msgstr "Спроба надсилання пошти зазнала невдачі"
+
+#: maildispatcheragent.cpp:291
+#, kde-format
+msgid "Ready to dispatch messages."
+msgstr "Готовий до розподілу повідомлень."
+
+#. i18n: ectx: label, entry (Outbox), group (General)
+#: maildispatcheragent.kcfg:10
+#, kde-format
+msgid "Outbox collection id"
+msgstr "Ідентифікатор збірки «Вихідні»"
+
+#. i18n: ectx: label, entry (SentMail), group (General)
+#: maildispatcheragent.kcfg:14
+#, kde-format
+msgid "Sent Mail collection id"
+msgstr "Ідентифікатор збірки «Надіслані»"
+
+#: outboxqueue.cpp:265
+#, kde-format
+msgid "Could not access the outbox folder (%1)."
+msgstr "Не вдалося отримати доступ до теки вихідних повідомлень (%1)."
+
+#: sendjob.cpp:49 sendjob.cpp:50
+#, kde-format
+msgid "Message sending aborted."
+msgstr "Надсилання повідомлення перервано."
+
+#: sendjob.cpp:59
+#, kde-format
+msgid "Could not initiate message transport. Possibly invalid transport."
+msgstr ""
+"Не вдалося ініціалізувати пересилання повідомлень. Можливо, спосіб "
+"пересилання вказано неправильно."
+
+#: sendjob.cpp:65
+#, kde-format
+msgid "Could not send message. Invalid transport."
+msgstr "Не вдалося надіслати повідомлення. Некоректний спосіб пересилання."
+
+#: sendjob.cpp:97
+#, kde-format
+msgid "Failed to get D-Bus interface of resource %1."
+msgstr "Не вдалося отримати інтерфейс D-Bus ресурсу %1."
+
+#: sendjob.cpp:110
+#, kde-format
+msgid "Invalid D-Bus reply from resource %1."
+msgstr "Некоректна відповідь D-Bus від ресурсу %1."
+
+#: sendjob.cpp:228
+#, kde-format
+msgid "Default sent-mail folder unavailable. Keeping message in outbox."
+msgstr ""
+"Типова тека надісланої пошти недоступна. Повідомлення буде збережено у теці "
+"вихідних повідомлень."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Message transport aborted."
+msgstr "Передавання повідомлення перервано."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Failed to transport message."
+msgstr "Не вдалося передати повідомлення."
+
+#: sendjob.cpp:282
+#, kde-format
+msgid "Failed to get D-Bus interface of mailfilteragent."
+msgstr ""
+"Не вдалося отримати інтерфейс D-Bus агента фільтрування пошти "
+"(mailfilteragent)."
+
+#: sendjob.cpp:289
+#, kde-format
+msgid "Invalid D-Bus reply from mailfilteragent"
+msgstr ""
+"Некоректна відповідь D-Bus від агента фільтрування пошти (mailfilteragent)."
+
+#: sendjob.cpp:331
+#, kde-format
+msgid "Sending succeeded, but failed to remove the message from the outbox."
+msgstr ""
+"Надсилання виконано успішно, але вилучити повідомлення з теки «Вихідні» не "
+"вдалося."
+
+#: sendjob.cpp:334
+#, kde-format
+msgid ""
+"Sending succeeded, but failed to move the message to the sent-mail folder."
+msgstr ""
+"Надсилання виконано успішно, але пересунути повідомлення до теки «Надіслані» "
+"не вдалося."
+
+#: sendjob.cpp:370
+#, kde-format
+msgid "Failed to store result in item."
+msgstr "Не вдалося зберегти результат у записі."
+
+#: storeresultjob.cpp:59
+#, kde-format
+msgid "Failed to fetch item."
+msgstr "Не вдалося отримати запис."
+
+#~ msgid "Mail Dispatcher Agent Settings"
+#~ msgstr "Параметри агента розподілу пошти"
+
+#~ msgid "Select the collection to be used as outbox:"
+#~ msgstr "Вкажіть збірку, яку буде використано для вихідних:"
+
+#~ msgid "Select the collection to move sent messages into:"
+#~ msgstr "Вкажіть збірку, яку буде використано для надісланих:"
+
+#~ msgid "Sending succeeded, %1."
+#~ msgstr "Успішна спроба надсилання, %1."
+
+#~ msgid "Sending succeeded, but failed to finalize message."
+#~ msgstr "Успішне надсилання, але помилка під час завершення повідомлення."

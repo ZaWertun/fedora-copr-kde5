@@ -1,0 +1,3 @@
+[Agent]
+Id=birthdaycalendar
+Type=akonadi_birthdays_resource

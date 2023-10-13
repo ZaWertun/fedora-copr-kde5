@@ -1,0 +1,173 @@
+# Lithuanian translations for akonadi_contacts_resource package.
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the akonadi_contacts_resource package.
+#
+# Andrius Štikonas <andrius@stikonas.eu>, 2009.
+# Jonas Česnauskas <upynas@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_contacts_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2019-07-07 19:27+0300\n"
+"Last-Translator: Moo\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: contactsagentsettingswidget.ui:29
+#, kde-format
+msgid "Directory Name"
+msgstr "Katalogo pavadinimas"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: contactsagentsettingswidget.ui:37
+#, kde-format
+msgid "Di&rectory:"
+msgstr "&Katalogas:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: contactsagentsettingswidget.ui:52
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Parinkite katalogą, kurio turinį turėtų atstovauti šis išteklius. Jei "
+"katalogo nėra, jis bus sukurtas."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: contactsagentsettingswidget.ui:65
+#, kde-format
+msgid "Access Rights"
+msgstr "Prieigos teisės"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: contactsagentsettingswidget.ui:71
+#, kde-format
+msgctxt "if the access is limited to read-only"
+msgid "Read only"
+msgstr "Tik skaitymui"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: contactsagentsettingswidget.ui:78
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Jei yra įjungta tik skaitymo veiksena, jokie pakeitimai nebus įrašyti į "
+"aukščiau pasirinktą katalogą. Jei neturite rašymo prieigos prie katalogo, "
+"tik skaitymo veiksena bus įjungta automatiškai."
+
+#: contactsresource.cpp:44
+#, kde-format
+msgid "Personal Contacts"
+msgstr "Asmeniniai adresatai"
+
+#: contactsresource.cpp:124
+#, kde-format
+msgid "Directory '%1' does not exists"
+msgstr "Katalogo „%1“ nėra"
+
+#: contactsresource.cpp:148 contactsresource.cpp:223
+#, kde-format
+msgid "Found file of unknown format: '%1'"
+msgstr "Rastas nežinomo formato failas: „%1“"
+
+#: contactsresource.cpp:197
+#, kde-format
+msgid "Unable to open file '%1'"
+msgstr "Nepavyko atverti failo „%1“"
+
+#: contactsresource.cpp:207
+#, kde-format
+msgid "Found invalid contact in file '%1'"
+msgstr "Faile „%1“ rastas netinkamas adresatas"
+
+#: contactsresource.cpp:217
+#, kde-format
+msgid "Found invalid contact group in file '%1': %2"
+msgstr "Faile „%1“ rasta netinkama adresatų grupė: „%2“"
+
+#: contactsresource.cpp:233 contactsresource.cpp:358 contactsresource.cpp:379
+#: contactsresource.cpp:412
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Bandoma rašyti į tik skaitymui skirtą katalogą: „%1“"
+
+#: contactsresource.cpp:251 contactsresource.cpp:266 contactsresource.cpp:301
+#: contactsresource.cpp:313
+#, kde-format
+msgid "Unable to write to file '%1': %2"
+msgstr "Nepavyko rašyti į failą „%1“: „%2“"
+
+#: contactsresource.cpp:285 contactsresource.cpp:333
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'"
+msgstr "Bandoma rašyti į tik skaitymui skirtą failą: „%1“"
+
+#: contactsresource.cpp:323
+#, kde-format
+msgid "Received item with unknown payload %1"
+msgstr "Gautas elementas su nežinoma naudinga apkrova %1"
+
+#: contactsresource.cpp:348
+#, kde-format
+msgid "Unable to remove file '%1'"
+msgstr "Nepavyko pašalinti failo „%1“"
+
+#: contactsresource.cpp:365
+#, kde-format
+msgid "Unable to create folder '%1'."
+msgstr "Nepavyko sukurti aplanko „%1“."
+
+#: contactsresource.cpp:400
+#, kde-format
+msgid "Unable to rename folder '%1'."
+msgstr "Nepavyko pervadinti aplanko „%1“."
+
+#: contactsresource.cpp:418
+#, kde-format
+msgid "Unknown folder to delete."
+msgstr ""
+
+#: contactsresource.cpp:422
+#, kde-format
+msgid "Unable to delete folder '%1'."
+msgstr "Nepavyko ištrinti aplanko „%1“."
+
+#: contactsresource.cpp:437
+#, kde-format
+msgid "Unable to move file '%1' to '%2', '%2' already exists."
+msgstr "Nepavyko perkelti failo „%1“ į „%2“, „%2“ jau yra."
+
+#: contactsresource.cpp:451
+#, kde-format
+msgid "Unable to move directory '%1' to '%2', '%2' already exists."
+msgstr "Nepavyko perkelti katalogo „%1“ į „%2“, „%2“ jau yra."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: contactsresource.kcfg:10
+#, kde-format
+msgid "Path to contacts directory"
+msgstr "Kelias iki adresatų katalogo"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: contactsresource.kcfg:14
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Nekeisti dabartinių vidinės pusės duomenų."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/contactswizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Failo pavadinimas:"

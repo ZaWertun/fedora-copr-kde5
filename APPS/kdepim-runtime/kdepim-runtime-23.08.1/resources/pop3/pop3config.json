@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "pop3config",
+    "X-Akonadi-AgentConfig-Type": "akonadi_pop3_resource"
+}

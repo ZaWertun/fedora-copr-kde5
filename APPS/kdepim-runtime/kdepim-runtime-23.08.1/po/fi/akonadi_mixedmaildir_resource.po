@@ -1,0 +1,288 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tommi Nieminen <translator@legisign.org>, 2011.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014.
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_mixedmaildir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2014-10-11 16:09+0300\n"
+"Last-Translator: Larso\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:24:48+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: configwidget.cpp:28
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Valittu sijainti on tyhjä."
+
+#: configwidget.cpp:41
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Valitussa sijainnissa on kelvollisia maildir-kansioita."
+
+#: configwidget.cpp:48
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Valittu sijainti on kelvollinen maildir-kansio."
+
+#: configwidget.cpp:54
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "Valittua sijaintia ei ole vielä olemassa: uusi maildir-kansio luodaan."
+
+#: configwidget.cpp:57
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Valittua sijaintia ei ole olemassa."
+
+#: mixedmaildirresource.cpp:102 mixedmaildirresource.cpp:117
+#: mixedmaildirresource.cpp:148 mixedmaildirresource.cpp:178
+#: mixedmaildirresource.cpp:193 mixedmaildirresource.cpp:208
+#: mixedmaildirresource.cpp:240 mixedmaildirresource.cpp:253
+#: mixedmaildirresource.cpp:280 mixedmaildirresource.cpp:311
+#: mixedmaildirresource.cpp:339
+#, kde-format
+msgctxt "@info:status"
+msgid "Unusable configuration."
+msgstr "Käyttökelvottomat asetukset."
+
+#: mixedmaildirresource.cpp:171
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Item %1 belongs to invalid collection %2. Maybe it was deleted meanwhile?"
+msgstr ""
+"Tietue %1 kuuluu virheelliseen kokoelmaan %2. Ehkä se poistettiin sillä "
+"välin?"
+
+#: mixedmaildirresource.cpp:202
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folders"
+msgstr "Synkronoidaan sähköpostikansioita"
+
+#: mixedmaildirresource.cpp:217
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folder %1"
+msgstr "Synkronoidaan sähköpostikansiota %1"
+
+#: mixedmaildirresource.cpp:318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Maildir-juurikansiota ”%1” ei voi siirtää."
+
+#: mixedmaildirresource.cpp:346
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Ylimmän tason maildir-kansiota ”%1” ei voi poistaa."
+
+#: mixedmaildirresource.cpp:360
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create maildir '%1'."
+msgstr "Maildir-kansiota ”%1” ei voi luoda."
+
+#: mixedmaildirresource.cpp:372
+#, kde-format
+msgctxt "@info:status"
+msgid "No usable storage location configured."
+msgstr "Käyttökelpoista taltiosijaintia ei määritetty."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mixedmaildirresource.kcfg:10
+#, kde-format
+msgid "Path to KMail mail folder"
+msgstr "Polku KMailin postikansioon"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: mixedmaildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Polku osoittaa maildir-kansioita sisältävään kansioon eikä maildir-kansioon "
+"itseensä."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mixedmaildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Älä muuta tietoja taustaosassa."
+
+#: mixedmaildirstore.cpp:550
+#, kde-format
+msgctxt "@info:status"
+msgid "Given folder name is empty"
+msgstr "Valittu kansio on tyhjä"
+
+#: mixedmaildirstore.cpp:585 mixedmaildirstore.cpp:604
+#, kde-format
+msgctxt "@info:status"
+msgid "Folder %1 does not seem to be a valid email folder"
+msgstr "Kansio %1 ei vaikuta oleva kelvollinen sähköpostikansio"
+
+#: mixedmaildirstore.cpp:973
+#, kde-format
+msgctxt "@info:status"
+msgid "Unhandled operation %1"
+msgstr "Hallitsematon toiminto %1"
+
+#: mixedmaildirstore.cpp:986 mixedmaildirstore.cpp:999
+#: mixedmaildirstore.cpp:1006 mixedmaildirstore.cpp:1014
+#: mixedmaildirstore.cpp:1025
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot create folder %1 inside folder %2"
+msgstr "Kansiota %1 ei voi luoda kansioon %2"
+
+#: mixedmaildirstore.cpp:1053 mixedmaildirstore.cpp:1062
+#: mixedmaildirstore.cpp:1070 mixedmaildirstore.cpp:1077
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove folder %1 from folder %2"
+msgstr "Kansiota %1 ei voi poistaa kansiosta %2"
+
+#: mixedmaildirstore.cpp:1113 mixedmaildirstore.cpp:1652
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load MBox folder %1"
+msgstr "Mbox-kansion %1 lataus epäonnistui"
+
+#: mixedmaildirstore.cpp:1177 mixedmaildirstore.cpp:1193
+#: mixedmaildirstore.cpp:1228 mixedmaildirstore.cpp:1236
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot rename folder %1"
+msgstr "Kansion %1 nimeä ei voi muuttaa"
+
+#: mixedmaildirstore.cpp:1297 mixedmaildirstore.cpp:1314
+#: mixedmaildirstore.cpp:1335 mixedmaildirstore.cpp:1375
+#: mixedmaildirstore.cpp:1387 mixedmaildirstore.cpp:1421
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 from folder %2 to folder %3"
+msgstr "Kansiota %1 ei voi siirtää kansiosta %2 kansioon %3"
+
+#: mixedmaildirstore.cpp:1463 mixedmaildirstore.cpp:1477
+#: mixedmaildirstore.cpp:1502 mixedmaildirstore.cpp:1532
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add emails to folder %1"
+msgstr "Kansioon %1 ei voi lisätä sähköposteja"
+
+#: mixedmaildirstore.cpp:1555 mixedmaildirstore.cpp:1567
+#: mixedmaildirstore.cpp:1581 mixedmaildirstore.cpp:1613
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove emails from folder %1"
+msgstr "Kansiosta %1 ei voi poistaa sähköposteja"
+
+#: mixedmaildirstore.cpp:1679 mixedmaildirstore.cpp:1719
+#, kde-format
+msgctxt "@info:status"
+msgid "Error while reading mails from folder %1"
+msgstr "Virhe luettaessa sähköposteja kansiosta %1"
+
+#: mixedmaildirstore.cpp:1700
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load Maildirs folder %1"
+msgstr "Maildir-kansion %1 lataus epäonnistui"
+
+#: mixedmaildirstore.cpp:1759 mixedmaildirstore.cpp:1771
+#: mixedmaildirstore.cpp:1785 mixedmaildirstore.cpp:1819
+#: mixedmaildirstore.cpp:1843
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1"
+msgstr "Kansion %1 sähköposteja ei voi muuttaa"
+
+#: mixedmaildirstore.cpp:1874
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1. %2"
+msgstr "Kansion %1 sähköposteja ei voi muuttaa. %2"
+
+#: mixedmaildirstore.cpp:1899 mixedmaildirstore.cpp:1930
+#: mixedmaildirstore.cpp:1954
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails from folder %1"
+msgstr "Kansiosta %1 ei voi siirtää sähköposteja"
+
+#: mixedmaildirstore.cpp:1913 mixedmaildirstore.cpp:1941
+#: mixedmaildirstore.cpp:1986 mixedmaildirstore.cpp:2010
+#: mixedmaildirstore.cpp:2017 mixedmaildirstore.cpp:2096
+#: mixedmaildirstore.cpp:2120
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails to folder %1"
+msgstr "Kansioon %1 ei voi siirtää sähköposteja"
+
+#: mixedmaildirstore.cpp:1962 mixedmaildirstore.cpp:2062
+#: mixedmaildirstore.cpp:2084
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1"
+msgstr "Kansiosta %1 ei voi siirtää sähköpostia"
+
+#: mixedmaildirstore.cpp:2040 mixedmaildirstore.cpp:2145
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1 to folder %2"
+msgstr "Kansiosta %1 ei voi siirtää sähköpostia kansioon %2"
+
+#: mixedmaildirstore.cpp:2298
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 into one of its own subfolder tree"
+msgstr "Kansiota %1 ei voi siirtää sen omiin alikansioihin"
+
+#: mixedmaildirstore.cpp:2310
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add email to folder %1 because there is no email content"
+msgstr ""
+"Kansioon %1 ei voi siirtää sähköpostia, koska sähköpostista puuttuu sisältö"
+
+#: mixedmaildirstore.cpp:2318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify email in folder %1 because there is no email content"
+msgstr ""
+"Kansion %1 sähköpostia ei voi muuttaa, koska sähköpostista puuttuu sisältö"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Postikansion asetukset"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:21
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Valitse maildir-tietoa sisältävä kansio:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:31
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Avaa vain luku -tilassa"
+
+#~ msgid "Select a KMail Mail folder"
+#~ msgstr "Valitse KMailin postikansio"

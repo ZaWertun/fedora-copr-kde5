@@ -1,0 +1,121 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Volkan Gezer <volkangezer@gmail.com>, 2017.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2022-04-05 13:10+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: kolabwizard.es:10
+msgid "Personal Settings"
+msgstr "Kişisel Ayarlar"
+
+#: kolabwizard.es:11
+msgid "Autoconfiguration"
+msgstr "Otomatik yapılandırma"
+
+#: kolabwizard.es:76 kolabwizard.es:256
+msgid "Probing IMAP server..."
+msgstr "IMAP sunucusu araştırılıyor..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFreebusyEdit)
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxLdapEdit)
+#: kolabwizard.es:128 kolabwizard.es:129 kolabwizard2.ui:85 kolabwizard2.ui:163
+#, kde-format
+msgid "Create"
+msgstr "Oluştur"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxImapEdit)
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxSmtpEdit)
+#: kolabwizard.es:176 kolabwizard.es:187 kolabwizard2.ui:55 kolabwizard2.ui:136
+#, kde-format
+msgid "Manual Edit"
+msgstr "El ile Düzenle"
+
+#: kolabwizard.es:213
+msgid "Probing SMTP server..."
+msgstr "SMTP sunucusu araştırılıyor..."
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kolabwizard.ui:20
+#, kde-format
+msgid "&Name:"
+msgstr "&Ad:"
+
+#. i18n: ectx: property (text), widget (QLabel, emailLabel)
+#: kolabwizard.ui:33
+#, kde-format
+msgid "&Email:"
+msgstr "&E-posta:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: kolabwizard.ui:46
+#, kde-format
+msgid "&Password:"
+msgstr "&Parola:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kolabwizard.ui:60
+#, kde-format
+msgid "Kolab Version:"
+msgstr "Kolab Sürümü:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, versionComboBox)
+#: kolabwizard.ui:74
+#, kde-format
+msgid "v2"
+msgstr "v2"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, versionComboBox)
+#: kolabwizard.ui:79
+#, kde-format
+msgid "v3"
+msgstr "v3"
+
+#. i18n: ectx: property (text), widget (QLabel, imapLabel)
+#: kolabwizard2.ui:20
+#, kde-format
+msgid "IMAP:"
+msgstr "IMAP:"
+
+#. i18n: ectx: property (text), widget (QLabel, lineEditImapLabel)
+#: kolabwizard2.ui:42
+#, kde-format
+msgid "IMAP Server Name:"
+msgstr "IMAP Sunucu Adı:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelFreebusy)
+#: kolabwizard2.ui:94
+#, kde-format
+msgid "Freebusy:"
+msgstr "Müsait meşgul:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelSmtp)
+#: kolabwizard2.ui:101
+#, kde-format
+msgid "SMTP:"
+msgstr "SMTP:"
+
+#. i18n: ectx: property (text), widget (QLabel, lineEditSmtpLabel)
+#: kolabwizard2.ui:123
+#, kde-format
+msgid "SMTP Server Name:"
+msgstr "SMTP Sunucu Adı:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelLdap)
+#: kolabwizard2.ui:172
+#, kde-format
+msgid "LDAP:"
+msgstr "LDAP:"

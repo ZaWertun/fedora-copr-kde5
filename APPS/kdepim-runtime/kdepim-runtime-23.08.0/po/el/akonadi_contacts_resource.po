@@ -1,0 +1,172 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2011, 2012.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012.
+# Petros Vidalis <pvidalis@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_contacts_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2016-05-24 16:34+0200\n"
+"Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: contactsagentsettingswidget.ui:29
+#, kde-format
+msgid "Directory Name"
+msgstr "Όνομα καταλόγου"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: contactsagentsettingswidget.ui:37
+#, kde-format
+msgid "Di&rectory:"
+msgstr "&Κατάλογος:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: contactsagentsettingswidget.ui:52
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Επιλέξτε κατάλογο τα περιεχόμενα του οποίου θα αντιπροσωπεύσει αυτός ο "
+"πόρος. Αν ο κατάλογος δεν υπάρχει, θα δημιουργηθεί."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: contactsagentsettingswidget.ui:65
+#, kde-format
+msgid "Access Rights"
+msgstr "Δικαιώματα πρόσβασης"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: contactsagentsettingswidget.ui:71
+#, kde-format
+msgctxt "if the access is limited to read-only"
+msgid "Read only"
+msgstr "Για ανάγνωση μόνο"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: contactsagentsettingswidget.ui:78
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Αν η λειτουργία για ανάγνωση-μόνο είναι ενεργοποιημένη, δεν θα υπάρξει "
+"μεταβολή στον επιλεγμένο κατάλογο. Η λειτουργία για ανάγνωση-μόνο θα "
+"ενεργοποιηθεί αυτόματα αν δεν έχετε πρόσβαση για εγγραφή στον κατάλογο."
+
+#: contactsresource.cpp:44
+#, kde-format
+msgid "Personal Contacts"
+msgstr "Προσωπικές επαφές"
+
+#: contactsresource.cpp:124
+#, kde-format
+msgid "Directory '%1' does not exists"
+msgstr "Ο κατάλογος '%1' δεν υπάρχει"
+
+#: contactsresource.cpp:148 contactsresource.cpp:223
+#, kde-format
+msgid "Found file of unknown format: '%1'"
+msgstr "Βρέθηκε αρχείο άγνωστου τύπου: '%1'"
+
+#: contactsresource.cpp:197
+#, kde-format
+msgid "Unable to open file '%1'"
+msgstr "Αδυναμία ανοίγματος του αρχείου '%1'"
+
+#: contactsresource.cpp:207
+#, kde-format
+msgid "Found invalid contact in file '%1'"
+msgstr "Βρέθηκε μη έγκυρη επαφή στο αρχείο '%1'"
+
+#: contactsresource.cpp:217
+#, kde-format
+msgid "Found invalid contact group in file '%1': %2"
+msgstr "Βρέθηκε μη έγκυρη ομάδα επαφών στο αρχείο '%1': %2"
+
+#: contactsresource.cpp:233 contactsresource.cpp:358 contactsresource.cpp:379
+#: contactsresource.cpp:412
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Απόπειρα εγγραφής σε κατάλογο για ανάγνωση-μόνο: '%1'"
+
+#: contactsresource.cpp:251 contactsresource.cpp:266 contactsresource.cpp:301
+#: contactsresource.cpp:313
+#, kde-format
+msgid "Unable to write to file '%1': %2"
+msgstr "Αδυναμία εγγραφής στο αρχείο '%1': %2"
+
+#: contactsresource.cpp:285 contactsresource.cpp:333
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'"
+msgstr "Προσπάθεια εγγραφής σε αρχείο για ανάγνωση-μόνο: '%1'"
+
+#: contactsresource.cpp:323
+#, kde-format
+msgid "Received item with unknown payload %1"
+msgstr "Παραλαβή αντικειμένου άγνωστου περιεχομένου %1"
+
+#: contactsresource.cpp:348
+#, kde-format
+msgid "Unable to remove file '%1'"
+msgstr "Αδυναμία διαγραφής του αρχείου '%1'"
+
+#: contactsresource.cpp:365
+#, kde-format
+msgid "Unable to create folder '%1'."
+msgstr "Αδυναμία δημιουργίας του καταλόγου '%1'."
+
+#: contactsresource.cpp:400
+#, kde-format
+msgid "Unable to rename folder '%1'."
+msgstr "Αδυναμία μετονομασίας του καταλόγου '%1'."
+
+#: contactsresource.cpp:418
+#, kde-format
+msgid "Unknown folder to delete."
+msgstr ""
+
+#: contactsresource.cpp:422
+#, kde-format
+msgid "Unable to delete folder '%1'."
+msgstr "Αδυναμία διαγραφής του καταλόγου '%1'."
+
+#: contactsresource.cpp:437
+#, kde-format
+msgid "Unable to move file '%1' to '%2', '%2' already exists."
+msgstr "Αδυναμία μετακίνησης του αρχείου '%1' στο '%2', το '%2' υπάρχει ήδη."
+
+#: contactsresource.cpp:451
+#, kde-format
+msgid "Unable to move directory '%1' to '%2', '%2' already exists."
+msgstr "Αδυναμία μετακίνησης του καταλόγου '%1' στον '%2', ο '%2' υπάρχει ήδη."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: contactsresource.kcfg:10
+#, kde-format
+msgid "Path to contacts directory"
+msgstr "Διαδρομή προς τον κατάλογο επαφών"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: contactsresource.kcfg:14
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Μην αλλάξετε τα δεδομένα του συστήματος υποστήριξης."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/contactswizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Όνομα αρχείου:"

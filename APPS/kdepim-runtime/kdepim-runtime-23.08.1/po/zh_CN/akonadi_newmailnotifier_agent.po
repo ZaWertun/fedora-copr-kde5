@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-04 00:49+0000\n"
+"PO-Revision-Date: 2023-09-02 02:59\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-stable/messages/kdepim-runtime/"
+"akonadi_newmailnotifier_agent.pot\n"
+"X-Crowdin-File-ID: 3356\n"
+
+#: newmailnotificationhistorydialog.cpp:24
+#, kde-format
+msgctxt "@title:window"
+msgid "Notification History"
+msgstr "通知历史记录"
+
+#: newmailnotificationhistorywidget.cpp:22
+#: newmailnotifiersettingswidget.cpp:111
+#, kde-format
+msgid "Enabled"
+msgstr "启用"
+
+#: newmailnotifieragent.cpp:371
+#, kde-format
+msgctxt ""
+"%2 = name of mail folder; %3 = name of Akonadi POP3/IMAP/etc resource (as "
+"user named it)"
+msgid "One new email in %2 from \"%3\""
+msgid_plural "%1 new emails in %2 from \"%3\""
+msgstr[0] "%2 中有 %1 封来自“%3”的新邮件"
+
+#: newmailnotifieragent.cpp:391
+#, kde-format
+msgid "New mail arrived"
+msgstr "新邮件到达"
+
+#: newmailnotifieragentsettings.kcfg:34
+#, kde-format
+msgctxt "%f is a variable for agent. Do not change it"
+msgid "A message was received from %f"
+msgstr "收到了来自 %f 的新信件"
+
+#: newmailnotifierreplymessagejob.cpp:38 newmailnotifiershowmessagejob.cpp:36
+#, kde-format
+msgid "Unable to start KMail application."
+msgstr "无法启动 KMail 应用程序。"
+
+#: newmailnotifierselectcollectionwidget.cpp:94
+#, kde-format
+msgid "Select which folders to monitor for new message notifications:"
+msgstr "选择新信件提醒要监视的文件夹"
+
+#: newmailnotifierselectcollectionwidget.cpp:125
+#, kde-format
+msgid "Search..."
+msgstr "搜索..."
+
+#: newmailnotifierselectcollectionwidget.cpp:140
+#, kde-format
+msgid "&Select All"
+msgstr "全部选择(&S)"
+
+#: newmailnotifierselectcollectionwidget.cpp:144
+#, kde-format
+msgid "&Unselect All"
+msgstr "全部不选(&U)"
+
+#: newmailnotifiersettingswidget.cpp:31
+#, c-format
+msgid ""
+"<qt><p>Here you can define message. You can use:</p><ul><li>%s set subject</"
+"li><li>%f set from</li></ul></qt>"
+msgstr ""
+"<qt><p>您可以在此定义消息。您可以使用：</p><ul><li>%s 设置主题</li><li>%f 设"
+"置发件人</li></ul></qt>"
+
+#: newmailnotifiersettingswidget.cpp:52
+#, kde-format
+msgid "Choose which fields to show:"
+msgstr "选择要显示的区域："
+
+#: newmailnotifiersettingswidget.cpp:57
+#, kde-format
+msgid "Show Photo"
+msgstr "显示图片"
+
+#: newmailnotifiersettingswidget.cpp:61
+#, kde-format
+msgid "Show From"
+msgstr "显示发信人"
+
+#: newmailnotifiersettingswidget.cpp:65
+#, kde-format
+msgid "Show Subject"
+msgstr "显示主题"
+
+#: newmailnotifiersettingswidget.cpp:69
+#, kde-format
+msgid "Show Folders"
+msgstr "显示文件夹"
+
+#: newmailnotifiersettingswidget.cpp:73
+#, kde-format
+msgid "Do not notify when email was sent by me"
+msgstr "当邮件由我发出时不通知"
+
+#: newmailnotifiersettingswidget.cpp:77
+#, kde-format
+msgid "Keep Persistent Notification"
+msgstr "保持持续的通知"
+
+#: newmailnotifiersettingswidget.cpp:81
+#, kde-format
+msgid "Show Action Buttons"
+msgstr "显示操作按钮"
+
+#: newmailnotifiersettingswidget.cpp:89
+#, kde-format
+msgid "Reply Mail"
+msgstr "回复邮件"
+
+#: newmailnotifiersettingswidget.cpp:97 specialnotifierjob.cpp:154
+#, kde-format
+msgid "Reply to Author"
+msgstr "回复作者"
+
+#: newmailnotifiersettingswidget.cpp:97 specialnotifierjob.cpp:157
+#, kde-format
+msgid "Reply to All"
+msgstr "回复所有人"
+
+#: newmailnotifiersettingswidget.cpp:106
+#, kde-format
+msgid "Display"
+msgstr "显示"
+
+#: newmailnotifiersettingswidget.cpp:115
+#, kde-format
+msgid "<a href=\"whatsthis\">How does this work?</a>"
+msgstr "<a href=\"whatsthis\">工作方式解释</a>"
+
+#: newmailnotifiersettingswidget.cpp:124
+#, kde-format
+msgid "Message:"
+msgstr "消息："
+
+#: newmailnotifiersettingswidget.cpp:135
+#, kde-format
+msgid "Text to Speak"
+msgstr "要朗读的文本"
+
+#: newmailnotifiersettingswidget.cpp:141
+#, kde-format
+msgid "Notify"
+msgstr "通知"
+
+#: newmailnotifiersettingswidget.cpp:144
+#, kde-format
+msgid "Folders"
+msgstr "文件夹"
+
+#: newmailnotifiersettingswidget.cpp:147
+#, kde-format
+msgid "New Mail Notifier Agent"
+msgstr "新邮件通知代理"
+
+#: newmailnotifiersettingswidget.cpp:149
+#, kde-format
+msgid "Notify about new mails."
+msgstr "通知新邮件。"
+
+#: newmailnotifiersettingswidget.cpp:151
+#, kde-format
+msgid "Copyright (C) 2013-%1 Laurent Montel"
+msgstr "Copyright (C) 2013-%1 Laurent Montel"
+
+#: newmailnotifiersettingswidget.cpp:154
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: newmailnotifiersettingswidget.cpp:154
+#, kde-format
+msgid "Maintainer"
+msgstr "维护者"
+
+#: newmailnotifiersettingswidget.cpp:155
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KDE 中国"
+
+#: newmailnotifiersettingswidget.cpp:155
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-china@kde.org"
+
+#: specialnotifierjob.cpp:116
+#, kde-format
+msgid "From: %1"
+msgstr "来自：%1"
+
+#: specialnotifierjob.cpp:124
+#, kde-format
+msgid "Subject: %1"
+msgstr "主题：%1"
+
+#: specialnotifierjob.cpp:127
+#, kde-format
+msgid "In: %1"
+msgstr "于：%1"
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Show mail..."
+msgstr "显示邮件..."
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Mark As Read"
+msgstr "标记为已读"
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Delete"
+msgstr "删除"

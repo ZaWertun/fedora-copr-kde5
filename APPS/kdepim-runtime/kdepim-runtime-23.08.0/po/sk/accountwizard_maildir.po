@@ -1,0 +1,27 @@
+# translation of accountwizard_maildir.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2010.
+# Roman Paholík <wizzardsk@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: accountwizard_maildir\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2013-11-17 14:01+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: maildirwizard.es:7
+msgid "Personal Settings"
+msgstr "Osobné nastavenie"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: maildirwizard.ui:19
+#, kde-format
+msgid "URL:"
+msgstr "URL:"

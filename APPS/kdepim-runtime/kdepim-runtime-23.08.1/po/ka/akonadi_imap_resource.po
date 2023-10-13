@@ -1,0 +1,1109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdepim-runtime package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-05-18 00:49+0000\n"
+"PO-Revision-Date: 2023-08-28 06:21+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: addcollectiontask.cpp:33
+#, kde-format
+msgid "Cannot add IMAP folder '%1' for a non-existing parent folder '%2'."
+msgstr ""
+"IMAP საქაღალდის (%1) დამატება შეუძლებელია არარსებული მშობელი საქაღალდისთვის "
+"%2."
+
+#: addcollectiontask.cpp:67
+#, kde-format
+msgid "Failed to create the folder '%1' on the IMAP server. "
+msgstr "IMAP სერვერზე საქაღალდის (%1) შექმნის შეცდომა. "
+
+#: addcollectiontask.cpp:87 movecollectiontask.cpp:119
+#, kde-format
+msgid ""
+"Failed to subscribe to the folder '%1' on the IMAP server. It will disappear "
+"on next sync. Use the subscription dialog to overcome that"
+msgstr ""
+"IMAP სერვერზე საქაღალდის '%1' გამოწერა შეუძლებელია. ის შემდეგი სინქისას "
+"გაქრება. გადასაფარად გამოწერის ფანჯარა გამოიყენეთ"
+
+#: addcollectiontask.cpp:130 changecollectiontask.cpp:276
+#, kde-format
+msgid "Failed to write some annotations for '%1' on the IMAP server. %2"
+msgstr "IMAP სერვერზე %1-სთვის ანოტაციების დაწერის შეცდომა. %2"
+
+#: additemtask.cpp:115 changeitemtask.cpp:181 changeitemtask.cpp:205
+#: moveitemstask.cpp:255
+#, kde-format
+msgid "Could not determine the UID for the newly created message on the server"
+msgstr "სერვერზე ახლად შექმნილი შეტყობინების UID-ის დადგენა შეუძლებელია"
+
+#: changecollectiontask.cpp:39
+#, kde-format
+msgid "Cannot modify IMAP folder '%1', it does not exist on the server."
+msgstr "IMAP საქაღალდის (%1) შეცვლა შეუძლებელია. სერვერზე ის არ არსებობს."
+
+#: changecollectiontask.cpp:51
+#, kde-format
+msgid ""
+"ACLs for '%1' need to be retrieved from the IMAP server first. Skipping ACL "
+"change"
+msgstr ""
+"ჯერ IMAP სერვერიდან '%1'-ის ACL-ები უნდა მივიღო. ACL-ების შეცვლა "
+"გამოტოვებულია"
+
+#: changecollectiontask.cpp:237
+#, kde-format
+msgid "Failed to rename the folder, restoring folder list."
+msgstr "საქაღალდის გადარქმევის შეცდომა. საქაღალდის სიის აღდგენა."
+
+#: changecollectiontask.cpp:256
+#, kde-format
+msgid ""
+"Failed to subscribe to the renamed folder '%1' on the IMAP server. It will "
+"disappear on next sync. Use the subscription dialog to overcome that"
+msgstr ""
+"სახელგადარქმეული საქაღალდის '%1' გამოწერა შეუძლებელია. ის შემდეგ სინქზე "
+"გაქრება. გადასაფარად გამოწერის ფანჯარა გამოიყენეთ"
+
+#: changecollectiontask.cpp:267
+#, kde-format
+msgid "Failed to write some ACLs for '%1' on the IMAP server. %2"
+msgstr "IMAP სერვერზე %1-სთვის ACL-ების დაწერის შეცდომა. %2"
+
+#: imapresource.cpp:49
+#, kde-format
+msgid "IMAP Account"
+msgstr "IMAP ანგარიში"
+
+#: imapresource.cpp:62
+#, kde-format
+msgctxt "@title:window"
+msgid "IMAP Account Settings"
+msgstr "IMAP ანგარიშის მორგება"
+
+#. i18n: ectx: label, entry (ImapServer), group (network)
+#: imapresource.kcfg:10
+#, kde-format
+msgid "IMAP server"
+msgstr "IMAP სერვერი"
+
+#. i18n: ectx: label, entry (ImapPort), group (network)
+#: imapresource.kcfg:13
+#, kde-format
+msgid "Defines the port the IMAP service is running on"
+msgstr "IMAP სერვისის პორტი"
+
+#. i18n: ectx: label, entry (UserName), group (network)
+#: imapresource.kcfg:17
+#, kde-format
+msgid "Username"
+msgstr "მოხმარებელი"
+
+#. i18n: ectx: label, entry (Safety), group (network)
+#: imapresource.kcfg:20
+#, kde-format
+msgid "Defines the encryption type to use"
+msgstr "დაშიფვრის სასურველი ტიპი"
+
+#. i18n: ectx: label, entry (OverrideEncryption), group (network)
+#: imapresource.kcfg:24
+#, kde-format
+msgid "Override configured encryption mode"
+msgstr "დაშიფვრის მორგებული რეჟიმის გადაფარვა"
+
+#. i18n: ectx: label, entry (Authentication), group (network)
+#: imapresource.kcfg:27
+#, kde-format
+msgid "Defines the authentication type to use"
+msgstr "ავთენტიკაციის სასურველი ტიპი"
+
+#. i18n: ectx: label, entry (SubscriptionEnabled), group (network)
+#: imapresource.kcfg:31
+#, kde-format
+msgid "Defines if the server side subscription is enabled"
+msgstr "ჩართულია სერვერის მხაეს გამოწერა თუ არა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useProxyCheck)
+#. i18n: ectx: label, entry (UseProxy), group (network)
+#: imapresource.kcfg:38 setupserverview_desktop.ui:560
+#, kde-format
+msgid "Connect using the system proxy settings"
+msgstr "პროქსის სისტემური პარამეტრებით შეერთება"
+
+#. i18n: ectx: whatsthis, entry (UseProxy), group (network)
+#: imapresource.kcfg:39
+#, kde-format
+msgid ""
+"If checked, the system proxy settings will be used to connect to the mail "
+"server."
+msgstr ""
+"თუ ჩართულია, ელფოსტის სერვერთან მისაერთებლად სისტემური პროქსის პარამეტრები "
+"იქნება გამოყენებული."
+
+#. i18n: ectx: label, entry (DisconnectedModeEnabled), group (cache)
+#: imapresource.kcfg:45
+#, kde-format
+msgid "Defines if all the IMAP data should be cached locally all the time"
+msgstr "განსაზღვრავს, ყოველთვის დაიქეშება თუ არა ლოკალურად IMAP-ის მონაცემები"
+
+#. i18n: ectx: label, entry (IntervalCheckEnabled), group (cache)
+#: imapresource.kcfg:49
+#, kde-format
+msgid "Defines if interval checking is enabled."
+msgstr "შემოწმების ინტერვალის შემოწმების ჩართვა."
+
+#. i18n: ectx: label, entry (IntervalCheckTime), group (cache)
+#: imapresource.kcfg:53
+#, kde-format
+msgid "Check interval in minutes"
+msgstr "შემოწმების ინტერვალი, წუთებში"
+
+#. i18n: ectx: label, entry (RetrieveMetadataOnFolderListing), group (cache)
+#: imapresource.kcfg:58
+#, kde-format
+msgid ""
+"Defines if the annotations, ACLs and quota information of mailboxes should\n"
+"             also be retrieved when the mailboxes get listed."
+msgstr ""
+
+#. i18n: ectx: label, entry (AutomaticExpungeEnabled), group (cache)
+#: imapresource.kcfg:63
+#, kde-format
+msgid ""
+"Defines if the expunge command is issued automatically, otherwise it should "
+"be\n"
+"             triggered manually through the D-Bus interface."
+msgstr ""
+
+#. i18n: ectx: label, entry (TrashCollection), group (cache)
+#: imapresource.kcfg:67
+#, kde-format
+msgid "Define which folder is used for trash"
+msgstr "მიუთითეთ, რომელი საქაღალდე გამოიყენება სანაგვე ყუთად"
+
+#. i18n: ectx: label, entry (TrashCollectionMigrated), group (cache)
+#: imapresource.kcfg:71
+#, kde-format
+msgid "Define if the trash collection received the special attribute"
+msgstr "განსაზღვრავს, მიიღო თუ არა სანაგვის კოლექციამ დამატებითი ატრიბუტი"
+
+#. i18n: ectx: label, entry (UseDefaultIdentity), group (cache)
+#: imapresource.kcfg:75
+#, kde-format
+msgid "Define if account uses the default identity"
+msgstr "აღწერეთ, იყენებს თუ არა ანგარიში ნაგულისხმებ იდენტიფიკაციას"
+
+#. i18n: ectx: label, entry (AccountIdentity), group (cache)
+#: imapresource.kcfg:79
+#, kde-format
+msgid "Identity account"
+msgstr "იდენტიფიკაციის ანგარიში"
+
+#. i18n: ectx: label, entry (KnownMailBoxes), group (cache)
+#: imapresource.kcfg:82
+#, kde-format
+msgid "List of mailbox names reported by the server the last time"
+msgstr "სერვერის მიერ ბოლოს გადმოცემული საფოსტო ყუთების სია"
+
+#. i18n: ectx: label, entry (IdleRidPath), group (idle)
+#: imapresource.kcfg:87
+#, kde-format
+msgid "RID path to the mailbox to watch for changes"
+msgstr "საფოსტო ყუთის RID ბილიკი ცვლილებების შესამოწმებლად"
+
+#. i18n: ectx: label, entry (SieveSupport), group (siever)
+#: imapresource.kcfg:92
+#, kde-format
+msgid "Define if server supports sieve"
+msgstr "სერვერს გააჩნია თუ არა საცრის მხარდაჭერა"
+
+#. i18n: ectx: label, entry (SieveReuseConfig), group (siever)
+#: imapresource.kcfg:96
+#, kde-format
+msgid "Define if we reuse host and login configuration"
+msgstr ""
+"განსაზღვრავს, გამოვიყენებ თუ არა თავიდან ჰოსტისა და შესვლის ინფორმაციას"
+
+#. i18n: ectx: label, entry (SievePort), group (siever)
+#: imapresource.kcfg:100
+#, kde-format
+msgid "Define sieve port"
+msgstr "საცრის პორტის აღწერა"
+
+#. i18n: ectx: label, entry (SieveAlternateUrl), group (siever)
+#: imapresource.kcfg:104
+#, kde-format
+msgid "Define alternate URL"
+msgstr "ალტერნატიული URL-ის აღწერა"
+
+#. i18n: ectx: label, entry (AlternateAuthentication), group (siever)
+#: imapresource.kcfg:107
+#, kde-format
+msgid "Defines the authentication type to use for alternate server"
+msgstr "ალტერნატიულ სერვერზე გამოსაყენებელი ავთენტიკაციის ტიპის აღწერა"
+
+#. i18n: ectx: label, entry (SieveVacationFilename), group (siever)
+#: imapresource.kcfg:111
+#, kde-format
+msgid "Define default sieve vacation filename"
+msgstr "ნაგულისხმები საცრის დასვენების ფაილის აღწერა"
+
+#. i18n: ectx: label, entry (SieveCustomUsername), group (siever)
+#: imapresource.kcfg:115
+#, kde-format
+msgid "Define username used from custom server sieve url"
+msgstr ""
+"მითითებული სერვერის საცრის URL-ზე გამოსაყენებელი მომხმარებლის სახელის აღწერა"
+
+#. i18n: ectx: label, entry (SieveCustomAuthentification), group (siever)
+#: imapresource.kcfg:119
+#, kde-format
+msgid "Defines the type of identification used by custom sieve server"
+msgstr "მითითებული სერვერის საცრის იდენტიფიკაციის ტიპის აღწერა"
+
+#: imapresourcebase.cpp:212
+#, kde-format
+msgid "No server configured yet."
+msgstr "სერვერი ჯერ მორგებული არაა."
+
+#: imapresourcebase.cpp:245 setupserver.cpp:663
+#, kde-format
+msgctxt "@title:window"
+msgid "Serverside Subscription"
+msgstr "სერვერის მხარეს გამოწერა"
+
+#: imapresourcebase.cpp:269
+#, kde-format
+msgid "Connection established."
+msgstr "კავშირი დამყარებულია."
+
+#: imapresourcebase.cpp:286
+#, kde-format
+msgid "Server is not available."
+msgstr "სერვერი მიუწვდომელია."
+
+#: imapresourcebase.cpp:337
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding item in '%1'"
+msgstr "%1-ში ელემენტის ჩამატება"
+
+#: imapresourcebase.cpp:344
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating item in '%1'"
+msgstr "%1-ში ელემენტის განახლება"
+
+#: imapresourcebase.cpp:351
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating items"
+msgstr "ელემენტების განახლება"
+
+#: imapresourcebase.cpp:365
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing items"
+msgstr "ელემენტების წაშლა"
+
+#: imapresourcebase.cpp:381
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving items from '%1' to '%2'"
+msgstr "ელემენტების %1-დან %2-ზე გადატანა"
+
+#: imapresourcebase.cpp:390
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving folders"
+msgstr "საქაღალდეების მიღება"
+
+#: imapresourcebase.cpp:397
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving extra folder information for '%1'"
+msgstr "%1-სთვის საქაღალდეების დამატებითი ინფორმაციის მიღება"
+
+#: imapresourcebase.cpp:415
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating folder '%1'"
+msgstr "საქაღალდის შექმნა: %1"
+
+#: imapresourcebase.cpp:421
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating folder '%1'"
+msgstr "საქაღალდის განახლება: %1"
+
+#: imapresourcebase.cpp:434
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing folder '%1'"
+msgstr "საქაღალდის წაშლა: %1"
+
+#: imapresourcebase.cpp:441
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving folder '%1' from '%2' to '%3'"
+msgstr "საქაღალდის გადატანა(%1) %2-დან %3-ში"
+
+#: imapresourcebase.cpp:471
+#, kde-format
+msgctxt "@info:status"
+msgid "Searching..."
+msgstr "ძებნა..."
+
+#: movecollectiontask.cpp:29
+#, kde-format
+msgid "Cannot move IMAP folder '%1', it does not exist on the server."
+msgstr "IMAP საქაღალდის (%1) გადატანა შეუძლებელია. სერვერზე ის არ არსებობს."
+
+#: movecollectiontask.cpp:35
+#, kde-format
+msgid ""
+"Cannot move IMAP folder '%1' out of '%2', '%2' does not exist on the server."
+msgstr ""
+"IMAP საქაღალდეებიდან %1 %2-დან გადატანა შეუძლებელია. %2 სერვერზე არ არებობს."
+
+#: movecollectiontask.cpp:41
+#, kde-format
+msgid ""
+"Cannot move IMAP folder '%1' to '%2', '%2' does not exist on the server."
+msgstr ""
+"IMAP საქაღალდის %1 %2-ში გადატანა შეუძლებელია. %2 სერვერზე არ არსებობს."
+
+#: moveitemstask.cpp:41
+#, kde-format
+msgid "Cannot move message, it does not exist on the server."
+msgstr "შეტყობინების გადატანა შეუძლებელია. სერვერზე ის არ არსებობს."
+
+#: moveitemstask.cpp:48
+#, kde-format
+msgid "Cannot move message out of '%1', '%1' does not exist on the server."
+msgstr "\"%1\"-დან შეტყობინებების გადატანის შეცდომა. %1 სერვერზე არ არსებობს."
+
+#: moveitemstask.cpp:55
+#, kde-format
+msgid "Cannot move message to '%1', '%1' does not exist on the server."
+msgstr "%1-ში შეტყობინების გადატანის შეცდოა. %1 სერვერზე არ არსებობს."
+
+#: moveitemstask.cpp:113
+#, kde-format
+msgid "Failed to move item, it has no message payload. Remote id: %1"
+msgstr ""
+"ელემენტის გადატანა ჩავარდა. მას შეტყობინების შემცველობა არ გააჩნია. "
+"დაშორებული id: %1"
+
+#: moveitemstask.cpp:190
+#, kde-format
+msgid ""
+"Failed to mark the message from '%1' for deletion on the IMAP server. It "
+"will reappear on next sync."
+msgstr ""
+"IMAP სერვერზე '%1'-სგან მოსული შეტყობინებების წასაშლელად მონიშვნა "
+"შეუძლებელია. ის შემდეგ სინქზე თავიდან გაჩნდება."
+
+#: removecollectionrecursivetask.cpp:116 removecollectionrecursivetask.cpp:132
+#: removecollectionrecursivetask.cpp:145
+#, kde-format
+msgid "Failed to delete the folder, restoring folder list."
+msgstr "საქაღალდის წაშლის შეცდომა. საქაღალდის სიის აღდგენა."
+
+#: removecollectionrecursivetask.cpp:150
+#, kde-format
+msgid "Failed to find the folder to be deleted, restoring folder list."
+msgstr "წასაშლელი საქაღალდის პოვნა შეუძლებელია. საქაღალდეების სია აღდგება."
+
+#: resourcestate.cpp:274
+#, kde-format
+msgid "Restarting item retrieval."
+msgstr "ელემენტის მიღების თავიდან დაწყება."
+
+#: resourcetask.cpp:69
+#, kde-format
+msgid "Unable to connect to the IMAP server."
+msgstr "IMAP სერვერთან მიერთების შეცდომა."
+
+#: resourcetask.cpp:113 resourcetask.cpp:125
+#, kde-format
+msgid "Connection lost"
+msgstr "კავშირი დაკარგულია"
+
+#: resourcetask.cpp:475
+#, kde-format
+msgid "killed"
+msgstr "მოკლულია"
+
+#: retrievecollectionmetadatatask.cpp:179
+#, kde-format
+msgid ""
+"<p>Your access rights to folder <b>%1</b> have been restricted, it will no "
+"longer be possible to add messages to this folder.</p>"
+msgstr ""
+
+#: retrievecollectionmetadatatask.cpp:182
+#, kde-format
+msgid "Access rights revoked"
+msgstr "წვდომის უფლებები გაუქმდა"
+
+#: retrievecollectionstask.cpp:155
+#, kde-format
+msgid "Inbox"
+msgstr "საფოსტო ყუთი"
+
+#: retrievecollectionstask.cpp:164
+#, kde-format
+msgid "Shared Folders"
+msgstr "გაზიარებული საქაღალდეები"
+
+#: retrieveitemstask.cpp:529
+#, kde-format
+msgctxt "@info:status"
+msgid "Fetching missing mail bodies in %3: %1/%2"
+msgstr "%3-ში ნაკლული ელფოსტების მიღება: %1/%2"
+
+#: retrieveitemtask.cpp:35
+#, kde-format
+msgid "Remote id is empty or invalid"
+msgstr "დაშორებული ID ცარიელი ან არასწორია"
+
+#: retrieveitemtask.cpp:78 retrieveitemtask.cpp:94
+#, kde-format
+msgid "No message retrieved, failed to read the message."
+msgstr "შეტყობინებები არ მიღებულა. მათი წაკითხვა შეუძლებელია."
+
+#: retrieveitemtask.cpp:115
+#, kde-format
+msgid "No message retrieved, server reply was empty."
+msgstr "შეტყობინებები არ მიღებულა. სერვერის პასუხი ცარიელია."
+
+#: searchtask.cpp:193
+#, kde-format
+msgid "Invalid search"
+msgstr "არასწორი ძებნა"
+
+#: serverinfodialog.cpp:29
+#, kde-format
+msgctxt ""
+"@title:window Dialog title for dialog showing information about a server"
+msgid "Server Info"
+msgstr "სერვერის ინფორმაცია"
+
+#: serverinfodialog.cpp:83
+#, kde-format
+msgid "Resource not synchronized yet."
+msgstr "რესურსი ჯერ სინქრონიზებული არაა."
+
+#: sessionpool.cpp:250 sessionpool.cpp:406
+#, kde-format
+msgid ""
+"Could not connect to the IMAP-server %1.\n"
+"%2"
+msgstr ""
+"IMAP სერვერთან (%1) მიერთების შეცდომა.\n"
+"%2"
+
+#: sessionpool.cpp:254
+#, kde-format
+msgid ""
+"Could not connect to the IMAP server.\n"
+"%1"
+msgstr ""
+"IMAP სერვერთან მიერთების შეცდომა.\n"
+"%1"
+
+#: sessionpool.cpp:279 sessionpool.cpp:319 sessionpool.cpp:388
+#: sessionpool.cpp:424 sessionpool.cpp:495
+#, kde-format
+msgid "Disconnected from server during login."
+msgstr "კავშირი გაითიშა სერვერზე შესვლის დროს."
+
+#: sessionpool.cpp:303
+#, kde-format
+msgid "Could not create another extra connection to the IMAP-server %1."
+msgstr "IMAP სერვერამდე (%1) დამატებითი შეერთების შექმნა შეუძლებელია."
+
+#: sessionpool.cpp:332
+#, kde-format
+msgid "Could not read the password: user rejected wallet access"
+msgstr ""
+"პაროლის წაკითხვის შეცდომა: მომხმარებელმა საფულესთან წვდომის მოთხოვნა უარჰყო"
+
+#: sessionpool.cpp:340
+#, kde-format
+msgid "Empty password"
+msgstr "ცარიელი პაროლი"
+
+#: sessionpool.cpp:352
+#, kde-format
+msgid ""
+"You requested TLS/SSL to connect to %1, but your system does not seem to be "
+"set up for that."
+msgstr ""
+"%1-თან მისაერთებლად თქვენ TLS/SSL მიერთება მიუთითეთ, მაგრამ, როგორც ჩანს, "
+"სერვერს მისი მხარდაჭერა არ გააჩნია."
+
+#: sessionpool.cpp:409
+#, kde-format
+msgid ""
+"Could not connect to the IMAP-server.\n"
+"%1"
+msgstr ""
+"IMAP სერვერთან მიერთების შეცდომა.\n"
+"%1"
+
+#: sessionpool.cpp:432
+#, kde-format
+msgid ""
+"Could not test the capabilities supported by the IMAP server %1.\n"
+"%2"
+msgstr ""
+"IMAP სერვერის (%1) მიერ მხარდაჭერილი ფუნქციების გამოთხოვის შეცდომა.\n"
+"%2"
+
+#: sessionpool.cpp:440
+#, kde-format
+msgid ""
+"Could not test the capabilities supported by the IMAP server.\n"
+"%1"
+msgstr ""
+"IMAP სერვერის მიერ მხარდაჭერილი ფუნქციების გამოთხოვის შეცდომა.\n"
+"%1"
+
+#: sessionpool.cpp:460
+#, kde-format
+msgid ""
+"Cannot use the IMAP server %1, some mandatory capabilities are missing: %2. "
+"Please ask your sysadmin to upgrade the server."
+msgstr ""
+
+#: sessionpool.cpp:532
+#, kde-format
+msgid "Disconnected during login."
+msgstr "კავშირი გაითიშა სერვერზე შესვლის დროს."
+
+#: settingspasswordrequester.cpp:53
+#, kde-format
+msgid ""
+"The server for account \"%2\" refused the supplied username and password.\n"
+"Do you want to go to the settings, have another attempt at logging in, or do "
+"nothing?\n"
+"\n"
+"%1"
+msgstr ""
+
+#: settingspasswordrequester.cpp:60
+#, kde-format
+msgctxt "@title:window"
+msgid "Could Not Authenticate"
+msgstr "ავთთენტიკაციის შეცდომა"
+
+#: settingspasswordrequester.cpp:64
+#, kde-format
+msgid "Account Settings"
+msgstr "ანგარიშის მორგება"
+
+#: settingspasswordrequester.cpp:65
+#, kde-format
+msgctxt "Input username/password manually and not store them"
+msgid "Try Again"
+msgstr "კიდევ სცადეთ"
+
+#: settingspasswordrequester.cpp:150
+#, kde-format
+msgid "Please enter password for user '%1' on IMAP server '%2'."
+msgstr "შეიყვანეთ პაროლი მომხმარებლისთვის \"%1\" IMAP სერვერზე \"%2\"."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserver.cpp:77 setupserverview_desktop.ui:294
+#: setupserverview_desktop.ui:517
+#, kde-format
+msgctxt "Authentication method"
+msgid "Clear text"
+msgstr "სუფთა ტექსტი"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserver.cpp:79 setupserverview_desktop.ui:329
+#: setupserverview_desktop.ui:552
+#, kde-format
+msgctxt "Authentication method"
+msgid "Anonymous"
+msgstr "ანონიმურად"
+
+#: setupserver.cpp:81
+#, kde-format
+msgctxt "Authentication method"
+msgid "Gmail"
+msgstr "Gmail"
+
+#: setupserver.cpp:148
+#, kde-format
+msgid "Archive Folder"
+msgstr "არქივის საქღალდე"
+
+#: setupserver.cpp:160
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " წუთი"
+msgstr[1] " წუთი"
+
+#: setupserver.cpp:175
+#, kde-format
+msgid "Identity:"
+msgstr "იდენტიფიკაცია:"
+
+#: setupserver.cpp:266
+#, kde-format
+msgid ""
+"You have changed the address of the server. Even if this is the same server "
+"as before we will have to re-download all your emails from this account "
+"again. Are you sure you want to proceed?"
+msgstr ""
+
+#: setupserver.cpp:269
+#, kde-format
+msgid "Server address change"
+msgstr "სერვერის მისამართის შეცვლა"
+
+#: setupserver.cpp:276
+#, kde-format
+msgid ""
+"You have changed the user name. Even if this is a user name for the same "
+"account as before we will have to re-download all your emails from this "
+"account again. Are you sure you want to proceed?"
+msgstr ""
+
+#: setupserver.cpp:279
+#, kde-format
+msgid "User name change"
+msgstr "მომხმარებლის სახელის შეცვლა"
+
+#: setupserver.cpp:424 setupserver.cpp:480
+#, kde-format
+msgid ""
+"Could not access KWallet. If you want to store the password permanently then "
+"you have to activate it. If you do not want to use KWallet, check the box "
+"below, but note that you will be prompted for your password when needed."
+msgstr ""
+
+#: setupserver.cpp:429 setupserver.cpp:485
+#, kde-format
+msgid "Do not use KWallet"
+msgstr "არ გამოიყენო KWallet"
+
+#: setupserver.cpp:550
+#, kde-format
+msgid "Unable to connect to the server, please verify the server address."
+msgstr "სერვერთან მიერთება შეუძლებელია. შეამოწმეთ სერვერის სახელი."
+
+#: setupserver.cpp:562
+#, kde-format
+msgid "<qt><b>STARTTLS is supported and recommended.</b></qt>"
+msgstr "<qt><b>STARTTLS მხარდაჭერილი და რეკომენდებულია.</b></qt>"
+
+#: setupserver.cpp:565
+#, kde-format
+msgid "<qt><b>SSL/TLS is supported and recommended.</b></qt>"
+msgstr "<qt><b>SSL/TLS მხარდაჭერილი და რეკომენდებულია.</b></qt>"
+
+#: setupserver.cpp:569
+#, kde-format
+msgid ""
+"<qt><b>No security is supported. It is not recommended to connect to this "
+"server.</b></qt>"
+msgstr ""
+"<qt><b>უსაფრთხოების მექანიზმები მხარდაჭერილი არაა. ამ სერვერთან მიერთება "
+"რეკომენდებული არაა.</b></qt>"
+
+#: setupserver.cpp:572
+#, kde-format
+msgid "<qt><b>It is not possible to use this server.</b></qt>"
+msgstr "<qt><b>სერვერის გამოყენება შეუძლებელია.</b></qt>"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: setupserverview_desktop.ui:33
+#, kde-format
+msgid "General"
+msgstr "მთავარი"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, accountInfoLabel)
+#: setupserverview_desktop.ui:39
+#, kde-format
+msgid "Account Information"
+msgstr "ანგარიშის ინფორმაცია"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: setupserverview_desktop.ui:46
+#, kde-format
+msgid "Account Name:"
+msgstr "ანგარიშის სახელი:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, label)
+#: setupserverview_desktop.ui:57
+#, kde-format
+msgid ""
+"Indicate the IMAP server. If you want to connect to a non-standard port for "
+"a specific encryption scheme, you can add \":port\" to indicate that. For "
+"example: \"imap.foo.com:144\"."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: setupserverview_desktop.ui:60
+#, kde-format
+msgid "I&MAP Server:"
+msgstr "IMAP სერვერი:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, label_2)
+#: setupserverview_desktop.ui:74
+#, kde-format
+msgid "The username."
+msgstr "მომხმარებელი."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: setupserverview_desktop.ui:77
+#, kde-format
+msgid "Use&rname:"
+msgstr "მომხმარებელი:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, label_3)
+#: setupserverview_desktop.ui:91
+#, kde-format
+msgid "The password."
+msgstr "პაროლი."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: setupserverview_desktop.ui:94 setupserverview_desktop.ui:270
+#, kde-format
+msgid "Password:"
+msgstr "პაროლი:"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, checkOptions)
+#: setupserverview_desktop.ui:108
+#, kde-format
+msgid "Mail Checking Options"
+msgstr "ელფოსტის შემოწმების მორგება"
+
+#. i18n: ectx: property (text), widget (QCheckBox, disconnectedModeEnabled)
+#: setupserverview_desktop.ui:115
+#, kde-format
+msgid "&Download all messages for offline use"
+msgstr "&შეტყობინებების ინტერნეტის გარეშე სანახავად გადმოწერა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableMailCheckBox)
+#: setupserverview_desktop.ui:122
+#, kde-format
+msgid "Enable &interval mail checking"
+msgstr "ელფოსტის შემოწმების ინტერვალის ჩართვა"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: setupserverview_desktop.ui:129
+#, kde-format
+msgid "Check mail interval:"
+msgstr "ელფოსტის შემოწმების ინტერვალი:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: setupserverview_desktop.ui:160
+#, kde-format
+msgid "Filtering"
+msgstr "გაფილტვრა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, managesieveCheck)
+#: setupserverview_desktop.ui:166
+#, kde-format
+msgid "Server supports Sieve"
+msgstr "სერვერს გააჩნია საცერის მხარდაჭერა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, sameConfigCheck)
+#: setupserverview_desktop.ui:173
+#, kde-format
+msgid "Reuse host and login configuration"
+msgstr "ჰოსტისა და შესვლის ინფორმაციის თავიდან გამოყენება"
+
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: setupserverview_desktop.ui:180
+#, kde-format
+msgid ""
+"The server port changed when ManageSieve turned into a full RFC Standard. "
+"Old server implementations still use port 2000, while newer standard conform "
+"server can only be accessed via port 4190."
+msgstr ""
+"სერვერის პორტი შეიცვალა, როცა ManageSieve სრულ RFC სტანდარტზე გადავიდა. "
+"ძველი სერვერი ჯერ კიდევ იყენებს პორტს ნომრით 2000, როცა ახალი სტანდარტის "
+"სერვერის პოვნა შეგიძლიათ პორტზე 4190."
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: setupserverview_desktop.ui:192
+#, kde-format
+msgid "Managesieve port:"
+msgstr "საცრის პორტი:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: setupserverview_desktop.ui:210
+#, kde-format
+msgid "Alternate Server:"
+msgstr "ალტერნატიული სერვერი:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, authentication)
+#: setupserverview_desktop.ui:223
+#, kde-format
+msgid "Authentication"
+msgstr "ავთენტიკაცია"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noAuthentification)
+#: setupserverview_desktop.ui:233
+#, kde-format
+msgid "No authentication"
+msgstr "ავთენტიკაციის გარეშე"
+
+#. i18n: ectx: property (text), widget (QRadioButton, customUserPassword)
+#: setupserverview_desktop.ui:243
+#, kde-format
+msgid "&Username and Password"
+msgstr "მომხმარებელი და პაროლი"
+
+#. i18n: ectx: property (text), widget (QRadioButton, imapUserPassword)
+#: setupserverview_desktop.ui:257
+#, kde-format
+msgid "I&MAP Username and Password"
+msgstr "IMAP-ის მომხმარებელი და პაროლი"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: setupserverview_desktop.ui:277
+#, kde-format
+msgid "Username:"
+msgstr "მომხმარებლის სახელი:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: setupserverview_desktop.ui:286 setupserverview_desktop.ui:509
+#, kde-format
+msgid "Authentication:"
+msgstr "ავთენტიფიკაცია:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:299 setupserverview_desktop.ui:522
+#, kde-format
+msgctxt "Authentication method"
+msgid "LOGIN"
+msgstr "შესვლა"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:304 setupserverview_desktop.ui:527
+#, kde-format
+msgctxt "Authentication method"
+msgid "PLAIN"
+msgstr "PLAIN"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:309 setupserverview_desktop.ui:532
+#, kde-format
+msgctxt "Authentication method"
+msgid "CRAM-MD5"
+msgstr "CRAM-MD5"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:314 setupserverview_desktop.ui:537
+#, kde-format
+msgctxt "Authentication method"
+msgid "DIGEST-MD5"
+msgstr "DIGEST-MD5"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:319 setupserverview_desktop.ui:542
+#, kde-format
+msgctxt "Authentication method"
+msgid "NTLM"
+msgstr "NTLM"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:324 setupserverview_desktop.ui:547
+#, kde-format
+msgctxt "Authentication method"
+msgid "GSSAPI"
+msgstr "GSSAPI"
+
+#. i18n: ectx: attribute (title), widget (QWidget, advancedTab)
+#: setupserverview_desktop.ui:356
+#, kde-format
+msgid "Advanced"
+msgstr "დამატებითი"
+
+#. i18n: ectx: property (text), widget (KTitleWidget)
+#: setupserverview_desktop.ui:362
+#, kde-format
+msgid "IMAP Settings"
+msgstr "IMAP-ის მორგება"
+
+#. i18n: ectx: property (text), widget (QCheckBox, subscriptionEnabled)
+#: setupserverview_desktop.ui:371
+#, kde-format
+msgid "Enable server-side subscriptions"
+msgstr "სერვერის მხარეს გამოწერების ჩართვა"
+
+#. i18n: ectx: property (text), widget (QPushButton, subscriptionButton)
+#: setupserverview_desktop.ui:381
+#, kde-format
+msgid "Serverside Subscription..."
+msgstr "სერვერის მხარეს გამოწერა..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoExpungeCheck)
+#: setupserverview_desktop.ui:390
+#, kde-format
+msgid "Automaticall&y compact folders (expunges deleted messages)"
+msgstr "საქაღალდეების ავტომატური გასუფთავება (წაშლილი შეტყობინებების მოცილება)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: setupserverview_desktop.ui:397
+#, kde-format
+msgid "Trash folder:"
+msgstr "ნაგვის საქაღალდე:"
+
+#. i18n: ectx: property (text), widget (KTitleWidget)
+#: setupserverview_desktop.ui:407
+#, kde-format
+msgid "Connection Settings"
+msgstr "შეერთების მორგება"
+
+#. i18n: ectx: property (text), widget (QPushButton, testButton)
+#: setupserverview_desktop.ui:416
+#, kde-format
+msgid "Auto Detect"
+msgstr "ავტომატური გამოცნობა"
+
+#. i18n: ectx: property (text), widget (QPushButton, showServerInfo)
+#: setupserverview_desktop.ui:423
+#, kde-format
+msgid "Server Info"
+msgstr "სერვერის ინფორმაცია"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: setupserverview_desktop.ui:432
+#, kde-format
+msgid "Encryption:"
+msgstr "შიფრაცია:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, tlsRadio)
+#: setupserverview_desktop.ui:441
+#, kde-format
+msgid "STARTTLS"
+msgstr "STARTTLS"
+
+#. i18n: ectx: property (text), widget (QRadioButton, sslRadio)
+#: setupserverview_desktop.ui:451
+#, kde-format
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noRadio)
+#: setupserverview_desktop.ui:461
+#, kde-format
+msgid "None"
+msgstr "არაფერი"
+
+#. i18n: ectx: property (text), widget (QLabel, imapInfo)
+#: setupserverview_desktop.ui:482
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'HandelGotDLig'; font-size:10pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">SSL/TLS</span><span style=\" font-"
+"family:'Sans Serif';\"> is safe IMAP over port 993;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">STARTTLS</span><span style=\" font-"
+"family:'Sans Serif';\"> will operate on port 143 and switch to a secure "
+"connection directly after connecting;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">None</span><span style=\" font-"
+"family:'Sans Serif';\"> will connect to port 143 but not switch to a secure "
+"connection. This setting is not recommended.</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'HandelGotDLig'; font-size:10pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">SSL/TLS</span><span style=\" font-"
+"family:'Sans Serif';\"> 993-ე პორტზე დაცული IMAP;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">STARTTLS</span><span style=\" font-"
+"family:'Sans Serif';\"> 143-ე პორტზე მუშაობა და დაცულ არხზე გადართვა "
+"მიერთების შემდეგ;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">None</span><span style=\" font-"
+"family:'Sans Serif';\"> 143-ე პორტზე მუშაობა და დაცულ არხზე არ გადართვა "
+"(რეკომენდებული არაა).</span></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: setupserverview_desktop.ui:489
+#, kde-format
+msgid "Port:"
+msgstr "პორტი:"
+
+#. i18n: ectx: property (text), widget (QLabel, testInfo)
+#: setupserverview_desktop.ui:573
+#, kde-format
+msgid "Empty"
+msgstr "ცარიელი"
+
+#: subscriptiondialog.cpp:49
+#, kde-format
+msgctxt "@action:button"
+msgid "Reload &List"
+msgstr "სიის &თავიდან ჩატვირთვა"
+
+#: subscriptiondialog.cpp:64
+#, kde-format
+msgctxt "@option:check"
+msgid "Enable server-side subscriptions"
+msgstr "სერვერის მხარეს გამოწერების ჩართვა"
+
+#: subscriptiondialog.cpp:70
+#, kde-format
+msgctxt "@label search for a subscription"
+msgid "Search:"
+msgstr "ძებნა:"
+
+#: subscriptiondialog.cpp:78
+#, kde-format
+msgctxt "@option:check"
+msgid "Subscribed only"
+msgstr "მხოლოდ გამოწერილი"

@@ -1,0 +1,275 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2014, 2016, 2017, 2019.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
+# Vit Pelcak <vit@pelcak.org>, 2021, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-23 00:50+0000\n"
+"PO-Revision-Date: 2023-06-22 11:05+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 23.04.2\n"
+
+#. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:29
+#, kde-format
+msgid "Directory settings of the resource."
+msgstr "Nastavení adresáře zdroje."
+
+#. i18n: ectx: property (whatsThis), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:32
+#, kde-format
+msgid ""
+"Select settings of the directory whose contents should be represented by "
+"this resource."
+msgstr ""
+"Vyberte nastavení adresáře, jehož obsah by měl odpovídat tomuto zdroji."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settingsdialog.ui:39
+#, kde-format
+msgid "Directory"
+msgstr "Adresář"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: settingsdialog.ui:45
+#, kde-format
+msgid "Directory Name"
+msgstr "Název adresáře"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settingsdialog.ui:53
+#, kde-format
+msgid "Director&y:"
+msgstr "Adre&sář:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: settingsdialog.ui:68
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Vyberte adresář, jehož obsah by měl odpovídat tomuto zdroji. Pokud adresář "
+"neexistuje, bude vytvořen."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: settingsdialog.ui:81
+#, kde-format
+msgid "Access Rights"
+msgstr "Přístupová práva"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:87
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above."
+msgstr ""
+"Pokud je zapnut režim pouze ke čtení, do zvoleného adresáře nebudou "
+"zapisovány změny."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ReadOnly)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: settingsdialog.ui:90 settingsdialog.ui:100
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Pokud je zapnut režim pouze ke čtení, do zvoleného adresáře nebudou "
+"zapisovány změny. Režim pouze pro čtení bude automaticky zapnut, pokud "
+"nemáte práva k zápisu do tohoto adresáře."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:93 singlefileresourceconfigwidget_desktop.ui:92
+#, kde-format
+msgid "Read only"
+msgstr "Pouze pro čtení"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: settingsdialog.ui:127
+#, kde-format
+msgid "Tuning"
+msgstr "Ladění"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: settingsdialog.ui:133
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Volby na této stránce vám umožní měnit parametry, které vyrovnávají "
+"bezpečnost a konzistenci dat vůči výkonu. Obecně byste měli být opatrní při "
+"změnách, výchozí hodnoty by měly postačovat ve většině případů."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: settingsdialog.ui:145
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Automatické ukládání:"
+
+#. i18n: ectx: property (toolTip), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:152
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Interval automatického ukládání (v minutách)."
+
+#. i18n: ectx: property (whatsThis), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:155
+#, kde-format
+msgid "Select autosave interval time for the resource data (in minutes)."
+msgstr "Vyberte interval automatického ukládání pro zdroje dat (v minutách)."
+
+#: singlefileresource.h:65
+#, kde-format
+msgid "No file selected."
+msgstr "Nebyl vybrán žádný soubor."
+
+#: singlefileresource.h:67
+#, kde-format
+msgid "The resource not configured yet"
+msgstr "Zdroj ještě nebyl nastaven"
+
+#: singlefileresource.h:98 singlefileresource.h:127 singlefileresource.h:212
+#: singlefileresourcebase.cpp:277 singlefileresourcebase.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Připraven"
+
+#: singlefileresource.h:100
+#, kde-format
+msgid "Could not create file '%1'."
+msgstr "Nelze vytvořit soubor '%1'."
+
+#: singlefileresource.h:114
+#, kde-format
+msgid "Could not read file '%1'"
+msgstr "Nelze přečíst soubor '%1'"
+
+#: singlefileresource.h:130
+#, kde-format
+msgid "Another download is still in progress."
+msgstr "Jiné stahování stále probíhá."
+
+#: singlefileresource.h:140 singlefileresource.h:226
+#, kde-format
+msgid "Another file upload is still in progress."
+msgstr "Odesílání jiného souboru stále probíhá."
+
+#: singlefileresource.h:156
+#, kde-format
+msgid "Downloading remote file."
+msgstr "Stahuji vzdálený soubor."
+
+#: singlefileresource.h:176
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'."
+msgstr "Pokus o zápis do souboru pouze pro čtení: '%1'."
+
+#: singlefileresource.h:188
+#, kde-format
+msgid "No file specified."
+msgstr "Nebyl zadán soubor."
+
+#: singlefileresource.h:216
+#, kde-format
+msgid "A download is still in progress."
+msgstr "Stahování stále probíhá."
+
+#: singlefileresource.h:256
+#, kde-format
+msgid "Uploading cached file to remote location."
+msgstr "Odesílám načtený soubor na vzdálené umístění."
+
+#: singlefileresourcebase.cpp:240
+#, kde-format
+msgid ""
+"The file '%1' was changed on disk. As a precaution, a backup of its previous "
+"contents has been created at '%2'."
+msgstr ""
+
+#: singlefileresourcebase.cpp:264
+#, kde-format
+msgid "Could not load file '%1'."
+msgstr "Není možné načíst soubor '%1'."
+
+#: singlefileresourcebase.cpp:283
+#, kde-format
+msgid "Could not save file '%1'."
+msgstr "Není možné uložit soubor '%1'."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: singlefileresourceconfigwidget_desktop.ui:39
+#, kde-format
+msgid "File"
+msgstr "Soubor"
+
+#. i18n: ectx: property (text), widget (QLabel, filenameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:47
+#, kde-format
+msgid "File Name:"
+msgstr "Název souboru:"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: singlefileresourceconfigwidget_desktop.ui:66
+#, kde-format
+msgid ""
+"Select a file. A new file will be created if it doesn't exist. You can also "
+"use a URL, but in that case, monitoring for file changes is not possible."
+msgstr ""
+"Vyberte soubor. Pokud neexistuje, bude vytvořen nový soubor. Taky můžete "
+"použít URL, ale v takovém případě není možné monitorovat změny souboru."
+
+#. i18n: ectx: property (text), widget (QLabel, displayNameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:79
+#, kde-format
+msgid "Display Name:"
+msgstr "Zobrazované jméno:"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: singlefileresourceconfigwidget_desktop.ui:108
+#, kde-format
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"Pokud je zapnut režim pouze ke čtení, nebudou zapisovány změny. Režim pouze "
+"pro čtení bude automaticky zapnut, pokud tento soubor nepodporuje zápis."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MonitorFile)
+#: singlefileresourceconfigwidget_desktop.ui:121
+#, kde-format
+msgid "Enable file &monitoring"
+msgstr "Povolit &monitorování souboru"
+
+#. i18n: ectx: property (text), widget (QLabel, monitoringLabel)
+#: singlefileresourceconfigwidget_desktop.ui:134
+#, kde-format
+msgid ""
+"Changes made by other applications will reload the file when monitoring is "
+"enabled. Backups will be created to avoid conflicts when possible."
+msgstr ""
+"Pokud je monitorování povoleno, povedou změny provedené jinými aplikacemi k "
+"opětovnému načtení. Pro předejití konfliktů budou vytvářeny zálohy pokud to "
+"půjde."
+
+#: singlefileresourceconfigwidgetbase.cpp:126
+#, kde-format
+msgctxt "@info:status"
+msgid "Checking file information..."
+msgstr "Kontroluji informace..."

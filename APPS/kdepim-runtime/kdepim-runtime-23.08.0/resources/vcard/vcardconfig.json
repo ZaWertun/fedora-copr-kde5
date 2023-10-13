@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "vcardconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_vcard_resource"
+}

@@ -1,0 +1,49 @@
+====
+TODO
+====
+
+BUGS
+----
+
+- additional \n in item, see the test
+- config dialog: enter key selects collection, and not the Ok button
+- not storing password does not work
+
+FEATURES
+--------
+
+- filter on server
+- delete on server
+- fix "include in manual mail check", should be something in the akonadi libs
+- migration from old KMail accounts
+  -> now DeleteLater group
+  -> store-passwd -> store_passwd (also: use_ssl, use_tls and all the others
+- progressbar integration for client apps, especially the old SSL icon stuff
+- get rid of pop3 ioslave
+- help (there is a a help button in the config dialog)
+  -> maybe copy over most of KMail's POP3 help
+
+CLEANUP
+-------
+
+- api documentation (also for fakeserver)
+- clean up cmakefiles, remove code duplication with kdepimlibs
+- kconfigxt: labels, tooltips, whatsthis etc
+
+UNIT TESTS
+----------
+  - test ssl/tls
+  - test with disabled cache
+  - all leave on server rules
+      -> leave the last x messages
+      -> leave the last x MB
+      -> every leave rule mixed
+  - test cancel mail + seenuidlist
+  - weird bugs in svn log of old kmail
+  - add fails -> second check will still work
+  - correct error messages passed from pop3 server?
+  - byte stuffing
+  - pipelining
+  - abort requested during mail check
+    -> no duplicate messages on next mail check, already added mails added to the seen
+       UID list

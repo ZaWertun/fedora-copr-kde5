@@ -1,0 +1,187 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2009, 2010.
+# Stefan Asserhall <stefan.asserhall@bredband.net>, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-04 00:48+0000\n"
+"PO-Revision-Date: 2012-10-16 18:46+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+#: maildispatcheragent.cpp:84 maildispatcheragent.cpp:233
+#, kde-format
+msgid "Sending messages (1 item in queue)..."
+msgid_plural "Sending messages (%1 items in queue)..."
+msgstr[0] "Skickar brev (1 objekt i kö)..."
+msgstr[1] "Skickar brev (%1 objekt i kö)..."
+
+#: maildispatcheragent.cpp:94
+#, kde-format
+msgid "Sending canceled."
+msgstr "Sändning avbruten."
+
+#: maildispatcheragent.cpp:101
+#, kde-format
+msgid "Finished sending messages."
+msgstr "Sändning av brev klar."
+
+#: maildispatcheragent.cpp:107
+#, kde-format
+msgctxt "Notification title when email was sent"
+msgid "E-Mail Successfully Sent"
+msgstr "E-post skickad med lyckat resultat"
+
+#: maildispatcheragent.cpp:108
+#, kde-format
+msgctxt "Notification when the email was sent"
+msgid "Your E-Mail has been sent successfully."
+msgstr "E-posten har skickats med lyckat resultat."
+
+#: maildispatcheragent.cpp:114
+#, kde-format
+msgid "No items in queue."
+msgstr "Inga objekt i kö."
+
+#: maildispatcheragent.cpp:164
+#, kde-format
+msgid "Online, sending messages in queue."
+msgstr "Uppkopplad, skickar brev i kö."
+
+#: maildispatcheragent.cpp:168
+#, kde-format
+msgid "Offline, message sending suspended."
+msgstr "Nerkopplad, brevsändning tillfälligt stoppad."
+
+#: maildispatcheragent.cpp:193
+#, kde-format
+msgctxt "Message with given subject is being sent."
+msgid "Sending: %1"
+msgstr "Skickar: %1"
+
+#: maildispatcheragent.cpp:258
+#, kde-format
+msgctxt "Notification title when email sending failed"
+msgid "E-Mail Sending Failed"
+msgstr "Misslyckades skicka e-post"
+
+#: maildispatcheragent.cpp:291
+#, kde-format
+msgid "Ready to dispatch messages."
+msgstr "Klar att skicka brev."
+
+#. i18n: ectx: label, entry (Outbox), group (General)
+#: maildispatcheragent.kcfg:10
+#, kde-format
+msgid "Outbox collection id"
+msgstr "Samlingsidentifierare för utkorg"
+
+#. i18n: ectx: label, entry (SentMail), group (General)
+#: maildispatcheragent.kcfg:14
+#, kde-format
+msgid "Sent Mail collection id"
+msgstr "Samlingsidentifierare för skickade brev"
+
+#: outboxqueue.cpp:265
+#, kde-format
+msgid "Could not access the outbox folder (%1)."
+msgstr "Kunde inte komma åt utkorgen (%1)."
+
+#: sendjob.cpp:49 sendjob.cpp:50
+#, kde-format
+msgid "Message sending aborted."
+msgstr "Brevsändning avbruten."
+
+#: sendjob.cpp:59
+#, kde-format
+msgid "Could not initiate message transport. Possibly invalid transport."
+msgstr "Kunde inte initiera brevöverföring. Möjligen ogiltig överföring."
+
+#: sendjob.cpp:65
+#, kde-format
+msgid "Could not send message. Invalid transport."
+msgstr "Kunde inte skicka brev. Ogiltig överföring."
+
+#: sendjob.cpp:97
+#, kde-format
+msgid "Failed to get D-Bus interface of resource %1."
+msgstr "Misslyckades erhålla D-Bus gränssnitt för resursen %1."
+
+#: sendjob.cpp:110
+#, kde-format
+msgid "Invalid D-Bus reply from resource %1."
+msgstr "Ogiltigt D-Bus svar från resursen %1."
+
+#: sendjob.cpp:228
+#, kde-format
+msgid "Default sent-mail folder unavailable. Keeping message in outbox."
+msgstr ""
+"Standardkorg för skickade brev ej tillgänglig. Behåller brevet i utkorgen."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Message transport aborted."
+msgstr "Brevöverföring avbruten."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Failed to transport message."
+msgstr "Misslyckades överföra brev."
+
+#: sendjob.cpp:282
+#, kde-format
+msgid "Failed to get D-Bus interface of mailfilteragent."
+msgstr "Misslyckades erhålla D-Bus gränssnitt för e-postfiltreringsmodulen."
+
+#: sendjob.cpp:289
+#, kde-format
+msgid "Invalid D-Bus reply from mailfilteragent"
+msgstr "Ogiltigt D-Bus svar från e-postfiltreringsmodulen."
+
+#: sendjob.cpp:331
+#, kde-format
+msgid "Sending succeeded, but failed to remove the message from the outbox."
+msgstr "Lyckades skicka, men misslyckades ta bort brevet från utkorgen."
+
+#: sendjob.cpp:334
+#, kde-format
+msgid ""
+"Sending succeeded, but failed to move the message to the sent-mail folder."
+msgstr ""
+"Lyckades skicka, men misslyckades flytta brevet till korgen för skickade "
+"brev."
+
+#: sendjob.cpp:370
+#, kde-format
+msgid "Failed to store result in item."
+msgstr "Misslyckades lagra resultat i objekt."
+
+#: storeresultjob.cpp:59
+#, kde-format
+msgid "Failed to fetch item."
+msgstr "Misslyckades hämta objekt."
+
+#~ msgid "Mail Dispatcher Agent Settings"
+#~ msgstr "Inställningar för e-postsändningsmodul"
+
+#~ msgid "Select the collection to be used as outbox:"
+#~ msgstr "Välj samling att använda som utkorg:"
+
+#~ msgid "Select the collection to move sent messages into:"
+#~ msgstr "Välj samling att flytta skickade brev till:"
+
+#~| msgid "Sending canceled."
+#~ msgid "Sending succeeded, %1."
+#~ msgstr "Sändning lyckades, %1."
+
+#~ msgid "Sending succeeded, but failed to finalize message."
+#~ msgstr "Sändning lyckades, men misslyckades avsluta brevhantering."

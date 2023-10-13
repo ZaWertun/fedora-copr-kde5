@@ -1,5 +1,5 @@
 Name:    kmouth
-Version: 23.08.1
+Version: 23.08.2
 Release: 1%{?dist}
 Summary: A program that speaks for you 
 
@@ -80,6 +80,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kmouth.de
 
 
 %changelog
+* Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
+- 23.08.2
+
 * Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
 - 23.08.1
 

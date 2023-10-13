@@ -1,0 +1,81 @@
+# Translation of akonadi_ical_resource into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kdepim-runtime package.
+# Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_ical_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2023-05-29 07:34+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icalresource.kcfg:10 notes/notesresource.kcfg:10
+#, kde-format
+msgid "Path to iCal file."
+msgstr "Vojo al iCal-dosiero."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: icalresource.kcfg:14 notes/notesresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Montrata nomo."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icalresource.kcfg:18 notes/notesresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ne ŝanĝi la faktajn backend-datenojn."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: icalresource.kcfg:22 notes/notesresource.kcfg:26
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Monitori dosieron pri ŝanĝoj."
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: notes/notesresource.kcfg:22
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Aŭtokonserva intervalo (en minutoj)."
+
+#: shared/icalresource.cpp:47
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Ne trovis incidon kun uid '%1'."
+
+#: shared/icalresourcebase.cpp:46 shared/icalresourcebase.cpp:59
+#: shared/icalresourcebase.cpp:90 shared/icalresourcebase.h:88
+#, kde-format
+msgid "Calendar not loaded."
+msgstr "Ne ŝargis kalendaron."
+
+#: shared/icalresourcebase.cpp:134
+#, kde-format
+msgid "Failed to save calendar file to %1"
+msgstr "Malsukcesis konservi kalendarodosieron al %1"
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve added item %1."
+msgstr "Maleblas ekpreni aldonitan objekton %1."
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve modified item %1."
+msgstr "Maleblas ekpreni modifitan objekton %1."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/icalwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Dosiernomo:"

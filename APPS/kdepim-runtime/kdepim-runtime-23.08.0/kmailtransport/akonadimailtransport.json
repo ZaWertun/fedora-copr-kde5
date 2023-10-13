@@ -1,0 +1,32 @@
+{
+    "KPlugin": {
+        "Id": "akonadimailtransport",
+        "Name": "Akonadi Mail Transport",
+        "Name[bg]": "Пощенски транспорт на Akonadi",
+        "Name[ca@valencia]": "Transport de correu d'Akonadi",
+        "Name[ca]": "Transport de correu de l'Akonadi",
+        "Name[cs]": "Přenos pošty Akonadi",
+        "Name[de]": "Akonadi-E-Mailtransport",
+        "Name[en_GB]": "Akonadi Mail Transport",
+        "Name[eo]": "Akonadi-Poŝttransporto",
+        "Name[es]": "Transporte de correo de Akonadi",
+        "Name[eu]": "Akonadi posta garraioa",
+        "Name[fi]": "Akonadin postinvälitys",
+        "Name[fr]": "Transport du courrier électronique de Akonadi",
+        "Name[gl]": "Transporte de correo de Akonadi",
+        "Name[ia]": "Transporto de Posta de Akonadi",
+        "Name[it]": "Trasporto della posta di Akonadi",
+        "Name[ko]": "Akonadi 메일 전송",
+        "Name[nl]": "Akonadi e-mailtransport",
+        "Name[pl]": "Serwery pocztowe Akonadi",
+        "Name[pt]": "Transporte de Correio do Akonadi",
+        "Name[pt_BR]": "Transporte de e-mail do Akonadi",
+        "Name[sl]": "Akonadi Mail Transport",
+        "Name[sv]": "Akonadi e-postöverföring",
+        "Name[tr]": "Akonadi Posta Taşıması",
+        "Name[uk]": "Надсилання пошти Akonadi",
+        "Name[x-test]": "xxAkonadi Mail Transportxx",
+        "Name[zh_CN]": "Akonadi 邮件传输",
+        "Version": "1.0"
+    }
+}

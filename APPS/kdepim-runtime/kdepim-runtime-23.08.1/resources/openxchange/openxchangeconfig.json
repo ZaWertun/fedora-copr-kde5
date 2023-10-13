@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "openxchangeconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_openxchange_resource"
+}

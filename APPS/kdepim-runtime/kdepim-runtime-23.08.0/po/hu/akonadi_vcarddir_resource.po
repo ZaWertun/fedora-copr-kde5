@@ -1,0 +1,143 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
+# Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2014-05-04 17:45+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: vcarddiragentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Mappa"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: vcarddiragentsettingswidget.ui:39
+#, kde-format
+msgid "Directory Name"
+msgstr "Mappanév"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: vcarddiragentsettingswidget.ui:47
+#, fuzzy, kde-format
+#| msgid "&Directory:"
+msgid "Di&rectory:"
+msgstr "Ma&ppa:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: vcarddiragentsettingswidget.ui:62
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Válassza ki az erőforrással reprezentálandó mappát. Ha a mappa nem létezik, "
+"létre lesz hozva."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: vcarddiragentsettingswidget.ui:75
+#, kde-format
+msgid "Access Rights"
+msgstr "Hozzáférési jogosultságok"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: vcarddiragentsettingswidget.ui:81
+#, kde-format
+msgid "Read only"
+msgstr "Csak olvasható"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: vcarddiragentsettingswidget.ui:88
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Ha a csak olvasható mód be van kapcsolva, a változtatások nem íródnak ki a "
+"fentebb kijelölt mappába. A csak olvasható mód automatikusan bekapcsolásra "
+"kerül, ha nincs írási jogosultsága a mappára."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: vcarddiragentsettingswidget.ui:115
+#, kde-format
+msgid "Tuning"
+msgstr "Finomhangolás"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: vcarddiragentsettingswidget.ui:121
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"A beállítások ezen az oldalon lehetővé teszik az adatbiztonság és "
+"konzisztencia paramétereinek módosítását a teljesítmény paramétereivel "
+"szemben. Legyen óvatos a változtatásokkal, az alapértelmezett értékek a "
+"legtöbb esetben megfelelőek."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: vcarddiragentsettingswidget.ui:133
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Az automatikus mentés időköze:"
+
+#: vcarddirresource.cpp:120
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Nem található „%1” azonosítójú névjegy."
+
+#: vcarddirresource.cpp:132 vcarddirresource.cpp:166 vcarddirresource.cpp:202
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Csak olvasható mappa írásának kísérlete: „%1”"
+
+#: vcarddirresource.cpp:237
+#, kde-format
+msgid "Contacts Folder"
+msgstr "Névjegyek mappája"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcarddirresource.kcfg:10
+#, kde-format
+msgid "Path to vCard directory"
+msgstr "A vCard mappa elérési útja"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: vcarddirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Automatikus mentési időköz (percekben)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcarddirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "A jelenlegi háttérprogramadat változatlanul hagyása."
+
+#: vcarddirsettingswidget.cpp:35
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " perc"
+msgstr[1] " perc"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcarddirwizard.ui:19
+#, kde-format
+msgid "Path:"
+msgstr "Útvonal:"

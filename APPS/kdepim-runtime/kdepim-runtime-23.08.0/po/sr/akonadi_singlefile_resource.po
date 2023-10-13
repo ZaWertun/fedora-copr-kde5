@@ -1,0 +1,363 @@
+# Translation of akonadi_singlefile_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2014, 2015, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_singlefile_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-04-15 03:34+0200\n"
+"PO-Revision-Date: 2017-01-14 19:23+0100\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:29
+#, kde-format
+msgid "Directory settings of the resource."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:32
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select the directory whose contents should be represented by this "
+#| "resource. If the directory does not exist, it will be created."
+msgid ""
+"Select settings of the directory whose contents should be represented by "
+"this resource."
+msgstr ""
+"Изаберите фасциклу чији садржај треба представити овим ресурсом. Ако "
+"фасцикла не постоји, биће направљена."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settingsdialog.ui:39
+#, kde-format
+msgid "Directory"
+msgstr "Фасцикла"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: settingsdialog.ui:45
+#, kde-format
+msgid "Directory Name"
+msgstr "Име фасцикле"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settingsdialog.ui:53
+#, kde-format
+msgid "Director&y:"
+msgstr "&Фасцикла:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: settingsdialog.ui:68
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Изаберите фасциклу чији садржај треба представити овим ресурсом. Ако "
+"фасцикла не постоји, биће направљена."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: settingsdialog.ui:81 singlefileresourceconfigwidget_desktop.ui:125
+#, kde-format
+msgid "Access Rights"
+msgstr "Права приступа"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:87
+#, fuzzy, kde-format
+#| msgid ""
+#| "If read-only mode is enabled, no changes will be written to the directory "
+#| "selected above. Read-only mode will be automatically enabled if you do "
+#| "not have write access to the directory."
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above."
+msgstr ""
+"У режиму само‑за‑читање никакве измене неће бити уписиване у горе изабрану "
+"фасциклу. Овај режим биће аутоматски активиран ако немате приступ за писање "
+"над фасциклом."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ReadOnly)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: settingsdialog.ui:90 settingsdialog.ui:100
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"У режиму само‑за‑читање никакве измене неће бити уписиване у горе изабрану "
+"фасциклу. Овај режим биће аутоматски активиран ако немате приступ за писање "
+"над фасциклом."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:93 singlefileresourceconfigwidget_desktop.ui:145
+#, kde-format
+msgid "Read only"
+msgstr "Само за читање"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: settingsdialog.ui:127
+#, kde-format
+msgid "Tuning"
+msgstr "Штеловање"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: settingsdialog.ui:133
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Опције на овој страници омогућавају задавање параметара у вези са равнотежом "
+"између безбедности и доследности података с једне стране, и перформанси с "
+"друге стране. Будите опрезни ако ишта мењате овде, подразумеване вредности "
+"су задовољавајуће у већини случајева."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: settingsdialog.ui:145
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Застој аутоматског уписивања:"
+
+#. i18n: ectx: property (toolTip), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:152
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:155
+#, kde-format
+msgid "Select autosave interval time for the resource data (in minutes)."
+msgstr ""
+
+#: singlefileresource.h:72
+#, kde-format
+msgid "No file selected."
+msgstr "Нема изабраног фајла."
+
+#: singlefileresource.h:74
+#, kde-format
+msgid "The resource not configured yet"
+msgstr "Ресурс још није подешен."
+
+#: singlefileresource.h:106 singlefileresource.h:135 singlefileresource.h:223
+#: singlefileresourcebase.cpp:292 singlefileresourcebase.cpp:309
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Спреман"
+
+#: singlefileresource.h:108
+#, kde-format
+msgid "Could not create file '%1'."
+msgstr "Не могу да направим фајл „%1“."
+
+#: singlefileresource.h:122
+#, kde-format
+msgid "Could not read file '%1'"
+msgstr "Не могу да читам фајл „%1“."
+
+#: singlefileresource.h:138
+#, kde-format
+msgid "Another download is still in progress."
+msgstr "Друго преузимање је још у току."
+
+#: singlefileresource.h:148 singlefileresource.h:237
+#, kde-format
+msgid "Another file upload is still in progress."
+msgstr "Друго отпремање је још у току."
+
+#: singlefileresource.h:167
+#, kde-format
+msgid "Downloading remote file."
+msgstr "Преузимам удаљени фајл."
+
+#: singlefileresource.h:187
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'."
+msgstr "Покушај уписивања у фајл само‑за‑читање: „%1“."
+
+#: singlefileresource.h:199
+#, kde-format
+msgid "No file specified."
+msgstr "Нема задатог фајла."
+
+#: singlefileresource.h:227
+#, kde-format
+msgid "A download is still in progress."
+msgstr "Преузимање је још у току."
+
+#: singlefileresource.h:269
+#, kde-format
+msgid "Uploading cached file to remote location."
+msgstr "Отпремам кеширани фајл на удаљену локацију."
+
+#: singlefileresourcebase.cpp:256
+#, kde-format
+msgid ""
+"The file '%1' was changed on disk. As a precaution, a backup of its previous "
+"contents has been created at '%2'."
+msgstr ""
+"Фајл „%1“ измењен је на диску. Из предострожности, резерва претходног "
+"садржаја фајла направљена је у „%2“."
+
+#: singlefileresourcebase.cpp:279
+#, kde-format
+msgid "Could not load file '%1'."
+msgstr "Не могу да учитам фајл „%1“."
+
+#: singlefileresourcebase.cpp:298
+#, kde-format
+msgid "Could not save file '%1'."
+msgstr "Не могу да сачувам фајл „%1“."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: singlefileresourceconfigwidget_desktop.ui:24
+#, kde-format
+msgid "File"
+msgstr "Фајл"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: singlefileresourceconfigwidget_desktop.ui:30
+#, kde-format
+msgid "Filename"
+msgstr "Име фајла"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: singlefileresourceconfigwidget_desktop.ui:40
+#, kde-format
+msgid "&Filename:"
+msgstr "&Име фајла:"
+
+#. i18n: ectx: property (text), widget (QLabel, statusLabel)
+#: singlefileresourceconfigwidget_desktop.ui:57
+#, kde-format
+msgid "Status:"
+msgstr "Стање:"
+
+#. i18n: ectx: property (html), widget (QTextEdit, textEdit)
+#: singlefileresourceconfigwidget_desktop.ui:71
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Select the file whose "
+"contents should be represented by this resource. If the file does not exist, "
+"it will be created. A URL of a remote file can also be specified, but note "
+"that monitoring for file changes will not work in this case.</p></body></"
+"html>"
+msgstr ""
+"<html><p>Изаберите фајл чији садржај треба представити овим ресурсом. Ако "
+"фајл не постоји, биће направљен. Може се задати и УРЛ удаљеног фајла, али у "
+"том случају неће радити надгледање за изменама.</p></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: singlefileresourceconfigwidget_desktop.ui:85
+#, kde-format
+msgid "Display Name"
+msgstr "Приказно име"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: singlefileresourceconfigwidget_desktop.ui:93
+#, kde-format
+msgid "&Name:"
+msgstr "&Име:"
+
+#. i18n: ectx: property (html), widget (QTextEdit, textEdit_2)
+#: singlefileresourceconfigwidget_desktop.ui:115
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Enter the name used to "
+"identify this resource in displays. If not specified, the filename will be "
+"used.</p></body></html>"
+msgstr ""
+"<html><p>Унесите име које ће идентификовати овај ресурс у приказима. Ако се "
+"не зада, употребиће се име фајла.</p></html>"
+
+#. i18n: ectx: property (html), widget (QTextEdit, textEdit_3)
+#: singlefileresourceconfigwidget_desktop.ui:138
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">If read-only mode is "
+"enabled, no changes will be written to the file selected above. Read-only "
+"mode will be automatically enabled if you do not have write access to the "
+"file or the file is on a remote server that does not support write access.</"
+"p></body></html>"
+msgstr ""
+"<html><p>У режиму само‑за‑читање никакве измене неће бити уписиване у горе "
+"изабрани фајл. Овај режим ће бити аутоматски активиран ако немате приступ за "
+"писање над фајлом, или се фајл налази на удаљеном серверу који не подржава "
+"приступ за писање.</p></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_MonitorFile)
+#: singlefileresourceconfigwidget_desktop.ui:155
+#, kde-format
+msgid "Monitoring"
+msgstr "Надгледање"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MonitorFile)
+#: singlefileresourceconfigwidget_desktop.ui:161
+#, kde-format
+msgid "Enable file &monitoring"
+msgstr "&Надгледање фајла"
+
+#. i18n: ectx: property (html), widget (QTextEdit, textEdit_4)
+#: singlefileresourceconfigwidget_desktop.ui:175
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">If file monitoring is "
+"enabled the resource will reload the file when changes are made by other "
+"programs. It also tries to create a backup in case of conflicts whenever "
+"possible.</p></body></html>"
+msgstr ""
+"<html><p>Ако је надгледање фајла активирано, ресурс ће бити поново учитан "
+"кад год неки други програм измени фајл. Такође се праве резерве у случају "
+"сукоба, кад год је то могуће.</p></html>"
+
+#: singlefileresourceconfigwidgetbase.cpp:137
+#, kde-format
+msgctxt "@info:status"
+msgid "Checking file information..."
+msgstr "Проверавам податке о фајлу..."

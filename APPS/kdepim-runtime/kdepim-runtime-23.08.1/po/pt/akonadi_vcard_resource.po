@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_vcard_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2010-07-10 14:38+0100\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-SpellExtra: UID\n"
+
+#: vcardconfig.cpp:16
+#, kde-format
+msgctxt "Filedialog filter for *.vcf"
+msgid "vCard Address Book File"
+msgstr "Ficheiro de Livro de Endereços vCard"
+
+#: vcardresource.cpp:71
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "O contacto com UID '%1' não foi encontrado."
+
+#: vcardresource.cpp:164 vcardresource.cpp:184
+#, kde-format
+msgid "Unable to open vCard file '%1'."
+msgstr "Não é possível aceder ao ficheiro vCard '%1'."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcardresource.kcfg:10
+#, kde-format
+msgid "Path to vCard file."
+msgstr "Localização do ficheiro vCard."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: vcardresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "O nome a apresentar."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcardresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Não alterar os dados actuais da infra-estrutura."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: vcardresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Vigiar as alterações no ficheiro."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcardwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Nome do ficheiro:"
+
+#~ msgid "Select Address Book"
+#~ msgstr "Seleccionar o Livro de Endereços"

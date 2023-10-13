@@ -1,0 +1,73 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2011.
+# obsoleteman <tulliana@gmail.com>, 2009.
+# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2022-04-05 13:12+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+"X-POOTLE-MTIME: 1413102276.000000\n"
+
+#: vcardconfig.cpp:16
+#, kde-format
+msgctxt "Filedialog filter for *.vcf"
+msgid "vCard Address Book File"
+msgstr "vCard Adres Defteri Dosyası"
+
+#: vcardresource.cpp:71
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Kullanıcı kimliği '%1' ile bir kişi bulunamadı."
+
+#: vcardresource.cpp:164 vcardresource.cpp:184
+#, kde-format
+msgid "Unable to open vCard file '%1'."
+msgstr "'%1' vCard  dosyası açılamadı."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcardresource.kcfg:10
+#, kde-format
+msgid "Path to vCard file."
+msgstr "VCard Dosyasının yolu."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: vcardresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Görünen ad."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcardresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Güncel arka uç verilerini değiştirme."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: vcardresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Dosyadaki değişiklikleri izle."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcardwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Dosya adı:"
+
+#~ msgid "Select Address Book"
+#~ msgstr "Adres Defterini Seç"

@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "maildispatcherconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_maildispatcher_agent"
+}

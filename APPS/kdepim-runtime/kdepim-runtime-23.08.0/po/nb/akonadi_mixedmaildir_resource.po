@@ -1,0 +1,283 @@
+# Translation of akonadi_mixedmaildir_resource to Norwegian Bokmål
+#
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2010, 2011, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2014-09-19 22:55+0200\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: configwidget.cpp:28
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Den valgte stien er tom."
+
+#: configwidget.cpp:41
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Den valgte stien inneholder gyldige Maildir-mapper."
+
+#: configwidget.cpp:48
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Den valgte stien er en gyldig Maildir."
+
+#: configwidget.cpp:54
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "Den valgte stien finnes ikke ennå, en ny Maildir vil bli opprettet."
+
+#: configwidget.cpp:57
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Den valgte stien finnes ikke."
+
+#: mixedmaildirresource.cpp:102 mixedmaildirresource.cpp:117
+#: mixedmaildirresource.cpp:148 mixedmaildirresource.cpp:178
+#: mixedmaildirresource.cpp:193 mixedmaildirresource.cpp:208
+#: mixedmaildirresource.cpp:240 mixedmaildirresource.cpp:253
+#: mixedmaildirresource.cpp:280 mixedmaildirresource.cpp:311
+#: mixedmaildirresource.cpp:339
+#, kde-format
+msgctxt "@info:status"
+msgid "Unusable configuration."
+msgstr "Ikke brukbart oppsett."
+
+#: mixedmaildirresource.cpp:171
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Item %1 belongs to invalid collection %2. Maybe it was deleted meanwhile?"
+msgstr ""
+"Elementet %1 hører til en ugyldig samlng %2. Kanskje den ble slettet i "
+"mellomtiden?"
+
+#: mixedmaildirresource.cpp:202
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folders"
+msgstr "Synkroniserer e-postmapper"
+
+#: mixedmaildirresource.cpp:217
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folder %1"
+msgstr "Synkroniserer e-postmappe %1"
+
+#: mixedmaildirresource.cpp:318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Kan ikke flytte maildir-mappe «%1» på øverste nivå."
+
+#: mixedmaildirresource.cpp:346
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Kan ikke slette maildir-mappe «%1» på øverste nivå."
+
+#: mixedmaildirresource.cpp:360
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create maildir '%1'."
+msgstr "Klarte ikke å opprette maildir «%1»."
+
+#: mixedmaildirresource.cpp:372
+#, kde-format
+msgctxt "@info:status"
+msgid "No usable storage location configured."
+msgstr "Ikke satt opp noe brukbart lagringssted."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mixedmaildirresource.kcfg:10
+#, kde-format
+msgid "Path to KMail mail folder"
+msgstr "Sti til  KMail e-postmappe"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: mixedmaildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Stien peker på en mappe som inneholder Maildir-er i stedet på selve en "
+"maildir."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mixedmaildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ikke endre de virkelige bakgrunnsdataene."
+
+#: mixedmaildirstore.cpp:550
+#, kde-format
+msgctxt "@info:status"
+msgid "Given folder name is empty"
+msgstr "Mappa med oppgitt navn er tom"
+
+#: mixedmaildirstore.cpp:585 mixedmaildirstore.cpp:604
+#, kde-format
+msgctxt "@info:status"
+msgid "Folder %1 does not seem to be a valid email folder"
+msgstr "Det ser ikke ut til at mappa %1 er en gyldig e-postmappe"
+
+#: mixedmaildirstore.cpp:973
+#, kde-format
+msgctxt "@info:status"
+msgid "Unhandled operation %1"
+msgstr "Ikke håndtert handling %1"
+
+#: mixedmaildirstore.cpp:986 mixedmaildirstore.cpp:999
+#: mixedmaildirstore.cpp:1006 mixedmaildirstore.cpp:1014
+#: mixedmaildirstore.cpp:1025
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot create folder %1 inside folder %2"
+msgstr "Kan ikke opprette mappe %1 inne i mappe %2"
+
+#: mixedmaildirstore.cpp:1053 mixedmaildirstore.cpp:1062
+#: mixedmaildirstore.cpp:1070 mixedmaildirstore.cpp:1077
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove folder %1 from folder %2"
+msgstr "Kan ikke fjerne mappe %1 fra mappe %2"
+
+#: mixedmaildirstore.cpp:1113 mixedmaildirstore.cpp:1652
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load MBox folder %1"
+msgstr "Klarte ikke å laste inn mbox-mappa %1"
+
+#: mixedmaildirstore.cpp:1177 mixedmaildirstore.cpp:1193
+#: mixedmaildirstore.cpp:1228 mixedmaildirstore.cpp:1236
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot rename folder %1"
+msgstr "Kan ikke endre navn på mappe %1"
+
+#: mixedmaildirstore.cpp:1297 mixedmaildirstore.cpp:1314
+#: mixedmaildirstore.cpp:1335 mixedmaildirstore.cpp:1375
+#: mixedmaildirstore.cpp:1387 mixedmaildirstore.cpp:1421
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 from folder %2 to folder %3"
+msgstr "Kan ikke flytte mappe %1 fra mappe %2 til mappe %3"
+
+#: mixedmaildirstore.cpp:1463 mixedmaildirstore.cpp:1477
+#: mixedmaildirstore.cpp:1502 mixedmaildirstore.cpp:1532
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add emails to folder %1"
+msgstr "Kan ikke legge til e-poster til mappe %1"
+
+#: mixedmaildirstore.cpp:1555 mixedmaildirstore.cpp:1567
+#: mixedmaildirstore.cpp:1581 mixedmaildirstore.cpp:1613
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove emails from folder %1"
+msgstr "Kan ikke fjerne e-poster fra mappe %1"
+
+#: mixedmaildirstore.cpp:1679 mixedmaildirstore.cpp:1719
+#, kde-format
+msgctxt "@info:status"
+msgid "Error while reading mails from folder %1"
+msgstr "Det oppsto en feil da e-poster ble lest fra mappe %1"
+
+#: mixedmaildirstore.cpp:1700
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load Maildirs folder %1"
+msgstr "Klarte ikke å laste inn Maildirs-mappe %1"
+
+#: mixedmaildirstore.cpp:1759 mixedmaildirstore.cpp:1771
+#: mixedmaildirstore.cpp:1785 mixedmaildirstore.cpp:1819
+#: mixedmaildirstore.cpp:1843
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1"
+msgstr "Kan ikke endre e-poster i mappe %1"
+
+#: mixedmaildirstore.cpp:1874
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1. %2"
+msgstr "Kan ikke endre e-poster i mappe %1. %2"
+
+#: mixedmaildirstore.cpp:1899 mixedmaildirstore.cpp:1930
+#: mixedmaildirstore.cpp:1954
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails from folder %1"
+msgstr "Kan ikke flytte e-poster fra mappe %1"
+
+#: mixedmaildirstore.cpp:1913 mixedmaildirstore.cpp:1941
+#: mixedmaildirstore.cpp:1986 mixedmaildirstore.cpp:2010
+#: mixedmaildirstore.cpp:2017 mixedmaildirstore.cpp:2096
+#: mixedmaildirstore.cpp:2120
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails to folder %1"
+msgstr "Kan ikke flytte e-poster til mappe %1"
+
+#: mixedmaildirstore.cpp:1962 mixedmaildirstore.cpp:2062
+#: mixedmaildirstore.cpp:2084
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1"
+msgstr "Kan ikke flytte e-post fra mappe %1"
+
+#: mixedmaildirstore.cpp:2040 mixedmaildirstore.cpp:2145
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1 to folder %2"
+msgstr "Kan ikke flytte e-post fra mappe %1 til mappe %2"
+
+#: mixedmaildirstore.cpp:2298
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 into one of its own subfolder tree"
+msgstr "Kan ikke flytte mappa %1 inn i en av sine egne undermapper"
+
+#: mixedmaildirstore.cpp:2310
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add email to folder %1 because there is no email content"
+msgstr ""
+"Kan ikke legge til e-post til mappe %1 fordi det ikke er noe innhold i e-"
+"posten"
+
+#: mixedmaildirstore.cpp:2318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify email in folder %1 because there is no email content"
+msgstr ""
+"Kan ikke endre e-post i mappe %1 fordi det ikke er noe innhold i e-posten"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Innstillinger for e-postmappe"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:21
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Velg mappa som inneholder maildir-informasjon:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:31
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Åpne skrivebeskyttet"

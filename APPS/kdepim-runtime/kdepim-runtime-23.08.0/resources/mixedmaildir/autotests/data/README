@@ -1,0 +1,38 @@
+Description of contained Test data
+==================================
+
+maildir/dimap message filenames that contained ':' had it replaced with '_'
+
+1) dimap: 4 messages + index
+  - message 1 flagged important
+  - message 2 flagged unread
+  - message 3 flagged new, empty body
+  - message 4 flagged task, empty subject
+
+2) maildir: 4 messages + index
+  - message 1 flagged important
+  - message 2 flagged unread
+  - message 3 flagged new, empty body
+  - message 4 flagged task, empty subject
+
+3) mbox: 4 messages + index
+  - message 1 flagged unread
+  - message 2 flagged task, empty subject
+  - message 3 flagged new, empty body
+  - message 4 flagged important
+
+4) maildir-tagged: 4 messages + index
+  - message 1 flagged important, tag1
+  - message 2 flagged unread, tag2
+  - message 3 flagged new, empty body, tag 3
+  - message 4 flagged task, empty subject
+
+5) mbox-tagged: 4 messages + index
+  - message 1 flagged unread, tag2
+  - message 2 flagged task, empty subject
+  - message 3 flagged new, empty body, tag 3
+  - message 4 flagged important, tag1
+
+6) mbox-unpurged: 4 messages + index with entries for the first two
+  - simulating an unpurged mbox: all messages in mbox, no index entries for
+    the two messages in the middle

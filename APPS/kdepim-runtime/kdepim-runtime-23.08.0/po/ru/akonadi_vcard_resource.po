@@ -1,0 +1,77 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Николай Ерёмин <doktorkster@gmail.com>, 2009.
+# Andrey Cherepanov <skull@kde.ru>, 2009.
+# Artem Sereda <overmind88@gmail.com>, 2010.
+# Alexander Potashev <aspotashev@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_vcard_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2014-08-14 14:22+0400\n"
+"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: vcardconfig.cpp:16
+#, kde-format
+msgctxt "Filedialog filter for *.vcf"
+msgid "vCard Address Book File"
+msgstr "Файл адресной книги в формате vCard"
+
+#: vcardresource.cpp:71
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Контакт с идентификатором «%1» не найден."
+
+#: vcardresource.cpp:164 vcardresource.cpp:184
+#, kde-format
+msgid "Unable to open vCard file '%1'."
+msgstr "Не удалось открыть файл визитки vCard «%1»."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcardresource.kcfg:10
+#, kde-format
+msgid "Path to vCard file."
+msgstr "Путь к файлу vCard."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: vcardresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Отображаемое имя."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcardresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Не изменять существующие данные."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: vcardresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Отслеживать изменения в файле."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcardwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Имя файла:"
+
+#~ msgid "Select Address Book"
+#~ msgstr "Выбор адресной книги"
+
+#~ msgid "Autosave interval time (in minutes)."
+#~ msgstr "Период автосохранения (в минутах)."

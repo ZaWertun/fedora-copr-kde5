@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_newmailnotifier_agent\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-04 00:49+0000\n"
+"PO-Revision-Date: 2023-06-18 01:07+0100\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-SpellExtra: Jovie Laurent Montel KMail\n"
+
+#: newmailnotificationhistorydialog.cpp:24
+#, kde-format
+msgctxt "@title:window"
+msgid "Notification History"
+msgstr "Histórico de Notificações"
+
+#: newmailnotificationhistorywidget.cpp:22
+#: newmailnotifiersettingswidget.cpp:111
+#, kde-format
+msgid "Enabled"
+msgstr "Activa"
+
+#: newmailnotifieragent.cpp:371
+#, kde-format
+msgctxt ""
+"%2 = name of mail folder; %3 = name of Akonadi POP3/IMAP/etc resource (as "
+"user named it)"
+msgid "One new email in %2 from \"%3\""
+msgid_plural "%1 new emails in %2 from \"%3\""
+msgstr[0] "Uma mensagem nova em %2 de \"%3\""
+msgstr[1] "%1 mensagens novas em %2 de \"%3\""
+
+#: newmailnotifieragent.cpp:391
+#, kde-format
+msgid "New mail arrived"
+msgstr "Chegou correio novo"
+
+#: newmailnotifieragentsettings.kcfg:34
+#, kde-format
+msgctxt "%f is a variable for agent. Do not change it"
+msgid "A message was received from %f"
+msgstr "Foi recebida uma mensagem de %f"
+
+#: newmailnotifierreplymessagejob.cpp:38 newmailnotifiershowmessagejob.cpp:36
+#, kde-format
+msgid "Unable to start KMail application."
+msgstr "Não é possível iniciar a aplicação KMail."
+
+#: newmailnotifierselectcollectionwidget.cpp:94
+#, kde-format
+msgid "Select which folders to monitor for new message notifications:"
+msgstr "Seleccione as pastas onde vigiar as notificações de mensagens novas:"
+
+#: newmailnotifierselectcollectionwidget.cpp:125
+#, kde-format
+msgid "Search..."
+msgstr "Procurar..."
+
+#: newmailnotifierselectcollectionwidget.cpp:140
+#, kde-format
+msgid "&Select All"
+msgstr "&Seleccionar Tudo"
+
+#: newmailnotifierselectcollectionwidget.cpp:144
+#, kde-format
+msgid "&Unselect All"
+msgstr "Deseleccionar T&udo"
+
+#: newmailnotifiersettingswidget.cpp:31
+#, c-format
+msgid ""
+"<qt><p>Here you can define message. You can use:</p><ul><li>%s set subject</"
+"li><li>%f set from</li></ul></qt>"
+msgstr ""
+"<qt><p>Aqui poderá definir a mensagem. Poderá usar:</p><ul><li>%s definir o "
+"assunto</li><li>%f definir o remetente</li></ul></qt>"
+
+#: newmailnotifiersettingswidget.cpp:52
+#, kde-format
+msgid "Choose which fields to show:"
+msgstr "Escolha os campos a mostrar:"
+
+#: newmailnotifiersettingswidget.cpp:57
+#, kde-format
+msgid "Show Photo"
+msgstr "Mostrar a Fotografia"
+
+#: newmailnotifiersettingswidget.cpp:61
+#, kde-format
+msgid "Show From"
+msgstr "Mostrar o Remetente"
+
+#: newmailnotifiersettingswidget.cpp:65
+#, kde-format
+msgid "Show Subject"
+msgstr "Mostrar o Assunto"
+
+#: newmailnotifiersettingswidget.cpp:69
+#, kde-format
+msgid "Show Folders"
+msgstr "Mostrar as Pastas"
+
+#: newmailnotifiersettingswidget.cpp:73
+#, kde-format
+msgid "Do not notify when email was sent by me"
+msgstr "Não notificar quando o correio foi enviado por mim"
+
+#: newmailnotifiersettingswidget.cpp:77
+#, kde-format
+msgid "Keep Persistent Notification"
+msgstr "Manter a Notificação Persistente"
+
+#: newmailnotifiersettingswidget.cpp:81
+#, kde-format
+msgid "Show Action Buttons"
+msgstr "Mostrar os Botões de Acções"
+
+#: newmailnotifiersettingswidget.cpp:89
+#, kde-format
+msgid "Reply Mail"
+msgstr "Responder ao E-Mail"
+
+#: newmailnotifiersettingswidget.cpp:97 specialnotifierjob.cpp:154
+#, kde-format
+msgid "Reply to Author"
+msgstr "Responder ao Autor"
+
+#: newmailnotifiersettingswidget.cpp:97 specialnotifierjob.cpp:157
+#, kde-format
+msgid "Reply to All"
+msgstr "Responder a Todos"
+
+#: newmailnotifiersettingswidget.cpp:106
+#, kde-format
+msgid "Display"
+msgstr "Visualização"
+
+#: newmailnotifiersettingswidget.cpp:115
+#, kde-format
+msgid "<a href=\"whatsthis\">How does this work?</a>"
+msgstr "<a href=\"whatsthis\">Como é que isto funciona?</a>"
+
+#: newmailnotifiersettingswidget.cpp:124
+#, kde-format
+msgid "Message:"
+msgstr "Mensagem:"
+
+#: newmailnotifiersettingswidget.cpp:135
+#, kde-format
+msgid "Text to Speak"
+msgstr "Texto a Falar"
+
+#: newmailnotifiersettingswidget.cpp:141
+#, kde-format
+msgid "Notify"
+msgstr "Notificar"
+
+#: newmailnotifiersettingswidget.cpp:144
+#, kde-format
+msgid "Folders"
+msgstr "Pastas"
+
+#: newmailnotifiersettingswidget.cpp:147
+#, kde-format
+msgid "New Mail Notifier Agent"
+msgstr "Agente de Notificação de Correio Novo"
+
+#: newmailnotifiersettingswidget.cpp:149
+#, kde-format
+msgid "Notify about new mails."
+msgstr "Notificar sobre correio novo."
+
+#: newmailnotifiersettingswidget.cpp:151
+#, kde-format
+msgid "Copyright (C) 2013-%1 Laurent Montel"
+msgstr "'Copyright' (C) 2013-%1 Laurent Montel"
+
+#: newmailnotifiersettingswidget.cpp:154
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: newmailnotifiersettingswidget.cpp:154
+#, kde-format
+msgid "Maintainer"
+msgstr "Manutenção"
+
+#: newmailnotifiersettingswidget.cpp:155
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "José Nuno Pires"
+
+#: newmailnotifiersettingswidget.cpp:155
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zepires@gmail.com"
+
+#: specialnotifierjob.cpp:116
+#, kde-format
+msgid "From: %1"
+msgstr "De: %1"
+
+#: specialnotifierjob.cpp:124
+#, kde-format
+msgid "Subject: %1"
+msgstr "Assunto: %1"
+
+#: specialnotifierjob.cpp:127
+#, kde-format
+msgid "In: %1"
+msgstr "A: %1"
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Show mail..."
+msgstr "Mostrar o e-mail..."
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Mark As Read"
+msgstr "Marcar como Lido"
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Delete"
+msgstr "Apagar"

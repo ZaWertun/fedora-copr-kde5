@@ -1,0 +1,175 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2013, 2014, 2015, 2016, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2022-09-15 13:06+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf - t/m 2022"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: ../kmigratorbase.cpp:116
+#, kde-format
+msgid "Creating instance of type %1"
+msgstr "Een exemplaar van het type %1 aanmaken"
+
+#: ../migratorbase.cpp:128
+#, kde-format
+msgid "Missing Identifier"
+msgstr "Ontbrekende identifier"
+
+#: ../migratorbase.cpp:141
+#, kde-format
+msgid "Failed to start migration because migrator is not ready"
+msgstr "Starten van migratie is mislukt omdat migratieprogramma niet gereed is"
+
+#: ../migratorbase.cpp:147
+#, kde-format
+msgid "Starting migration..."
+msgstr "Beginnen met migratie..."
+
+#: ../migratorbase.cpp:189
+#, kde-format
+msgid "Migration complete"
+msgstr "Migratie voltooid"
+
+#: ../migratorbase.cpp:193
+#, kde-format
+msgid "Migration aborted"
+msgstr "Migratie afgebroken"
+
+#: ../migratorbase.cpp:199
+#, kde-format
+msgid "Migration failed"
+msgstr "Migratie is mislukt"
+
+#: ../migratorbase.cpp:203
+#, kde-format
+msgid "Migration paused"
+msgstr "Migratie is gepauzeerd"
+
+#: ../migratorbase.cpp:233
+#, kde-format
+msgid "This migration has already been started once but was aborted"
+msgstr "Deze migratie was al eens begonnen maar is afgebroken"
+
+#: ../migratorbase.cpp:270
+#, kde-format
+msgctxt "@info:status"
+msgid "Not started"
+msgstr "Niet gestart"
+
+#: ../migratorbase.cpp:272
+#, kde-format
+msgctxt "@info:status"
+msgid "Running..."
+msgstr "Loopt..."
+
+#: ../migratorbase.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Complete"
+msgstr "Voltooid"
+
+#: ../migratorbase.cpp:276
+#, kde-format
+msgctxt "@info:status"
+msgid "Aborted"
+msgstr "Afgebroken"
+
+#: ../migratorbase.cpp:278
+#, kde-format
+msgctxt "@info:status"
+msgid "Paused"
+msgstr "Gepauzeerd"
+
+#: ../migratorbase.cpp:280
+#, kde-format
+msgctxt "@info:status"
+msgid "Needs Update"
+msgstr "Bijwerken noodzakelijk"
+
+#: ../migratorbase.cpp:282
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed"
+msgstr "Mislukt"
+
+#: gidmigrator.cpp:22
+#, kde-format
+msgctxt "Name of the GID Migrator (intended for advanced users)."
+msgid "GID Migrator: %1"
+msgstr "GID-migrator: %1"
+
+#: gidmigrator.cpp:27
+#, kde-format
+msgid ""
+"Ensures that all items with the mimetype %1 have a GID if a GID extractor is "
+"available."
+msgstr ""
+"Zorgt ervoor dat alle items met het mimetype %1 een GID hebben als een "
+"extractieprogramma voor GID beschikbaar is."
+
+#: gidmigrator.cpp:49
+#, kde-format
+msgid "Migration failed: %1"
+msgstr "Migratie mislukt: %1"
+
+#: main.cpp:26
+#, kde-format
+msgid "GID Migration Tool"
+msgstr "Migratiehulpmiddel GID"
+
+#: main.cpp:28
+#, kde-format
+msgid "Migration of Akonadi Items to support GID"
+msgstr "Migratie van Akonadi-items om GID te ondersteunen"
+
+#: main.cpp:30
+#, kde-format
+msgid "(c) 2013-2022 the Akonadi developers"
+msgstr "(c) 2013-2022 de ontwikkelaars van Akonadi"
+
+#: main.cpp:33
+#, kde-format
+msgid "Christian Mollekopf"
+msgstr "Christian Mollekopf"
+
+#: main.cpp:33
+#, kde-format
+msgid "Author"
+msgstr "Auteur"
+
+#: main.cpp:36
+#, kde-format
+msgid "Show reporting dialog"
+msgstr "Toon de rapportagedialoog"
+
+#: main.cpp:37
+#, kde-format
+msgid "Show report only if changes were made"
+msgstr "Toon het rapport alleen als er wijzigingen zijn aangebracht"
+
+#: main.cpp:38
+#, kde-format
+msgid "MIME type to migrate"
+msgstr "Te migreren MIME-type"

@@ -1,0 +1,145 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2009.
+# Stelios <sstavra@gmail.com>, 2011, 2013.
+# Dimitris Kardarakos <dimkard@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_vcarddir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2014-11-04 18:55+0200\n"
+"Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: vcarddiragentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Κατάλογος"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: vcarddiragentsettingswidget.ui:39
+#, kde-format
+msgid "Directory Name"
+msgstr "Όνομα καταλόγου"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: vcarddiragentsettingswidget.ui:47
+#, fuzzy, kde-format
+#| msgid "&Directory:"
+msgid "Di&rectory:"
+msgstr "&Κατάλογος:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: vcarddiragentsettingswidget.ui:62
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Επιλέξτε τον κατάλογο του οποίου τα περιεχόμενα θα χρησιμοποιηθούν από αυτόν "
+"τον πόρο. Αν ο κατάλογος δεν υπάρχει, θα δημιουργηθεί."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: vcarddiragentsettingswidget.ui:75
+#, kde-format
+msgid "Access Rights"
+msgstr "Δικαιώματα πρόσβασης"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: vcarddiragentsettingswidget.ui:81
+#, kde-format
+msgid "Read only"
+msgstr "Μόνο για ανάγνωση"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: vcarddiragentsettingswidget.ui:88
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Αν είναι ενεργή η λειτουργία μόνο ανάγνωσης, δεν θα γραφεί καμία τροποποίηση "
+"στον παραπάνω επιλεγμένο κατάλογο. Η λειτουργία μόνο ανάγνωσης αυτόματα "
+"ενεργοποιείται αν δεν έχετε πρόσβαση εγγραφής στον κατάλογο αυτό."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: vcarddiragentsettingswidget.ui:115
+#, kde-format
+msgid "Tuning"
+msgstr "Ρύθμιση"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: vcarddiragentsettingswidget.ui:121
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Οι επιλογές σε αυτήν τη σελίδα σάς επιτρέπουν την τροποποίηση παραμέτρων που "
+"ισορροπούν μεταξύ της ασφάλειας δεδομένων και της ταχύτητας απόδοσης. Γενικά "
+"προτείνεται να μην τροποποιήσετε κάτι εδώ, καθώς οι προκαθορισμένες επιλογές "
+"λειτουργούν στις περισσότερες των περιπτώσεων."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: vcarddiragentsettingswidget.ui:133
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Καθυστέρηση αυτόματης αποθήκευσης:"
+
+#: vcarddirresource.cpp:120
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Η επαφή με το αναγνωριστικό ταυτότητας '%1' δε βρέθηκε."
+
+#: vcarddirresource.cpp:132 vcarddirresource.cpp:166 vcarddirresource.cpp:202
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Προσπάθεια εγγραφής σε κατάλογο για ανάγνωση μόνο: '%1'."
+
+#: vcarddirresource.cpp:237
+#, kde-format
+msgid "Contacts Folder"
+msgstr "Φάκελος επαφών"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcarddirresource.kcfg:10
+#, kde-format
+msgid "Path to vCard directory"
+msgstr "Διαδρομή καταλόγου vCard"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: vcarddirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Χρονικό διάστημα αυτόματης αποθήκευσης (σε λεπτά)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcarddirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr ""
+"Να μη γίνουν αλλαγές στα πραγματικά δεδομένα του συστήματος υποστήριξης."
+
+#: vcarddirsettingswidget.cpp:35
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " λεπτό"
+msgstr[1] " λεπτά"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcarddirwizard.ui:19
+#, kde-format
+msgid "Path:"
+msgstr "Διαδρομή:"

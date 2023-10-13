@@ -1,0 +1,96 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# ahmed <kebomix@gmail.com>, 2009.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2009.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_birthdays_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-14 00:46+0000\n"
+"PO-Revision-Date: 2018-01-22 19:01+0300\n"
+"Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: birthdaysconfigagentwidget.cpp:35
+#, kde-format
+msgid " day"
+msgid_plural " days"
+msgstr[0] " (أقلّ من يوم)"
+msgstr[1] " (يوم واحد)"
+msgstr[2] " (يومان)"
+msgstr[3] " أيّام"
+msgstr[4] " يومًا"
+msgstr[5] " يوم"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: birthdaysconfigwidget.ui:29
+#, kde-format
+msgid "Reminder"
+msgstr "التّذكير"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_EnableAlarm)
+#: birthdaysconfigwidget.ui:38
+#, kde-format
+msgid "Set &reminder"
+msgstr "ضع &تذكيرًا"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: birthdaysconfigwidget.ui:48
+#, kde-format
+msgid "&Remind prior to event:"
+msgstr "&ذكّرني قبل الحدث بِ‍:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: birthdaysconfigwidget.ui:74
+#, kde-format
+msgid "Filter"
+msgstr "المرشّح"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FilterOnCategories)
+#: birthdaysconfigwidget.ui:80
+#, kde-format
+msgid "&Filter by categories"
+msgstr "&رشّح بالفئات"
+
+#: birthdaysresource.cpp:40
+#, kde-format
+msgid "Birthdays & Anniversaries"
+msgstr "أعياد الميلاد والسّنويّات"
+
+#: birthdaysresource.cpp:309
+#, kde-format
+msgid "%1's birthday"
+msgstr "عيد ميلاد %1"
+
+#: birthdaysresource.cpp:320
+#, kde-format
+msgid "Birthday"
+msgstr "عيد ميلاد"
+
+#: birthdaysresource.cpp:358
+#, kde-format
+msgctxt "insert names of both spouses"
+msgid "%1's & %2's anniversary"
+msgstr "سنويّة %1 و%2"
+
+#: birthdaysresource.cpp:360
+#, kde-format
+msgctxt "only one spouse in addressbook, insert the name"
+msgid "%1's anniversary"
+msgstr "سنويّة %1"
+
+#: birthdaysresource.cpp:372
+#, kde-format
+msgid "Anniversary"
+msgstr "سنويّة"
+
+#~ msgid "Categories"
+#~ msgstr "التصنيفات"

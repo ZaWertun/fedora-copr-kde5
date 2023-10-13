@@ -1,0 +1,226 @@
+# Lithuanian translations for akonadi_maildir_resource package.
+# This file is distributed under the same license as the akonadi_maildir_resource package.
+#
+# Jonas Česnauskas <upynas@gmail.com>, 2011.
+# Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>, 2011.
+# Liudas Ališauskas <liudas@aksioma.lt>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_maildir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-02 00:55+0000\n"
+"PO-Revision-Date: 2014-03-16 20:44+0200\n"
+"Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: configwidget.cpp:30
+#, kde-format
+msgid "Archive Folder"
+msgstr ""
+
+#: configwidget.cpp:45
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Parinktas kelias yra tuščias."
+
+#: configwidget.cpp:58
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Parinktame kelyje yra galiojantis Maildir aplankas."
+
+#: configwidget.cpp:65
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Parinktas kelias yra galiojantis Maildir."
+
+#: configwidget.cpp:71
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "Parinkto kelio nėra, bus sukurtas naujas Maildir."
+
+#: configwidget.cpp:75
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Parinkto kelio nėra."
+
+#: libmaildir/maildir.cpp:214 libmaildir/maildir.cpp:219
+#, kde-format
+msgid "Error opening %1; this folder is missing."
+msgstr ""
+
+#: libmaildir/maildir.cpp:225
+#, kde-format
+msgid ""
+"Error opening %1; either this is not a valid maildir folder, or you do not "
+"have sufficient access permissions."
+msgstr ""
+
+#: libmaildir/maildir.cpp:452 libmaildir/maildir.cpp:474
+#: libmaildir/maildir.cpp:492 libmaildir/maildir.cpp:512
+#: libmaildir/maildir.cpp:531 libmaildir/maildir.cpp:555
+#: libmaildir/maildir.cpp:630 libmaildir/maildir.cpp:780
+#, kde-format
+msgid "Cannot locate mail file %1."
+msgstr "Nepavyksta nustatyti pašto failo %1."
+
+#: libmaildir/maildir.cpp:458 libmaildir/maildir.cpp:480
+#, kde-format
+msgid "Cannot open mail file %1."
+msgstr "Nepavyksta atverti pašto failo %1."
+
+#: libmaildir/maildir.cpp:563 libmaildir/maildir.cpp:590
+#, kde-format
+msgid "Cannot write to mail file %1."
+msgstr "Nepavysta rašyti į pašto failą %1."
+
+#: libmaildir/maildir.cpp:604
+#, kde-format
+msgid "Failed to create mail file %1. The error was: %2"
+msgstr ""
+
+#: libmaildir/maildir.cpp:698
+#, kde-format
+msgid "Failed to update the file name %1 to %2 on the disk. The error was: %3."
+msgstr ""
+
+#: maildirresource.cpp:122 maildirresource.cpp:254 maildirresource.cpp:293
+#: maildirresource.cpp:387 maildirresource.cpp:428 maildirresource.cpp:548
+#: maildirresource.cpp:578 maildirresource.cpp:621 maildirresource.cpp:654
+#, kde-format
+msgid "Unusable configuration."
+msgstr "Netinkamos parinktys."
+
+#: maildirresource.cpp:187
+#, kde-format
+msgid "Unable to fetch item: The maildir folder \"%1\" is not valid."
+msgstr "Nepavyko gauti elemento: maildir aplankas „%1\" negaliojantis."
+
+#: maildirresource.cpp:265
+#, kde-format
+msgid "Error: Unsupported type."
+msgstr "Klaida: Nepalaikomas tipas."
+
+#: maildirresource.cpp:331
+#, fuzzy, kde-format
+#| msgid "Failed to change the flags for the mail."
+msgid "Failed to change the flags for the mail. %1"
+msgstr "Nepavyko pakeisti būsenų laiškui."
+
+#: maildirresource.cpp:366
+#, kde-format
+msgid "Maildir resource got a non-mail content."
+msgstr ""
+
+#: maildirresource.cpp:393
+#, kde-format
+msgid "Source folder is invalid: '%1'."
+msgstr "Negaliojantis pradinis aplankas: „%1“."
+
+#: maildirresource.cpp:399
+#, kde-format
+msgid "Destination folder is invalid: '%1'."
+msgstr "Netinkamas paskirties aplankas: „%1“."
+
+#: maildirresource.cpp:416
+#, kde-format
+msgid "Could not move message '%1' from '%2' to '%3'. The error was %4."
+msgstr "Nepavyko perkelti laiško „%1“ iš „%2“ į „%3“. Klaida %4."
+
+#: maildirresource.cpp:438
+#, kde-format
+msgid "Failed to delete message: %1"
+msgstr "Nepavyko pašalinti žinutę: %1"
+
+#: maildirresource.cpp:527
+#, kde-format
+msgid "Maildir '%1' for collection '%2' is invalid."
+msgstr "Maildir „%1“ surinkimui „%2“ netinkamas."
+
+#: maildirresource.cpp:606
+#, kde-format
+msgid "Unable to rename maildir folder '%1'."
+msgstr "Negalima pervadinti maildir aplanko „%1“."
+
+#: maildirresource.cpp:627
+#, kde-format
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Nepavyko perkelti šakninį maildir aplanką „%1“."
+
+#: maildirresource.cpp:642
+#, kde-format
+msgid "Unable to move maildir folder '%1' from '%2' to '%3'."
+msgstr "Negalima perkelti maildir aplanko „%1“ iš „%2“ į  „%3“."
+
+#: maildirresource.cpp:660
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Nepavyko pašalinti aukščiausio lygio maildir aplanką „%1“."
+
+#: maildirresource.cpp:669
+#, kde-format
+msgid "Failed to delete sub-folder '%1'."
+msgstr "Nepavyko pašalinti poaplankio  „%1“."
+
+#: maildirresource.cpp:683
+#, kde-format
+msgid "Unable to create maildir '%1'."
+msgstr "Negalima sukurti maildir „%1“."
+
+#: maildirresource.cpp:693
+#, kde-format
+msgid "No usable storage location configured."
+msgstr "Parinkta vieta kaupimui netinkama."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: maildirresource.kcfg:10
+#, kde-format
+msgid "Path to maildir"
+msgstr "Kelias iki maildir"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: maildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Kelias nurodo aplanką, kuriame yra maildir aplankai, o ne į patį maildir."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: maildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Nekeisti tikrųjų posistemės duomenų."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Pašto aplanko parinktys"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settings.ui:37
+#, kde-format
+msgid "Maildir"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:43
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Parinkite aplanką su maildir informacija:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:53
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Atverti tik skaitymo būsenoje"
+
+#~ msgid "Select a MailDir folder"
+#~ msgstr "Parinkite MailDir aplanką"

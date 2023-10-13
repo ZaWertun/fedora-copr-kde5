@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="pop3">
+<title
+>POP3 / POP3S</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+></firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+></email
+></address
+></affiliation
+><contrib
+></contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+<para
+>Протокол почтового отделения (Post Office Protocol, POP3) позволяет пользователю получать доступ к своему почтовому ящику на сервере. </para>
+
+<para
+>POP3S — это протокол POP3, зашифрованный с помощью SSL. </para>
+
+</article>

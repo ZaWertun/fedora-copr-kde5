@@ -1,0 +1,71 @@
+# translation of akonadi_vcard_resource.po to Estonian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <bald@smail.ee>, 2009, 2010, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_vcard_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2014-07-18 19:29+0300\n"
+"Last-Translator: Marek Laane <bald@smail.ee>\n"
+"Language-Team: Estonian <kde-et@linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: vcardconfig.cpp:16
+#, kde-format
+msgctxt "Filedialog filter for *.vcf"
+msgid "vCard Address Book File"
+msgstr "vCardi aadressiraamatu fail"
+
+#: vcardresource.cpp:71
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Kontakti UID-ga \"%1\" ei leitud."
+
+#: vcardresource.cpp:164 vcardresource.cpp:184
+#, kde-format
+msgid "Unable to open vCard file '%1'."
+msgstr "vCardi faili '%1' avamine nurjus."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcardresource.kcfg:10
+#, kde-format
+msgid "Path to vCard file."
+msgstr "vCardi faili asukoht."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: vcardresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Näidatav nimi."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcardresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Taustaprogrammi tegelikke andmeid ei muudeta."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: vcardresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Faili muutuste jälgimine."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcardwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Failinimi:"
+
+#~ msgid "Select Address Book"
+#~ msgstr "Aadressiraamatu valimine"
+
+#~ msgid "Autosave interval time (in minutes)."
+#~ msgstr "Automaatse salvestuse intervall minutites."

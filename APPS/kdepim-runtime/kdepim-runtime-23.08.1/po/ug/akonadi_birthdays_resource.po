@@ -1,0 +1,90 @@
+# Uyghur translation for akonadi_birthdays_resource.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sahran <sahran.ug@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_birthdays_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-14 00:46+0000\n"
+"PO-Revision-Date: 2013-09-08 07:05+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: birthdaysconfigagentwidget.cpp:35
+#, kde-format
+msgid " day"
+msgid_plural " days"
+msgstr[0] " كۈن"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: birthdaysconfigwidget.ui:29
+#, kde-format
+msgid "Reminder"
+msgstr "ئەسكەرتكۈچ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_EnableAlarm)
+#: birthdaysconfigwidget.ui:38
+#, kde-format
+msgid "Set &reminder"
+msgstr "ئەسكەرتكۈچ بەلگىلە(&R)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: birthdaysconfigwidget.ui:48
+#, fuzzy, kde-format
+#| msgid "R&emind prior to event:"
+msgid "&Remind prior to event:"
+msgstr "ھادىسىدىن بۇرۇن ئەسكەرت(&E):"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: birthdaysconfigwidget.ui:74
+#, kde-format
+msgid "Filter"
+msgstr "سۈزگۈچ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FilterOnCategories)
+#: birthdaysconfigwidget.ui:80
+#, kde-format
+msgid "&Filter by categories"
+msgstr "كاتېگورىيە بويىچە سۈز(&F)"
+
+#: birthdaysresource.cpp:40
+#, kde-format
+msgid "Birthdays & Anniversaries"
+msgstr "تۇغۇلغان كۈن ۋە خاتىرە كۈنلەر"
+
+#: birthdaysresource.cpp:309
+#, kde-format
+msgid "%1's birthday"
+msgstr "%1 نىڭ تۇغۇلغان كۈنى"
+
+#: birthdaysresource.cpp:320
+#, kde-format
+msgid "Birthday"
+msgstr "تۇغۇلغان كۈن"
+
+#: birthdaysresource.cpp:358
+#, kde-format
+msgctxt "insert names of both spouses"
+msgid "%1's & %2's anniversary"
+msgstr "%1 نىڭ بىلەن %2 نىڭ خاتىرە كۈنى"
+
+#: birthdaysresource.cpp:360
+#, kde-format
+msgctxt "only one spouse in addressbook, insert the name"
+msgid "%1's anniversary"
+msgstr "%1 نىڭ خاتىرە كۈنى"
+
+#: birthdaysresource.cpp:372
+#, kde-format
+msgid "Anniversary"
+msgstr "خاتىرە كۈن"
+
+#~ msgid "Categories"
+#~ msgstr "كاتېگورىيە"

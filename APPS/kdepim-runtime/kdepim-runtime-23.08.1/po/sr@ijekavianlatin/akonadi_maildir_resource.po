@@ -1,0 +1,222 @@
+# Translation of akonadi_maildir_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2013, 2014, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_maildir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-04 03:26+0200\n"
+"PO-Revision-Date: 2015-09-05 11:38+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavianlatin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: configwidget.cpp:44
+#, kde-format
+msgid "Archive Folder"
+msgstr "Arhivska fascikla"
+
+#: configwidget.cpp:61
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Izabrana putanja je prazna."
+
+#: configwidget.cpp:74
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Izabrana putanja sadrži dobre maildir fascikle."
+
+#: configwidget.cpp:81
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Izabrana putanja je dobar maildir."
+
+#: configwidget.cpp:87
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "Izabrana putanja još ne postoji, biće stvoren novi maildir."
+
+#: configwidget.cpp:91
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Izabrana putanja ne postoji."
+
+#: libmaildir/maildir.cpp:228 libmaildir/maildir.cpp:233
+#, kde-format
+msgid "Error opening %1; this folder is missing."
+msgstr "Greška pri otvaranju %1 — nema fascikle."
+
+#: libmaildir/maildir.cpp:238
+#, kde-format
+msgid ""
+"Error opening %1; either this is not a valid maildir folder, or you do not "
+"have sufficient access permissions."
+msgstr ""
+"Greška pri otvaranju %1 — ili nije dobra maildir fascikla, ili nemate "
+"dovoljne dozvole pristupa."
+
+#: libmaildir/maildir.cpp:464 libmaildir/maildir.cpp:486
+#: libmaildir/maildir.cpp:504 libmaildir/maildir.cpp:524
+#: libmaildir/maildir.cpp:543 libmaildir/maildir.cpp:567
+#: libmaildir/maildir.cpp:642 libmaildir/maildir.cpp:792
+#, kde-format
+msgid "Cannot locate mail file %1."
+msgstr "Ne mogu da nađem poštanski fajl %1."
+
+#: libmaildir/maildir.cpp:470 libmaildir/maildir.cpp:492
+#, kde-format
+msgid "Cannot open mail file %1."
+msgstr "Ne mogu da otvorim poštanski fajl %1."
+
+#: libmaildir/maildir.cpp:575 libmaildir/maildir.cpp:602
+#, kde-format
+msgid "Cannot write to mail file %1."
+msgstr "Ne mogu da pišem u poštanski fajl %1."
+
+#: libmaildir/maildir.cpp:616
+#, kde-format
+msgid "Failed to create mail file %1. The error was: %2"
+msgstr "Ne mogu da napravim poštanski fajl %1. Greška je: %2"
+
+#: libmaildir/maildir.cpp:710
+#, kde-format
+msgid "Failed to update the file name %1 to %2 on the disk. The error was: %3."
+msgstr "Ne mogu da ažuriram ime fajla %1 na %2 na disku. Greška je: %3."
+
+#: maildirresource.cpp:141 maildirresource.cpp:275 maildirresource.cpp:314
+#: maildirresource.cpp:408 maildirresource.cpp:448 maildirresource.cpp:569
+#: maildirresource.cpp:599 maildirresource.cpp:642 maildirresource.cpp:675
+#, kde-format
+msgid "Unusable configuration."
+msgstr "Neupotrebljiva postava."
+
+#: maildirresource.cpp:207
+#, kde-format
+msgid "Unable to fetch item: The maildir folder \"%1\" is not valid."
+msgstr "Ne mogu da dobavim stavku: maildir fascikla „%1“ nije dobra."
+
+#: maildirresource.cpp:286
+#, kde-format
+msgid "Error: Unsupported type."
+msgstr "Greška: nepodržan tip."
+
+#: maildirresource.cpp:352
+#, kde-format
+msgid "Failed to change the flags for the mail. %1"
+msgstr "Ne mogu da promenim zastavice na poruci. %1"
+
+#: maildirresource.cpp:387
+#, kde-format
+msgid "Maildir resource got a non-mail content."
+msgstr "Maildir resurs ima nepoštanski sadržaj."
+
+#: maildirresource.cpp:414
+#, kde-format
+msgid "Source folder is invalid: '%1'."
+msgstr "Izvorna fascikla je loša: %1."
+
+#: maildirresource.cpp:420
+#, kde-format
+msgid "Destination folder is invalid: '%1'."
+msgstr "Odredišna fascikla je loša: %1."
+
+#: maildirresource.cpp:436
+#, kde-format
+msgid "Could not move message '%1' from '%2' to '%3'. The error was %4."
+msgstr "Ne mogu da premestim poruku „%1“ iz „%2“ u „%3“. Greška je %4."
+
+#: maildirresource.cpp:458
+#, kde-format
+msgid "Failed to delete message: %1"
+msgstr "Ne mogu da obrišem poruku: %1"
+
+#: maildirresource.cpp:548
+#, kde-format
+msgid "Maildir '%1' for collection '%2' is invalid."
+msgstr "Loš maildir „%1“ za zbirku „%2“."
+
+#: maildirresource.cpp:627
+#, kde-format
+msgid "Unable to rename maildir folder '%1'."
+msgstr "Ne mogu da preimenujem maildir fasciklu „%1“."
+
+#: maildirresource.cpp:648
+#, kde-format
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Ne mogu da premestim korenu maildir fasciklu „%1“."
+
+#: maildirresource.cpp:663
+#, kde-format
+msgid "Unable to move maildir folder '%1' from '%2' to '%3'."
+msgstr "Ne mogu da premestim maildir fasciklu „%1“ iz „%2“ u „%3“."
+
+#: maildirresource.cpp:681
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Ne mogu da obrišem maildir fasciklu na vrhu „%1“."
+
+#: maildirresource.cpp:690
+#, kde-format
+msgid "Failed to delete sub-folder '%1'."
+msgstr "Ne mogu da obrišem potfasciklu „%1“."
+
+#: maildirresource.cpp:704
+#, kde-format
+msgid "Unable to create maildir '%1'."
+msgstr "Ne mogu da napravim maildir „%1“."
+
+#: maildirresource.cpp:714
+#, kde-format
+msgid "No usable storage location configured."
+msgstr "Nije podešena upotrebljiva lokacija skladištenja."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: maildirresource.kcfg:10
+#, kde-format
+msgid "Path to maildir"
+msgstr "Putanja do maildira"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: maildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Putanja vodi do fascikle koja sadrži maildirove umesto do samog maildira."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: maildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ne mijenjaj zaista pozadinske podatke."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Postavke maildira"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settings.ui:37
+#, kde-format
+msgid "Maildir"
+msgstr "Maildir"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:43
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Izaberite fasciklu sa podacima o maildiru:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:53
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Otvori samo za čitanje"

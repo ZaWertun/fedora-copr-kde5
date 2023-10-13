@@ -1,0 +1,269 @@
+# Translation of akonadi_openxchange_resource.po to Brazilian Portuguese
+# Copyright (C) 2010-2016 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2010, 2012, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_openxchange_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-24 00:45+0000\n"
+"PO-Revision-Date: 2016-04-02 13:41-0300\n"
+"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: configwidget.cpp:25
+#, kde-format
+msgid "Enter the http or https URL to your Open-Xchange installation here."
+msgstr ""
+"Digite aqui a URL de HTTP ou HTTPS para a sua instalação do Open-Xchange."
+
+#: configwidget.cpp:26
+#, kde-format
+msgid "Enter the username of your Open-Xchange account here."
+msgstr "Digite aqui o usuário da sua conta do Open-Xchange."
+
+#: configwidget.cpp:27
+#, kde-format
+msgid "Enter the password of your Open-Xchange account here."
+msgstr "Digite aqui a senha da sua conta do Open-Xchange."
+
+#: configwidget.cpp:72
+#, kde-format
+msgid "Unable to connect: %1"
+msgstr "Não é possível conectar: %1"
+
+#: configwidget.cpp:72
+#, kde-format
+msgid "Connection error"
+msgstr "Erro na conexão"
+
+#: configwidget.cpp:74
+#, kde-format
+msgid "Tested connection successfully."
+msgstr "A conexão foi testada com sucesso."
+
+#: configwidget.cpp:74
+#, kde-format
+msgid "Connection success"
+msgstr "Sucesso da conexão"
+
+#. i18n: ectx: property (text), widget (QLabel, label_BaseUrl)
+#: configwidget.ui:29
+#, kde-format
+msgid "Server URL:"
+msgstr "URL do servidor:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: configwidget.ui:39 configwidget.ui:42 openxchangeresource.kcfg:11
+#: openxchangeresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the Open-Xchange server, should be something like https://"
+"myserver.org/"
+msgstr ""
+"A URL do servidor Open-Xchange, que deverá ser algo do gênero https://"
+"servidor.org/"
+
+#. i18n: ectx: property (text), widget (QLabel, label_Username)
+#: configwidget.ui:52
+#, kde-format
+msgid "Username:"
+msgstr "Nome do usuário:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: configwidget.ui:62 configwidget.ui:65 openxchangeresource.kcfg:16
+#: openxchangeresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the Open-Xchange server"
+msgstr "O usuário usado para se autenticar no servidor de Open-Xchange"
+
+#. i18n: ectx: property (text), widget (QLabel, label_Password)
+#: configwidget.ui:72
+#, kde-format
+msgid "Password:"
+msgstr "Senha:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: tooltip, entry (Password), group (General)
+#. i18n: ectx: whatsthis, entry (Password), group (General)
+#: configwidget.ui:82 configwidget.ui:85 openxchangeresource.kcfg:21
+#: openxchangeresource.kcfg:22
+#, kde-format
+msgid "The password that is used to log into the Open-Xchange server"
+msgstr "A senha usada para se autenticar no servidor de Open-Xchange"
+
+#. i18n: ectx: property (text), widget (QPushButton, checkConnectionButton)
+#: configwidget.ui:98
+#, kde-format
+msgid "Test Connection..."
+msgstr "Testar a conexão..."
+
+#: openxchangeresource.cpp:250
+#, kde-format
+msgid "Open-Xchange"
+msgstr "Open-Xchange"
+
+#: openxchangeresource.cpp:278
+#, kde-format
+msgid "Private Folder"
+msgstr "Pasta particular"
+
+#: openxchangeresource.cpp:286
+#, kde-format
+msgid "Public Folder"
+msgstr "Pasta pública"
+
+#: openxchangeresource.cpp:294
+#, kde-format
+msgid "Shared Folder"
+msgstr "Pasta compartilhada"
+
+#: openxchangeresource.cpp:302
+#, kde-format
+msgid "System Folder"
+msgstr "Pasta do sistema"
+
+#: openxchangeresource.cpp:617
+#, kde-format
+msgid "Unable to connect to server"
+msgstr "Não é possível contactar o servidor"
+
+#: openxchangeresource.cpp:805
+#, kde-format
+msgid ""
+"The object was edited by another participant in the meantime. Please check."
+msgstr ""
+"O objeto foi editado por outro participante no mesmo período. Por favor, "
+"verifique."
+
+#: openxchangeresource.cpp:808
+#, kde-format
+msgid ""
+"Object not found. Maybe it was deleted by another participant in the "
+"meantime."
+msgstr ""
+"O objeto não foi encontrado. Talvez tenha sido excluído por outro "
+"participante no mesmo período."
+
+#: openxchangeresource.cpp:811
+#, kde-format
+msgid "You don't have the permission to perform this action on this object."
+msgstr "Você não tem permissão para realizar esta ação sobre este objeto."
+
+#: openxchangeresource.cpp:814
+#, kde-format
+msgid ""
+"A conflict detected. Please check if there are other objects in conflict "
+"with this one."
+msgstr ""
+"Foi detectado um conflito. Verifique se existem outros objetos em conflito "
+"com este."
+
+#: openxchangeresource.cpp:817
+#, kde-format
+msgid ""
+"A mandatory data field is missing. Please check. Otherwise contact your "
+"administrator."
+msgstr ""
+"Falta um campo de dados obrigatório. Por favor, verifique. Caso contrário, "
+"contate o seu administrador."
+
+#: openxchangeresource.cpp:820
+#, kde-format
+msgid ""
+"An appointment conflict detected.\n"
+"Please check if there are other appointments in conflict with this one."
+msgstr ""
+"Foi detectado um conflito de compromissos.\n"
+"Por favor, verifique se existem outros compromissos em conflito com este."
+
+#: openxchangeresource.cpp:823
+#, kde-format
+msgid "Internal server error. Please contact your administrator."
+msgstr ""
+"Ocorreu um erro interno do servidor. Por favor, contate o seu administrador."
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: openxchangeresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "URL do servidor"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: openxchangeresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Nome de usuário"
+
+#. i18n: ectx: label, entry (Password), group (General)
+#: openxchangeresource.kcfg:20
+#, kde-format
+msgid "Password"
+msgstr "Senha"
+
+#. i18n: ectx: label, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:26
+#, kde-format
+msgid "Use incremental updates"
+msgstr "Usar atualizações incrementais"
+
+#. i18n: ectx: tooltip, entry (UseIncrementalUpdates), group (General)
+#. i18n: ectx: whatsthis, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:27 openxchangeresource.kcfg:28
+#, kde-format
+msgid ""
+"Use incremental updates instead of reloading all data from the server each "
+"time"
+msgstr ""
+"Usar atualizações incrementais em vez de recarregar todos os dados do "
+"servidor a cada vez"
+
+#~ msgid "Connection"
+#~ msgstr "Conexão"
+
+#~ msgid "Open-Xchange Configuration"
+#~ msgstr "Configuração do Open-Xchange"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "André Marcelo Alvarenga"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "alvarenga@kde.org"
+
+#~ msgid "About..."
+#~ msgstr "Sobre..."
+
+#~ msgid "Akonadi Open-Xchange Resource"
+#~ msgstr "Recurso de Open-Xchange do Akonadi"
+
+#~ msgid "(c) 2009 by Tobias Koenig (credativ GmbH)"
+#~ msgstr "(c) 2009 por Tobias Koenig (credativ GmbH)"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "Current maintainer"
+#~ msgstr "Mantenedor atual"
+
+#~ msgid "credativ GmbH"
+#~ msgstr "credativ GmbH"
+
+#~ msgid "Funded and supported"
+#~ msgstr "Fundado e suportado"

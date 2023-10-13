@@ -1,0 +1,240 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexey Serebryakoff <overlapped@gmail.com>, 2009.
+# Nick Shaforostoff <shafff@ukr.net>, 2009.
+# Artem Sereda <overmind88@gmail.com>, 2010, 2011.
+# Alexander Potashev <aspotashev@gmail.com>, 2011, 2014, 2015, 2016.
+# Julia Dronova <juliette.tux@gmail.com>, 2012.
+# Alexander Lakhin <exclusion@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-02 00:55+0000\n"
+"PO-Revision-Date: 2016-02-24 01:19+0300\n"
+"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: configwidget.cpp:30
+#, kde-format
+msgid "Archive Folder"
+msgstr "Архивная папка"
+
+#: configwidget.cpp:45
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Выбранный путь пуст."
+
+#: configwidget.cpp:58
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Выбранный путь содержит почтовый каталог (maildir)."
+
+#: configwidget.cpp:65
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Выбранный путь является допустимым почтовым каталогом (maildir)."
+
+#: configwidget.cpp:71
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr ""
+"Выбранный путь не существует, будет создан новый почтовый каталог (maildir)."
+
+#: configwidget.cpp:75
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Выбранный путь не существует."
+
+#: libmaildir/maildir.cpp:214 libmaildir/maildir.cpp:219
+#, kde-format
+msgid "Error opening %1; this folder is missing."
+msgstr "Открыть %1 не удалось; эта папка отсутствует."
+
+#: libmaildir/maildir.cpp:225
+#, kde-format
+msgid ""
+"Error opening %1; either this is not a valid maildir folder, or you do not "
+"have sufficient access permissions."
+msgstr ""
+"Открыть %1 не удалось; либо это не папка почтового каталога, либо у вас нет "
+"требуемых прав для доступа к ней."
+
+#: libmaildir/maildir.cpp:452 libmaildir/maildir.cpp:474
+#: libmaildir/maildir.cpp:492 libmaildir/maildir.cpp:512
+#: libmaildir/maildir.cpp:531 libmaildir/maildir.cpp:555
+#: libmaildir/maildir.cpp:630 libmaildir/maildir.cpp:780
+#, kde-format
+msgid "Cannot locate mail file %1."
+msgstr "Не удалось найти файл письма «%1»."
+
+#: libmaildir/maildir.cpp:458 libmaildir/maildir.cpp:480
+#, kde-format
+msgid "Cannot open mail file %1."
+msgstr "Не удалось открыть файл письма «%1»."
+
+#: libmaildir/maildir.cpp:563 libmaildir/maildir.cpp:590
+#, kde-format
+msgid "Cannot write to mail file %1."
+msgstr "Не удалось записать файл письма «%1»."
+
+#: libmaildir/maildir.cpp:604
+#, kde-format
+msgid "Failed to create mail file %1. The error was: %2"
+msgstr "Не удалось создать файл письма «%1». Ошибка: %2"
+
+#: libmaildir/maildir.cpp:698
+#, kde-format
+msgid "Failed to update the file name %1 to %2 on the disk. The error was: %3."
+msgstr "Не удалось переименовать файл «%1» в «%2». Ошибка: %3"
+
+#: maildirresource.cpp:122 maildirresource.cpp:254 maildirresource.cpp:293
+#: maildirresource.cpp:387 maildirresource.cpp:428 maildirresource.cpp:548
+#: maildirresource.cpp:578 maildirresource.cpp:621 maildirresource.cpp:654
+#, kde-format
+msgid "Unusable configuration."
+msgstr "Непригодная конфигурация"
+
+#: maildirresource.cpp:187
+#, kde-format
+msgid "Unable to fetch item: The maildir folder \"%1\" is not valid."
+msgstr "Не удалось получить элемент: недопустимая папка maildir «%1»."
+
+#: maildirresource.cpp:265
+#, kde-format
+msgid "Error: Unsupported type."
+msgstr "Ошибка: неверный тип."
+
+#: maildirresource.cpp:331
+#, kde-format
+msgid "Failed to change the flags for the mail. %1"
+msgstr "Не удалось изменить флаги письма. %1"
+
+#: maildirresource.cpp:366
+#, kde-format
+msgid "Maildir resource got a non-mail content."
+msgstr "Источник данных Maildir получил непочтовые данные."
+
+#: maildirresource.cpp:393
+#, kde-format
+msgid "Source folder is invalid: '%1'."
+msgstr "Недопустимая исходная папка: «%1»."
+
+#: maildirresource.cpp:399
+#, kde-format
+msgid "Destination folder is invalid: '%1'."
+msgstr "Недопустимая папка назначения: «%1»."
+
+#: maildirresource.cpp:416
+#, kde-format
+msgid "Could not move message '%1' from '%2' to '%3'. The error was %4."
+msgstr "Не удалось перенести письмо «%1» из «%2» в «%3». Ошибка: %4"
+
+#: maildirresource.cpp:438
+#, kde-format
+msgid "Failed to delete message: %1"
+msgstr "Ошибка при удалении письма: %1"
+
+#: maildirresource.cpp:527
+#, kde-format
+msgid "Maildir '%1' for collection '%2' is invalid."
+msgstr "Недопустимый почтовый каталог «%1» для «%2»."
+
+#: maildirresource.cpp:606
+#, kde-format
+msgid "Unable to rename maildir folder '%1'."
+msgstr "Не удалось переименовать папку maildir «%1»."
+
+#: maildirresource.cpp:627
+#, kde-format
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Не удалось перенести корневую папку maildir «%1»."
+
+#: maildirresource.cpp:642
+#, kde-format
+msgid "Unable to move maildir folder '%1' from '%2' to '%3'."
+msgstr "Невозможно перенести папку maildir «%1» из «%2» в «%3»."
+
+#: maildirresource.cpp:660
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Невозможно удалить папку maildir верхнего уровня «%1»."
+
+#: maildirresource.cpp:669
+#, kde-format
+msgid "Failed to delete sub-folder '%1'."
+msgstr "Ошибка удаления вложенной папки «%1»."
+
+#: maildirresource.cpp:683
+#, kde-format
+msgid "Unable to create maildir '%1'."
+msgstr "Не удалось создать почтовый каталог «%1» (maildir)."
+
+#: maildirresource.cpp:693
+#, kde-format
+msgid "No usable storage location configured."
+msgstr "Нет пригодных расположений хранилищ данных."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: maildirresource.kcfg:10
+#, kde-format
+msgid "Path to maildir"
+msgstr "Путь к почтовому каталогу (maildir)"
+
+# Требуется уточнение
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: maildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Путь указывает на папку, содержащую почтовый каталог, вместо самого "
+"почтового каталога."
+
+# Требуется уточнение
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: maildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Не изменять существующие данные."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Параметры почтового каталога"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settings.ui:37
+#, kde-format
+msgid "Maildir"
+msgstr "Почтовый каталог Maildir"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:43
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Выберите папку maildir:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:53
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Открыть в режиме только для чтения"
+
+#~ msgid "Select a MailDir folder"
+#~ msgstr "Выберите папку maildir"
+
+#~ msgid "Folder Archive"
+#~ msgstr "Архивирование в папку"

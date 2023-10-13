@@ -1,0 +1,263 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <bald@smail.ee>, 2010, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-24 00:45+0000\n"
+"PO-Revision-Date: 2012-07-02 21:16+0300\n"
+"Last-Translator: Marek Laane <bald@smail.ee>\n"
+"Language-Team: Estonian <kde-et@linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: configwidget.cpp:25
+#, kde-format
+msgid "Enter the http or https URL to your Open-Xchange installation here."
+msgstr "Kirjuta siia oma Open-Xchange'i paigalduse http- või https-URL-"
+
+#: configwidget.cpp:26
+#, kde-format
+msgid "Enter the username of your Open-Xchange account here."
+msgstr "Kirjuta siia oma Open-Xchange'i konto kasutajanimi."
+
+#: configwidget.cpp:27
+#, kde-format
+msgid "Enter the password of your Open-Xchange account here."
+msgstr "Kirjuta siia oma Open-Xchange'i konto parool."
+
+#: configwidget.cpp:72
+#, kde-format
+msgid "Unable to connect: %1"
+msgstr "Ühendumine nurjus: %1"
+
+#: configwidget.cpp:72
+#, kde-format
+msgid "Connection error"
+msgstr "Ühenduse viga"
+
+#: configwidget.cpp:74
+#, kde-format
+msgid "Tested connection successfully."
+msgstr "Ühenduse test oli edukas."
+
+#: configwidget.cpp:74
+#, kde-format
+msgid "Connection success"
+msgstr "Ühendumine oli edukas"
+
+#. i18n: ectx: property (text), widget (QLabel, label_BaseUrl)
+#: configwidget.ui:29
+#, kde-format
+msgid "Server URL:"
+msgstr "Serveri URL:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: configwidget.ui:39 configwidget.ui:42 openxchangeresource.kcfg:11
+#: openxchangeresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the Open-Xchange server, should be something like https://"
+"myserver.org/"
+msgstr ""
+"Open-Xchange'i serveri URL, peaks olema midagi sellist nagu https://"
+"minuserver.org/"
+
+#. i18n: ectx: property (text), widget (QLabel, label_Username)
+#: configwidget.ui:52
+#, kde-format
+msgid "Username:"
+msgstr "Kasutajanimi:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: configwidget.ui:62 configwidget.ui:65 openxchangeresource.kcfg:16
+#: openxchangeresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the Open-Xchange server"
+msgstr "Kasutajanimi, millega saab ennast Open-Xchange'i serverisse logida"
+
+#. i18n: ectx: property (text), widget (QLabel, label_Password)
+#: configwidget.ui:72
+#, kde-format
+msgid "Password:"
+msgstr "Parool:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: tooltip, entry (Password), group (General)
+#. i18n: ectx: whatsthis, entry (Password), group (General)
+#: configwidget.ui:82 configwidget.ui:85 openxchangeresource.kcfg:21
+#: openxchangeresource.kcfg:22
+#, kde-format
+msgid "The password that is used to log into the Open-Xchange server"
+msgstr "Parool Open-Xchange'i serverisse logimiseks"
+
+#. i18n: ectx: property (text), widget (QPushButton, checkConnectionButton)
+#: configwidget.ui:98
+#, kde-format
+msgid "Test Connection..."
+msgstr "Testi ühendust..."
+
+#: openxchangeresource.cpp:250
+#, kde-format
+msgid "Open-Xchange"
+msgstr "Open-Xchange"
+
+#: openxchangeresource.cpp:278
+#, kde-format
+msgid "Private Folder"
+msgstr "Erakaust"
+
+#: openxchangeresource.cpp:286
+#, kde-format
+msgid "Public Folder"
+msgstr "Avalik kaust"
+
+#: openxchangeresource.cpp:294
+#, kde-format
+msgid "Shared Folder"
+msgstr "Jagatud kaust"
+
+#: openxchangeresource.cpp:302
+#, kde-format
+msgid "System Folder"
+msgstr "Süsteemne kaust"
+
+#: openxchangeresource.cpp:617
+#, kde-format
+msgid "Unable to connect to server"
+msgstr "Serveriga ühendumine nurjus."
+
+#: openxchangeresource.cpp:805
+#, kde-format
+msgid ""
+"The object was edited by another participant in the meantime. Please check."
+msgstr "Teine osaleja on vahepeal objekti muutnud. Palun kontrolli."
+
+#: openxchangeresource.cpp:808
+#, kde-format
+msgid ""
+"Object not found. Maybe it was deleted by another participant in the "
+"meantime."
+msgstr ""
+"Objekti ei leitud. Võib-olla kustutas vahepeal selle mõni teine osaleja."
+
+#: openxchangeresource.cpp:811
+#, kde-format
+msgid "You don't have the permission to perform this action on this object."
+msgstr "Sul ei ole õigusi selle objektiga sellist toimingut ette võtta."
+
+#: openxchangeresource.cpp:814
+#, kde-format
+msgid ""
+"A conflict detected. Please check if there are other objects in conflict "
+"with this one."
+msgstr ""
+"Leiti konflikt. Palun kontrolli, kas mõni objekt on selle objektiga "
+"konfliktis."
+
+#: openxchangeresource.cpp:817
+#, kde-format
+msgid ""
+"A mandatory data field is missing. Please check. Otherwise contact your "
+"administrator."
+msgstr ""
+"Kohustuslik kuupäevaväli puudub. Palun kontrolli. Vajaduse korral võta "
+"ühendust administraatoriga."
+
+#: openxchangeresource.cpp:820
+#, kde-format
+msgid ""
+"An appointment conflict detected.\n"
+"Please check if there are other appointments in conflict with this one."
+msgstr ""
+"Leiti kohtumiste konflikt.\n"
+"Palun kontrolli, kas mõni kohtumine on selle kohtumisega konfliktis."
+
+#: openxchangeresource.cpp:823
+#, kde-format
+msgid "Internal server error. Please contact your administrator."
+msgstr "Serveri sisemine tõrge. Palun võta ühendust administraatoriga."
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: openxchangeresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "Serveri URL"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: openxchangeresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Kasutajanimi"
+
+#. i18n: ectx: label, entry (Password), group (General)
+#: openxchangeresource.kcfg:20
+#, kde-format
+msgid "Password"
+msgstr "Parool"
+
+#. i18n: ectx: label, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:26
+#, kde-format
+msgid "Use incremental updates"
+msgstr "Inkrementuuenduste kasutamine"
+
+#. i18n: ectx: tooltip, entry (UseIncrementalUpdates), group (General)
+#. i18n: ectx: whatsthis, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:27 openxchangeresource.kcfg:28
+#, kde-format
+msgid ""
+"Use incremental updates instead of reloading all data from the server each "
+"time"
+msgstr ""
+"Inkrementuuenduste kasutamine kõigi andmete igakordse tõmbamise asemel "
+"serverist"
+
+#~ msgid "Connection"
+#~ msgstr "Ühendus"
+
+#~ msgid "Open-Xchange Configuration"
+#~ msgstr "Open-Xchange'i seadistused"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Marek Laane"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "bald@smail.ee"
+
+#~ msgid "About..."
+#~ msgstr "Teave..."
+
+#~ msgid "Akonadi Open-Xchange Resource"
+#~ msgstr "Akonadi Open-Xchange'i ressurss"
+
+#~ msgid "(c) 2009 by Tobias Koenig (credativ GmbH)"
+#~ msgstr "(c) 2009: Tobias Koenig (credativ GmbH)"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "Current maintainer"
+#~ msgstr "Praegune hooldaja"
+
+#~ msgid "credativ GmbH"
+#~ msgstr "credativ GmbH"
+
+#~ msgid "Funded and supported"
+#~ msgstr "Rahastaja ja toetaja"

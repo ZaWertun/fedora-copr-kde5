@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:kcfg="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile arg="true" />
+  <group name="General">
+    <entry name="Path" type="Path">
+      <label>Path to mbox file.</label>
+      <default></default>
+    </entry>
+    <entry name="DisplayName" type="String">
+      <label>Display name.</label>
+      <default></default>
+    </entry>
+    <entry name="ReadOnly" type="Bool">
+      <label>Do not change the actual backend data.</label>
+      <default>false</default>
+    </entry>
+    <entry name="MonitorFile" type="Bool">
+      <label>Monitor file for changes.</label>
+      <default>true</default>
+    </entry>
+  </group>
+  <group name="Locking">
+    <entry name="LockfileMethod" type="Enum">
+      <choices>
+        <choice name="procmail"/>
+        <choice name="mutt_dotlock"/>
+        <choice name="mutt_dotlock_privileged"/>
+        <choice name="none"/>
+      </choices>
+      <default>none</default>
+    </entry>
+    <entry name="Lockfile" type="String">
+      <label>Lockfile</label>
+      <default></default>
+    </entry>
+  </group>
+  <group name="Compacting">
+    <entry name="CompactFrequency" type="Enum">
+      <choices>
+        <choice name="never"/>
+        <choice name="per_x_messages"/>
+      </choices>
+      <default>per_x_messages</default>
+    </entry>
+    <entry name="MessageCount" type="UInt">
+      <label>Number of deleted messages before a purge is started.</label>
+      <default>50</default>
+    </entry>
+  </group>
+</kcfg>

@@ -1,0 +1,70 @@
+# translation of akonadi_vcard_resource.po to Spanish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Eloy Cuadra <ecuadra@eloihr.net>, 2009.
+# Javier Vinal <fjvinal@gmail.com>, 2010.
+# Javier Viñal <fjvinal@gmail.com>, 2010, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_vcard_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2014-04-07 14:03+0200\n"
+"Last-Translator: Javier vinal <fjvinal@gmail.com>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: vcardconfig.cpp:16
+#, kde-format
+msgctxt "Filedialog filter for *.vcf"
+msgid "vCard Address Book File"
+msgstr "Archivo de libreta de direcciones vCard"
+
+#: vcardresource.cpp:71
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Contacto con uid «%1» no encontrado."
+
+#: vcardresource.cpp:164 vcardresource.cpp:184
+#, kde-format
+msgid "Unable to open vCard file '%1'."
+msgstr "No se puede abrir el archivo vCard «%1»."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcardresource.kcfg:10
+#, kde-format
+msgid "Path to vCard file."
+msgstr "Ruta al archivo vCard."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: vcardresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Nombre a mostrar."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcardresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "No modificar los datos reales del motor."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: vcardresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Detectar cambios en el archivo."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcardwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Nombre de archivo:"
+
+#~ msgid "Select Address Book"
+#~ msgstr "Seleccionar libreta de direcciones"

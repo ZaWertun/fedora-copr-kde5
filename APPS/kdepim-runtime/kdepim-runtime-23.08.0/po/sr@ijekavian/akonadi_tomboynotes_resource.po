@@ -1,0 +1,160 @@
+# Translation of akonadi_tomboynotes_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_tomboynotes_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-04-24 03:45+0200\n"
+"PO-Revision-Date: 2017-09-25 19:53+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: tomboyitemuploadjob.cpp:120 tomboyitemuploadjob.cpp:126
+#, kde-format
+msgid "Sync error. Server status not as expected."
+msgstr "Грешка у синхронизацији. Неочекивано стање сервера."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TomboyNotesAgentConfigWidget)
+#: tomboynotesagentconfigwidget.ui:14
+#, kde-format
+msgid "Tomboy Server Settings"
+msgstr "Поставке Томичиног сервера"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: tomboynotesagentconfigwidget.ui:36
+#, kde-format
+msgid "Tomboy"
+msgstr "Томица"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: tomboynotesagentconfigwidget.ui:42
+#, kde-format
+msgid "Display name:"
+msgstr "Приказно име:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: tomboynotesagentconfigwidget.ui:56
+#, kde-format
+msgid "Type in the server URL:"
+msgstr "Унесите УРЛ сервера:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_ServerURL)
+#: tomboynotesagentconfigwidget.ui:63
+#, kde-format
+msgid "This value is not changeable after first setup"
+msgstr "Ова вредност не може да се промени после првог уноса."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: tomboynotesagentconfigwidget.ui:76
+#, kde-format
+msgid "Update interval:"
+msgstr "Период ажурирања:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: tomboynotesagentconfigwidget.ui:86
+#, kde-format
+msgid "minutes"
+msgstr "минута"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: tomboynotesagentconfigwidget.ui:96
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Отвори само за читање"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ignoreSslErrors)
+#: tomboynotesagentconfigwidget.ui:103
+#, kde-format
+msgid "Ignore SSL errors"
+msgstr "Занемари ССЛ грешке"
+
+#: tomboynotesconfigwidget.cpp:61
+#, kde-format
+msgid "Tomboy Notes %1"
+msgstr "Томичине белешке %1"
+
+#: tomboynotesresource.cpp:76 tomboynotesresource.cpp:97
+#: tomboynotesresource.cpp:116
+#, kde-format
+msgid "Resource configuration is not valid"
+msgstr "Постава ресурса није добра."
+
+#: tomboynotesresource.cpp:242 tomboynotesresource.cpp:263
+#: tomboynotesresource.cpp:283
+#, kde-format
+msgid "Resource is read-only"
+msgstr "Ресурс је само за читање."
+
+#. i18n: ectx: label, entry (collectionName), group (General)
+#: tomboynotesresource.kcfg:10
+#, kde-format
+msgid "The display name of this resource"
+msgstr "Приказно име овог ресурса"
+
+#. i18n: ectx: label, entry (ServerURL), group (General)
+#: tomboynotesresource.kcfg:14
+#, kde-format
+msgid "The URL to the Tomboy sync server"
+msgstr "УРЛ Томичиног сервера за синхронизацију"
+
+#. i18n: ectx: label, entry (contentURL), group (General)
+#: tomboynotesresource.kcfg:18
+#, kde-format
+msgid "The URL to the notes on the Tomboy sync server"
+msgstr "УРЛ бележака на Томичином серверу за синхронизацију"
+
+#. i18n: ectx: label, entry (userURL), group (General)
+#: tomboynotesresource.kcfg:22
+#, kde-format
+msgid "The URL to the user data on the Tomboy sync server"
+msgstr "УРЛ корисничких података на Томичином серверу за синхронизацију"
+
+#. i18n: ectx: label, entry (requestToken), group (General)
+#: tomboynotesresource.kcfg:26
+#, kde-format
+msgid "The request token to the Tomboy sync server"
+msgstr "Токен за захтеве на Томичином серверу за синхронизацију"
+
+#. i18n: ectx: label, entry (requestTokenSecret), group (General)
+#: tomboynotesresource.kcfg:30
+#, kde-format
+msgid "The request token secret to the Tomboy sync server"
+msgstr "Тајна токена за захтеве на Томичином серверу за синхронизацију"
+
+#. i18n: ectx: label, entry (ConflictHandling), group (General)
+#: tomboynotesresource.kcfg:34
+#, kde-format
+msgid "The way how conflicts should be handled"
+msgstr "Како треба обрађивати сукобе"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: tomboynotesresource.kcfg:38
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Не мијењај заиста позадинске податке"
+
+#. i18n: ectx: label, entry (ignoreSslErrors), group (General)
+#: tomboynotesresource.kcfg:42
+#, kde-format
+msgid "Ignore SSL errors."
+msgstr "Занемари ССЛ грешке"
+
+#. i18n: ectx: label, entry (refreshInterval), group (General)
+#: tomboynotesresource.kcfg:46
+#, kde-format
+msgid "Refresh every"
+msgstr "Освјежи сваких"
+
+#: tomboyserverauthenticatejob.cpp:71
+#, kde-format
+msgid "Authorization failed. It could be an SSL error."
+msgstr "Овлашћивање пропало. Може бити услед ССЛ грешке."

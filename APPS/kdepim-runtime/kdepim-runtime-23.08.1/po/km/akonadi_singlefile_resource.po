@@ -1,0 +1,345 @@
+# translation of akonadi_singlefile_resource.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_singlefile_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-23 00:50+0000\n"
+"PO-Revision-Date: 2010-11-29 09:24+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer <support@khmeros.info>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Language: km-KH\n"
+
+#. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:29
+#, kde-format
+msgid "Directory settings of the resource."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:32
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select the file whose contents should be represented by this resource. If "
+#| "the file does not exist, it will be created. A URL of a remote file can "
+#| "also be specified, but note that monitoring for file changes will not "
+#| "work in this case."
+msgid ""
+"Select settings of the directory whose contents should be represented by "
+"this resource."
+msgstr ""
+"ជ្រើស​ឯកសារ ដែល​មាន​មាតិការ​គួរតែ​បង្ហាញ​ដោយ​ធនធាន​នេះ ។ ប្រសិន​បើ​​មិនមាន​ឯកសារ វា​នឹង​ត្រូវបាន​"
+"បង្កើត ។ URL របស់​ឯកសារ​ពី​ចម្ងាយ ក៏​អាច​ត្រូវបាន​បញ្ជាក់​ដែរ ប៉ុន្តែ​ត្រូវ​ចំណាំថា ការ​គ្រប់គ្រង​​ការ​"
+"ផ្លាស់ប្ដូរ​ឯកសារ នឹង​មិន​ដំណើរការ​នៅ​ក្នុង​ករណី​នេះ​ទេ ។"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settingsdialog.ui:39
+#, kde-format
+msgid "Directory"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: settingsdialog.ui:45
+#, fuzzy, kde-format
+#| msgid "Display Name"
+msgid "Directory Name"
+msgstr "ឈ្មោះ​បង្ហាញ"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settingsdialog.ui:53
+#, fuzzy, kde-format
+#| msgid "Display Name"
+msgid "Director&y:"
+msgstr "ឈ្មោះ​បង្ហាញ"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: settingsdialog.ui:68
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select the file whose contents should be represented by this resource. If "
+#| "the file does not exist, it will be created. A URL of a remote file can "
+#| "also be specified, but note that monitoring for file changes will not "
+#| "work in this case."
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"ជ្រើស​ឯកសារ ដែល​មាន​មាតិការ​គួរតែ​បង្ហាញ​ដោយ​ធនធាន​នេះ ។ ប្រសិន​បើ​​មិនមាន​ឯកសារ វា​នឹង​ត្រូវបាន​"
+"បង្កើត ។ URL របស់​ឯកសារ​ពី​ចម្ងាយ ក៏​អាច​ត្រូវបាន​បញ្ជាក់​ដែរ ប៉ុន្តែ​ត្រូវ​ចំណាំថា ការ​គ្រប់គ្រង​​ការ​"
+"ផ្លាស់ប្ដូរ​ឯកសារ នឹង​មិន​ដំណើរការ​នៅ​ក្នុង​ករណី​នេះ​ទេ ។"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: settingsdialog.ui:81
+#, kde-format
+msgid "Access Rights"
+msgstr "សិទ្ធិ​ចូល​ដំណើរការ"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:87
+#, fuzzy, kde-format
+#| msgid ""
+#| "If read-only mode is enabled, no changes will be written to the file "
+#| "selected above. Read-only mode will be automatically enabled if you do "
+#| "not have write access to the file or the file is on a remote server that "
+#| "does not support write access."
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above."
+msgstr ""
+"ប្រសិន​បើ​បាន​បើក​របៀប​បាន​តែ​អាន នឹង​គ្មាន​ការ​ផ្លាស់ប្ដូរ​ដែល​នឹង​ត្រូវបាន​សរសេរ​ទៅកាន់​ឯកសារ​ដែល​បាន​ជ្រើស​"
+"ខាងលើ​នោះ​ទេ ។ របៀប​បាន​តែ​អាន នឹង​ត្រូវបាន​បើក​ដោយ​ស្វ័យប្រវត្តិ ប្រសិន​បើ​អ្នក​មិន​មាន​សិទ្ធិ​សរសេរ​ទៅកាន់​"
+"ឯកសារ ឬ​ឯកសារ​មិន​ស្ថិត​នៅលើ​ម៉ាស៊ីន​បម្រើ​ដែល​មិន​គាំទ្រ​សិទ្ធិ​សរសេរ ។"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ReadOnly)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: settingsdialog.ui:90 settingsdialog.ui:100
+#, fuzzy, kde-format
+#| msgid ""
+#| "If read-only mode is enabled, no changes will be written to the file "
+#| "selected above. Read-only mode will be automatically enabled if you do "
+#| "not have write access to the file or the file is on a remote server that "
+#| "does not support write access."
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"ប្រសិន​បើ​បាន​បើក​របៀប​បាន​តែ​អាន នឹង​គ្មាន​ការ​ផ្លាស់ប្ដូរ​ដែល​នឹង​ត្រូវបាន​សរសេរ​ទៅកាន់​ឯកសារ​ដែល​បាន​ជ្រើស​"
+"ខាងលើ​នោះ​ទេ ។ របៀប​បាន​តែ​អាន នឹង​ត្រូវបាន​បើក​ដោយ​ស្វ័យប្រវត្តិ ប្រសិន​បើ​អ្នក​មិន​មាន​សិទ្ធិ​សរសេរ​ទៅកាន់​"
+"ឯកសារ ឬ​ឯកសារ​មិន​ស្ថិត​នៅលើ​ម៉ាស៊ីន​បម្រើ​ដែល​មិន​គាំទ្រ​សិទ្ធិ​សរសេរ ។"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:93 singlefileresourceconfigwidget_desktop.ui:92
+#, kde-format
+msgid "Read only"
+msgstr "បាន​តែ​អាន"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: settingsdialog.ui:127
+#, kde-format
+msgid "Tuning"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: settingsdialog.ui:133
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: settingsdialog.ui:145
+#, kde-format
+msgid "Autosave delay:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:152
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:155
+#, kde-format
+msgid "Select autosave interval time for the resource data (in minutes)."
+msgstr ""
+
+#: singlefileresource.h:65
+#, kde-format
+msgid "No file selected."
+msgstr "គ្មាន​ឯកសារ​ដែល​បាន​ជ្រើស ។"
+
+#: singlefileresource.h:67
+#, kde-format
+msgid "The resource not configured yet"
+msgstr ""
+
+#: singlefileresource.h:98 singlefileresource.h:127 singlefileresource.h:212
+#: singlefileresourcebase.cpp:277 singlefileresourcebase.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "រួចរាល់"
+
+#: singlefileresource.h:100
+#, kde-format
+msgid "Could not create file '%1'."
+msgstr "មិនអាច​បង្កើត​ឯកសារ '%1' ។"
+
+#: singlefileresource.h:114
+#, kde-format
+msgid "Could not read file '%1'"
+msgstr "មិនអាច​អាន​ឯកសារ '%1' បាន​ទេ"
+
+#: singlefileresource.h:130
+#, kde-format
+msgid "Another download is still in progress."
+msgstr "ការ​ទាញយក​ផ្សេងទៀត​គឺ​កំពុង​ដំណើរការ ។"
+
+#: singlefileresource.h:140 singlefileresource.h:226
+#, kde-format
+msgid "Another file upload is still in progress."
+msgstr "ការ​ផ្ទុក​ឡើង​ផ្សេង គឺ​កំពុង​ដំណើរការ ។"
+
+#: singlefileresource.h:156
+#, kde-format
+msgid "Downloading remote file."
+msgstr "កំពុង​ទាញយក​ឯកសារ​ពី​ចម្ងាយ"
+
+#: singlefileresource.h:176
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'."
+msgstr "ព្យាយាម​សរសេរ​ទៅកាន់​ឯកសារ​បានតែ​អាន ៖ '%1' ។"
+
+#: singlefileresource.h:188
+#, kde-format
+msgid "No file specified."
+msgstr "គ្មាន​ឯកសារ​ដែល​បាន​បញ្ជាក់​ទេ ។"
+
+#: singlefileresource.h:216
+#, kde-format
+msgid "A download is still in progress."
+msgstr "ការ​ទាញយក​គឺ​កំពុង​ដំណើរការ ។"
+
+#: singlefileresource.h:256
+#, kde-format
+msgid "Uploading cached file to remote location."
+msgstr "កំពុង​ផ្ទុក​ឡើង​ឯកសារ​ដែល​បាន​ដាក់​ក្នុង​ឃ្លាំងទៅកាន់​ទីតាំង​ពី​ចម្ងាយ ។"
+
+#: singlefileresourcebase.cpp:240
+#, kde-format
+msgid ""
+"The file '%1' was changed on disk. As a precaution, a backup of its previous "
+"contents has been created at '%2'."
+msgstr ""
+"ឯកសារ '%1' ត្រូវ​បាន​ផ្លាស់ប្ដូរ​នៅ​លើ​ថាស ។ ជា​ការ​ប្រុងប្រយ័ត្ន បម្រុងទុក​នៃ​មាតិកា​មុន​របស់​វា​ត្រូវ​បាន​"
+"បង្កើត​នៅ​ '%2' ។"
+
+#: singlefileresourcebase.cpp:264
+#, kde-format
+msgid "Could not load file '%1'."
+msgstr "មិនអាច​ផ្ទុក​ឯកសារ '%1' ។"
+
+#: singlefileresourcebase.cpp:283
+#, kde-format
+msgid "Could not save file '%1'."
+msgstr "មិនអាច​រក្សាទុក​ឯកសារ '%1' ។"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: singlefileresourceconfigwidget_desktop.ui:39
+#, kde-format
+msgid "File"
+msgstr "ឯកសារ​"
+
+#. i18n: ectx: property (text), widget (QLabel, filenameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:47
+#, fuzzy, kde-format
+#| msgid "&Filename:"
+msgid "File Name:"
+msgstr "ឈ្មោះ​ឯកសារ ៖"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: singlefileresourceconfigwidget_desktop.ui:66
+#, kde-format
+msgid ""
+"Select a file. A new file will be created if it doesn't exist. You can also "
+"use a URL, but in that case, monitoring for file changes is not possible."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, displayNameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:79
+#, fuzzy, kde-format
+#| msgid "Display Name"
+msgid "Display Name:"
+msgstr "ឈ្មោះ​បង្ហាញ"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: singlefileresourceconfigwidget_desktop.ui:108
+#, fuzzy, kde-format
+#| msgid ""
+#| "If read-only mode is enabled, no changes will be written to the file "
+#| "selected above. Read-only mode will be automatically enabled if you do "
+#| "not have write access to the file or the file is on a remote server that "
+#| "does not support write access."
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"ប្រសិន​បើ​បាន​បើក​របៀប​បាន​តែ​អាន នឹង​គ្មាន​ការ​ផ្លាស់ប្ដូរ​ដែល​នឹង​ត្រូវបាន​សរសេរ​ទៅកាន់​ឯកសារ​ដែល​បាន​ជ្រើស​"
+"ខាងលើ​នោះ​ទេ ។ របៀប​បាន​តែ​អាន នឹង​ត្រូវបាន​បើក​ដោយ​ស្វ័យប្រវត្តិ ប្រសិន​បើ​អ្នក​មិន​មាន​សិទ្ធិ​សរសេរ​ទៅកាន់​"
+"ឯកសារ ឬ​ឯកសារ​មិន​ស្ថិត​នៅលើ​ម៉ាស៊ីន​បម្រើ​ដែល​មិន​គាំទ្រ​សិទ្ធិ​សរសេរ ។"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MonitorFile)
+#: singlefileresourceconfigwidget_desktop.ui:121
+#, kde-format
+msgid "Enable file &monitoring"
+msgstr "អនុញ្ញាត​ការ​គ្រប់គ្រង​ឯកសារ"
+
+#. i18n: ectx: property (text), widget (QLabel, monitoringLabel)
+#: singlefileresourceconfigwidget_desktop.ui:134
+#, kde-format
+msgid ""
+"Changes made by other applications will reload the file when monitoring is "
+"enabled. Backups will be created to avoid conflicts when possible."
+msgstr ""
+
+#: singlefileresourceconfigwidgetbase.cpp:126
+#, kde-format
+msgctxt "@info:status"
+msgid "Checking file information..."
+msgstr "កំពុង​ពិនិត្យ​មើល​ព័ត៌មាន​ឯកសារ..."
+
+#~ msgid "Filename"
+#~ msgstr "ឈ្មោះ​ឯកសារ"
+
+#~ msgid "Status:"
+#~ msgstr "ស្ថានភាព ៖"
+
+#~ msgid ""
+#~ "Select the file whose contents should be represented by this resource. If "
+#~ "the file does not exist, it will be created. A URL of a remote file can "
+#~ "also be specified, but note that monitoring for file changes will not "
+#~ "work in this case."
+#~ msgstr ""
+#~ "ជ្រើស​ឯកសារ ដែល​មាន​មាតិការ​គួរតែ​បង្ហាញ​ដោយ​ធនធាន​នេះ ។ ប្រសិន​បើ​​មិនមាន​ឯកសារ វា​នឹង​ត្រូវបាន​"
+#~ "បង្កើត ។ URL របស់​ឯកសារ​ពី​ចម្ងាយ ក៏​អាច​ត្រូវបាន​បញ្ជាក់​ដែរ ប៉ុន្តែ​ត្រូវ​ចំណាំថា ការ​គ្រប់គ្រង​​ការ​"
+#~ "ផ្លាស់ប្ដូរ​ឯកសារ នឹង​មិន​ដំណើរការ​នៅ​ក្នុង​ករណី​នេះ​ទេ ។"
+
+#~ msgid "&Name:"
+#~ msgstr "ឈ្មោះ ៖"
+
+#~ msgid ""
+#~ "Enter the name used to identify this resource in displays. If not "
+#~ "specified, the filename will be used."
+#~ msgstr ""
+#~ "បញ្ចូល​ឈ្មោះ​ដែលបាន​ប្រើ ដើម្បី​បញ្ជាក់​ប្រភព​នេះ​នៅ​ក្នុងកា​របង្ហាញ ។ ប្រសិន​បើ​មិន​បាន​បញ្ជាក់​ទេ ឈ្មោះ​"
+#~ "ឯកសារ​នឹង​ត្រូវបាន​ប្រើ ។"
+
+#~ msgid "Monitoring"
+#~ msgstr "ការ​ត្រួតពិនិត្យ"
+
+#~ msgid ""
+#~ "If file monitoring is enabled the resource will reload the file when "
+#~ "changes are made by other programs. It also tries to create a backup in "
+#~ "case of conflicts whenever possible."
+#~ msgstr ""
+#~ "ប្រសិនបើ​ការ​ត្រួតពិនិត្យ​ឯកសារ​ត្រូវ​បានបើក ធនធាន​នឹង​​​ផ្ទុក​ឯកសារ​ឡើងវិញ នៅពេល​​មាន​ការ​ផ្លាស់ប្ដូរ​ដោយ​"
+#~ "កម្មវិធី​ផ្សេង ។ វា​ក៏​ព្យាយាម​បង្កើត​ច្បាប់​បម្រុង​ទុក​ក្នុងករណី​ដែល​មាន​ការ​ប៉ះទង្គិច ។"
+
+#, fuzzy
+#~| msgid "Could not create file '%1'."
+#~ msgid "Could not find credentials"
+#~ msgstr "មិនអាច​បង្កើត​ឯកសារ '%1' ។"
+
+#~ msgid "&Display name:"
+#~ msgstr "ឈ្មោះបង្ហាញ ៖"

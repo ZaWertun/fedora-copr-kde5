@@ -1,0 +1,8 @@
+File=mboxresource.kcfg
+ClassName=Settings
+Mutators=true
+ItemAccessors=true
+SetUserTexts=true
+Singleton=false
+GlobalEnums=true
+TranslationSystem=kde

@@ -1,0 +1,256 @@
+# Translation of akonadi_newmailnotifier_agent.po to Ukrainian
+# Copyright (C) 2013-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_newmailnotifier_agent\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-04 00:49+0000\n"
+"PO-Revision-Date: 2023-06-17 08:53+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: newmailnotificationhistorydialog.cpp:24
+#, kde-format
+msgctxt "@title:window"
+msgid "Notification History"
+msgstr "Журнал сповіщень"
+
+#: newmailnotificationhistorywidget.cpp:22
+#: newmailnotifiersettingswidget.cpp:111
+#, kde-format
+msgid "Enabled"
+msgstr "Увімкнено"
+
+#: newmailnotifieragent.cpp:371
+#, kde-format
+msgctxt ""
+"%2 = name of mail folder; %3 = name of Akonadi POP3/IMAP/etc resource (as "
+"user named it)"
+msgid "One new email in %2 from \"%3\""
+msgid_plural "%1 new emails in %2 from \"%3\""
+msgstr[0] "%1 нове повідомлення від «%3» у %2"
+msgstr[1] "%1 нових повідомлення від «%3» у %2"
+msgstr[2] "%1 нових повідомлень від «%3» у %2"
+msgstr[3] "Одне нове повідомлення від «%3» у %2"
+
+#: newmailnotifieragent.cpp:391
+#, kde-format
+msgid "New mail arrived"
+msgstr "Надійшла пошта"
+
+#: newmailnotifieragentsettings.kcfg:34
+#, kde-format
+msgctxt "%f is a variable for agent. Do not change it"
+msgid "A message was received from %f"
+msgstr "Отримано повідомлення від %f"
+
+#: newmailnotifierreplymessagejob.cpp:38 newmailnotifiershowmessagejob.cpp:36
+#, kde-format
+msgid "Unable to start KMail application."
+msgstr "Не вдалося запустити програму KMail."
+
+#: newmailnotifierselectcollectionwidget.cpp:94
+#, kde-format
+msgid "Select which folders to monitor for new message notifications:"
+msgstr ""
+"Позначте теки, за якими слід спостерігати для створення сповіщень щодо нових "
+"повідомлень:"
+
+#: newmailnotifierselectcollectionwidget.cpp:125
+#, kde-format
+msgid "Search..."
+msgstr "Шукати…"
+
+#: newmailnotifierselectcollectionwidget.cpp:140
+#, kde-format
+msgid "&Select All"
+msgstr "&Позначити усі"
+
+#: newmailnotifierselectcollectionwidget.cpp:144
+#, kde-format
+msgid "&Unselect All"
+msgstr "С&касувати позначення"
+
+#: newmailnotifiersettingswidget.cpp:31
+#, c-format
+msgid ""
+"<qt><p>Here you can define message. You can use:</p><ul><li>%s set subject</"
+"li><li>%f set from</li></ul></qt>"
+msgstr ""
+"<qt><p>Тут ви можете вказати повідомлення. Можливі замінники:</p><ul><li>%s "
+"— встановлена тема</li><li>%f — встановлений відправник</li></ul></qt>"
+
+#: newmailnotifiersettingswidget.cpp:52
+#, kde-format
+msgid "Choose which fields to show:"
+msgstr "Виберіть поля, які слід показувати:"
+
+#: newmailnotifiersettingswidget.cpp:57
+#, kde-format
+msgid "Show Photo"
+msgstr "Показувати фотографію"
+
+#: newmailnotifiersettingswidget.cpp:61
+#, kde-format
+msgid "Show From"
+msgstr "Показувати від кого"
+
+#: newmailnotifiersettingswidget.cpp:65
+#, kde-format
+msgid "Show Subject"
+msgstr "Показувати тему"
+
+#: newmailnotifiersettingswidget.cpp:69
+#, kde-format
+msgid "Show Folders"
+msgstr "Показувати теки"
+
+#: newmailnotifiersettingswidget.cpp:73
+#, kde-format
+msgid "Do not notify when email was sent by me"
+msgstr "Не сповіщати, якщо повідомлення було надіслано вами"
+
+#: newmailnotifiersettingswidget.cpp:77
+#, kde-format
+msgid "Keep Persistent Notification"
+msgstr "Зберігати сповіщення постійно"
+
+#: newmailnotifiersettingswidget.cpp:81
+#, kde-format
+msgid "Show Action Buttons"
+msgstr "Показувати кнопки дій"
+
+#: newmailnotifiersettingswidget.cpp:89
+#, kde-format
+msgid "Reply Mail"
+msgstr "Відповісти на повідомлення"
+
+#: newmailnotifiersettingswidget.cpp:97 specialnotifierjob.cpp:154
+#, kde-format
+msgid "Reply to Author"
+msgstr "Відповісти автору"
+
+#: newmailnotifiersettingswidget.cpp:97 specialnotifierjob.cpp:157
+#, kde-format
+msgid "Reply to All"
+msgstr "Відповісти всім"
+
+#: newmailnotifiersettingswidget.cpp:106
+#, kde-format
+msgid "Display"
+msgstr "Показ"
+
+#: newmailnotifiersettingswidget.cpp:115
+#, kde-format
+msgid "<a href=\"whatsthis\">How does this work?</a>"
+msgstr "<a href=\"whatsthis\">Як це працює?</a>"
+
+#: newmailnotifiersettingswidget.cpp:124
+#, kde-format
+msgid "Message:"
+msgstr "Повідомлення:"
+
+#: newmailnotifiersettingswidget.cpp:135
+#, kde-format
+msgid "Text to Speak"
+msgstr "Текст, який слід виголосити"
+
+#: newmailnotifiersettingswidget.cpp:141
+#, kde-format
+msgid "Notify"
+msgstr "Сповіщення"
+
+#: newmailnotifiersettingswidget.cpp:144
+#, kde-format
+msgid "Folders"
+msgstr "Теки"
+
+#: newmailnotifiersettingswidget.cpp:147
+#, kde-format
+msgid "New Mail Notifier Agent"
+msgstr "Агент сповіщення про надходження пошти"
+
+#: newmailnotifiersettingswidget.cpp:149
+#, kde-format
+msgid "Notify about new mails."
+msgstr "Сповіщує про нові повідомлення."
+
+#: newmailnotifiersettingswidget.cpp:151
+#, kde-format
+msgid "Copyright (C) 2013-%1 Laurent Montel"
+msgstr "© Laurent Montel, 2013–%1"
+
+#: newmailnotifiersettingswidget.cpp:154
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: newmailnotifiersettingswidget.cpp:154
+#, kde-format
+msgid "Maintainer"
+msgstr "Супровідник"
+
+#: newmailnotifiersettingswidget.cpp:155
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#: newmailnotifiersettingswidget.cpp:155
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: specialnotifierjob.cpp:116
+#, kde-format
+msgid "From: %1"
+msgstr "Від %1"
+
+#: specialnotifierjob.cpp:124
+#, kde-format
+msgid "Subject: %1"
+msgstr "Тема: %1"
+
+#: specialnotifierjob.cpp:127
+#, kde-format
+msgid "In: %1"
+msgstr "У %1"
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Show mail..."
+msgstr "Показати пошту…"
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Mark As Read"
+msgstr "Позначити як прочитане"
+
+#: specialnotifierjob.cpp:150
+#, kde-format
+msgid "Delete"
+msgstr "Вилучити"
+
+#~ msgid "New Mail Notifier settings"
+#~ msgstr "Параметри сповіщення щодо нової пошти"
+
+#~ msgid "Show button to display mail"
+#~ msgstr "Показати кнопку для показу пошти"
+
+#~ msgid "Starting Jovie Text-to-Speech Service Failed %1"
+#~ msgstr "Спроба запуску служби синтезу мовлення Jovie зазнала невдачі: %1"
+
+#~ msgid "from: %1 <br>Subject: %2<br>In: %3"
+#~ msgstr "від %1 <br>Тема: %2<br>У %3"

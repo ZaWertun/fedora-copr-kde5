@@ -13,7 +13,7 @@
 
 Name:    okular 
 Summary: A document viewer
-Version: 23.08.1
+Version: 23.08.2
 Release: 1%{?dist}
 
 License: GPLv2
@@ -236,6 +236,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.ok
 
 
 %changelog
+* Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
+- 23.08.2
+
 * Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
 - 23.08.1
 

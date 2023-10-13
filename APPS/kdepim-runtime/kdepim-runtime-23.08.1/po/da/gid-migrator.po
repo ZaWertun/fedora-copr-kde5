@@ -1,0 +1,176 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Schlander <mschlander@opensuse.org>, 2013, 2014, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2016-07-11 21:32+0100\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Martin Schlander"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mschlander@opensuse.org"
+
+#: ../kmigratorbase.cpp:116
+#, kde-format
+msgid "Creating instance of type %1"
+msgstr "Opretter instans af typen %1"
+
+#: ../migratorbase.cpp:128
+#, kde-format
+msgid "Missing Identifier"
+msgstr "Manglende identifikator"
+
+#: ../migratorbase.cpp:141
+#, kde-format
+msgid "Failed to start migration because migrator is not ready"
+msgstr "Kunne ikke starte migrering da migreringsværktøjet ikke er klart"
+
+#: ../migratorbase.cpp:147
+#, kde-format
+msgid "Starting migration..."
+msgstr "Starter migrering..."
+
+#: ../migratorbase.cpp:189
+#, kde-format
+msgid "Migration complete"
+msgstr "Migrering gennemført"
+
+#: ../migratorbase.cpp:193
+#, kde-format
+msgid "Migration aborted"
+msgstr "Migrering afbrudt"
+
+#: ../migratorbase.cpp:199
+#, kde-format
+msgid "Migration failed"
+msgstr "Migrering mislykkedes"
+
+#: ../migratorbase.cpp:203
+#, kde-format
+msgid "Migration paused"
+msgstr "Migrering på pause"
+
+#: ../migratorbase.cpp:233
+#, kde-format
+msgid "This migration has already been started once but was aborted"
+msgstr "Denne migrering er allerede blevet startet en gang, men blev afbrudt"
+
+#: ../migratorbase.cpp:270
+#, kde-format
+msgctxt "@info:status"
+msgid "Not started"
+msgstr "Ikke startet"
+
+#: ../migratorbase.cpp:272
+#, kde-format
+msgctxt "@info:status"
+msgid "Running..."
+msgstr "Kører..."
+
+#: ../migratorbase.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Complete"
+msgstr "Gennemført"
+
+#: ../migratorbase.cpp:276
+#, kde-format
+msgctxt "@info:status"
+msgid "Aborted"
+msgstr "Afbrudt"
+
+#: ../migratorbase.cpp:278
+#, kde-format
+msgctxt "@info:status"
+msgid "Paused"
+msgstr "På pause"
+
+#: ../migratorbase.cpp:280
+#, kde-format
+msgctxt "@info:status"
+msgid "Needs Update"
+msgstr "Kræver opdatering"
+
+#: ../migratorbase.cpp:282
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed"
+msgstr "Mislykkedes"
+
+#: gidmigrator.cpp:22
+#, kde-format
+msgctxt "Name of the GID Migrator (intended for advanced users)."
+msgid "GID Migrator: %1"
+msgstr "GID-migrering: %1"
+
+#: gidmigrator.cpp:27
+#, kde-format
+msgid ""
+"Ensures that all items with the mimetype %1 have a GID if a GID extractor is "
+"available."
+msgstr ""
+"Sikrer at alle elementer med MIME-typen %1 har et GID, hvis en GID-udtrækker "
+"er tilgængelig."
+
+#: gidmigrator.cpp:49
+#, kde-format
+msgid "Migration failed: %1"
+msgstr "Migrering mislykkedes: %1"
+
+#: main.cpp:26
+#, kde-format
+msgid "GID Migration Tool"
+msgstr "Migreringsværktøj til GID"
+
+#: main.cpp:28
+#, kde-format
+msgid "Migration of Akonadi Items to support GID"
+msgstr "Migrering af Akonadi-elementer til at understøtte GID"
+
+#: main.cpp:30
+#, fuzzy, kde-format
+#| msgid "(c) 2013-2016 the Akonadi developers"
+msgid "(c) 2013-2022 the Akonadi developers"
+msgstr "(c) 2013-2016 Akonadi-udviklerne"
+
+#: main.cpp:33
+#, kde-format
+msgid "Christian Mollekopf"
+msgstr "Christian Mollekopf"
+
+#: main.cpp:33
+#, kde-format
+msgid "Author"
+msgstr "Ophavsmand"
+
+#: main.cpp:36
+#, kde-format
+msgid "Show reporting dialog"
+msgstr "Vis rapporteringsdialog"
+
+#: main.cpp:37
+#, kde-format
+msgid "Show report only if changes were made"
+msgstr "Vis kun rapport hvis der blev foretaget ændringer"
+
+#: main.cpp:38
+#, kde-format
+msgid "MIME type to migrate"
+msgstr "MIME-type der skal migreres"

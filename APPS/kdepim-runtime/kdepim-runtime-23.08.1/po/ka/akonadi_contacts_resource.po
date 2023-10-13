@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdepim-runtime package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-18 00:17+0000\n"
+"PO-Revision-Date: 2022-08-28 05:31+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: contactsagentsettingswidget.ui:29
+#, kde-format
+msgid "Directory Name"
+msgstr "საქაღალდის სახელი"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: contactsagentsettingswidget.ui:37
+#, kde-format
+msgid "Di&rectory:"
+msgstr "&საქაღალდე:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: contactsagentsettingswidget.ui:52
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"აირჩიეთ დირექტორია, რომლის შინაარსი უნდა იყოს წარმოდგენილი ამ რესურსით. თუ "
+"დირექტორია არ არსებობს, ის შეიქმნება."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: contactsagentsettingswidget.ui:65
+#, kde-format
+msgid "Access Rights"
+msgstr "წვდომები"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: contactsagentsettingswidget.ui:71
+#, kde-format
+msgctxt "if the access is limited to read-only"
+msgid "Read only"
+msgstr "მხოლოდ წაკითხვა"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: contactsagentsettingswidget.ui:78
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"თუ ჩართულია მხოლოდ წაკითხვის რეჟიმი, ცვლილებები არ ჩაიწერება ზემოთ შერჩეულ "
+"დირექტორიაში. მხოლოდ წაკითხვის რეჟიმი ავტომატურად ჩაირთვება, თუ დირექტორიაში "
+"ჩაწერის წვდომა არ გაქვთ."
+
+#: contactsresource.cpp:44
+#, kde-format
+msgid "Personal Contacts"
+msgstr "პირადი კონტაქტები"
+
+#: contactsresource.cpp:124
+#, kde-format
+msgid "Directory '%1' does not exists"
+msgstr "%1: საქაღალდე არ არსებობს"
+
+#: contactsresource.cpp:148 contactsresource.cpp:223
+#, kde-format
+msgid "Found file of unknown format: '%1'"
+msgstr "არასწორი ფორმატის ფაილი: '%1'"
+
+#: contactsresource.cpp:197
+#, kde-format
+msgid "Unable to open file '%1'"
+msgstr "ფაილის გახსნა შეუძლებელია: %1"
+
+#: contactsresource.cpp:207
+#, kde-format
+msgid "Found invalid contact in file '%1'"
+msgstr "არასწორი კონტაქტი ფაილში '%1'"
+
+#: contactsresource.cpp:217
+#, kde-format
+msgid "Found invalid contact group in file '%1': %2"
+msgstr "კონტაქტების არასწორი ჯგუფი ფაილში '%1': %2"
+
+#: contactsresource.cpp:233 contactsresource.cpp:358 contactsresource.cpp:379
+#: contactsresource.cpp:412
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "საქაღალდე, რომელშიც ჩაწერას ცდილობთ, მხოლოდ კითხვადია: %1"
+
+#: contactsresource.cpp:251 contactsresource.cpp:266 contactsresource.cpp:301
+#: contactsresource.cpp:313
+#, kde-format
+msgid "Unable to write to file '%1': %2"
+msgstr "ფაილში (%1) ჩაწერის შეცდომა: %2"
+
+#: contactsresource.cpp:285 contactsresource.cpp:333
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'"
+msgstr "მხოლოდ კითხვად ფაილში ჩაწერის შეცდომა: %1"
+
+#: contactsresource.cpp:323
+#, kde-format
+msgid "Received item with unknown payload %1"
+msgstr "მიღებული ფაილის შემცველობა უცნობია: %1"
+
+#: contactsresource.cpp:348
+#, kde-format
+msgid "Unable to remove file '%1'"
+msgstr "ფაილის წაშლის შეცდომა: %1"
+
+#: contactsresource.cpp:365
+#, kde-format
+msgid "Unable to create folder '%1'."
+msgstr "საქაღალდის შექმნის შეცდომა: %1."
+
+#: contactsresource.cpp:400
+#, kde-format
+msgid "Unable to rename folder '%1'."
+msgstr "საქაღალდისთვის სახელის გადარქმევის შეცდომა: %1."
+
+#: contactsresource.cpp:418
+#, kde-format
+msgid "Unknown folder to delete."
+msgstr "წასაშლელი საქაღალდე არ არსებობს."
+
+#: contactsresource.cpp:422
+#, kde-format
+msgid "Unable to delete folder '%1'."
+msgstr "საქაღალდის წაშლის შეცდომა: %1."
+
+#: contactsresource.cpp:437
+#, kde-format
+msgid "Unable to move file '%1' to '%2', '%2' already exists."
+msgstr "%1-დან %2-ზე ფაილის გადატანა შეუძლებელია. %2 უკვე არსებობს."
+
+#: contactsresource.cpp:451
+#, kde-format
+msgid "Unable to move directory '%1' to '%2', '%2' already exists."
+msgstr "%1-დან %2-ზე საქაღალდის გადატანა შეუძლებელია. %2 უკვე არსებობს."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: contactsresource.kcfg:10
+#, kde-format
+msgid "Path to contacts directory"
+msgstr "ბილიკი კონტაქტების საქაღალდემდე"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: contactsresource.kcfg:14
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "უკანაბოლოს მონაცემების შეცვლის გარეშე."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/contactswizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "ფაილის სახელი:"

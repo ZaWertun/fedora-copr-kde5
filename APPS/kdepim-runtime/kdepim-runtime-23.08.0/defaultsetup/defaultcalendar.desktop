@@ -1,0 +1,57 @@
+[Agent]
+Id=defaultcalendar
+Type=akonadi_ical_resource
+Name=Personal Calendar
+Name[ar]=التّقويم الشّخصيّ
+Name[bg]=Личен календар
+Name[bs]=Lični kalendar
+Name[ca]=Calendari personal
+Name[ca@valencia]=Calendari personal
+Name[cs]=Osobní kalendář
+Name[da]=Personlig kalender
+Name[de]=Persönlicher Kalender
+Name[el]=Προσωπικό ημερολόγιο
+Name[en_GB]=Personal Calendar
+Name[eo]=Persona Kalendaro
+Name[es]=Calendario personal
+Name[et]=Isiklik kalender
+Name[eu]=Egutegi pertsonala
+Name[fi]=Oma kalenteri
+Name[fr]=Agenda personnel
+Name[ga]=Féilire Pearsanta
+Name[gl]=Calendario persoal
+Name[hsb]=Wosobinska protyka
+Name[hu]=Személyes naptár
+Name[ia]=Calendario Personal
+Name[it]=Calendario personale
+Name[ka]=პერსონალური კალენდარი
+Name[kk]=Дербес күнтізбе
+Name[km]=ប្រតិទិន​ផ្ទាល់ខ្លួន
+Name[ko]=개인 달력
+Name[lt]=Asmeninis kalendorius
+Name[lv]=Personīgais kalendārs
+Name[nb]=Personlig kalender
+Name[nds]=Persöönlich Kalenner
+Name[nl]=Persoonlijke agenda
+Name[pl]=Kalendarz osobisty
+Name[pt]=Calendário Pessoal
+Name[pt_BR]=Calendário pessoal
+Name[ro]=Calendar personal
+Name[ru]=Личный календарь
+Name[sk]=Osobný kalendár
+Name[sl]=Osebni koledar
+Name[sr]=Лични календар
+Name[sr@ijekavian]=Лични календар
+Name[sr@ijekavianlatin]=Lični kalendar
+Name[sr@latin]=Lični kalendar
+Name[sv]=Personlig kalender
+Name[ta]=சொந்த நாள்காட்டி
+Name[tr]=Kişisel Takvim
+Name[uk]=Особистий календар
+Name[x-test]=xxPersonal Calendarxx
+Name[zh_CN]=个人日历
+Name[zh_TW]=個人行事曆
+
+[Settings]
+Path[$e]=$QT_DATA_HOME/apps/korganizer/std.ics
+

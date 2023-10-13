@@ -1,0 +1,267 @@
+# Translation of akonadi_singlefile_resource to Norwegian Bokmål
+#
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2009, 2010, 2011, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-23 00:50+0000\n"
+"PO-Revision-Date: 2014-09-23 21:49+0200\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:29
+#, kde-format
+msgid "Directory settings of the resource."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:32
+#, kde-format
+msgid ""
+"Select settings of the directory whose contents should be represented by "
+"this resource."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settingsdialog.ui:39
+#, kde-format
+msgid "Directory"
+msgstr "Mappe"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: settingsdialog.ui:45
+#, kde-format
+msgid "Directory Name"
+msgstr "Mappenavn"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settingsdialog.ui:53
+#, kde-format
+msgid "Director&y:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: settingsdialog.ui:68
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Velg den mappa som skal ha sitt innhold representert ved denne ressursen. "
+"Hvis mappa ikke finnes, blir den opprettet."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: settingsdialog.ui:81
+#, kde-format
+msgid "Access Rights"
+msgstr "Tilgangsretter"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:87
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ReadOnly)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: settingsdialog.ui:90 settingsdialog.ui:100
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Hvis \"Bare lesing\" er slått på, så blir ingen endringer skrevet til mappa "
+"valgt over. Skrivebeskyttelse blir automatisk slått på hvis du ikke har "
+"skriverettighet til mappa."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:93 singlefileresourceconfigwidget_desktop.ui:92
+#, kde-format
+msgid "Read only"
+msgstr "Bare lesing"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: settingsdialog.ui:127
+#, kde-format
+msgid "Tuning"
+msgstr "Trimming"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: settingsdialog.ui:133
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Med valgene på denne sida kan du endre parametre som balanserer sikkerhet og "
+"stabilitet for data mot ytelse. Som regel bør du være varsom med å endre noe "
+"her, standardverdiene er gode nok i de fleste tilfeller."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: settingsdialog.ui:145
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Tid mellom hver autolagring:"
+
+#. i18n: ectx: property (toolTip), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:152
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:155
+#, kde-format
+msgid "Select autosave interval time for the resource data (in minutes)."
+msgstr ""
+
+#: singlefileresource.h:65
+#, kde-format
+msgid "No file selected."
+msgstr "Ingen fil valgt."
+
+#: singlefileresource.h:67
+#, kde-format
+msgid "The resource not configured yet"
+msgstr "Ressursen er ikke satt opp ennå"
+
+#: singlefileresource.h:98 singlefileresource.h:127 singlefileresource.h:212
+#: singlefileresourcebase.cpp:277 singlefileresourcebase.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Klar"
+
+#: singlefileresource.h:100
+#, kde-format
+msgid "Could not create file '%1'."
+msgstr "Klarte ikke opprette fila «%1»."
+
+#: singlefileresource.h:114
+#, kde-format
+msgid "Could not read file '%1'"
+msgstr "Kunne ikke lese fila «%1»"
+
+#: singlefileresource.h:130
+#, kde-format
+msgid "Another download is still in progress."
+msgstr "En annen nedlasting pågår ennå."
+
+#: singlefileresource.h:140 singlefileresource.h:226
+#, kde-format
+msgid "Another file upload is still in progress."
+msgstr "En annen filopplasting pågår ennå."
+
+#: singlefileresource.h:156
+#, kde-format
+msgid "Downloading remote file."
+msgstr "Laster ned fil fra nettverket."
+
+#: singlefileresource.h:176
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'."
+msgstr "Forsøker å skrive til en skrivebeskyttet fil: «%1»"
+
+#: singlefileresource.h:188
+#, kde-format
+msgid "No file specified."
+msgstr "Ingen fil oppgitt. "
+
+#: singlefileresource.h:216
+#, kde-format
+msgid "A download is still in progress."
+msgstr "En nedlasting pågår ennå."
+
+#: singlefileresource.h:256
+#, kde-format
+msgid "Uploading cached file to remote location."
+msgstr "Laster opp mellomlagret fil til nettverksplassering."
+
+#: singlefileresourcebase.cpp:240
+#, kde-format
+msgid ""
+"The file '%1' was changed on disk. As a precaution, a backup of its previous "
+"contents has been created at '%2'."
+msgstr ""
+"Fila «%1» ble endret på disken. En sikkerhetskopi av de tidligere endringene "
+"er lagret på «%2» for å unngå tap av data."
+
+#: singlefileresourcebase.cpp:264
+#, kde-format
+msgid "Could not load file '%1'."
+msgstr "Kan ikke laste inn fila «%1»."
+
+#: singlefileresourcebase.cpp:283
+#, kde-format
+msgid "Could not save file '%1'."
+msgstr "Klarte ikke lagre fila «%1»."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: singlefileresourceconfigwidget_desktop.ui:39
+#, kde-format
+msgid "File"
+msgstr "Fil"
+
+#. i18n: ectx: property (text), widget (QLabel, filenameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:47
+#, kde-format
+msgid "File Name:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: singlefileresourceconfigwidget_desktop.ui:66
+#, kde-format
+msgid ""
+"Select a file. A new file will be created if it doesn't exist. You can also "
+"use a URL, but in that case, monitoring for file changes is not possible."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, displayNameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:79
+#, kde-format
+msgid "Display Name:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: singlefileresourceconfigwidget_desktop.ui:108
+#, kde-format
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MonitorFile)
+#: singlefileresourceconfigwidget_desktop.ui:121
+#, kde-format
+msgid "Enable file &monitoring"
+msgstr "Slå på fil&overvåking"
+
+#. i18n: ectx: property (text), widget (QLabel, monitoringLabel)
+#: singlefileresourceconfigwidget_desktop.ui:134
+#, kde-format
+msgid ""
+"Changes made by other applications will reload the file when monitoring is "
+"enabled. Backups will be created to avoid conflicts when possible."
+msgstr ""
+
+#: singlefileresourceconfigwidgetbase.cpp:126
+#, kde-format
+msgctxt "@info:status"
+msgid "Checking file information..."
+msgstr "Kontrollerer filinformasjon …"

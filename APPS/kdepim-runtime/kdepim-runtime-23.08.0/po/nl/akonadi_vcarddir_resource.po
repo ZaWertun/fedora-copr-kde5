@@ -1,0 +1,142 @@
+# translation of akonadi_vcarddir_resource.po to Dutch
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2013, 2014, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_vcarddir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2018-12-06 10:10+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: vcarddiragentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Map"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: vcarddiragentsettingswidget.ui:39
+#, kde-format
+msgid "Directory Name"
+msgstr "Mapnaam"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: vcarddiragentsettingswidget.ui:47
+#, kde-format
+msgid "Di&rectory:"
+msgstr "&Map:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: vcarddiragentsettingswidget.ui:62
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Selecteer de map waarvan de inhoud gerepresenteerd zou moeten zijn door deze "
+"hulpbron. Als de map niet bestaat, dan wordt deze aangemaakt."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: vcarddiragentsettingswidget.ui:75
+#, kde-format
+msgid "Access Rights"
+msgstr "Toegangsrechten"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: vcarddiragentsettingswidget.ui:81
+#, kde-format
+msgid "Read only"
+msgstr "Alleen-lezen"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: vcarddiragentsettingswidget.ui:88
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"Als alleen-lezen is ingeschakeld, zullen er geen wijzigingen weggeschreven "
+"worden naar de hierboven geselecteerde map. Alleen-lezen zal automatisch "
+"ingeschakeld worden als u geen schrijftoegang hebt tot de map."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: vcarddiragentsettingswidget.ui:115
+#, kde-format
+msgid "Tuning"
+msgstr "Fijnafstemming"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: vcarddiragentsettingswidget.ui:121
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"De opties op deze pagina staan toe parameters te wijzigen die een balans "
+"aanbrengen tussen de veiligheid van gegevens en consistentie en performance. "
+"In het algemeen zou u voorzichtig moeten zijn met hier iets te wijzigen, de "
+"standaard is goed genoeg in de meeste gevallen."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: vcarddiragentsettingswidget.ui:133
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Vertraging in automatisch opslaan:"
+
+#: vcarddirresource.cpp:120
+#, kde-format
+msgid "Contact with uid '%1' not found."
+msgstr "Contact met uid '%1' niet gevonden."
+
+#: vcarddirresource.cpp:132 vcarddirresource.cpp:166 vcarddirresource.cpp:202
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Poging om te schrijven naar een alleen-lezen map: '%1'"
+
+#: vcarddirresource.cpp:237
+#, kde-format
+msgid "Contacts Folder"
+msgstr "Map met contactpersonen"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: vcarddirresource.kcfg:10
+#, kde-format
+msgid "Path to vCard directory"
+msgstr "Pad naar de vCard-map"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: vcarddirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Tijd tussen automatisch opslaan (in minuten)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: vcarddirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Wijzig de actuele backend-data niet."
+
+#: vcarddirsettingswidget.cpp:35
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] "minuut"
+msgstr[1] "minuten"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/vcarddirwizard.ui:19
+#, kde-format
+msgid "Path:"
+msgstr "Pad:"

@@ -1,0 +1,431 @@
+# translation of akonadi_google_resource.pot Esperanto
+# Copyright (C) 2020 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kdepim-runtime package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+#
+# Minuskloj: ĉ ĝ ĵ ĥ ŝ ŭ   Majuskloj: Ĉ Ĝ Ĵ Ĥ Ŝ Ŭ
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtimeReport-Msgid-Bugs-To: https://bugs.kde."
+"org\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-08-15 02:26+0000\n"
+"PO-Revision-Date: 2023-05-28 19:19+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: calendarhandler.cpp:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving calendars"
+msgstr "Reakiro de kalendaroj"
+
+#: calendarhandler.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving events for calendar '%1'"
+msgstr "Prenante eventojn por kalendaro '%1'"
+
+#: calendarhandler.cpp:197 taskhandler.cpp:170
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding event to calendar '%1'"
+msgstr "Aldonante eventon al kalendaro '%1'"
+
+#: calendarhandler.cpp:221
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing event in calendar '%1'"
+msgstr "Ŝanĝante eventon en kalendaro '%1'"
+
+#: calendarhandler.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 event"
+msgid_plural "Removing %1 events"
+msgstr[0] "Forigante %1 eventon"
+msgstr[1] "Forigante %1 eventojn"
+
+#: calendarhandler.cpp:248
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 event from calendar '%2' to calendar '%3'"
+msgid_plural "Moving %1 events from calendar '%2' to calendar '%3'"
+msgstr[0] "Movante %1 eventon de kalendaro '%2' al kalendaro '%3'"
+msgstr[1] "Movante %1 eventojn de kalendaro '%2' al kalendaro '%3'"
+
+#: calendarhandler.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating calendar '%1'"
+msgstr "Kreante kalendaron '%1'"
+
+#: calendarhandler.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing calendar '%1'"
+msgstr "Ŝanĝante kalendaron '%1'"
+
+#: calendarhandler.cpp:307
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing calendar '%1'"
+msgstr "Forigante kalendaron '%1'"
+
+#: generichandler.cpp:24
+#, kde-format
+msgid "Cannot handle item linking"
+msgstr "Ne povas trakti eron-ligilon"
+
+#: generichandler.cpp:29
+#, kde-format
+msgid "Cannot handle item unlinking"
+msgstr "Ne povas trakti ero-malligilon"
+
+#: generichandler.cpp:56
+#, kde-format
+msgctxt "@status"
+msgid "Ready"
+msgstr "Preta"
+
+#: generichandler.h:65 generichandler.h:77
+#, kde-format
+msgid "Invalid item."
+msgstr "Nevalida ero."
+
+#: googleresource.cpp:87
+#, kde-format
+msgid "Fetching password..."
+msgstr "Prenante pasvorton..."
+
+#: googleresource.cpp:94
+#, kde-format
+msgid "Can't fetch password"
+msgstr "Ne povas preni pasvorton"
+
+#: googleresource.cpp:135
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Preta"
+
+#: googleresource.cpp:147
+#, kde-format
+msgid "not configured"
+msgstr "ne agordita"
+
+#: googleresource.cpp:147
+#, kde-format
+msgctxt "%1 is account name (user@gmail.com)"
+msgid "Google Groupware (%1)"
+msgstr "Google Groupware (%1)"
+
+#: googleresource.cpp:156
+#, kde-format
+msgid "Configured account does not exist"
+msgstr "Agordita konto ne ekzistas"
+
+#: googleresource.cpp:204
+#, kde-format
+msgid "Account has been logged out."
+msgstr "Konto estas elsalutita."
+
+#: googleresource.cpp:207
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from your account. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"Google Groupware estas elsalutita el via konto. Bonvolu ensaluti por ebligi "
+"la sinkronigon de Google Kontaktoj kaj Kalendaro denove."
+
+#: googleresource.cpp:208
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from account %1. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"Google Groupware estas elsalutinta el konto %1. Bonvolu ensaluti por ebligi "
+"la sinkronigon de Google Kontaktoj kaj Kalendaro denove."
+
+#: googleresource.cpp:212
+#, kde-format
+msgctxt "@title"
+msgid "%1 needs your attention."
+msgstr "%1 bezonas vian atenton."
+
+#: googleresource.cpp:217
+#, kde-format
+msgctxt "@action"
+msgid "Log in"
+msgstr "Ensaluti"
+
+#: googleresource.cpp:231 googleresource.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Resource is not configured"
+msgstr "Rimedo ne estas agordita"
+
+#: googleresource.cpp:247
+#, kde-format
+msgid "Failed to refresh tokens"
+msgstr "Malsukcesis refreŝigi ĵetonojn"
+
+#: googleresource.cpp:435 googleresource.cpp:449 googleresource.cpp:463
+#: googleresource.cpp:478 googleresource.cpp:492 googleresource.cpp:506
+#, kde-format
+msgid "Invalid payload type"
+msgstr "Nevalida ŝarĝaĵa tipo"
+
+#: googleresource.cpp:520 googleresource.cpp:534 googleresource.cpp:548
+#, kde-format
+msgid "Unknown collection mimetype"
+msgstr "Nekonata kolekto mimetipo"
+
+#: googlesettingswidget.cpp:46
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuto"
+msgstr[1] " minutoj"
+
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: googlesettingswidget.cpp:108 googlesettingswidget.ui:30
+#, kde-format
+msgid "<b>not configured</b>"
+msgstr "<b>ne agordita</b>"
+
+#. i18n: ectx: property (text), widget (QLabel, accountTextLabel)
+#: googlesettingswidget.ui:23
+#, kde-format
+msgid "Account:"
+msgstr "Konto:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureBtn)
+#: googlesettingswidget.ui:42
+#, kde-format
+msgid "Configure..."
+msgstr "Agordi..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableRefresh)
+#: googlesettingswidget.ui:49
+#, kde-format
+msgid "Enable interval refresh"
+msgstr "Ebligi intervalan refreŝigon"
+
+#. i18n: ectx: property (text), widget (QLabel, refreshLabel)
+#: googlesettingswidget.ui:56
+#, kde-format
+msgid "Refresh interval:"
+msgstr "Refreŝiga intervalo:"
+
+#. i18n: ectx: property (text), widget (QLabel, eventsLimitLabel)
+#: googlesettingswidget.ui:79
+#, kde-format
+msgid "Fetch only events since:"
+msgstr "Preni nur eventojn ekde:"
+
+#. i18n: ectx: property (text), widget (QLabel, calendarsLabel)
+#: googlesettingswidget.ui:92
+#, kde-format
+msgid "Enabled Calendars:"
+msgstr "Ebligitaj Kalendaroj:"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadCalendarsBtn)
+#. i18n: ectx: property (text), widget (QPushButton, reloadTaskListsBtn)
+#: googlesettingswidget.ui:123 googlesettingswidget.ui:168
+#, kde-format
+msgid "Reload"
+msgstr "Reŝargi"
+
+#. i18n: ectx: property (text), widget (QLabel, taskListsLabel)
+#: googlesettingswidget.ui:137
+#, kde-format
+msgid "Enabled Tasklists:"
+msgstr "Ebligitaj Tasklistoj:"
+
+#: personhandler.cpp:88
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Coworkers"
+msgstr "Kunlaboristoj"
+
+#: personhandler.cpp:90
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Friends"
+msgstr "Amikoj"
+
+#: personhandler.cpp:92
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Family"
+msgstr "Familio"
+
+#: personhandler.cpp:94
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "My Contacts"
+msgstr "Miaj Kontaktoj"
+
+#: personhandler.cpp:118
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts groups"
+msgstr "Reakiro de kontaktogrupoj"
+
+#: personhandler.cpp:125 personhandler.cpp:131
+#, kde-format
+msgid "Other Contacts"
+msgstr "Aliaj Kontaktoj"
+
+#: personhandler.cpp:172
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts for group '%1'"
+msgstr "Prenante kontaktojn por grupo '%1'"
+
+#: personhandler.cpp:376
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding contact to group '%1'"
+msgstr "Aldonante kontakton al grupo '%1'"
+
+#: personhandler.cpp:410
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact"
+msgstr "Ŝanĝante kontakton"
+
+#: personhandler.cpp:424
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 contact"
+msgid_plural "Removing %1 contacts"
+msgstr[0] "Forigante %1 kontakton"
+msgstr[1] "Forigante %1 kontaktojn"
+
+#: personhandler.cpp:444
+#, kde-format
+msgid "Invalid source or destination collection"
+msgstr "Nevalida fonto aŭ cel-kolekto"
+
+#: personhandler.cpp:450
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 contact from group '%2' to '%3'"
+msgid_plural "Moving %1 contacts from group '%2' to '%3'"
+msgstr[0] "Movante %1 kontakton de grupo '%2' al '%3'"
+msgstr[1] "Movante %1 kontaktojn de grupo '%2' al '%3'"
+
+#: personhandler.cpp:467
+#, kde-format
+msgctxt "@info:status"
+msgid "Linking %1 contact"
+msgid_plural "Linking %1 contacts"
+msgstr[0] "Ligante %1 kontakton"
+msgstr[1] "Ligante %1 kontaktojn"
+
+#: personhandler.cpp:481
+#, kde-format
+msgctxt "@info:status"
+msgid "Unlinking %1 contact"
+msgid_plural "Unlinking %1 contacts"
+msgstr[0] "Malligante %1 kontakton"
+msgstr[1] "Malligante %1 kontaktojn"
+
+#: personhandler.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new contact group '%1'"
+msgstr "Kreante novan kontaktogrupon '%1'"
+
+#: personhandler.cpp:535
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact group '%1'"
+msgstr "Ŝanĝante kontaktgrupon '%1'"
+
+#: personhandler.cpp:560
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing contact group '%1'"
+msgstr "Forigante kontaktogrupon '%1'"
+
+#. i18n: ectx: label, entry (Calendars), group (General)
+#: settingsbase.kcfg:21
+#, kde-format
+msgid "IDs of calendars in collection"
+msgstr "ID-oj de kalendaroj en kolekto"
+
+#. i18n: ectx: label, entry (TaskLists), group (General)
+#: settingsbase.kcfg:25
+#, kde-format
+msgid "IDs of task lists in collection"
+msgstr "ID-oj de taskaj listoj en kolekto"
+
+#: taskhandler.cpp:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving task lists"
+msgstr "Reakiro de taskolistoj"
+
+#: taskhandler.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving tasks for list '%1'"
+msgstr "Prenante taskojn por listo '%1'"
+
+#: taskhandler.cpp:195
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task in list '%1'"
+msgstr "Ŝanĝante taskon en listo '%1'"
+
+#: taskhandler.cpp:215
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 task"
+msgid_plural "Removing %1 tasks"
+msgstr[0] "Forigante %1 taskon"
+msgstr[1] "Forigante %1 taskojn"
+
+#: taskhandler.cpp:225
+#, kde-format
+msgid "Failed to delete task: %1"
+msgstr "Malsukcesis forigi taskon: %1"
+
+#: taskhandler.cpp:261
+#, kde-format
+msgid "Failed to reparent subtasks: %1"
+msgstr "Malsukcesis kopii subtaskojn: %1"
+
+#: taskhandler.cpp:292
+#, kde-format
+msgid "Moving tasks between task lists is not supported"
+msgstr "Movi taskojn inter taskaj listoj ne estas subtenata"
+
+#: taskhandler.cpp:297
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new task list '%1'"
+msgstr "Kreante novan taskoliston '%1'"
+
+#: taskhandler.cpp:322
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task list '%1'"
+msgstr "Ŝanĝante taskoliston '%1'"
+
+#: taskhandler.cpp:335
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing task list '%1'"
+msgstr "Forigante taskoliston '%1'"

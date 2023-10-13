@@ -1,0 +1,224 @@
+# Translation of akonadi_newmailnotifier_agent.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2013, 2014, 2015, 2016, 2017, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_newmailnotifier_agent\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-01-02 03:14+0100\n"
+"PO-Revision-Date: 2018-01-06 09:21+0100\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+# rewrite-msgid: /email/message/
+#: newmailnotifieragent.cpp:343
+#, kde-format
+msgctxt ""
+"%2 = name of mail folder; %3 = name of Akonadi POP3/IMAP/etc resource (as "
+"user named it)"
+msgid "One new email in %2 from \"%3\""
+msgid_plural "%1 new emails in %2 from \"%3\""
+msgstr[0] "%1 нова порука у %2 (%3)"
+msgstr[1] "%1 нове поруке у %2 (%3)"
+msgstr[2] "%1 нових порука у %2 (%3)"
+msgstr[3] "Нова порука у %2 (%3)"
+
+#: newmailnotifieragent.cpp:359
+#, kde-format
+msgid "New mail arrived"
+msgstr "Стигла је пошта"
+
+#: newmailnotifieragentsettings.kcfg:34
+#, kde-format
+msgctxt "%f is a variable for agent. Do not change it"
+msgid "A message was received from %f"
+msgstr "Примљена порука од %f"
+
+#: newmailnotifierselectcollectionwidget.cpp:104
+#, kde-format
+msgid "Select which folders to monitor for new message notifications:"
+msgstr "Изаберите фасцикле за обавештења о новим порукама:"
+
+#: newmailnotifierselectcollectionwidget.cpp:137
+#, kde-format
+msgid "Search..."
+msgstr "Тражи..."
+
+#: newmailnotifierselectcollectionwidget.cpp:154
+#, kde-format
+msgid "&Select All"
+msgstr "&Изабери све"
+
+#: newmailnotifierselectcollectionwidget.cpp:158
+#, kde-format
+msgid "&Unselect All"
+msgstr "&Поништи сав избор"
+
+#: newmailnotifiersettingswidget.cpp:42
+#, kde-format
+msgid ""
+"<qt><p>Here you can define message. You can use:</p><ul><li>%s set subject</"
+"li><li>%f set from</li></ul></qt>"
+msgstr ""
+"<qt><p>Овде можете дефинисати поруку. Можете користити:</p><ul><li>%s "
+"поставља тему</li><li>%f поставља пошиљаоца</li></ul></qt>"
+
+#: newmailnotifiersettingswidget.cpp:62
+#, kde-format
+msgid "Choose which fields to show:"
+msgstr "Поља за приказ:"
+
+#: newmailnotifiersettingswidget.cpp:67
+#, kde-format
+msgid "Show Photo"
+msgstr "Прикажи фотографију"
+
+#: newmailnotifiersettingswidget.cpp:71
+#, kde-format
+msgid "Show From"
+msgstr "Прикажи пошиљаоца"
+
+#: newmailnotifiersettingswidget.cpp:75
+#, kde-format
+msgid "Show Subject"
+msgstr "Прикажи тему"
+
+#: newmailnotifiersettingswidget.cpp:79
+#, kde-format
+msgid "Show Folders"
+msgstr "Прикажи фасцикле"
+
+# rewrite-msgid: /email/message/
+#: newmailnotifiersettingswidget.cpp:83
+#, kde-format
+msgid "Do not notify when email was sent by me"
+msgstr "Не обавештавај када ја пошаљем поруку"
+
+#: newmailnotifiersettingswidget.cpp:87
+#, kde-format
+msgid "Show Action Buttons"
+msgstr ""
+
+#: newmailnotifiersettingswidget.cpp:91
+#, kde-format
+msgid "Keep Persistent Notification"
+msgstr "Задржи трајна обавештења"
+
+# >> @title:tab
+#: newmailnotifiersettingswidget.cpp:96
+#, kde-format
+msgid "Display"
+msgstr "Приказ"
+
+#: newmailnotifiersettingswidget.cpp:101
+#, kde-format
+msgid "Enabled"
+msgstr "Укључено"
+
+#: newmailnotifiersettingswidget.cpp:105
+#, kde-format
+msgid "<a href=\"whatsthis\">How does this work?</a>"
+msgstr "<a href=\"whatsthis\">Како ово ради?</a>"
+
+#: newmailnotifiersettingswidget.cpp:114
+#, kde-format
+msgid "Message:"
+msgstr "Порука:"
+
+#: newmailnotifiersettingswidget.cpp:124
+#, kde-format
+msgid "Text to Speak"
+msgstr "Текст за изговарање"
+
+# >> @title:tab
+#: newmailnotifiersettingswidget.cpp:130
+#, kde-format
+msgid "Notify"
+msgstr "Обавештења"
+
+#: newmailnotifiersettingswidget.cpp:134
+#, kde-format
+msgid "Folders"
+msgstr "Фасцикле"
+
+#: newmailnotifiersettingswidget.cpp:138
+#, kde-format
+msgid "New Mail Notifier Agent"
+msgstr "Агент извештавача о пристиглој е‑пошти"
+
+#: newmailnotifiersettingswidget.cpp:140
+#, kde-format
+msgid "Notify about new mails."
+msgstr "Обавештава о пристиглој е‑пошти"
+
+#: newmailnotifiersettingswidget.cpp:142
+#, fuzzy, kde-format
+#| msgid "Copyright (C) 2013-2018 Laurent Montel"
+msgid "Copyright (C) 2013-2020 Laurent Montel"
+msgstr "© 2013–2018, Лорен Монтел"
+
+#: newmailnotifiersettingswidget.cpp:144
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Лорен Монтел"
+
+#: newmailnotifiersettingswidget.cpp:145
+#, kde-format
+msgid "Maintainer"
+msgstr "Одржавалац"
+
+#: newmailnotifiersettingswidget.cpp:146
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Часлав Илић"
+
+#: newmailnotifiersettingswidget.cpp:147
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "caslav.ilic@gmx.net"
+
+# rewrite-msgid: /application//
+#: newmailnotifiershowmessagejob.cpp:54
+#, kde-format
+msgid "Unable to start KMail application."
+msgstr "Не могу да покренем К‑пошту."
+
+#: specialnotifierjob.cpp:130
+#, kde-format
+msgid "From: %1"
+msgstr "Од: %1"
+
+#: specialnotifierjob.cpp:138
+#, kde-format
+msgid "Subject: %1"
+msgstr "Тема: %1"
+
+#: specialnotifierjob.cpp:141
+#, kde-format
+msgid "In: %1"
+msgstr "У: %1"
+
+#: specialnotifierjob.cpp:163
+#, kde-format
+msgid "Show mail..."
+msgstr "Прикажи поруку..."
+
+#: specialnotifierjob.cpp:163
+#, kde-format
+msgid "Mark As Read"
+msgstr ""
+
+#: specialnotifierjob.cpp:163
+#, kde-format
+msgid "Delete"
+msgstr ""

@@ -1,0 +1,7 @@
+File=settings.kcfg
+ClassName=SettingsBase
+Mutators=true
+ItemAccessors=true
+Singleton=false
+IncludeFiles=metatype.h
+GlobalEnums=true

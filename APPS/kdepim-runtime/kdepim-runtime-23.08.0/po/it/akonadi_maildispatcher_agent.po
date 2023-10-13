@@ -1,0 +1,184 @@
+# translation of akonadi_maildispatcher_agent.po to Italian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the akonadi_maildispatcher_agent package.
+#
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2009, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_maildispatcher_agent\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-04 00:48+0000\n"
+"PO-Revision-Date: 2012-12-08 01:23+0100\n"
+"Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: maildispatcheragent.cpp:84 maildispatcheragent.cpp:233
+#, kde-format
+msgid "Sending messages (1 item in queue)..."
+msgid_plural "Sending messages (%1 items in queue)..."
+msgstr[0] "Invio messaggi (un elemento in coda)..."
+msgstr[1] "Invio messaggi (%1 elementi in coda)..."
+
+#: maildispatcheragent.cpp:94
+#, kde-format
+msgid "Sending canceled."
+msgstr "Invio annullato."
+
+#: maildispatcheragent.cpp:101
+#, kde-format
+msgid "Finished sending messages."
+msgstr "Invio dei messaggi completato."
+
+#: maildispatcheragent.cpp:107
+#, kde-format
+msgctxt "Notification title when email was sent"
+msgid "E-Mail Successfully Sent"
+msgstr "Messaggio di posta inviato con successo"
+
+#: maildispatcheragent.cpp:108
+#, kde-format
+msgctxt "Notification when the email was sent"
+msgid "Your E-Mail has been sent successfully."
+msgstr "Il tuo messaggio di posta è stato inviato correttamente."
+
+#: maildispatcheragent.cpp:114
+#, kde-format
+msgid "No items in queue."
+msgstr "Nessun elemento nella coda."
+
+#: maildispatcheragent.cpp:164
+#, kde-format
+msgid "Online, sending messages in queue."
+msgstr "In linea, invio dei messaggi in coda."
+
+#: maildispatcheragent.cpp:168
+#, kde-format
+msgid "Offline, message sending suspended."
+msgstr "Fuori linea, invio dei messaggi sospeso."
+
+#: maildispatcheragent.cpp:193
+#, kde-format
+msgctxt "Message with given subject is being sent."
+msgid "Sending: %1"
+msgstr "Invio di: %1"
+
+#: maildispatcheragent.cpp:258
+#, kde-format
+msgctxt "Notification title when email sending failed"
+msgid "E-Mail Sending Failed"
+msgstr "Invio del messaggio di posta non riuscito"
+
+#: maildispatcheragent.cpp:291
+#, kde-format
+msgid "Ready to dispatch messages."
+msgstr "Pronto per la consegna dei messaggi."
+
+#. i18n: ectx: label, entry (Outbox), group (General)
+#: maildispatcheragent.kcfg:10
+#, kde-format
+msgid "Outbox collection id"
+msgstr "Id collezione posta in uscita"
+
+#. i18n: ectx: label, entry (SentMail), group (General)
+#: maildispatcheragent.kcfg:14
+#, kde-format
+msgid "Sent Mail collection id"
+msgstr "Id collezione posta inviata"
+
+#: outboxqueue.cpp:265
+#, kde-format
+msgid "Could not access the outbox folder (%1)."
+msgstr "Impossibile accedere alla cartella della posta in uscita (%1)."
+
+#: sendjob.cpp:49 sendjob.cpp:50
+#, kde-format
+msgid "Message sending aborted."
+msgstr "L'invio del messaggio è stato interrotto."
+
+#: sendjob.cpp:59
+#, kde-format
+msgid "Could not initiate message transport. Possibly invalid transport."
+msgstr ""
+"Impossibile inizializzare il trasporto per il messaggio. Probabilmente il "
+"trasporto non è valido."
+
+#: sendjob.cpp:65
+#, kde-format
+msgid "Could not send message. Invalid transport."
+msgstr "Impossibile inviare il messaggio. Trasporto non valido."
+
+#: sendjob.cpp:97
+#, kde-format
+msgid "Failed to get D-Bus interface of resource %1."
+msgstr "Impossibile recuperare l'interfaccia D-Bus della risorsa %1."
+
+#: sendjob.cpp:110
+#, kde-format
+msgid "Invalid D-Bus reply from resource %1."
+msgstr "Risposta D-Bus non valida dalla risorsa %1."
+
+#: sendjob.cpp:228
+#, kde-format
+msgid "Default sent-mail folder unavailable. Keeping message in outbox."
+msgstr ""
+"La cartella predefinita per la posta inviata non è disponibile. Il messaggio "
+"rimane nella posta in uscita."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Message transport aborted."
+msgstr "Il trasporto del messaggio è stato interrotto."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Failed to transport message."
+msgstr "Trasporto del messaggio non riuscito."
+
+#: sendjob.cpp:282
+#, kde-format
+msgid "Failed to get D-Bus interface of mailfilteragent."
+msgstr "Impossibile recuperare l'interfaccia D-Bus del mailfilteragent."
+
+#: sendjob.cpp:289
+#, kde-format
+msgid "Invalid D-Bus reply from mailfilteragent"
+msgstr "Risposta D-Bus non valida dal mailfilteragent"
+
+#: sendjob.cpp:331
+#, kde-format
+msgid "Sending succeeded, but failed to remove the message from the outbox."
+msgstr ""
+"Invio riuscito, ma la rimozione del messaggio dalla cartella di posta in "
+"uscita non è andata a buon fine."
+
+#: sendjob.cpp:334
+#, kde-format
+msgid ""
+"Sending succeeded, but failed to move the message to the sent-mail folder."
+msgstr ""
+"Invio riuscito, ma lo spostamento del messaggio nella cartella della posta "
+"inviata non è andato a buon fine."
+
+#: sendjob.cpp:370
+#, kde-format
+msgid "Failed to store result in item."
+msgstr "Salvataggio non riuscito dei risultati nell'elemento."
+
+#: storeresultjob.cpp:59
+#, kde-format
+msgid "Failed to fetch item."
+msgstr "Recupero non riuscito dell'elemento."
+
+#~ msgid "Mail Dispatcher Agent Settings"
+#~ msgstr "Impostazioni dell'agente per la consegna della posta"
+
+#~ msgid "Select the collection to be used as outbox:"
+#~ msgstr "Seleziona la collezione da usare come posta in uscita:"
+
+#~ msgid "Select the collection to move sent messages into:"
+#~ msgstr "Seleziona la collezione in cui spostare i messaggi inviati:"

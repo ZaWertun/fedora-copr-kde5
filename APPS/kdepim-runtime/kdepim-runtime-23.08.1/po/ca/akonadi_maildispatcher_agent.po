@@ -1,0 +1,181 @@
+# Translation of akonadi_maildispatcher_agent.po to Catalan
+# Copyright (C) 2009-2022 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Manuel Tortosa Moreno <manutortosa@chakra-project.org>, 2009, 2010.
+# Manuel Tortosa <manutortosa@chakra-project.org>, 2010.
+# Josep M. Ferrer <txemaq@gmail.com>, 2011, 2012, 2015, 2021.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2014, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-04 00:48+0000\n"
+"PO-Revision-Date: 2022-09-23 13:24+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Generator: Lokalize 22.08.1\n"
+
+#: maildispatcheragent.cpp:84 maildispatcheragent.cpp:233
+#, kde-format
+msgid "Sending messages (1 item in queue)..."
+msgid_plural "Sending messages (%1 items in queue)..."
+msgstr[0] "S'està enviant el missatge (1 element a la cua)..."
+msgstr[1] "S'estan enviant els missatges (%1 elements a la cua)..."
+
+#: maildispatcheragent.cpp:94
+#, kde-format
+msgid "Sending canceled."
+msgstr "S'ha cancel·lat l'enviament."
+
+#: maildispatcheragent.cpp:101
+#, kde-format
+msgid "Finished sending messages."
+msgstr "S'ha finalitzat d'enviar els missatges."
+
+#: maildispatcheragent.cpp:107
+#, kde-format
+msgctxt "Notification title when email was sent"
+msgid "E-Mail Successfully Sent"
+msgstr "Correu electrònic enviat correctament"
+
+#: maildispatcheragent.cpp:108
+#, kde-format
+msgctxt "Notification when the email was sent"
+msgid "Your E-Mail has been sent successfully."
+msgstr "El correu s'ha enviat correctament."
+
+#: maildispatcheragent.cpp:114
+#, kde-format
+msgid "No items in queue."
+msgstr "No hi ha elements a la cua."
+
+#: maildispatcheragent.cpp:164
+#, kde-format
+msgid "Online, sending messages in queue."
+msgstr "Connectat, s'estan enviant els missatges que es troben a la cua."
+
+#: maildispatcheragent.cpp:168
+#, kde-format
+msgid "Offline, message sending suspended."
+msgstr "Desconnectat, s'ha suspès l'enviament dels missatges."
+
+#: maildispatcheragent.cpp:193
+#, kde-format
+msgctxt "Message with given subject is being sent."
+msgid "Sending: %1"
+msgstr "S'està enviant: %1"
+
+#: maildispatcheragent.cpp:258
+#, kde-format
+msgctxt "Notification title when email sending failed"
+msgid "E-Mail Sending Failed"
+msgstr "Ha fallat en enviar el correu electrònic"
+
+#: maildispatcheragent.cpp:291
+#, kde-format
+msgid "Ready to dispatch messages."
+msgstr "Preparat per a despatxar els missatges."
+
+#. i18n: ectx: label, entry (Outbox), group (General)
+#: maildispatcheragent.kcfg:10
+#, kde-format
+msgid "Outbox collection id"
+msgstr "ID de la col·lecció de la safata de sortida"
+
+#. i18n: ectx: label, entry (SentMail), group (General)
+#: maildispatcheragent.kcfg:14
+#, kde-format
+msgid "Sent Mail collection id"
+msgstr "ID de la col·lecció de correu enviat"
+
+#: outboxqueue.cpp:265
+#, kde-format
+msgid "Could not access the outbox folder (%1)."
+msgstr "No s'ha pogut accedir a la carpeta de la safata de sortida (%1)."
+
+#: sendjob.cpp:49 sendjob.cpp:50
+#, kde-format
+msgid "Message sending aborted."
+msgstr "S'ha interromput l'enviament del correu."
+
+#: sendjob.cpp:59
+#, kde-format
+msgid "Could not initiate message transport. Possibly invalid transport."
+msgstr ""
+"No s'ha pogut iniciar el transport del missatge. Possiblement el transport "
+"no és vàlid."
+
+#: sendjob.cpp:65
+#, kde-format
+msgid "Could not send message. Invalid transport."
+msgstr "No s'ha pogut enviar el missatge. El transport no és vàlid."
+
+#: sendjob.cpp:97
+#, kde-format
+msgid "Failed to get D-Bus interface of resource %1."
+msgstr "Ha fallat en obtenir la interfície de D-Bus del recurs %1."
+
+#: sendjob.cpp:110
+#, kde-format
+msgid "Invalid D-Bus reply from resource %1."
+msgstr "Resposta no vàlida de D-Bus des del recurs %1."
+
+#: sendjob.cpp:228
+#, kde-format
+msgid "Default sent-mail folder unavailable. Keeping message in outbox."
+msgstr ""
+"Carpeta de correu sortint no disponible. El missatge es mantindrà a la "
+"safata de sortida."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Message transport aborted."
+msgstr "S'ha interromput el transport del missatge."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Failed to transport message."
+msgstr "Ha fallat en transportar el missatge."
+
+#: sendjob.cpp:282
+#, kde-format
+msgid "Failed to get D-Bus interface of mailfilteragent."
+msgstr "Ha fallat en obtenir la interfície de D-Bus del «mailfilteragent»."
+
+#: sendjob.cpp:289
+#, kde-format
+msgid "Invalid D-Bus reply from mailfilteragent"
+msgstr "Resposta no vàlida de D-Bus des del «mailfilteragent»"
+
+#: sendjob.cpp:331
+#, kde-format
+msgid "Sending succeeded, but failed to remove the message from the outbox."
+msgstr ""
+"S'ha enviat correctament, però ha fallat en eliminar el missatge de la "
+"safata de sortida."
+
+#: sendjob.cpp:334
+#, kde-format
+msgid ""
+"Sending succeeded, but failed to move the message to the sent-mail folder."
+msgstr ""
+"S'ha enviat correctament, però ha fallat en moure el missatge a la safata de "
+"correu enviat."
+
+#: sendjob.cpp:370
+#, kde-format
+msgid "Failed to store result in item."
+msgstr "Ha fallat en emmagatzemar el resultat en l'element."
+
+#: storeresultjob.cpp:59
+#, kde-format
+msgid "Failed to fetch item."
+msgstr "Ha fallat en recuperar l'element."

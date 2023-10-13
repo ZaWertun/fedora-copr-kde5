@@ -1,0 +1,767 @@
+# Translation of akonadi_davgroupware_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2013, 2014, 2015, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_davgroupware_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-04-20 03:38+0200\n"
+"PO-Revision-Date: 2017-01-22 23:51+0100\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavianlatin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+# >> @title:column
+#: configdialog.cpp:57
+#, kde-format
+msgid "Protocol"
+msgstr "protokol"
+
+# >> @title:column
+#: configdialog.cpp:57 urlconfigurationdialog.cpp:273
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+# >> @item
+#: configdialog.cpp:70
+#, kde-format
+msgid "Days"
+msgstr "dani"
+
+# >> @item
+#: configdialog.cpp:71
+#, kde-format
+msgid "Months"
+msgstr "meseci"
+
+# >> @item
+#: configdialog.cpp:72
+#, kde-format
+msgid "Years"
+msgstr "godine"
+
+#: configdialog.cpp:147
+#, kde-format
+msgid ""
+"Another configuration entry already uses the same URL/protocol couple.\n"
+"Please use a different URL"
+msgstr ""
+"Neki unos postave već koristi isti par URL—protokol.\n"
+"Zadajte drugi URL."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: configdialog.ui:32
+#, kde-format
+msgid "General Configuration"
+msgstr "Opšte podešavanje"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configdialog.ui:43
+#, kde-format
+msgid "Display name:"
+msgstr "Prikazno ime:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configdialog.ui:56
+#, kde-format
+msgid "Refresh every:"
+msgstr "Osvježi svakih:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_refreshInterval)
+#: configdialog.ui:68
+#, kde-format
+msgid "Never"
+msgstr "nikad"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configdialog.ui:81
+#, kde-format
+msgid "minutes"
+msgstr "minuta"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configdialog.ui:106
+#, kde-format
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configdialog.ui:140 setupwizard.cpp:232
+#, kde-format
+msgid "Password:"
+msgstr "Lozinka:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: configdialog.ui:176
+#, kde-format
+msgid "Server Configuration"
+msgstr "Podešavanje servera"
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: configdialog.ui:189
+#, kde-format
+msgid "Add"
+msgstr "Dodaj"
+
+#. i18n: ectx: property (text), widget (QPushButton, searchButton)
+#: configdialog.ui:196 searchdialog.ui:151
+#, kde-format
+msgid "Search"
+msgstr "Traži"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: configdialog.ui:203
+#, kde-format
+msgid "Remove"
+msgstr "Ukloni"
+
+#. i18n: ectx: property (text), widget (QPushButton, editButton)
+#: configdialog.ui:210
+#, kde-format
+msgid "Edit"
+msgstr "Uredi"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: configdialog.ui:237
+#, kde-format
+msgid "Synchronization"
+msgstr "Sinhronizacija"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:243
+#, kde-format
+msgid ""
+"Select this if your calendars contain a lot of events and the server cannot "
+"fulfill the requests"
+msgstr ""
+"Izaberite ovo ako vam kalendari sadrže mnogo događaja i server ne može da "
+"ispuni zahteve."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:249
+#, kde-format
+msgid "Limit CalDav retrieval time range"
+msgstr "Ograniči vremenski opseg CalDAV dobavljanja"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:264
+#, kde-format
+msgid "Only sync events more recent than"
+msgstr "Sinhronizuj samo događaje novije od"
+
+#: daverror-kdepim-runtime.cpp:38
+#, kde-format
+msgid "Invalid username/password"
+msgstr "Loše korisničko ime ili lozinka"
+
+#: daverror-kdepim-runtime.cpp:40
+#, kde-format
+msgid "Access forbidden"
+msgstr "Pristup zabranjen"
+
+#: daverror-kdepim-runtime.cpp:42
+#, kde-format
+msgid "Resource not found"
+msgstr "Resurs nije nađen"
+
+#: daverror-kdepim-runtime.cpp:44
+#, kde-format
+msgid "HTTP error"
+msgstr "HTTP greška"
+
+#: daverror-kdepim-runtime.cpp:46
+#, kde-format
+msgid ""
+"There was a problem with the request.\n"
+"%1 (%2)."
+msgstr ""
+"Došlo je do problema sa zahtevom.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:50
+#, kde-format
+msgid "Protocol for the collection does not support MULTIGET"
+msgstr "Protokol za zbirke ne podržava MULTIGET."
+
+#: daverror-kdepim-runtime.cpp:53
+#, kde-format
+msgid ""
+"The server encountered an error that prevented it from completing your "
+"request: %1 (%2)"
+msgstr ""
+"Server je naišao na grešku koja ga je sprečila da dovrši vaš zahtev: %1 (%2)"
+
+#: daverror-kdepim-runtime.cpp:56
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been deleted "
+"from the server.\n"
+"%1 (%2)."
+msgstr ""
+"Došlo je do problema sa zahtevom. Zbirka nije obrisana sa servera.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:60
+#, kde-format
+msgid "Invalid responses from backend"
+msgstr "Neispravni odgovori iz pozadine."
+
+#: daverror-kdepim-runtime.cpp:63
+#, kde-format
+msgid "Error setting focus for XQuery"
+msgstr "Greška u postavljanju fokusa za XQuery."
+
+#: daverror-kdepim-runtime.cpp:66
+#, kde-format
+msgid "Invalid XQuery submitted by DAV implementation"
+msgstr "Izvedba DAV‑a predala je loš XQuery."
+
+#: daverror-kdepim-runtime.cpp:69
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been modified "
+"on the server.\n"
+"%1 (%2)."
+msgstr ""
+"Došlo je do problema sa zahtevom. Zbirka nije izmenjena na serveru.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:73
+#, kde-format
+msgid "No properties to change or remove"
+msgstr "Nema svojstava za menjanje ili uklanjanje."
+
+#: daverror-kdepim-runtime.cpp:76
+#, kde-format
+msgid "There was an error when modifying the properties"
+msgstr "Greška pri menjanju svojstava."
+
+#: daverror-kdepim-runtime.cpp:78
+#, kde-format
+msgid ""
+"\n"
+"The server returned more information:\n"
+"%1"
+msgstr ""
+"\n"
+"Server je vratio još podataka:\n"
+"%1"
+
+#: daverror-kdepim-runtime.cpp:82
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been created on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Došlo je do problema sa zahtevom. Stavka nije stvorena na serveru.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:86
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been deleted from the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Došlo je do problema sa zahtevom. Stavka nije obrisana sa servera.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:90
+#, kde-format
+msgid ""
+"There was a problem with the request. The item was not modified on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Došlo je do problema sa zahtevom, stavka nije izmenjena na serveru.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:95
+#, kde-format
+msgid "There was a problem with the request."
+msgstr "Došlo je do problema sa zahtevom."
+
+#: daverror-kdepim-runtime.cpp:99
+#, kde-format
+msgid ""
+"There was a problem with the request. The requested MIME types are not "
+"supported."
+msgstr "Došlo je do problema sa zahtevom. Traženi MIME tipovi nisu podržani."
+
+#: davfreebusyhandler.cpp:71
+#, kde-format
+msgid "No schedule-outbox found for %1"
+msgstr "Nije nađeno nijedno otpremno sanduče rasporeda za %1."
+
+#: davfreebusyhandler.cpp:199 davfreebusyhandler.cpp:210
+#, kde-format
+msgid "Invalid response from the server"
+msgstr "Loš odgovor sa servera."
+
+#: davfreebusyhandler.cpp:221
+#, kde-format
+msgid "Unable to parse free-busy data received"
+msgstr "Ne mogu da raščlanim primljene podatke slobodnog-zauzetog."
+
+#: davgroupwareresource.cpp:177
+#, kde-format
+msgid "Unable to retrieve free-busy info while offline"
+msgstr "Ne mogu da dobavim podatke slobodnog-zauzetog van veze."
+
+#: davgroupwareresource.cpp:260
+#, kde-format
+msgid "Fetching collections"
+msgstr "Dobavljam zbirke"
+
+#: davgroupwareresource.cpp:328
+#, kde-format
+msgid "Asked to retrieve items for an unknown collection: %1"
+msgstr "Zatraženo je dobavljanje stavki iz nepoznate zbirke: %1"
+
+#: davgroupwareresource.cpp:386
+#, kde-format
+msgid "Invalid collection for item %1."
+msgstr "Loša zbirka za stavku %1."
+
+#: davgroupwareresource.cpp:625
+#, fuzzy, kde-format
+#| msgid "Unable to remove collection: %1"
+msgid "Unable to modify collection: %1"
+msgstr "Ne mogu da uklonim zbirku: %1"
+
+#: davgroupwareresource.cpp:695
+#, kde-format
+msgid "Unable to remove collection: %1"
+msgstr "Ne mogu da uklonim zbirku: %1"
+
+#: davgroupwareresource.cpp:715
+#, kde-format
+msgid "Unable to retrieve collections: %1"
+msgstr "Ne mogu da dobavim zbirke: %1"
+
+#: davgroupwareresource.cpp:847 davgroupwareresource.cpp:944
+#, kde-format
+msgid "Unable to retrieve items: %1"
+msgstr "Ne mogu da dobavim stavke: %1"
+
+#: davgroupwareresource.cpp:1024
+#, kde-format
+msgid "Unable to retrieve item: %1"
+msgstr "Ne mogu da dobavim stavku: %1"
+
+#: davgroupwareresource.cpp:1044
+#, kde-format
+msgid ""
+"Unable to retrieve item: failed to parse item data. Maybe it was deleted "
+"already."
+msgstr ""
+
+#: davgroupwareresource.cpp:1081
+#, kde-format
+msgid "Unable to add item: %1"
+msgstr "Ne mogu da dodam stavku: %1"
+
+#: davgroupwareresource.cpp:1125 davgroupwareresource.cpp:1238
+#: davgroupwareresource.cpp:1250
+#, kde-format
+msgid "Unable to change item: %1"
+msgstr "Ne mogu da izmenim stavku: %1"
+
+#: davgroupwareresource.cpp:1212 davgroupwareresource.cpp:1269
+#, kde-format
+msgid "Unable to remove item: %1"
+msgstr "Ne mogu da uklonim stavku: %1"
+
+#: davgroupwareresource.cpp:1356 davgroupwareresource.cpp:1357
+#, kde-format
+msgid "The resource is not configured yet"
+msgstr "Resurs još uvijek nije podešen."
+
+#. i18n: ectx: label, entry (settingsVersion), group (General)
+#: davgroupwareresource.kcfg:10
+#, kde-format
+msgid "Settings Version"
+msgstr "Verzija postavki"
+
+# ! Contexts.
+# >> @title:column
+#. i18n: ectx: label, entry (displayName), group (General)
+#: davgroupwareresource.kcfg:14
+#, kde-format
+msgid "Display name"
+msgstr "Prikazno ime"
+
+#. i18n: ectx: label, entry (refreshInterval), group (General)
+#: davgroupwareresource.kcfg:18
+#, kde-format
+msgid "Refresh every"
+msgstr "Osvježi svakih"
+
+#. i18n: ectx: label, entry (remoteUrls), group (General)
+#: davgroupwareresource.kcfg:22
+#, kde-format
+msgid "Remote URLs"
+msgstr "Udaljeni URL‑ovi"
+
+#. i18n: ectx: label, entry (defaultUsername), group (General)
+#: davgroupwareresource.kcfg:26
+#, kde-format
+msgid "User name"
+msgstr "Korisničko ime"
+
+#. i18n: ectx: label, entry (limitSyncRange), group (General)
+#: davgroupwareresource.kcfg:30
+#, kde-format
+msgid "Limit the events retrieval to the specified time range"
+msgstr "Ograniči dobavljanje događaja na zadati vremenski opseg"
+
+#. i18n: ectx: label, entry (syncRangeStartNumber), group (General)
+#: davgroupwareresource.kcfg:34
+#, kde-format
+msgid "Period for which to retrieve events, quantity"
+msgstr "Period za koji treba dobaviti događaje, količina"
+
+#. i18n: ectx: label, entry (syncRangeStartType), group (General)
+#: davgroupwareresource.kcfg:38
+#, kde-format
+msgid "Period for which to retrieve events, type"
+msgstr "Period za koji treba dobaviti događaje, tip"
+
+#. i18n: ectx: label, entry (collectionsUrlsMappings), group (General)
+#: davgroupwareresource.kcfg:42
+#, kde-format
+msgid ""
+"String representation of the mappings between discovered collections and "
+"configured URLs"
+msgstr ""
+"Predstava u vidu niske mapiranja između otkrivenih zbirki i podešenih "
+"URL‑ova."
+
+#. i18n: ectx: label, entry (readOnly), group (General)
+#: davgroupwareresource.kcfg:46
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ne mijenjaj zaista pozadinske podatke."
+
+#. i18n: ectx: label, entry (AccountId), group (General)
+#: davgroupwareresource.kcfg:50
+#, kde-format
+msgid "The account id in WebAccounts framework."
+msgstr "ID naloga u radnom okviru Veb‑nalozi."
+
+#. i18n: ectx: label, entry (AccountServices), group (General)
+#: davgroupwareresource.kcfg:53
+#, kde-format
+msgid "Account enabled services"
+msgstr "Servisi aktivni za nalog"
+
+#: searchdialog.cpp:39
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@title:window"
+msgid "Search"
+msgstr "Traži"
+
+#: searchdialog.cpp:54
+#, kde-format
+msgid "Add Selected Items"
+msgstr "Dodaj izabrane stavke"
+
+#: searchdialog.cpp:141 searchdialog.cpp:184
+#, kde-format
+msgid ""
+"An error occurred when executing search:\n"
+"%1"
+msgstr ""
+"Greška pri izvršavanju pretrage:\n"
+"%1"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useDefaultCreds)
+#: searchdialog.ui:32 urlconfigurationdialog.ui:89
+#, kde-format
+msgid "Use global creden&tials"
+msgstr "Koristi globalne &akreditive"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useSpecificCreds)
+#: searchdialog.ui:42 urlconfigurationdialog.ui:99
+#, kde-format
+msgid "Use specific credentials"
+msgstr "Koristi posebne akreditive"
+
+#. i18n: ectx: property (title), widget (QGroupBox, credentialsGroup)
+#: searchdialog.ui:49 urlconfigurationdialog.ui:106
+#, kde-format
+msgid "Credentials"
+msgstr "Akreditivi"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: searchdialog.ui:61 urlconfigurationdialog.ui:118
+#, kde-format
+msgid "Username"
+msgstr "Korisničko ime"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: searchdialog.ui:77 urlconfigurationdialog.ui:134
+#, kde-format
+msgid "Password"
+msgstr "Lozinka"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: searchdialog.ui:96
+#, kde-format
+msgid "Search URL"
+msgstr "URL pretrage"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: searchdialog.ui:106
+#, kde-format
+msgid "Search for"
+msgstr "Potraži"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:116
+#, kde-format
+msgid "a person named"
+msgstr "osobu po imenu"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:121
+#, kde-format
+msgid "a contact with email"
+msgstr "kontakt sa e‑poštom"
+
+#: settings.cpp:497
+#, kde-format
+msgid "A password is required for user %1"
+msgstr "Potrebna je lozinka za korisnika %1"
+
+#: settings.cpp:503
+#, kde-format
+msgid "Password: "
+msgstr "Lozinka:"
+
+#: setupwizard.cpp:151
+#, fuzzy, kde-format
+#| msgid "DAV groupware configuration wizard"
+msgctxt "@title:window"
+msgid "DAV groupware configuration wizard"
+msgstr "Čarobnjak za podešavanje DAV grupvera"
+
+#: setupwizard.cpp:222
+#, kde-format
+msgid "Login Credentials"
+msgstr "Prijavni akreditivi"
+
+#: setupwizard.cpp:223
+#, kde-format
+msgid "Enter your credentials to login to the groupware server"
+msgstr "Unesite svoje akreditive za prijavljivanje na grupverski server"
+
+#: setupwizard.cpp:228
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User:"
+msgstr "Korisnik"
+
+#: setupwizard.cpp:262
+#, kde-format
+msgid "Predefined provider found"
+msgstr "Nađen predefinisani provajder"
+
+#: setupwizard.cpp:263
+#, kde-format
+msgid "Select if you want to use the auto-detected provider"
+msgstr ""
+"Izaberite ovo ako želite da koristite automatski otkrivenog provajdera."
+
+#: setupwizard.cpp:278
+#, kde-format
+msgid "No, choose another server"
+msgstr "Ne, izabraću drugi server"
+
+# >> %1 provider name
+#: setupwizard.cpp:285
+#, kde-format
+msgid ""
+"Based on the email address you used as a login, this wizard\n"
+"can configure automatically an account for %1 services.\n"
+"Do you wish to do so?"
+msgstr ""
+"Na osnovu adrese e‑pošte kojom ste se prijavili, ovaj čarobnjak\n"
+"može da podesi automatski nalog za servise sa %1.\n"
+"Želite li da se tako uradi?"
+
+#: setupwizard.cpp:289
+#, kde-format
+msgid "Yes, use %1 as provider"
+msgstr "Da, koristi %1 kao provajdera"
+
+#: setupwizard.cpp:315
+#, kde-format
+msgid "Groupware Server"
+msgstr "Grupverski server"
+
+#: setupwizard.cpp:316
+#, kde-format
+msgid "Select the groupware server the resource shall be configured for"
+msgstr "Izaberite grupverski server za koji treba podesiti resurs."
+
+#: setupwizard.cpp:341
+#, kde-format
+msgid "Use one of those servers:"
+msgstr "Koristi jedan od ovih servera:"
+
+#: setupwizard.cpp:350
+#, kde-format
+msgid "Configure the resource manually"
+msgstr "Podesi resurs ručno"
+
+#: setupwizard.cpp:388
+#, kde-format
+msgid "Connection"
+msgstr "Povezivanje"
+
+#: setupwizard.cpp:389
+#, kde-format
+msgid "Enter the connection information for the groupware server"
+msgstr "Unesite podatke za povezivanje na grupverski server"
+
+#: setupwizard.cpp:396
+#, kde-format
+msgid "Host"
+msgstr "Domaćin"
+
+#: setupwizard.cpp:399
+#, kde-format
+msgid "Installation path"
+msgstr "Instalaciona putanja"
+
+#: setupwizard.cpp:402
+#, kde-format
+msgid "Use secure connection"
+msgstr "Bezbedno povezivanje"
+
+#: setupwizard.cpp:430
+#, kde-format
+msgid "Final URL (CalDav)"
+msgstr "Krajnji URL (CalDAV)"
+
+#: setupwizard.cpp:435
+#, kde-format
+msgid "Final URL (CardDav)"
+msgstr "Krajnji URL (CardDAV)"
+
+#: setupwizard.cpp:440
+#, kde-format
+msgid "Final URL (GroupDav)"
+msgstr "Krajnji URL (GroupDAV)"
+
+# >! Contexts.
+# >> @title:window
+#: setupwizard.cpp:503 setupwizard.cpp:509
+#, kde-format
+msgid "Test Connection"
+msgstr "Isprobaj vezu"
+
+#: setupwizard.cpp:504
+#, kde-format
+msgid ""
+"You can test now whether the groupware server can be accessed with the "
+"current configuration"
+msgstr ""
+"Sada možete isprobati da li je moguće pristupiti grupverskom serveru sa "
+"trenutnom postavom."
+
+#: setupwizard.cpp:550
+#, kde-format
+msgid "An error occurred: %1"
+msgstr "Došlo je do greške: %1"
+
+#: setupwizard.cpp:553
+#, kde-format
+msgid "Connected successfully"
+msgstr "Uspešno povezivanje"
+
+# ! Contexts.
+# >> @title:column
+#: urlconfigurationdialog.cpp:273
+#, fuzzy, kde-format
+#| msgid "Display name"
+msgid "Display Name"
+msgstr "Prikazno ime"
+
+#. i18n: ectx: property (title), widget (QGroupBox, remoteProtocol)
+#: urlconfigurationdialog.ui:41
+#, kde-format
+msgid "Remote calendar access protocol"
+msgstr "Protokol pristupa udaljenom kalendaru"
+
+#. i18n: ectx: property (text), widget (QRadioButton, caldav)
+#: urlconfigurationdialog.ui:50
+#, kde-format
+msgid "CalDA&V"
+msgstr "&CalDAV"
+
+#. i18n: ectx: property (text), widget (QRadioButton, carddav)
+#: urlconfigurationdialog.ui:60
+#, kde-format
+msgid "CardDAV"
+msgstr "CardDAV"
+
+#. i18n: ectx: property (text), widget (QRadioButton, groupdav)
+#: urlconfigurationdialog.ui:67
+#, kde-format
+msgid "GroupDAV"
+msgstr "GroupDAV"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: urlconfigurationdialog.ui:80
+#, kde-format
+msgid "Remote calendar access"
+msgstr "Pristup udaljenom kalendaru"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: urlconfigurationdialog.ui:148
+#, fuzzy, kde-format
+#| msgid "Remote URL"
+msgid "Remote URL:"
+msgstr "Udaljeni URL"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: urlconfigurationdialog.ui:161
+#, kde-format
+msgid "Discovered collections"
+msgstr "Otkrivene zbirke"
+
+#. i18n: ectx: property (text), widget (QPushButton, fetchButton)
+#: urlconfigurationdialog.ui:182
+#, kde-format
+msgid "Fetch"
+msgstr "Dobavi"
+
+# >> @item protocol name
+#: utils.cpp:60 utils.cpp:77
+#, kde-format
+msgid "CalDav"
+msgstr "CalDAV"
+
+# >> @item protocol name
+#: utils.cpp:63 utils.cpp:79
+#, kde-format
+msgid "CardDav"
+msgstr "CardDAV"
+
+# >> @item protocol name
+#: utils.cpp:66 utils.cpp:81
+#, kde-format
+msgid "GroupDav"
+msgstr "GroupDAV"

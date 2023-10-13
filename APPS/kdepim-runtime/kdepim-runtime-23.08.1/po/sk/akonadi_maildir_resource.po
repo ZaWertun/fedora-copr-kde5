@@ -1,0 +1,226 @@
+# translation of akonadi_maildir_resource.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2013, 2014, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_maildir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-02 00:55+0000\n"
+"PO-Revision-Date: 2015-10-11 13:01+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: configwidget.cpp:30
+#, kde-format
+msgid "Archive Folder"
+msgstr "Archivovať priečinok"
+
+#: configwidget.cpp:45
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Vybraná cesta je prázdna."
+
+#: configwidget.cpp:58
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Vybraná cesta obsahuje platné Maildir priečinky."
+
+#: configwidget.cpp:65
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Vybraná cesta je platný poštový adresár."
+
+#: configwidget.cpp:71
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "Vybraná cesta ešte neexistuje, nový Maildir bude vytvorený."
+
+#: configwidget.cpp:75
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Vybraná cesta neexistuje."
+
+#: libmaildir/maildir.cpp:214 libmaildir/maildir.cpp:219
+#, kde-format
+msgid "Error opening %1; this folder is missing."
+msgstr "Chyba otvárania %1; tento priečinok chýba."
+
+#: libmaildir/maildir.cpp:225
+#, kde-format
+msgid ""
+"Error opening %1; either this is not a valid maildir folder, or you do not "
+"have sufficient access permissions."
+msgstr ""
+"Chyba otvorenia %1; buď to nie je platný poštový priečinok, alebo nemáte "
+"dostatočné práva na prístup."
+
+#: libmaildir/maildir.cpp:452 libmaildir/maildir.cpp:474
+#: libmaildir/maildir.cpp:492 libmaildir/maildir.cpp:512
+#: libmaildir/maildir.cpp:531 libmaildir/maildir.cpp:555
+#: libmaildir/maildir.cpp:630 libmaildir/maildir.cpp:780
+#, kde-format
+msgid "Cannot locate mail file %1."
+msgstr "Nemôžem lokalizovať súbor mailu %1."
+
+#: libmaildir/maildir.cpp:458 libmaildir/maildir.cpp:480
+#, kde-format
+msgid "Cannot open mail file %1."
+msgstr "Nemôžem otvoriť súbor mailu %1."
+
+#: libmaildir/maildir.cpp:563 libmaildir/maildir.cpp:590
+#, kde-format
+msgid "Cannot write to mail file %1."
+msgstr "Nemôžem zapisovať do súboru mailu %1."
+
+#: libmaildir/maildir.cpp:604
+#, kde-format
+msgid "Failed to create mail file %1. The error was: %2"
+msgstr "Zlyhalo vytvorenie súboru mailu %1. Chyba bola: %2"
+
+#: libmaildir/maildir.cpp:698
+#, kde-format
+msgid "Failed to update the file name %1 to %2 on the disk. The error was: %3."
+msgstr "Zlyhala aktualizácia názvu súboru %1 na %2 na disku. Chyba bola: %3."
+
+#: maildirresource.cpp:122 maildirresource.cpp:254 maildirresource.cpp:293
+#: maildirresource.cpp:387 maildirresource.cpp:428 maildirresource.cpp:548
+#: maildirresource.cpp:578 maildirresource.cpp:621 maildirresource.cpp:654
+#, kde-format
+msgid "Unusable configuration."
+msgstr "Nepoužiteľná konfigurácia."
+
+#: maildirresource.cpp:187
+#, kde-format
+msgid "Unable to fetch item: The maildir folder \"%1\" is not valid."
+msgstr "Nemôžem stiahnuť položku: Priečinok maildir \"%1\" nie je platný."
+
+#: maildirresource.cpp:265
+#, kde-format
+msgid "Error: Unsupported type."
+msgstr "Chyba: Nepodporovaný typ."
+
+#: maildirresource.cpp:331
+#, kde-format
+msgid "Failed to change the flags for the mail. %1"
+msgstr "Zlyhala zmena príznakov pre mail. %1"
+
+#: maildirresource.cpp:366
+#, kde-format
+msgid "Maildir resource got a non-mail content."
+msgstr "Zdroj Maildir dostal nemailový obsah."
+
+#: maildirresource.cpp:393
+#, kde-format
+msgid "Source folder is invalid: '%1'."
+msgstr "Zdrojový priečinok je neplatný: '%1'."
+
+#: maildirresource.cpp:399
+#, kde-format
+msgid "Destination folder is invalid: '%1'."
+msgstr "Cieľový priečinok je neplatný: '%1'."
+
+#: maildirresource.cpp:416
+#, kde-format
+msgid "Could not move message '%1' from '%2' to '%3'. The error was %4."
+msgstr "Nie je možné presunúť správu '%1' z '%2' do '%3'. Chyba bola %4."
+
+#: maildirresource.cpp:438
+#, kde-format
+msgid "Failed to delete message: %1"
+msgstr "Zlyhalo vymazanie správy: %1"
+
+#: maildirresource.cpp:527
+#, kde-format
+msgid "Maildir '%1' for collection '%2' is invalid."
+msgstr "Maildir '%1' pre kolekciu '%2' je neplatný."
+
+#: maildirresource.cpp:606
+#, kde-format
+msgid "Unable to rename maildir folder '%1'."
+msgstr "Nie je možné premenovať priečinok maildir '%1'."
+
+#: maildirresource.cpp:627
+#, kde-format
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Nemôžem presunúť koreňový priečinok adresára pošty '%1'."
+
+#: maildirresource.cpp:642
+#, kde-format
+msgid "Unable to move maildir folder '%1' from '%2' to '%3'."
+msgstr "Nemôžem presunúť priečinok maildir '%1' z '%2' do '%3'."
+
+#: maildirresource.cpp:660
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Nemôžem vymazať koreňový maildir priečinok '%1'."
+
+#: maildirresource.cpp:669
+#, kde-format
+msgid "Failed to delete sub-folder '%1'."
+msgstr "Zlyhalo vytvorenie podpriečinka '%1'."
+
+#: maildirresource.cpp:683
+#, kde-format
+msgid "Unable to create maildir '%1'."
+msgstr "Nemôžem vytvoriť adresár pošty '%1'."
+
+#: maildirresource.cpp:693
+#, kde-format
+msgid "No usable storage location configured."
+msgstr "Nie je nastavené žiadne použiteľné miesto úložiska."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: maildirresource.kcfg:10
+#, kde-format
+msgid "Path to maildir"
+msgstr "Cesta k maildir"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: maildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Cesta ukazuje na priečinok obsahujúci Maildirs namiesto samotného maildir."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: maildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Nezmeniť aktuálne backend dáta."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Nastavenie poštového adresára"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settings.ui:37
+#, kde-format
+msgid "Maildir"
+msgstr "Maildir"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:43
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Vyberte priečinok obsahujúcu maildir informáciu:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:53
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Otvoriť iba na čítanie"
+
+#~ msgid "Select a MailDir folder"
+#~ msgstr "Vybrať priečinok MailDir"
+
+#~ msgid "Folder Archive"
+#~ msgstr "Archív priečinku"

@@ -1,0 +1,184 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexander Potashev <aspotashev@gmail.com>, 2014, 2015, 2016.
+# Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2022-10-11 11:04+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 22.04.3\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Александр Поташев"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aspotashev@gmail.com"
+
+#: ../kmigratorbase.cpp:116
+#, kde-format
+msgid "Creating instance of type %1"
+msgstr "Создание экземпляра агента типа «%1»"
+
+#: ../migratorbase.cpp:128
+#, kde-format
+msgid "Missing Identifier"
+msgstr "Не указан идентификатор"
+
+#: ../migratorbase.cpp:141
+#, kde-format
+msgid "Failed to start migration because migrator is not ready"
+msgstr ""
+"Не удалось начать перенос данных, потому что алгоритм миграции не готов"
+
+#: ../migratorbase.cpp:147
+#, kde-format
+msgid "Starting migration..."
+msgstr "Начат перенос данных..."
+
+#: ../migratorbase.cpp:189
+#, kde-format
+msgid "Migration complete"
+msgstr "Перенос завершён"
+
+#: ../migratorbase.cpp:193
+#, kde-format
+msgid "Migration aborted"
+msgstr "Перенос прерван"
+
+#: ../migratorbase.cpp:199
+#, kde-format
+msgid "Migration failed"
+msgstr "Ошибка переноса"
+
+#: ../migratorbase.cpp:203
+#, kde-format
+msgid "Migration paused"
+msgstr "Перенос приостановлен"
+
+#: ../migratorbase.cpp:233
+#, kde-format
+msgid "This migration has already been started once but was aborted"
+msgstr "Перенос данных уже запускался раньше, но был прерван"
+
+#: ../migratorbase.cpp:270
+#, kde-format
+msgctxt "@info:status"
+msgid "Not started"
+msgstr "Не запущено"
+
+#: ../migratorbase.cpp:272
+#, kde-format
+msgctxt "@info:status"
+msgid "Running..."
+msgstr "Выполняется..."
+
+#: ../migratorbase.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Complete"
+msgstr "Завершено"
+
+#: ../migratorbase.cpp:276
+#, kde-format
+msgctxt "@info:status"
+msgid "Aborted"
+msgstr "Прервано"
+
+#: ../migratorbase.cpp:278
+#, kde-format
+msgctxt "@info:status"
+msgid "Paused"
+msgstr "Приостановлено"
+
+#: ../migratorbase.cpp:280
+#, kde-format
+msgctxt "@info:status"
+msgid "Needs Update"
+msgstr "Необходимо обновление"
+
+#: ../migratorbase.cpp:282
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed"
+msgstr "Произошла ошибка"
+
+#: gidmigrator.cpp:22
+#, kde-format
+msgctxt "Name of the GID Migrator (intended for advanced users)."
+msgid "GID Migrator: %1"
+msgstr "Инструмент переноса для поддержки глобальных идентификаторов: %1"
+
+#: gidmigrator.cpp:27
+#, kde-format
+msgid ""
+"Ensures that all items with the mimetype %1 have a GID if a GID extractor is "
+"available."
+msgstr ""
+"Обеспечивает присутствие глобального идентификатора (GID) у всех объектов с "
+"типом MIME «%1», если доступен алгоритм извлечения глобальных "
+"идентификаторов."
+
+#: gidmigrator.cpp:49
+#, kde-format
+msgid "Migration failed: %1"
+msgstr "Ошибка переноса: %1"
+
+#: main.cpp:26
+#, kde-format
+msgid "GID Migration Tool"
+msgstr "Инструмент переноса по идентификаторам"
+
+#: main.cpp:28
+#, kde-format
+msgid "Migration of Akonadi Items to support GID"
+msgstr ""
+"Обновление объектов в базе данных Akonadi для поддержки глобальных "
+"идентификаторов (GID)"
+
+#: main.cpp:30
+#, kde-format
+msgid "(c) 2013-2022 the Akonadi developers"
+msgstr "© Разработчики Akonadi, 2013–2022"
+
+#: main.cpp:33
+#, kde-format
+msgid "Christian Mollekopf"
+msgstr "Christian Mollekopf"
+
+#: main.cpp:33
+#, kde-format
+msgid "Author"
+msgstr "Автор"
+
+#: main.cpp:36
+#, kde-format
+msgid "Show reporting dialog"
+msgstr "Показать отчёт"
+
+#: main.cpp:37
+#, kde-format
+msgid "Show report only if changes were made"
+msgstr "Показать отчёт только в случае внесения изменений"
+
+#: main.cpp:38
+#, kde-format
+msgid "MIME type to migrate"
+msgstr "Перенести объекты с указанным типом MIME"

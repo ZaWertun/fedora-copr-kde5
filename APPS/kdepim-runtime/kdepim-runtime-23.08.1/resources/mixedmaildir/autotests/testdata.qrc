@@ -1,0 +1,31 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource>
+    <file>data/mbox</file>
+    <file>data/.mbox.index</file>
+
+    <file>data/mbox-tagged</file>
+    <file>data/.mbox-tagged.index</file>
+
+    <file>data/mbox-unpurged</file>
+    <file>data/.mbox-unpurged.index</file>
+
+    <file>data/maildir/cur/1279979618.4595.CStza_2,S</file>
+    <file>data/maildir/cur/1279979618.4595.pY5ny</file>
+    <file>data/maildir/cur/1279979617.4595.bwXSm</file>
+    <file>data/maildir/cur/1279979618.4595.DUl0I_2,S</file>
+    <file>data/.maildir.index</file>
+
+    <file>data/maildir-tagged/cur/1279982188.18722.6qZsA_2,S</file>
+    <file>data/maildir-tagged/cur/1279982188.18722.Xdz3R_2,S</file>
+    <file>data/maildir-tagged/cur/1279982188.18722.f0l49_2,S</file>
+    <file>data/maildir-tagged/cur/1279982188.18722.kwx1b_2,S</file>
+    <file>data/.maildir-tagged.index</file>
+
+    <file>data/dimap/cur/1279980064.4595.qs6V9_2,S</file>
+    <file>data/dimap/cur/1279980064.4595.LUBVK</file>
+    <file>data/dimap/cur/1279980064.4595.g8PCJ</file>
+    <file>data/dimap/cur/1279980064.4595.RTmAd_2,S</file>
+    <file>data/.dimap.index</file>
+  </qresource>
+</RCC>

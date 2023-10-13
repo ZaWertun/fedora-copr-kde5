@@ -1,0 +1,81 @@
+# Translation of akonadi_ical_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_ical_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 03:15+0200\n"
+"PO-Revision-Date: 2011-08-20 23:55+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icalresource.kcfg:10 notes/notesresource.kcfg:10
+#, kde-format
+msgid "Path to iCal file."
+msgstr "Путања до и‑календарског фајла."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: icalresource.kcfg:14 notes/notesresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Приказно име."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icalresource.kcfg:18 notes/notesresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Не мијењај заиста позадинске податке."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: icalresource.kcfg:22 notes/notesresource.kcfg:26
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Надгледај фајл за изменама."
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: notes/notesresource.kcfg:22
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Период аутоматског уписивања (у минутима)."
+
+#: shared/icalresource.cpp:59
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Случај са УИД‑ом „%1“ није нађен."
+
+#: shared/icalresourcebase.cpp:62 shared/icalresourcebase.cpp:94
+#: shared/icalresourcebase.h:97
+#, kde-format
+msgid "Calendar not loaded."
+msgstr "Календар није учитан."
+
+#: shared/icalresourcebase.cpp:141
+#, kde-format
+msgid "Failed to save calendar file to %1"
+msgstr "Не могу да сачувам фајл календара у %1."
+
+#: shared/icalresourcebase.h:102
+#, kde-format
+msgid "Unable to retrieve added item %1."
+msgstr "Не могу да добавим додату ставку %1."
+
+#: shared/icalresourcebase.h:103
+#, kde-format
+msgid "Unable to retrieve modified item %1."
+msgstr "Не могу да повратим измењену ставку %1."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/icalwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Име фајла:"

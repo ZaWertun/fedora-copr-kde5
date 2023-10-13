@@ -1,0 +1,49 @@
+# Translation of kio_akonadi.po to Brazilian Portuguese
+# Copyright (C) 2009-2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio_akonadi\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-07 00:47+0000\n"
+"PO-Revision-Date: 2014-08-13 22:10-0300\n"
+"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "André Marcelo Alvarenga"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alvarenga@kde.org"
+
+#: akonadiworker.cpp:49
+#, kde-format
+msgid "Protocol name"
+msgstr "Nome do protocolo"
+
+#: akonadiworker.cpp:50 akonadiworker.cpp:51
+#, kde-format
+msgid "Socket name"
+msgstr "Nome do soquete"
+
+#: akonadiworker.cpp:87 akonadiworker.cpp:113 akonadiworker.cpp:131
+#, kde-format
+msgid "No such item."
+msgstr "O item não existe."
+
+#: akonadiworker.cpp:166 akonadiworker.cpp:172
+#, kde-format
+msgid "No such collection."
+msgstr "A coleção não existe."

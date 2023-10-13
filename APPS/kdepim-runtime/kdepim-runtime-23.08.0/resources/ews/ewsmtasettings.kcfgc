@@ -1,0 +1,8 @@
+File=ewsmtaresource.kcfg
+ClassName=EwsMtaSettings
+Mutators=true
+ItemAccessors=true
+SetUserTexts=true
+Singleton=true
+GlobalEnums=true
+TranslationSystem=kde

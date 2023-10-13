@@ -1,0 +1,637 @@
+# translation of akonadi_google_resource.po to Français
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Joëlle Cornavin <jcorn@free.fr>, 2012, 2013.
+# xavier <xavier.besnard@neuf.fr>, 2013, 2014, 2020, 2021.
+# Vincent Pinon <vpinon@kde.org>, 2017.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_google_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-08-15 02:26+0000\n"
+"PO-Revision-Date: 2023-05-09 13:25+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.12.3\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: calendarhandler.cpp:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving calendars"
+msgstr "Réception des agendas"
+
+#: calendarhandler.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving events for calendar '%1'"
+msgstr "Réception des évènements pour le calendrier « %1 »"
+
+#: calendarhandler.cpp:197 taskhandler.cpp:170
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding event to calendar '%1'"
+msgstr "Ajout de l'évènement dans le calendrier « %1 »"
+
+#: calendarhandler.cpp:221
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing event in calendar '%1'"
+msgstr "Modification d'un évènement dans le calendrier « %1 »"
+
+#: calendarhandler.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 event"
+msgid_plural "Removing %1 events"
+msgstr[0] "Suppression de %1 évènement"
+msgstr[1] "Suppression de %1 évènements"
+
+#: calendarhandler.cpp:248
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 event from calendar '%2' to calendar '%3'"
+msgid_plural "Moving %1 events from calendar '%2' to calendar '%3'"
+msgstr[0] ""
+"Déplacement de l'évènement %1 de l'agenda « %2 » vers l'évènement « %3 »"
+msgstr[1] ""
+"Déplacement des évènements %1 de l'agenda « %2 » vers l'évènement « %3 »"
+
+#: calendarhandler.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating calendar '%1'"
+msgstr "Création de l'agenda « %1 »"
+
+#: calendarhandler.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing calendar '%1'"
+msgstr "Modification de l'agenda « %1 »"
+
+#: calendarhandler.cpp:307
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing calendar '%1'"
+msgstr "Suppression de l'agenda « %1 »"
+
+#: generichandler.cpp:24
+#, kde-format
+msgid "Cannot handle item linking"
+msgstr "Impossible de réaliser la liaison avec l'élément"
+
+#: generichandler.cpp:29
+#, kde-format
+msgid "Cannot handle item unlinking"
+msgstr "Impossible de réaliser la rupture de la liaison avec l'élément"
+
+#: generichandler.cpp:56
+#, kde-format
+msgctxt "@status"
+msgid "Ready"
+msgstr "Prêt"
+
+#: generichandler.h:65 generichandler.h:77
+#, kde-format
+msgid "Invalid item."
+msgstr "Élément non valable."
+
+#: googleresource.cpp:87
+#, kde-format
+msgid "Fetching password..."
+msgstr "Recherche du mot de passe en cours..."
+
+#: googleresource.cpp:94
+#, kde-format
+msgid "Can't fetch password"
+msgstr "Impossible de rechercher le mot de passe..."
+
+#: googleresource.cpp:135
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Prêt"
+
+#: googleresource.cpp:147
+#, kde-format
+msgid "not configured"
+msgstr "non configuré"
+
+#: googleresource.cpp:147
+#, kde-format
+msgctxt "%1 is account name (user@gmail.com)"
+msgid "Google Groupware (%1)"
+msgstr "Logiciel de groupe de travail de Google Groupware (%1)"
+
+#: googleresource.cpp:156
+#, kde-format
+msgid "Configured account does not exist"
+msgstr "Le compte configuré n'existe pas"
+
+#: googleresource.cpp:204
+#, kde-format
+msgid "Account has been logged out."
+msgstr "Le compte a été déconnecté"
+
+#: googleresource.cpp:207
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from your account. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"La suite de groupe de travail « Google Groupware » s'est déconnectée de "
+"votre compte. Veuillez vous connecter pour activer de nouveau la "
+"synchronisation de « Google Contacts » et « Google Calendar »."
+
+#: googleresource.cpp:208
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from account %1. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"La suite de groupe de travail « Google Groupware » s'est déconnectée de "
+"votre compte %1e. Veuillez vous connecter pour activer de nouveau la "
+"synchronisation de « Google Contacts » et « Google Calendar »."
+
+#: googleresource.cpp:212
+#, kde-format
+msgctxt "@title"
+msgid "%1 needs your attention."
+msgstr "%1 requière votre attention."
+
+#: googleresource.cpp:217
+#, kde-format
+msgctxt "@action"
+msgid "Log in"
+msgstr "Se connecter"
+
+#: googleresource.cpp:231 googleresource.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Resource is not configured"
+msgstr "La ressource n'est pas configurée"
+
+#: googleresource.cpp:247
+#, kde-format
+msgid "Failed to refresh tokens"
+msgstr "Il est impossible de rafraîchir les jetons"
+
+#: googleresource.cpp:435 googleresource.cpp:449 googleresource.cpp:463
+#: googleresource.cpp:478 googleresource.cpp:492 googleresource.cpp:506
+#, kde-format
+msgid "Invalid payload type"
+msgstr "Type non valable de données utiles"
+
+#: googleresource.cpp:520 googleresource.cpp:534 googleresource.cpp:548
+#, kde-format
+msgid "Unknown collection mimetype"
+msgstr "Type MIME de collection inconnu"
+
+#: googlesettingswidget.cpp:46
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minute"
+msgstr[1] " minutes"
+
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: googlesettingswidget.cpp:108 googlesettingswidget.ui:30
+#, kde-format
+msgid "<b>not configured</b>"
+msgstr "<b>non configuré</b>"
+
+#. i18n: ectx: property (text), widget (QLabel, accountTextLabel)
+#: googlesettingswidget.ui:23
+#, kde-format
+msgid "Account:"
+msgstr "Compte :"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureBtn)
+#: googlesettingswidget.ui:42
+#, kde-format
+msgid "Configure..."
+msgstr "Configurer..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableRefresh)
+#: googlesettingswidget.ui:49
+#, kde-format
+msgid "Enable interval refresh"
+msgstr "Activer le rafraîchissement régulier"
+
+#. i18n: ectx: property (text), widget (QLabel, refreshLabel)
+#: googlesettingswidget.ui:56
+#, kde-format
+msgid "Refresh interval:"
+msgstr "Intervalle de rafraîchissement :"
+
+#. i18n: ectx: property (text), widget (QLabel, eventsLimitLabel)
+#: googlesettingswidget.ui:79
+#, kde-format
+msgid "Fetch only events since:"
+msgstr "E&xtraire uniquement les évènements depuis :"
+
+#. i18n: ectx: property (text), widget (QLabel, calendarsLabel)
+#: googlesettingswidget.ui:92
+#, kde-format
+msgid "Enabled Calendars:"
+msgstr "Agendas activés :"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadCalendarsBtn)
+#. i18n: ectx: property (text), widget (QPushButton, reloadTaskListsBtn)
+#: googlesettingswidget.ui:123 googlesettingswidget.ui:168
+#, kde-format
+msgid "Reload"
+msgstr "Recharger"
+
+#. i18n: ectx: property (text), widget (QLabel, taskListsLabel)
+#: googlesettingswidget.ui:137
+#, kde-format
+msgid "Enabled Tasklists:"
+msgstr "Listes de tâches activées :"
+
+#: personhandler.cpp:88
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Coworkers"
+msgstr "Collaborateurs"
+
+#: personhandler.cpp:90
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Friends"
+msgstr "Ami(e)s"
+
+#: personhandler.cpp:92
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Family"
+msgstr "Famille"
+
+#: personhandler.cpp:94
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "My Contacts"
+msgstr "Mes contacts"
+
+#: personhandler.cpp:118
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts groups"
+msgstr "Réception des groupes de contact"
+
+#: personhandler.cpp:125 personhandler.cpp:131
+#, kde-format
+msgid "Other Contacts"
+msgstr "Autres contacts"
+
+#: personhandler.cpp:172
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts for group '%1'"
+msgstr "Réception des contacts pour le groupe « %1 »"
+
+#: personhandler.cpp:376
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding contact to group '%1'"
+msgstr "Ajout d'un contact au groupe « %1 »"
+
+#: personhandler.cpp:410
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact"
+msgstr "Modification d'un contact"
+
+#: personhandler.cpp:424
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 contact"
+msgid_plural "Removing %1 contacts"
+msgstr[0] "Suppression de %1 contact"
+msgstr[1] "Suppression de %1 contacts"
+
+#: personhandler.cpp:444
+#, kde-format
+msgid "Invalid source or destination collection"
+msgstr "Source ou collection de destination non valable"
+
+#: personhandler.cpp:450
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 contact from group '%2' to '%3'"
+msgid_plural "Moving %1 contacts from group '%2' to '%3'"
+msgstr[0] "Déplacement de %1 contact du groupe « %2 » vers le groupe « %3 »"
+msgstr[1] "Déplacement de %1 contacts du groupe « %2 » vers le groupe « %3 »"
+
+#: personhandler.cpp:467
+#, kde-format
+msgctxt "@info:status"
+msgid "Linking %1 contact"
+msgid_plural "Linking %1 contacts"
+msgstr[0] "Liaison avec le contact %1"
+msgstr[1] "Liaison avec les %1 contacts"
+
+#: personhandler.cpp:481
+#, kde-format
+msgctxt "@info:status"
+msgid "Unlinking %1 contact"
+msgid_plural "Unlinking %1 contacts"
+msgstr[0] "Rupture du lien avec %1 contact"
+msgstr[1] "Rupture du lien avec %1 contacts"
+
+#: personhandler.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new contact group '%1'"
+msgstr "Création d'un nouveau groupe « %1 »"
+
+#: personhandler.cpp:535
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact group '%1'"
+msgstr "Modification d'un groupe de contact « %1 »"
+
+#: personhandler.cpp:560
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing contact group '%1'"
+msgstr "Suppression du groupe de contacts « %1 »"
+
+#. i18n: ectx: label, entry (Calendars), group (General)
+#: settingsbase.kcfg:21
+#, kde-format
+msgid "IDs of calendars in collection"
+msgstr "Identifiant des agendas dans une collection"
+
+#. i18n: ectx: label, entry (TaskLists), group (General)
+#: settingsbase.kcfg:25
+#, kde-format
+msgid "IDs of task lists in collection"
+msgstr "Identifiants des listes de tâches dans une collection"
+
+#: taskhandler.cpp:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving task lists"
+msgstr "Réception des listes de tâches"
+
+#: taskhandler.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving tasks for list '%1'"
+msgstr "Réception des tâches pour la liste « %1 »"
+
+#: taskhandler.cpp:195
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task in list '%1'"
+msgstr "Modification de la tâche dans la liste « %1 »"
+
+#: taskhandler.cpp:215
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 task"
+msgid_plural "Removing %1 tasks"
+msgstr[0] "Suppression de %1 tâche"
+msgstr[1] "Suppression de %1 tâches"
+
+#: taskhandler.cpp:225
+#, kde-format
+msgid "Failed to delete task: %1"
+msgstr "Il est impossible de supprimer la tâche : %1"
+
+#: taskhandler.cpp:261
+#, kde-format
+msgid "Failed to reparent subtasks: %1"
+msgstr "Impossible de rétablir les liens des sous-tâches : %1"
+
+#: taskhandler.cpp:292
+#, kde-format
+msgid "Moving tasks between task lists is not supported"
+msgstr ""
+"Le déplacement de tâches entre listes de tâches n'est pas pris en charge"
+
+#: taskhandler.cpp:297
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new task list '%1'"
+msgstr "Création d'une nouvelle liste de tâches « %1 »"
+
+#: taskhandler.cpp:322
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task list '%1'"
+msgstr "Modification la liste de tâches « %1 »"
+
+#: taskhandler.cpp:335
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing task list '%1'"
+msgstr "Suppression de la liste de tâches « %1 »"
+
+#~ msgid "Waiting for KWallet..."
+#~ msgstr "En attente de KWallet..."
+
+#~ msgid "Can't access KWallet"
+#~ msgstr "Il est impossible d'accéder à KWallet"
+
+#~ msgctxt "@info:status"
+#~ msgid "Retrieving %1 contact photo for group '%2'"
+#~ msgid_plural "Retrieving %1 contact photos for group '%2'"
+#~ msgstr[0] "Réception de %1 photo de contact pour le groupe « %2 »"
+#~ msgstr[1] "Réception de %1 photos de contact pour le groupe « %2 »"
+
+#~ msgid "Refresh"
+#~ msgstr "Rafraîchir"
+
+#~ msgid "Aborted"
+#~ msgstr "Interrompu"
+
+#~ msgid "Invalid payload MIME type. Expected %1, found %2"
+#~ msgstr "Type MIME de données utiles non valable. Attendu %1, obtenu %2"
+
+#~ msgid "&Add"
+#~ msgstr "&Ajouter"
+
+#~ msgid "&Remove"
+#~ msgstr "&Supprimer"
+
+#~ msgid ""
+#~ "Do you really want to revoke access to account <b>%1</b>?<p>This will "
+#~ "revoke access to all resources using this account!</p>"
+#~ msgstr ""
+#~ "Voulez-vous vraiment révoquer l'accès au compte <b>%1</b> ?<p>Cette "
+#~ "action révoquera l'accès à toutes les ressources utilisant ce compte !</p>"
+
+#~ msgid "Revoke Access?"
+#~ msgstr "Révoquer l'accès ?"
+
+#~ msgctxt "%1 is account name (user@gmail.com)"
+#~ msgid "Google Calendars and Tasks (%1)"
+#~ msgstr "Agendas et tâches Google (%1)"
+
+#~ msgid "The top-level collection cannot contain any tasks or events"
+#~ msgstr ""
+#~ "Il est impossible que la collection de premier niveau contienne une tâche "
+#~ "ou un évènement quelconque"
+
+#~ msgid "Invalid payload type. Expected event or todo, got %1"
+#~ msgstr ""
+#~ "Type non valable de données utiles. Un évènement ou une tâche était "
+#~ "attendu et %1 a été obtenu"
+
+#~ msgid "Unknown Account"
+#~ msgstr "Compte inconnu"
+
+#~ msgid "Invalid reply"
+#~ msgstr "Réponse non valable"
+
+#~ msgctxt "Name of a group of contacts"
+#~ msgid "Other Contacts"
+#~ msgstr "Autres contacts"
+
+#~ msgid "Failed to delete task (1): %1"
+#~ msgstr "Il est impossible de supprimer la tâche (1) : %1"
+
+#~ msgid "Failed to delete task (2): %1"
+#~ msgstr "Il est impossible de supprimer la tâche (2) : %1"
+
+#~ msgid "Failed to delete task (5): %1"
+#~ msgstr "Il est impossible de supprimer la tâche (5) : %1"
+
+#~ msgid "Invalid collection"
+#~ msgstr "Collection non valable"
+
+#~ msgid "Unknown payload type '%1'"
+#~ msgstr "Type de données utiles inconnu « '%1 »"
+
+#~ msgid "Received an invalid reply"
+#~ msgstr "Reçu une réponse non valable"
+
+#~ msgid "Failed to fetch calendars: %1"
+#~ msgstr "Impossible d'extraire des calendriers : %1"
+
+#~ msgid "Failed to fetch event: %1"
+#~ msgstr "Impossible d'extraire l'èvènement : %1"
+
+#~ msgid "Expected a single item, server sent %1 items."
+#~ msgstr "Un seul élément était attendu, le serveur e envoyé %1 éléments."
+
+#~ msgid "Failed to fetch events: %1"
+#~ msgstr "Impossible d'extraire des évènements : %1"
+
+#~ msgid "Failed to create a new event: %1"
+#~ msgstr "Impossible de créer un nouvel évènement : %1"
+
+#~ msgid "Failed to update an event: %1"
+#~ msgstr "Impossible de mettre à jour un évènement : %1"
+
+#~ msgid "Failed to delete event: %1"
+#~ msgstr "Impossible de supprimer un évènement : %1"
+
+#~ msgid "Failed to move event: %1"
+#~ msgstr "Impossible de déplacer un évènement : %1"
+
+#~ msgid "Failed to fetch task lists"
+#~ msgstr "Impossible d'extraire des listes de tâches"
+
+#~ msgid "Failed to fetch task: %1"
+#~ msgstr "Impossible d'extraire une tâche : %1"
+
+#~ msgid "Failed to fetch tasks: %1"
+#~ msgstr "Impossible d'extraire des tâches : %1"
+
+#~ msgid "Failed to update task: %1"
+#~ msgstr "Impossible de mettre à jour une tâche : %1"
+
+#~ msgid "Error while talking to Google"
+#~ msgstr "Problème lors de la communication avec Google"
+
+#~ msgid ""
+#~ "Do you really want to remove calendar <b>%1</b>?<p>This will remove the "
+#~ "calendar from Google servers as well!</p>"
+#~ msgstr ""
+#~ "Voulez-vous vraiment supprimer le calendrier <b>%1</b> ?<p>Cette action "
+#~ "supprimera de Google également le calendrier !</p>"
+
+#~ msgid ""
+#~ "Do you really want to remove tasklist <b>%1</b>?<p>This will remove the "
+#~ "tasklist from Google servers as well!</p>"
+#~ msgstr ""
+#~ "Voulez-vous vraiment supprimer la liste de tâches <b>%1</b> ?<p>Cette "
+#~ "action supprimera des serveurs Google également la liste de tâches !</p>"
+
+#~ msgid "Calendar Editor"
+#~ msgstr "Éditeur de calendriers"
+
+#~ msgctxt "calendar name"
+#~ msgid "Name:"
+#~ msgstr "Nom :"
+
+#~ msgid "Description:"
+#~ msgstr "Description :"
+
+#~ msgid "Location:"
+#~ msgstr "Emplacement :"
+
+#~ msgid "Timezone:"
+#~ msgstr "Fuseau horaire :"
+
+#~ msgid "Calendar Resource Settings"
+#~ msgstr "Paramètres des ressources de calendriers"
+
+#~ msgid "Add"
+#~ msgstr "Ajouter"
+
+#~ msgid "Edit"
+#~ msgstr "Modifier"
+
+#~ msgctxt "reload the tasks"
+#~ msgid "Reload"
+#~ msgstr "Recharger"
+
+#~ msgid "Tasklist Editor"
+#~ msgstr "Éditeur de listes de tâches"
+
+#~ msgctxt "task list name"
+#~ msgid "Name:"
+#~ msgstr "Nom :"
+
+#~ msgid "Initial item fetching failed"
+#~ msgstr "L'extraction de l'élément initial a échoué"
+
+#~ msgid "Invalid Payload"
+#~ msgstr "Donnés utiles non valables"
+
+#~ msgid "Failed to create a contact"
+#~ msgstr "Impossible de créer un contact"
+
+#~ msgid "Failed to update contact"
+#~ msgstr "Impossible de mettre à jour un contact"
+
+#~ msgid "Failed to update a contact"
+#~ msgstr "Impossible de mettre à jour un contact"
+
+#~ msgid "An error occurred"
+#~ msgstr "Une erreur est survenue"
+
+#~ msgid "Group Editor"
+#~ msgstr "Éditeur de groupes"
+
+#~ msgid "Group Name:"
+#~ msgstr "Nom du groupe :"
+
+#~ msgid "Contacts Resource Settings"
+#~ msgstr "Paramètres des ressources de contacts"
+
+#~ msgid "Failed to fetch contact"
+#~ msgstr "Impossible d'extraire un contact"

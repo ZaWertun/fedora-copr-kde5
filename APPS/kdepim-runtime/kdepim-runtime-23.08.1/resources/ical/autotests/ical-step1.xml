@@ -1,0 +1,52 @@
+<knut>
+  <collection content="text/calendar,application/x-vnd.akonadi.calendar.event,application/x-vnd.akonadi.calendar.todo,application/x-vnd.akonadi.calendar.journal,application/x-vnd.akonadi.calendar.freebusy" rid="newical.ics" name="akonadi_ical_resource_1" >
+    <attribute type="ENTITYDISPLAY" >("newical.ics" "office-calendar")</attribute>
+    <attribute type="AccessRights" >wcdW</attribute>
+    <item mimetype="application/x-vnd.akonadi.calendar.event" rid="libkcal-1135684253.945" >
+      <payload>BEGIN:VCALENDAR
+PRODID:-//K Desktop Environment//NONSGML libkcal 3.2//EN
+VERSION:2.0
+BEGIN:VEVENT&#xd;
+DTSTAMP:20090412T123141Z&#xd;
+ORGANIZER;CN="Volker Krause":MAILTO:vkrause@kde.org&#xd;
+CREATED:20070109T100553Z&#xd;
+UID:libkcal-1135684253.945&#xd;
+SEQUENCE:1&#xd;
+LAST-MODIFIED:20070109T100625Z&#xd;
+SUMMARY:Test event&#xd;
+LOCATION:here&#xd;
+PRIORITY:5&#xd;
+CATEGORIES:KDE&#xd;
+DTSTART:20070109T183000Z&#xd;
+DTEND:20070109T225900Z&#xd;
+TRANSP:OPAQUE&#xd;
+BEGIN:VALARM&#xd;
+DESCRIPTION:&#xd;
+ACTION:DISPLAY&#xd;
+TRIGGER;VALUE=DURATION:-PT45M&#xd;
+END:VALARM&#xd;
+END:VEVENT&#xd;
+
+END:VCALENDAR</payload>
+    </item>
+    <item mimetype="application/x-vnd.akonadi.calendar.todo" rid="libkcal-1506191911.958" >
+      <payload>BEGIN:VCALENDAR
+PRODID:-//K Desktop Environment//NONSGML libkcal 3.2//EN
+VERSION:2.0
+BEGIN:VTODO&#xd;
+DTSTAMP:20090412T123141Z&#xd;
+ORGANIZER:MAILTO:vkrause@kde.org&#xd;
+CREATED:20040505T094143Z&#xd;
+UID:libkcal-1506191911.958&#xd;
+LAST-MODIFIED:20040512T133925Z&#xd;
+SUMMARY:Add a demo task to this file&#xd;
+PRIORITY:3&#xd;
+DUE;VALUE=DATE:20090101&#xd;
+COMPLETED:20090101T133925Z&#xd;
+PERCENT-COMPLETE:100&#xd;
+END:VTODO&#xd;
+
+END:VCALENDAR</payload>
+    </item>
+  </collection>
+</knut>

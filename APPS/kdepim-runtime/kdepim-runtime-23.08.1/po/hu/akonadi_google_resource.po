@@ -1,0 +1,665 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2012.
+# Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-09-12 02:26+0000\n"
+"PO-Revision-Date: 2014-03-19 22:25+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: calendarhandler.cpp:90
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Retrieving photos"
+msgctxt "@info:status"
+msgid "Retrieving calendars"
+msgstr "Fényképek letöltése"
+
+#: calendarhandler.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving events for calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:197 taskhandler.cpp:170
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding event to calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:221
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing event in calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:232
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Removing %1 event"
+msgid_plural "Removing %1 events"
+msgstr[0] "Névjegy eltávolítása"
+msgstr[1] "Névjegy eltávolítása"
+
+#: calendarhandler.cpp:248
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 event from calendar '%2' to calendar '%3'"
+msgid_plural "Moving %1 events from calendar '%2' to calendar '%3'"
+msgstr[0] ""
+msgstr[1] ""
+
+#: calendarhandler.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing calendar '%1'"
+msgstr ""
+
+#: calendarhandler.cpp:307
+#, fuzzy, kde-format
+#| msgid "Remove Calendar?"
+msgctxt "@info:status"
+msgid "Removing calendar '%1'"
+msgstr "Eltávolítja a naptárat?"
+
+#: generichandler.cpp:24
+#, kde-format
+msgid "Cannot handle item linking"
+msgstr ""
+
+#: generichandler.cpp:29
+#, kde-format
+msgid "Cannot handle item unlinking"
+msgstr ""
+
+#: generichandler.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Ready"
+msgctxt "@status"
+msgid "Ready"
+msgstr "Kész"
+
+#: generichandler.h:65 generichandler.h:77
+#, fuzzy, kde-format
+#| msgid "Invalid item payload."
+msgid "Invalid item."
+msgstr "Érvénytelen elemtartalom."
+
+#: googleresource.cpp:84
+#, kde-format
+msgid "Fetching password..."
+msgstr ""
+
+#: googleresource.cpp:93
+#, kde-format
+msgid "Can't fetch password"
+msgstr ""
+
+#: googleresource.cpp:137
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Kész"
+
+#: googleresource.cpp:157 googleresource.cpp:195
+#, kde-format
+msgid "Configured account does not exist"
+msgstr "A beállított fiók nem létezik"
+
+#: googleresource.cpp:188
+#, kde-format
+msgid "not configured"
+msgstr "nincs beállítva"
+
+#: googleresource.cpp:188
+#, fuzzy, kde-format
+#| msgctxt "%1 is account name (user@gmail.com)"
+#| msgid "Google Contacts (%1)"
+msgctxt "%1 is account name (user@gmail.com)"
+msgid "Google Groupware (%1)"
+msgstr "Google névjegyek (%1)"
+
+#: googleresource.cpp:241
+#, fuzzy, kde-format
+#| msgid "Configured account has been removed"
+msgid "Account has been logged out."
+msgstr "A beállított fiók el lett távolítva"
+
+#: googleresource.cpp:244
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from your account. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+
+#: googleresource.cpp:245
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from account %1. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+
+#: googleresource.cpp:249
+#, kde-format
+msgctxt "@title"
+msgid "%1 needs your attention."
+msgstr ""
+
+#: googleresource.cpp:254
+#, kde-format
+msgctxt "@action"
+msgid "Log in"
+msgstr ""
+
+#: googleresource.cpp:268 googleresource.cpp:269
+#, kde-format
+msgctxt "@info:status"
+msgid "Resource is not configured"
+msgstr "Az erőforrás nincs beállítva"
+
+#: googleresource.cpp:284
+#, kde-format
+msgid "Failed to refresh tokens"
+msgstr "Nem sikerült frissíteni a tokeneket"
+
+#: googleresource.cpp:471 googleresource.cpp:485 googleresource.cpp:499
+#: googleresource.cpp:514 googleresource.cpp:528 googleresource.cpp:542
+#, kde-format
+msgid "Invalid payload type"
+msgstr "Érvénytelen tartalomtípus"
+
+#: googleresource.cpp:556 googleresource.cpp:570 googleresource.cpp:584
+#, kde-format
+msgid "Unknown collection mimetype"
+msgstr "Érvénytelen gyűjtemény MIME-típus"
+
+#: googlesettingsdialog.cpp:57
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " perc"
+msgstr[1] " perc"
+
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: googlesettingsdialog.cpp:123 googlesettingsdialog.ui:30
+#, fuzzy, kde-format
+#| msgid "not configured"
+msgid "<b>not configured</b>"
+msgstr "nincs beállítva"
+
+#. i18n: ectx: property (text), widget (QLabel, accountTextLabel)
+#: googlesettingsdialog.ui:23
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account:"
+msgstr "Felhasználói fiókok"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureBtn)
+#: googlesettingsdialog.ui:42
+#, fuzzy, kde-format
+#| msgid "not configured"
+msgid "Configure..."
+msgstr "nincs beállítva"
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableRefresh)
+#: googlesettingsdialog.ui:49
+#, kde-format
+msgid "Enable interval refresh"
+msgstr "Időközi frissítés engedélyezése"
+
+#. i18n: ectx: property (text), widget (QLabel, refreshLabel)
+#: googlesettingsdialog.ui:56
+#, kde-format
+msgid "Refresh interval:"
+msgstr "Frissítési időköz:"
+
+#. i18n: ectx: property (text), widget (QLabel, eventsLimitLabel)
+#: googlesettingsdialog.ui:79
+#, fuzzy, kde-format
+#| msgctxt "Followed by a date picker widget"
+#| msgid "&Fetch only new events since"
+msgid "Fetch only events since:"
+msgstr "Csak új események letöltése ettől fogva:"
+
+#. i18n: ectx: property (text), widget (QLabel, calendarsLabel)
+#: googlesettingsdialog.ui:92
+#, fuzzy, kde-format
+#| msgid "Calendars"
+msgid "Enabled Calendars:"
+msgstr "Naptárak"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadCalendarsBtn)
+#. i18n: ectx: property (text), widget (QPushButton, reloadTaskListsBtn)
+#: googlesettingsdialog.ui:123 googlesettingsdialog.ui:168
+#, kde-format
+msgid "Reload"
+msgstr "Újratöltés"
+
+#. i18n: ectx: property (text), widget (QLabel, taskListsLabel)
+#: googlesettingsdialog.ui:137
+#, fuzzy, kde-format
+#| msgid "Tasklists"
+msgid "Enabled Tasklists:"
+msgstr "Feladatlisták"
+
+#: personhandler.cpp:88
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Coworkers"
+msgstr "Munkatársak"
+
+#: personhandler.cpp:90
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Friends"
+msgstr "Ismerősök"
+
+#: personhandler.cpp:92
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Family"
+msgstr "Család"
+
+#: personhandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "My Contacts"
+msgctxt "Name of a group of contacts"
+msgid "My Contacts"
+msgstr "Saját névjegyeim"
+
+#: personhandler.cpp:118
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Retrieving photos"
+msgctxt "@info:status"
+msgid "Retrieving contacts groups"
+msgstr "Fényképek letöltése"
+
+#: personhandler.cpp:125 personhandler.cpp:131
+#, kde-format
+msgid "Other Contacts"
+msgstr "Egyéb névjegyek"
+
+#: personhandler.cpp:172
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts for group '%1'"
+msgstr ""
+
+#: personhandler.cpp:376
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding contact to group '%1'"
+msgstr ""
+
+#: personhandler.cpp:410
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Changing contact"
+msgstr "Névjegy eltávolítása"
+
+#: personhandler.cpp:424
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Removing %1 contact"
+msgid_plural "Removing %1 contacts"
+msgstr[0] "Névjegy eltávolítása"
+msgstr[1] "Névjegy eltávolítása"
+
+#: personhandler.cpp:444
+#, kde-format
+msgid "Invalid source or destination collection"
+msgstr "Érvénytelen forrás- vagy célgyűjtemény"
+
+#: personhandler.cpp:450
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Moving %1 contact from group '%2' to '%3'"
+msgid_plural "Moving %1 contacts from group '%2' to '%3'"
+msgstr[0] "Névjegy eltávolítása"
+msgstr[1] "Névjegy eltávolítása"
+
+#: personhandler.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Linking %1 contact"
+msgid_plural "Linking %1 contacts"
+msgstr[0] "Névjegy eltávolítása"
+msgstr[1] "Névjegy eltávolítása"
+
+#: personhandler.cpp:481
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Unlinking %1 contact"
+msgid_plural "Unlinking %1 contacts"
+msgstr[0] "Névjegy eltávolítása"
+msgstr[1] "Névjegy eltávolítása"
+
+#: personhandler.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new contact group '%1'"
+msgstr ""
+
+#: personhandler.cpp:535
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact group '%1'"
+msgstr ""
+
+#: personhandler.cpp:560
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Removing contact group '%1'"
+msgstr "Névjegy eltávolítása"
+
+#. i18n: ectx: label, entry (Calendars), group (General)
+#: settingsbase.kcfg:21
+#, kde-format
+msgid "IDs of calendars in collection"
+msgstr "A naptárak azonosítói a gyűjteményben"
+
+#. i18n: ectx: label, entry (TaskLists), group (General)
+#: settingsbase.kcfg:25
+#, kde-format
+msgid "IDs of task lists in collection"
+msgstr "A feladatlisták azonosítói a gyűjteményben"
+
+#: taskhandler.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Retrieving photos"
+msgctxt "@info:status"
+msgid "Retrieving task lists"
+msgstr "Fényképek letöltése"
+
+#: taskhandler.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving tasks for list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:195
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task in list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:215
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Removing contact"
+msgctxt "@info:status"
+msgid "Removing %1 task"
+msgid_plural "Removing %1 tasks"
+msgstr[0] "Névjegy eltávolítása"
+msgstr[1] "Névjegy eltávolítása"
+
+#: taskhandler.cpp:225
+#, kde-format
+msgid "Failed to delete task: %1"
+msgstr "Nem sikerült törölni a feladatot: %1"
+
+#: taskhandler.cpp:261
+#, fuzzy, kde-format
+#| msgid "Failed to create a task: %1"
+msgid "Failed to reparent subtasks: %1"
+msgstr "Nem sikerült létrehozni egy feladatot: %1"
+
+#: taskhandler.cpp:292
+#, kde-format
+msgid "Moving tasks between task lists is not supported"
+msgstr "A feladatok mozgatása feladatlisták között nem támogatott"
+
+#: taskhandler.cpp:297
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new task list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:322
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task list '%1'"
+msgstr ""
+
+#: taskhandler.cpp:335
+#, fuzzy, kde-format
+#| msgid "Remove tasklist?"
+msgctxt "@info:status"
+msgid "Removing task list '%1'"
+msgstr "Eltávolítja a feladatlistát?"
+
+#~ msgid "Waiting for KWallet..."
+#~ msgstr "Várakozás a KWalletre…"
+
+#~ msgid "Can't access KWallet"
+#~ msgstr "Nem lehet hozzáférni a KWallethez"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Retrieving photos"
+#~ msgctxt "@info:status"
+#~ msgid "Retrieving %1 contact photo for group '%2'"
+#~ msgid_plural "Retrieving %1 contact photos for group '%2'"
+#~ msgstr[0] "Fényképek letöltése"
+#~ msgstr[1] "Fényképek letöltése"
+
+#~ msgid "Refresh"
+#~ msgstr "Frissítés"
+
+#~ msgid "Aborted"
+#~ msgstr "Megszakítva"
+
+#, fuzzy
+#~| msgid "Invalid payload mimetype. Expected %1, found %2"
+#~ msgid "Invalid payload MIME type. Expected %1, found %2"
+#~ msgstr "Érvénytelen tartalom MIME-típus. %1 várt, %2 található"
+
+#~ msgid "&Add"
+#~ msgstr "&Hozzáadás"
+
+#~ msgid "&Remove"
+#~ msgstr "&Eltávolítás"
+
+#~ msgid ""
+#~ "Do you really want to revoke access to account <b>%1</b>?<p>This will "
+#~ "revoke access to all resources using this account!</p>"
+#~ msgstr ""
+#~ "Biztosan vissza szeretné vonni a hozzáférést a(z) <b>%1</b> felhasználói "
+#~ "fiókhoz?<p>Ez visszavonja a összes erőforrás hozzáférését.</p>"
+
+#~ msgid "Revoke Access?"
+#~ msgstr "Visszavonja a hozzáférést?"
+
+#~ msgctxt "%1 is account name (user@gmail.com)"
+#~ msgid "Google Calendars and Tasks (%1)"
+#~ msgstr "Google naptárak és feladatok (%1)"
+
+#~ msgid "The top-level collection cannot contain any tasks or events"
+#~ msgstr ""
+#~ "A legfelső szintű gyűjtemény nem tartalmazhat egyetlen feladatot vagy "
+#~ "eseményt sem"
+
+#~ msgid "Invalid payload type. Expected event or todo, got %1"
+#~ msgstr ""
+#~ "Érvénytelen tartalomtípus. A várt esemény vagy teendő helyett %1 jött"
+
+#~ msgid "Unknown Account"
+#~ msgstr "Ismeretlen fiók"
+
+#~ msgid "Invalid reply"
+#~ msgstr "Érvénytelen válasz"
+
+#~ msgctxt "Name of a group of contacts"
+#~ msgid "Other Contacts"
+#~ msgstr "Egyéb névjegyek"
+
+#~ msgid "Failed to delete task (1): %1"
+#~ msgstr "Nem sikerült törölni a feladatot (1): %1"
+
+#~ msgid "Failed to delete task (2): %1"
+#~ msgstr "Nem sikerült törölni a feladatot (2): %1"
+
+#~ msgid "Failed to delete task (5): %1"
+#~ msgstr "Nem sikerült törölni a feladatot (5): %1"
+
+#~ msgid "Invalid collection"
+#~ msgstr "Érvénytelen gyűjtemény"
+
+#~ msgid "Unknown payload type '%1'"
+#~ msgstr "Ismeretlen tartalomtípus: „%1”"
+
+#~ msgid "Received an invalid reply"
+#~ msgstr "Érvénytelen válasz érkezett"
+
+#~ msgid "Failed to fetch calendars: %1"
+#~ msgstr "Nem sikerült letölteni a naptárakat: %1"
+
+#~ msgid "Failed to fetch event: %1"
+#~ msgstr "Nem sikerült letölteni az eseményt: %1"
+
+#~ msgid "Expected a single item, server sent %1 items."
+#~ msgstr "A program egy elemet várt, a kiszolgáló %1 elemet küldött."
+
+#~ msgid "Failed to fetch events: %1"
+#~ msgstr "Nem sikerült letölteni az eseményeket: %1"
+
+#~ msgid "Failed to create a new event: %1"
+#~ msgstr "Nem sikerült létrehozni egy új eseményt: %1"
+
+#~ msgid "Failed to update an event: %1"
+#~ msgstr "Nem sikerült frissíteni egy eseményt: %1"
+
+#~ msgid "Failed to delete event: %1"
+#~ msgstr "Nem sikerült törölni az eseményt: %1"
+
+#~ msgid "Failed to move event: %1"
+#~ msgstr "Nem sikerült áthelyezni az eseményt: %1"
+
+#~ msgid "Failed to fetch task lists"
+#~ msgstr "Nem sikerült letölteni a feladatlistát"
+
+#~ msgid "Failed to fetch task: %1"
+#~ msgstr "Nem sikerült letölteni a feladatot: %1"
+
+#~ msgid "Failed to fetch tasks: %1"
+#~ msgstr "Nem sikerült letölteni a feladatokat: %1"
+
+#~ msgid "Failed to update task: %1"
+#~ msgstr "Nem sikerült frissíteni a feladatot: %1"
+
+#~ msgid "Error while talking to Google"
+#~ msgstr "Hiba történt a Google-lel folytatott kommunikációban"
+
+#~ msgid ""
+#~ "Do you really want to remove calendar <b>%1</b>?<p>This will remove the "
+#~ "calendar from Google servers as well!</p>"
+#~ msgstr ""
+#~ "Biztosan el szeretné távolítani a(z) <b>%1</b> naptárat?<p>Ez eltávolítja "
+#~ "a Google kiszolgálóról is.</p>"
+
+#~ msgid ""
+#~ "Do you really want to remove tasklist <b>%1</b>?<p>This will remove the "
+#~ "tasklist from Google servers as well!</p>"
+#~ msgstr ""
+#~ "Biztosan el szeretné távolítani a(z) <b>%1</b> feladatlistát?<p>Ez "
+#~ "eltávolítja a Google kiszolgálóról is.</p>"
+
+#~ msgid "Calendar Editor"
+#~ msgstr "Naptárszerkesztő"
+
+#~ msgctxt "calendar name"
+#~ msgid "Name:"
+#~ msgstr "Név:"
+
+#~ msgid "Description:"
+#~ msgstr "Leírás:"
+
+#~ msgid "Location:"
+#~ msgstr "Hely:"
+
+#~ msgid "Timezone:"
+#~ msgstr "Időzóna:"
+
+#~ msgid "Calendar Resource Settings"
+#~ msgstr "Naptár erőforrás beállításai"
+
+#~ msgid "Add"
+#~ msgstr "Hozzáadás"
+
+#~ msgid "Edit"
+#~ msgstr "Szerkesztés"
+
+#~ msgctxt "reload the tasks"
+#~ msgid "Reload"
+#~ msgstr "Újratöltés"
+
+#~ msgid "Tasklist Editor"
+#~ msgstr "Feladatlista-szerkesztő"
+
+#~ msgctxt "task list name"
+#~ msgid "Name:"
+#~ msgstr "Név:"
+
+#~ msgid "Initial item fetching failed"
+#~ msgstr "Nem sikerült letölteni a kezdőelemet"
+
+#~ msgid "Invalid Payload"
+#~ msgstr "Érvénytelen tartalom"
+
+#~ msgid "Failed to create a contact"
+#~ msgstr "Nem sikerült létrehozni egy névjegyet"
+
+#~ msgid "Failed to update contact"
+#~ msgstr "Nem sikerült frissíteni a névjegyet"
+
+#~ msgid "Failed to update a contact"
+#~ msgstr "Nem sikerült frissíteni egy névjegyet"
+
+#~ msgid "An error occurred"
+#~ msgstr "Hiba történt"
+
+#~ msgid "Group Editor"
+#~ msgstr "Csoportszerkesztő:"
+
+#~ msgid "Group Name:"
+#~ msgstr "Csoportnév:"
+
+#~ msgid "Contacts Resource Settings"
+#~ msgstr "Névjegyek erőforrás beállításai"
+
+#~ msgid "Failed to fetch contact"
+#~ msgstr "Nem sikerült letölteni a névjegyet"

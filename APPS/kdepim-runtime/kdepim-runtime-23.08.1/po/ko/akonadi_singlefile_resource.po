@@ -1,0 +1,426 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2010, 2013, 2014, 2016, 2017, 2019, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-23 00:50+0000\n"
+"PO-Revision-Date: 2022-05-15 22:21+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:29
+#, kde-format
+msgid "Directory settings of the resource."
+msgstr "리소스의 디렉터리 설정입니다."
+
+#. i18n: ectx: property (whatsThis), widget (QTabWidget, tabWidget)
+#: settingsdialog.ui:32
+#, kde-format
+msgid ""
+"Select settings of the directory whose contents should be represented by "
+"this resource."
+msgstr "이 리소스의 내용으로 표시할 디렉터리 설정을 선택하십시오."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settingsdialog.ui:39
+#, kde-format
+msgid "Directory"
+msgstr "디렉터리"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: settingsdialog.ui:45
+#, kde-format
+msgid "Directory Name"
+msgstr "디렉터리 이름"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settingsdialog.ui:53
+#, kde-format
+msgid "Director&y:"
+msgstr "디렉터리(&Y):"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: settingsdialog.ui:68
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"이 리소스와 연결할 디렉터리를 선택하십시오. 디렉터리가 없으면 생성합니다."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: settingsdialog.ui:81
+#, kde-format
+msgid "Access Rights"
+msgstr "접근 권한"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:87
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above."
+msgstr ""
+"읽기 전용 모드를 사용하면 위에 지정한 디렉터리에 변경 사항을 기록하지 않습니"
+"다."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ReadOnly)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: settingsdialog.ui:90 settingsdialog.ui:100
+#, kde-format
+msgid ""
+"If read-only mode is enabled, no changes will be written to the directory "
+"selected above. Read-only mode will be automatically enabled if you do not "
+"have write access to the directory."
+msgstr ""
+"읽기 전용 모드를 사용하면 위에 지정한 디렉터리에 변경 사항을 기록하지 않습니"
+"다. 디렉터리에 쓰기 권한이 없으면 읽기 전용 모드를 자동으로 활성화합니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settingsdialog.ui:93 singlefileresourceconfigwidget_desktop.ui:92
+#, kde-format
+msgid "Read only"
+msgstr "읽기 전용"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: settingsdialog.ui:127
+#, kde-format
+msgid "Tuning"
+msgstr "미세 조정"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: settingsdialog.ui:133
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"이 페이지에서는 데이터 안전성 및 무결성과 성능의 균형을 조정할 수 있습니다. "
+"기본값은 대부분 경우에 작동하므로 이 페이지의 값을 변경하는 것을 추천하지 않"
+"습니다."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: settingsdialog.ui:145
+#, kde-format
+msgid "Autosave delay:"
+msgstr "자동 저장 간격:"
+
+#. i18n: ectx: property (toolTip), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:152
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "분 단위의 자동 저장 간격입니다."
+
+#. i18n: ectx: property (whatsThis), widget (KPluralHandlingSpinBox, kcfg_AutosaveInterval)
+#: settingsdialog.ui:155
+#, kde-format
+msgid "Select autosave interval time for the resource data (in minutes)."
+msgstr ""
+"리소스 데이터를 자동으로 저장할 분 단위 자동 저장 시간 간격을 선택하십시오."
+
+#: singlefileresource.h:65
+#, kde-format
+msgid "No file selected."
+msgstr "파일이 선택되지 않았음."
+
+#: singlefileresource.h:67
+#, kde-format
+msgid "The resource not configured yet"
+msgstr "리소스가 설정되지 않음"
+
+#: singlefileresource.h:98 singlefileresource.h:127 singlefileresource.h:212
+#: singlefileresourcebase.cpp:277 singlefileresourcebase.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "준비"
+
+#: singlefileresource.h:100
+#, kde-format
+msgid "Could not create file '%1'."
+msgstr "파일 '%1'을(를) 만들 수 없습니다."
+
+#: singlefileresource.h:114
+#, kde-format
+msgid "Could not read file '%1'"
+msgstr "파일 '%1'(을)를 읽을 수 없습니다"
+
+#: singlefileresource.h:130
+#, kde-format
+msgid "Another download is still in progress."
+msgstr "다른 다운로드 작업이 진행 중입니다."
+
+#: singlefileresource.h:140 singlefileresource.h:226
+#, kde-format
+msgid "Another file upload is still in progress."
+msgstr "다른 업로드 작업이 진행 중입니다."
+
+#: singlefileresource.h:156
+#, kde-format
+msgid "Downloading remote file."
+msgstr "원격 파일 다운로드 중."
+
+#: singlefileresource.h:176
+#, kde-format
+msgid "Trying to write to a read-only file: '%1'."
+msgstr "읽기 전용 파일에 쓰려고 하는 중: '%1'."
+
+#: singlefileresource.h:188
+#, kde-format
+msgid "No file specified."
+msgstr "파일을 지정하지 않았습니다."
+
+#: singlefileresource.h:216
+#, kde-format
+msgid "A download is still in progress."
+msgstr "다운로드 작업이 진행 중입니다."
+
+#: singlefileresource.h:256
+#, kde-format
+msgid "Uploading cached file to remote location."
+msgstr "원격지로 캐시된 파일을 업로드하고 있습니다."
+
+#: singlefileresourcebase.cpp:240
+#, kde-format
+msgid ""
+"The file '%1' was changed on disk. As a precaution, a backup of its previous "
+"contents has been created at '%2'."
+msgstr ""
+"파일 '%1'이(가) 디스크에서 변경되었습니다. 데이터 손실을 방지할 수 있도록 이"
+"전 내용의 백업을 '%2'에 만들었습니다."
+
+#: singlefileresourcebase.cpp:264
+#, kde-format
+msgid "Could not load file '%1'."
+msgstr "파일 '%1'을(를) 불러올 수 없습니다."
+
+#: singlefileresourcebase.cpp:283
+#, kde-format
+msgid "Could not save file '%1'."
+msgstr "파일 '%1'을(를) 저장할 수 없습니다."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: singlefileresourceconfigwidget_desktop.ui:39
+#, kde-format
+msgid "File"
+msgstr "파일"
+
+#. i18n: ectx: property (text), widget (QLabel, filenameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:47
+#, kde-format
+msgid "File Name:"
+msgstr "파일 이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: singlefileresourceconfigwidget_desktop.ui:66
+#, kde-format
+msgid ""
+"Select a file. A new file will be created if it doesn't exist. You can also "
+"use a URL, but in that case, monitoring for file changes is not possible."
+msgstr ""
+"파일을 선택하십시오. 파일이 없으면 새로 만듭니다. URL을 지정할 수도 있으나 변"
+"경 사항 감시를 지원하지 않습니다."
+
+#. i18n: ectx: property (text), widget (QLabel, displayNameLabel)
+#: singlefileresourceconfigwidget_desktop.ui:79
+#, kde-format
+msgid "Display Name:"
+msgstr "표시 이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: singlefileresourceconfigwidget_desktop.ui:108
+#, kde-format
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"읽기 전용 모드를 사용하면 변경 사항을 기록하지 않습니다. 선택한 파일이 쓰기 "
+"접근을 지원하지 않으면 읽기 전용 모드를 자동으로 활성화합니다."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MonitorFile)
+#: singlefileresourceconfigwidget_desktop.ui:121
+#, kde-format
+msgid "Enable file &monitoring"
+msgstr "파일 감시 사용하기(&M)"
+
+#. i18n: ectx: property (text), widget (QLabel, monitoringLabel)
+#: singlefileresourceconfigwidget_desktop.ui:134
+#, kde-format
+msgid ""
+"Changes made by other applications will reload the file when monitoring is "
+"enabled. Backups will be created to avoid conflicts when possible."
+msgstr ""
+"파일 감시가 활성화되어 있으면 다른 앱에서 파일을 변경했을 때 자동으로 다시 불"
+"러옵니다. 충돌을 방지할 수 있도록 사용 가능한 경우 백업을 만듭니다."
+
+#: singlefileresourceconfigwidgetbase.cpp:126
+#, kde-format
+msgctxt "@info:status"
+msgid "Checking file information..."
+msgstr "파일 정보 검사 중..."
+
+#~ msgid "Filename"
+#~ msgstr "파일 이름"
+
+#~ msgid "Status:"
+#~ msgstr "상태:"
+
+#~ msgid ""
+#~ "Select the file whose contents should be represented by this resource. If "
+#~ "the file does not exist, it will be created. A URL of a remote file can "
+#~ "also be specified, but note that monitoring for file changes will not "
+#~ "work in this case."
+#~ msgstr ""
+#~ "이 자원이 가리키는 파일을 선택하십시오. 파일이 없으면 새로 만듭니다. 원격 "
+#~ "URL을 지정할 수도 있으나, 이 경우 파일 감시를 사용할 수 없습니다."
+
+#~ msgid "&Name:"
+#~ msgstr "이름(&N):"
+
+#~ msgid ""
+#~ "Enter the name used to identify this resource in displays. If not "
+#~ "specified, the filename will be used."
+#~ msgstr ""
+#~ "이 자원을 표시할 이름을 입력하십시오. 지정하지 않으면 파일 이름을 사용합니"
+#~ "다."
+
+#~ msgid "Monitoring"
+#~ msgstr "감시"
+
+#~ msgid ""
+#~ "If file monitoring is enabled the resource will reload the file when "
+#~ "changes are made by other programs. It also tries to create a backup in "
+#~ "case of conflicts whenever possible."
+#~ msgstr ""
+#~ "파일  감시를 사용하면 다른 프로그램이 파일을 변경했을 때 파일을 다시 불러"
+#~ "옵니다. 충돌이 발생한 경우 가능한 경우 자동으로 백업을 만듭니다."
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Select the file whose "
+#~ "contents should be represented by this resource. If the file does not "
+#~ "exist, it will be created. A URL of a remote file can also be specified, "
+#~ "but note that monitoring for file changes will not work in this case.</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">이 자원이 가리키는 파일"
+#~ "을 선택합니다. 파일이 없으면 새로 만듭니다. 원격 URL을 지정할 수도 있으"
+#~ "나, 이 경우 파일 감시를 사용할 수 없습니다.</p></body></html>"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Enter the name used to "
+#~ "identify this resource in displays. If not specified, the filename will "
+#~ "be used.</p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">이 자원을 표시할 이름을 "
+#~ "입력하십시오. 지정하지 않으면 파일 이름을 사용합니다.</p></body></html>"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">If read-only mode is "
+#~ "enabled, no changes will be written to the file selected above. Read-only "
+#~ "mode will be automatically enabled if you do not have write access to the "
+#~ "file or the file is on a remote server that does not support write access."
+#~ "</p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">읽기 전용 모드에서는 선"
+#~ "택한 파일에 변경 사항을 저장하지 않습니다. 파일에 쓰기 권한이 없거나, 원"
+#~ "격 서버가 쓰기 권한을 제공하지 않으면 읽기 전용 모드로 전환됩니다.</p></"
+#~ "body></html>"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">If file monitoring is "
+#~ "enabled the resource will reload the file when changes are made by other "
+#~ "programs. It also tries to create a backup in case of conflicts whenever "
+#~ "possible.</p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">파일  감시를 사용하면 다"
+#~ "른 프로그램이 파일을 변경했을 때 파일을 다시 불러옵니다. 충돌이 발생한 경"
+#~ "우 가능한 경우 자동으로 백업을 만듭니다.</p></body></html>"
+
+#~ msgid "Could not find account"
+#~ msgstr "계정을 찾을 수 없음"
+
+#~ msgid "Could not find credentials"
+#~ msgstr "인증 정보를 찾을 수 없음"
+
+#~ msgid "&Display name:"
+#~ msgstr "표시 이름(&D):"
+
+#~ msgid " minute"
+#~ msgid_plural " minutes"
+#~ msgstr[0] "분"

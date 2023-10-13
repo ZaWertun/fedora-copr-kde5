@@ -1,0 +1,43 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# obsoleteman <tulliana@gmail.com>, 2012.
+# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2014-11-12 01:00+0200\n"
+"Last-Translator: Kaan Ozdincer <kaanozdincer@gmail.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.4\n"
+
+#: pop3wizard.es:10
+msgid "Personal Settings"
+msgstr "Kişisel Ayarlar"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: pop3wizard.ui:21
+#, kde-format
+msgid "Username:"
+msgstr "Kullanıcı adı:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: pop3wizard.ui:28
+#, kde-format
+msgid "Incoming server:"
+msgstr "Gelen e-posta sunucusu:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: pop3wizard.ui:38
+#, kde-format
+msgid "Outgoing server:"
+msgstr "Giden e-posta sunucusu:"

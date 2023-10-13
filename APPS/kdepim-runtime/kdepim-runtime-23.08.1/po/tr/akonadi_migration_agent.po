@@ -1,0 +1,78 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_migration_agent\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-01-27 03:07+0100\n"
+"PO-Revision-Date: 2022-04-05 13:28+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: migrationagent.cpp:47
+#, kde-format
+msgctxt ""
+"Title of the window that shows the status of the migration agent and offers "
+"controls to start/stop individual migration jobs."
+msgid "Migration Status"
+msgstr "Göç Durumu"
+
+#: migrationexecutor.cpp:20
+#, kde-format
+msgctxt "User visible name of ongoing Akonadi migration jobs"
+msgid "PIM Maintenance"
+msgstr "PIM Bakımı"
+
+#: migrationexecutor.cpp:41
+#, kde-format
+msgctxt "PIM-Maintenance is in progress."
+msgid "In progress..."
+msgstr "Sürüyor..."
+
+#: migrationexecutor.cpp:47
+#, kde-format
+msgid "PIM Maintenance"
+msgstr "PIM Bakımı"
+
+#: migrationexecutor.cpp:72
+#, kde-format
+msgctxt "PIM-Maintenance is paused."
+msgid "Paused."
+msgstr "Duraklatıldı."
+
+#: migrationscheduler.cpp:145
+#, kde-format
+msgctxt "Name of the migrator in this row"
+msgid "Name"
+msgstr "Ad"
+
+#: migrationscheduler.cpp:147
+#, kde-format
+msgctxt "Progress of the migrator in %"
+msgid "Progress"
+msgstr "İlerleme"
+
+#: migrationscheduler.cpp:149
+#, kde-format
+msgctxt "Current status of the migrator (done, in progress, ...)"
+msgid "Status"
+msgstr "Durum"
+
+#: migrationstatuswidget.cpp:98
+#, kde-format
+msgid "Logfile"
+msgstr "Günlük dosyası"
+
+#: migrationstatuswidget.cpp:107
+#, kde-format
+msgctxt "Title of the window displaying the log of a single migration job."
+msgid "Migration Info"
+msgstr "Göç bilgisi"

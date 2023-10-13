@@ -1,0 +1,9 @@
+File=icalresource.kcfg
+ClassName=Settings
+Mutators=true
+ItemAccessors=true
+SetUserTexts=true
+Singleton=false
+GlobalEnums=true
+NameSpace=Akonadi_ICal_Resource
+TranslationSystem=kde

@@ -1,0 +1,19 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:e="http://schemas.microsoft.com/exchange/services/2006/errors">
+  <soap:Header>
+    <t:ServerVersionInfo MajorVersion="15" MinorVersion="01" MajorBuildNumber="225" MinorBuildNumber="042" />
+    </soap:Header><soap:Body>
+    <soap:Fault>
+      <faultcode>t:ErrorServerBusy</faultcode>
+      <faultstring>The server cannot service this request right now. Try again later.</faultstring>
+      <detail>
+        <e:ResponseCode>ErrorServerBusy</e:ResponseCode>
+        <e:Message>The server cannot service this request right now. Try again later.</e:Message>
+        <t:MessageXml>
+          <t:Value Name="Policy">MaxConcurrency</t:Value>
+          <t:Value Name="MaxConcurrencyLimit">27</t:Value>
+          <t:Value Name="ErrorMessage">This operation exceeds the throttling budget for policy part 'MaxConcurrency', policy value '27', Budget type: 'Ews'. Suggested backoff time 0 ms.</t:Value>
+        </t:MessageXml>
+      </detail>
+    </soap:Fault>
+  </soap:Body>
+</soap:Envelope>

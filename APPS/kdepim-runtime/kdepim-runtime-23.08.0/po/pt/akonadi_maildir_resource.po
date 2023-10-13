@@ -1,0 +1,227 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_maildir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-02 00:55+0000\n"
+"PO-Revision-Date: 2015-09-02 12:20+0100\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POFile-SpellExtra: Maildir maildir\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: configwidget.cpp:30
+#, kde-format
+msgid "Archive Folder"
+msgstr "Arquivar a Pasta"
+
+#: configwidget.cpp:45
+#, kde-format
+msgid "The selected path is empty."
+msgstr "A localização seleccionada está em branco."
+
+#: configwidget.cpp:58
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "A localização seleccionada contém pastas Maildir válidas."
+
+#: configwidget.cpp:65
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "A localização seleccionada é uma Maildir válida."
+
+#: configwidget.cpp:71
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr ""
+"A localização seleccionada ainda não existe, pelo que será criada uma nova "
+"Maildir."
+
+#: configwidget.cpp:75
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "A localização seleccionada não existe."
+
+#: libmaildir/maildir.cpp:214 libmaildir/maildir.cpp:219
+#, kde-format
+msgid "Error opening %1; this folder is missing."
+msgstr "Erro ao aceder a %1; esta pasta não existe."
+
+#: libmaildir/maildir.cpp:225
+#, kde-format
+msgid ""
+"Error opening %1; either this is not a valid maildir folder, or you do not "
+"have sufficient access permissions."
+msgstr ""
+"Erro ao aceder a %1; ou não é uma pasta 'maildir' válida ou não tem "
+"permissões de acesso suficientes."
+
+#: libmaildir/maildir.cpp:452 libmaildir/maildir.cpp:474
+#: libmaildir/maildir.cpp:492 libmaildir/maildir.cpp:512
+#: libmaildir/maildir.cpp:531 libmaildir/maildir.cpp:555
+#: libmaildir/maildir.cpp:630 libmaildir/maildir.cpp:780
+#, kde-format
+msgid "Cannot locate mail file %1."
+msgstr "Não é possível localizar o ficheiro de correio %1."
+
+#: libmaildir/maildir.cpp:458 libmaildir/maildir.cpp:480
+#, kde-format
+msgid "Cannot open mail file %1."
+msgstr "Não é possível abrir o ficheiro da caixa de correio %1."
+
+#: libmaildir/maildir.cpp:563 libmaildir/maildir.cpp:590
+#, kde-format
+msgid "Cannot write to mail file %1."
+msgstr "Não é possível gravar no ficheiro da caixa de correio %1."
+
+#: libmaildir/maildir.cpp:604
+#, kde-format
+msgid "Failed to create mail file %1. The error was: %2"
+msgstr ""
+"Não foi possível criar o ficheiro da caixa de correio %1. O erro foi: %2"
+
+#: libmaildir/maildir.cpp:698
+#, kde-format
+msgid "Failed to update the file name %1 to %2 on the disk. The error was: %3."
+msgstr ""
+"Não foi possível actualizar o nome do ficheiro %1 para %2 no disco. O erro "
+"foi: %3."
+
+#: maildirresource.cpp:122 maildirresource.cpp:254 maildirresource.cpp:293
+#: maildirresource.cpp:387 maildirresource.cpp:428 maildirresource.cpp:548
+#: maildirresource.cpp:578 maildirresource.cpp:621 maildirresource.cpp:654
+#, kde-format
+msgid "Unusable configuration."
+msgstr "A configuração está inutilizada."
+
+#: maildirresource.cpp:187
+#, kde-format
+msgid "Unable to fetch item: The maildir folder \"%1\" is not valid."
+msgstr "Não é possível obter o item: A pasta 'maildir' \"%1\" não é válida."
+
+#: maildirresource.cpp:265
+#, kde-format
+msgid "Error: Unsupported type."
+msgstr "Erro: O tipo não é suportado."
+
+#: maildirresource.cpp:331
+#, kde-format
+msgid "Failed to change the flags for the mail. %1"
+msgstr "Não foi possível alterar as opções do correio. %1"
+
+#: maildirresource.cpp:366
+#, kde-format
+msgid "Maildir resource got a non-mail content."
+msgstr "O recurso 'maildir' recebeu conteúdos que não são de e-mail."
+
+#: maildirresource.cpp:393
+#, kde-format
+msgid "Source folder is invalid: '%1'."
+msgstr "A pasta de origem é inválida: '%1'."
+
+#: maildirresource.cpp:399
+#, kde-format
+msgid "Destination folder is invalid: '%1'."
+msgstr "A pasta de destino é inválida: '%1'."
+
+#: maildirresource.cpp:416
+#, kde-format
+msgid "Could not move message '%1' from '%2' to '%3'. The error was %4."
+msgstr ""
+"Não foi possível mover a mensagem '%1' de '%2' para '%3'. O erro foi %4."
+
+#: maildirresource.cpp:438
+#, kde-format
+msgid "Failed to delete message: %1"
+msgstr "Não foi possível apagar a mensagem: %1"
+
+#: maildirresource.cpp:527
+#, kde-format
+msgid "Maildir '%1' for collection '%2' is invalid."
+msgstr "A pasta Maildir '%1' da colecção '%2' é inválida."
+
+#: maildirresource.cpp:606
+#, kde-format
+msgid "Unable to rename maildir folder '%1'."
+msgstr "Não foi possível apagar a 'maildir' '%1'."
+
+#: maildirresource.cpp:627
+#, kde-format
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Não é possível mover a pasta de topo Maildir '%1'."
+
+#: maildirresource.cpp:642
+#, kde-format
+msgid "Unable to move maildir folder '%1' from '%2' to '%3'."
+msgstr "Não foi possível mover a pasta 'maildir' '%1' de '%2' para '%3'."
+
+#: maildirresource.cpp:660
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Não é possível apagar a pasta de topo Maildir '%1'."
+
+#: maildirresource.cpp:669
+#, kde-format
+msgid "Failed to delete sub-folder '%1'."
+msgstr "Não foi possível apagar a sub-pasta '%1'."
+
+#: maildirresource.cpp:683
+#, kde-format
+msgid "Unable to create maildir '%1'."
+msgstr "Não foi possível criar a 'maildir' '%1'."
+
+#: maildirresource.cpp:693
+#, kde-format
+msgid "No usable storage location configured."
+msgstr "Não foi configurado nenhum local de armazenamento."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: maildirresource.kcfg:10
+#, kde-format
+msgid "Path to maildir"
+msgstr "Localização da 'maildir'"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: maildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"A localização aponta para uma pasta que contém Maildir's em vez da própria "
+"Maildir."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: maildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Não alterar os dados actuais da infra-estrutura."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Configuração da Pasta de Correio"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: settings.ui:37
+#, kde-format
+msgid "Maildir"
+msgstr "Maildir"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:43
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Seleccione a pasta que contém a informação da 'maildir':"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:53
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Abrir apenas para leitura"
+
+#~ msgid "Select a MailDir folder"
+#~ msgstr "Seleccione uma pasta 'maildir'"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:kcfg="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile/>
+  <group name="General">
+    <entry name="settingsVersion" type="Int">
+      <label>Settings Version</label>
+      <default>1</default>
+    </entry>
+    <entry name="displayName" type="String">
+      <label>Display name</label>
+      <default></default>
+    </entry>
+    <entry name="refreshInterval" type="Int">
+      <label>Refresh every</label>
+      <default>5</default>
+    </entry>
+    <entry name="remoteUrls" type="StringList">
+      <label>Remote URLs</label>
+      <default></default>
+    </entry>
+    <entry name="defaultUsername" type="String">
+      <label>User name</label>
+      <default></default>
+    </entry>
+    <entry name="limitSyncRange" type="Bool">
+      <label>Limit the events retrieval to the specified time range</label>
+      <default>true</default>
+    </entry>
+    <entry name="syncRangeStartNumber" type="String">
+      <label>Period for which to retrieve events, quantity</label>
+      <default>3</default>
+    </entry>
+    <entry name="syncRangeStartType" type="String">
+      <label>Period for which to retrieve events, type</label>
+      <default>M</default>
+    </entry>
+    <entry name="collectionsUrlsMappings" type="String">
+      <label>String representation of the mappings between discovered collections and configured URLs</label>
+      <default></default>
+    </entry>
+    <entry name="readOnly" type="Bool">
+      <label>Do not change the actual backend data.</label>
+      <default>false</default>
+    </entry>
+    <entry name="AccountId" type="UInt">
+        <label>The account id in WebAccounts framework.</label>
+    </entry>
+    <entry name="AccountServices" type="StringList">
+        <label>Account enabled services</label>
+        <default></default>
+    </entry>
+  </group>
+</kcfg>

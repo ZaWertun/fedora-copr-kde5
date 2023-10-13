@@ -1,0 +1,105 @@
+/**
+\mainpage Akonadi, the KDE PIM storage framework
+
+These pages are a combination of design and api documentation. If you are
+looking for general information go to the Overview section.
+For detailed information and/or api-dox on any of the packages go to the
+package main page, either from the menu on the left or from the Building
+blocks section below.
+
+
+\section akonadi_overview Overview
+
+- Design and Concepts
+  - \ref akonadi_design_communication
+- \ref akonadi_usage
+- <a href="https://community.kde.org/KDE_PIM/Akonadi">Website</a>
+- <a href="https://techbase.kde.org/index.php?title=Projects/PIM/Akonadi">Wiki</a>
+- \ref akonadi_todos
+
+\section akonadi_building_blocks Building Blocks
+
+- Domain-specific libraries:
+  - <a href="../../kdepimlibs-apidocs/kabc/html/index.html">Contacts (KABC)</a>
+  - <a href="../../kdepimlibs-apidocs/kmime/html/index.html">MIME Messages (KMime)</a>
+  - <a href="../../kdepimlibs-apidocs/kcal/html/index.html">Events, todo items and journal entries (KCal)</a>
+  - <a href="../../kdepimlibs-apidocs/akonadi/html/index.html">Core library (libakonadi)</a>
+
+\authors Tobias König <tokoe@kde.org>, Volker Krause <vkrause@kde.org>
+
+\licenses \lgpl
+*/
+
+
+/**
+\page akonadi_design_communication Communication Schemas
+
+\section akonadi_design_communication_search Search
+
+The sequence diagrams below show how general communication is done:
+
+<div id='akonadi_client_search_small.png' onClick="document.getElementById('akonadi_client_search_small.png').style.display='none';document.getElementById(' akonadi_client_search.png').style.display='inline';" title="Click to enlarge" >
+  \image html akonadi_client_search_small.png  "Akonadi Communication Schema"
+ </div>
+ <div id=' akonadi_client_search.png' onClick="document.getElementById(' akonadi_client_search.png').style.display='none';document.getElementById('akonadi_client_search_small.png').style.display='inline';" style="display:none" >
+  \image html  akonadi_client_search.png  "Akonadi Communication Schema"
+ </div>
+
+\image latex akonadi_client_search.eps "Akonadi Communication Schema" height=5cm
+
+The item search request is probably the call which is used most often
+by the clients (components or applications). This call enables the client
+to search for a list of items of a given mime type which match a
+given search criterion.
+
+In this case the client will contact the SearchProvider responsible for
+the mime type, in order to retrieve the list of matching UIDs. The SearchProvider
+already has a list of all available items of this mime type in its memory, so it
+can search fast and use indices for optimization.
+
+To communicate mime type constraints in FETCH and LIST and their responses the
+IMAP flags mechanism is used. Unknown flags should be ignored by non-Akonadi
+IMAP clients, which keeps compatibility with mutt and regular KMail.
+
+Examples:
+- List
+\verbatim
+0x8053c68 8 LIST "" "res1/foo/%"
+0x8053c68 * LIST (\MimeTypes[text/calendar,directory/inode]) "/" "res1/foo/bar"
+\endverbatim
+- Fetch
+\verbatim
+0x8056310 7 UID FETCH 22 (UID RFC822.SIZE FLAGS BODY.PEEK[])
+0x8056310 * 1 FETCH (FLAGS (\Seen \MimeTypes[message/rfc822]) RFC822 {2450} From: Till Adam To: ...
+\endverbatim
+
+\section akonadi_design_communication_agent Agent Handling
+<div id=' akonadi_agent_handling_small.png' onClick="document.getElementById(' akonadi_agent_handling_small.png').style.display='none';document.getElementById(' akonadi_agent_handling.png').style.display='inline';" title="Click to enlarge" >
+  \image html  akonadi_agent_handling_small.png  "Akonadi Agent Handling"
+ </div>
+ <div id=' akonadi_agent_handling.png' onClick="document.getElementById(' akonadi_agent_handling.png').style.display='none';document.getElementById(' akonadi_agent_handling_small.png').style.display='inline';" style="display:none" >
+  \image html  akonadi_agent_handling.png  "Akonadi Agent Handling"
+ </div>
+
+\image latex akonadi_agent_handling.eps "Akonadi Agent Handling" height=4cm
+*/
+
+/**
+\page akonadi_overview_uml Akonadi Overview
+
+This overview does not show a complete class or collaboration diagram, it is rather meant to show the
+big picture.
+
+<div id=' akonadi_overview_uml_small.png' onClick="document.getElementById(' akonadi_overview_uml_small.png').style.display='none';document.getElementById(' akonadi_overview_uml.png').style.display='inline';" title="Click to enlarge" >
+  \image html  akonadi_overview_uml_small.png  "Akonadi Overview"
+ </div>
+ <div id=' akonadi_overview_uml.png' onClick="document.getElementById(' akonadi_overview_uml.png').style.display='none';document.getElementById(' akonadi_overview_uml_small.png').style.display='inline';" style="display:none" >
+  \image html  akonadi_overview_uml.png  "Akonadi Overview"
+ </div>
+
+
+*/
+
+
+// DOXYGEN_NAME=kdepim-runtime
+// DOXYGEN_ENABLE=YES

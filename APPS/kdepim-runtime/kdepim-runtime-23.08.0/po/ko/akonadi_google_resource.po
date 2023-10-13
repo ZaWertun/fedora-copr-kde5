@@ -1,0 +1,615 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2013, 2014, 2017, 2020, 2021, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-08-15 02:26+0000\n"
+"PO-Revision-Date: 2023-07-26 00:36+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#: calendarhandler.cpp:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving calendars"
+msgstr "캘린더 가져오는 중"
+
+#: calendarhandler.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving events for calendar '%1'"
+msgstr "캘린더 '%1'의 일정 가져오는 중"
+
+#: calendarhandler.cpp:197 taskhandler.cpp:170
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding event to calendar '%1'"
+msgstr "캘린더 '%1'에 일정 추가하는 중"
+
+#: calendarhandler.cpp:221
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing event in calendar '%1'"
+msgstr "캘린더 '%1'의 일정 변경 중"
+
+#: calendarhandler.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 event"
+msgid_plural "Removing %1 events"
+msgstr[0] "일정 %1개 삭제 중"
+
+#: calendarhandler.cpp:248
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 event from calendar '%2' to calendar '%3'"
+msgid_plural "Moving %1 events from calendar '%2' to calendar '%3'"
+msgstr[0] ""
+"캘린더 '%2'에서 '%3'(으)로 일정 %1개 이동 중|/|캘린더 '%2'에서 '%3'$[으 %3]"
+"로 일정 %1개 이동 중"
+
+#: calendarhandler.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating calendar '%1'"
+msgstr "캘린더 '%1' 생성 중"
+
+#: calendarhandler.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing calendar '%1'"
+msgstr "캘린더 '%1' 변경 중"
+
+#: calendarhandler.cpp:307
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing calendar '%1'"
+msgstr "캘린더 '%1' 삭제 중"
+
+#: generichandler.cpp:24
+#, kde-format
+msgid "Cannot handle item linking"
+msgstr "항목 연결을 처리할 수 없음"
+
+#: generichandler.cpp:29
+#, kde-format
+msgid "Cannot handle item unlinking"
+msgstr "항목 연결 해제를 처리할 수 없음"
+
+#: generichandler.cpp:56
+#, kde-format
+msgctxt "@status"
+msgid "Ready"
+msgstr "준비"
+
+#: generichandler.h:65 generichandler.h:77
+#, kde-format
+msgid "Invalid item."
+msgstr "항목이 잘못되었습니다."
+
+#: googleresource.cpp:87
+#, kde-format
+msgid "Fetching password..."
+msgstr "암호 가져오는 중..."
+
+#: googleresource.cpp:94
+#, kde-format
+msgid "Can't fetch password"
+msgstr "암호를 가져올 수 없음"
+
+#: googleresource.cpp:135
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "준비"
+
+#: googleresource.cpp:147
+#, kde-format
+msgid "not configured"
+msgstr "설정되지 않음"
+
+#: googleresource.cpp:147
+#, kde-format
+msgctxt "%1 is account name (user@gmail.com)"
+msgid "Google Groupware (%1)"
+msgstr "Google 그룹웨어(%1)"
+
+#: googleresource.cpp:156
+#, kde-format
+msgid "Configured account does not exist"
+msgstr "설정된 계정이 없음"
+
+#: googleresource.cpp:204
+#, kde-format
+msgid "Account has been logged out."
+msgstr "계정에서 로그아웃되었습니다."
+
+#: googleresource.cpp:207
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from your account. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"계정에서 Google 그룹웨어가 로그아웃되었습니다. Google 연락처 및 캘린더를 다"
+"시 동기화하려면 로그인하십시오."
+
+#: googleresource.cpp:208
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from account %1. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"%1 계정에서 Google 그룹웨어가 로그아웃되었습니다. Google 연락처 및 캘린더를 "
+"다시 동기화하려면 로그인하십시오."
+
+#: googleresource.cpp:212
+#, kde-format
+msgctxt "@title"
+msgid "%1 needs your attention."
+msgstr "%1에서 작업이 필요합니다."
+
+#: googleresource.cpp:217
+#, kde-format
+msgctxt "@action"
+msgid "Log in"
+msgstr "로그인"
+
+#: googleresource.cpp:231 googleresource.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Resource is not configured"
+msgstr "리소스가 설정되지 않음"
+
+#: googleresource.cpp:247
+#, kde-format
+msgid "Failed to refresh tokens"
+msgstr "토큰을 새로 고칠 수 없음"
+
+#: googleresource.cpp:435 googleresource.cpp:449 googleresource.cpp:463
+#: googleresource.cpp:478 googleresource.cpp:492 googleresource.cpp:506
+#, kde-format
+msgid "Invalid payload type"
+msgstr "잘못된 페이로드 형식"
+
+#: googleresource.cpp:520 googleresource.cpp:534 googleresource.cpp:548
+#, kde-format
+msgid "Unknown collection mimetype"
+msgstr "알 수 없는 모음집 MIME 형식"
+
+#: googlesettingswidget.cpp:46
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " 분"
+
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: googlesettingswidget.cpp:108 googlesettingswidget.ui:30
+#, kde-format
+msgid "<b>not configured</b>"
+msgstr "<b>설정되지 않음</b>"
+
+#. i18n: ectx: property (text), widget (QLabel, accountTextLabel)
+#: googlesettingswidget.ui:23
+#, kde-format
+msgid "Account:"
+msgstr "계정:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureBtn)
+#: googlesettingswidget.ui:42
+#, kde-format
+msgid "Configure..."
+msgstr "설정..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableRefresh)
+#: googlesettingswidget.ui:49
+#, kde-format
+msgid "Enable interval refresh"
+msgstr "자동 새로 고침 사용"
+
+#. i18n: ectx: property (text), widget (QLabel, refreshLabel)
+#: googlesettingswidget.ui:56
+#, kde-format
+msgid "Refresh interval:"
+msgstr "새로 고침 간격:"
+
+#. i18n: ectx: property (text), widget (QLabel, eventsLimitLabel)
+#: googlesettingswidget.ui:79
+#, kde-format
+msgid "Fetch only events since:"
+msgstr "다음 이후의 새 이벤트만 가져오기:"
+
+#. i18n: ectx: property (text), widget (QLabel, calendarsLabel)
+#: googlesettingswidget.ui:92
+#, kde-format
+msgid "Enabled Calendars:"
+msgstr "활성화된 달력:"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadCalendarsBtn)
+#. i18n: ectx: property (text), widget (QPushButton, reloadTaskListsBtn)
+#: googlesettingswidget.ui:123 googlesettingswidget.ui:168
+#, kde-format
+msgid "Reload"
+msgstr "새로 고침"
+
+#. i18n: ectx: property (text), widget (QLabel, taskListsLabel)
+#: googlesettingswidget.ui:137
+#, kde-format
+msgid "Enabled Tasklists:"
+msgstr "활성화된 작업 목록:"
+
+#: personhandler.cpp:88
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Coworkers"
+msgstr "직장 동료"
+
+#: personhandler.cpp:90
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Friends"
+msgstr "친구"
+
+#: personhandler.cpp:92
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Family"
+msgstr "가족"
+
+#: personhandler.cpp:94
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "My Contacts"
+msgstr "내 연락처"
+
+#: personhandler.cpp:118
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts groups"
+msgstr "연락처 그룹 가져오는 중"
+
+#: personhandler.cpp:125 personhandler.cpp:131
+#, kde-format
+msgid "Other Contacts"
+msgstr "다른 연락처"
+
+#: personhandler.cpp:172
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts for group '%1'"
+msgstr "그룹 '%1'의 연락처 가져오는 중"
+
+#: personhandler.cpp:376
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding contact to group '%1'"
+msgstr "그룹 '%1'에 연락처 추가 중"
+
+#: personhandler.cpp:410
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact"
+msgstr "연락처 변경 중"
+
+#: personhandler.cpp:424
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 contact"
+msgid_plural "Removing %1 contacts"
+msgstr[0] "연락처 %1개 삭제 중"
+
+#: personhandler.cpp:444
+#, kde-format
+msgid "Invalid source or destination collection"
+msgstr "잘못된 원본 및 대상 모음집"
+
+#: personhandler.cpp:450
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 contact from group '%2' to '%3'"
+msgid_plural "Moving %1 contacts from group '%2' to '%3'"
+msgstr[0] ""
+"연락처 %1개를 그룹 '%2'에서 '%3'(으)로 이동하는 중|/|연락처 %1개를 그룹 "
+"'%2'에서 '%3'$[으 %3]로 이동하는 중"
+
+#: personhandler.cpp:467
+#, kde-format
+msgctxt "@info:status"
+msgid "Linking %1 contact"
+msgid_plural "Linking %1 contacts"
+msgstr[0] "연락처 %1개 연결 중"
+
+#: personhandler.cpp:481
+#, kde-format
+msgctxt "@info:status"
+msgid "Unlinking %1 contact"
+msgid_plural "Unlinking %1 contacts"
+msgstr[0] "연락처 %1개 연결 해제 중"
+
+#: personhandler.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new contact group '%1'"
+msgstr "새 연락처 그룹 '%1' 생성 중"
+
+#: personhandler.cpp:535
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact group '%1'"
+msgstr "연락처 그룹 '%1' 변경 중"
+
+#: personhandler.cpp:560
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing contact group '%1'"
+msgstr "연락처 그룹 '%1' 삭제 중"
+
+#. i18n: ectx: label, entry (Calendars), group (General)
+#: settingsbase.kcfg:21
+#, kde-format
+msgid "IDs of calendars in collection"
+msgstr "모음집에 있는 달력 ID"
+
+#. i18n: ectx: label, entry (TaskLists), group (General)
+#: settingsbase.kcfg:25
+#, kde-format
+msgid "IDs of task lists in collection"
+msgstr "모음집에 있는 작업 목록 ID"
+
+#: taskhandler.cpp:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving task lists"
+msgstr "할 일 목록 가져오는 중"
+
+#: taskhandler.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving tasks for list '%1'"
+msgstr "할 일 목록 '%1' 가져오는 중"
+
+#: taskhandler.cpp:195
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task in list '%1'"
+msgstr "할 일 목록 '%1' 변경 중"
+
+#: taskhandler.cpp:215
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 task"
+msgid_plural "Removing %1 tasks"
+msgstr[0] "할 일 %1개 삭제 중"
+
+#: taskhandler.cpp:225
+#, kde-format
+msgid "Failed to delete task: %1"
+msgstr "할 일을 삭제할 수 없음: %1"
+
+#: taskhandler.cpp:261
+#, kde-format
+msgid "Failed to reparent subtasks: %1"
+msgstr "하위 할 일의 부모를 변경할 수 없음: %1"
+
+#: taskhandler.cpp:292
+#, kde-format
+msgid "Moving tasks between task lists is not supported"
+msgstr "할 일 목록간에 할 일 이동은 지원되지 않음"
+
+#: taskhandler.cpp:297
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new task list '%1'"
+msgstr "새 할 일 목록 '%1' 생성 중"
+
+#: taskhandler.cpp:322
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task list '%1'"
+msgstr "할 일 목록 '%1' 변경 중"
+
+#: taskhandler.cpp:335
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing task list '%1'"
+msgstr "할 일 목록 '%1' 삭제 중"
+
+#~ msgid "Waiting for KWallet..."
+#~ msgstr "KWallet 대기 중..."
+
+#~ msgid "Can't access KWallet"
+#~ msgstr "KWallet에 접근할 수 없음"
+
+#~ msgctxt "@info:status"
+#~ msgid "Retrieving %1 contact photo for group '%2'"
+#~ msgid_plural "Retrieving %1 contact photos for group '%2'"
+#~ msgstr[0] "그룹 '%2'의 연락처 사진 %1개 가져오는 중"
+
+#~ msgid "Refresh"
+#~ msgstr "새로 고침"
+
+#~ msgid "Aborted"
+#~ msgstr "중단됨"
+
+#~ msgid "Invalid payload MIME type. Expected %1, found %2"
+#~ msgstr ""
+#~ "잘못된 페이로드 MIME 형식입니다. %1을(를) 예상했으나 %2을(를) 받았습니다"
+
+#~ msgid "&Add"
+#~ msgstr "추가(&A)"
+
+#~ msgid "&Remove"
+#~ msgstr "삭제(&R)"
+
+#~ msgid ""
+#~ "Do you really want to revoke access to account <b>%1</b>?<p>This will "
+#~ "revoke access to all resources using this account!</p>"
+#~ msgstr ""
+#~ "계정 <b>%1</b>에 대한 접근을 취소하시겠습니까?<p>이 계정에 접근하는 모든 "
+#~ "자원을 사용할 수 없게 됩니다.</p>"
+
+#~ msgid "Revoke Access?"
+#~ msgstr "접근을 취소하시겠습니까?"
+
+#~ msgctxt "%1 is account name (user@gmail.com)"
+#~ msgid "Google Calendars and Tasks (%1)"
+#~ msgstr "Google 캘린더 및 작업 (%1)"
+
+#~ msgid "The top-level collection cannot contain any tasks or events"
+#~ msgstr "최상위 단계 모음집에는 작업이나 행사가 들어 있을 수 없음"
+
+#~ msgid "Invalid payload type. Expected event or todo, got %1"
+#~ msgstr ""
+#~ "잘못된 페이로드 형식입니다. event나 todo를 예상했으나 %1을(를) 받았습니다"
+
+#~ msgid "Unknown Account"
+#~ msgstr "알 수 없는 계정"
+
+#~ msgid "Invalid reply"
+#~ msgstr "잘못된 응답"
+
+#~ msgctxt "Name of a group of contacts"
+#~ msgid "Other Contacts"
+#~ msgstr "기타 연락처"
+
+#~ msgid "Failed to delete task (1): %1"
+#~ msgstr "작업을 삭제할 수 없음 (1): %1"
+
+#~ msgid "Failed to delete task (2): %1"
+#~ msgstr "작업을 삭제할 수 없음 (2): %1"
+
+#~ msgid "Failed to delete task (5): %1"
+#~ msgstr "작업을 삭제할 수 없음 (5): %1"
+
+#~ msgid "Invalid collection"
+#~ msgstr "잘못된 모음집"
+
+#~ msgid "Unknown payload type '%1'"
+#~ msgstr "알 수 없는 페이로드 형식 '%1'"
+
+#~ msgid "Received an invalid reply"
+#~ msgstr "잘못된 응답을 받음"
+
+#~ msgid "Failed to fetch calendars: %1"
+#~ msgstr "달력을 가져올 수 없음: %1"
+
+#~ msgid "Failed to fetch event: %1"
+#~ msgstr "행사를 가져올 수 없음: %1"
+
+#~ msgid "Expected a single item, server sent %1 items."
+#~ msgstr "하나의 항목을 예상하였으나 서버에서 %1개의 항목을 보냈습니다."
+
+#~ msgid "Failed to fetch events: %1"
+#~ msgstr "행사를 가져올 수 없음: %1"
+
+#~ msgid "Failed to create a new event: %1"
+#~ msgstr "새 행사를 만들 수 없음: %1"
+
+#~ msgid "Failed to update an event: %1"
+#~ msgstr "행사를 업데이트할 수 없음: %1"
+
+#~ msgid "Failed to delete event: %1"
+#~ msgstr "행사를 삭제할 수 없음: %1"
+
+#~ msgid "Failed to move event: %1"
+#~ msgstr "행사를 이동할 수 없음: %1"
+
+#~ msgid "Failed to fetch task lists"
+#~ msgstr "작업 목록을 가져올 수 없음"
+
+#~ msgid "Failed to fetch task: %1"
+#~ msgstr "작업을 가져올 수 없음: %1"
+
+#~ msgid "Failed to fetch tasks: %1"
+#~ msgstr "작업을 가져올 수 없음: %1"
+
+#~ msgid "Failed to update task: %1"
+#~ msgstr "작업을 업데이트할 수 없음: %1"
+
+#~ msgid "Error while talking to Google"
+#~ msgstr "Google과 통신 중 오류 발생"
+
+#~ msgid ""
+#~ "Do you really want to remove calendar <b>%1</b>?<p>This will remove the "
+#~ "calendar from Google servers as well!</p>"
+#~ msgstr ""
+#~ "달력 <b>%1</b>을(를) 삭제하시겠습니까?<p>Google 서버에서도 달력이 삭제됩니"
+#~ "다.</p>"
+
+#~ msgid ""
+#~ "Do you really want to remove tasklist <b>%1</b>?<p>This will remove the "
+#~ "tasklist from Google servers as well!</p>"
+#~ msgstr ""
+#~ "작업 목록 <b>%1</b>을(를) 삭제하시겠습니까?<p>Google 서버에서도 작업 목록"
+#~ "이 삭제됩니다.</p>"
+
+#~ msgid "Calendar Editor"
+#~ msgstr "달력 편집기"
+
+#~ msgctxt "calendar name"
+#~ msgid "Name:"
+#~ msgstr "이름:"
+
+#~ msgid "Description:"
+#~ msgstr "설명:"
+
+#~ msgid "Location:"
+#~ msgstr "위치:"
+
+#~ msgid "Timezone:"
+#~ msgstr "시간대:"
+
+#~ msgid "Calendar Resource Settings"
+#~ msgstr "달력 자원 설정"
+
+#~ msgid "Add"
+#~ msgstr "추가"
+
+#~ msgid "Edit"
+#~ msgstr "편집"
+
+#~ msgctxt "reload the tasks"
+#~ msgid "Reload"
+#~ msgstr "새로 고침"
+
+#~ msgid "Tasklist Editor"
+#~ msgstr "작업 목록 편집기"
+
+#~ msgctxt "task list name"
+#~ msgid "Name:"
+#~ msgstr "이름:"
+
+#~ msgid "Initial item fetching failed"
+#~ msgstr "초기 항목 가져오기 실패"
+
+#~ msgid "Invalid Payload"
+#~ msgstr "잘못된 페이로드"
+
+#~ msgid "Failed to create a contact"
+#~ msgstr "연락처를 만들 수 없음"
+
+#~ msgid "Failed to update contact"
+#~ msgstr "연락처를 업데이트할 수 없음"
+
+#~ msgid "Failed to update a contact"
+#~ msgstr "연락처를 업데이트할 수 없음"
+
+#~ msgid "An error occurred"
+#~ msgstr "오류 발생"
+
+#~ msgid "Group Editor"
+#~ msgstr "그룹 편집기"
+
+#~ msgid "Group Name:"
+#~ msgstr "그룹 이름:"
+
+#~ msgid "Contacts Resource Settings"
+#~ msgstr "연락처 자원 설정"

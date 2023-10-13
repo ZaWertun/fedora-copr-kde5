@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "icaldirconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_icaldir_resource"
+}

@@ -1,0 +1,53 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Javier Vinal <fjvinal@gmail.com>, 2014, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-05-10 00:46+0000\n"
+"PO-Revision-Date: 2015-07-20 13:30+0100\n"
+"Last-Translator: Javier Vinal <fjvinal@gmail.com>\n"
+"Language-Team: Spanish <l10n-kde-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: folderarchivesettingpage.cpp:33
+#, kde-format
+msgctxt "@item:inlistbox for option \"Archive folder name\""
+msgid "Unique"
+msgstr "Único"
+
+#: folderarchivesettingpage.cpp:34
+#, kde-format
+msgctxt "@item:inlistbox for option \"Archive folder name\""
+msgid "Month and year"
+msgstr "Mes y año"
+
+#: folderarchivesettingpage.cpp:35
+#, kde-format
+msgctxt "@item:inlistbox for option \"Archive folder name\""
+msgid "Year"
+msgstr "Año"
+
+#: folderarchivesettingpage.cpp:56
+#, kde-format
+msgid "Enable"
+msgstr "Activar"
+
+#: folderarchivesettingpage.cpp:65
+#, kde-format
+msgctxt "@label:chooser for the folder that messages will be archived under"
+msgid "Archive into:"
+msgstr "Archivar en"
+
+#: folderarchivesettingpage.cpp:67
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Archive folder name:"
+msgstr "Nombre de carpeta de archivado:"

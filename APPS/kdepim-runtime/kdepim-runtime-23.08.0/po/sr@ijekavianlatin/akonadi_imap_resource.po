@@ -1,0 +1,1162 @@
+# Translation of akonadi_imap_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2013, 2014, 2015, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_imap_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-02 03:24+0200\n"
+"PO-Revision-Date: 2017-09-28 18:00+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavianlatin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: addcollectiontask.cpp:49
+#, kde-format
+msgid "Cannot add IMAP folder '%1' for a non-existing parent folder '%2'."
+msgstr ""
+"Ne mogu da dodam IMAP fasciklu „%1“ za nepostojeću roditeljsku fasciklu „%2“."
+
+#: addcollectiontask.cpp:85
+#, kde-format
+msgid "Failed to create the folder '%1' on the IMAP server. "
+msgstr "Ne mogu da napravim fasciklu „%1“ na IMAP server. "
+
+#: addcollectiontask.cpp:105 movecollectiontask.cpp:140
+#, kde-format
+msgid ""
+"Failed to subscribe to the folder '%1' on the IMAP server. It will disappear "
+"on next sync. Use the subscription dialog to overcome that"
+msgstr ""
+"Ne mogu da se pretplatim na fasciklu „%1“ na IMAP serveru. Nestaće po "
+"narednoj sinhronizaciji. Upotrebite dijalog pretplate da sprečite to."
+
+#: addcollectiontask.cpp:148 changecollectiontask.cpp:296
+#, kde-format
+msgid "Failed to write some annotations for '%1' on the IMAP server. %2"
+msgstr "Ne mogu da upišem neka tumačenja za „%1“ na IMAP server. %2"
+
+#: additemtask.cpp:132 changeitemtask.cpp:196 changeitemtask.cpp:224
+#: moveitemstask.cpp:272
+#, kde-format
+msgid "Could not determine the UID for the newly created message on the server"
+msgstr "Ne mogu da odredim UID za novonapravljenu poruku na serveru."
+
+#: changecollectiontask.cpp:55
+#, kde-format
+msgid "Cannot modify IMAP folder '%1', it does not exist on the server."
+msgstr "Ne mogu da izmenim IMAP fasciklu „%1“, ne postoji na serveru."
+
+#: changecollectiontask.cpp:68
+#, kde-format
+msgid ""
+"ACLs for '%1' need to be retrieved from the IMAP server first. Skipping ACL "
+"change"
+msgstr ""
+"ACL‑ovi za „%1“ moraju prvo da se dobave sa IMAP servera. Preskačem izmenu "
+"ACL‑ova."
+
+#: changecollectiontask.cpp:257
+#, kde-format
+msgid "Failed to rename the folder, restoring folder list."
+msgstr "Ne mogu da preimenujem fasciklu, obnavljam spisak fascikli."
+
+#: changecollectiontask.cpp:275
+#, kde-format
+msgid ""
+"Failed to subscribe to the renamed folder '%1' on the IMAP server. It will "
+"disappear on next sync. Use the subscription dialog to overcome that"
+msgstr ""
+"Ne mogu da se pretplatim na preimenovanu fasciklu „%1“ na IMAP serveru. "
+"Nestaće po narednoj sinhronizaciji. Upotrebite dijalog pretplate da sprečite "
+"to."
+
+#: changecollectiontask.cpp:286
+#, kde-format
+msgid "Failed to write some ACLs for '%1' on the IMAP server. %2"
+msgstr "Ne mogu da upišem neke ACL‑ove za „%1“ na IMAP server. %2"
+
+#: imapresource.cpp:66
+#, kde-format
+msgid "IMAP Account"
+msgstr "IMAP nalog"
+
+#: imapresource.cpp:79
+#, fuzzy, kde-format
+#| msgid "IMAP Account Settings"
+msgctxt "@title:window"
+msgid "IMAP Account Settings"
+msgstr "Postavke IMAP naloga"
+
+#. i18n: ectx: label, entry (ImapServer), group (network)
+#: imapresource.kcfg:10
+#, kde-format
+msgid "IMAP server"
+msgstr "IMAP server"
+
+#. i18n: ectx: label, entry (ImapPort), group (network)
+#: imapresource.kcfg:13
+#, kde-format
+msgid "Defines the port the IMAP service is running on"
+msgstr "Određuje port na kojem radi IMAP servis."
+
+#. i18n: ectx: label, entry (UserName), group (network)
+#: imapresource.kcfg:17
+#, kde-format
+msgid "Username"
+msgstr "Korisničko ime"
+
+#. i18n: ectx: label, entry (Safety), group (network)
+#: imapresource.kcfg:20
+#, kde-format
+msgid "Defines the encryption type to use"
+msgstr "Određuje željenu vrstu šifrovanja"
+
+#. i18n: ectx: label, entry (OverrideEncryption), group (network)
+#: imapresource.kcfg:24
+#, kde-format
+msgid "Override configured encryption mode"
+msgstr "Potisni podešen režim šifrovanja"
+
+#. i18n: ectx: label, entry (Authentication), group (network)
+#: imapresource.kcfg:27
+#, kde-format
+msgid "Defines the authentication type to use"
+msgstr "Određuje željenu vrstu autentifikacije"
+
+#. i18n: ectx: label, entry (SubscriptionEnabled), group (network)
+#: imapresource.kcfg:31
+#, kde-format
+msgid "Defines if the server side subscription is enabled"
+msgstr "Određuje da li je uključena pretplata na strani servera"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useProxyCheck)
+#. i18n: ectx: label, entry (UseProxy), group (network)
+#: imapresource.kcfg:38 setupserverview_desktop.ui:596
+#, kde-format
+msgid "Connect using the system proxy settings"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (UseProxy), group (network)
+#: imapresource.kcfg:39
+#, kde-format
+msgid ""
+"If checked, the system proxy settings will be used to connect to the mail "
+"server."
+msgstr ""
+
+#. i18n: ectx: label, entry (DisconnectedModeEnabled), group (cache)
+#: imapresource.kcfg:45
+#, kde-format
+msgid "Defines if all the IMAP data should be cached locally all the time"
+msgstr "Određuje da li sve IMAP podatke treba keširati lokalno sve vreme"
+
+#. i18n: ectx: label, entry (IntervalCheckEnabled), group (cache)
+#: imapresource.kcfg:49
+#, kde-format
+msgid "Defines if interval checking is enabled."
+msgstr "Određuje da li je uključena periodična provera"
+
+#. i18n: ectx: label, entry (IntervalCheckTime), group (cache)
+#: imapresource.kcfg:53
+#, kde-format
+msgid "Check interval in minutes"
+msgstr "Period provjere u minutima"
+
+#. i18n: ectx: label, entry (RetrieveMetadataOnFolderListing), group (cache)
+#: imapresource.kcfg:58
+#, kde-format
+msgid ""
+"Defines if the annotations, ACLs and quota information of mailboxes should\n"
+"             also be retrieved when the mailboxes get listed."
+msgstr ""
+"Određuje da li će se tumačenja, ACL‑ovi i podaci o kvoti sandučića, takođe "
+"preuzimati pri listanju sandučića."
+
+#. i18n: ectx: label, entry (AutomaticExpungeEnabled), group (cache)
+#: imapresource.kcfg:63
+#, kde-format
+msgid ""
+"Defines if the expunge command is issued automatically, otherwise it should "
+"be\n"
+"             triggered manually through the D-Bus interface."
+msgstr ""
+"Određuje da li će se naredba expunge automatski izvršiti. Inače je treba "
+"izdati ručno putem D‑Bus sučelja."
+
+#. i18n: ectx: label, entry (TrashCollection), group (cache)
+#: imapresource.kcfg:67
+#, kde-format
+msgid "Define which folder is used for trash"
+msgstr "Određuje koja se fascikla koristi za smeće"
+
+#. i18n: ectx: label, entry (TrashCollectionMigrated), group (cache)
+#: imapresource.kcfg:71
+#, kde-format
+msgid "Define if the trash collection received the special attribute"
+msgstr "Određuje da li zbirka smeća dobija specijalni atribut"
+
+#. i18n: ectx: label, entry (UseDefaultIdentity), group (cache)
+#: imapresource.kcfg:75
+#, kde-format
+msgid "Define if account uses the default identity"
+msgstr "Određuje da li nalog koristi podrazumijevani identitet"
+
+#. i18n: ectx: label, entry (AccountIdentity), group (cache)
+#: imapresource.kcfg:79
+#, kde-format
+msgid "Identity account"
+msgstr "Identitet uz nalog"
+
+#. i18n: ectx: label, entry (KnownMailBoxes), group (cache)
+#: imapresource.kcfg:82
+#, kde-format
+msgid "List of mailbox names reported by the server the last time"
+msgstr "Spisak imena sandučića koje je server prošli put prijavio"
+
+#. i18n: ectx: label, entry (IdleRidPath), group (idle)
+#: imapresource.kcfg:87
+#, kde-format
+msgid "RID path to the mailbox to watch for changes"
+msgstr "RID putanja do sandučeta radi nadgledanja izmena"
+
+#. i18n: ectx: label, entry (SieveSupport), group (siever)
+#: imapresource.kcfg:92
+#, kde-format
+msgid "Define if server supports sieve"
+msgstr "Određuje da li server podržava sito"
+
+#. i18n: ectx: label, entry (SieveReuseConfig), group (siever)
+#: imapresource.kcfg:96
+#, kde-format
+msgid "Define if we reuse host and login configuration"
+msgstr "Određuje da li se ponovo koristi postava domaćina i prijavljivanja"
+
+#. i18n: ectx: label, entry (SievePort), group (siever)
+#: imapresource.kcfg:100
+#, kde-format
+msgid "Define sieve port"
+msgstr "Određuje port za sito"
+
+#. i18n: ectx: label, entry (SieveAlternateUrl), group (siever)
+#: imapresource.kcfg:104
+#, kde-format
+msgid "Define alternate URL"
+msgstr "Određuje alternativni URL"
+
+#. i18n: ectx: label, entry (AlternateAuthentication), group (siever)
+#: imapresource.kcfg:107
+#, kde-format
+msgid "Defines the authentication type to use for alternate server"
+msgstr "Određuje željenu vrstu autentifikacije za alternativni server"
+
+#. i18n: ectx: label, entry (SieveVacationFilename), group (siever)
+#: imapresource.kcfg:111
+#, kde-format
+msgid "Define default sieve vacation filename"
+msgstr "Određuje podrazumijevano ime fajla odmora za sito"
+
+# >? "custom server sieve URL" parses how?
+#. i18n: ectx: label, entry (SieveCustomUsername), group (siever)
+#: imapresource.kcfg:115
+#, kde-format
+msgid "Define username used from custom server sieve url"
+msgstr "Definiše korisničko ime za posebni URL serverskog sita"
+
+#. i18n: ectx: label, entry (SieveCustomAuthentification), group (siever)
+#: imapresource.kcfg:119
+#, kde-format
+msgid "Defines the type of identification used by custom sieve server"
+msgstr "Definiše tip identifikacije posebnog sito servera"
+
+#: imapresourcebase.cpp:236
+#, kde-format
+msgid "No server configured yet."
+msgstr "Još nije podešen nijedan server."
+
+#: imapresourcebase.cpp:269 setupserver.cpp:670
+#, kde-format
+msgctxt "@title:window"
+msgid "Serverside Subscription"
+msgstr "Pretplata na strani servera"
+
+#: imapresourcebase.cpp:295
+#, kde-format
+msgid "Connection established."
+msgstr "Veza uspostavljena."
+
+#: imapresourcebase.cpp:312
+#, kde-format
+msgid "Server is not available."
+msgstr "Server nije dostupan."
+
+#: imapresourcebase.cpp:363
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding item in '%1'"
+msgstr "Dodajem stavku u „%1“..."
+
+#: imapresourcebase.cpp:370
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating item in '%1'"
+msgstr "Ažuriram stavku u „%1“..."
+
+#: imapresourcebase.cpp:377
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating items"
+msgstr "Ažuriram stavke..."
+
+#: imapresourcebase.cpp:391
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing items"
+msgstr "Uklanjam stavke..."
+
+#: imapresourcebase.cpp:408
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving items from '%1' to '%2'"
+msgstr "Premeštam stavke iz „%1“ u „%2“..."
+
+#: imapresourcebase.cpp:417
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving folders"
+msgstr "Dobavljam fascikle..."
+
+#: imapresourcebase.cpp:424
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving extra folder information for '%1'"
+msgstr "Dobavljam dopunske podatke o fascikli za „%1“..."
+
+#: imapresourcebase.cpp:442
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating folder '%1'"
+msgstr "Pravim fasciklu „%1“..."
+
+#: imapresourcebase.cpp:448
+#, kde-format
+msgctxt "@info:status"
+msgid "Updating folder '%1'"
+msgstr "Ažuriram fasciklu „%1“..."
+
+#: imapresourcebase.cpp:461
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing folder '%1'"
+msgstr "Uklanjam fasciklu „%1“..."
+
+#: imapresourcebase.cpp:468
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving folder '%1' from '%2' to '%3'"
+msgstr "Premeštam fasciklu „%1“ iz „%2“ u „%3“..."
+
+#: imapresourcebase.cpp:499
+#, kde-format
+msgctxt "@info:status"
+msgid "Searching..."
+msgstr "Tražim..."
+
+#: movecollectiontask.cpp:46
+#, kde-format
+msgid "Cannot move IMAP folder '%1', it does not exist on the server."
+msgstr "Ne mogu da premestim IMAP fasciklu „%1“, ne postoji na serveru."
+
+#: movecollectiontask.cpp:53
+#, kde-format
+msgid ""
+"Cannot move IMAP folder '%1' out of '%2', '%2' does not exist on the server."
+msgstr ""
+"Ne mogu da premestim iz „%2“ IMAP fasciklu „%1“, „%2“ ne postoji na serveru."
+
+#: movecollectiontask.cpp:61
+#, kde-format
+msgid ""
+"Cannot move IMAP folder '%1' to '%2', '%2' does not exist on the server."
+msgstr ""
+"Ne mogu da premestim u „%2“ IMAP fasciklu „%1“, „%2“ ne postoji na serveru."
+
+#: moveitemstask.cpp:57
+#, kde-format
+msgid "Cannot move message, it does not exist on the server."
+msgstr "Ne mogu da premestim poruku, ne postoji na serveru."
+
+#: moveitemstask.cpp:64
+#, kde-format
+msgid "Cannot move message out of '%1', '%1' does not exist on the server."
+msgstr "Ne mogu da premestim poruku iz „%1“, jer „%1“ ne postoji na serveru."
+
+#: moveitemstask.cpp:72
+#, kde-format
+msgid "Cannot move message to '%1', '%1' does not exist on the server."
+msgstr "Ne mogu da premestim poruku u „%1“, jer „%1“ ne postoji na serveru."
+
+#: moveitemstask.cpp:131
+#, kde-format
+msgid "Failed to move item, it has no message payload. Remote id: %1"
+msgstr "Ne mogu da premestim stavku, nema tovar poruke. Udaljeni ID: %1"
+
+#: moveitemstask.cpp:207
+#, kde-format
+msgid ""
+"Failed to mark the message from '%1' for deletion on the IMAP server. It "
+"will reappear on next sync."
+msgstr ""
+"Ne mogu da označim poruku iz „%1“ za brisanje na IMAP serveru. Ponovo će se "
+"pojaviti po narednoj sinhronizaciji."
+
+#: removecollectionrecursivetask.cpp:130 removecollectionrecursivetask.cpp:146
+#: removecollectionrecursivetask.cpp:159
+#, kde-format
+msgid "Failed to delete the folder, restoring folder list."
+msgstr "Ne mogu da obrišem fasciklu, obnavljam spisak fascikli."
+
+#: removecollectionrecursivetask.cpp:164
+#, kde-format
+msgid "Failed to find the folder to be deleted, restoring folder list."
+msgstr "Ne mogu da nađem fasciklu za brisanje, obnavljam spisak fascikli."
+
+#: resourcestate.cpp:292
+#, kde-format
+msgid "Restarting item retrieval."
+msgstr "Ponovo pokrećem dobavljanje stavke."
+
+#: resourcetask.cpp:85
+#, fuzzy, kde-format
+#| msgid ""
+#| "Could not connect to the IMAP server.\n"
+#| "%1"
+msgid "Unable to connect to the IMAP server."
+msgstr ""
+"Ne mogu da se povežem sa IMAP serverom.\n"
+"%1"
+
+#: resourcetask.cpp:132 resourcetask.cpp:144
+#, kde-format
+msgid "Connection lost"
+msgstr "Veza prekinuta"
+
+# >! Context.
+#: resourcetask.cpp:494
+#, kde-format
+msgid "killed"
+msgstr "ukinut"
+
+#: retrievecollectionmetadatatask.cpp:197
+#, kde-format
+msgid ""
+"<p>Your access rights to folder <b>%1</b> have been restricted, it will no "
+"longer be possible to add messages to this folder.</p>"
+msgstr ""
+"<p>Imate ograničena prava pristupa fascikli <b>%1</b>, zbog čega više neće "
+"biti moguće dodavati poruke u nju.</p>"
+
+#: retrievecollectionmetadatatask.cpp:200
+#, kde-format
+msgid "Access rights revoked"
+msgstr "Prava pristupa povučena"
+
+#: retrievecollectionstask.cpp:176
+#, kde-format
+msgid "Inbox"
+msgstr "Prijemno sanduče"
+
+#: retrievecollectionstask.cpp:185
+#, kde-format
+msgid "Shared Folders"
+msgstr "Deljene fascikle"
+
+#: retrieveitemstask.cpp:559
+#, kde-format
+msgctxt "@info:status"
+msgid "Fetching missing mail bodies in %3: %1/%2"
+msgstr "Dobavljam nedostajuća tela poruka u %3: %1/%2..."
+
+#: retrieveitemtask.cpp:51
+#, kde-format
+msgid "Remote id is empty or invalid"
+msgstr "Udaljeni ID prazan ili loš"
+
+#: retrieveitemtask.cpp:97 retrieveitemtask.cpp:113
+#, kde-format
+msgid "No message retrieved, failed to read the message."
+msgstr "Nema dobavljenih poruka, propalo čitanje poruke."
+
+#: retrieveitemtask.cpp:133
+#, kde-format
+msgid "No message retrieved, server reply was empty."
+msgstr "Nema dobavljenih poruka, prazan odgovor servera."
+
+#: searchtask.cpp:212
+#, kde-format
+msgid "Invalid search"
+msgstr "Loša pretraga"
+
+#: serverinfodialog.cpp:35
+#, kde-format
+msgctxt ""
+"@title:window Dialog title for dialog showing information about a server"
+msgid "Server Info"
+msgstr "Podaci o serveru"
+
+#: serverinfodialog.cpp:75
+#, kde-format
+msgid "Resource not synchronized yet."
+msgstr "Resurs još nije sinhronizovan."
+
+#: sessionpool.cpp:264 sessionpool.cpp:414
+#, kde-format
+msgid ""
+"Could not connect to the IMAP-server %1.\n"
+"%2"
+msgstr ""
+"Ne mogu da se povežem sa IMAP serverom %1.\n"
+"%2"
+
+#: sessionpool.cpp:268
+#, kde-format
+msgid ""
+"Could not connect to the IMAP server.\n"
+"%1"
+msgstr ""
+"Ne mogu da se povežem sa IMAP serverom.\n"
+"%1"
+
+#: sessionpool.cpp:308
+#, kde-format
+msgid "Could not create another extra connection to the IMAP-server %1."
+msgstr "Ne mogu da napravim još jednu dodatnu vezu sa IMAP serverom %1."
+
+#: sessionpool.cpp:326 sessionpool.cpp:396 sessionpool.cpp:437
+#: sessionpool.cpp:506
+#, kde-format
+msgid "Disconnected from server during login."
+msgstr "Prekinuta veza sa serverom tokom prijavljivanja."
+
+#: sessionpool.cpp:339
+#, kde-format
+msgid "Could not read the password: user rejected wallet access"
+msgstr "Ne mogu da pročitam lozinku: korisnik je odbio pristup novčaniku."
+
+#: sessionpool.cpp:347
+#, kde-format
+msgid "Empty password"
+msgstr "Prazna lozinka"
+
+#: sessionpool.cpp:359
+#, kde-format
+msgid ""
+"You requested TLS/SSL to connect to %1, but your system does not seem to be "
+"set up for that."
+msgstr ""
+"Zahtevali ste TLS/SSL za povezivanje sa %1, ali vaš sistem izgleda nije "
+"namešten za to."
+
+#: sessionpool.cpp:420
+#, kde-format
+msgid ""
+"Could not connect to the IMAP-server.\n"
+"%1"
+msgstr ""
+"Ne mogu da se povežem sa IMAP serverom.\n"
+"%1"
+
+#: sessionpool.cpp:445
+#, kde-format
+msgid ""
+"Could not test the capabilities supported by the IMAP server %1.\n"
+"%2"
+msgstr ""
+"Ne mogu da ispitam sposobnosti IMAP servera %1.\n"
+"%2"
+
+#: sessionpool.cpp:452
+#, kde-format
+msgid ""
+"Could not test the capabilities supported by the IMAP server.\n"
+"%1"
+msgstr ""
+"Ne mogu da ispitam sposobnosti IMAP servera.\n"
+"%1"
+
+#: sessionpool.cpp:471
+#, kde-format
+msgid ""
+"Cannot use the IMAP server %1, some mandatory capabilities are missing: %2. "
+"Please ask your sysadmin to upgrade the server."
+msgstr ""
+"Ne mogu da koristim IMAP server %1 jer nema neke neophodne sposobnosti: %2. "
+"Zamolite sistem-administratora da nadogradi server."
+
+#: sessionpool.cpp:545
+#, kde-format
+msgid "Disconnected during login."
+msgstr "Prekinuta veza tokom prijavljivanja."
+
+#: settingspasswordrequester.cpp:68
+#, fuzzy, kde-format
+#| msgid ""
+#| "The server for account \"%2\" refused the supplied username and password. "
+#| "Do you want to go to the settings, have another attempt at logging in, or "
+#| "do nothing?\n"
+#| "\n"
+#| "%1"
+msgid ""
+"The server for account \"%2\" refused the supplied username and password.\n"
+"Do you want to go to the settings, have another attempt at logging in, or do "
+"nothing?\n"
+"\n"
+"%1"
+msgstr ""
+"Server za nalog „%2“ odbija dato korisničko ime i lozinku. Želite li da "
+"pređete na postavke, da pokušate još jednom sa prijavljivanjem, ili da "
+"odustanete?\n"
+"\n"
+"%1"
+
+# rewrite-msgid: /Authenticate/Authentication/
+#: settingspasswordrequester.cpp:73
+#, fuzzy, kde-format
+#| msgid "Could Not Authenticate"
+msgctxt "@title:window"
+msgid "Could Not Authenticate"
+msgstr "Autentifikacija nije prošla"
+
+#: settingspasswordrequester.cpp:77
+#, kde-format
+msgid "Account Settings"
+msgstr "Postavke naloga"
+
+#: settingspasswordrequester.cpp:78
+#, kde-format
+msgctxt "Input username/password manually and not store them"
+msgid "Try Again"
+msgstr "Pokušaj ponovo"
+
+#: settingspasswordrequester.cpp:168
+#, kde-format
+msgid "Please enter password for user '%1' on IMAP server '%2'."
+msgstr "Unesite lozinku korisnika „%1“ na IMAP serveru „%2“."
+
+# >> @item
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserver.cpp:85 setupserverview_desktop.ui:302
+#: setupserverview_desktop.ui:553
+#, kde-format
+msgctxt "Authentication method"
+msgid "Clear text"
+msgstr "čisti tekst"
+
+# >> @item
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserver.cpp:87 setupserverview_desktop.ui:337
+#: setupserverview_desktop.ui:588
+#, kde-format
+msgctxt "Authentication method"
+msgid "Anonymous"
+msgstr "anonimno"
+
+# >> @item
+#: setupserver.cpp:89
+#, kde-format
+msgctxt "Authentication method"
+msgid "Gmail"
+msgstr "GMail"
+
+#: setupserver.cpp:152
+#, kde-format
+msgid "Archive Folder"
+msgstr "Arhivska fascikla"
+
+# >> @item:inlistbox continuation, e.g. is between 2 and 5 minutes
+#: setupserver.cpp:164
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minut"
+msgstr[1] " minuta"
+msgstr[2] " minuta"
+msgstr[3] " minut"
+
+#: setupserver.cpp:268
+#, kde-format
+msgid ""
+"You have changed the address of the server. Even if this is the same server "
+"as before we will have to re-download all your emails from this account "
+"again. Are you sure you want to proceed?"
+msgstr ""
+"Promenili ste adresu servera. Čak i ako je ovo isti server kao pre, "
+"neophodno je ponovo preuzeti sve poruke za ovaj nalog. Želite li zaista da "
+"nastavite?"
+
+# >> @title:window
+#: setupserver.cpp:271
+#, kde-format
+msgid "Server address change"
+msgstr "Promena adrese servera"
+
+#: setupserver.cpp:278
+#, kde-format
+msgid ""
+"You have changed the user name. Even if this is a user name for the same "
+"account as before we will have to re-download all your emails from this "
+"account again. Are you sure you want to proceed?"
+msgstr ""
+"Promenili ste korisničko ime. Čak i ako je ovo korisničko ime za isti nalog "
+"kao pre, neophodno je ponovo preuzeti sve poruke za ovaj nalog. Želite li "
+"zaista da nastavite?"
+
+# >> @title:window
+#: setupserver.cpp:281
+#, kde-format
+msgid "User name change"
+msgstr "Promena korisničkog imena"
+
+#: setupserver.cpp:430 setupserver.cpp:487
+#, kde-format
+msgid ""
+"Could not access KWallet. If you want to store the password permanently then "
+"you have to activate it. If you do not want to use KWallet, check the box "
+"below, but note that you will be prompted for your password when needed."
+msgstr ""
+"Ne mogu da pristupim K‑novčaniku. Ako želite da se lozinka trajno "
+"uskladišti, morate ga aktivirati. Popunite kućicu ispod ako ne želite da "
+"koristite K‑novčanik, ali imajte na umu da će vam onda lozinka biti tražena "
+"kad god zatreba."
+
+#: setupserver.cpp:435 setupserver.cpp:492
+#, kde-format
+msgid "Do not use KWallet"
+msgstr "Ne koristi K‑novčanik"
+
+#: setupserver.cpp:556
+#, kde-format
+msgid "Unable to connect to the server, please verify the server address."
+msgstr "Ne mogu da se povežem sa serverom, proverite adresu servera."
+
+#: setupserver.cpp:568
+#, fuzzy, kde-format
+#| msgid "<qt><b>TLS is supported and recommended.</b></qt>"
+msgid "<qt><b>STARTTLS is supported and recommended.</b></qt>"
+msgstr "<qt><b>TLS je podržan i preporučen.</b></qt>"
+
+#: setupserver.cpp:571
+#, fuzzy, kde-format
+#| msgid "<qt><b>TLS is supported and recommended.</b></qt>"
+msgid "<qt><b>SSL/TLS is supported and recommended.</b></qt>"
+msgstr "<qt><b>TLS je podržan i preporučen.</b></qt>"
+
+#: setupserver.cpp:574
+#, kde-format
+msgid ""
+"<qt><b>No security is supported. It is not recommended to connect to this "
+"server.</b></qt>"
+msgstr ""
+"<qt><b>Nije podržana nijedna opcija bezbednosti. Ne preporučujemo "
+"povezivanje sa ovim serverom.</b></qt>"
+
+#: setupserver.cpp:577
+#, kde-format
+msgid "<qt><b>It is not possible to use this server.</b></qt>"
+msgstr "<qt><b>Ovaj server ne može da se koristi.</b></qt>"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: setupserverview_desktop.ui:33
+#, kde-format
+msgid "General"
+msgstr "Opšte"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: setupserverview_desktop.ui:39
+#, kde-format
+msgid "Account Information"
+msgstr "Podaci o nalogu"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: setupserverview_desktop.ui:45
+#, kde-format
+msgid "Account Name:"
+msgstr "Ime naloga:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, label)
+#: setupserverview_desktop.ui:56
+#, kde-format
+msgid ""
+"Indicate the IMAP server. If you want to connect to a non-standard port for "
+"a specific encryption scheme, you can add \":port\" to indicate that. For "
+"example: \"imap.foo.com:144\"."
+msgstr ""
+"Navedite IMAP server. Ako želite da se povežete na nestandardnom portu radi "
+"posebnog sistema šifrovanja, možete dodati „:port“. Na primer: „imap.negde."
+"com:144“."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: setupserverview_desktop.ui:59
+#, kde-format
+msgid "I&MAP Server:"
+msgstr "&IMAP server:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, label_2)
+#: setupserverview_desktop.ui:73
+#, kde-format
+msgid "The username."
+msgstr "Korisničko ime."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: setupserverview_desktop.ui:76
+#, kde-format
+msgid "Use&rname:"
+msgstr "&Korisničko ime:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, label_3)
+#: setupserverview_desktop.ui:90
+#, kde-format
+msgid "The password."
+msgstr "Lozinka."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: setupserverview_desktop.ui:93 setupserverview_desktop.ui:278
+#, kde-format
+msgid "Password:"
+msgstr "Lozinka:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, checkOptions)
+#: setupserverview_desktop.ui:110
+#, kde-format
+msgid "Mail Checking Options"
+msgstr "Opcije provere pošte"
+
+#. i18n: ectx: property (text), widget (QCheckBox, disconnectedModeEnabled)
+#: setupserverview_desktop.ui:116
+#, kde-format
+msgid "&Download all messages for offline use"
+msgstr "&Preuzmi sve poruke za rad van veze"
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableMailCheckBox)
+#: setupserverview_desktop.ui:123
+#, kde-format
+msgid "Enable &interval mail checking"
+msgstr "&Periodična provera pošte"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: setupserverview_desktop.ui:132
+#, kde-format
+msgid "Check mail interval:"
+msgstr "Period provere pošte:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: setupserverview_desktop.ui:168
+#, kde-format
+msgid "Filtering"
+msgstr "Filtriranje"
+
+#. i18n: ectx: property (text), widget (QCheckBox, managesieveCheck)
+#: setupserverview_desktop.ui:174
+#, kde-format
+msgid "Server supports Sieve"
+msgstr "Server podržava sito"
+
+#. i18n: ectx: property (text), widget (QCheckBox, sameConfigCheck)
+#: setupserverview_desktop.ui:181
+#, kde-format
+msgid "Reuse host and login configuration"
+msgstr "Ponovo upotrebi postavu domaćina i prijavljivanja"
+
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: setupserverview_desktop.ui:188
+#, kde-format
+msgid ""
+"The server port changed when ManageSieve turned into a full RFC Standard. "
+"Old server implementations still use port 2000, while newer standard conform "
+"server can only be accessed via port 4190."
+msgstr ""
+"Port servera je promenjen kada je ManageSieve izrastao u puni RFC standard. "
+"Stare izvedbe servera još koriste port 2000, dok se noviji serveri saglasni "
+"standardu mogu doseći samo na portu 4190."
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: setupserverview_desktop.ui:200
+#, kde-format
+msgid "Managesieve port:"
+msgstr "Port za ManageSieve:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: setupserverview_desktop.ui:218
+#, kde-format
+msgid "Alternate Server:"
+msgstr "Alternativni server:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, authentication)
+#: setupserverview_desktop.ui:231
+#, kde-format
+msgid "Authentication"
+msgstr "Autentifikacija"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noAuthentification)
+#: setupserverview_desktop.ui:241
+#, kde-format
+msgid "No authentication"
+msgstr "Bez autentifikacija"
+
+#. i18n: ectx: property (text), widget (QRadioButton, customUserPassword)
+#: setupserverview_desktop.ui:251
+#, kde-format
+msgid "&Username and Password"
+msgstr "&Korisničko ime i lozinka"
+
+#. i18n: ectx: property (text), widget (QRadioButton, imapUserPassword)
+#: setupserverview_desktop.ui:265
+#, kde-format
+msgid "I&MAP Username and Password"
+msgstr "&IMAP korisničko ime i lozinka"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: setupserverview_desktop.ui:285
+#, kde-format
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: setupserverview_desktop.ui:294 setupserverview_desktop.ui:545
+#, kde-format
+msgid "Authentication:"
+msgstr "Autentifikacija:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:307 setupserverview_desktop.ui:558
+#, kde-format
+msgctxt "Authentication method"
+msgid "LOGIN"
+msgstr "LOGIN"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:312 setupserverview_desktop.ui:563
+#, kde-format
+msgctxt "Authentication method"
+msgid "PLAIN"
+msgstr "PLAIN"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:317 setupserverview_desktop.ui:568
+#, kde-format
+msgctxt "Authentication method"
+msgid "CRAM-MD5"
+msgstr "CRAM‑MD5"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:322 setupserverview_desktop.ui:573
+#, kde-format
+msgctxt "Authentication method"
+msgid "DIGEST-MD5"
+msgstr "DIGEST‑MD5"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:327 setupserverview_desktop.ui:578
+#, kde-format
+msgctxt "Authentication method"
+msgid "NTLM"
+msgstr "NTLM"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationAlternateCombo)
+#. i18n: ectx: property (text), item, widget (QComboBox, authenticationCombo)
+#: setupserverview_desktop.ui:332 setupserverview_desktop.ui:583
+#, kde-format
+msgctxt "Authentication method"
+msgid "GSSAPI"
+msgstr "GSSAPI"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_4)
+#: setupserverview_desktop.ui:364
+#, kde-format
+msgid "Advanced"
+msgstr "Napredno"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: setupserverview_desktop.ui:370
+#, kde-format
+msgid "IMAP Settings"
+msgstr "Postavke IMAP‑a"
+
+#. i18n: ectx: property (text), widget (QCheckBox, subscriptionEnabled)
+#: setupserverview_desktop.ui:378
+#, kde-format
+msgid "Enable server-side subscriptions"
+msgstr "Pretplate na strani servera"
+
+#. i18n: ectx: property (text), widget (QPushButton, subscriptionButton)
+#: setupserverview_desktop.ui:388
+#, kde-format
+msgid "Serverside Subscription..."
+msgstr "Pretplata na strani servera..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoExpungeCheck)
+#: setupserverview_desktop.ui:397
+#, kde-format
+msgid "Automaticall&y compact folders (expunges deleted messages)"
+msgstr "Aut&omatski sažmi fascikle (izbacuje obrisane poruke)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: setupserverview_desktop.ui:406
+#, kde-format
+msgid "Trash folder:"
+msgstr "Fascikla za smeće:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, identityBox)
+#: setupserverview_desktop.ui:418
+#, kde-format
+msgid "Identity Settings"
+msgstr "Postavke identiteta"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, useDefaultIdentityCheck)
+#: setupserverview_desktop.ui:424
+#, kde-format
+msgid "Use the default identity for this account"
+msgstr "Koristi podrazumevani identitet za ovaj nalog"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useDefaultIdentityCheck)
+#: setupserverview_desktop.ui:427
+#, kde-format
+msgid "Use &default identity"
+msgstr "Podrazumijevani identitet"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, identityLabel)
+#: setupserverview_desktop.ui:436
+#, kde-format
+msgid "Select the KMail identity used for this account"
+msgstr "Izaberite K‑poštin identitet koji se koristi za ovaj nalog."
+
+#. i18n: ectx: property (text), widget (QLabel, identityLabel)
+#: setupserverview_desktop.ui:439
+#, kde-format
+msgid "Identity:"
+msgstr "Identitet:"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, safeImap)
+#: setupserverview_desktop.ui:460
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'HandelGotDLig'; font-size:10pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">SSL/TLS</span><span style=\" font-"
+"family:'Sans Serif';\"> is safe IMAP over port 993;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">STARTTLS</span><span style=\" font-"
+"family:'Sans Serif';\"> will operate on port 143 and switch to a secure "
+"connection directly after connecting;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">None</span><span style=\" font-"
+"family:'Sans Serif';\"> will connect to port 143 but not switch to a secure "
+"connection. This setting is not recommended.</span></p></body></html>"
+msgstr ""
+"<html><p><i>SSL/TLS</i> je bezbedni IMAP preko porta 993;</p><p><i>naknadno "
+"TLS</i> će koristiti port 143 i prebaciti se na bezbednu vezu odmah po "
+"povezivanju;</p><p><i>nikakvo</i> će se povezati na port 143 i neće se "
+"prebaciti na bezbednu vezu. Ova postavka se ne preporučuje.</p></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, safeImap)
+#: setupserverview_desktop.ui:463
+#, kde-format
+msgid "Connection Settings"
+msgstr "Postavke povezivanja"
+
+#. i18n: ectx: property (text), widget (QPushButton, testButton)
+#: setupserverview_desktop.ui:469
+#, kde-format
+msgid "Auto Detect"
+msgstr "Otkrij automatski"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: setupserverview_desktop.ui:481
+#, kde-format
+msgid "Encryption:"
+msgstr "Šifrovanje:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noRadio)
+#: setupserverview_desktop.ui:490
+#, kde-format
+msgid "None"
+msgstr "nikakvo"
+
+#. i18n: ectx: property (text), widget (QRadioButton, sslRadio)
+#: setupserverview_desktop.ui:503
+#, kde-format
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+#. i18n: ectx: property (text), widget (QRadioButton, tlsRadio)
+#: setupserverview_desktop.ui:513
+#, kde-format
+msgid "STARTTLS"
+msgstr "naknadno TLS"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: setupserverview_desktop.ui:525
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (text), widget (QLabel, testInfo)
+#: setupserverview_desktop.ui:614
+#, kde-format
+msgid "Empty"
+msgstr "Prazno"
+
+#. i18n: ectx: property (text), widget (QPushButton, showServerInfo)
+#: setupserverview_desktop.ui:634
+#, kde-format
+msgid "Server Info"
+msgstr "Podaci o serveru"
+
+#: subscriptiondialog.cpp:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Reload &List"
+msgstr "Ponovo učitaj &spisak"
+
+#: subscriptiondialog.cpp:77
+#, kde-format
+msgctxt "@option:check"
+msgid "Enable server-side subscriptions"
+msgstr "Pretplate na strani servera"
+
+#: subscriptiondialog.cpp:84
+#, kde-format
+msgctxt "@label search for a subscription"
+msgid "Search:"
+msgstr "Traži:"
+
+#: subscriptiondialog.cpp:92
+#, kde-format
+msgctxt "@option:check"
+msgid "Subscribed only"
+msgstr "Samo u pretplaćenim"

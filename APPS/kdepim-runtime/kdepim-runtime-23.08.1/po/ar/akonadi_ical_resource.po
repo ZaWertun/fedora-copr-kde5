@@ -1,0 +1,89 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# ahmed <kebomix@gmail.com>, 2009.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2009.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_ical_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2018-01-23 13:02+0300\n"
+"Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icalresource.kcfg:10 notes/notesresource.kcfg:10
+#, kde-format
+msgid "Path to iCal file."
+msgstr "مسار ملفّ iCal."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: icalresource.kcfg:14 notes/notesresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "اسم العرض."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icalresource.kcfg:18 notes/notesresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "لا تغيّر بيانات السّند الفعليّة."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: icalresource.kcfg:22 notes/notesresource.kcfg:26
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "راقِب تغييرات الملفّ."
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: notes/notesresource.kcfg:22
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "فترة الحفظ الآليّ (بالدّقيقة)."
+
+#: shared/icalresource.cpp:47
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "لم يُعثر على الحدوث ذو المعرّف ’%1‘ العالميّ."
+
+#: shared/icalresourcebase.cpp:46 shared/icalresourcebase.cpp:59
+#: shared/icalresourcebase.cpp:90 shared/icalresourcebase.h:88
+#, kde-format
+msgid "Calendar not loaded."
+msgstr "لم يُحمّل التّقويم"
+
+#: shared/icalresourcebase.cpp:134
+#, kde-format
+msgid "Failed to save calendar file to %1"
+msgstr "فشل حفظ ملفّ التّقويم في %1"
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve added item %1."
+msgstr "تعذّر جلب العنصر %1 المُضاف."
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve modified item %1."
+msgstr "تعذّر جلب العنصر %1 المعدّل."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/icalwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "اسم الملفّ:"
+
+#~ msgid "Select Calendar"
+#~ msgstr "اختر تقويمًا"
+
+#~ msgctxt "Filedialog filter for *.ics *.ical"
+#~ msgid "iCal Calendar File"
+#~ msgstr "ملف تقويم iCal"

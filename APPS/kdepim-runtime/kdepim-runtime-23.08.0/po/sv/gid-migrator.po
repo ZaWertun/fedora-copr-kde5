@@ -1,0 +1,176 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2013, 2014, 2015, 2016, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2022-09-25 10:06+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@bredband.net"
+
+#: ../kmigratorbase.cpp:116
+#, kde-format
+msgid "Creating instance of type %1"
+msgstr "Skapar instans av typ %1"
+
+#: ../migratorbase.cpp:128
+#, kde-format
+msgid "Missing Identifier"
+msgstr "Saknar identifierare"
+
+#: ../migratorbase.cpp:141
+#, kde-format
+msgid "Failed to start migration because migrator is not ready"
+msgstr ""
+"Misslyckades starta överföring eftersom överföringsverktyget inte är redo"
+
+#: ../migratorbase.cpp:147
+#, kde-format
+msgid "Starting migration..."
+msgstr "Påbörjar överföring..."
+
+#: ../migratorbase.cpp:189
+#, kde-format
+msgid "Migration complete"
+msgstr "Överföring färdig"
+
+#: ../migratorbase.cpp:193
+#, kde-format
+msgid "Migration aborted"
+msgstr "Överföring avbruten"
+
+#: ../migratorbase.cpp:199
+#, kde-format
+msgid "Migration failed"
+msgstr "Överföring misslyckades"
+
+#: ../migratorbase.cpp:203
+#, kde-format
+msgid "Migration paused"
+msgstr "Paus i överföring"
+
+#: ../migratorbase.cpp:233
+#, kde-format
+msgid "This migration has already been started once but was aborted"
+msgstr "Överföringen har redan startats en gång men har avbrutits"
+
+#: ../migratorbase.cpp:270
+#, kde-format
+msgctxt "@info:status"
+msgid "Not started"
+msgstr "Inte påbörjad"
+
+#: ../migratorbase.cpp:272
+#, kde-format
+msgctxt "@info:status"
+msgid "Running..."
+msgstr "Pågår..."
+
+#: ../migratorbase.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Complete"
+msgstr "Färdig"
+
+#: ../migratorbase.cpp:276
+#, kde-format
+msgctxt "@info:status"
+msgid "Aborted"
+msgstr "Avbruten"
+
+#: ../migratorbase.cpp:278
+#, kde-format
+msgctxt "@info:status"
+msgid "Paused"
+msgstr "Paus"
+
+#: ../migratorbase.cpp:280
+#, kde-format
+msgctxt "@info:status"
+msgid "Needs Update"
+msgstr "Behöver uppdatering"
+
+#: ../migratorbase.cpp:282
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed"
+msgstr "Misslyckades"
+
+#: gidmigrator.cpp:22
+#, kde-format
+msgctxt "Name of the GID Migrator (intended for advanced users)."
+msgid "GID Migrator: %1"
+msgstr "GID-överföring: %1"
+
+#: gidmigrator.cpp:27
+#, kde-format
+msgid ""
+"Ensures that all items with the mimetype %1 have a GID if a GID extractor is "
+"available."
+msgstr ""
+"Säkerställ att alla objekt med Mime-typen %1 har en GID om GID-extrahering "
+"är tillgänglig."
+
+#: gidmigrator.cpp:49
+#, kde-format
+msgid "Migration failed: %1"
+msgstr "Överföring misslyckades: %1"
+
+#: main.cpp:26
+#, kde-format
+msgid "GID Migration Tool"
+msgstr "GID-överföringsverktyg"
+
+#: main.cpp:28
+#, kde-format
+msgid "Migration of Akonadi Items to support GID"
+msgstr "Överföring av Akonadi-objekt för att stödja GID"
+
+#: main.cpp:30
+#, kde-format
+msgid "(c) 2013-2022 the Akonadi developers"
+msgstr "© 2013-2022 Akonadi-utvecklarna"
+
+#: main.cpp:33
+#, kde-format
+msgid "Christian Mollekopf"
+msgstr "Christian Mollekopf"
+
+#: main.cpp:33
+#, kde-format
+msgid "Author"
+msgstr "Upphovsman"
+
+#: main.cpp:36
+#, kde-format
+msgid "Show reporting dialog"
+msgstr "Visa rapporteringsdialogruta"
+
+#: main.cpp:37
+#, kde-format
+msgid "Show report only if changes were made"
+msgstr "Visa bara rapport om ändringar gjordes"
+
+#: main.cpp:38
+#, kde-format
+msgid "MIME type to migrate"
+msgstr "Mime-typ att överföra"

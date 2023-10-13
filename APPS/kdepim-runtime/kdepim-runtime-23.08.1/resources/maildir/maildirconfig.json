@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "maildirconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_maildir_resource"
+}

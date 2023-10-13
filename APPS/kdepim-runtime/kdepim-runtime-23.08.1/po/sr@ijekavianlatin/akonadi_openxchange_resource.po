@@ -1,0 +1,230 @@
+# Translation of akonadi_openxchange_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_openxchange_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-04-24 03:45+0200\n"
+"PO-Revision-Date: 2017-09-28 18:00+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavianlatin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: configwidget.cpp:38
+#, kde-format
+msgid "Enter the http or https URL to your Open-Xchange installation here."
+msgstr "Unesite ovde HTTP ili HTTPS URL svoje instalacije Open‑Xchangea."
+
+#: configwidget.cpp:39
+#, kde-format
+msgid "Enter the username of your Open-Xchange account here."
+msgstr "Unesite ovde korisničko ime svog naloga na Open‑Xchangeu."
+
+#: configwidget.cpp:40
+#, kde-format
+msgid "Enter the password of your Open-Xchange account here."
+msgstr "Unesite lozinku za svoj nalog na Open‑Xchangeu."
+
+#: configwidget.cpp:86
+#, kde-format
+msgid "Unable to connect: %1"
+msgstr "Ne mogu da se povežem: %1"
+
+#: configwidget.cpp:86
+#, kde-format
+msgid "Connection error"
+msgstr "Greška povezivanja"
+
+#: configwidget.cpp:88
+#, kde-format
+msgid "Tested connection successfully."
+msgstr "Veza uspešno isprobana."
+
+#: configwidget.cpp:88
+#, kde-format
+msgid "Connection success"
+msgstr "Uspeh povezivanja."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: configwidget.ui:29
+#, kde-format
+msgid "Connection"
+msgstr "Veza"
+
+#. i18n: ectx: property (text), widget (QLabel, label_BaseUrl)
+#: configwidget.ui:50
+#, kde-format
+msgid "Server URL:"
+msgstr "URL servera:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: configwidget.ui:57 configwidget.ui:60 openxchangeresource.kcfg:11
+#: openxchangeresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the Open-Xchange server, should be something like https://"
+"myserver.org/"
+msgstr "URL servera Open‑Xchangea, nešto poput „https://mojserver.org/“."
+
+#. i18n: ectx: property (text), widget (QLabel, label_Username)
+#: configwidget.ui:82
+#, kde-format
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: configwidget.ui:89 configwidget.ui:92 openxchangeresource.kcfg:16
+#: openxchangeresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the Open-Xchange server"
+msgstr "Korisničko ime za prijavljivanje na server Open‑Xchangea."
+
+#. i18n: ectx: property (text), widget (QLabel, label_Password)
+#: configwidget.ui:111
+#, kde-format
+msgid "Password:"
+msgstr "Lozinka:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: tooltip, entry (Password), group (General)
+#. i18n: ectx: whatsthis, entry (Password), group (General)
+#: configwidget.ui:118 configwidget.ui:121 openxchangeresource.kcfg:21
+#: openxchangeresource.kcfg:22
+#, kde-format
+msgid "The password that is used to log into the Open-Xchange server"
+msgstr "Lozinka za prijavljivanje na server Open‑Xchangea."
+
+#. i18n: ectx: property (text), widget (QPushButton, checkConnectionButton)
+#: configwidget.ui:134
+#, kde-format
+msgid "Test Connection..."
+msgstr "Isprobaj vezu..."
+
+#: openxchangeresource.cpp:276
+#, kde-format
+msgid "Open-Xchange"
+msgstr "Open‑Xchange"
+
+#: openxchangeresource.cpp:304
+#, kde-format
+msgid "Private Folder"
+msgstr "Privatna fascikla"
+
+#: openxchangeresource.cpp:312
+#, kde-format
+msgid "Public Folder"
+msgstr "Javna fascikla"
+
+#: openxchangeresource.cpp:320
+#, kde-format
+msgid "Shared Folder"
+msgstr "Dijeljena fascikla"
+
+#: openxchangeresource.cpp:328
+#, kde-format
+msgid "System Folder"
+msgstr "Sistemska fascikla"
+
+#: openxchangeresource.cpp:643
+#, kde-format
+msgid "Unable to connect to server"
+msgstr "Ne mogu da se povežem sa serverom."
+
+#: openxchangeresource.cpp:831
+#, kde-format
+msgid ""
+"The object was edited by another participant in the meantime. Please check."
+msgstr "Drugi učesnik je u međuvremenu uredio objekat. Proverite ovo."
+
+#: openxchangeresource.cpp:834
+#, kde-format
+msgid ""
+"Object not found. Maybe it was deleted by another participant in the "
+"meantime."
+msgstr "Objekat nije nađen. Možda ga je u međuvremenu obrisao drugi učesnik."
+
+#: openxchangeresource.cpp:837
+#, kde-format
+msgid "You don't have the permission to perform this action on this object."
+msgstr "Nemate dozvolu da izvršite ovu radnju nad ovim objektom."
+
+#: openxchangeresource.cpp:840
+#, kde-format
+msgid ""
+"A conflict detected. Please check if there are other objects in conflict "
+"with this one."
+msgstr "Otkriven je sukob. Proverite ima li drugih objekata u sukobu sa ovim."
+
+#: openxchangeresource.cpp:843
+#, kde-format
+msgid ""
+"A mandatory data field is missing. Please check. Otherwise contact your "
+"administrator."
+msgstr ""
+"Nedostaje obavezno polje. Proverite ovo. Inače se obratite svom "
+"administratoru."
+
+#: openxchangeresource.cpp:846
+#, kde-format
+msgid ""
+"An appointment conflict detected.\n"
+"Please check if there are other appointments in conflict with this one."
+msgstr ""
+"Otkriven je sukob kod sastanka.\n"
+"Proverite ima li drugih sastanaka u sukobu sa ovim."
+
+#: openxchangeresource.cpp:849
+#, kde-format
+msgid "Internal server error. Please contact your administrator."
+msgstr "Unutrašnja greška servera. Obratite se svom administratoru."
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: openxchangeresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "URL servera"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: openxchangeresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Korisničko ime"
+
+#. i18n: ectx: label, entry (Password), group (General)
+#: openxchangeresource.kcfg:20
+#, kde-format
+msgid "Password"
+msgstr "Lozinka"
+
+#. i18n: ectx: label, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:26
+#, kde-format
+msgid "Use incremental updates"
+msgstr "Postepeno ažuriranje"
+
+#. i18n: ectx: tooltip, entry (UseIncrementalUpdates), group (General)
+#. i18n: ectx: whatsthis, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:27 openxchangeresource.kcfg:28
+#, kde-format
+msgid ""
+"Use incremental updates instead of reloading all data from the server each "
+"time"
+msgstr ""
+"Postepena ažuriranja umesto da se svaki put ponovo učitavaju svi podaci sa "
+"servera."

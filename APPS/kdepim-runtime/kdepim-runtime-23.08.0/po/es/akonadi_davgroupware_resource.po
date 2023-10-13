@@ -1,0 +1,771 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2011, 2019, 2020, 2021.
+# Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
+# Javier Vinal <fjvinal@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018.
+# Javier Viñal <francisco-javie.vinal@seg-social.es>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-01-13 00:57+0000\n"
+"PO-Revision-Date: 2021-08-23 23:36+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.08.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: configdialog.cpp:33
+#, kde-format
+msgctxt "@title:window"
+msgid "DAV Resource Configuration"
+msgstr "Configuración de recurso DAV"
+
+#: configdialog.cpp:46
+#, kde-format
+msgid "Protocol"
+msgstr "Protocolo"
+
+#: configdialog.cpp:46 urlconfigurationdialog.cpp:266
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: configdialog.cpp:59
+#, kde-format
+msgid "Days"
+msgstr "Días"
+
+#: configdialog.cpp:60
+#, kde-format
+msgid "Months"
+msgstr "Meses"
+
+#: configdialog.cpp:61
+#, kde-format
+msgid "Years"
+msgstr "Años"
+
+#: configdialog.cpp:137
+#, kde-format
+msgid ""
+"Another configuration entry already uses the same URL/protocol couple.\n"
+"Please use a different URL"
+msgstr ""
+"Otra entrada de configuración ya usa la misma pareja URL/protocolo.\n"
+"Por favor, emplee un URL distinto"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configdialog.ui:29
+#, kde-format
+msgid "Display name:"
+msgstr "Nombre para mostrar:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configdialog.ui:39
+#, kde-format
+msgid "Refresh every:"
+msgstr "Refrescar cada:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_refreshInterval)
+#: configdialog.ui:48
+#, kde-format
+msgid "Never"
+msgstr "Nunca"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configdialog.ui:58
+#, kde-format
+msgid "minutes"
+msgstr "minutos"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configdialog.ui:80 urlconfigurationdialog.ui:111
+#, kde-format
+msgid "Username:"
+msgstr "Usuario:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:108 setupwizard.cpp:222 urlconfigurationdialog.ui:127
+#, kde-format
+msgid "Password:"
+msgstr "Contraseña:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:136
+#, kde-format
+msgid ""
+"Select this if your calendars contain a lot of events and the server cannot "
+"fulfill the requests"
+msgstr ""
+"Seleccione esto si sus calendarios contienen muchos eventos y el servidor no "
+"puede procesar las peticiones"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:139
+#, kde-format
+msgid "Limit CalDav retrieval time range"
+msgstr "Limitar el intervalo de recuperación de CalDav"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:151
+#, kde-format
+msgid "Only sync events more recent than"
+msgstr "Solo sincronizar eventos más recientes que"
+
+#. i18n: ectx: property (text), widget (QLabel, label_41)
+#: configdialog.ui:190
+#, kde-format
+msgid "Server Configuration:"
+msgstr "Configuración del servidor:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: configdialog.ui:204
+#, kde-format
+msgid "Add"
+msgstr "Añadir"
+
+#. i18n: ectx: property (text), widget (QPushButton, searchButton)
+#: configdialog.ui:211 searchdialog.ui:151
+#, kde-format
+msgid "Search"
+msgstr "Buscar"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: configdialog.ui:218
+#, kde-format
+msgid "Remove"
+msgstr "Eliminar"
+
+#. i18n: ectx: property (text), widget (QPushButton, editButton)
+#: configdialog.ui:225
+#, kde-format
+msgid "Edit"
+msgstr "Editar"
+
+#: daverror-kdepim-runtime.cpp:26
+#, kde-format
+msgid "Invalid username/password"
+msgstr "Usuario/contraseña no válido"
+
+#: daverror-kdepim-runtime.cpp:28
+#, kde-format
+msgid "Access forbidden"
+msgstr "Acceso prohibido"
+
+#: daverror-kdepim-runtime.cpp:30
+#, kde-format
+msgid "Resource not found"
+msgstr "Recurso no encontrado"
+
+#: daverror-kdepim-runtime.cpp:32
+#, kde-format
+msgid "HTTP error"
+msgstr "Error HTTP"
+
+#: daverror-kdepim-runtime.cpp:35
+#, kde-format
+msgid ""
+"There was a problem with the request.\n"
+"%1 (%2)."
+msgstr ""
+"Ha habido un problema con la petición.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:41
+#, kde-format
+msgid "Protocol for the collection does not support MULTIGET"
+msgstr "El protocolo para la colección no admite MULTIGET"
+
+#: daverror-kdepim-runtime.cpp:44
+#, kde-format
+msgid ""
+"The server encountered an error that prevented it from completing your "
+"request: %1 (%2)"
+msgstr ""
+"El servidor ha encontrado un error que le impide completar su petición: %1 "
+"(%2)"
+
+#: daverror-kdepim-runtime.cpp:48
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been deleted "
+"from the server.\n"
+"%1 (%2)."
+msgstr ""
+"Ha habido un problema con la petición. La colección no se ha borrado del "
+"servidor.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:54
+#, kde-format
+msgid "Invalid responses from backend"
+msgstr "Respuestas del motor no válidas"
+
+#: daverror-kdepim-runtime.cpp:57
+#, kde-format
+msgid "Error setting focus for XQuery"
+msgstr "Error estableciendo el foco para XQuery"
+
+#: daverror-kdepim-runtime.cpp:60
+#, kde-format
+msgid "Invalid XQuery submitted by DAV implementation"
+msgstr "XQuery no válida enviada por la implementación DAV"
+
+#: daverror-kdepim-runtime.cpp:64
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been modified "
+"on the server.\n"
+"%1 (%2)."
+msgstr ""
+"Ha habido un problema con la petición. La colección no ha sido modificada en "
+"el servidor.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:70
+#, kde-format
+msgid "No properties to change or remove"
+msgstr "No hay propiedades que cambiar o eliminar"
+
+#: daverror-kdepim-runtime.cpp:73
+#, kde-format
+msgid "There was an error when modifying the properties"
+msgstr "Ha habido un error mientras se modificaban las propiedades"
+
+#: daverror-kdepim-runtime.cpp:75
+#, kde-format
+msgid ""
+"\n"
+"The server returned more information:\n"
+"%1"
+msgstr ""
+"\n"
+"El servidor ha devuelto más información:\n"
+"%1"
+
+#: daverror-kdepim-runtime.cpp:80
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been created on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Ha habido un problema con la petición. El elemento no ha sido creado en el "
+"servidor.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:87
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been deleted from the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Ha habido un problema con la petición. El elemento no se ha borrado del "
+"servidor.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:94
+#, kde-format
+msgid ""
+"There was a problem with the request. The item was not modified on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Ha habido un problema con la petición. El elemento no ha sido modificado en "
+"el servidor.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:100
+#, kde-format
+msgid "There was a problem with the request."
+msgstr "Ha habido un problema con la petición."
+
+#: daverror-kdepim-runtime.cpp:104
+#, kde-format
+msgid ""
+"There was a problem with the request. The requested MIME types are not "
+"supported."
+msgstr ""
+"Ha habido un problema con la petición. Los tipos MIME solicitados no están "
+"admitidos."
+
+#: davfreebusyhandler.cpp:57
+#, kde-format
+msgid "No schedule-outbox found for %1"
+msgstr "No se encontró bandeja de salida-planificada para %1"
+
+#: davfreebusyhandler.cpp:186 davfreebusyhandler.cpp:197
+#, kde-format
+msgid "Invalid response from the server"
+msgstr "Respuesta no válida del servidor"
+
+#: davfreebusyhandler.cpp:208
+#, kde-format
+msgid "Unable to parse free-busy data received"
+msgstr "No es posible analizar los datos recibidos de disponibilidad"
+
+#: davgroupwareresource.cpp:163
+#, kde-format
+msgid "Unable to retrieve free-busy info while offline"
+msgstr ""
+"No se puede recuperar la información de disponibilidad estando desconectado"
+
+#: davgroupwareresource.cpp:246
+#, kde-format
+msgid "Fetching collections"
+msgstr "Obteniendo colecciones"
+
+#: davgroupwareresource.cpp:314
+#, kde-format
+msgid "Asked to retrieve items for an unknown collection: %1"
+msgstr "Se le pidió recuperar elementos para una colección desconocida: %1"
+
+#: davgroupwareresource.cpp:371
+#, kde-format
+msgid "Invalid collection for item %1."
+msgstr "Colección no válida para el elemento %1."
+
+#: davgroupwareresource.cpp:608
+#, kde-format
+msgid "Unable to modify collection: %1"
+msgstr "No se puede modificar la colección: %1"
+
+#: davgroupwareresource.cpp:677
+#, kde-format
+msgid "Unable to remove collection: %1"
+msgstr "No se puede eliminar la colección: %1"
+
+#: davgroupwareresource.cpp:697
+#, kde-format
+msgid "Unable to retrieve collections: %1"
+msgstr "No se pueden recuperar las colecciones %1"
+
+#: davgroupwareresource.cpp:830 davgroupwareresource.cpp:929
+#, kde-format
+msgid "Unable to retrieve items: %1"
+msgstr "No se pueden recuperar los elementos %1"
+
+#: davgroupwareresource.cpp:1009
+#, kde-format
+msgid "Unable to retrieve item: %1"
+msgstr "No se puede recuperar el elemento %1"
+
+#: davgroupwareresource.cpp:1029
+#, kde-format
+msgid ""
+"Unable to retrieve item: failed to parse item data. Maybe it was deleted "
+"already."
+msgstr ""
+"No se ha podido recuperar el elemento: ha fallado el análisis de los datos "
+"del elemento. Es posible que ya se hubiera borrado."
+
+#: davgroupwareresource.cpp:1066
+#, kde-format
+msgid "Unable to add item: %1"
+msgstr "No se puede añadir el elemento %1"
+
+#: davgroupwareresource.cpp:1110 davgroupwareresource.cpp:1223
+#: davgroupwareresource.cpp:1235
+#, kde-format
+msgid "Unable to change item: %1"
+msgstr "No se puede cambiar el elemento %1"
+
+#: davgroupwareresource.cpp:1197 davgroupwareresource.cpp:1254
+#, kde-format
+msgid "Unable to remove item: %1"
+msgstr "No se puede eliminar el elemento %1"
+
+#: davgroupwareresource.cpp:1341 davgroupwareresource.cpp:1342
+#, kde-format
+msgid "The resource is not configured yet"
+msgstr "Todavía no se ha configurado el recurso"
+
+#. i18n: ectx: label, entry (settingsVersion), group (General)
+#: davgroupwareresource.kcfg:10
+#, kde-format
+msgid "Settings Version"
+msgstr "Preferencias de versión"
+
+#. i18n: ectx: label, entry (displayName), group (General)
+#: davgroupwareresource.kcfg:14
+#, kde-format
+msgid "Display name"
+msgstr "Nombre para mostrar"
+
+#. i18n: ectx: label, entry (refreshInterval), group (General)
+#: davgroupwareresource.kcfg:18
+#, kde-format
+msgid "Refresh every"
+msgstr "Refrescar cada"
+
+#. i18n: ectx: label, entry (remoteUrls), group (General)
+#: davgroupwareresource.kcfg:22
+#, kde-format
+msgid "Remote URLs"
+msgstr "URL remotos"
+
+#. i18n: ectx: label, entry (defaultUsername), group (General)
+#: davgroupwareresource.kcfg:26
+#, kde-format
+msgid "User name"
+msgstr "Nombre de usuario"
+
+#. i18n: ectx: label, entry (limitSyncRange), group (General)
+#: davgroupwareresource.kcfg:30
+#, kde-format
+msgid "Limit the events retrieval to the specified time range"
+msgstr "Limitar la recuperación de eventos al intervalo especificado"
+
+#. i18n: ectx: label, entry (syncRangeStartNumber), group (General)
+#: davgroupwareresource.kcfg:34
+#, kde-format
+msgid "Period for which to retrieve events, quantity"
+msgstr "Periodo para el que recuperar eventos, cantidad"
+
+#. i18n: ectx: label, entry (syncRangeStartType), group (General)
+#: davgroupwareresource.kcfg:38
+#, kde-format
+msgid "Period for which to retrieve events, type"
+msgstr "Periodo para el que recuperar eventos, tipo"
+
+#. i18n: ectx: label, entry (collectionsUrlsMappings), group (General)
+#: davgroupwareresource.kcfg:42
+#, kde-format
+msgid ""
+"String representation of the mappings between discovered collections and "
+"configured URLs"
+msgstr ""
+"Representación como cadenas de las asociaciones entre las colecciones "
+"descubiertas y los URL configurados"
+
+#. i18n: ectx: label, entry (readOnly), group (General)
+#: davgroupwareresource.kcfg:46
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "No modificar los datos del motor real."
+
+#. i18n: ectx: label, entry (AccountId), group (General)
+#: davgroupwareresource.kcfg:50
+#, kde-format
+msgid "The account id in WebAccounts framework."
+msgstr "El id. de cuenta en la infraestructura WebAccounts."
+
+#. i18n: ectx: label, entry (AccountServices), group (General)
+#: davgroupwareresource.kcfg:53
+#, kde-format
+msgid "Account enabled services"
+msgstr "Servicios activados de cuentas"
+
+#: searchdialog.cpp:26
+#, kde-format
+msgctxt "@title:window"
+msgid "Search"
+msgstr "Buscar"
+
+#: searchdialog.cpp:41
+#, kde-format
+msgid "Add Selected Items"
+msgstr "Añadir elementos seleccionados"
+
+#: searchdialog.cpp:126 searchdialog.cpp:169
+#, kde-format
+msgid ""
+"An error occurred when executing search:\n"
+"%1"
+msgstr ""
+"Ocurrió un error al ejecutar la búsqueda:\n"
+"%1"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useDefaultCreds)
+#: searchdialog.ui:32 urlconfigurationdialog.ui:85
+#, kde-format
+msgid "Use global creden&tials"
+msgstr "Usar cre&denciales globales"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useSpecificCreds)
+#: searchdialog.ui:42 urlconfigurationdialog.ui:95
+#, kde-format
+msgid "Use specific credentials"
+msgstr "Usar credenciales específicas"
+
+#. i18n: ectx: property (title), widget (QGroupBox, credentialsGroup)
+#: searchdialog.ui:49
+#, kde-format
+msgid "Credentials"
+msgstr "Credenciales"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: searchdialog.ui:61
+#, kde-format
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: searchdialog.ui:77
+#, kde-format
+msgid "Password"
+msgstr "Contraseña"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: searchdialog.ui:96
+#, kde-format
+msgid "Search URL"
+msgstr "Buscar URL"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: searchdialog.ui:106
+#, kde-format
+msgid "Search for"
+msgstr "Buscar"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:116
+#, kde-format
+msgid "a person named"
+msgstr "una persona llamada"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:121
+#, kde-format
+msgid "a contact with email"
+msgstr "un contacto con correo"
+
+#: settings.cpp:481
+#, kde-format
+msgid "A password is required for user %1"
+msgstr "Se necesita una contraseña para el usuario %1"
+
+#: settings.cpp:484
+#, kde-format
+msgid "Password: "
+msgstr "Contraseña: "
+
+#: setupwizard.cpp:140
+#, kde-format
+msgctxt "@title:window"
+msgid "DAV groupware configuration wizard"
+msgstr "Asistente de trabajo en grupo DAV"
+
+#: setupwizard.cpp:213
+#, kde-format
+msgid "Login Credentials"
+msgstr "Credenciales de acceso"
+
+#: setupwizard.cpp:214
+#, kde-format
+msgid "Enter your credentials to login to the groupware server"
+msgstr ""
+"Introduzca sus datos para iniciar sesión en el servidor de trabajo en grupo"
+
+#: setupwizard.cpp:218
+#, kde-format
+msgid "User:"
+msgstr "Usuario:"
+
+#: setupwizard.cpp:258
+#, kde-format
+msgid "No, choose another server"
+msgstr "No, elija otro servidor"
+
+#: setupwizard.cpp:260
+#, kde-format
+msgid "Predefined provider found"
+msgstr "Encontrado proveedor predefinido"
+
+#: setupwizard.cpp:261
+#, kde-format
+msgid "Select if you want to use the auto-detected provider"
+msgstr "Seleccione si quiere usar un proveedor autodetectado"
+
+#: setupwizard.cpp:280
+#, kde-format
+msgid ""
+"Based on the email address you used as a login, this wizard\n"
+"can configure automatically an account for %1 services.\n"
+"Do you wish to do so?"
+msgstr ""
+"Basado en la dirección de correo que usted usó como inicio de sesión, este "
+"asistente\n"
+"puede configurar automáticamente una cuenta para %1 servicios.\n"
+"¿Desea hacerlo?"
+
+#: setupwizard.cpp:285
+#, kde-format
+msgid "Yes, use %1 as provider"
+msgstr "Sí, use %1 como proveedor"
+
+#: setupwizard.cpp:311
+#, kde-format
+msgid "Groupware Server"
+msgstr "Servidor de trabajo en grupo"
+
+#: setupwizard.cpp:312
+#, kde-format
+msgid "Select the groupware server the resource shall be configured for"
+msgstr ""
+"Seleccione el servidor de trabajo en grupo para el que estará configurado el "
+"recurso"
+
+#: setupwizard.cpp:343
+#, kde-format
+msgid "Use one of those servers:"
+msgstr "Use uno de estos servidores:"
+
+#: setupwizard.cpp:352
+#, kde-format
+msgid "Configure the resource manually"
+msgstr "Configure el recurso manualmente"
+
+#: setupwizard.cpp:390
+#, kde-format
+msgid "Connection"
+msgstr "Conexión"
+
+#: setupwizard.cpp:391
+#, kde-format
+msgid "Enter the connection information for the groupware server"
+msgstr ""
+"Introduzca la información de conexión para el servidor de trabajo en grupo"
+
+#: setupwizard.cpp:398
+#, kde-format
+msgid "Host"
+msgstr "Servidor"
+
+#: setupwizard.cpp:401
+#, kde-format
+msgid "Installation path"
+msgstr "Ruta de instalación"
+
+#: setupwizard.cpp:404
+#, kde-format
+msgid "Use secure connection"
+msgstr "Usar conexión segura"
+
+#: setupwizard.cpp:432
+#, kde-format
+msgid "Final URL (CalDav)"
+msgstr "URL final (CalDav)"
+
+#: setupwizard.cpp:437
+#, kde-format
+msgid "Final URL (CardDav)"
+msgstr "URL final (CardDav)"
+
+#: setupwizard.cpp:442
+#, kde-format
+msgid "Final URL (GroupDav)"
+msgstr "URL final (GroupDav)"
+
+#: setupwizard.cpp:506 setupwizard.cpp:512
+#, kde-format
+msgid "Test Connection"
+msgstr "Probar conexión"
+
+#: setupwizard.cpp:507
+#, kde-format
+msgid ""
+"You can test now whether the groupware server can be accessed with the "
+"current configuration"
+msgstr ""
+"Puede probar si se puede acceder al servidor de trabajo en grupo con la "
+"configuración actual"
+
+#: setupwizard.cpp:552
+#, kde-format
+msgid "An error occurred: %1"
+msgstr "Ocurrió un error: %1"
+
+#: setupwizard.cpp:555
+#, kde-format
+msgid "Connected successfully"
+msgstr "Conectado con éxito"
+
+#: urlconfigurationdialog.cpp:266
+#, kde-format
+msgid "Display Name"
+msgstr "Nombre de pantalla"
+
+#. i18n: ectx: property (text), widget (QLabel, remoteProtocol)
+#: urlconfigurationdialog.ui:35
+#, kde-format
+msgid "Access protocol:"
+msgstr "Protocolo de acceso:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, caldav)
+#: urlconfigurationdialog.ui:42
+#, kde-format
+msgid "CalDA&V"
+msgstr "CalDA&V"
+
+#. i18n: ectx: property (text), widget (QRadioButton, carddav)
+#: urlconfigurationdialog.ui:52
+#, kde-format
+msgid "CardDAV"
+msgstr "CardDAV"
+
+#. i18n: ectx: property (text), widget (QRadioButton, groupdav)
+#: urlconfigurationdialog.ui:59
+#, kde-format
+msgid "GroupDAV"
+msgstr "GroupDAV"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: urlconfigurationdialog.ui:66
+#, kde-format
+msgid "Remote URL:"
+msgstr "URL remoto:"
+
+#. i18n: ectx: property (text), widget (QLabel, label1)
+#: urlconfigurationdialog.ui:76
+#, kde-format
+msgid "Access:"
+msgstr "Acceso:"
+
+#. i18n: ectx: property (text), widget (QLabel, collectionsLabel)
+#: urlconfigurationdialog.ui:146
+#, kde-format
+msgid "Discovered collections:"
+msgstr "Colecciones descubiertas:"
+
+#. i18n: ectx: property (text), widget (QPushButton, fetchButton)
+#: urlconfigurationdialog.ui:174
+#, kde-format
+msgid "Fetch"
+msgstr "Obtener"
+
+#: utils.cpp:47 utils.cpp:64
+#, kde-format
+msgid "CalDav"
+msgstr "CalDav"
+
+#: utils.cpp:50 utils.cpp:66
+#, kde-format
+msgid "CardDav"
+msgstr "CardDav"
+
+#: utils.cpp:53 utils.cpp:68
+#, kde-format
+msgid "GroupDav"
+msgstr "GroupDav"
+
+#~ msgid "General Configuration"
+#~ msgstr "Configuración general"
+
+#~ msgid "Synchronization"
+#~ msgstr "Sincronización"
+
+#~ msgid "Remote calendar access protocol"
+#~ msgstr "Protocolo de acceso al calendario remoto"
+
+#~ msgid "Remote calendar access"
+#~ msgstr "Acceso al calendario remoto"

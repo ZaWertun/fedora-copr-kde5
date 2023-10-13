@@ -1,0 +1,776 @@
+# Copyright © 2011, 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdepim-runtime package.
+# Tommi Nieminen <translator@legisign.org>, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2020, 2021.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2014, 2015.
+# Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_davgroupware_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-01-13 00:57+0000\n"
+"PO-Revision-Date: 2021-10-11 14:33+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:24:46+0000\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#: configdialog.cpp:33
+#, kde-format
+msgctxt "@title:window"
+msgid "DAV Resource Configuration"
+msgstr "DAV-resurssiasetukset"
+
+#: configdialog.cpp:46
+#, kde-format
+msgid "Protocol"
+msgstr "Yhteyskäytäntö"
+
+#: configdialog.cpp:46 urlconfigurationdialog.cpp:266
+#, kde-format
+msgid "URL"
+msgstr "Verkko-osoite"
+
+#: configdialog.cpp:59
+#, kde-format
+msgid "Days"
+msgstr "päivää"
+
+#: configdialog.cpp:60
+#, kde-format
+msgid "Months"
+msgstr "kuukautta"
+
+#: configdialog.cpp:61
+#, kde-format
+msgid "Years"
+msgstr "vuotta"
+
+#: configdialog.cpp:137
+#, kde-format
+msgid ""
+"Another configuration entry already uses the same URL/protocol couple.\n"
+"Please use a different URL"
+msgstr ""
+"Toinen asetusmerkintä käyttää jo samaa osoite- ja yhteyskäytäntöparia.\n"
+"Käytä toista verkko-osoitetta"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configdialog.ui:29
+#, kde-format
+msgid "Display name:"
+msgstr "Näyttönimi:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configdialog.ui:39
+#, kde-format
+msgid "Refresh every:"
+msgstr "Päivitä joka:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_refreshInterval)
+#: configdialog.ui:48
+#, kde-format
+msgid "Never"
+msgstr "Ei koskaan"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configdialog.ui:58
+#, kde-format
+msgid "minutes"
+msgstr ". minuutti"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configdialog.ui:80 urlconfigurationdialog.ui:111
+#, kde-format
+msgid "Username:"
+msgstr "Käyttäjätunnus:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:108 setupwizard.cpp:222 urlconfigurationdialog.ui:127
+#, kde-format
+msgid "Password:"
+msgstr "Salasana:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:136
+#, kde-format
+msgid ""
+"Select this if your calendars contain a lot of events and the server cannot "
+"fulfill the requests"
+msgstr ""
+"Valitse tämä, jos kalenterissasi on paljon tapahtumia eikä palvelin toteuta "
+"pyyntöjä"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:139
+#, kde-format
+msgid "Limit CalDav retrieval time range"
+msgstr "Rajaa CalDav-noudon aikaväliä"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:151
+#, kde-format
+msgid "Only sync events more recent than"
+msgstr "Synkronoi vain tapahtumat, jotka ovat uudempia kuin"
+
+#. i18n: ectx: property (text), widget (QLabel, label_41)
+#: configdialog.ui:190
+#, kde-format
+msgid "Server Configuration:"
+msgstr "Palvelinasetukset:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: configdialog.ui:204
+#, kde-format
+msgid "Add"
+msgstr "Lisää"
+
+#. i18n: ectx: property (text), widget (QPushButton, searchButton)
+#: configdialog.ui:211 searchdialog.ui:151
+#, kde-format
+msgid "Search"
+msgstr "Etsi"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: configdialog.ui:218
+#, kde-format
+msgid "Remove"
+msgstr "Poista"
+
+#. i18n: ectx: property (text), widget (QPushButton, editButton)
+#: configdialog.ui:225
+#, kde-format
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: daverror-kdepim-runtime.cpp:26
+#, kde-format
+msgid "Invalid username/password"
+msgstr "Virheellinen käyttäjätunnus tai salasana"
+
+#: daverror-kdepim-runtime.cpp:28
+#, kde-format
+msgid "Access forbidden"
+msgstr "Saanti estetty"
+
+#: daverror-kdepim-runtime.cpp:30
+#, kde-format
+msgid "Resource not found"
+msgstr "Resurssia ei löydy"
+
+#: daverror-kdepim-runtime.cpp:32
+#, kde-format
+msgid "HTTP error"
+msgstr "HTTP-virhe"
+
+#: daverror-kdepim-runtime.cpp:35
+#, kde-format
+msgid ""
+"There was a problem with the request.\n"
+"%1 (%2)."
+msgstr ""
+"Pyynnössä oli ongelmia.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:41
+#, kde-format
+msgid "Protocol for the collection does not support MULTIGET"
+msgstr "Kokoelman yhteyskäytäntö ei tue MULTIGETiä"
+
+#: daverror-kdepim-runtime.cpp:44
+#, kde-format
+msgid ""
+"The server encountered an error that prevented it from completing your "
+"request: %1 (%2)"
+msgstr ""
+"Palvelin kohtasi virheen, joka esti sitä toteuttamasta pyyntöäsi: %1 (%2)"
+
+#: daverror-kdepim-runtime.cpp:48
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been deleted "
+"from the server.\n"
+"%1 (%2)."
+msgstr ""
+"Pyynnössä oli ongelmia eikä kokoelmaa poistettu palvelimelta.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:54
+#, kde-format
+msgid "Invalid responses from backend"
+msgstr "Taustaosa vastaa virheellisesti"
+
+#: daverror-kdepim-runtime.cpp:57
+#, kde-format
+msgid "Error setting focus for XQuery"
+msgstr "Virhe asetettaessa XQueryn kohdistusta"
+
+#: daverror-kdepim-runtime.cpp:60
+#, kde-format
+msgid "Invalid XQuery submitted by DAV implementation"
+msgstr "DAV-toteutus lähetti virheellisen XQueryn"
+
+#: daverror-kdepim-runtime.cpp:64
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been modified "
+"on the server.\n"
+"%1 (%2)."
+msgstr ""
+"Pyynnössä oli ongelmia eikä kokoelmaa muutettu palvelimella.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:70
+#, kde-format
+msgid "No properties to change or remove"
+msgstr "Ei muutettavia tai poistettavia ominaisuuksia"
+
+#: daverror-kdepim-runtime.cpp:73
+#, kde-format
+msgid "There was an error when modifying the properties"
+msgstr "Ominaisuuksia muutettaessa sattui virhe"
+
+#: daverror-kdepim-runtime.cpp:75
+#, kde-format
+msgid ""
+"\n"
+"The server returned more information:\n"
+"%1"
+msgstr ""
+"\n"
+"Palvelin palautti lisätietoa:\n"
+"%1"
+
+#: daverror-kdepim-runtime.cpp:80
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been created on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Pyynnössä oli ongelmia eikä merkintää luotu palvelimeen.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:87
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been deleted from the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Pyynnössä oli ongelmia eikä merkintää poistettu palvelimelta.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:94
+#, kde-format
+msgid ""
+"There was a problem with the request. The item was not modified on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Pyynnössä oli ongelmia eikä merkintää muutettu palvelimella.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:100
+#, kde-format
+msgid "There was a problem with the request."
+msgstr "Pyynnössä oli ongelmia."
+
+#: daverror-kdepim-runtime.cpp:104
+#, kde-format
+msgid ""
+"There was a problem with the request. The requested MIME types are not "
+"supported."
+msgstr "Pyynnössä oli ongelmia: pyydettyjä MIME-tyyppejä ei tueta."
+
+#: davfreebusyhandler.cpp:57
+#, kde-format
+msgid "No schedule-outbox found for %1"
+msgstr "Aikataulun lähtevän postin laatikkoa ei löytynyt: %1"
+
+#: davfreebusyhandler.cpp:186 davfreebusyhandler.cpp:197
+#, kde-format
+msgid "Invalid response from the server"
+msgstr "Virheellinen vastaus palvelimelta"
+
+#: davfreebusyhandler.cpp:208
+#, kde-format
+msgid "Unable to parse free-busy data received"
+msgstr "Saatuja varaustietoja ei saatu jäsennetyksi"
+
+#: davgroupwareresource.cpp:163
+#, kde-format
+msgid "Unable to retrieve free-busy info while offline"
+msgstr "Varaustietoja ei voi noutaa verkkoyhteydettä"
+
+#: davgroupwareresource.cpp:246
+#, kde-format
+msgid "Fetching collections"
+msgstr "Noudetaan kokoelmia"
+
+#: davgroupwareresource.cpp:314
+#, kde-format
+msgid "Asked to retrieve items for an unknown collection: %1"
+msgstr "Pyydettiin noutamaan merkintöjä tuntemattomasta kokoelmasta: %1"
+
+#: davgroupwareresource.cpp:371
+#, kde-format
+msgid "Invalid collection for item %1."
+msgstr "Virheellinen kokoelma kohteelle %1."
+
+#: davgroupwareresource.cpp:608
+#, kde-format
+msgid "Unable to modify collection: %1"
+msgstr "Kokoelmaa ei voida muuttaa: %1"
+
+#: davgroupwareresource.cpp:677
+#, kde-format
+msgid "Unable to remove collection: %1"
+msgstr "Kokoelmaa ei voida poistaa: %1"
+
+#: davgroupwareresource.cpp:697
+#, kde-format
+msgid "Unable to retrieve collections: %1"
+msgstr "Kokoelmia ei voida noutaa: %1"
+
+#: davgroupwareresource.cpp:830 davgroupwareresource.cpp:929
+#, kde-format
+msgid "Unable to retrieve items: %1"
+msgstr "Kohteita ei voida noutaa: %1"
+
+#: davgroupwareresource.cpp:1009
+#, kde-format
+msgid "Unable to retrieve item: %1"
+msgstr "Kohdetta ei voida noutaa: %1"
+
+#: davgroupwareresource.cpp:1029
+#, kde-format
+msgid ""
+"Unable to retrieve item: failed to parse item data. Maybe it was deleted "
+"already."
+msgstr ""
+"Tietuetta ei voi noutaa: tiedon jäsennys epäonnistui. Tietue on ehkä jo "
+"poistettu."
+
+#: davgroupwareresource.cpp:1066
+#, kde-format
+msgid "Unable to add item: %1"
+msgstr "Kohdetta ei voida lisätä: %1"
+
+#: davgroupwareresource.cpp:1110 davgroupwareresource.cpp:1223
+#: davgroupwareresource.cpp:1235
+#, kde-format
+msgid "Unable to change item: %1"
+msgstr "Kohdetta ei voida muuttaa: %1"
+
+#: davgroupwareresource.cpp:1197 davgroupwareresource.cpp:1254
+#, kde-format
+msgid "Unable to remove item: %1"
+msgstr "Kohdetta ei voida poistaa: %1"
+
+#: davgroupwareresource.cpp:1341 davgroupwareresource.cpp:1342
+#, kde-format
+msgid "The resource is not configured yet"
+msgstr "Resurssia ei ole vielä määritetty"
+
+#. i18n: ectx: label, entry (settingsVersion), group (General)
+#: davgroupwareresource.kcfg:10
+#, kde-format
+msgid "Settings Version"
+msgstr "Asetusten versio"
+
+#. i18n: ectx: label, entry (displayName), group (General)
+#: davgroupwareresource.kcfg:14
+#, kde-format
+msgid "Display name"
+msgstr "Näyttönimi"
+
+#. i18n: ectx: label, entry (refreshInterval), group (General)
+#: davgroupwareresource.kcfg:18
+#, kde-format
+msgid "Refresh every"
+msgstr "Päivitä joka"
+
+#. i18n: ectx: label, entry (remoteUrls), group (General)
+#: davgroupwareresource.kcfg:22
+#, kde-format
+msgid "Remote URLs"
+msgstr "Etäosoitteet"
+
+#. i18n: ectx: label, entry (defaultUsername), group (General)
+#: davgroupwareresource.kcfg:26
+#, kde-format
+msgid "User name"
+msgstr "Käyttäjätunnus"
+
+#. i18n: ectx: label, entry (limitSyncRange), group (General)
+#: davgroupwareresource.kcfg:30
+#, kde-format
+msgid "Limit the events retrieval to the specified time range"
+msgstr "Rajaa tapahtumien noudon annetulle aikavälille"
+
+#. i18n: ectx: label, entry (syncRangeStartNumber), group (General)
+#: davgroupwareresource.kcfg:34
+#, kde-format
+msgid "Period for which to retrieve events, quantity"
+msgstr "Ajanjakso, jolta tapahtumia noudetaan, määrä"
+
+#. i18n: ectx: label, entry (syncRangeStartType), group (General)
+#: davgroupwareresource.kcfg:38
+#, kde-format
+msgid "Period for which to retrieve events, type"
+msgstr "Ajanjakso, jolta tapahtumia noudetaan, tyyppi"
+
+#. i18n: ectx: label, entry (collectionsUrlsMappings), group (General)
+#: davgroupwareresource.kcfg:42
+#, kde-format
+msgid ""
+"String representation of the mappings between discovered collections and "
+"configured URLs"
+msgstr ""
+"Merkkijonoesitys löydettyjen kokoelmien ja määritettyjen verkko-osoitteiden "
+"kytköksistä"
+
+#. i18n: ectx: label, entry (readOnly), group (General)
+#: davgroupwareresource.kcfg:46
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Älä muuta tietoja taustaosassa."
+
+#. i18n: ectx: label, entry (AccountId), group (General)
+#: davgroupwareresource.kcfg:50
+#, kde-format
+msgid "The account id in WebAccounts framework."
+msgstr "Tilin tunniste WebAccounts-sovelluskehyksessä."
+
+#. i18n: ectx: label, entry (AccountServices), group (General)
+#: davgroupwareresource.kcfg:53
+#, kde-format
+msgid "Account enabled services"
+msgstr "Tilin käytössä olevat palvelut"
+
+#: searchdialog.cpp:26
+#, kde-format
+msgctxt "@title:window"
+msgid "Search"
+msgstr "Etsi"
+
+#: searchdialog.cpp:41
+#, kde-format
+msgid "Add Selected Items"
+msgstr "Lisää valitut merkinnät"
+
+#: searchdialog.cpp:126 searchdialog.cpp:169
+#, kde-format
+msgid ""
+"An error occurred when executing search:\n"
+"%1"
+msgstr ""
+"Sattui virhe suoritettaessa hakua:\n"
+"%1"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useDefaultCreds)
+#: searchdialog.ui:32 urlconfigurationdialog.ui:85
+#, kde-format
+msgid "Use global creden&tials"
+msgstr "Käytä &järjestelmän käyttäjätietoja"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useSpecificCreds)
+#: searchdialog.ui:42 urlconfigurationdialog.ui:95
+#, kde-format
+msgid "Use specific credentials"
+msgstr "Käytä erityisiä käyttäjätietoja"
+
+#. i18n: ectx: property (title), widget (QGroupBox, credentialsGroup)
+#: searchdialog.ui:49
+#, kde-format
+msgid "Credentials"
+msgstr "Käyttäjätiedot"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: searchdialog.ui:61
+#, kde-format
+msgid "Username"
+msgstr "Käyttäjätunnus"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: searchdialog.ui:77
+#, kde-format
+msgid "Password"
+msgstr "Salasana:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: searchdialog.ui:96
+#, kde-format
+msgid "Search URL"
+msgstr "Hakuosoite"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: searchdialog.ui:106
+#, kde-format
+msgid "Search for"
+msgstr "Etsi"
+
+# Nämä jatkavat id:tä ”Search for”
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:116
+#, kde-format
+msgid "a person named"
+msgstr "nimettyä henkilöä"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:121
+#, kde-format
+msgid "a contact with email"
+msgstr "henkilön sähköpostiosoitetta"
+
+#: settings.cpp:481
+#, kde-format
+msgid "A password is required for user %1"
+msgstr "Salasanaa vaaditaan käyttäjältä %1"
+
+#: settings.cpp:484
+#, kde-format
+msgid "Password: "
+msgstr "Salasana: "
+
+#: setupwizard.cpp:140
+#, kde-format
+msgctxt "@title:window"
+msgid "DAV groupware configuration wizard"
+msgstr "DAV-työryhmän opastettu asetus"
+
+#: setupwizard.cpp:213
+#, kde-format
+msgid "Login Credentials"
+msgstr "Tunnistautumistiedot"
+
+#: setupwizard.cpp:214
+#, kde-format
+msgid "Enter your credentials to login to the groupware server"
+msgstr "Anna tunnistautumistietosi työryhmäpalvelimeen"
+
+#: setupwizard.cpp:218
+#, kde-format
+msgid "User:"
+msgstr "Käyttäjä:"
+
+#: setupwizard.cpp:258
+#, kde-format
+msgid "No, choose another server"
+msgstr "Ei, valitse toinen palvelin"
+
+#: setupwizard.cpp:260
+#, kde-format
+msgid "Predefined provider found"
+msgstr "Esimääritetty tarjoaja löytyi"
+
+#: setupwizard.cpp:261
+#, kde-format
+msgid "Select if you want to use the auto-detected provider"
+msgstr "Valitse, haluatko käyttää automaattisesti tunnistettua tarjoajaa"
+
+#: setupwizard.cpp:280
+#, kde-format
+msgid ""
+"Based on the email address you used as a login, this wizard\n"
+"can configure automatically an account for %1 services.\n"
+"Do you wish to do so?"
+msgstr ""
+"Kirjautumiseen käyttämäsi sähköpostiosoitteen perusteella tämä\n"
+"opastettu toiminto voi määrittää automaattisesti tilin %1-palveluihin.\n"
+"Haluatko tehdä näin?"
+
+#: setupwizard.cpp:285
+#, kde-format
+msgid "Yes, use %1 as provider"
+msgstr "Kyllä, käytä tarjoajaa %1"
+
+#: setupwizard.cpp:311
+#, kde-format
+msgid "Groupware Server"
+msgstr "Työryhmäpalvelin"
+
+#: setupwizard.cpp:312
+#, kde-format
+msgid "Select the groupware server the resource shall be configured for"
+msgstr "Valitse työryhmäpalvelin, johon resurssi asetetaan"
+
+#: setupwizard.cpp:343
+#, kde-format
+msgid "Use one of those servers:"
+msgstr "Valitse yksi palvelimista:"
+
+#: setupwizard.cpp:352
+#, kde-format
+msgid "Configure the resource manually"
+msgstr "Aseta resurssi käsin"
+
+#: setupwizard.cpp:390
+#, kde-format
+msgid "Connection"
+msgstr "Yhteys"
+
+#: setupwizard.cpp:391
+#, kde-format
+msgid "Enter the connection information for the groupware server"
+msgstr "Anna työryhmäpalvelimen yhteystiedot"
+
+#: setupwizard.cpp:398
+#, kde-format
+msgid "Host"
+msgstr "Palvelin"
+
+#: setupwizard.cpp:401
+#, kde-format
+msgid "Installation path"
+msgstr "Asennuspolku"
+
+#: setupwizard.cpp:404
+#, kde-format
+msgid "Use secure connection"
+msgstr "Käytä salattua yhteyttä"
+
+#: setupwizard.cpp:432
+#, kde-format
+msgid "Final URL (CalDav)"
+msgstr "Lopullinen verkko-osoite (CalDav)"
+
+#: setupwizard.cpp:437
+#, kde-format
+msgid "Final URL (CardDav)"
+msgstr "Lopullinen verkko-osoite (CardDav)"
+
+#: setupwizard.cpp:442
+#, kde-format
+msgid "Final URL (GroupDav)"
+msgstr "Lopullinen verkko-osoite (GroupDav)"
+
+#: setupwizard.cpp:506 setupwizard.cpp:512
+#, kde-format
+msgid "Test Connection"
+msgstr "Kokeile yhteyttä"
+
+#: setupwizard.cpp:507
+#, kde-format
+msgid ""
+"You can test now whether the groupware server can be accessed with the "
+"current configuration"
+msgstr "Voit nyt kokeilla, pääsetkö työryhmäpalvelimeen määritetyin asetuksin"
+
+#: setupwizard.cpp:552
+#, kde-format
+msgid "An error occurred: %1"
+msgstr "Sattui virhe: %1"
+
+#: setupwizard.cpp:555
+#, kde-format
+msgid "Connected successfully"
+msgstr "Yhdistäminen onnistui"
+
+#: urlconfigurationdialog.cpp:266
+#, kde-format
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. i18n: ectx: property (text), widget (QLabel, remoteProtocol)
+#: urlconfigurationdialog.ui:35
+#, kde-format
+msgid "Access protocol:"
+msgstr "Käyttöyhteyskäytäntö:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, caldav)
+#: urlconfigurationdialog.ui:42
+#, kde-format
+msgid "CalDA&V"
+msgstr "&CalDAV"
+
+#. i18n: ectx: property (text), widget (QRadioButton, carddav)
+#: urlconfigurationdialog.ui:52
+#, kde-format
+msgid "CardDAV"
+msgstr "CardDAV"
+
+#. i18n: ectx: property (text), widget (QRadioButton, groupdav)
+#: urlconfigurationdialog.ui:59
+#, kde-format
+msgid "GroupDAV"
+msgstr "GroupDAV"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: urlconfigurationdialog.ui:66
+#, kde-format
+msgid "Remote URL:"
+msgstr "Etäosoite:"
+
+#. i18n: ectx: property (text), widget (QLabel, label1)
+#: urlconfigurationdialog.ui:76
+#, kde-format
+msgid "Access:"
+msgstr "Käyttö:"
+
+#. i18n: ectx: property (text), widget (QLabel, collectionsLabel)
+#: urlconfigurationdialog.ui:146
+#, kde-format
+msgid "Discovered collections:"
+msgstr "Löydetyt kokoelmat:"
+
+#. i18n: ectx: property (text), widget (QPushButton, fetchButton)
+#: urlconfigurationdialog.ui:174
+#, kde-format
+msgid "Fetch"
+msgstr "Nouda"
+
+#: utils.cpp:47 utils.cpp:64
+#, kde-format
+msgid "CalDav"
+msgstr "CalDav"
+
+#: utils.cpp:50 utils.cpp:66
+#, kde-format
+msgid "CardDav"
+msgstr "CardDav"
+
+#: utils.cpp:53 utils.cpp:68
+#, kde-format
+msgid "GroupDav"
+msgstr "GroupDav"
+
+#~ msgid "General Configuration"
+#~ msgstr "Perusasetukset"
+
+#~ msgid "Synchronization"
+#~ msgstr "Synkronointi"
+
+#~ msgid "Remote calendar access protocol"
+#~ msgstr "Poista kalenteriyhteyskäytäntö"
+
+#~ msgid "Remote calendar access"
+#~ msgstr "Kalenterin etäkäyttö"
+
+#~ msgid "The server returned invalid data"
+#~ msgstr "Palvelin palautti virheellistä dataa"
+
+#~ msgid "Client did not create a UID for item %1."
+#~ msgstr "Asiakas ei luonut tunnistetta kohteelle %1."
+
+#~ msgid "Unable to retrieve added item %1."
+#~ msgstr "Lisättyä kohdetta %1 ei voida noutaa."
+
+#~ msgid "The remote item has been locked, try again later"
+#~ msgstr "Etäkohde on lukittu, yritä myöhemmin uudelleen"
+
+#~ msgid ""
+#~ "The server encountered an error that prevented it from completing your "
+#~ "request."
+#~ msgstr "Palvelin kohtasi virheen, joka esti sitä toteuttamasta pyyntöäsi."

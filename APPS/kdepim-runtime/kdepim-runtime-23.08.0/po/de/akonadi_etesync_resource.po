@@ -1,0 +1,223 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdepim-runtime package.
+# Burkhard Lück <lueck@hube-lueck.de>, 2020, 2021.
+# Alois Spitzbart <spitz234@hotmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2022-11-09 16:45+0100\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.08.2\n"
+
+#: etesyncresource.cpp:49
+#, kde-format
+msgid "EteSync Resource"
+msgstr "EteSync-Ressource"
+
+#: etesyncresource.cpp:187
+#, kde-format
+msgid "Temporary server error"
+msgstr "Temporärer Serverfehler"
+
+#: etesyncresource.cpp:191
+#, kde-format
+msgid "You do not have permission to perform this action."
+msgstr "Sie haben keine Berechtigung, um diese Aktion auszuführen."
+
+#: etesyncresource.cpp:194
+#, kde-format
+msgid "Permission denied"
+msgstr "Zugriff verweigert"
+
+#: etesyncresource.cpp:198
+#, kde-format
+msgid "A server error occurred."
+msgstr "Es ist ein Serverfehler aufgetreten."
+
+#: etesyncresource.cpp:201
+#, kde-format
+msgid "Server error"
+msgstr "Serverfehler"
+
+#: etesyncresource.cpp:220
+#, kde-format
+msgid ""
+"Your EteSync credentials were changed. Please click OK to re-enter your "
+"credentials."
+msgstr ""
+"Ihre Anmeldeinformationen für EteSync wurden geändert. Klicken Sie auf OK, "
+"um sie erneut einzugeben."
+
+#: etesyncresource.cpp:222
+#, kde-format
+msgid "Credentials Changed"
+msgstr "Anmeldeinformationen geändert"
+
+#: etesyncresource.cpp:270
+#, kde-format
+msgid "Cannot retrieve items - account is null"
+msgstr "Die Elemente können nicht abgeholt werden - Der Zugang ist null"
+
+#: etesyncresource.cpp:277 etesyncresource.cpp:383 etesyncresource.cpp:456
+#: etesyncresource.cpp:514 etesyncresource.cpp:643 etesyncresource.cpp:701
+#, kde-format
+msgid "Could not get etesyncCollection from cache '%1'"
+msgstr "EtesyncCollection kann nicht aus dem Cache „%1“ geholt werden"
+
+#: etesyncresource.cpp:411
+#, kde-format
+msgid "Could not create new etesyncItem '%1'"
+msgstr "Das neue etesyncItem „%1“ kann nicht erstellt werden"
+
+#: etesyncresource.cpp:463 etesyncresource.cpp:521
+#, kde-format
+msgid "Could not get etesyncItem from cache '%1'"
+msgstr "EtesyncItem kann nicht aus dem Cache „%1“ geholt werden"
+
+#: etesyncresource.cpp:583
+#, kde-format
+msgid "Could not create new etesyncCollection"
+msgstr "Neue etesyncCollection kann nicht erstellt werden"
+
+#: etesyncresource.h:62
+#, kde-format
+msgid "Something went wrong"
+msgstr "Leider ist ein Fehler aufgetreten"
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "Server-Adresse"
+
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:11 etesyncresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the EteSync server, should be something like https://myserver.org/"
+msgstr ""
+"Die Adresse des EteSync-Servers sollte von der Form https://myserver.org/ "
+"sein."
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: etesyncresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Benutzername"
+
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: etesyncresource.kcfg:16 etesyncresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the EteSync server"
+msgstr "Der Benutzername, mit dem Sie sich am EteSync-Server anmelden."
+
+#. i18n: ectx: label, entry (BasePath), group (General)
+#: etesyncresource.kcfg:20
+#, kde-format
+msgid "Path to base directory"
+msgstr "Pfad zum Basisordner"
+
+#: setupwizard.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "EteSync configuration wizard"
+msgstr "Einrichtungsassistent für EteSync"
+
+#: setupwizard.cpp:66
+#, kde-format
+msgid "Login Credentials"
+msgstr "Anmeldeinformationen"
+
+#: setupwizard.cpp:67
+#, kde-format
+msgid "Enter your credentials to login to the EteSync server"
+msgstr ""
+"Geben Sie Ihre Anmeldeinformationen ein, um eine Verbindung mit dem EteSync-"
+"Server aufzubauen."
+
+#: setupwizard.cpp:76
+#, kde-format
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: setupwizard.cpp:81
+#, kde-format
+msgid "Password:"
+msgstr "Passwort:"
+
+#: setupwizard.cpp:84
+#, kde-format
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#: setupwizard.cpp:89
+#, kde-format
+msgid "Server:"
+msgstr "Server:"
+
+#: setupwizard.cpp:102
+#, kde-format
+msgid ""
+"🛈 The password field is empty because EteSync does not store it for security "
+"reasons."
+msgstr ""
+"🛈 Das Passwortfeld ist leer, weil es in EteSync aus Sicherheitsgründen nicht "
+"gespeichert wird."
+
+#: setupwizard.cpp:134
+#, kde-format
+msgid ""
+"Please ensure that the server URL is correct. The URL should start with "
+"http:// or https://."
+msgstr ""
+"Bitte überprüfen Sie, ob die Server-URL korrekt ist. Die URL sollte mit "
+"„http://“ oder „https://“ anfangen."
+
+#: setupwizard.cpp:136
+#, kde-format
+msgid ""
+"Could not connect to the server. Please ensure that the server URL is "
+"correct."
+msgstr ""
+"Verbindung zum Server nicht möglich. Bitte überprüfen Sie, ob die Server-URL "
+"korrekt ist."
+
+#: setupwizard.cpp:138
+#, kde-format
+msgid "EteSync server not found. Please ensure that the server URL is correct."
+msgstr ""
+"EteSync-Server nicht gefunden. Bitte überprüfen Sie, ob die Server-URL "
+"korrekt ist."
+
+#~ msgid "Received item with unknown payload %1"
+#~ msgstr "Objekt mit unbekannten Nutzdaten (%1) erhalten"
+
+#~ msgid "My Calendar"
+#~ msgstr "Mein Kalender"
+
+#~ msgid "My Contacts"
+#~ msgstr "Meine Kontakte"
+
+#~ msgid "My Tasks"
+#~ msgstr "Meine Aufgaben"
+
+#~ msgid "Invalid payload type"
+#~ msgstr "Ungültiger Nutzdatentyp"
+
+#~ msgid "Password"
+#~ msgstr "Passwort"
+
+#~ msgid "Email:"
+#~ msgstr "E-Mail:"

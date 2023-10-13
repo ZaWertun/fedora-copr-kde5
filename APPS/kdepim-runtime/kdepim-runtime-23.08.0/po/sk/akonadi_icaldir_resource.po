@@ -1,0 +1,136 @@
+# translation of akonadi_icaldir_resource.po to Slovak
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2014, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_icaldir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-11-25 00:29+0000\n"
+"PO-Revision-Date: 2016-08-31 22:45+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: icaldirresource.cpp:119
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Výskyt s uid '%1' nenájdený."
+
+#: icaldirresource.cpp:133 icaldirresource.cpp:166 icaldirresource.cpp:198
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Snaha o zápis do adresára len na čítanie: '%1'"
+
+#: icaldirresource.cpp:248
+#, kde-format
+msgid "Calendar Folder"
+msgstr "Priečinok kalendára"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icaldirresource.kcfg:10
+#, kde-format
+msgid "Path to iCal directory"
+msgstr "Cesta k adresáru iCal"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: icaldirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Interval pre automatické ukladanie (v minútach)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icaldirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Nezmeniť aktuálne backend dáta."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: icaldirsagentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Adresár"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: icaldirsagentsettingswidget.ui:39
+#, kde-format
+msgid "Di&rectory:"
+msgstr "Adresár:"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: icaldirsagentsettingswidget.ui:58
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Vyberte adresár, ktorého obsah má byť reprezentovaný týmto zdrojom. Ak "
+"adresár neexistuje, vytvorí sa."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: icaldirsagentsettingswidget.ui:68
+#, kde-format
+msgid "Read only"
+msgstr "Len na čítanie"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: icaldirsagentsettingswidget.ui:84
+#, fuzzy, kde-format
+#| msgid ""
+#| "If read-only mode is enabled, no changes will be written to the directory "
+#| "selected above. Read-only mode will be automatically enabled if you do "
+#| "not have write access to the directory."
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"Ak je povolený režim len na čítanie, do vybraného adresára sa nezapíšu "
+"žiadne zmeny. Režim len na čítanie sa automaticky povolí ak nemáte práva na "
+"zápis do daného adresára."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: icaldirsagentsettingswidget.ui:108
+#, kde-format
+msgid "Tuning"
+msgstr "Ladenie"
+
+#. i18n: ectx: property (text), widget (QLabel, runingLabel)
+#: icaldirsagentsettingswidget.ui:114
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Možnosti na tejto stránke vám umožnia zmeniť parametre vyváženia bezpečnosti "
+"a konzistencie oproti výkonu. Vo všeobecnosti buďte opatrní pri akejkoľvek "
+"zmene, predvolené hodnoty sú dosť dobré vo väčšine prípadov."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: icaldirsagentsettingswidget.ui:124
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Oneskorenie automatického uloženia:"
+
+#: icaldirsettingswidget.cpp:36
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minúta"
+msgstr[1] " minúty"
+msgstr[2] " minút"
+
+#~ msgid "Directory Name"
+#~ msgstr "Názov adresára"
+
+#~ msgid "Access Rights"
+#~ msgstr "Prístupové práva"
+
+#, fuzzy
+#~| msgid "Calendar Folder"
+#~ msgid "Calendar Name:"
+#~ msgstr "Priečinok kalendára"

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmlns:UML="http://schema.omg.org/spec/UML/1.3" verified="false" timestamp="2006-09-30T19:30:24" xmi.version="1.2" >
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>umbrello uml modeller http://uml.sf.net</XMI.exporter>
+   <XMI.exporterVersion>1.5.3</XMI.exporterVersion>
+   <XMI.exporterEncoding>UnicodeUTF8</XMI.exporterEncoding>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name="UML" href="UML.xml" xmi.version="1.3" />
+ </XMI.header>
+ <XMI.content>
+  <UML:Model isSpecification="false" isLeaf="false" isRoot="false" xmi.id="m1" isAbstract="false" name="UML Model" >
+   <UML:Namespace.ownedElement>
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="3" isRoot="false" isAbstract="false" name="Client" />
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="4" isRoot="false" isAbstract="false" name="Search Provider" />
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="5" isRoot="false" isAbstract="false" name="Storage" />
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="6" isRoot="false" isAbstract="false" name="Resource" />
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="22" isRoot="false" isAbstract="false" name="AgentManager (libakonadi)" />
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="23" isRoot="false" isAbstract="false" name="ProfileManager (libakonadi)" />
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="26" isRoot="false" isAbstract="false" name="Control" />
+    <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="44" isRoot="false" isAbstract="false" name="External Data Source" />
+   </UML:Namespace.ownedElement>
+  </UML:Model>
+ </XMI.content>
+ <XMI.extensions xmi.extender="umbrello" >
+  <docsettings viewid="54" documentation="" uniqueid="81" />
+  <diagrams>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="843" snapy="10" showatts="1" xmi.id="2" documentation="" type="403" showops="1" showpackage="0" name="Akonadi Client Search" localid="899994" showstereotype="0" showscope="1" snapcsgrid="0" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="556" >
+    <widgets>
+     <objectwidget usesdiagramfillcolour="0" width="56" usesdiagramusefillcolour="1" x="34" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="3" decon="0" localid="899999" multipleinstance="0" drawasactor="0" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="67" usesdiagramusefillcolour="1" x="354" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="5" decon="0" localid="899997" multipleinstance="0" drawasactor="0" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="75" usesdiagramusefillcolour="1" x="541" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="6" decon="0" localid="899996" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="114" usesdiagramusefillcolour="1" x="204" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="4" decon="0" localid="899995" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="145" usesdiagramusefillcolour="1" x="687" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="44" decon="0" localid="899994" multipleinstance="0" drawasactor="0" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+    </widgets>
+    <messages>
+     <messagewidget usesdiagramfillcolour="1" width="197" usesdiagramusefillcolour="1" x="63" y="96" operation="searchItems" linewidth="none" widgetbid="899995" fillcolour="none" height="8" usefillcolor="1" seqnum="DBus call" textid="11" widgetaid="899999" isinstance="0" xmi.id="10" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="140" usesdiagramusefillcolour="1" x="68" y="77" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="11" showstereotype="1" text="DBus call: searchItems" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="199" usesdiagramusefillcolour="1" x="387" y="111" operation="requestItemDelivery" linewidth="none" widgetbid="899996" fillcolour="none" height="32" usefillcolor="1" seqnum="DBus call" textid="15" widgetaid="899997" isinstance="0" xmi.id="14" sequencemessagetype="1000" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="187" usesdiagramusefillcolour="1" x="392" y="92" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="15" showstereotype="1" text="DBus call: requestItemDelivery" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="197" usesdiagramusefillcolour="1" x="63" y="167" operation="searchItemsResult" linewidth="none" widgetbid="899999" fillcolour="none" height="8" usefillcolor="1" seqnum="DBus signal" textid="19" widgetaid="899995" isinstance="0" xmi.id="18" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="190" usesdiagramusefillcolour="1" x="68" y="148" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="19" showstereotype="1" text="DBus signal: searchItemsResult" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="134" usesdiagramusefillcolour="1" x="261" y="112" operation="fetch" linewidth="none" widgetbid="899997" fillcolour="none" height="32" usefillcolor="1" seqnum="IMAP call" textid="43" widgetaid="899995" isinstance="0" xmi.id="42" sequencemessagetype="1000" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="99" usesdiagramusefillcolour="1" x="266" y="93" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="43" showstereotype="1" text="IMAP call: fetch" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="179" usesdiagramusefillcolour="1" x="579" y="111" operation="request data" linewidth="none" widgetbid="899994" fillcolour="none" height="8" usefillcolor="1" seqnum="Action" textid="46" widgetaid="899996" isinstance="0" xmi.id="45" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="124" usesdiagramusefillcolour="1" x="584" y="92" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="46" text="Action: request data" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="179" usesdiagramusefillcolour="1" x="579" y="131" operation="retrieve data" linewidth="none" widgetbid="899996" fillcolour="none" height="8" usefillcolor="1" seqnum="Action" textid="48" widgetaid="899994" isinstance="0" xmi.id="47" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="126" usesdiagramusefillcolour="1" x="584" y="112" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="48" showstereotype="1" text="Action: retrieve data" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="189" usesdiagramusefillcolour="1" x="388" y="131" operation="store" linewidth="none" widgetbid="899997" fillcolour="none" height="8" usefillcolor="1" seqnum="IMAP call" textid="50" widgetaid="899996" isinstance="0" xmi.id="49" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="100" usesdiagramusefillcolour="1" x="396" y="112" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="50" showstereotype="1" text="IMAP call: store" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="333" usesdiagramusefillcolour="1" x="62" y="211" operation="fetch" linewidth="none" widgetbid="899997" fillcolour="none" height="32" usefillcolor="1" seqnum="IMAP call" textid="52" widgetaid="899999" isinstance="0" xmi.id="51" sequencemessagetype="1000" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="99" usesdiagramusefillcolour="1" x="77" y="192" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="52" showstereotype="1" text="IMAP call: fetch" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+    </messages>
+    <associations/>
+   </diagram>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="843" snapy="10" showatts="1" xmi.id="21" documentation="" type="403" showops="1" showpackage="0" name="Akonadi Profile Handling" localid="899996" showstereotype="0" showscope="1" snapcsgrid="0" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="556" >
+    <widgets>
+     <objectwidget usesdiagramfillcolour="0" width="184" usesdiagramusefillcolour="1" x="179" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="23" decon="0" localid="899998" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="56" usesdiagramusefillcolour="0" x="61" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="3" decon="0" localid="899997" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="64" usesdiagramusefillcolour="1" x="385" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="26" decon="0" localid="899996" multipleinstance="0" drawasactor="0" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+    </widgets>
+    <messages>
+     <messagewidget usesdiagramfillcolour="1" width="190" usesdiagramusefillcolour="1" x="94" y="100" operation="createProfile" linewidth="none" widgetbid="899998" fillcolour="none" height="32" usefillcolor="1" seqnum="Method call" textid="25" widgetaid="899997" isinstance="0" xmi.id="24" sequencemessagetype="1000" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="158" usesdiagramusefillcolour="1" x="99" y="81" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="25" showstereotype="1" text="Method call: createProfile" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="154" usesdiagramusefillcolour="1" x="247" y="100" operation="createProfile" linewidth="none" widgetbid="899996" fillcolour="none" height="32" usefillcolor="1" seqnum="DBus call" textid="28" widgetaid="899998" isinstance="0" xmi.id="27" sequencemessagetype="1000" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="145" usesdiagramusefillcolour="1" x="252" y="81" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="28" showstereotype="1" text="DBus call: createProfile" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+    </messages>
+    <associations/>
+   </diagram>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="843" snapy="10" showatts="1" xmi.id="29" documentation="" type="403" showops="1" showpackage="0" name="Akonadi Agent Handling" localid="899996" showstereotype="0" showscope="1" snapcsgrid="0" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="556" >
+    <widgets>
+     <objectwidget usesdiagramfillcolour="0" width="56" usesdiagramusefillcolour="1" x="42" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="3" decon="0" localid="899999" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="179" usesdiagramusefillcolour="1" x="186" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="22" decon="0" localid="899998" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="64" usesdiagramusefillcolour="1" x="407" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="26" decon="0" localid="899997" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="75" usesdiagramusefillcolour="1" x="582" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="6" decon="0" localid="899996" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+    </widgets>
+    <messages>
+     <messagewidget usesdiagramfillcolour="1" width="213" usesdiagramusefillcolour="1" x="67" y="100" operation="createAgentInstance" linewidth="none" widgetbid="899998" fillcolour="none" height="32" usefillcolor="1" seqnum="Method call" textid="31" widgetaid="899999" isinstance="0" xmi.id="30" sequencemessagetype="1000" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="201" usesdiagramusefillcolour="1" x="72" y="81" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="31" text="Method call: createAgentInstance" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="172" usesdiagramusefillcolour="1" x="252" y="101" operation="createAgentInstance" linewidth="none" widgetbid="899997" fillcolour="none" height="32" usefillcolor="1" seqnum="DBus call" textid="33" widgetaid="899998" isinstance="0" xmi.id="32" sequencemessagetype="1000" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="188" usesdiagramusefillcolour="1" x="257" y="82" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="33" showstereotype="1" text="DBus call: createAgentInstance" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="178" usesdiagramusefillcolour="1" x="433" y="109" operation="starts the resource" linewidth="none" widgetbid="899996" fillcolour="none" height="8" usefillcolor="1" seqnum="Action" textid="35" widgetaid="899997" isinstance="0" xmi.id="34" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="160" usesdiagramusefillcolour="1" x="441" y="90" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="35" showstereotype="1" text="Action: starts the resource" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="178" usesdiagramusefillcolour="1" x="433" y="161" operation="serviceOwnerChanged" linewidth="none" widgetbid="899997" fillcolour="none" height="8" usefillcolor="1" seqnum="DBus signal" textid="37" widgetaid="899996" isinstance="0" xmi.id="36" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="213" usesdiagramusefillcolour="1" x="438" y="142" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" showstereotype="1" text="DBus signal: serviceOwnerChanged" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="162" usesdiagramusefillcolour="1" x="253" y="174" operation="agentInstanceAdded" linewidth="none" widgetbid="899998" fillcolour="none" height="8" usefillcolor="1" seqnum="DBus signal" textid="39" widgetaid="899997" isinstance="0" xmi.id="38" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="201" usesdiagramusefillcolour="1" x="258" y="155" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="39" showstereotype="1" text="DBus signal: agentInstanceAdded" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="203" usesdiagramusefillcolour="1" x="68" y="188" operation="agentInstanceAdded" linewidth="none" widgetbid="899999" fillcolour="none" height="8" usefillcolor="1" seqnum="Qt signal" textid="41" widgetaid="899998" isinstance="0" xmi.id="40" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="184" usesdiagramusefillcolour="1" x="73" y="169" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="41" showstereotype="1" text="Qt signal: agentInstanceAdded" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+    </messages>
+    <associations/>
+   </diagram>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="843" snapy="10" showatts="1" xmi.id="54" documentation="" type="403" showops="1" showpackage="0" name="Akonadi Client Search II" localid="899995" showstereotype="0" showscope="1" snapcsgrid="0" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="556" >
+    <widgets>
+     <objectwidget usesdiagramfillcolour="0" width="56" usesdiagramusefillcolour="1" x="7" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="3" decon="0" localid="899999" multipleinstance="0" drawasactor="0" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="67" usesdiagramusefillcolour="1" x="160" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="5" decon="0" localid="899998" multipleinstance="0" drawasactor="0" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="114" usesdiagramusefillcolour="1" x="343" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="4" decon="0" localid="899997" multipleinstance="0" drawasactor="0" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="75" usesdiagramusefillcolour="1" x="493" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="6" decon="0" localid="899996" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <objectwidget usesdiagramfillcolour="0" width="145" usesdiagramusefillcolour="1" x="661" y="48" instancename="" linewidth="none" fillcolour="#ffffc0" height="25" usefillcolor="1" isinstance="0" xmi.id="44" decon="0" localid="899995" multipleinstance="0" drawasactor="0" showstereotype="1" font="Serif,8,-1,5,50,0,1,0,0,0" linecolor="#ff0000" />
+     <notewidget usesdiagramfillcolour="1" width="100" usesdiagramusefillcolour="1" x="85" y="188" linewidth="none" fillcolour="none" height="92" usefillcolor="1" isinstance="0" xmi.id="63" text="Request item from resource if not available in Storage" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+    </widgets>
+    <messages>
+     <messagewidget usesdiagramfillcolour="1" width="156" usesdiagramusefillcolour="1" x="36" y="100" operation="search" linewidth="none" widgetbid="899998" fillcolour="none" height="8" usefillcolor="1" seqnum="IMAP call" textid="56" widgetaid="899999" isinstance="0" xmi.id="55" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="109" usesdiagramusefillcolour="1" x="45" y="81" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="56" showstereotype="1" text="IMAP call: search" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="205" usesdiagramusefillcolour="1" x="194" y="122" operation="addSearch" linewidth="none" widgetbid="899997" fillcolour="none" height="8" usefillcolor="1" seqnum="DBus call" textid="58" widgetaid="899998" isinstance="0" xmi.id="57" sequencemessagetype="1001" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="132" usesdiagramusefillcolour="1" x="203" y="103" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="58" showstereotype="1" text="DBus call: addSearch" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="205" usesdiagramusefillcolour="1" x="194" y="161" operation="fetch" linewidth="none" widgetbid="899998" fillcolour="none" height="8" usefillcolor="1" seqnum="IMAP call" textid="60" widgetaid="899997" isinstance="0" xmi.id="59" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="99" usesdiagramusefillcolour="1" x="203" y="142" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="60" showstereotype="1" text="IMAP call: fetch" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="335" usesdiagramusefillcolour="1" x="194" y="227" operation="requestItemDelivery" linewidth="none" widgetbid="899996" fillcolour="none" height="8" usefillcolor="1" seqnum="DBus call" textid="62" widgetaid="899998" isinstance="0" xmi.id="61" sequencemessagetype="1001" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="187" usesdiagramusefillcolour="1" x="203" y="208" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="62" showstereotype="1" text="DBus call: requestItemDelivery" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="201" usesdiagramusefillcolour="1" x="531" y="251" operation="" linewidth="none" widgetbid="899995" fillcolour="none" height="8" usefillcolor="1" seqnum="Custom action" textid="65" widgetaid="899996" isinstance="0" xmi.id="64" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="97" usesdiagramusefillcolour="1" x="540" y="232" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="65" showstereotype="1" text="Custom action: " font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="201" usesdiagramusefillcolour="1" x="531" y="282" operation="" linewidth="none" widgetbid="899996" fillcolour="none" height="8" usefillcolor="1" seqnum="Custom signal" textid="67" widgetaid="899995" isinstance="0" xmi.id="66" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="97" usesdiagramusefillcolour="1" x="540" y="263" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="67" showstereotype="1" text="Custom signal: " font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="335" usesdiagramusefillcolour="1" x="194" y="305" operation="store" linewidth="none" widgetbid="899998" fillcolour="none" height="8" usefillcolor="1" seqnum="IMAP call" textid="69" widgetaid="899996" isinstance="0" xmi.id="68" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="100" usesdiagramusefillcolour="1" x="203" y="286" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="69" showstereotype="1" text="IMAP call: store" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="205" usesdiagramusefillcolour="1" x="194" y="342" operation="" linewidth="none" widgetbid="899997" fillcolour="none" height="8" usefillcolor="1" seqnum="Response" textid="71" widgetaid="899998" isinstance="0" xmi.id="70" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="71" usesdiagramusefillcolour="1" x="203" y="323" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="71" showstereotype="1" text="Response: " font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="205" usesdiagramusefillcolour="1" x="194" y="379" operation="store" linewidth="none" widgetbid="899998" fillcolour="none" height="8" usefillcolor="1" seqnum="IMAP call" textid="73" widgetaid="899997" isinstance="0" xmi.id="72" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="100" usesdiagramusefillcolour="1" x="206" y="360" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="73" showstereotype="1" text="IMAP call: store" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="156" usesdiagramusefillcolour="1" x="36" y="399" operation="" linewidth="none" widgetbid="899999" fillcolour="none" height="8" usefillcolor="1" seqnum="Response" textid="75" widgetaid="899998" isinstance="0" xmi.id="74" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="71" usesdiagramusefillcolour="1" x="43" y="380" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="75" showstereotype="1" text="Response: " font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="205" usesdiagramusefillcolour="1" x="194" y="434" operation="removeSearch" linewidth="none" widgetbid="899997" fillcolour="none" height="8" usefillcolor="1" seqnum="DBus call" textid="77" widgetaid="899998" isinstance="0" xmi.id="76" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="153" usesdiagramusefillcolour="1" x="201" y="415" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="77" showstereotype="1" text="DBus call: removeSearch" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="156" usesdiagramusefillcolour="1" x="36" y="458" operation="uidFetch" linewidth="none" widgetbid="899998" fillcolour="none" height="8" usefillcolor="1" seqnum="IMAP call" textid="79" widgetaid="899999" isinstance="0" xmi.id="78" sequencemessagetype="1001" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="121" usesdiagramusefillcolour="1" x="41" y="439" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="79" showstereotype="1" text="IMAP call: uidFetch" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+     <messagewidget usesdiagramfillcolour="1" width="156" usesdiagramusefillcolour="1" x="36" y="496" operation="" linewidth="none" widgetbid="899999" fillcolour="none" height="8" usefillcolor="1" seqnum="Response" textid="81" widgetaid="899998" isinstance="0" xmi.id="80" sequencemessagetype="1001" showstereotype="1" font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" >
+      <floatingtext usesdiagramfillcolour="1" width="71" usesdiagramusefillcolour="1" x="41" y="477" linewidth="none" posttext="" role="704" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="81" showstereotype="1" text="Response: " font="Serif,8,-1,5,50,0,0,0,0,0" linecolor="none" />
+     </messagewidget>
+    </messages>
+    <associations/>
+   </diagram>
+  </diagrams>
+  <listview>
+   <listitem open="1" type="800" label="Views" >
+    <listitem open="1" type="801" label="Logical View" >
+     <listitem open="1" type="813" id="22" />
+     <listitem open="1" type="813" id="3" />
+     <listitem open="1" type="813" id="26" />
+     <listitem open="1" type="813" id="44" />
+     <listitem open="1" type="813" id="23" />
+     <listitem open="1" type="813" id="6" />
+     <listitem open="1" type="813" id="4" />
+     <listitem open="1" type="813" id="5" />
+     <listitem open="0" type="830" label="Datatypes" />
+    </listitem>
+    <listitem open="1" type="802" label="Use Case View" />
+    <listitem open="1" type="821" label="Component View" />
+    <listitem open="1" type="827" label="Deployment View" />
+    <listitem open="1" type="836" label="Entity Relationship Model" />
+   </listitem>
+  </listview>
+  <codegeneration>
+   <codegenerator language="XMLSchema" />
+  </codegeneration>
+ </XMI.extensions>
+</XMI>

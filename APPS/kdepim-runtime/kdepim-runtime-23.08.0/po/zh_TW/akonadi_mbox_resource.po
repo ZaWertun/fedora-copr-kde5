@@ -1,0 +1,363 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2009, 2010, 2014.
+# pan93412 <pan93412@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_mbox_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-24 00:49+0000\n"
+"PO-Revision-Date: 2019-09-30 19:51+0800\n"
+"Last-Translator: pan93412 <pan93412@gmail.com>\n"
+"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.08.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: compactpage.cpp:71
+#, kde-format
+msgid "(1 message marked for deletion)"
+msgid_plural "(%1 messages marked for deletion)"
+msgstr[0] "（%1 封信件標記為刪除）"
+
+#: compactpage.cpp:78
+#, kde-format
+msgid "Failed to fetch the collection."
+msgstr "無法抓取此收藏。"
+
+#: compactpage.cpp:94
+#, kde-format
+msgid "Failed to load the mbox file"
+msgstr "載入 mbox 檔案時失敗"
+
+#: compactpage.cpp:96
+#, kde-format
+msgid "(Deleting 1 message)"
+msgid_plural "(Deleting %1 messages)"
+msgstr[0] "（刪除 %1 封信件中）"
+
+#: compactpage.cpp:107 compactpage.cpp:115
+#, kde-format
+msgid "Failed to compact the mbox file."
+msgstr "整理 mbox 檔案時失敗"
+
+#: compactpage.cpp:117
+#, kde-format
+msgid "MBox file compacted."
+msgstr "MBox 檔已整理。"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: compactpage.ui:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#| "REC-html40/strict.dtd\">\n"
+#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#| "css\">\n"
+#| "p, li { white-space: pre-wrap; }\n"
+#| "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
+#| "font-weight:400; font-style:normal;\">\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\">The only way to fully "
+#| "remove a mail from an mbox file is by removing it from the actual file. "
+#| "As this can be a rather expensive operation, the mbox resource keeps a "
+#| "list of deleted messages. Once in a while these messages are really "
+#| "removed from the file.</p>\n"
+#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#| "\"></p>\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#| "weight:600;\">Note:</span> The downside of this is that if the file is "
+#| "changed by another program, the list of deleted messages cannot be "
+#| "trusted any longer and deleted messages might reappear.</p></body></html>"
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-size:10pt; font-weight:400; font-style:"
+"normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">The only way to fully "
+"remove a mail from an mbox file is by removing it from the actual file. As "
+"this can be a rather expensive operation, the mbox resource keeps a list of "
+"deleted messages. Once in a while these messages are really removed from the "
+"file.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Note:</span> The downside of this is that if the file is "
+"changed by another program, the list of deleted messages cannot be trusted "
+"any longer and deleted messages might reappear.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">要完全從 mbox 檔中移除信件"
+"的方式只有從實際檔案中移除。不過這樣做通常會很耗時，因此 mbox 資源會保留一份"
+"刪除信件的清單，直到真正從檔案中移除。</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">注意：</span>若是此檔案被其它程式動過，則此刪除信件清單就有可能"
+"出問題，被刪除的信件也有可能再度出現。</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, compactButton)
+#: compactpage.ui:49
+#, kde-format
+msgid "&Compact now"
+msgstr "馬上整理(&C)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, never)
+#: compactpage.ui:79
+#, kde-format
+msgid "&Never compact automatically"
+msgstr "絕不自動整理(&N)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, per_x_messages)
+#: compactpage.ui:86
+#, kde-format
+msgid "C&ompact every"
+msgstr "整理間隔(&O)"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_MessageCount)
+#: compactpage.ui:96
+#, kde-format
+msgid "msg"
+msgstr "信件"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LockFilePage)
+#: lockfilepage.ui:15
+#, kde-format
+msgid "MBox Settings"
+msgstr "MBox 設定"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: lockfilepage.ui:27
+#, fuzzy, kde-format
+#| msgid ""
+#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#| "REC-html40/strict.dtd\">\n"
+#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#| "css\">\n"
+#| "p, li { white-space: pre-wrap; }\n"
+#| "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
+#| "font-weight:400; font-style:normal;\">\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\">Select a method to lock "
+#| "the mbox file when data is read from or written to the file.</p>\n"
+#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#| "\"></p>\n"
+#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#| "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#| "weight:600;\">Note</span>: For some methods you might need to install "
+#| "additional software before they can be used.</p></body></html>"
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-size:10pt; font-weight:400; font-style:"
+"normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Select a method to lock "
+"the mbox file when data is read from or written to the file.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Note</span>: For some methods you might need to install "
+"additional software before they can be used.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">請選擇在讀取或寫入檔案時，"
+"鎖定 mbox 檔的方法。</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">注意</span>：有些方法可能需要您先安裝一些額外的軟體包之後才能使"
+"用。</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, procmail)
+#: lockfilepage.ui:43
+#, kde-format
+msgid "Procmail loc&kfile"
+msgstr "Procmail 鎖定檔(&K)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mutt_dotlock)
+#: lockfilepage.ui:53
+#, kde-format
+msgid "&Mutt dotlock"
+msgstr "Mutt dotlock(&M)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mutt_dotlock_privileged)
+#: lockfilepage.ui:60
+#, kde-format
+msgid "M&utt dotlock privileged"
+msgstr "Mutt dotlock 特權(&U)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, none)
+#: lockfilepage.ui:67
+#, kde-format
+msgid "Non&e"
+msgstr "無(&E)"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Lockfile)
+#: lockfilepage.ui:84
+#, kde-format
+msgid ".lock"
+msgstr ".lock"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: lockfilepage.ui:92
+#, kde-format
+msgid ""
+"None, the default configuration, should be safe in most cases.  However, if "
+"programs that do not make use of Akonadi are also accessing the configured "
+"mbox file, you will need to set an appropriate locking method. Note that if "
+"this is the case, the resource and the other programs must all use the same "
+"locking method."
+msgstr ""
+"預設的設定（無）應該在大部份的狀況下是安全的。若是有其它不使用 Akonadi 的程式"
+"也要來存取設定的信箱的話，請選擇適當的鎖定方法。若選擇鎖定方法，請確定所有的"
+"資源與程式都用相同的方法。"
+
+#: mboxconfig.cpp:20
+#, kde-format
+msgctxt "Filedialog filter for *.mbox"
+msgid "MBox file"
+msgstr "MBox 檔案"
+
+#: mboxconfig.cpp:21
+#, kde-format
+msgid "Compact frequency"
+msgstr "整理間隔"
+
+#: mboxconfig.cpp:22
+#, kde-format
+msgid "Lock method"
+msgstr "鎖定方式"
+
+#: mboxresource.cpp:87 mboxresource.cpp:140 mboxresource.cpp:179
+#, kde-format
+msgctxt "@info:status"
+msgid "MBox not configured."
+msgstr "MBox 檔未設定。"
+
+#: mboxresource.cpp:136 mboxresource.cpp:175
+#, kde-format
+msgid "MBox not loaded."
+msgstr "MBox 檔未載入。"
+
+#: mboxresource.cpp:151
+#, kde-format
+msgid "Failed to read message with uid '%1'."
+msgstr "用 uid %1 讀取信件時失敗。"
+
+#: mboxresource.cpp:185
+#, kde-format
+msgid "Only email messages can be added to the MBox resource."
+msgstr "只有電子郵件可以加入 MBox 資源。"
+
+#: mboxresource.cpp:191
+#, kde-format
+msgid "Mail message not added to the MBox."
+msgstr "信件並未加入 MBox。"
+
+#: mboxresource.cpp:230
+#, kde-format
+msgid "Could not fetch the collection: %1"
+msgstr "無法抓取此收藏：%1"
+
+#: mboxresource.cpp:259
+#, kde-format
+msgid ""
+"The MBox file was changed by another program. A copy of the new file was "
+"made and pending changes are appended to that copy. To prevent this from "
+"happening use locking and make sure that all programs accessing the mbox use "
+"the same locking method."
+msgstr ""
+"MBox 檔已被另一個程式變更。新檔案已產生了一個複本，未儲存的變更已加到該複本。"
+"為了避免此問題再發生，請使用鎖定機制，並確定所有會使用此信箱檔的應用程式都使"
+"用相同的鎖定機制。"
+
+#: mboxresource.cpp:290
+#, kde-format
+msgid "Failed to save mbox file to %1"
+msgstr "儲存 mbox 檔案 到 %1 時失敗"
+
+#: mboxresource.cpp:349
+#, kde-format
+msgid ""
+"Failed to update the changed item because the old item could not be deleted "
+"Reason: %1"
+msgstr "更新變更的項目時失敗，因為舊的項目無法被刪除。原因：%1"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mboxresource.kcfg:10
+#, kde-format
+msgid "Path to mbox file."
+msgstr "mbox 檔案路徑。"
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: mboxresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "顯示名稱。"
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mboxresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "不要變更實際的後端資料。"
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: mboxresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "監控檔案變更。"
+
+#. i18n: ectx: label, entry (Lockfile), group (Locking)
+#: mboxresource.kcfg:37
+#, kde-format
+msgid "Lockfile"
+msgstr "鎖定檔"
+
+#. i18n: ectx: label, entry (MessageCount), group (Compacting)
+#: mboxresource.kcfg:50
+#, kde-format
+msgid "Number of deleted messages before a purge is started."
+msgstr "刪除的信件累積到幾封時開始整理。"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/mailboxwizard.ui:19
+#, kde-format
+msgid "URL:"
+msgstr "網址："

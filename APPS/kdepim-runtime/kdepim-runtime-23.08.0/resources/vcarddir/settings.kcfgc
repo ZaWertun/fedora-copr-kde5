@@ -1,0 +1,15 @@
+;File=vcarddirresource.kcfg
+;ClassName=VcardDirResourceSettings
+;Mutators=true
+;ItemAccessors=true
+;SetUserTexts=true
+;Singleton=true
+;GlobalEnums=true
+;TranslationSystem=kde
+
+# Code generation options for kconfig_compiler
+File=vcarddirresource.kcfg
+ClassName=VcardDirResourceSettings
+Mutators=true
+Singleton=true
+TranslationSystem=kde

@@ -1,0 +1,180 @@
+# Bosnian translation for bosnianuniversetranslation
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the bosnianuniversetranslation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bosnianuniversetranslation\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-15 00:45+0000\n"
+"PO-Revision-Date: 2014-01-02 15:29+0000\n"
+"Last-Translator: memsud <dedovic.memsud94@hotmail.com>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 16877)\n"
+"X-Launchpad-Export-Date: 2014-01-03 06:22+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Samir Ribić,memsud"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "samir.ribic@etf.unsa.ba,dedovic.memsud94@hotmail.com"
+
+#: ../kmigratorbase.cpp:116
+#, kde-format
+msgid "Creating instance of type %1"
+msgstr "Kreiranje instance tipa %1"
+
+#: ../migratorbase.cpp:128
+#, kde-format
+msgid "Missing Identifier"
+msgstr "Nedostaje identifikator"
+
+#: ../migratorbase.cpp:141
+#, kde-format
+msgid "Failed to start migration because migrator is not ready"
+msgstr "Neuspijelo da pocne premijestanje zato sto premijestavac nije spreman"
+
+#: ../migratorbase.cpp:147
+#, kde-format
+msgid "Starting migration..."
+msgstr "Zapoceto premijestanje"
+
+#: ../migratorbase.cpp:189
+#, kde-format
+msgid "Migration complete"
+msgstr "Premijestanje zavrseno"
+
+#: ../migratorbase.cpp:193
+#, kde-format
+msgid "Migration aborted"
+msgstr "Premijestanje prekinuto"
+
+#: ../migratorbase.cpp:199
+#, kde-format
+msgid "Migration failed"
+msgstr "Premijestanje neuspijelo"
+
+#: ../migratorbase.cpp:203
+#, kde-format
+msgid "Migration paused"
+msgstr "Premijestanje stopirano"
+
+#: ../migratorbase.cpp:233
+#, kde-format
+msgid "This migration has already been started once but was aborted"
+msgstr "Premijestanje je vec zapoceto jednom ali je prekinuto"
+
+#: ../migratorbase.cpp:270
+#, kde-format
+msgctxt "@info:status"
+msgid "Not started"
+msgstr "Nije pokrenuto"
+
+#: ../migratorbase.cpp:272
+#, kde-format
+msgctxt "@info:status"
+msgid "Running..."
+msgstr "Pokrećem..."
+
+#: ../migratorbase.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Complete"
+msgstr "Završeno"
+
+#: ../migratorbase.cpp:276
+#, kde-format
+msgctxt "@info:status"
+msgid "Aborted"
+msgstr "Prekinuto"
+
+#: ../migratorbase.cpp:278
+#, kde-format
+msgctxt "@info:status"
+msgid "Paused"
+msgstr "Pauzirano"
+
+#: ../migratorbase.cpp:280
+#, kde-format
+msgctxt "@info:status"
+msgid "Needs Update"
+msgstr "Potrebno je ažuriranje"
+
+#: ../migratorbase.cpp:282
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed"
+msgstr "Neuspjelo"
+
+#: gidmigrator.cpp:22
+#, kde-format
+msgctxt "Name of the GID Migrator (intended for advanced users)."
+msgid "GID Migrator: %1"
+msgstr "GID Premijestavac: %1"
+
+#: gidmigrator.cpp:27
+#, kde-format
+msgid ""
+"Ensures that all items with the mimetype %1 have a GID if a GID extractor is "
+"available."
+msgstr ""
+"Osigurava da su svi predmeti s tipom mime %1.  imaju GID ako je GID "
+"izlvacivac dostupan"
+
+#: gidmigrator.cpp:49
+#, kde-format
+msgid "Migration failed: %1"
+msgstr "Migracija neuspjela %1"
+
+#: main.cpp:26
+#, kde-format
+msgid "GID Migration Tool"
+msgstr "GID Migracijski alat"
+
+#: main.cpp:28
+#, kde-format
+msgid "Migration of Akonadi Items to support GID"
+msgstr "Premijestanje Akonadi alatki kako bi podrzali GID"
+
+#: main.cpp:30
+#, fuzzy, kde-format
+#| msgid "(c) 2013 the Akonadi developers"
+msgid "(c) 2013-2022 the Akonadi developers"
+msgstr "(c) 2013 Akonadi programeri"
+
+#: main.cpp:33
+#, kde-format
+msgid "Christian Mollekopf"
+msgstr "Christian Mollekopf"
+
+#: main.cpp:33
+#, kde-format
+msgid "Author"
+msgstr "Autor"
+
+#: main.cpp:36
+#, kde-format
+msgid "Show reporting dialog"
+msgstr "Prikaži prozorčić izvještavanja"
+
+#: main.cpp:37
+#, kde-format
+msgid "Show report only if changes were made"
+msgstr "Prikaži izvještaj samo ako su načinjene promjene"
+
+#: main.cpp:38
+#, fuzzy, kde-format
+#| msgid "Mimetype to migrate"
+msgid "MIME type to migrate"
+msgstr "Mimetype za premiještanje"

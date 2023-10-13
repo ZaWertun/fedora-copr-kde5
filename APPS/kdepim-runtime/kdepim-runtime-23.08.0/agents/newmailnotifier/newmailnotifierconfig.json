@@ -1,0 +1,6 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "newmailnotifierconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_newmailnotifier_agent"
+}
+

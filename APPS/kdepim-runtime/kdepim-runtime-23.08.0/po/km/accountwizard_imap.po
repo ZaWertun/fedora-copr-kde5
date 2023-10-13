@@ -1,0 +1,48 @@
+# translation of accountwizard_imap.po to Khmer
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: accountwizard_imap\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2010-05-25 11:27+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer <support@khmeros.info>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Language: km_KH\n"
+
+#: imapwizard.es:10
+msgid "Personal Settings"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: imapwizard.ui:20
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username:"
+msgstr "ឈ្មោះ​អ្នកប្រើ"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: imapwizard.ui:33
+#, kde-format
+msgid "&Incoming server:"
+msgstr "ម៉ាស៊ីន​បម្រើ​ចូល ៖"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: imapwizard.ui:46
+#, kde-format
+msgid "&Outgoing server:"
+msgstr "ម៉ាស៊ីន​បម្រើ​ចេញ ៖"
+
+#. i18n: ectx: property (text), widget (QCheckBox, disconnectedMode)
+#: imapwizard.ui:63
+#, kde-format
+msgid "&Download all messages for offline use"
+msgstr "ទាញយក​សារ​ទាំងអស់​ ដើម្បី​ប្រើ​ក្រៅ​បណ្ដាញ"

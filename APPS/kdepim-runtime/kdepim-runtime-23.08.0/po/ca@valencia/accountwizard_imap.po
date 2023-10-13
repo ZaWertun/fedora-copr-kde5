@@ -1,0 +1,51 @@
+# Translation of accountwizard_imap.po to Catalan (Valencian)
+# Copyright (C) 2010-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Manuel Tortosa Moreno <manutortosa@gmail.com>, 2010.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2013, 2019.
+# Josep M. Ferrer <txemaq@gmail.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2020-11-28 19:30+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+#: imapwizard.es:10
+msgid "Personal Settings"
+msgstr "Configuració personal"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: imapwizard.ui:20
+#, kde-format
+msgid "Username:"
+msgstr "Nom d'usuari:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: imapwizard.ui:33
+#, kde-format
+msgid "&Incoming server:"
+msgstr "&Servidor d'entrada:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: imapwizard.ui:46
+#, kde-format
+msgid "&Outgoing server:"
+msgstr "Servidor d'ei&xida:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, disconnectedMode)
+#: imapwizard.ui:63
+#, kde-format
+msgid "&Download all messages for offline use"
+msgstr "&Descarrega tots els missatges per a ús fora de línia"

@@ -1,0 +1,934 @@
+# translation of akonadi_pop3_resource.po to Spanish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Javier Vinal <fjvinal@gmail.com>, 2009, 2010, 2011.
+# Javier Viñal <fjvinal@gmail.com>, 2010, 2012, 2013, 2014, 2015, 2016, 2018.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_pop3_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-05-09 00:49+0000\n"
+"PO-Revision-Date: 2021-11-07 00:43+0100\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.08.3\n"
+
+#: accountwidget.cpp:88
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuto"
+msgstr[1] " minutos"
+
+#: accountwidget.cpp:125 pop3resource.cpp:49
+#, kde-format
+msgid "POP3 Account"
+msgstr "Cuenta POP3"
+
+#: accountwidget.cpp:192
+#, kde-format
+msgid "Unable to open wallet"
+msgstr "No se ha podido abrir la cartera"
+
+#: accountwidget.cpp:242
+#, kde-format
+msgid ""
+"The server does not seem to support unique message numbers, but this is a "
+"requirement for leaving messages on the server.\n"
+"Since some servers do not correctly announce their capabilities you still "
+"have the possibility to turn leaving fetched messages on the server on."
+msgstr ""
+"El servidor no parece admitir números de mensaje únicos, pero es un "
+"requisito para dejar los mensajes en el servidor.\n"
+"Ya que algunos servidores no anuncian correctamente sus capacidades, aún "
+"puede tener la posibilidad de permitir dejar los mensajes en el servidor."
+
+#: accountwidget.cpp:257
+#, kde-format
+msgid ""
+"Please note that this feature can cause some POP3 servers that do not "
+"support pipelining to send corrupted mail;\n"
+"this is configurable, though, because some servers support pipelining\n"
+"but do not announce their capabilities. To check whether your POP3 server\n"
+"announces pipelining support use the \"Auto Detect\" button at the bottom of "
+"the dialog;\n"
+"if your server does not announce it, but you want more speed, then\n"
+"you should do some testing first by sending yourself a batch\n"
+"of mail and downloading it."
+msgstr ""
+"Tenga en cuenta que esta función puede causar que servidores POP3 que no "
+"admitan paralelismo envíen correo dañado;\n"
+"esto es configurable, porque algunos servidores admiten paralelismo, pero no "
+"anuncian sus funcionalidades. Para comprobar si su servidor POP3 admite "
+"paralelismo, use el botón «Autodetectar» abajo del cuadro de diálogo;\n"
+"si su servidor no lo admite, pero usted quiere más velocidad, debería hacer "
+"algunas pruebas antes enviándose mensajes en un proceso por lotes y "
+"descargándolos."
+
+#: accountwidget.cpp:290
+#, kde-format
+msgid "Please specify a server and port on the General tab first."
+msgstr "Especifique primero un servidor y un puerto en la pestaña «General»."
+
+#: accountwidget.cpp:323
+#, kde-format
+msgid "Unable to connect to the server, please verify the server address."
+msgstr ""
+"No es posible conectar al servidor. Verifique la dirección del servidor."
+
+#: accountwidget.cpp:367
+#, kde-format
+msgid ""
+"The server does not seem to support pipelining; therefore, this option has "
+"been disabled.\n"
+"Since some servers do not correctly announce their capabilities you still "
+"have the possibility to turn pipelining on. But please note that this "
+"feature can cause some POP servers that do not support pipelining to send "
+"corrupt messages. So before using this feature with important mail you "
+"should first test it by sending yourself a larger number of test messages "
+"which you all download in one go from the POP server."
+msgstr ""
+"El servidor parece no admitir paralelismo. Por tanto, se ha desactivado esta "
+"opción.\n"
+"Ya que algunos servidores no anuncian correctamente sus capacidades, puede "
+"tener la posibilidad de activar el paralelismo. Pero tenga en cuenta que "
+"esta característica puede provocar que algunos servidores POP que no admitan "
+"paralelismo envíen mensajes dañados. Así que antes de usar esta "
+"característica con correo importante primero debería probar a enviarse a sí "
+"mismo una gran cantidad de mensajes de prueba para que los pueda descargar "
+"todos de una vez desde el servidor POP."
+
+#: accountwidget.cpp:387
+#, kde-format
+msgid ""
+"The server does not seem to support unique message numbers, but this is a "
+"requirement for leaving messages on the server; therefore, this option has "
+"been disabled.\n"
+"Since some servers do not correctly announce their capabilities you still "
+"have the possibility to turn leaving fetched messages on the server on."
+msgstr ""
+"El servidor no parece admitir números de mensaje únicos, pero es un "
+"requisito para dejar los mensajes en el servidor. Por tanto, se ha "
+"desactivado esta opción.\n"
+"Ya que algunos servidores no anuncian correctamente sus capacidades, aún "
+"puede tener la posibilidad de permitir dejar los mensajes en el servidor."
+
+#: accountwidget.cpp:419
+#, kde-format
+msgid " day"
+msgid_plural " days"
+msgstr[0] " día"
+msgstr[1] " días"
+
+#: accountwidget.cpp:424
+#, kde-format
+msgid " message"
+msgid_plural " messages"
+msgstr[0] " mensaje"
+msgstr[1] " mensajes"
+
+#: jobs.cpp:145
+#, kde-format
+msgid "Unable to initialize SASL, aborting mail check."
+msgstr ""
+"No se ha podido inicializar SASL. Interrumpiendo la comprobación de correo."
+
+#: pop3protocol.cpp:189
+#, kde-format
+msgid "The server said: \"%1\""
+msgstr "El servidor ha respondido: «%1»"
+
+#: pop3protocol.cpp:211
+#, kde-format
+msgid "The server terminated the connection."
+msgstr "El servidor ha terminado la conexión."
+
+#: pop3protocol.cpp:213
+#, kde-format
+msgid ""
+"Invalid response from server:\n"
+"\"%1\""
+msgstr ""
+"Respuesta incorrecta del servidor:\n"
+"«%1»"
+
+#: pop3protocol.cpp:251 pop3protocol.cpp:255
+#, kde-format
+msgid "Could not send to server.\n"
+msgstr "No se ha podido enviar al servidor.\n"
+
+#: pop3protocol.cpp:356
+#, kde-format
+msgid ""
+"Login via APOP failed. The server %1 may not support APOP, although it "
+"claims to support it, or the password may be wrong.\n"
+"\n"
+"%2"
+msgstr ""
+"El inicio de sesión APOP ha fallado. Es posible que el servidor %1 no "
+"permita usar APOP (aunque ha declarado que sí) o que la contraseña sea "
+"incorrecta.\n"
+"\n"
+"%2"
+
+#: pop3protocol.cpp:406
+#, kde-format
+msgid "An error occurred during authentication: %1"
+msgstr "Ha ocurrido un error durante la autenticación: %1"
+
+#: pop3protocol.cpp:500
+#, kde-format
+msgid ""
+"Login via SASL (%1) failed. The server may not support %2, or the password "
+"may be wrong.\n"
+"\n"
+"%3"
+msgstr ""
+"El inicio de sesión SASL (%1) ha fallado. Es posible que el servidor no "
+"permita usar %2 o que la contraseña sea incorrecta.\n"
+"\n"
+"%3"
+
+#: pop3protocol.cpp:511
+#, kde-format
+msgid ""
+"Your POP3 server (%1) does not support SASL.\n"
+"Choose a different authentication method."
+msgstr ""
+"El servidor POP3 (%1) no permite el uso de SASL.\n"
+"Escoja otro método de autenticación."
+
+#: pop3protocol.cpp:528 pop3protocol.cpp:617
+#, kde-format
+msgid ""
+"Could not login to %1.\n"
+"\n"
+msgstr ""
+"No se ha podido iniciar sesión en %1.\n"
+"\n"
+
+#: pop3protocol.cpp:536
+#, kde-format
+msgid ""
+"Could not login to %1. The password may be wrong.\n"
+"\n"
+"%2"
+msgstr ""
+"No se ha podido iniciar sesión en %1. Es posible que la contraseña sea "
+"incorrecta.\n"
+"\n"
+"%2"
+
+#: pop3protocol.cpp:568
+#, kde-format
+msgid "SSL/TLS error: %1"
+msgstr "Error de SSL/TLS: %1"
+
+#: pop3protocol.cpp:599
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: pop3protocol.cpp:618
+#, kde-format
+msgid "The server terminated the connection immediately."
+msgstr "El servidor ha terminado la conexión de forma inmediata."
+
+#: pop3protocol.cpp:619
+#, kde-format
+msgid ""
+"Server does not respond properly:\n"
+"%1\n"
+msgstr ""
+"El servidor no ha respondido correctamente:\n"
+"%1\n"
+
+#: pop3protocol.cpp:643
+#, kde-format
+msgid ""
+"Your POP3 server (%1) does not support APOP.\n"
+"Choose a different authentication method."
+msgstr ""
+"El servidor POP3 (%1) no permite el uso de APOP.\n"
+"Escoja otro método de autenticación."
+
+#: pop3protocol.cpp:653
+#, kde-format
+msgid ""
+"Your POP3 server claims to support TLS but negotiation was unsuccessful.\n"
+"You can disable TLS in the POP account settings dialog."
+msgstr ""
+"El servidor POP3 ha declarado que permite usar TLS, aunque la negociación no "
+"ha tenido éxito.\n"
+"Puede desactivar TLS en el diálogo de preferencias de la cuenta POP."
+
+#: pop3protocol.cpp:738
+#, kde-format
+msgid "Internal error: missing argument for command %1"
+msgstr "Error interno: falta un argumento para la orden %1"
+
+#: pop3protocol.cpp:794
+#, kde-format
+msgid "Internal error: missing item"
+msgstr "Error interno: falta un elemento"
+
+#: pop3protocol.cpp:821
+#, kde-format
+msgid "Timeout from POP3 server %1"
+msgstr "Tiempo de espera agotado en el servidor POP3 %1"
+
+#: pop3protocol.cpp:823
+#, kde-format
+msgid "Connection broken from POP3 server %1"
+msgstr "Se ha interrumpido la conexión con el servidor POP3 %1"
+
+#: pop3protocol.cpp:884
+#, kde-format
+msgid ""
+"Error during communication with the POP3 server while trying to download "
+"mail: %1"
+msgstr ""
+"Ha ocurrido un error durante la comunicación con el servidor POP3 mientras "
+"se descargaba el correo: %1"
+
+#: pop3protocol.cpp:894
+#, kde-format
+msgid "Internal error, number expected: %1"
+msgstr "Error interno. Se esperaba un número: %1"
+
+#: pop3protocol.cpp:914
+#, kde-format
+msgid "Unexpected response from POP3 server."
+msgstr "Respuesta no esperada del servidor POP3."
+
+#: pop3resource.cpp:98
+#, kde-format
+msgid "Mail check aborted."
+msgstr "Comprobación de correo interrumpida."
+
+#: pop3resource.cpp:105
+#, kde-format
+msgid "Mail check was canceled manually."
+msgstr "Comprobación de correo cancelada manualmente."
+
+#: pop3resource.cpp:133
+#, kde-format
+msgid "Please enter the username and password for account '%1'."
+msgstr "Por favor, introduzca el usuario y contraseña para la cuenta «%1»."
+
+#: pop3resource.cpp:150
+#, kde-format
+msgid ""
+"You are asked here because the password could not be loaded from the wallet."
+msgstr ""
+"Se le ha preguntado porque la contraseña no se pudo cargar de la cartera."
+
+#: pop3resource.cpp:166
+#, kde-format
+msgid "Account:"
+msgstr "Cuenta:"
+
+#: pop3resource.cpp:183
+#, kde-format
+msgid "No username and password supplied."
+msgstr "No se ha suministrado usuario y contraseña."
+
+#: pop3resource.cpp:202
+#, kde-format
+msgid "Preparing transmission from \"%1\"."
+msgstr "Preparando transmisión desde «%1»."
+
+#: pop3resource.cpp:223
+#, kde-format
+msgid "Executing precommand."
+msgstr "Ejecutando preorden."
+
+#: pop3resource.cpp:248
+#, kde-format
+msgid "You are asked here because the previous login was not successful."
+msgstr "Se le ha preguntado porque el acceso previo no tuvo éxito."
+
+#: pop3resource.cpp:250
+#, kde-format
+msgid "You are asked here because the username you supplied is empty."
+msgstr "Se le ha preguntado porque el usuario que ha proporcionado está vacío."
+
+#: pop3resource.cpp:277
+#, kde-format
+msgid "Fetching mail listing."
+msgstr "Obteniendo listado de correo."
+
+#: pop3resource.cpp:334
+#, kde-format
+msgid "Saving downloaded messages."
+msgstr "Guardando mensajes descargados."
+
+#: pop3resource.cpp:352
+#, kde-format
+msgid "Saving password to the wallet."
+msgstr "Guardando la contraseña en la cartera."
+
+#: pop3resource.cpp:394
+#, kde-format
+msgid "Error while trying to get the local inbox folder, aborting mail check."
+msgstr ""
+"Error al tratar de obtener la carpeta de bandeja de entrada local, "
+"interrumpiendo la comprobación de correo."
+
+#: pop3resource.cpp:401
+#, kde-format
+msgid ""
+"<qt>The folder you deleted was associated with the account <b>%1</b> which "
+"delivered mail into it. The folder the account delivers new mail into was "
+"reset to the main Inbox folder.</qt>"
+msgstr ""
+"<qt>La carpeta que usted borró estaba asociada con la cuenta <b>%1</b> que "
+"enviaba correo a ella. La carpeta a la que la cuenta enviaba correo nuevo "
+"fue reiniciada a la carpeta de la bandeja de entrada principal.</qt>"
+
+#: pop3resource.cpp:422
+#, kde-format
+msgid ""
+"Error while trying to get the folder for incoming mail, aborting mail check."
+msgstr ""
+"Error al tratar de obtener la carpeta para correo entrante, interrumpiendo "
+"comprobación de correo."
+
+#: pop3resource.cpp:435
+#, kde-format
+msgid "Could not find folder for incoming mail, aborting mail check."
+msgstr ""
+"No se ha podido encontrar la carpeta para correo entrante, interrumpiendo "
+"comprobación de correo."
+
+#: pop3resource.cpp:446
+#, kde-format
+msgid "Error while executing precommand."
+msgstr "Error al ejecutar pre orden."
+
+#: pop3resource.cpp:460
+#, kde-format
+msgid "Unable to login to the server \"%1\"."
+msgstr "No es posible iniciar sesión en el servidor «%1»."
+
+#: pop3resource.cpp:469
+#, kde-format
+msgid "Error while getting the list of messages on the server."
+msgstr "Error al recuperar la lista de mensajes del servidor."
+
+#: pop3resource.cpp:483
+#, kde-format
+msgid "Error while getting list of unique mail identifiers from the server."
+msgstr ""
+"Error al recuperar la lista de identificadores únicos de correo del servidor."
+
+#: pop3resource.cpp:496
+#, kde-format
+msgid ""
+"Your POP3 server (Account: %1) does not support the UIDL command: this "
+"command is required to determine, in a reliable way, which of the mails on "
+"the server KMail has already seen before;\n"
+"the feature to leave the mails on the server will therefore not work "
+"properly."
+msgstr ""
+"Su servidor POP3 (cuenta: %1) no admite la orden UIDL: esta orden es "
+"necesaria para determinar, de forma fiable, cuáles de los correos del "
+"servidor ha visto ya KMail;\n"
+"la característica de dejar los correos en el servidor tampoco funcionará "
+"bien."
+
+#: pop3resource.cpp:511
+#, kde-format
+msgid "Error while fetching mails from the server."
+msgstr "Error al descargar correos del servidor."
+
+#: pop3resource.cpp:571
+#, kde-format
+msgid ""
+"Fetching message %1 of %2 (%3 of %4 KB) for %5 (%6 KB remain on the server)."
+msgstr ""
+"Descargando mensaje %1 de %2 (%3 de %4 KB) para %5 (%6 KB permanecen en el "
+"servidor)."
+
+#: pop3resource.cpp:580
+#, kde-format
+msgid "Fetching message %1 of %2 (%3 of %4 KB) for %5"
+msgstr "Descargando mensaje %1 de %2 (%3 de %4 KB) para %5"
+
+#: pop3resource.cpp:603
+#, kde-format
+msgid "Unable to store downloaded mails."
+msgstr "No es posible guardar los correos descargados."
+
+#: pop3resource.cpp:751
+#, kde-format
+msgid "Failed to delete the messages from the server."
+msgstr "Ha fallado al borrar los mensajes del servidor."
+
+#: pop3resource.cpp:807
+#, kde-format
+msgid "Finished mail check, no message downloaded."
+msgstr "Terminada la comprobación de correo, no se han descargado mensajes."
+
+#: pop3resource.cpp:809
+#, kde-format
+msgid "Finished mail check, 1 message downloaded."
+msgid_plural "Finished mail check, %1 messages downloaded."
+msgstr[0] "Terminada la comprobación de correo, 1 mensaje descargado."
+msgstr[1] "Terminada la comprobación de correo, %1 mensajes descargados."
+
+#: pop3resource.cpp:823
+#, kde-format
+msgid "Unable to complete the mail fetch."
+msgstr "No es posible completar la obtención del correo."
+
+#: pop3resource.cpp:958
+#, kde-format
+msgid "Mail check already in progress, unable to start a second check."
+msgstr ""
+"Comprobación de correo todavía en curso, no es posible iniciar una segunda "
+"comprobación."
+
+#: pop3resource.cpp:979
+#, kde-format
+msgid "Ready"
+msgstr "Listo"
+
+#: pop3resource.cpp:982
+#, kde-format
+msgid "Mail check aborted after going offline."
+msgstr "Comprobación de correo interrumpida al desconectarse."
+
+#: pop3resource.cpp:984
+#, kde-format
+msgid "Offline"
+msgstr "Desconectado"
+
+#. i18n: ectx: property (text), widget (QLabel, titleLabel)
+#: popsettings.ui:35
+#, kde-format
+msgid "Account Type: POP Account"
+msgstr "Tipo de cuenta: Cuenta POP"
+
+#. i18n: ectx: attribute (title), widget (QWidget, page1)
+#: popsettings.ui:61
+#, kde-format
+msgid "General"
+msgstr "General"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, ktitlewidget_4)
+#: popsettings.ui:67
+#, kde-format
+msgid "Account Information"
+msgstr "Información de la cuenta"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, label_2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, loginEdit)
+#: popsettings.ui:74 popsettings.ui:130
+#, kde-format
+msgid ""
+"Your Internet Service Provider gave you a <em>user name</em> which is used "
+"to authenticate you with their servers. It usually is the first part of your "
+"email address (the part before <em>@</em>)."
+msgstr ""
+"Su proveedor de servicios de Internet le dio un <em>nombre de usuario</em> "
+"que se usa para autenticarle contra sus servidores. Habitualmente es la "
+"primera parte de su dirección de correo (la parte antes de <em>@</em>)."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: popsettings.ui:77
+#, kde-format
+msgid "Account &name:"
+msgstr "&Nombre de la cuenta:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, nameEdit)
+#: popsettings.ui:87
+#, kde-format
+msgid "Name displayed in the list of accounts"
+msgstr "Nombre mostrado en la lista de cuentas"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: popsettings.ui:90
+#, kde-format
+msgid "Account name: This defines the name displayed in the account list."
+msgstr ""
+"Nombre de la cuenta: esto define el nombre mostrado en la lista de cuentas."
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: popsettings.ui:97
+#, kde-format
+msgid "Incoming &mail server:"
+msgstr "Servidor de correo e&ntrante:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, hostEdit)
+#: popsettings.ui:107
+#, kde-format
+msgid "Address of the mail POP3 server"
+msgstr "Dirección del servidor de correo POP3"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, hostEdit)
+#: popsettings.ui:110
+#, kde-format
+msgid ""
+"The address of the POP3 server, e.g. pop3.yourprovider.org. You should get "
+"this address from your mail provider."
+msgstr ""
+"La dirección del servidor de correo POP3. Por ejemplo, pop3.proveedor.org. "
+"Usted puede obtener esta dirección de su proveedor de correo."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: popsettings.ui:117
+#, kde-format
+msgid "Use&rname:"
+msgstr "No&mbre de usuario:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, loginEdit)
+#: popsettings.ui:127
+#, kde-format
+msgid "The username that identifies you against the mail server"
+msgstr "El nombre de usuario que le identifica en el servidor de correo"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: popsettings.ui:137
+#, kde-format
+msgid "P&assword:"
+msgstr "Contr&aseña:"
+
+#. i18n: ectx: property (toolTip), widget (KPasswordLineEdit, passwordEdit)
+#: popsettings.ui:147
+#, kde-format
+msgid "Password for access to the mail server"
+msgstr "Contraseña para acceder al servidor de correo"
+
+#. i18n: ectx: property (whatsThis), widget (KPasswordLineEdit, passwordEdit)
+#: popsettings.ui:150
+#, kde-format
+msgid "Password: The password given to you by your mail provider."
+msgstr ""
+"Contraseña: La contraseña que le ha proporcionado su proveedor de correo."
+
+#. i18n: ectx: property (text), widget (KTitleWidget, ktitlewidget_5)
+#: popsettings.ui:157
+#, kde-format
+msgid "Mail Checking Options"
+msgstr "Opciones de comprobación de correo"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, intervalCheck)
+#: popsettings.ui:164
+#, kde-format
+msgid ""
+"If active, the POP3 account will be checked for new mail every x minutes"
+msgstr ""
+"Si está activo, se comprobará la cuenta POP3 por correo nuevo cada x minutos"
+
+#. i18n: ectx: property (text), widget (QCheckBox, intervalCheck)
+#: popsettings.ui:167
+#, kde-format
+msgid "Enable &interval mail checking"
+msgstr "Activar &intervalo de comprobación de correo"
+
+#. i18n: ectx: property (text), widget (QLabel, intervalLabel)
+#: popsettings.ui:174
+#, kde-format
+msgid "Check mail interval:"
+msgstr "Intervalo de comprobación de correo:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, page2)
+#: popsettings.ui:211
+#, kde-format
+msgid "Advanced"
+msgstr "Avanzado"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, ktitlewidget)
+#: popsettings.ui:217
+#, kde-format
+msgid "POP Settings"
+msgstr "Preferencias POP"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, leaveOnServerCheck)
+#: popsettings.ui:239
+#, kde-format
+msgid "If checked the message is not deleted from the mail server"
+msgstr "Si está marcado, el mensaje no se borra del servidor de correo"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, leaveOnServerCheck)
+#: popsettings.ui:242
+#, kde-format
+msgid ""
+"Check this option if you want to fetch only copies of the mails and leave "
+"the original mails on the server."
+msgstr ""
+"Marque esta opción si quiere obtener solo copias de los correos y dejar los "
+"originales en el servidor."
+
+#. i18n: ectx: property (text), widget (QCheckBox, leaveOnServerCheck)
+#: popsettings.ui:245
+#, kde-format
+msgid "Lea&ve fetched messages on the server"
+msgstr "De&jar los mensajes obtenidos en el servidor"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, leaveOnServerDaysCheck)
+#: popsettings.ui:258
+#, kde-format
+msgid "The original message is deleted from the server after x days"
+msgstr "El mensaje original se borra del servidor tras x días"
+
+#. i18n: ectx: property (text), widget (QCheckBox, leaveOnServerDaysCheck)
+#: popsettings.ui:261
+#, kde-format
+msgid "Days to leave messages on the server:"
+msgstr "Días a dejar los mensajes en el servidor:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, leaveOnServerCountCheck)
+#: popsettings.ui:284
+#, kde-format
+msgid "Only the x most recent messages are kept on the server"
+msgstr "Solo los x mensajes más recientes se guardan en el servidor"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, leaveOnServerCountCheck)
+#: popsettings.ui:287
+#, kde-format
+msgid ""
+"Check this option if you want to only keep the x most recent messages on the "
+"server and delete all older."
+msgstr ""
+"Marque esta opción si quiere mantener en el servidor solo los x mensajes más "
+"recientes y borrar los más antiguos."
+
+#. i18n: ectx: property (text), widget (QCheckBox, leaveOnServerCountCheck)
+#: popsettings.ui:290
+#, kde-format
+msgid "Number of messages to keep:"
+msgstr "Número de mensajes a mantener:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, leaveOnServerSizeCheck)
+#: popsettings.ui:313
+#, kde-format
+msgid "Keep most recent messages within the quota and delete oldest"
+msgstr ""
+"Guardar los mensajes más recientes dentro de la cuota y borrar los anteriores"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, leaveOnServerSizeCheck)
+#: popsettings.ui:316
+#, kde-format
+msgid ""
+"If active, most recent messages are kept until the quota is reached and "
+"oldest messages are deleted."
+msgstr ""
+"Si está activo, los mensajes más recientes se guardan hasta alcanzar la "
+"cuota y los mensajes más antiguos se borran."
+
+#. i18n: ectx: property (text), widget (QCheckBox, leaveOnServerSizeCheck)
+#: popsettings.ui:319
+#, kde-format
+msgid "Maximum megabytes to keep:"
+msgstr "Máximo de megabytes a mantener:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, leaveOnServerSizeSpin)
+#: popsettings.ui:329
+#, kde-format
+msgid " MB"
+msgstr " MB"
+
+#. i18n: ectx: property (text), widget (QCheckBox, usePipeliningCheck)
+#: popsettings.ui:345
+#, kde-format
+msgid "&Use pipelining for faster mail download"
+msgstr "&Usar paralelismo para una descarga de correo más rápida"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: popsettings.ui:365
+#, kde-format
+msgid "Destination folder:"
+msgstr "Carpeta de destino:"
+
+#. i18n: ectx: property (text), widget (QLabel, preCommandLabel)
+#: popsettings.ui:375
+#, kde-format
+msgid "Pre-com&mand:"
+msgstr "Orde&n previa:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, precommand)
+#: popsettings.ui:391
+#, kde-format
+msgid "Command that is executed before checking mail"
+msgstr "Orden que se ejecuta antes de comprobar el correo"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, ktitlewidget_2)
+#: popsettings.ui:403
+#, kde-format
+msgid "Connection Settings"
+msgstr "Preferencias de conexión"
+
+#. i18n: ectx: property (text), widget (QPushButton, checkCapabilities)
+#: popsettings.ui:417
+#, kde-format
+msgid "Auto Detect"
+msgstr "Detectar automáticamente"
+
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: popsettings.ui:424
+#, kde-format
+msgid "Encryption:"
+msgstr "Cifrado:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, encryptionNone)
+#: popsettings.ui:433
+#, kde-format
+msgid "None"
+msgstr "Ninguno"
+
+#. i18n: ectx: property (text), widget (QRadioButton, encryptionSSL)
+#: popsettings.ui:443
+#, kde-format
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+#. i18n: ectx: property (text), widget (QRadioButton, encryptionTLS)
+#: popsettings.ui:450
+#, kde-format
+msgid "STA&RTTLS"
+msgstr "STA&RTTLS"
+
+#. i18n: ectx: property (text), widget (QLabel, imapInfo)
+#: popsettings.ui:465
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">SSL/TLS</span><span style=\" font-"
+"family:'Sans Serif';\"> is safe POP over port 995;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">STARTTLS</span><span style=\" font-"
+"family:'Sans Serif';\"> will operate on port 110 and switch to a secure "
+"connection directly after connecting;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">None</span><span style=\" font-"
+"family:'Sans Serif';\"> will connect to port 110 but not switch to a secure "
+"connection. This setting is not recommended.</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">SSL/TLS</span><span style=\" font-"
+"family:'Sans Serif';\"> POP es seguro en el puerto 995;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">STARTTLS</span><span style=\" font-"
+"family:'Sans Serif';\"> operará en el puerto 110 y cambiará a una conexión "
+"segura directamente tras conectar;</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"family:'Sans Serif'; font-weight:600;\">Ninguno</span><span style=\" font-"
+"family:'Sans Serif';\"> conectará al puerto 110, pero no cambiará a una "
+"conexión segura. No se recomienda esta configuración.</span></p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: popsettings.ui:472
+#, kde-format
+msgid "Port:"
+msgstr "Puerto:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: popsettings.ui:492
+#, kde-format
+msgid "Authentication:"
+msgstr "Autenticación:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, proxyCheck)
+#: popsettings.ui:502
+#, kde-format
+msgid ""
+"If checked, the system proxy settings will be used to connect to the mail "
+"server."
+msgstr ""
+"Si está marcado, las preferencias del proxy del sistema se usarán para "
+"conectarse al correo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, proxyCheck)
+#: popsettings.ui:505
+#, kde-format
+msgid "Connect using the system proxy settings"
+msgstr "Conectar usando las preferencias del proxy del sistema"
+
+#. i18n: ectx: label, entry (authenticationMethod), group (General)
+#: settings.kcfg:30
+#, kde-format
+msgid "Defines the authentication type to use"
+msgstr "Define el tipo de autenticación a usar"
+
+#~ msgid ""
+#~ "The server does not seem to support fetching message headers, but this is "
+#~ "a requirement for filtering messages on the server.\n"
+#~ "Since some servers do not correctly announce their capabilities you still "
+#~ "have the possibility to turn filtering messages on the server on."
+#~ msgstr ""
+#~ "El servidor no parece admitir obtener los encabezados de los mensajes, "
+#~ "pero es un requisito para filtrar los mensajes en el servidor.\n"
+#~ "Ya que algunos servidores no anuncian correctamente sus capacidades, aún "
+#~ "puede tener la posibilidad de permitir activar el filtrado de mensajes en "
+#~ "el servidor."
+
+#~ msgid ""
+#~ "The server does not seem to support fetching message headers, but this is "
+#~ "a requirement for filtering messages on the server; therefore, this "
+#~ "option has been disabled.\n"
+#~ "Since some servers do not correctly announce their capabilities you still "
+#~ "have the possibility to turn filtering messages on the server on."
+#~ msgstr ""
+#~ "El servidor no parece admitir obtener los encabezados de los mensajes, "
+#~ "pero es un requisito para filtrar los mensajes en el servidor. Por tanto, "
+#~ "se ha desactivado esta opción.\n"
+#~ "Ya que algunos servidores no anuncian correctamente sus capacidades, aún "
+#~ "puede tener la posibilidad de permitir activar el filtrado de mensajes en "
+#~ "el servidor."
+
+#~ msgid " byte"
+#~ msgid_plural " bytes"
+#~ msgstr[0] " bytes"
+#~ msgstr[1] " bytes"
+
+#~ msgid ""
+#~ "If you select this option, POP Filters will be used to decide what to do "
+#~ "with messages. You can then select to download, delete or keep them on "
+#~ "the server."
+#~ msgstr ""
+#~ "Si selecciona esta opción, los filtros POP se usarán para decidir qué "
+#~ "hacer con los mensajes. Podrá entonces elegir si descargarlos, borrarlos "
+#~ "o dejarlos en el servidor."
+
+#~ msgid "&Filter messages larger than:"
+#~ msgstr "&Filtrar mensajes más grandes que:"
+
+#~ msgid "You are asked here because the wallet password storage is disabled."
+#~ msgstr ""
+#~ "Se le ha preguntado porque la contraseña de la cartera está desactivada."
+
+#~ msgid "Wallet disabled in system settings"
+#~ msgstr "Cartera desactivada en preferencias del sistema"
+
+#~ msgid "POP3 Account Settings"
+#~ msgstr "Preferencias de cuenta POP3"

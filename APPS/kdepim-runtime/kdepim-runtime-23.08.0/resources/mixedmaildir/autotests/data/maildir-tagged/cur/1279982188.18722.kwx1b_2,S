@@ -1,0 +1,47 @@
+Return-Path: <kevin.krammer@demo.kolab.org>
+Delivered-To: GMX delivery to kevin.krammer@gmx.at
+Received: (qmail invoked by alias); 24 Jul 2010 13:51:41 -0000
+Received: from aktaia.intevation.org (EHLO kolab.intevation.de) [212.95.126.10]
+  by mx0.gmx.net (mx033) with SMTP; 24 Jul 2010 15:51:41 +0200
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by kolab.intevation.de (Postfix) with ESMTP id BD28395366A
+	for <kevin.krammer@gmx.at>; Sat, 24 Jul 2010 15:51:40 +0200 (CEST)
+X-Virus-Scanned: by amavisd-new at intevation.de
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by kolab.intevation.de (Postfix) with ESMTP id CA62095366E
+	for <kevin.krammer@gmx.at>; Sat, 24 Jul 2010 15:51:38 +0200 (CEST)
+Received: from demo.kolab.org (demo.kolab.org [78.47.168.37])
+	by kolab.intevation.de (Postfix) with ESMTP id B5E0195366A
+	for <kevin.krammer@gmx.at>; Sat, 24 Jul 2010 15:51:38 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by demo.kolab.org (Postfix) with ESMTP id 754B03103EEB
+	for <kevin.krammer@gmx.at>; Sat, 24 Jul 2010 15:51:38 +0200 (CEST)
+Received: from artemis.localnet (bergfex.jusinger.at [213.47.44.9])
+	(Authenticated sender: kevin.krammer@demo.kolab.org)
+	by demo.kolab.org (Postfix) with ESMTP id 545963103EE6
+	for <kevin.krammer@gmx.at>; Sat, 24 Jul 2010 15:51:38 +0200 (CEST)
+From: Kevin Krammer <kevin.krammer@demo.kolab.org>
+Organization: Kolab Demo
+To: kevin.krammer@gmx.at
+Subject: Test 1
+Date: Sat, 24 Jul 2010 15:50:45 +0200
+User-Agent: KMail/1.13.3 (Linux/2.6.33-grml; KDE/4.4.4; i686; ; )
+MIME-Version: 1.0
+Content-Type: Text/Plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Message-Id: <201007241550.46907.kevin.krammer@demo.kolab.org>
+X-GMX-Antivirus: 0 (no virus found)
+X-GMX-Antispam: 0 (Mail was not recognized as spam);
+ Detail=5D7Q89H36p5mOUCHqrP9iL/6eeEA7/vGXc8Az2zQ5lkNsVrprUw5ljr293uKsrVdFBp1i
+ k5eF2TKdovp4qtfEvYkwJlTyCJPnhg0xAPWnM7rhY/+LZUrte1UAr5224vU33NgWA8bmceIWcEOY
+ UsgKg==V1;
+Status: RO
+X-Status: RG
+X-KMail-EncryptionState:  
+X-KMail-SignatureState:  
+X-KMail-MDN-Sent:  
+
+Body
+of
+Test 1

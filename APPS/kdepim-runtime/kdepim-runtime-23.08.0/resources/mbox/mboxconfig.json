@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "mboxconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_mbox_resource"
+}

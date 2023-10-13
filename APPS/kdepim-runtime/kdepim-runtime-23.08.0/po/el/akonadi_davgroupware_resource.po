@@ -1,0 +1,822 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2011, 2015, 2017.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2011, 2012, 2013.
+# Dimitris Kardarakos <dimkard@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_davgroupware_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-01-13 00:57+0000\n"
+"PO-Revision-Date: 2017-04-20 16:15+0200\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: configdialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "DAV groupware configuration wizard"
+msgctxt "@title:window"
+msgid "DAV Resource Configuration"
+msgstr "Βοηθός διαμόρφωσης DAV groupware"
+
+#: configdialog.cpp:46
+#, kde-format
+msgid "Protocol"
+msgstr "Πρωτόκολλο"
+
+#: configdialog.cpp:46 urlconfigurationdialog.cpp:266
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: configdialog.cpp:59
+#, kde-format
+msgid "Days"
+msgstr "Ημέρες"
+
+#: configdialog.cpp:60
+#, kde-format
+msgid "Months"
+msgstr "Μήνες"
+
+#: configdialog.cpp:61
+#, kde-format
+msgid "Years"
+msgstr "Έτη"
+
+#: configdialog.cpp:137
+#, kde-format
+msgid ""
+"Another configuration entry already uses the same URL/protocol couple.\n"
+"Please use a different URL"
+msgstr ""
+"Μια άλλη εγγραφή διαμόρφωσης ήδη χρησιμοποιεί το ίδιο ζεύγος URL/"
+"πρωτόκολλο.\n"
+"Χρησιμοποιήστε διαφορετικό URL"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configdialog.ui:29
+#, kde-format
+msgid "Display name:"
+msgstr "Εμφάνιση ονόματος:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configdialog.ui:39
+#, kde-format
+msgid "Refresh every:"
+msgstr "Ανανέωση κάθε:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_refreshInterval)
+#: configdialog.ui:48
+#, kde-format
+msgid "Never"
+msgstr "Ποτέ"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configdialog.ui:58
+#, kde-format
+msgid "minutes"
+msgstr "λεπτά"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configdialog.ui:80 urlconfigurationdialog.ui:111
+#, kde-format
+msgid "Username:"
+msgstr "Όνομα χρήστη:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:108 setupwizard.cpp:222 urlconfigurationdialog.ui:127
+#, kde-format
+msgid "Password:"
+msgstr "Κωδικός πρόσβασης:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:136
+#, kde-format
+msgid ""
+"Select this if your calendars contain a lot of events and the server cannot "
+"fulfill the requests"
+msgstr ""
+"Επιλέξτε αυτό αν τα ημερολόγιά σας περιέχουν πολλά γεγονότα και ο "
+"εξυπηρετητής αδυνατεί να εκπληρώσει τα αιτήματα"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_limitSyncRange)
+#: configdialog.ui:139
+#, kde-format
+msgid "Limit CalDav retrieval time range"
+msgstr "Χρονικό εύρος ανάκτησης ορίου CalDav"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: configdialog.ui:151
+#, kde-format
+msgid "Only sync events more recent than"
+msgstr "Μόνο συγχρονισμός γεγονότων πιο πρόσφατα από"
+
+#. i18n: ectx: property (text), widget (QLabel, label_41)
+#: configdialog.ui:190
+#, fuzzy, kde-format
+#| msgid "Server Configuration"
+msgid "Server Configuration:"
+msgstr "Διαμόρφωση εξυπηρετητή"
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: configdialog.ui:204
+#, kde-format
+msgid "Add"
+msgstr "Προσθήκη"
+
+#. i18n: ectx: property (text), widget (QPushButton, searchButton)
+#: configdialog.ui:211 searchdialog.ui:151
+#, kde-format
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: configdialog.ui:218
+#, kde-format
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#. i18n: ectx: property (text), widget (QPushButton, editButton)
+#: configdialog.ui:225
+#, kde-format
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: daverror-kdepim-runtime.cpp:26
+#, kde-format
+msgid "Invalid username/password"
+msgstr "Μη έγκυρος συνδυασμός όνομα χρήστη / κωδικός πρόσβασης"
+
+#: daverror-kdepim-runtime.cpp:28
+#, kde-format
+msgid "Access forbidden"
+msgstr "Απαγορευμένη πρόσβαση"
+
+#: daverror-kdepim-runtime.cpp:30
+#, kde-format
+msgid "Resource not found"
+msgstr "Ο πόρος δε βρέθηκε"
+
+#: daverror-kdepim-runtime.cpp:32
+#, kde-format
+msgid "HTTP error"
+msgstr "Σφάλμα HTTP"
+
+#: daverror-kdepim-runtime.cpp:35
+#, kde-format
+msgid ""
+"There was a problem with the request.\n"
+"%1 (%2)."
+msgstr ""
+"Υπήρξε πρόβλημα με το αίτημα.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:41
+#, kde-format
+msgid "Protocol for the collection does not support MULTIGET"
+msgstr "Το πρωτόκολλο για τη συλλογή δεν υποστηρίζει το MULTIGET"
+
+#: daverror-kdepim-runtime.cpp:44
+#, kde-format
+msgid ""
+"The server encountered an error that prevented it from completing your "
+"request: %1 (%2)"
+msgstr ""
+"Ο εξυπηρετητής αντιμετώπισε ένα λάθος που τον εμπόδισε να ολοκληρώσει το "
+"αίτημα: %1 (%2)"
+
+#: daverror-kdepim-runtime.cpp:48
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been deleted "
+"from the server.\n"
+"%1 (%2)."
+msgstr ""
+"Υπήρξε πρόβλημα με το αίτημα. Δεν έγινε διαγραφή της συλλογής από τον "
+"εξυπηρετητή.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:54
+#, kde-format
+msgid "Invalid responses from backend"
+msgstr "Μη έγκυρη ανταπόκριση από το σύστημα υποστήριξης"
+
+#: daverror-kdepim-runtime.cpp:57
+#, kde-format
+msgid "Error setting focus for XQuery"
+msgstr "Σφάλμα ρύθμισης επίκεντρου για το XQuery"
+
+#: daverror-kdepim-runtime.cpp:60
+#, kde-format
+msgid "Invalid XQuery submitted by DAV implementation"
+msgstr "Η εφαρμογή DAV έστειλε μη έγκυρο XQuery"
+
+#: daverror-kdepim-runtime.cpp:64
+#, kde-format
+msgid ""
+"There was a problem with the request. The collection has not been modified "
+"on the server.\n"
+"%1 (%2)."
+msgstr ""
+"Υπήρξε πρόβλημα με το αίτημα. Δεν έγινε τροποποίηση της συλλογής στον "
+"εξυπηρετητή.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:70
+#, kde-format
+msgid "No properties to change or remove"
+msgstr "Δεν υπάρχουν ιδιότητες προς αλλαγή ή αφαίρεση"
+
+#: daverror-kdepim-runtime.cpp:73
+#, kde-format
+msgid "There was an error when modifying the properties"
+msgstr "Υπήρξε σφάλμα κατά την τροποποίηση των ιδιοτήτων"
+
+#: daverror-kdepim-runtime.cpp:75
+#, kde-format
+msgid ""
+"\n"
+"The server returned more information:\n"
+"%1"
+msgstr ""
+"\n"
+"Ο εξυπηρετητής ανταποκρίθηκε με περισσότερες πληροφορίες:\n"
+"%1"
+
+#: daverror-kdepim-runtime.cpp:80
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been created on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Υπήρξε πρόβλημα με το αίτημα. Το αντικείμενο δεν δημιουργήθηκε στον "
+"εξυπηρετητή.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:87
+#, kde-format
+msgid ""
+"There was a problem with the request. The item has not been deleted from the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Υπήρξε πρόβλημα με το αίτημα - το αντικείμενο δεν διαγράφηκε από τον "
+"εξυπηρετητή.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:94
+#, kde-format
+msgid ""
+"There was a problem with the request. The item was not modified on the "
+"server.\n"
+"%1 (%2)."
+msgstr ""
+"Υπήρξε πρόβλημα με το αίτημα. Το αντικείμενο δεν τροποποιήθηκε στον "
+"εξυπηρετητή.\n"
+"%1 (%2)."
+
+#: daverror-kdepim-runtime.cpp:100
+#, kde-format
+msgid "There was a problem with the request."
+msgstr "Υπήρξε πρόβλημα με το αίτημα."
+
+#: daverror-kdepim-runtime.cpp:104
+#, kde-format
+msgid ""
+"There was a problem with the request. The requested MIME types are not "
+"supported."
+msgstr ""
+"Υπήρξε πρόβλημα με το αίτημα. Οι αιτούμενοι τύποι MIME δεν υποστηρίζονται."
+
+#: davfreebusyhandler.cpp:57
+#, kde-format
+msgid "No schedule-outbox found for %1"
+msgstr "Δε βρέθηκαν προγραμματισμένα-εξερχόμενα για το %1"
+
+#: davfreebusyhandler.cpp:186 davfreebusyhandler.cpp:197
+#, kde-format
+msgid "Invalid response from the server"
+msgstr "Μη έγκυρη ανταπόκριση από τον εξυπηρετητή"
+
+#: davfreebusyhandler.cpp:208
+#, kde-format
+msgid "Unable to parse free-busy data received"
+msgstr "Αδυναμία ανάλυσης ληφθέντων δεδομένων ελεύθερου-απασχολημένου"
+
+#: davgroupwareresource.cpp:163
+#, kde-format
+msgid "Unable to retrieve free-busy info while offline"
+msgstr ""
+"Αδυναμία ανάκτησης πληροφοριών ελεύθερου-απασχολημένου σε κατάσταση εκτός "
+"σύνδεσης"
+
+#: davgroupwareresource.cpp:246
+#, kde-format
+msgid "Fetching collections"
+msgstr "Προσκόμιση συλλογών"
+
+#: davgroupwareresource.cpp:314
+#, kde-format
+msgid "Asked to retrieve items for an unknown collection: %1"
+msgstr ""
+"Έγινε ερώτηση σχετικά με ανάκτηση αντικειμένων για άγνωστες συλλογές: %1"
+
+#: davgroupwareresource.cpp:371
+#, kde-format
+msgid "Invalid collection for item %1."
+msgstr "Μη έγκυρη συλλογή για το αντικείμενο %1."
+
+#: davgroupwareresource.cpp:608
+#, fuzzy, kde-format
+#| msgid "Unable to remove collection: %1"
+msgid "Unable to modify collection: %1"
+msgstr "Αδυναμία διαγραφής συλλογής: %1"
+
+#: davgroupwareresource.cpp:677
+#, kde-format
+msgid "Unable to remove collection: %1"
+msgstr "Αδυναμία διαγραφής συλλογής: %1"
+
+#: davgroupwareresource.cpp:697
+#, kde-format
+msgid "Unable to retrieve collections: %1"
+msgstr "Αδυναμία ανάκτησης συλλογών: %1"
+
+#: davgroupwareresource.cpp:830 davgroupwareresource.cpp:929
+#, kde-format
+msgid "Unable to retrieve items: %1"
+msgstr "Αδυναμία ανάκτησης αντικειμένων: %1"
+
+#: davgroupwareresource.cpp:1009
+#, kde-format
+msgid "Unable to retrieve item: %1"
+msgstr "Αδυναμία ανάκτησης αντικειμένου: %1"
+
+#: davgroupwareresource.cpp:1029
+#, kde-format
+msgid ""
+"Unable to retrieve item: failed to parse item data. Maybe it was deleted "
+"already."
+msgstr ""
+
+#: davgroupwareresource.cpp:1066
+#, kde-format
+msgid "Unable to add item: %1"
+msgstr "Αδυναμία προσθήκης αντικειμένου: %1"
+
+#: davgroupwareresource.cpp:1110 davgroupwareresource.cpp:1223
+#: davgroupwareresource.cpp:1235
+#, kde-format
+msgid "Unable to change item: %1"
+msgstr "Αδυναμία τροποποίησης του αντικειμένου: %1"
+
+#: davgroupwareresource.cpp:1197 davgroupwareresource.cpp:1254
+#, kde-format
+msgid "Unable to remove item: %1"
+msgstr "Αδυναμία αφαίρεσης αντικειμένου: %1"
+
+#: davgroupwareresource.cpp:1341 davgroupwareresource.cpp:1342
+#, kde-format
+msgid "The resource is not configured yet"
+msgstr "Ο πόρος δεν έχει διαμορφωθεί ακόμη"
+
+#. i18n: ectx: label, entry (settingsVersion), group (General)
+#: davgroupwareresource.kcfg:10
+#, kde-format
+msgid "Settings Version"
+msgstr "Έκδοση ρυθμίσεων"
+
+#. i18n: ectx: label, entry (displayName), group (General)
+#: davgroupwareresource.kcfg:14
+#, kde-format
+msgid "Display name"
+msgstr "Εμφάνιση ονόματος"
+
+#. i18n: ectx: label, entry (refreshInterval), group (General)
+#: davgroupwareresource.kcfg:18
+#, kde-format
+msgid "Refresh every"
+msgstr "Ανανέωση κάθε"
+
+#. i18n: ectx: label, entry (remoteUrls), group (General)
+#: davgroupwareresource.kcfg:22
+#, kde-format
+msgid "Remote URLs"
+msgstr "Απομακρυσμένα URL"
+
+#. i18n: ectx: label, entry (defaultUsername), group (General)
+#: davgroupwareresource.kcfg:26
+#, kde-format
+msgid "User name"
+msgstr "Όνομα χρήστη"
+
+#. i18n: ectx: label, entry (limitSyncRange), group (General)
+#: davgroupwareresource.kcfg:30
+#, kde-format
+msgid "Limit the events retrieval to the specified time range"
+msgstr "Να περιοριστεί η ανάκτηση γεγονότων στο δοσμένο χρονικό εύρος"
+
+#. i18n: ectx: label, entry (syncRangeStartNumber), group (General)
+#: davgroupwareresource.kcfg:34
+#, kde-format
+msgid "Period for which to retrieve events, quantity"
+msgstr "Περίοδος για την οποία θα γίνει ανάκτηση γεγονότων, ποσότητα"
+
+#. i18n: ectx: label, entry (syncRangeStartType), group (General)
+#: davgroupwareresource.kcfg:38
+#, kde-format
+msgid "Period for which to retrieve events, type"
+msgstr "Περίοδος για την οποία θα γίνει ανάκτηση γεγονότων, τύπος"
+
+#. i18n: ectx: label, entry (collectionsUrlsMappings), group (General)
+#: davgroupwareresource.kcfg:42
+#, kde-format
+msgid ""
+"String representation of the mappings between discovered collections and "
+"configured URLs"
+msgstr ""
+"Συμβολοσειρά που αναπαριστά την αντιστοιχία ανάμεσα σε ευρεθείσες συλλογές "
+"και διαμορφωμένα URL"
+
+#. i18n: ectx: label, entry (readOnly), group (General)
+#: davgroupwareresource.kcfg:46
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Μην αλλάξετε τα δεδομένα του συστήματος υποστήριξης."
+
+#. i18n: ectx: label, entry (AccountId), group (General)
+#: davgroupwareresource.kcfg:50
+#, kde-format
+msgid "The account id in WebAccounts framework."
+msgstr "Το αναγνωριστικό λογαριασμού στο πλαίσιο εργασίας WebAccounts."
+
+#. i18n: ectx: label, entry (AccountServices), group (General)
+#: davgroupwareresource.kcfg:53
+#, kde-format
+msgid "Account enabled services"
+msgstr "Ενεργές υπηρεσίες λογαριασμού"
+
+#: searchdialog.cpp:26
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@title:window"
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: searchdialog.cpp:41
+#, kde-format
+msgid "Add Selected Items"
+msgstr "Προσθήκη επιλεγμένων αντικειμένων"
+
+#: searchdialog.cpp:126 searchdialog.cpp:169
+#, kde-format
+msgid ""
+"An error occurred when executing search:\n"
+"%1"
+msgstr ""
+"Παρουσιάστηκε σφάλμα κατά την αναζήτηση:\n"
+"%1"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useDefaultCreds)
+#: searchdialog.ui:32 urlconfigurationdialog.ui:85
+#, kde-format
+msgid "Use global creden&tials"
+msgstr "Χρήση καθολικών διαπισ&τευτηρίων"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useSpecificCreds)
+#: searchdialog.ui:42 urlconfigurationdialog.ui:95
+#, kde-format
+msgid "Use specific credentials"
+msgstr "Χρήση ειδικών διαπιστευτηρίων"
+
+#. i18n: ectx: property (title), widget (QGroupBox, credentialsGroup)
+#: searchdialog.ui:49
+#, kde-format
+msgid "Credentials"
+msgstr "Διαπιστευτήρια"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: searchdialog.ui:61
+#, kde-format
+msgid "Username"
+msgstr "Όνομα χρήστη"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: searchdialog.ui:77
+#, kde-format
+msgid "Password"
+msgstr "Κωδικός"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: searchdialog.ui:96
+#, kde-format
+msgid "Search URL"
+msgstr "URL αναζήτησης"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: searchdialog.ui:106
+#, kde-format
+msgid "Search for"
+msgstr "Αναζήτηση για"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:116
+#, kde-format
+msgid "a person named"
+msgstr "χρήστη με όνομα"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, searchType)
+#: searchdialog.ui:121
+#, kde-format
+msgid "a contact with email"
+msgstr "επαφή με email"
+
+#: settings.cpp:481
+#, kde-format
+msgid "A password is required for user %1"
+msgstr "Απαιτείται κωδικός πρόσβασης για τον χρήστη %1"
+
+#: settings.cpp:484
+#, kde-format
+msgid "Password: "
+msgstr "Κωδικός: "
+
+#: setupwizard.cpp:140
+#, fuzzy, kde-format
+#| msgid "DAV groupware configuration wizard"
+msgctxt "@title:window"
+msgid "DAV groupware configuration wizard"
+msgstr "Βοηθός διαμόρφωσης DAV groupware"
+
+#: setupwizard.cpp:213
+#, kde-format
+msgid "Login Credentials"
+msgstr "Διαπιστευτήρια εισόδου"
+
+#: setupwizard.cpp:214
+#, kde-format
+msgid "Enter your credentials to login to the groupware server"
+msgstr "Δώστε τα διαπιστευτήριά σας για την είσοδο στον εξυπηρετητή groupware"
+
+#: setupwizard.cpp:218
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User:"
+msgstr "Χρήστης"
+
+#: setupwizard.cpp:258
+#, kde-format
+msgid "No, choose another server"
+msgstr "Όχι, να επιλεγεί άλλος εξυπηρετητής"
+
+#: setupwizard.cpp:260
+#, kde-format
+msgid "Predefined provider found"
+msgstr "Βρέθηκε ο προκαθορισμένος πάροχος"
+
+#: setupwizard.cpp:261
+#, kde-format
+msgid "Select if you want to use the auto-detected provider"
+msgstr ""
+"Επιλέξτε αν θέλετε να χρησιμοποιήσετε τον πάροχο που ανιχνεύτηκε αυτόματα"
+
+#: setupwizard.cpp:280
+#, kde-format
+msgid ""
+"Based on the email address you used as a login, this wizard\n"
+"can configure automatically an account for %1 services.\n"
+"Do you wish to do so?"
+msgstr ""
+"Με βάση τη διεύθυνση ηλεκτρονικής αλληλογραφίας που χρησιμοποιήσατε στα "
+"στοιχεία εισόδου, ο βοηθός αυτός\n"
+"μπορεί να διαμορφώσει αυτόματα έναν λογαριασμό για %1 υπηρεσίες.\n"
+"Θέλετε να γίνει έτσι;"
+
+#: setupwizard.cpp:285
+#, kde-format
+msgid "Yes, use %1 as provider"
+msgstr "Ναι να χρησιμοποιηθεί ο %1 ως πάροχος"
+
+#: setupwizard.cpp:311
+#, kde-format
+msgid "Groupware Server"
+msgstr "Εξυπηρετητής Groupware"
+
+#: setupwizard.cpp:312
+#, kde-format
+msgid "Select the groupware server the resource shall be configured for"
+msgstr ""
+"Επιλογή εξυπηρετητή groupware για τον οποίο θα γίνει διαμόρφωση του πόρου"
+
+#: setupwizard.cpp:343
+#, kde-format
+msgid "Use one of those servers:"
+msgstr "Να χρησιμοποιηθεί ένας από αυτούς τους εξυπηρετητές:"
+
+#: setupwizard.cpp:352
+#, kde-format
+msgid "Configure the resource manually"
+msgstr "Διαμορφώστε τον πόρο χειροκίνητα"
+
+#: setupwizard.cpp:390
+#, kde-format
+msgid "Connection"
+msgstr "Σύνδεση"
+
+#: setupwizard.cpp:391
+#, kde-format
+msgid "Enter the connection information for the groupware server"
+msgstr "Εισαγωγή πληροφοριών σύνδεσης για τον εξυπηρετητή groupware"
+
+#: setupwizard.cpp:398
+#, kde-format
+msgid "Host"
+msgstr "Υπολογιστής"
+
+#: setupwizard.cpp:401
+#, kde-format
+msgid "Installation path"
+msgstr "Διαδρομή εγκατάστασης"
+
+#: setupwizard.cpp:404
+#, kde-format
+msgid "Use secure connection"
+msgstr "Χρήση ασφαλούς σύνδεσης"
+
+#: setupwizard.cpp:432
+#, kde-format
+msgid "Final URL (CalDav)"
+msgstr "Τελικό URL (CalDav)"
+
+#: setupwizard.cpp:437
+#, kde-format
+msgid "Final URL (CardDav)"
+msgstr "Τελικό URL (CardDav)"
+
+#: setupwizard.cpp:442
+#, kde-format
+msgid "Final URL (GroupDav)"
+msgstr "Τελικό URL (GroupDav)"
+
+#: setupwizard.cpp:506 setupwizard.cpp:512
+#, kde-format
+msgid "Test Connection"
+msgstr "Έλεγχος σύνδεσης"
+
+#: setupwizard.cpp:507
+#, kde-format
+msgid ""
+"You can test now whether the groupware server can be accessed with the "
+"current configuration"
+msgstr ""
+"Με την τρέχουσα διαμόρφωση μπορείτε τώρα να δοκιμάσετε την πρόσβαση στον "
+"εξυπηρετητή groupware"
+
+#: setupwizard.cpp:552
+#, kde-format
+msgid "An error occurred: %1"
+msgstr "Παρουσιάστηκε σφάλμα: %1"
+
+#: setupwizard.cpp:555
+#, kde-format
+msgid "Connected successfully"
+msgstr "Σύνδεση επιτυχής"
+
+#: urlconfigurationdialog.cpp:266
+#, fuzzy, kde-format
+#| msgid "Display name"
+msgid "Display Name"
+msgstr "Εμφάνιση ονόματος"
+
+#. i18n: ectx: property (text), widget (QLabel, remoteProtocol)
+#: urlconfigurationdialog.ui:35
+#, kde-format
+msgid "Access protocol:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, caldav)
+#: urlconfigurationdialog.ui:42
+#, kde-format
+msgid "CalDA&V"
+msgstr "CalDA&V"
+
+#. i18n: ectx: property (text), widget (QRadioButton, carddav)
+#: urlconfigurationdialog.ui:52
+#, kde-format
+msgid "CardDAV"
+msgstr "CardDAV"
+
+#. i18n: ectx: property (text), widget (QRadioButton, groupdav)
+#: urlconfigurationdialog.ui:59
+#, kde-format
+msgid "GroupDAV"
+msgstr "GroupDAV"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: urlconfigurationdialog.ui:66
+#, fuzzy, kde-format
+#| msgid "Remote URL"
+msgid "Remote URL:"
+msgstr "Απομακρυσμένο URL"
+
+#. i18n: ectx: property (text), widget (QLabel, label1)
+#: urlconfigurationdialog.ui:76
+#, kde-format
+msgid "Access:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, collectionsLabel)
+#: urlconfigurationdialog.ui:146
+#, fuzzy, kde-format
+#| msgid "Discovered collections"
+msgid "Discovered collections:"
+msgstr "Ευρεθείσες συλλογές"
+
+#. i18n: ectx: property (text), widget (QPushButton, fetchButton)
+#: urlconfigurationdialog.ui:174
+#, kde-format
+msgid "Fetch"
+msgstr "Προσκόμιση"
+
+#: utils.cpp:47 utils.cpp:64
+#, kde-format
+msgid "CalDav"
+msgstr "CalDav"
+
+#: utils.cpp:50 utils.cpp:66
+#, kde-format
+msgid "CardDav"
+msgstr "CardDav"
+
+#: utils.cpp:53 utils.cpp:68
+#, kde-format
+msgid "GroupDav"
+msgstr "GroupDav"
+
+#~ msgid "General Configuration"
+#~ msgstr "Γενική διαμόρφωση"
+
+#~ msgid "Synchronization"
+#~ msgstr "Συγχρονισμός"
+
+#~ msgid "Remote calendar access protocol"
+#~ msgstr "Πρωτόκολλο απομακρυσμένης πρόσβασης ημερολογίου"
+
+#~ msgid "Remote calendar access"
+#~ msgstr "Απομακρυσμένη πρόσβαση ημερολογίου"
+
+#~ msgid "The server returned invalid data"
+#~ msgstr "Ο εξυπηρετητής ανταποκρίθηκε με μη έγκυρα δεδομένα"
+
+#~ msgid "Client did not create a UID for item %1."
+#~ msgstr "Η εφαρμογή δεν δημιούργησε ταυτότητα χρήστη για το αντικείμενο %1."
+
+#~ msgid "Unable to retrieve added item %1."
+#~ msgstr "Αδυναμία ανάκτησης του πρόσθετου αντικειμένου %1."
+
+#~ msgid "The remote item has been locked, try again later"
+#~ msgstr "Το απομακρυσμένο αντικείμενο είναι κλειδωμένο, προσπαθήστε αργότερα"
+
+#~ msgid ""
+#~ "The server encountered an error that prevented it from completing your "
+#~ "request."
+#~ msgstr ""
+#~ "Ο εξυπηρετητής βρήκε σφάλμα που τον εμπόδισε να ολοκληρώσει το αίτημά σας."
+
+#~ msgid "Citadel"
+#~ msgstr "Citadel"
+
+#~ msgid "DAViCal"
+#~ msgstr "DAViCal"
+
+#~ msgid "eGroupware"
+#~ msgstr "eGroupware"
+
+#~ msgid "OpenGroupware"
+#~ msgstr "OpenGroupware"
+
+#~ msgid "ScalableOGo"
+#~ msgstr "ScalableOGo"
+
+#~ msgid "Scalix"
+#~ msgstr "Scalix"
+
+#~ msgid "Zarafa"
+#~ msgstr "Zarafa"
+
+#~ msgid "Zimbra"
+#~ msgstr "Zimbra"
+
+#~ msgid "DAVical"
+#~ msgstr "DAVical"

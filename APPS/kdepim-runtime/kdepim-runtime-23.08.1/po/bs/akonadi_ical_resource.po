@@ -1,0 +1,86 @@
+# Bosnian translation for kdepim-runtime
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the kdepim-runtime package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2012-10-05 23:30+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-16 05:30+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icalresource.kcfg:10 notes/notesresource.kcfg:10
+#, kde-format
+msgid "Path to iCal file."
+msgstr "Putanja do iCal datoteke."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: icalresource.kcfg:14 notes/notesresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Ekransko ime."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icalresource.kcfg:18 notes/notesresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ne mijenja aktuelne pozadinske podatke."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: icalresource.kcfg:22 notes/notesresource.kcfg:26
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Prati datoteku za promenama."
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: notes/notesresource.kcfg:22
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Vremenski interval automatskog čuvanja (u minutima)."
+
+#: shared/icalresource.cpp:47
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Nepoželjan ishod sa uid-om '%1' nije pronađen."
+
+#: shared/icalresourcebase.cpp:46 shared/icalresourcebase.cpp:59
+#: shared/icalresourcebase.cpp:90 shared/icalresourcebase.h:88
+#, kde-format
+msgid "Calendar not loaded."
+msgstr "Kalendar nije učitan."
+
+#: shared/icalresourcebase.cpp:134
+#, kde-format
+msgid "Failed to save calendar file to %1"
+msgstr "Nisam uspio da sačuvam datoteku kalendara u %1"
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve added item %1."
+msgstr "Nisam u mogućnosti da pruzmem dodatu stavku %1."
+
+#: shared/icalresourcebase.h:93
+#, kde-format
+msgid "Unable to retrieve modified item %1."
+msgstr "Nisam u mogućnosti da pruzmem izmijenjenu stavku %1."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/icalwizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "Ime datoteke:"
+
+#~ msgid "Select Calendar"
+#~ msgstr "Izaberite kalendar"

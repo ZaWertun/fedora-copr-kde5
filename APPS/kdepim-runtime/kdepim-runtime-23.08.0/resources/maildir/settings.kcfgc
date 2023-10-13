@@ -1,0 +1,9 @@
+File=maildirresource.kcfg
+ClassName=MaildirSettings
+Mutators=true
+ItemAccessors=true
+SetUserTexts=true
+Singleton=false
+GlobalEnums=true
+NameSpace=Akonadi_Maildir_Resource
+TranslationSystem=kde

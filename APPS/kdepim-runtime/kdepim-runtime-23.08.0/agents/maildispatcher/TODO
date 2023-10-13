@@ -1,0 +1,16 @@
+* Once MoveJobs work, enable and test moving to sent-mail.  Here is why it
+  doesn't work currently: Akonadi::Monitor sends itemMoved(...), but it is
+  not handled in AgentBase::Observer, and so it never gets "processed", and
+  is stuck in the Monitor/ChangeRecorder forever.  (I.e. the resource will
+  not get any new notifications.) This has to be fixed in Akonadi, but that
+  means adding ObserverV2 or something.
+* Figure out which / whether error strings should be i18n'd
+* Should probably use progressMessage instead of statusMessage, but it seems
+  to be unimplemented in AgentInstance, and only a stub in AgentBase.
+* Do something about timeouts.
+* Test aborting and progress reporting for resource-based transports.
+
+Bugs:
+* Incorrect size reporting in itemChanged() from Monitor.  Leads to displaying
+  >100% progress.
+  (found with: offline, queue some, online, abort, clearerror)

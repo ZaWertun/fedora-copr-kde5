@@ -1,0 +1,46 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sairan Kikkarin <sairan(at)computer.org>, 2010, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2013-11-18 04:28+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: imapwizard.es:10
+msgid "Personal Settings"
+msgstr "Дербес параметрлері"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: imapwizard.ui:20
+#, kde-format
+msgid "Username:"
+msgstr "Пайдаланушы:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: imapwizard.ui:33
+#, kde-format
+msgid "&Incoming server:"
+msgstr "&Кіріс пошта сервері:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: imapwizard.ui:46
+#, kde-format
+msgid "&Outgoing server:"
+msgstr "&Шығыс пошта сервері:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, disconnectedMode)
+#: imapwizard.ui:63
+#, kde-format
+msgid "&Download all messages for offline use"
+msgstr "&Желіден тыс қарауға бар пошта жүктеп алынсын"

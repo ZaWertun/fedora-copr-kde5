@@ -1,0 +1,274 @@
+# Xavier Besnard <xavier.besnard@neuf.fr>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2020-11-18 18:04+0100\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 20.08.3\n"
+
+#: etesyncresource.cpp:49
+#, kde-format
+msgid "EteSync Resource"
+msgstr "Ressource « EteSync »"
+
+#: etesyncresource.cpp:187
+#, kde-format
+msgid "Temporary server error"
+msgstr "Erreur temporaire du serveur"
+
+#: etesyncresource.cpp:191
+#, kde-format
+msgid "You do not have permission to perform this action."
+msgstr "Vous ne devez pas avoir les permissions pour réaliser cette action."
+
+#: etesyncresource.cpp:194
+#, kde-format
+msgid "Permission denied"
+msgstr "Permission refusée"
+
+#: etesyncresource.cpp:198
+#, kde-format
+msgid "A server error occurred."
+msgstr "Une erreur du serveur est survenue."
+
+#: etesyncresource.cpp:201
+#, kde-format
+msgid "Server error"
+msgstr "Erreur du serveur"
+
+#: etesyncresource.cpp:220
+#, kde-format
+msgid ""
+"Your EteSync credentials were changed. Please click OK to re-enter your "
+"credentials."
+msgstr ""
+"Vos identifiants « EteSync » ont été modifiés. Veuillez cliquer sur « Ok » "
+"pour les re-saisir."
+
+#: etesyncresource.cpp:222
+#, kde-format
+msgid "Credentials Changed"
+msgstr "Modifications des identifiants"
+
+#: etesyncresource.cpp:270
+#, kde-format
+msgid "Cannot retrieve items - account is null"
+msgstr "Impossible de réceptionner les éléments - le compte est vide."
+
+#: etesyncresource.cpp:277 etesyncresource.cpp:383 etesyncresource.cpp:456
+#: etesyncresource.cpp:514 etesyncresource.cpp:643 etesyncresource.cpp:701
+#, kde-format
+msgid "Could not get etesyncCollection from cache '%1'"
+msgstr "Impossible de charger « etesyncCollection » à partir du cache « %1 »"
+
+#: etesyncresource.cpp:411
+#, kde-format
+msgid "Could not create new etesyncItem '%1'"
+msgstr "Impossible de créer une nouvelle entrée « EteSync » « %1 »"
+
+#: etesyncresource.cpp:463 etesyncresource.cpp:521
+#, kde-format
+msgid "Could not get etesyncItem from cache '%1'"
+msgstr "Impossible de charger « etesyncItem » à partir du cache « %1 »"
+
+#: etesyncresource.cpp:583
+#, kde-format
+msgid "Could not create new etesyncCollection"
+msgstr "Impossible de créer une nouvelle entrée « etesyncCollection »"
+
+#: etesyncresource.h:62
+#, kde-format
+msgid "Something went wrong"
+msgstr "Quelque chose s'est mal passé."
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "URL du serveur"
+
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:11 etesyncresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the EteSync server, should be something like https://myserver.org/"
+msgstr ""
+"L'URL du serveur « EteSync » doit être de la forme « https://monserveur.org »"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: etesyncresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: etesyncresource.kcfg:16 etesyncresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the EteSync server"
+msgstr ""
+"Le nom d'utilisateur employé pour une connexion à un serveur « EteSync »"
+
+#. i18n: ectx: label, entry (BasePath), group (General)
+#: etesyncresource.kcfg:20
+#, kde-format
+msgid "Path to base directory"
+msgstr "Emplacement vers le dossier de référence"
+
+#: setupwizard.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "EteSync configuration wizard"
+msgstr "Assistant de configuration pour EteSync"
+
+#: setupwizard.cpp:66
+#, kde-format
+msgid "Login Credentials"
+msgstr "Identifiants de connexion"
+
+#: setupwizard.cpp:67
+#, kde-format
+msgid "Enter your credentials to login to the EteSync server"
+msgstr "Saisir vos identifiants pour une connexion à un serveur « EteSync »"
+
+#: setupwizard.cpp:76
+#, kde-format
+msgid "Username:"
+msgstr "Nom d'utilisateur :"
+
+#: setupwizard.cpp:81
+#, kde-format
+msgid "Password:"
+msgstr "Mot de passe :"
+
+#: setupwizard.cpp:84
+#, kde-format
+msgid "Advanced settings"
+msgstr "Configuration avancée"
+
+#: setupwizard.cpp:89
+#, kde-format
+msgid "Server:"
+msgstr "Serveur :"
+
+#: setupwizard.cpp:102
+#, kde-format
+msgid ""
+"🛈 The password field is empty because EteSync does not store it for security "
+"reasons."
+msgstr ""
+"🛈 Le champ de mot de passe est vide car EteSync ne l'enregistre pas pour des "
+"raisons de sécurité."
+
+#: setupwizard.cpp:134
+#, kde-format
+msgid ""
+"Please ensure that the server URL is correct. The URL should start with "
+"http:// or https://."
+msgstr ""
+"Veuillez vous assurer que l'URL du serveur est correct. Elle doit commencer "
+"par « http://  » ou « https:// »."
+
+#: setupwizard.cpp:136
+#, kde-format
+msgid ""
+"Could not connect to the server. Please ensure that the server URL is "
+"correct."
+msgstr ""
+"Impossible de se connecter au serveur. Veuillez vous assurer que l'URL du "
+"serveur est correct."
+
+#: setupwizard.cpp:138
+#, kde-format
+msgid "EteSync server not found. Please ensure that the server URL is correct."
+msgstr ""
+"Impossible de localiser le serveur « EteSync ». Veuillez vous assurer que "
+"l'URL du serveur est correct."
+
+#~ msgid "Could not get journal"
+#~ msgstr "Impossible d'obtenir le journal"
+
+#~ msgid "Received item with unknown payload %1"
+#~ msgstr "Élément reçu avec un contenu inconnu %1"
+
+#~ msgid "Received item of different type"
+#~ msgstr "Élément reçu avec un type inconnu "
+
+#~ msgid "Could not get local calendar"
+#~ msgstr "Impossible d'obtenir l'agenda local"
+
+#~ msgid "Could not set journal info"
+#~ msgstr "Impossible de définir les informations de journal"
+
+#~ msgid "Could not create vcard from payload"
+#~ msgstr "Impossible de créer une carte « vcard » à partir du contenu"
+
+#~ msgid "Could not create vcard from content"
+#~ msgstr "Impossible de créer une carte « vcard » à partir du contenu"
+
+#~ msgid "Could not get local contact"
+#~ msgstr "Impossible d'obtenir un contact local"
+
+#~ msgid "My Calendar"
+#~ msgstr "Mon agenda"
+
+#~ msgid "My Contacts"
+#~ msgstr "Mes contacts"
+
+#~ msgid "My Tasks"
+#~ msgstr "Mes tâches"
+
+#~ msgid "Invalid payload type"
+#~ msgstr "Type de contenu non valable"
+
+#~ msgid "Unknown collection mimetype"
+#~ msgstr "Type « MIME » inconnu de collection"
+
+#~ msgid "Password"
+#~ msgstr "Mot de passe"
+
+#~ msgid "The password that is used to log into the EteSync server"
+#~ msgstr "Le mot de passe employé pour une connexion à un serveur « EteSync »"
+
+#~ msgid "Encryption Password"
+#~ msgstr "Mode de passe de chiffrement"
+
+#~ msgid "Encryption password for your EteSync account"
+#~ msgstr "Mode de passe de chiffrement pour votre compte « EteSync »"
+
+#~ msgid "Email:"
+#~ msgstr "Courriel :"
+
+#~ msgid "Incorrect login credentials. Please try again."
+#~ msgstr "Identifiants de connexion incorrects. Veuillez essayer à nouveau."
+
+#~ msgid "Encryption password"
+#~ msgstr "Mode de passe de chiffrement"
+
+#~ msgid "Enter the encryption password for your EteSync account"
+#~ msgstr ""
+#~ "Saisir le mode de passe de chiffrement pour votre compte « EteSync »"
+
+#~ msgid "Encryption Password:"
+#~ msgstr "Mode de passe de chiffrement :"
+
+#~ msgid ""
+#~ "Welcome to EteSync! Please set your encryption password below, and make "
+#~ "sure you got it right, as it can't be recovered if lost!"
+#~ msgstr ""
+#~ "Bienvenue dans EteSync ! Veuillez définir votre mot de passe de "
+#~ "chiffrement ci-dessous et vous assurer que vous l'avez fait correctement "
+#~ "car il ne pourra être retrouvé si vous le perdez !"
+
+#~ msgid "Incorrect encryption password. Please try again."
+#~ msgstr "Mot de passe de chiffrement incorrect. Veuillez réessayer."

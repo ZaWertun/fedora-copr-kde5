@@ -1,0 +1,280 @@
+# Translation of akonadi_etesync_resource.po to Ukrainian
+# Copyright (C) 2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_etesync_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2020-11-10 08:31+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.11.70\n"
+
+#: etesyncresource.cpp:49
+#, kde-format
+msgid "EteSync Resource"
+msgstr "Ресурс EteSync"
+
+#: etesyncresource.cpp:187
+#, kde-format
+msgid "Temporary server error"
+msgstr "Тимчасова помилка сервера"
+
+#: etesyncresource.cpp:191
+#, kde-format
+msgid "You do not have permission to perform this action."
+msgstr "У вас немає прав доступу для виконання цієї дії."
+
+#: etesyncresource.cpp:194
+#, kde-format
+msgid "Permission denied"
+msgstr "Відмовлено у доступі"
+
+#: etesyncresource.cpp:198
+#, kde-format
+msgid "A server error occurred."
+msgstr "Сталася помилка на сервері."
+
+#: etesyncresource.cpp:201
+#, kde-format
+msgid "Server error"
+msgstr "Помилка сервера"
+
+#: etesyncresource.cpp:220
+#, kde-format
+msgid ""
+"Your EteSync credentials were changed. Please click OK to re-enter your "
+"credentials."
+msgstr ""
+"Ваші реєстраційні дані EteSync було змінено. Будь ласка, натисніть кнопку "
+"«Гаразд», щоб повторно ввести ваші реєстраційні дані."
+
+#: etesyncresource.cpp:222
+#, kde-format
+msgid "Credentials Changed"
+msgstr "Змінено реєстраційні дані"
+
+#: etesyncresource.cpp:270
+#, kde-format
+msgid "Cannot retrieve items - account is null"
+msgstr "Не вдалося отримати записи — обліковий запис є порожнім"
+
+#: etesyncresource.cpp:277 etesyncresource.cpp:383 etesyncresource.cpp:456
+#: etesyncresource.cpp:514 etesyncresource.cpp:643 etesyncresource.cpp:701
+#, kde-format
+msgid "Could not get etesyncCollection from cache '%1'"
+msgstr "Не вдалося отримати etesyncCollection з кешу «%1»"
+
+#: etesyncresource.cpp:411
+#, kde-format
+msgid "Could not create new etesyncItem '%1'"
+msgstr "Не вдалося створити etesyncItem «%1»"
+
+#: etesyncresource.cpp:463 etesyncresource.cpp:521
+#, kde-format
+msgid "Could not get etesyncItem from cache '%1'"
+msgstr "Не вдалося отримати etesyncItem з кешу «%1»"
+
+#: etesyncresource.cpp:583
+#, kde-format
+msgid "Could not create new etesyncCollection"
+msgstr "Не вдалося створити etesyncCollection"
+
+#: etesyncresource.h:62
+#, kde-format
+msgid "Something went wrong"
+msgstr "Виникли якісь проблеми"
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "Адреса сервера"
+
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:11 etesyncresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the EteSync server, should be something like https://myserver.org/"
+msgstr ""
+"Адреса URL сервера EteSync, слід вказувати у форматі https://myserver.org/"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: etesyncresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Користувач"
+
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: etesyncresource.kcfg:16 etesyncresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the EteSync server"
+msgstr ""
+"Ім'я користувача, яке буде використано для реєстрації на сервері EteSync"
+
+#. i18n: ectx: label, entry (BasePath), group (General)
+#: etesyncresource.kcfg:20
+#, kde-format
+msgid "Path to base directory"
+msgstr "Шлях до базового каталогу"
+
+#: setupwizard.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "EteSync configuration wizard"
+msgstr "Майстер налаштовування EteSync"
+
+#: setupwizard.cpp:66
+#, kde-format
+msgid "Login Credentials"
+msgstr "Реєстраційні дані"
+
+#: setupwizard.cpp:67
+#, kde-format
+msgid "Enter your credentials to login to the EteSync server"
+msgstr "Введіть ваші реєстраційні дані на сервері EteSync"
+
+#: setupwizard.cpp:76
+#, kde-format
+msgid "Username:"
+msgstr "Користувач:"
+
+#: setupwizard.cpp:81
+#, kde-format
+msgid "Password:"
+msgstr "Пароль:"
+
+#: setupwizard.cpp:84
+#, kde-format
+msgid "Advanced settings"
+msgstr "Додаткові параметри"
+
+#: setupwizard.cpp:89
+#, kde-format
+msgid "Server:"
+msgstr "Сервер:"
+
+#: setupwizard.cpp:102
+#, kde-format
+msgid ""
+"🛈 The password field is empty because EteSync does not store it for security "
+"reasons."
+msgstr ""
+"🛈 Поле пароля є порожнім, оскільки EteSync не зберігає дані щодо введених "
+"паролів з міркувань безпеки."
+
+#: setupwizard.cpp:134
+#, kde-format
+msgid ""
+"Please ensure that the server URL is correct. The URL should start with "
+"http:// or https://."
+msgstr ""
+"Будь ласка, переконайтеся, що правильно вказано адресу сервера. Адреса має "
+"починатися з http:// або https://."
+
+#: setupwizard.cpp:136
+#, kde-format
+msgid ""
+"Could not connect to the server. Please ensure that the server URL is "
+"correct."
+msgstr ""
+"Не вдалося встановити з'єднання з сервером. Будь ласка, переконайтеся, що "
+"адресу сервера вказано правильно."
+
+#: setupwizard.cpp:138
+#, kde-format
+msgid "EteSync server not found. Please ensure that the server URL is correct."
+msgstr ""
+"Не знайдено сервера EteSync. Будь ласка, переконайтеся, що адресу сервера "
+"вказано правильно."
+
+#~ msgid "Could not get journal"
+#~ msgstr "Не вдалося отримати журнал"
+
+#~ msgid "Received item with unknown payload %1"
+#~ msgstr "Отримано запис з невідомим вмістом %1"
+
+#~ msgid "Received item of different type"
+#~ msgstr "Отримано запис іншого типу"
+
+#~ msgid "Could not get local calendar"
+#~ msgstr "Не вдалося отримати локальний календар"
+
+#~ msgid "Could not set journal info"
+#~ msgstr "Не вдалося встановити відомості щодо журналу"
+
+#~ msgid "Could not create vcard from payload"
+#~ msgstr "Не вдалося створити віртуальну візитівку з даних"
+
+#~ msgid "Could not create vcard from content"
+#~ msgstr "Не вдалося створити віртуальну візитівку з вмісту"
+
+#~ msgid "Could not get local contact"
+#~ msgstr "Не вдалося отримати локальний запис контакту"
+
+#~ msgid "My Calendar"
+#~ msgstr "Календар"
+
+#~ msgid "My Contacts"
+#~ msgstr "Контакти"
+
+#~ msgid "My Tasks"
+#~ msgstr "Завдання"
+
+#~ msgid "Invalid payload type"
+#~ msgstr "Некоректний тип вмісту"
+
+#~ msgid "Unknown collection mimetype"
+#~ msgstr "Невідомий тип MIME збірки"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "The password that is used to log into the EteSync server"
+#~ msgstr "Пароль, який буде використано для реєстрації на сервері EteSync"
+
+#~ msgid "Encryption Password"
+#~ msgstr "Пароль для шифрування"
+
+#~ msgid "Encryption password for your EteSync account"
+#~ msgstr "Пароль шифрування для вашого облікового запису EteSync"
+
+#~ msgid "Email:"
+#~ msgstr "Ел. пошта:"
+
+#~ msgid "Incorrect login credentials. Please try again."
+#~ msgstr ""
+#~ "Помилкові реєстраційні дані для входу. Будь ласка, повторіть спробу."
+
+#~ msgid "Encryption password"
+#~ msgstr "Пароль для шифрування"
+
+#~ msgid "Enter the encryption password for your EteSync account"
+#~ msgstr "Введіть пароль шифрування до вашого облікового запису EteSync"
+
+#~ msgid "Encryption Password:"
+#~ msgstr "Пароль для шифрування:"
+
+#~ msgid ""
+#~ "Welcome to EteSync! Please set your encryption password below, and make "
+#~ "sure you got it right, as it can't be recovered if lost!"
+#~ msgstr ""
+#~ "Вітаємо у EteSync! Будь ласка, вкажіть ваш пароль для шифрування нижче. "
+#~ "Запам'ятайте його добре, оскільки його не можна буде відновити, якщо ви "
+#~ "його забудете!"
+
+#~ msgid "Incorrect encryption password. Please try again."
+#~ msgstr "Помилковий пароль шифрування. Будь ласка, повторіть спробу."

@@ -1,0 +1,283 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011, 2014.
+# Balázs Úr <urbalazs@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2014-09-04 15:55+0200\n"
+"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: configwidget.cpp:28
+#, kde-format
+msgid "The selected path is empty."
+msgstr "A kijelölt útvonal üres."
+
+#: configwidget.cpp:41
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "A kijelölt útvonal érvényes MailDir mappákat tartalmaz."
+
+#: configwidget.cpp:48
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "A kijelölt útvonal egy érvényes MailDir."
+
+#: configwidget.cpp:54
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "A kijelölt útvonal még nem létezik, új MailDir lesz létrehozva."
+
+#: configwidget.cpp:57
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "A kijelölt útvonal nem létezik."
+
+#: mixedmaildirresource.cpp:102 mixedmaildirresource.cpp:117
+#: mixedmaildirresource.cpp:148 mixedmaildirresource.cpp:178
+#: mixedmaildirresource.cpp:193 mixedmaildirresource.cpp:208
+#: mixedmaildirresource.cpp:240 mixedmaildirresource.cpp:253
+#: mixedmaildirresource.cpp:280 mixedmaildirresource.cpp:311
+#: mixedmaildirresource.cpp:339
+#, kde-format
+msgctxt "@info:status"
+msgid "Unusable configuration."
+msgstr "Használhatatlan beállítás."
+
+#: mixedmaildirresource.cpp:171
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Item %1 belongs to invalid collection %2. Maybe it was deleted meanwhile?"
+msgstr ""
+"A(z) %1 elem a(z) %2 érvénytelen gyűjteményhez tartozik. Talán törölve lett "
+"időközben?"
+
+#: mixedmaildirresource.cpp:202
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folders"
+msgstr "E-mail mappák szinkronizálása"
+
+#: mixedmaildirresource.cpp:217
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folder %1"
+msgstr "%1 e-mail mappa szinkronizálása"
+
+#: mixedmaildirresource.cpp:318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Nem lehet áthelyezni a(z) „%1” maildir gyökérmappát."
+
+#: mixedmaildirresource.cpp:346
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Nem lehet törölni a(z) „%1” legfelsőbb szintű maildir mappát."
+
+#: mixedmaildirresource.cpp:360
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create maildir '%1'."
+msgstr "Nem lehet létrehozni a(z) „%1” maildirt."
+
+#: mixedmaildirresource.cpp:372
+#, kde-format
+msgctxt "@info:status"
+msgid "No usable storage location configured."
+msgstr "Nincs beállítva használható tárolóhely."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mixedmaildirresource.kcfg:10
+#, kde-format
+msgid "Path to KMail mail folder"
+msgstr "A KMail levélmappa elérési útja"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: mixedmaildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Az elérési út egy maildireket tartalmazó mappára mutat a maildir helyett."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mixedmaildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "A jelenlegi háttérprogramadat változatlanul hagyása."
+
+#: mixedmaildirstore.cpp:550
+#, kde-format
+msgctxt "@info:status"
+msgid "Given folder name is empty"
+msgstr "A megadott mappanév üres"
+
+#: mixedmaildirstore.cpp:585 mixedmaildirstore.cpp:604
+#, kde-format
+msgctxt "@info:status"
+msgid "Folder %1 does not seem to be a valid email folder"
+msgstr "A(z) %1 mappa nem tűnik érvényes e-mail mappának"
+
+#: mixedmaildirstore.cpp:973
+#, kde-format
+msgctxt "@info:status"
+msgid "Unhandled operation %1"
+msgstr "Nem kezelt művelet: %1"
+
+#: mixedmaildirstore.cpp:986 mixedmaildirstore.cpp:999
+#: mixedmaildirstore.cpp:1006 mixedmaildirstore.cpp:1014
+#: mixedmaildirstore.cpp:1025
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot create folder %1 inside folder %2"
+msgstr "Nem lehet létrehozni a(z) %1 mappát a(z) %2 mappában"
+
+#: mixedmaildirstore.cpp:1053 mixedmaildirstore.cpp:1062
+#: mixedmaildirstore.cpp:1070 mixedmaildirstore.cpp:1077
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove folder %1 from folder %2"
+msgstr "Nem lehet törölni a(z) %1 mappát a(z) %2 mappából"
+
+#: mixedmaildirstore.cpp:1113 mixedmaildirstore.cpp:1652
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load MBox folder %1"
+msgstr "Nem sikerült betölteni a(z) %1 MBox mappát"
+
+#: mixedmaildirstore.cpp:1177 mixedmaildirstore.cpp:1193
+#: mixedmaildirstore.cpp:1228 mixedmaildirstore.cpp:1236
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot rename folder %1"
+msgstr "Nem lehet átnevezni a(z) %1 mappát"
+
+#: mixedmaildirstore.cpp:1297 mixedmaildirstore.cpp:1314
+#: mixedmaildirstore.cpp:1335 mixedmaildirstore.cpp:1375
+#: mixedmaildirstore.cpp:1387 mixedmaildirstore.cpp:1421
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 from folder %2 to folder %3"
+msgstr "Nem lehet áthelyezni a(z) %1 mappát a(z) %2 mappából a(z) %3 mappába"
+
+#: mixedmaildirstore.cpp:1463 mixedmaildirstore.cpp:1477
+#: mixedmaildirstore.cpp:1502 mixedmaildirstore.cpp:1532
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add emails to folder %1"
+msgstr "Nem lehet e-maileket hozzáadni a(z) %1 mappához"
+
+#: mixedmaildirstore.cpp:1555 mixedmaildirstore.cpp:1567
+#: mixedmaildirstore.cpp:1581 mixedmaildirstore.cpp:1613
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove emails from folder %1"
+msgstr "Nem lehet e-maileket törölni a(z) %1 mappából"
+
+#: mixedmaildirstore.cpp:1679 mixedmaildirstore.cpp:1719
+#, kde-format
+msgctxt "@info:status"
+msgid "Error while reading mails from folder %1"
+msgstr "HIba történt az e-mailek olvasása során a(z) %1 mappából"
+
+#: mixedmaildirstore.cpp:1700
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load Maildirs folder %1"
+msgstr "Nem sikerült betölteni a(z) %1 maildir mappát"
+
+#: mixedmaildirstore.cpp:1759 mixedmaildirstore.cpp:1771
+#: mixedmaildirstore.cpp:1785 mixedmaildirstore.cpp:1819
+#: mixedmaildirstore.cpp:1843
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1"
+msgstr "Nem lehet módosítani az e-maileket a(z) %1 mappában"
+
+#: mixedmaildirstore.cpp:1874
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1. %2"
+msgstr "Nem lehet módosítani az e-maileket a(z) %1 mappában. %2"
+
+#: mixedmaildirstore.cpp:1899 mixedmaildirstore.cpp:1930
+#: mixedmaildirstore.cpp:1954
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails from folder %1"
+msgstr "Nem lehet áthelyezni e-maileket a(z) %1 mappából"
+
+#: mixedmaildirstore.cpp:1913 mixedmaildirstore.cpp:1941
+#: mixedmaildirstore.cpp:1986 mixedmaildirstore.cpp:2010
+#: mixedmaildirstore.cpp:2017 mixedmaildirstore.cpp:2096
+#: mixedmaildirstore.cpp:2120
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails to folder %1"
+msgstr "Nem lehet áthelyezni e-maileket a(z) %1 mappába"
+
+#: mixedmaildirstore.cpp:1962 mixedmaildirstore.cpp:2062
+#: mixedmaildirstore.cpp:2084
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1"
+msgstr "Nem lehet áthelyezni e-mailt a(z) %1 mappából"
+
+#: mixedmaildirstore.cpp:2040 mixedmaildirstore.cpp:2145
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1 to folder %2"
+msgstr "Nem lehet áthelyezni e-mailt a(z) %1 mappából a(z) %2 mappába"
+
+#: mixedmaildirstore.cpp:2298
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 into one of its own subfolder tree"
+msgstr "A(z) %1 mappa nem helyezhető át a saját almappáiba"
+
+#: mixedmaildirstore.cpp:2310
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add email to folder %1 because there is no email content"
+msgstr ""
+"Nem lehet e-mailt hozzáadni a(z) %1 mappához, mivel nincs e-mail tartalom"
+
+#: mixedmaildirstore.cpp:2318
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify email in folder %1 because there is no email content"
+msgstr ""
+"Nem lehet e-mailt módosítani a(z) %1 mappában, mivel nincs e-mail tartalom"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "A levelezési mappa beállításai"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:21
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Válassza ki a maildir jellemzőket tartalmazó mappát:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:31
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Megnyitás csak olvasható módban"
+
+#~ msgid "Select a KMail Mail folder"
+#~ msgstr "Válasszon egy KMail levélmappát"

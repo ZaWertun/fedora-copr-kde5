@@ -1,0 +1,80 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrew Coles <andrew_coles@yahoo.co.uk>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-11-03 00:20+0000\n"
+"PO-Revision-Date: 2010-05-30 15:22+0100\n"
+"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: abstractlocalstore.cpp:396 abstractlocalstore.cpp:427
+#: abstractlocalstore.cpp:458 abstractlocalstore.cpp:484
+#: abstractlocalstore.cpp:515 abstractlocalstore.cpp:546
+#: abstractlocalstore.cpp:574 abstractlocalstore.cpp:608
+#: abstractlocalstore.cpp:639 abstractlocalstore.cpp:673
+#: abstractlocalstore.cpp:707 abstractlocalstore.cpp:753
+#, kde-format
+msgctxt "@info:status"
+msgid "Configured storage location is empty"
+msgstr "Configured storage location is empty"
+
+#: abstractlocalstore.cpp:401 abstractlocalstore.cpp:432
+#: abstractlocalstore.cpp:463 abstractlocalstore.cpp:489
+#: abstractlocalstore.cpp:520 abstractlocalstore.cpp:551
+#: abstractlocalstore.cpp:613 abstractlocalstore.cpp:713
+#, kde-format
+msgctxt "@info:status"
+msgid "Given folder name is empty"
+msgstr "Given folder name is empty"
+
+#: abstractlocalstore.cpp:406 abstractlocalstore.cpp:525
+#, kde-format
+msgctxt "@info:status"
+msgid "Access control prohibits folder creation in folder %1"
+msgstr "Access control prohibits folder creation in folder %1"
+
+#: abstractlocalstore.cpp:437
+#, kde-format
+msgctxt "@info:status"
+msgid "Access control prohibits folder deletion in folder %1"
+msgstr "Access control prohibits folder deletion in folder %1"
+
+#: abstractlocalstore.cpp:494
+#, kde-format
+msgctxt "@info:status"
+msgid "Access control prohibits folder modification in folder %1"
+msgstr "Access control prohibits folder modification in folder %1"
+
+#: abstractlocalstore.cpp:580 abstractlocalstore.cpp:645
+#: abstractlocalstore.cpp:679 abstractlocalstore.cpp:731
+#, kde-format
+msgctxt "@info:status"
+msgid "Given item identifier is empty"
+msgstr "Given item identifier is empty"
+
+#: abstractlocalstore.cpp:618 abstractlocalstore.cpp:719
+#, kde-format
+msgctxt "@info:status"
+msgid "Access control prohibits item creation in folder %1"
+msgstr "Access control prohibits item creation in folder %1"
+
+#: abstractlocalstore.cpp:651
+#, kde-format
+msgctxt "@info:status"
+msgid "Access control prohibits item modification in folder %1"
+msgstr "Access control prohibits item modification in folder %1"
+
+#: abstractlocalstore.cpp:685 abstractlocalstore.cpp:725
+#, kde-format
+msgctxt "@info:status"
+msgid "Access control prohibits item deletion in folder %1"
+msgstr "Access control prohibits item deletion in folder %1"

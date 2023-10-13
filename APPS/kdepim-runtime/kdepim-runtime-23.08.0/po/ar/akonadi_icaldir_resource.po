@@ -1,0 +1,132 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-11-25 00:29+0000\n"
+"PO-Revision-Date: 2022-01-04 14:20+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+
+#: icaldirresource.cpp:119
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "لم يُعثر على الحدوث ذو المعرّف ’%1‘ العالميّ."
+
+#: icaldirresource.cpp:133 icaldirresource.cpp:166 icaldirresource.cpp:198
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "يحاول الكتابة في دليل للقراءة فقط: ’%1‘"
+
+#: icaldirresource.cpp:248
+#, kde-format
+msgid "Calendar Folder"
+msgstr "مجلّد التّقاويم"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icaldirresource.kcfg:10
+#, kde-format
+msgid "Path to iCal directory"
+msgstr "مسار دليل iCal"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: icaldirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "فترة الحفظ الآليّ (بالدّقيقة)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icaldirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "لا تغيّر بيانات السّند الفعليّة."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: icaldirsagentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "الدّليل"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: icaldirsagentsettingswidget.ui:39
+#, kde-format
+msgid "Di&rectory:"
+msgstr "ال&دّليل:"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: icaldirsagentsettingswidget.ui:58
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"اختر الدّليل الذي على هذا المورد تمثيل محتواه. سيُنشأ واحد إن لم يكن موجودًا."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: icaldirsagentsettingswidget.ui:68
+#, kde-format
+msgid "Read only"
+msgstr "للقراءة فقط"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: icaldirsagentsettingswidget.ui:84
+#, kde-format
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"إن كان وضع القراءة فقط مفعّلًا، فلن تُحفظ أيّة تغييرات. سيُفعّل وضع القراءة آليًّا "
+"إن لم يكن لديك تصريح الكتابة في الدّليل."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: icaldirsagentsettingswidget.ui:108
+#, kde-format
+msgid "Tuning"
+msgstr "تضبيطات"
+
+#. i18n: ectx: property (text), widget (QLabel, runingLabel)
+#: icaldirsagentsettingswidget.ui:114
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"تتيح لك الخيارات في هذه الصّفحة تغيير المعاملات التي توازن بين أمن البيانات "
+"واتّساقها، والأداء. بشكل عامّ عليك أن تكون حذرًا عند تغيير أيّ شيء هنا، "
+"المبدئيّات كافية لمعظم الحالات."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: icaldirsagentsettingswidget.ui:124
+#, kde-format
+msgid "Autosave delay:"
+msgstr "فترة الحفظ الآليّ:"
+
+#: icaldirsettingswidget.cpp:36
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " (أقلّ من دقيقة)"
+msgstr[1] " (دقيقة واحدة)"
+msgstr[2] " (دقيقتان)"
+msgstr[3] " دقائق"
+msgstr[4] " دقيقة"
+msgstr[5] " دقيقة"
+
+#~ msgid "Directory Name"
+#~ msgstr "اسم الدّليل"
+
+#~ msgid "Access Rights"
+#~ msgstr "تصاريح النّفاذ"

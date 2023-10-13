@@ -1,0 +1,503 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrej Vernekar <andrej.vernekar@gmail.com>, 2012.
+# Andrej Mernik <andrejm@ubuntu.si>, 2014, 2017.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-09-12 02:26+0000\n"
+"PO-Revision-Date: 2023-05-07 08:42+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: calendarhandler.cpp:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving calendars"
+msgstr "Pridobivanje koledarjev"
+
+#: calendarhandler.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving events for calendar '%1'"
+msgstr "Pridobivanje dogodkov za koledar '%1'"
+
+#: calendarhandler.cpp:197 taskhandler.cpp:170
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding event to calendar '%1'"
+msgstr "Dodajanje dogodka v koledar '%1'"
+
+#: calendarhandler.cpp:221
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing event in calendar '%1'"
+msgstr "Spreminjanje dogodka v koledarju '%1'"
+
+#: calendarhandler.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 event"
+msgid_plural "Removing %1 events"
+msgstr[0] "Odstranjevanje %1 dogodka"
+msgstr[1] "Odstranjevanje %1 dogodkov"
+msgstr[2] "Odstranjevanje %1 dogodkov"
+msgstr[3] "Odstranjevanje %1 dogodkov"
+
+#: calendarhandler.cpp:248
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 event from calendar '%2' to calendar '%3'"
+msgid_plural "Moving %1 events from calendar '%2' to calendar '%3'"
+msgstr[0] "Premikanje %1 dogodka iz koledarja '%2' v koledar '%3'"
+msgstr[1] "Premikanje %1 dogodkov iz koledarja '%2' v koledar '%3'"
+msgstr[2] "Premikanje %1 dogodkov iz koledarja '%2' v koledar '%3'"
+msgstr[3] "Premikanje %1 dogodkov iz koledarja '%2' v koledar '%3'"
+
+#: calendarhandler.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating calendar '%1'"
+msgstr "Ustvarjanje koledarja '%1'"
+
+#: calendarhandler.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing calendar '%1'"
+msgstr "Spreminjanje koledarja '%1'"
+
+#: calendarhandler.cpp:307
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing calendar '%1'"
+msgstr "Odstranjevanje koledarja '%1'"
+
+#: generichandler.cpp:24
+#, kde-format
+msgid "Cannot handle item linking"
+msgstr "Povezovanje elementov ni mogoče"
+
+#: generichandler.cpp:29
+#, kde-format
+msgid "Cannot handle item unlinking"
+msgstr "Prekinjanje povezav elementov ni mogoče"
+
+#: generichandler.cpp:56
+#, kde-format
+msgctxt "@status"
+msgid "Ready"
+msgstr "Pripravljen"
+
+#: generichandler.h:65 generichandler.h:77
+#, kde-format
+msgid "Invalid item."
+msgstr "Neveljavni predmet."
+
+#: googleresource.cpp:84
+#, kde-format
+msgid "Fetching password..."
+msgstr "Pridobivanje gesla..."
+
+#: googleresource.cpp:93
+#, kde-format
+msgid "Can't fetch password"
+msgstr "Ni mogoče pridobiti gesla"
+
+#: googleresource.cpp:137
+#, kde-format
+msgctxt "@info:status"
+msgid "Ready"
+msgstr "Pripravljen"
+
+#: googleresource.cpp:157 googleresource.cpp:195
+#, kde-format
+msgid "Configured account does not exist"
+msgstr "Nastavljen račun ne obstaja"
+
+#: googleresource.cpp:188
+#, kde-format
+msgid "not configured"
+msgstr "ni nastavljen"
+
+#: googleresource.cpp:188
+#, kde-format
+msgctxt "%1 is account name (user@gmail.com)"
+msgid "Google Groupware (%1)"
+msgstr "Google Groupware (%1)"
+
+#: googleresource.cpp:241
+#, kde-format
+msgid "Account has been logged out."
+msgstr "Račun je bil odjavljen."
+
+#: googleresource.cpp:244
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from your account. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"Google Groupware je bil odjavljen iz vašega računa. Znova se prijavite, da "
+"omogočite ponovno sinhronizacijo Google Contacts in Koledarja."
+
+#: googleresource.cpp:245
+#, kde-format
+msgid ""
+"Google Groupware has been logged out from account %1. Please log in to "
+"enable Google Contacts and Calendar sync again."
+msgstr ""
+"Google Groupware je bil odjavljen iz računa %1. Znova se prijavite, da "
+"omogočite ponovno sinhronizacijo Google Contacts in Koledarja."
+
+#: googleresource.cpp:249
+#, kde-format
+msgctxt "@title"
+msgid "%1 needs your attention."
+msgstr "%1 potrebuje vaša pozornost."
+
+#: googleresource.cpp:254
+#, kde-format
+msgctxt "@action"
+msgid "Log in"
+msgstr "Prijavite se"
+
+#: googleresource.cpp:268 googleresource.cpp:269
+#, kde-format
+msgctxt "@info:status"
+msgid "Resource is not configured"
+msgstr "Vir ni nastavljen"
+
+#: googleresource.cpp:284
+#, kde-format
+msgid "Failed to refresh tokens"
+msgstr "Žetonov ni bilo mogoče osvežiti"
+
+#: googleresource.cpp:471 googleresource.cpp:485 googleresource.cpp:499
+#: googleresource.cpp:514 googleresource.cpp:528 googleresource.cpp:542
+#, kde-format
+msgid "Invalid payload type"
+msgstr "Neveljavna vrsta vsebine"
+
+#: googleresource.cpp:556 googleresource.cpp:570 googleresource.cpp:584
+#, kde-format
+msgid "Unknown collection mimetype"
+msgstr "Neznana vrsta MIME zbirke"
+
+#: googlesettingsdialog.cpp:57
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuta"
+msgstr[1] " minuti"
+msgstr[2] " minute"
+msgstr[3] " minut"
+
+#. i18n: ectx: property (text), widget (QLabel, accountLabel)
+#: googlesettingsdialog.cpp:123 googlesettingsdialog.ui:30
+#, kde-format
+msgid "<b>not configured</b>"
+msgstr "<b>ni nastavljen</b>"
+
+#. i18n: ectx: property (text), widget (QLabel, accountTextLabel)
+#: googlesettingsdialog.ui:23
+#, kde-format
+msgid "Account:"
+msgstr "Račun:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureBtn)
+#: googlesettingsdialog.ui:42
+#, kde-format
+msgid "Configure..."
+msgstr "Nastavi..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, enableRefresh)
+#: googlesettingsdialog.ui:49
+#, kde-format
+msgid "Enable interval refresh"
+msgstr "Omogoči samodejno osveževanje"
+
+#. i18n: ectx: property (text), widget (QLabel, refreshLabel)
+#: googlesettingsdialog.ui:56
+#, kde-format
+msgid "Refresh interval:"
+msgstr "Razmik osveževanja:"
+
+#. i18n: ectx: property (text), widget (QLabel, eventsLimitLabel)
+#: googlesettingsdialog.ui:79
+#, kde-format
+msgid "Fetch only events since:"
+msgstr "Pridobi samo dogodke od:"
+
+#. i18n: ectx: property (text), widget (QLabel, calendarsLabel)
+#: googlesettingsdialog.ui:92
+#, kde-format
+msgid "Enabled Calendars:"
+msgstr "Omogočeni koledarji:"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadCalendarsBtn)
+#. i18n: ectx: property (text), widget (QPushButton, reloadTaskListsBtn)
+#: googlesettingsdialog.ui:123 googlesettingsdialog.ui:168
+#, kde-format
+msgid "Reload"
+msgstr "Znova naloži"
+
+#. i18n: ectx: property (text), widget (QLabel, taskListsLabel)
+#: googlesettingsdialog.ui:137
+#, kde-format
+msgid "Enabled Tasklists:"
+msgstr "Omogočeni seznami opravil:"
+
+#: personhandler.cpp:88
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Coworkers"
+msgstr "Sodelavci"
+
+#: personhandler.cpp:90
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Friends"
+msgstr "Prijatelji"
+
+#: personhandler.cpp:92
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "Family"
+msgstr "Družina"
+
+#: personhandler.cpp:94
+#, kde-format
+msgctxt "Name of a group of contacts"
+msgid "My Contacts"
+msgstr "Moji stiki"
+
+#: personhandler.cpp:118
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts groups"
+msgstr "Pridobivanje skupin stikov"
+
+#: personhandler.cpp:125 personhandler.cpp:131
+#, kde-format
+msgid "Other Contacts"
+msgstr "Ostali stiki"
+
+#: personhandler.cpp:172
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving contacts for group '%1'"
+msgstr "Pridobivanje stikov za skupino '%1'"
+
+#: personhandler.cpp:376
+#, kde-format
+msgctxt "@info:status"
+msgid "Adding contact to group '%1'"
+msgstr "Dodajanje stika v skupino '%1'"
+
+#: personhandler.cpp:410
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact"
+msgstr "Spreminjanje stika"
+
+#: personhandler.cpp:424
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 contact"
+msgid_plural "Removing %1 contacts"
+msgstr[0] "Odstranjevanje %1 stika"
+msgstr[1] "Odstranjevanje %1 stikov"
+msgstr[2] "Odstranjevanje %1 stikov"
+msgstr[3] "Odstranjevanje %1 stikov"
+
+#: personhandler.cpp:444
+#, kde-format
+msgid "Invalid source or destination collection"
+msgstr "Neveljavna zbirka vira ali cilja"
+
+#: personhandler.cpp:450
+#, kde-format
+msgctxt "@info:status"
+msgid "Moving %1 contact from group '%2' to '%3'"
+msgid_plural "Moving %1 contacts from group '%2' to '%3'"
+msgstr[0] "Premikanje %1 stika iz skupine '%2' v '%3'"
+msgstr[1] "Premikanje %1 stikov iz skupine '%2' v '%3'"
+msgstr[2] "Premikanje %1 stikov iz skupine '%2' v '%3'"
+msgstr[3] "Premikanje %1 stikov iz skupine '%2' v '%3'"
+
+#: personhandler.cpp:467
+#, kde-format
+msgctxt "@info:status"
+msgid "Linking %1 contact"
+msgid_plural "Linking %1 contacts"
+msgstr[0] "Povezovanje %1 stika"
+msgstr[1] "Povezovanje %1 stikov"
+msgstr[2] "Povezovanje %1 stikov"
+msgstr[3] "Povezovanje %1 stikov"
+
+#: personhandler.cpp:481
+#, kde-format
+msgctxt "@info:status"
+msgid "Unlinking %1 contact"
+msgid_plural "Unlinking %1 contacts"
+msgstr[0] "Prekinjanje povezave %1 stika"
+msgstr[1] "Prekinjanje povezav %1 stikov"
+msgstr[2] "Prekinjanje povezav %1 stikov"
+msgstr[3] "Prekinjanje povezav %1 stikov"
+
+#: personhandler.cpp:514
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new contact group '%1'"
+msgstr "Ustvarjanje nove skupine stikov '%1'"
+
+#: personhandler.cpp:535
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing contact group '%1'"
+msgstr "Spreminjanje skupine stikov '%1'"
+
+#: personhandler.cpp:560
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing contact group '%1'"
+msgstr "Odstranjevanje skupine stikov '%1'"
+
+#. i18n: ectx: label, entry (Calendars), group (General)
+#: settingsbase.kcfg:21
+#, kde-format
+msgid "IDs of calendars in collection"
+msgstr "Določilniki koledarjev v zbirki"
+
+#. i18n: ectx: label, entry (TaskLists), group (General)
+#: settingsbase.kcfg:25
+#, kde-format
+msgid "IDs of task lists in collection"
+msgstr "Določilniki seznamov opravil v zbirki"
+
+#: taskhandler.cpp:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving task lists"
+msgstr "Pridobivam seznam opravil"
+
+#: taskhandler.cpp:103
+#, kde-format
+msgctxt "@info:status"
+msgid "Retrieving tasks for list '%1'"
+msgstr "Pridobivam opravila na seznamu '%1'"
+
+#: taskhandler.cpp:195
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task in list '%1'"
+msgstr "Spreminjam opravilo na seznamu '%1'"
+
+#: taskhandler.cpp:215
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing %1 task"
+msgid_plural "Removing %1 tasks"
+msgstr[0] "Odstranjujem %1 opravilo"
+msgstr[1] "Odstranjujem %1 opravili"
+msgstr[2] "Odstranjujem %1 opravila"
+msgstr[3] "Odstranjujem %1 opravil"
+
+#: taskhandler.cpp:225
+#, kde-format
+msgid "Failed to delete task: %1"
+msgstr "Brisanje opravila ni uspelo: %1"
+
+#: taskhandler.cpp:261
+#, kde-format
+msgid "Failed to reparent subtasks: %1"
+msgstr "Prestavljanje pod-opravila drugemu nadrejenemu ni uspelo: %1"
+
+#: taskhandler.cpp:292
+#, kde-format
+msgid "Moving tasks between task lists is not supported"
+msgstr "Premikanje opravil med seznami opravil ni podprto"
+
+#: taskhandler.cpp:297
+#, kde-format
+msgctxt "@info:status"
+msgid "Creating new task list '%1'"
+msgstr "Ustvarjanje novega seznama opravil '%1'"
+
+#: taskhandler.cpp:322
+#, kde-format
+msgctxt "@info:status"
+msgid "Changing task list '%1'"
+msgstr "Spreminjanje seznama opravil '%1'"
+
+#: taskhandler.cpp:335
+#, kde-format
+msgctxt "@info:status"
+msgid "Removing task list '%1'"
+msgstr "Odstranjevanje seznama opravil '%1'"
+
+#~ msgid "Waiting for KWallet..."
+#~ msgstr "Čakanje na KWallet..."
+
+#~ msgid "Can't access KWallet"
+#~ msgstr "Ni mogoče dostopati do KWallet"
+
+#~ msgctxt "@info:status"
+#~ msgid "Retrieving %1 contact photo for group '%2'"
+#~ msgid_plural "Retrieving %1 contact photos for group '%2'"
+#~ msgstr[0] "Pridobivanje %1 fotografije za skupino '%2'"
+#~ msgstr[1] "Pridobivanje %1 fotografij za skupino '%2'"
+#~ msgstr[2] "Pridobivanje %1 fotografij za skupino '%2'"
+#~ msgstr[3] "Pridobivanje %1 fotografij za skupino '%2'"
+
+#~ msgid "Refresh"
+#~ msgstr "Osveži"
+
+#~ msgid "Aborted"
+#~ msgstr "Prekinjeno"
+
+#~ msgid "Invalid payload MIME type. Expected %1, found %2"
+#~ msgstr "Neveljavna vrsta MIME vsebine. Pričakovana: %1, najdena %2"
+
+#~ msgid "&Add"
+#~ msgstr "Dod&aj"
+
+#~ msgid "&Remove"
+#~ msgstr "Odst&rani"
+
+#~ msgid ""
+#~ "Do you really want to revoke access to account <b>%1</b>?<p>This will "
+#~ "revoke access to all resources using this account!</p>"
+#~ msgstr ""
+#~ "Ali res želite preklicati dostop do računa <b>%1</b>?<p>To prekliče "
+#~ "dostop do vseh virov, ki uporabljajo ta račun.</p>"
+
+#~ msgid "Revoke Access?"
+#~ msgstr "Prekličem dostop?"
+
+#~ msgctxt "%1 is account name (user@gmail.com)"
+#~ msgid "Google Calendars and Tasks (%1)"
+#~ msgstr "Koledarji in opravila Google (%1)"
+
+#~ msgid "The top-level collection cannot contain any tasks or events"
+#~ msgstr "Vrhnja zbirka ne more vsebovati opravil ali dogodkov"
+
+#~ msgid "Invalid payload type. Expected event or todo, got %1"
+#~ msgstr ""
+#~ "Neveljavna vrsta vsebine. Pričakovan dogodek ali opravilo, dobljen %1"
+
+#~ msgid "Unknown Account"
+#~ msgstr "Neznan račun"
+
+#~ msgid "Invalid reply"
+#~ msgstr "Neveljaven odgovor"

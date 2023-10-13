@@ -1,0 +1,170 @@
+Return-Path: <commitfilter@new.kstuff.org>
+Received: from localhost (localhost [127.0.0.1])
+	 by smykowski.kdab.net (Cyrus v2.2.12) with LMTPA;
+	 Sun, 22 Mar 2009 13:45:00 +0100
+X-Sieve: CMU Sieve 2.2
+Received: from localhost (localhost [127.0.0.1])
+	by smykowski.kdab.net (Postfix) with ESMTP id 8C4FFE6C79B
+	for <asok@kdab.net>; Sun, 22 Mar 2009 13:45:00 +0100 (CET)
+Received: from smykowski.kdab.net ([127.0.0.1])
+ by localhost (smykowski.kdab.net [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 09703-05 for <asok@kdab.net>;
+ Sun, 22 Mar 2009 13:45:00 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by smykowski.kdab.net (Postfix) with ESMTP id 163D2E6C7AF
+	for <asok@kdab.net>; Sun, 22 Mar 2009 13:45:00 +0100 (CET)
+Received: from kdeget.osuosl.org (kdeget.osuosl.org [140.211.166.77])
+	by smykowski.kdab.net (Postfix) with ESMTP id 31945E6C79E
+	for <asok@kdab.net>; Sun, 22 Mar 2009 13:44:59 +0100 (CET)
+Received: from ktown.kde.org ([131.246.120.250])
+	by kdeget.osuosl.org with smtp (Exim 4.63)
+	(envelope-from <kde-commits-bounces-+commitfilter=new.kstuff.org@kde.org>)
+	id 1LlN8R-0005Jr-VE
+	for commitfilter@new.kstuff.org; Sun, 22 Mar 2009 13:50:40 +0100
+Received: (qmail 7667 invoked by uid 72); 22 Mar 2009 12:50:33 -0000
+Received: (qmail 7658 invoked from network); 22 Mar 2009 12:50:31 -0000
+Received: from unknown (HELO office.kde.org) (195.135.221.67)
+	by ktown.kde.org with SMTP; 22 Mar 2009 12:50:29 -0000
+Received: from svn.kde.org (localhost [127.0.0.1])
+	by office.kde.org (Postfix) with SMTP id 93E9F18E
+	for <kde-commits@kde.org>; Sun, 22 Mar 2009 13:50:30 +0100 (CET)
+Received: (nullmailer pid 25707 invoked by uid 30);
+	Sun, 22 Mar 2009 12:50:30 -0000
+From: Volker Krause <vkrause@kde.org>
+To: kde-commits@kde.org
+Subject: playground/pim/akonaditest/resourcetester
+X-Commit-Directories: (0) trunk/playground/pim/akonaditest/resourcetester
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Date: Sun, 22 Mar 2009 12:50:30 +0000
+Message-Id: <1237726230.394911.25706.nullmailer@svn.kde.org>
+X-BeenThere: kde-commits@kde.org
+X-Mailman-Version: 2.1.9
+Precedence: list
+Reply-To: kde-commits@kde.org
+List-Id: Notification of KDE commits <kde-commits.kde.org>
+List-Unsubscribe: <https://mail.kde.org/mailman/listinfo/kde-commits>,
+	<mailto:kde-commits-request@kde.org?subject=unsubscribe>
+List-Post: <mailto:kde-commits@kde.org>
+List-Help: <mailto:kde-commits-request@kde.org?subject=help>
+List-Subscribe: <https://mail.kde.org/mailman/listinfo/kde-commits>,
+	<mailto:kde-commits-request@kde.org?subject=subscribe>
+X-Virus-Scanned: by amavisd-new at kdab.net
+X-Kolab-Scheduling-Message: FALSE
+X-UID: 26669
+X-Length: 5694
+Status: RO
+X-Status: RC
+X-KMail-EncryptionState:  
+X-KMail-SignatureState:  
+X-KMail-MDN-Sent:  
+
+SVN commit 942677 by vkrause:
+
+Add a safety timeout in case we do not receive the synchronized() signal
+or the resource hangs during syncing. The first seems to happen randomly
+if syncing is extremely fast.
+
+
+ M  +40 -0     resourcesynchronizationjob.cpp  
+ M  +1 -1      resourcesynchronizationjob.h  
+
+
+--- trunk/playground/pim/akonaditest/resourcetester/resourcesynchronizationjob.cpp #942676:942677
+@@ -18,12 +18,14 @@
+ #include "resourcesynchronizationjob.h"
+ 
+ #include <Akonadi/AgentInstance>
++#include <Akonadi/AgentManager>
+ 
+ #include <KDebug>
+ #include <KLocale>
+ 
+  #include <QDBusInterface>
++#include <QTimer>
+ 
+ namespace Akonadi
+ {
+@@ -31,15 +33,31 @@
+ class ResourceSynchronizationJobPrivate
+ {
+   public:
++    ResourceSynchronizationJobPrivate() :
++      interface( 0 ),
++      safetyTimer( 0 ),
++      timeoutCount( 0 )
++    {}
++
+     AgentInstance instance;
+     QDBusInterface* interface;
++    QTimer* safetyTimer;
++    int timeoutCount;
++    static int timeoutCountLimit;
+ };
+ 
++int ResourceSynchronizationJobPrivate::timeoutCountLimit = 60;
++
+ ResourceSynchronizationJob::ResourceSynchronizationJob(const AgentInstance& instance, QObject* parent) :
+   KJob( parent ),
+   d( new ResourceSynchronizationJobPrivate )
+ {
+   d->instance = instance;
++  d->safetyTimer = new QTimer( this );
++  connect( d->safetyTimer, SIGNAL(timeout()), SLOT(slotTimeout()) );
++  d->safetyTimer->setInterval( 10 * 1000 );
++  d->safetyTimer->setSingleShot( false );
++  d->safetyTimer->start();
+ }
+ 
+ ResourceSynchronizationJob::~ResourceSynchronizationJob()
+@@ -72,9 +90,31 @@
+ 
+ void ResourceSynchronizationJob::slotSynchronized()
+ {
++  disconnect( d->interface, SIGNAL(synchronized()), this, SLOT(slotSynchronized()) );
++  d->safetyTimer->stop();
+   emitResult();
+ }
+ 
++void ResourceSynchronizationJob::slotTimeout()
++{
++  d->instance = AgentManager::self()->instance( d->instance.identifier() );
++  d->timeoutCount++;
++
++  if ( d->timeoutCount > d->timeoutCountLimit ) {
++    d->safetyTimer->stop();
++    setError( UserDefinedError );
++    setErrorText( i18n( "Resource synchronization timed out." ) );
++    emitResult();
++    return;
++  }
++
++  if ( d->instance.status() == AgentInstance::Idle ) {
++    // try again, we might have lost the synchronized() signal
++    kDebug() << "trying again to sync resource" << d->instance.identifier();
++    d->instance.synchronize();
++  }
+ }
+ 
++}
++
+ #include "resourcesynchronizationjob.moc"
+--- trunk/playground/pim/akonaditest/resourcetester/resourcesynchronizationjob.h #942676:942677
+@@ -27,7 +27,6 @@
+ 
+ /**
+   Synchronizes a given resource.
+-  @todo Add safety timeouts.
+ */
+ class ResourceSynchronizationJob : public KJob
+ {
+@@ -48,6 +47,7 @@
+ 
+   private slots:
+     void slotSynchronized();
++    void slotTimeout();
+ 
+   private:
+     ResourceSynchronizationJobPrivate* const d;

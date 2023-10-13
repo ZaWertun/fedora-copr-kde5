@@ -1,0 +1,90 @@
+# Bosnian translation for bosnianuniversetranslation
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the bosnianuniversetranslation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bosnianuniversetranslation\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-01-27 03:07+0100\n"
+"PO-Revision-Date: 2013-10-26 21:00+0000\n"
+"Last-Translator: Nermina Ahmić <nahmic1@etf.unsa.ba>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-10-27 06:09+0000\n"
+"X-Generator: Launchpad (build 16810)\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: migrationagent.cpp:47
+#, kde-format
+msgctxt ""
+"Title of the window that shows the status of the migration agent and offers "
+"controls to start/stop individual migration jobs."
+msgid "Migration Status"
+msgstr "Status migracije"
+
+#: migrationexecutor.cpp:20
+#, fuzzy, kde-format
+msgctxt "User visible name of ongoing Akonadi migration jobs"
+msgid "PIM Maintenance"
+msgstr "PIM-Održavanje"
+
+#: migrationexecutor.cpp:41
+#, kde-format
+msgctxt "PIM-Maintenance is in progress."
+msgid "In progress..."
+msgstr "U toku..."
+
+#: migrationexecutor.cpp:47
+#, fuzzy, kde-format
+msgid "PIM Maintenance"
+msgstr "PIM-Održavanje"
+
+#: migrationexecutor.cpp:72
+#, kde-format
+msgctxt "PIM-Maintenance is paused."
+msgid "Paused."
+msgstr "Zaustavljen."
+
+#: migrationscheduler.cpp:145
+#, kde-format
+msgctxt "Name of the migrator in this row"
+msgid "Name"
+msgstr "Ime"
+
+#: migrationscheduler.cpp:147
+#, fuzzy, kde-format
+#| msgctxt "Progress of the mgirator in %"
+#| msgid "Progress"
+msgctxt "Progress of the migrator in %"
+msgid "Progress"
+msgstr "Napredak"
+
+#: migrationscheduler.cpp:149
+#, kde-format
+msgctxt "Current status of the migrator (done, in progress, ...)"
+msgid "Status"
+msgstr "Status"
+
+#: migrationstatuswidget.cpp:98
+#, kde-format
+msgid "Logfile"
+msgstr "Dnevnik rada"
+
+#: migrationstatuswidget.cpp:107
+#, kde-format
+msgctxt "Title of the window displaying the log of a single migration job."
+msgid "Migration Info"
+msgstr "Informacije o migraciji"
+
+#~ msgctxt "User visible name of ongoing akonadi migration jobs"
+#~ msgid "PIM-Maintenance"
+#~ msgstr "PIM održavanje"
+
+#~ msgid "PIM-Maintanence"
+#~ msgstr "PIM održavanje"

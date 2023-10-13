@@ -1,0 +1,275 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdepim-runtime package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdepim-runtime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"PO-Revision-Date: 2020-11-10 16:27+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.08.2\n"
+
+#: etesyncresource.cpp:49
+#, kde-format
+msgid "EteSync Resource"
+msgstr "EteSync-hulpbron"
+
+#: etesyncresource.cpp:187
+#, kde-format
+msgid "Temporary server error"
+msgstr "Tijdelijke serverfout"
+
+#: etesyncresource.cpp:191
+#, kde-format
+msgid "You do not have permission to perform this action."
+msgstr "U hebt niet de rechten om deze actie uit te voeren."
+
+#: etesyncresource.cpp:194
+#, kde-format
+msgid "Permission denied"
+msgstr "Toegang geweigerd"
+
+#: etesyncresource.cpp:198
+#, kde-format
+msgid "A server error occurred."
+msgstr "Er is een serverfout opgetreden."
+
+#: etesyncresource.cpp:201
+#, kde-format
+msgid "Server error"
+msgstr "Serverfout"
+
+#: etesyncresource.cpp:220
+#, kde-format
+msgid ""
+"Your EteSync credentials were changed. Please click OK to re-enter your "
+"credentials."
+msgstr ""
+"Uw credentials voor EteSync zijn gewijzigd. Klik op OK om uw credentials "
+"opnieuw in te voeren."
+
+#: etesyncresource.cpp:222
+#, kde-format
+msgid "Credentials Changed"
+msgstr "Credentials gewijzigd"
+
+#: etesyncresource.cpp:270
+#, kde-format
+msgid "Cannot retrieve items - account is null"
+msgstr "Kan items niet ophalen - account is nul"
+
+#: etesyncresource.cpp:277 etesyncresource.cpp:383 etesyncresource.cpp:456
+#: etesyncresource.cpp:514 etesyncresource.cpp:643 etesyncresource.cpp:701
+#, kde-format
+msgid "Could not get etesyncCollection from cache '%1'"
+msgstr "Kon etesyncCollection uit cache '%1' niet ophalen"
+
+#: etesyncresource.cpp:411
+#, kde-format
+msgid "Could not create new etesyncItem '%1'"
+msgstr "Kon nieuw etesyncItem '%1' niet aanmaken"
+
+#: etesyncresource.cpp:463 etesyncresource.cpp:521
+#, kde-format
+msgid "Could not get etesyncItem from cache '%1'"
+msgstr "Kon etesyncItem niet ophalen uit cache '%1'"
+
+#: etesyncresource.cpp:583
+#, kde-format
+msgid "Could not create new etesyncCollection"
+msgstr "Kon nieuw etesyncCollection niet aanmaken"
+
+#: etesyncresource.h:62
+#, kde-format
+msgid "Something went wrong"
+msgstr "Er ging iets fout"
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "URL-adres server"
+
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: etesyncresource.kcfg:11 etesyncresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the EteSync server, should be something like https://myserver.org/"
+msgstr ""
+"Het URL van de EteSync-server, moet zoiets zijn als https://mijnserver.org/"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: etesyncresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: etesyncresource.kcfg:16 etesyncresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the EteSync server"
+msgstr ""
+"De gebruikersnaam die gebruikt wordt voor aanmelding op de EteSync-server"
+
+#. i18n: ectx: label, entry (BasePath), group (General)
+#: etesyncresource.kcfg:20
+#, kde-format
+msgid "Path to base directory"
+msgstr "Pad naar basismap"
+
+#: setupwizard.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "EteSync configuration wizard"
+msgstr "EteSync-configuratie-assistent"
+
+#: setupwizard.cpp:66
+#, kde-format
+msgid "Login Credentials"
+msgstr "Aanmeldgegevens"
+
+#: setupwizard.cpp:67
+#, kde-format
+msgid "Enter your credentials to login to the EteSync server"
+msgstr "Voer uw gegevens in voor aanmelden bij de EteSync-server"
+
+#: setupwizard.cpp:76
+#, kde-format
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+#: setupwizard.cpp:81
+#, kde-format
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: setupwizard.cpp:84
+#, kde-format
+msgid "Advanced settings"
+msgstr "Geavanceerde instellingen"
+
+#: setupwizard.cpp:89
+#, kde-format
+msgid "Server:"
+msgstr "Server:"
+
+#: setupwizard.cpp:102
+#, kde-format
+msgid ""
+"🛈 The password field is empty because EteSync does not store it for security "
+"reasons."
+msgstr ""
+"🛈 Het wachtwoordveld is leeg omdat EteSync het niet opslaat om redenen van "
+"beveiliging."
+
+#: setupwizard.cpp:134
+#, kde-format
+msgid ""
+"Please ensure that the server URL is correct. The URL should start with "
+"http:// or https://."
+msgstr ""
+"Ga na dat de URL van de server juist is. De URL zou moeten beginnen met "
+"http:// of https://."
+
+#: setupwizard.cpp:136
+#, kde-format
+msgid ""
+"Could not connect to the server. Please ensure that the server URL is "
+"correct."
+msgstr ""
+"Kon geen verbinding maken met de server. Ga na dat de URL van de server "
+"juist is."
+
+#: setupwizard.cpp:138
+#, kde-format
+msgid "EteSync server not found. Please ensure that the server URL is correct."
+msgstr "EteSync server niet gevonden. Ga na dat de server-URL juist is."
+
+#~ msgid "Could not get journal"
+#~ msgstr "Kon journaal niet ophalen"
+
+#~ msgid "Received item with unknown payload %1"
+#~ msgstr "Een item ontvangen met een onbekende inhoud %1"
+
+#~ msgid "Received item of different type"
+#~ msgstr "Item met een ander type ontvangen"
+
+#~ msgid "Could not get local calendar"
+#~ msgstr "Kon geen locale agenda ophalen"
+
+#~ msgid "Could not set journal info"
+#~ msgstr "Kon geen journaalinformatie instellen"
+
+#~ msgid "Could not create vcard from payload"
+#~ msgstr "Kon geen vCard aanmaken uit verstuurde inhoud"
+
+#~ msgid "Could not create vcard from content"
+#~ msgstr "Kon geen vCard aanmaken uit inhoud"
+
+#~ msgid "Could not get local contact"
+#~ msgstr "Kon geen lokale contactpersoon ophalen"
+
+#~ msgid "My Calendar"
+#~ msgstr "Mijn agenda"
+
+#~ msgid "My Contacts"
+#~ msgstr "Mijn contactpersonen"
+
+#~ msgid "My Tasks"
+#~ msgstr "Mijn taken"
+
+#~ msgid "Invalid payload type"
+#~ msgstr "Ongeldig type inhoud"
+
+#~ msgid "Unknown collection mimetype"
+#~ msgstr "Onbekende mimetype van verzameling"
+
+#~ msgid "Password"
+#~ msgstr "Wachtwoord"
+
+#~ msgid "The password that is used to log into the EteSync server"
+#~ msgstr ""
+#~ "Het wachtwoord dat gebruikt wordt voor aanmelding op de EteSync-server"
+
+#~ msgid "Encryption Password"
+#~ msgstr "Wachtwoord voor versleutelen"
+
+#~ msgid "Encryption password for your EteSync account"
+#~ msgstr "Wachtwoord voor versleuteling voor uw EteSync-account"
+
+#~ msgid "Email:"
+#~ msgstr "E-mail:"
+
+#~ msgid "Incorrect login credentials. Please try again."
+#~ msgstr "Onjuiste credentials voor aanmelden. Probeer het nogmaals."
+
+#~ msgid "Encryption password"
+#~ msgstr "Wachtwoord voor versleutelen"
+
+#~ msgid "Enter the encryption password for your EteSync account"
+#~ msgstr "Wachtwoord voor versleuteling voor uw EteSync-account invoeren"
+
+#~ msgid "Encryption Password:"
+#~ msgstr "Wachtwoord voor versleutelen:"
+
+#~ msgid ""
+#~ "Welcome to EteSync! Please set your encryption password below, and make "
+#~ "sure you got it right, as it can't be recovered if lost!"
+#~ msgstr ""
+#~ "Welkom bij EteSync! Stel uw wachtwoord voor versleuteling onderstaand in "
+#~ "en ga na dat u het hebt onthouden, omdat het niet hersteld kan worden bij "
+#~ "verlies!"
+
+#~ msgid "Incorrect encryption password. Please try again."
+#~ msgstr "Wachtwoord voor versleuteling is onjuist. Probeer het nogmaals."

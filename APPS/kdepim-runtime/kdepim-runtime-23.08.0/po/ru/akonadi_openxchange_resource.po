@@ -1,0 +1,273 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexander Potashev <aspotashev@gmail.com>, 2010, 2011, 2017.
+# Julia Dronova <juliette.tux@gmail.com>, 2012.
+# Galym Kerimbekov <housegregory299@gmail.com>, 2012.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-24 00:45+0000\n"
+"PO-Revision-Date: 2018-10-04 11:39+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: configwidget.cpp:25
+#, kde-format
+msgid "Enter the http or https URL to your Open-Xchange installation here."
+msgstr ""
+"Введите здесь адрес http или https вашего установленного экземпляра Open-"
+"Xchange."
+
+#: configwidget.cpp:26
+#, kde-format
+msgid "Enter the username of your Open-Xchange account here."
+msgstr "Введите здесь имя пользователя для учётной записи Open-Xchange."
+
+#: configwidget.cpp:27
+#, kde-format
+msgid "Enter the password of your Open-Xchange account here."
+msgstr "Введите здесь пароль для учётной записи Open-Xchange."
+
+#: configwidget.cpp:72
+#, kde-format
+msgid "Unable to connect: %1"
+msgstr "Не удалось подключиться: %1"
+
+#: configwidget.cpp:72
+#, kde-format
+msgid "Connection error"
+msgstr "Ошибка соединения"
+
+#: configwidget.cpp:74
+#, kde-format
+msgid "Tested connection successfully."
+msgstr "Тестирование соединения прошло успешно."
+
+#: configwidget.cpp:74
+#, kde-format
+msgid "Connection success"
+msgstr "Успешно соединено"
+
+#. i18n: ectx: property (text), widget (QLabel, label_BaseUrl)
+#: configwidget.ui:29
+#, kde-format
+msgid "Server URL:"
+msgstr "Адрес сервера:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_BaseUrl)
+#. i18n: ectx: tooltip, entry (BaseUrl), group (General)
+#. i18n: ectx: whatsthis, entry (BaseUrl), group (General)
+#: configwidget.ui:39 configwidget.ui:42 openxchangeresource.kcfg:11
+#: openxchangeresource.kcfg:12
+#, kde-format
+msgid ""
+"The URL of the Open-Xchange server, should be something like https://"
+"myserver.org/"
+msgstr ""
+"Адрес сервера Open-Xchange, должен быть похож на такой: https://myserver.org/"
+
+#. i18n: ectx: property (text), widget (QLabel, label_Username)
+#: configwidget.ui:52
+#, kde-format
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Username)
+#. i18n: ectx: tooltip, entry (Username), group (General)
+#. i18n: ectx: whatsthis, entry (Username), group (General)
+#: configwidget.ui:62 configwidget.ui:65 openxchangeresource.kcfg:16
+#: openxchangeresource.kcfg:17
+#, kde-format
+msgid "The username that is used to log into the Open-Xchange server"
+msgstr "Имя пользователя для входа на сервер Open-Xchange"
+
+#. i18n: ectx: property (text), widget (QLabel, label_Password)
+#: configwidget.ui:72
+#, kde-format
+msgid "Password:"
+msgstr "Пароль:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_Password)
+#. i18n: ectx: tooltip, entry (Password), group (General)
+#. i18n: ectx: whatsthis, entry (Password), group (General)
+#: configwidget.ui:82 configwidget.ui:85 openxchangeresource.kcfg:21
+#: openxchangeresource.kcfg:22
+#, kde-format
+msgid "The password that is used to log into the Open-Xchange server"
+msgstr "Пароль для входа на сервер Open-Xchange"
+
+#. i18n: ectx: property (text), widget (QPushButton, checkConnectionButton)
+#: configwidget.ui:98
+#, kde-format
+msgid "Test Connection..."
+msgstr "Проверка подключения..."
+
+#: openxchangeresource.cpp:250
+#, kde-format
+msgid "Open-Xchange"
+msgstr "Open-Xchange"
+
+#: openxchangeresource.cpp:278
+#, kde-format
+msgid "Private Folder"
+msgstr "Личная папка"
+
+#: openxchangeresource.cpp:286
+#, kde-format
+msgid "Public Folder"
+msgstr "Общедоступная папка"
+
+#: openxchangeresource.cpp:294
+#, kde-format
+msgid "Shared Folder"
+msgstr "Папка совместного пользования"
+
+#: openxchangeresource.cpp:302
+#, kde-format
+msgid "System Folder"
+msgstr "Системная папка"
+
+#: openxchangeresource.cpp:617
+#, kde-format
+msgid "Unable to connect to server"
+msgstr "Не удалось подключиться к серверу"
+
+#: openxchangeresource.cpp:805
+#, kde-format
+msgid ""
+"The object was edited by another participant in the meantime. Please check."
+msgstr ""
+"Проверьте объект, так как он был изменён в это же время другим пользователем."
+
+#: openxchangeresource.cpp:808
+#, kde-format
+msgid ""
+"Object not found. Maybe it was deleted by another participant in the "
+"meantime."
+msgstr ""
+"Объект не найден. Возможно, он был удалён в это же время другим "
+"пользователем."
+
+#: openxchangeresource.cpp:811
+#, kde-format
+msgid "You don't have the permission to perform this action on this object."
+msgstr "Недостаточно прав для совершения данного действия над этим объектом."
+
+#: openxchangeresource.cpp:814
+#, kde-format
+msgid ""
+"A conflict detected. Please check if there are other objects in conflict "
+"with this one."
+msgstr ""
+"Обнаружена конфликтная ситуация. Проверьте наличие конфликтов между этим "
+"объектом и другими объектами."
+
+#: openxchangeresource.cpp:817
+#, kde-format
+msgid ""
+"A mandatory data field is missing. Please check. Otherwise contact your "
+"administrator."
+msgstr ""
+"Отсутствует поле с обязательными данными. Обратитесь к системному "
+"администратору."
+
+#: openxchangeresource.cpp:820
+#, kde-format
+msgid ""
+"An appointment conflict detected.\n"
+"Please check if there are other appointments in conflict with this one."
+msgstr ""
+"Обнаружен конфликт событий.\n"
+"Проверьте, нет ли других событий, конфликтующих с этим."
+
+#: openxchangeresource.cpp:823
+#, kde-format
+msgid "Internal server error. Please contact your administrator."
+msgstr "Внутренняя ошибка сервера. Обратитесь к системному администратору."
+
+#. i18n: ectx: label, entry (BaseUrl), group (General)
+#: openxchangeresource.kcfg:10
+#, kde-format
+msgid "Server URL"
+msgstr "Адрес сервера"
+
+#. i18n: ectx: label, entry (Username), group (General)
+#: openxchangeresource.kcfg:15
+#, kde-format
+msgctxt "the username to login on server"
+msgid "Username"
+msgstr "Имя пользователя"
+
+#. i18n: ectx: label, entry (Password), group (General)
+#: openxchangeresource.kcfg:20
+#, kde-format
+msgid "Password"
+msgstr "Пароль"
+
+#. i18n: ectx: label, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:26
+#, kde-format
+msgid "Use incremental updates"
+msgstr "Использовать инкрементальное обновление"
+
+#. i18n: ectx: tooltip, entry (UseIncrementalUpdates), group (General)
+#. i18n: ectx: whatsthis, entry (UseIncrementalUpdates), group (General)
+#: openxchangeresource.kcfg:27 openxchangeresource.kcfg:28
+#, kde-format
+msgid ""
+"Use incremental updates instead of reloading all data from the server each "
+"time"
+msgstr ""
+"Использовать инкрементальное обновление вместо перезагрузки всех данных с "
+"сервера"
+
+#~ msgid "Connection"
+#~ msgstr "Подключение"
+
+#~ msgid "Open-Xchange Configuration"
+#~ msgstr "Настройка Open-Xchange"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Светлана Коляда"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "kolyadas89@gmail.com"
+
+#~ msgid "About..."
+#~ msgstr "О программе..."
+
+#~ msgid "Akonadi Open-Xchange Resource"
+#~ msgstr "Ресурс Open-Xchange для Akonadi"
+
+#~ msgid "(c) 2009 by Tobias Koenig (credativ GmbH)"
+#~ msgstr "© Тобиас Кёниг (Tobias Koenig, credativ GmbH), 2009"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Тобиас Кёниг (Tobias Koenig)"
+
+#~ msgid "Current maintainer"
+#~ msgstr "Сопровождающий"
+
+#~ msgid "credativ GmbH"
+#~ msgstr "credativ GmbH"
+
+#~ msgid "Funded and supported"
+#~ msgstr "Финансирование и поддержка"

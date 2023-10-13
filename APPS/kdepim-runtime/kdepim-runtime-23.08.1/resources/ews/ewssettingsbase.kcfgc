@@ -1,0 +1,8 @@
+File=ewsresource.kcfg
+ClassName=EwsSettingsBase
+Mutators=true
+ItemAccessors=true
+SetUserTexts=true
+Singleton=false
+GlobalEnums=true
+TranslationSystem=kde

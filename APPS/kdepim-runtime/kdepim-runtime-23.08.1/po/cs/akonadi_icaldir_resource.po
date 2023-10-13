@@ -1,0 +1,124 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
+# Vít Pelčák <vit@pelcak.org>, 2016.
+# Vit Pelcak <vit@pelcak.org>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-08-25 02:27+0000\n"
+"PO-Revision-Date: 2021-07-09 11:00+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.04.2\n"
+
+#: icaldirresource.cpp:121
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Událost s uid '%1' nebyla nalezena."
+
+#: icaldirresource.cpp:135 icaldirresource.cpp:168 icaldirresource.cpp:200
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Pokus o zápis do adresáře pouze pro čtení: '%1'"
+
+#: icaldirresource.cpp:250
+#, kde-format
+msgid "Calendar Folder"
+msgstr "Složka kalendáře"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icaldirresource.kcfg:10
+#, kde-format
+msgid "Path to iCal directory"
+msgstr "Cesta k adresáři iCal"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: icaldirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Interval automatického ukládání (v minutách)."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icaldirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Neměňte data aktuálního podpůrného nástroje."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: icaldirsagentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Adresář"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: icaldirsagentsettingswidget.ui:39
+#, kde-format
+msgid "Di&rectory:"
+msgstr "Ad&resář:"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: icaldirsagentsettingswidget.ui:58
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Vyberte adresář, jehož obsah by měl odpovídat tomuto zdroji. Pokud adresář "
+"neexistuje, bude vytvořen."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: icaldirsagentsettingswidget.ui:68
+#, kde-format
+msgid "Read only"
+msgstr "Pouze ke čtení"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: icaldirsagentsettingswidget.ui:84
+#, kde-format
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"Pokud je zapnut režim pouze ke čtení, nebudou zapisovány změny. Režim pouze "
+"pro čtení bude automaticky zapnut, pokud tento soubor nepodporuje zápis."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: icaldirsagentsettingswidget.ui:108
+#, kde-format
+msgid "Tuning"
+msgstr "Ladění"
+
+#. i18n: ectx: property (text), widget (QLabel, runingLabel)
+#: icaldirsagentsettingswidget.ui:114
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Volby na této stránce vám umožní měnit parametry, které vyrovnávají "
+"bezpečnost a konzistenci dat vůči výkonu. Obecně byste měli být opatrní při "
+"změnách, výchozí hodnoty by měly postačovat ve většině případů."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: icaldirsagentsettingswidget.ui:124
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Automatické ukládání:"
+
+#: icaldirsettingswidget.cpp:36
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuta"
+msgstr[1] " minuty"
+msgstr[2] " minut"

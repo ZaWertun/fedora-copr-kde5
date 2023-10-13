@@ -1,0 +1,180 @@
+# translation of akonadi_maildispatcher_agent.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_maildispatcher_agent\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-04 00:48+0000\n"
+"PO-Revision-Date: 2012-10-18 10:11+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: maildispatcheragent.cpp:84 maildispatcheragent.cpp:233
+#, kde-format
+msgid "Sending messages (1 item in queue)..."
+msgid_plural "Sending messages (%1 items in queue)..."
+msgstr[0] "Posielam správy (1 položka vo fronte)..."
+msgstr[1] "Posielam správy (%1 položky vo fronte)..."
+msgstr[2] "Posielam správy (%1 položiek vo fronte)..."
+
+#: maildispatcheragent.cpp:94
+#, kde-format
+msgid "Sending canceled."
+msgstr "Posielanie zrušené."
+
+#: maildispatcheragent.cpp:101
+#, kde-format
+msgid "Finished sending messages."
+msgstr "Ukončené posielanie správ."
+
+#: maildispatcheragent.cpp:107
+#, kde-format
+msgctxt "Notification title when email was sent"
+msgid "E-Mail Successfully Sent"
+msgstr "E-mail úspešne odoslaný"
+
+#: maildispatcheragent.cpp:108
+#, kde-format
+msgctxt "Notification when the email was sent"
+msgid "Your E-Mail has been sent successfully."
+msgstr "Váš e-mail bol úspešne odoslaný."
+
+#: maildispatcheragent.cpp:114
+#, kde-format
+msgid "No items in queue."
+msgstr "Žiadne položky vo fronte."
+
+#: maildispatcheragent.cpp:164
+#, kde-format
+msgid "Online, sending messages in queue."
+msgstr "Online, posielam správy vo fronte."
+
+#: maildispatcheragent.cpp:168
+#, kde-format
+msgid "Offline, message sending suspended."
+msgstr "Offline, posielanie správ pozastavené."
+
+#: maildispatcheragent.cpp:193
+#, kde-format
+msgctxt "Message with given subject is being sent."
+msgid "Sending: %1"
+msgstr "Odosiela sa: %1"
+
+#: maildispatcheragent.cpp:258
+#, kde-format
+msgctxt "Notification title when email sending failed"
+msgid "E-Mail Sending Failed"
+msgstr "Poslanie e-mailu zlyhalo"
+
+#: maildispatcheragent.cpp:291
+#, kde-format
+msgid "Ready to dispatch messages."
+msgstr "Pripravený na vybavenie správ."
+
+#. i18n: ectx: label, entry (Outbox), group (General)
+#: maildispatcheragent.kcfg:10
+#, kde-format
+msgid "Outbox collection id"
+msgstr "Id kolekcie pre správy na odoslanie"
+
+#. i18n: ectx: label, entry (SentMail), group (General)
+#: maildispatcheragent.kcfg:14
+#, kde-format
+msgid "Sent Mail collection id"
+msgstr "Id kolekcie poslanej pošty"
+
+#: outboxqueue.cpp:265
+#, kde-format
+msgid "Could not access the outbox folder (%1)."
+msgstr "Nemôžem pristupovať k priečinku na odoslanie (%1)."
+
+#: sendjob.cpp:49 sendjob.cpp:50
+#, kde-format
+msgid "Message sending aborted."
+msgstr "Poslanie správy zrušené."
+
+#: sendjob.cpp:59
+#, kde-format
+msgid "Could not initiate message transport. Possibly invalid transport."
+msgstr "Nemôžem spustiť prenos správ. Možno neplatný prenos."
+
+#: sendjob.cpp:65
+#, kde-format
+msgid "Could not send message. Invalid transport."
+msgstr "Nemôžem poslať správu. Neplatný prenos."
+
+#: sendjob.cpp:97
+#, kde-format
+msgid "Failed to get D-Bus interface of resource %1."
+msgstr "Nemôžem získať rozhranie D-Bus zdroja %1."
+
+#: sendjob.cpp:110
+#, kde-format
+msgid "Invalid D-Bus reply from resource %1."
+msgstr "Neplatná odpoveď D-Bus zo zdroja %1."
+
+#: sendjob.cpp:228
+#, kde-format
+msgid "Default sent-mail folder unavailable. Keeping message in outbox."
+msgstr ""
+"Predvolený priečinok odoslanej pošty nedostupný. Ponechávam správy v "
+"priečinku na odoslanie."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Message transport aborted."
+msgstr "Prenos správy zrušený."
+
+#: sendjob.cpp:240
+#, kde-format
+msgid "Failed to transport message."
+msgstr "Zlyhal prenos správy."
+
+#: sendjob.cpp:282
+#, kde-format
+msgid "Failed to get D-Bus interface of mailfilteragent."
+msgstr "Zlyhalo získanie rozhrania D-Bus pre mailfilteragent."
+
+#: sendjob.cpp:289
+#, kde-format
+msgid "Invalid D-Bus reply from mailfilteragent"
+msgstr "Neplatná odpoveď D-Bus od mailfilteragent"
+
+#: sendjob.cpp:331
+#, kde-format
+msgid "Sending succeeded, but failed to remove the message from the outbox."
+msgstr ""
+"Odoslanie úspešné, ale zlyhalo odstránenie správy z priečinka na odoslanie."
+
+#: sendjob.cpp:334
+#, kde-format
+msgid ""
+"Sending succeeded, but failed to move the message to the sent-mail folder."
+msgstr ""
+"Odoslanie úspešné, ale zlyhal prenos správy do priečinka odoslanej pošty."
+
+#: sendjob.cpp:370
+#, kde-format
+msgid "Failed to store result in item."
+msgstr "Zlyhalo uloženie výsledku do položky."
+
+#: storeresultjob.cpp:59
+#, kde-format
+msgid "Failed to fetch item."
+msgstr "Zlyhalo stiahnutie položky."
+
+#~ msgid "Mail Dispatcher Agent Settings"
+#~ msgstr "Nastavenia agenta odosielateľa správ"
+
+#~ msgid "Select the collection to be used as outbox:"
+#~ msgstr "Vyberte kolekciu na použitie pre správy na odoslanie:"
+
+#~ msgid "Select the collection to move sent messages into:"
+#~ msgstr "Vyberte kolekciu, kam presunúť odoslané správy:"

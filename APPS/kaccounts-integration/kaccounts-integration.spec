@@ -1,5 +1,5 @@
 Name:    kaccounts-integration
-Version: 23.08.1
+Version: 23.08.2
 Release: 1%{?dist}
 Summary: Small system to administer web accounts across the KDE desktop
 License: GPLv2+
@@ -110,6 +110,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/kcm_kaccounts.des
 
 
 %changelog
+* Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
+- 23.08.2
+
 * Thu Sep 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.1-1
 - 23.08.1
 

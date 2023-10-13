@@ -1,0 +1,42 @@
+# Translation of accountwizard_pop3 to Norwegian Bokmål
+#
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2010-05-31 08:52+0200\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: pop3wizard.es:10
+msgid "Personal Settings"
+msgstr "Personlige innstillinger"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: pop3wizard.ui:21
+#, kde-format
+msgid "Username:"
+msgstr "Brukernavn:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: pop3wizard.ui:28
+#, kde-format
+msgid "Incoming server:"
+msgstr "Tjener for innkommende post:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: pop3wizard.ui:38
+#, kde-format
+msgid "Outgoing server:"
+msgstr "Tjener for utgående post:"

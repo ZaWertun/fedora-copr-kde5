@@ -1,0 +1,29 @@
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: accountwizard_contacts\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-08-15 02:21+0200\n"
+"PO-Revision-Date: 2017-05-21 11:24-0400\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: contactswizard.es.cmake:7
+msgid "Settings"
+msgstr "הגדרות"
+
+#: contactswizard.es.cmake:25
+msgid "Local Contacts"
+msgstr "אנשי קשר מקומיים"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: contactswizard.ui:19
+#, kde-format
+msgid "Filename:"
+msgstr "שם קובץ:"

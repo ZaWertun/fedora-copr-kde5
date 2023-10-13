@@ -1,0 +1,128 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_icaldir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-11-25 00:29+0000\n"
+"PO-Revision-Date: 2022-04-05 13:20+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+"X-POOTLE-MTIME: 1502203052.000000\n"
+
+#: icaldirresource.cpp:119
+#, kde-format
+msgid "Incidence with uid '%1' not found."
+msgstr "Kullanıcı kimliği '%1' olan olay bulunamadı."
+
+#: icaldirresource.cpp:133 icaldirresource.cpp:166 icaldirresource.cpp:198
+#, kde-format
+msgid "Trying to write to a read-only directory: '%1'"
+msgstr "Saltokunur bir dizine yazılmaya çalışılıyor: '%1'"
+
+#: icaldirresource.cpp:248
+#, kde-format
+msgid "Calendar Folder"
+msgstr "Takvim Klasörü"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: icaldirresource.kcfg:10
+#, kde-format
+msgid "Path to iCal directory"
+msgstr "iCal dizininin yolu"
+
+#. i18n: ectx: label, entry (AutosaveInterval), group (General)
+#: icaldirresource.kcfg:14
+#, kde-format
+msgid "Autosave interval time (in minutes)."
+msgstr "Dakika türünden otomatik kaydetme aralığı."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: icaldirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Güncel arka uç verilerini değiştirme."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: icaldirsagentsettingswidget.ui:33
+#, kde-format
+msgid "Directory"
+msgstr "Dizin"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: icaldirsagentsettingswidget.ui:39
+#, kde-format
+msgid "Di&rectory:"
+msgstr "Di%zin:"
+
+#. i18n: ectx: property (text), widget (QLabel, pathLabel)
+#: icaldirsagentsettingswidget.ui:58
+#, kde-format
+msgid ""
+"Select the directory whose contents should be represented by this resource. "
+"If the directory does not exist, it will be created."
+msgstr ""
+"Bu özkaynak tarafından sağlanacak içeriğin bulunduğu dizini seçin. Dizin "
+"mevcut değilse oluşturulacaktır."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: icaldirsagentsettingswidget.ui:68
+#, kde-format
+msgid "Read only"
+msgstr "Saltokunur"
+
+#. i18n: ectx: property (text), widget (QLabel, readOnlyLabel)
+#: icaldirsagentsettingswidget.ui:84
+#, kde-format
+msgid ""
+"When read-only mode is enabled, no changes will be written. Read-only mode "
+"is automatically enabled when the selected file does not support write "
+"access."
+msgstr ""
+"Saltokunur kipi etkinse hiçbir değişiklik yapılmayacak. Seçili dosya yazma "
+"erişimine sahip değilse saltokunur kipi otomatik olarak etkinleştirilecek."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: icaldirsagentsettingswidget.ui:108
+#, kde-format
+msgid "Tuning"
+msgstr "Ayarlama"
+
+#. i18n: ectx: property (text), widget (QLabel, runingLabel)
+#: icaldirsagentsettingswidget.ui:114
+#, kde-format
+msgid ""
+"The options on this page allow you to change parameters that balance data "
+"safety and consistency against performance. In general you should be careful "
+"with changing anything here, the defaults are good enough in most cases."
+msgstr ""
+"Bu sayfadaki seçenekler veri güvenliği ve tutarlılığı arasındaki dengeyi "
+"sağlayan parametreleri değiştirmenize izin verir. Öntanımlı seçenekler çoğu "
+"durumda yeterince iyidir ve değiştirmeniz önerilmez."
+
+#. i18n: ectx: property (text), widget (QLabel, autosaveLabel)
+#: icaldirsagentsettingswidget.ui:124
+#, kde-format
+msgid "Autosave delay:"
+msgstr "Otomatik kaydetme gecikmesi:"
+
+#: icaldirsettingswidget.cpp:36
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " dakika"
+msgstr[1] " dakika"
+
+#~ msgid "Directory Name"
+#~ msgstr "Dizin Adı"
+
+#~ msgid "Access Rights"
+#~ msgstr "Erişim Hakları"

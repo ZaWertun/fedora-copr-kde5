@@ -1,0 +1,5 @@
+{
+    "X-Akonadi-PluginType": "AgentConfig",
+    "X-Akonadi-Library": "akonotesconfig",
+    "X-Akonadi-AgentConfig-Type": "akonadi_akonotes_resource"
+}

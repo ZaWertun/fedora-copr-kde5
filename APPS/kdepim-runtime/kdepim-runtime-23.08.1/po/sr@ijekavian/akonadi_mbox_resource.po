@@ -1,0 +1,316 @@
+# Translation of akonadi_mbox_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_mbox_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-06-21 03:22+0200\n"
+"PO-Revision-Date: 2014-04-05 22:19+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: compactpage.cpp:87
+#, kde-format
+msgid "(1 message marked for deletion)"
+msgid_plural "(%1 messages marked for deletion)"
+msgstr[0] "(%1 порука означена за брисање)"
+msgstr[1] "(%1 поруке означене за брисање)"
+msgstr[2] "(%1 порука означено за брисање)"
+msgstr[3] "(%1 порука означена за брисање)"
+
+#: compactpage.cpp:95
+#, kde-format
+msgid "Failed to fetch the collection."
+msgstr "Не могу да добавим збирку."
+
+#: compactpage.cpp:112
+#, kde-format
+msgid "Failed to load the mbox file"
+msgstr "Не могу да добавим мбокс фајл."
+
+#: compactpage.cpp:114
+#, kde-format
+msgid "(Deleting 1 message)"
+msgid_plural "(Deleting %1 messages)"
+msgstr[0] "(Бришем %1 поруку)"
+msgstr[1] "(Бришем %1 поруке)"
+msgstr[2] "(Бришем %1 порука)"
+msgstr[3] "(Бришем %1 поруку)"
+
+#: compactpage.cpp:127 compactpage.cpp:135
+#, kde-format
+msgid "Failed to compact the mbox file."
+msgstr "Не могу да сажмем мбокс фајл."
+
+#: compactpage.cpp:137
+#, kde-format
+msgid "MBox file compacted."
+msgstr "Мбокс фајл сажет."
+
+# rewrite-msgid: /the actual file/the actual file on disk/
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: compactpage.ui:23
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">The only way to fully "
+"remove a mail from an mbox file is by removing it from the actual file. As "
+"this can be a rather expensive operation, the mbox resource keeps a list of "
+"deleted messages. Once in a while these messages are really removed from the "
+"file.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Note:</span> The downside of this is that if the file is "
+"changed by another program, the list of deleted messages cannot be trusted "
+"any longer and deleted messages might reappear.</p></body></html>"
+msgstr ""
+"<html><p>Једини начин да се порука из мбокс фајла потпуно уклони, јесте да "
+"се уклони из самог фајла на диску. Пошто ово може бити прилично скуп "
+"поступак, мбокс ресурс одржава списак обрисаних порука, па их повремено "
+"заиста уклања из фајла.</p><p><b>Напомена</b>: Мана овога је у томе што ако "
+"неки други програм измени фајл, списак обрисаних порука више није поуздан и "
+"оне се могу поново појавити.</p></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, compactButton)
+#: compactpage.ui:49
+#, kde-format
+msgid "&Compact now"
+msgstr "&Сажми сада"
+
+#. i18n: ectx: property (text), widget (QRadioButton, never)
+#: compactpage.ui:79
+#, kde-format
+msgid "&Never compact automatically"
+msgstr "&Никада не сажимај аутоматски"
+
+#. i18n: ectx: property (text), widget (QRadioButton, per_x_messages)
+#: compactpage.ui:86
+#, kde-format
+msgid "C&ompact every"
+msgstr "Сажимај сва&ких"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_MessageCount)
+#: compactpage.ui:96
+#, kde-format
+msgid "msg"
+msgstr "пор."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LockFilePage)
+#: lockfilepage.ui:15
+#, kde-format
+msgid "MBox Settings"
+msgstr "Поставке мбокса"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: lockfilepage.ui:27
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Select a method to lock "
+"the mbox file when data is read from or written to the file.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"weight:600;\">Note</span>: For some methods you might need to install "
+"additional software before they can be used.</p></body></html>"
+msgstr ""
+"<html><p>Изаберите метод закључавања мбокс фајла када се из њега читају или "
+"у њега уписују подаци.</p><p><b>Напомена</b>: Неки од метода захтевају да се "
+"инсталира додатан софтвер.</p></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, procmail)
+#: lockfilepage.ui:43
+#, kde-format
+msgid "Procmail loc&kfile"
+msgstr "Прокмејлов &забравни фајл"
+
+# mutt_dotlock је наредба која стиже уз Мат
+#. i18n: ectx: property (text), widget (QRadioButton, mutt_dotlock)
+#: lockfilepage.ui:53
+#, kde-format
+msgid "&Mutt dotlock"
+msgstr "&Матова mutt_dotlock"
+
+# mutt_dotlock је наредба која стиже уз Мат
+#. i18n: ectx: property (text), widget (QRadioButton, mutt_dotlock_privileged)
+#: lockfilepage.ui:60
+#, kde-format
+msgid "M&utt dotlock privileged"
+msgstr "Матова mutt_dotlock &привилегована"
+
+# >> No mbox file locking
+#. i18n: ectx: property (text), widget (QRadioButton, none)
+#: lockfilepage.ui:67
+#, kde-format
+msgid "Non&e"
+msgstr "Без закључавања"
+
+# >> Name of the mbox lock file
+# literal-segment: lock
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Lockfile)
+#: lockfilepage.ui:84
+#, kde-format
+msgid ".lock"
+msgstr ".lock"
+
+# rewrite-msgid: /configuration//
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: lockfilepage.ui:92
+#, kde-format
+msgid ""
+"None, the default configuration, should be safe in most cases.  However, if "
+"programs that do not make use of Akonadi are also accessing the configured "
+"mbox file, you will need to set an appropriate locking method. Note that if "
+"this is the case, the resource and the other programs must all use the same "
+"locking method."
+msgstr ""
+"Без закључавања, што је подразумевано, требало би да буде безбедно у већини "
+"случајева. Међутим, ако подешеном мбокс фајлу приступају и програми који не "
+"користе Аконади, мораћете да изаберете одговарајући метод закључавања. "
+"Пазите тада да и овај ресурс и сви други програми користе исти метод "
+"закључавања."
+
+#: mboxconfig.cpp:33
+#, fuzzy, kde-format
+#| msgid "MBox file compacted."
+msgctxt "Filedialog filter for *.mbox"
+msgid "MBox file"
+msgstr "Мбокс фајл сажет."
+
+#: mboxconfig.cpp:34
+#, kde-format
+msgid "Compact frequency"
+msgstr "Учестаност сажимања"
+
+#: mboxconfig.cpp:35
+#, kde-format
+msgid "Lock method"
+msgstr "Метод закључавања"
+
+#: mboxresource.cpp:101 mboxresource.cpp:155 mboxresource.cpp:194
+#, kde-format
+msgctxt "@info:status"
+msgid "MBox not configured."
+msgstr "Мбокс није подешен."
+
+#: mboxresource.cpp:151 mboxresource.cpp:190
+#, kde-format
+msgid "MBox not loaded."
+msgstr "Мбокс није учитан."
+
+#: mboxresource.cpp:166
+#, kde-format
+msgid "Failed to read message with uid '%1'."
+msgstr "Не могу да прочитам поруку са УИД‑ом „%1“."
+
+#: mboxresource.cpp:200
+#, kde-format
+msgid "Only email messages can be added to the MBox resource."
+msgstr "Само се поруке е‑поште могу додавати у мбокс ресурс."
+
+#: mboxresource.cpp:206
+#, kde-format
+msgid "Mail message not added to the MBox."
+msgstr "Поштанска порука није додата у мбокс."
+
+#: mboxresource.cpp:249
+#, kde-format
+msgid "Could not fetch the collection: %1"
+msgstr "Не могу да добавим збирку: %1"
+
+#: mboxresource.cpp:279
+#, kde-format
+msgid ""
+"The MBox file was changed by another program. A copy of the new file was "
+"made and pending changes are appended to that copy. To prevent this from "
+"happening use locking and make sure that all programs accessing the mbox use "
+"the same locking method."
+msgstr ""
+"Неки други програм је изменио мбокс фајл. Начињена је копија новог фајла и "
+"све наступајуће измене надовезане су на ту копију. Да бисте ово спречили "
+"убудуће, активирајте закључавање и обезбедите да сви програм који приступају "
+"мбоксу користе исти метод закључавања."
+
+#: mboxresource.cpp:310
+#, kde-format
+msgid "Failed to save mbox file to %1"
+msgstr "Не могу да сачувам мбокс фајл у %1."
+
+#: mboxresource.cpp:369
+#, kde-format
+msgid ""
+"Failed to update the changed item because the old item could not be deleted "
+"Reason: %1"
+msgstr ""
+"Не могу да ажурирам измењену ставку зато што се старија ставка не може "
+"обрисати. Разлог: %1"
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mboxresource.kcfg:10
+#, kde-format
+msgid "Path to mbox file."
+msgstr "Путања до мбокс фајла."
+
+#. i18n: ectx: label, entry (DisplayName), group (General)
+#: mboxresource.kcfg:14
+#, kde-format
+msgid "Display name."
+msgstr "Приказно име."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mboxresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Не мијењај заиста позадинске податке."
+
+#. i18n: ectx: label, entry (MonitorFile), group (General)
+#: mboxresource.kcfg:22
+#, kde-format
+msgid "Monitor file for changes."
+msgstr "Надгледај фајл за изменама"
+
+#. i18n: ectx: label, entry (Lockfile), group (Locking)
+#: mboxresource.kcfg:37
+#, kde-format
+msgid "Lockfile"
+msgstr "Забравни фајл"
+
+#. i18n: ectx: label, entry (MessageCount), group (Compacting)
+#: mboxresource.kcfg:50
+#, kde-format
+msgid "Number of deleted messages before a purge is started."
+msgstr "Број обрисаних порука на који почиње прочишћавање."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: wizard/mailboxwizard.ui:19
+#, kde-format
+msgid "URL:"
+msgstr "УРЛ:"

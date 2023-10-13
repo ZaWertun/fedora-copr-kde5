@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:kcfg="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile arg="true" />
+  <group name="General">
+    <entry name="BaseUrl" type="String">
+      <label>Server URL</label>
+      <tooltip>The URL of the Open-Xchange server, should be something like https://myserver.org/</tooltip>
+      <whatsthis>The URL of the Open-Xchange server, should be something like https://myserver.org/</whatsthis>
+    </entry>
+    <entry name="Username" type="String">
+      <label context="the username to login on server">Username</label>
+      <tooltip>The username that is used to log into the Open-Xchange server</tooltip>
+      <whatsthis>The username that is used to log into the Open-Xchange server</whatsthis>
+    </entry>
+    <entry name="Password" type="Password">
+      <label>Password</label>
+      <tooltip>The password that is used to log into the Open-Xchange server</tooltip>
+      <whatsthis>The password that is used to log into the Open-Xchange server</whatsthis>
+    </entry>
+    <entry name="UseIncrementalUpdates" type="Bool">
+      <default>true</default>
+      <label>Use incremental updates</label>
+      <tooltip>Use incremental updates instead of reloading all data from the server each time</tooltip>
+      <whatsthis>Use incremental updates instead of reloading all data from the server each time</whatsthis>
+    </entry>
+    <entry name="FoldersLastSync" type="ULongLong">
+      <default>0</default>
+    </entry>
+    <entry name="ObjectsLastSync" type="String"/>
+  </group>
+</kcfg>

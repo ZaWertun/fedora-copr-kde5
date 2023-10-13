@@ -1,0 +1,279 @@
+# Translation of akonadi_mixedmaildir_resource.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: akonadi_mixedmaildir_resource\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-06-21 03:22+0200\n"
+"PO-Revision-Date: 2014-08-30 19:03+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavianlatin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: configwidget.cpp:42
+#, kde-format
+msgid "The selected path is empty."
+msgstr "Izabrana putanja je prazna."
+
+#: configwidget.cpp:55
+#, kde-format
+msgid "The selected path contains valid Maildir folders."
+msgstr "Izabrana putanja sadrži dobre maildir fascikle."
+
+#: configwidget.cpp:62
+#, kde-format
+msgid "The selected path is a valid Maildir."
+msgstr "Izabrana putanja sadrži dobar maildir."
+
+#: configwidget.cpp:68
+#, kde-format
+msgid "The selected path does not exist yet, a new Maildir will be created."
+msgstr "Izabrana putanja još ne postoji, napraviće se novi maildir."
+
+#: configwidget.cpp:71
+#, kde-format
+msgid "The selected path does not exist."
+msgstr "Izabrana putanja ne postoji."
+
+#: mixedmaildirresource.cpp:118 mixedmaildirresource.cpp:133
+#: mixedmaildirresource.cpp:164 mixedmaildirresource.cpp:193
+#: mixedmaildirresource.cpp:208 mixedmaildirresource.cpp:223
+#: mixedmaildirresource.cpp:255 mixedmaildirresource.cpp:268
+#: mixedmaildirresource.cpp:295 mixedmaildirresource.cpp:326
+#: mixedmaildirresource.cpp:354
+#, kde-format
+msgctxt "@info:status"
+msgid "Unusable configuration."
+msgstr "Neupotrebljiva postava."
+
+#: mixedmaildirresource.cpp:186
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"Item %1 belongs to invalid collection %2. Maybe it was deleted meanwhile?"
+msgstr "Stavka %1 pripada lošoj zbirci %2. Možda je u međuvremenu obrisana?"
+
+#: mixedmaildirresource.cpp:217
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folders"
+msgstr "Sinhronizujem fascikle e‑pošte"
+
+#: mixedmaildirresource.cpp:232
+#, kde-format
+msgctxt "@info:status"
+msgid "Synchronizing email folder %1"
+msgstr "Sinhronizujem fasciklu e‑pošte %1"
+
+#: mixedmaildirresource.cpp:333
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move root maildir folder '%1'."
+msgstr "Ne mogu da premestim korenu maildir fasciklu „%1“."
+
+#: mixedmaildirresource.cpp:361
+#, kde-format
+msgid "Cannot delete top-level maildir folder '%1'."
+msgstr "Ne mogu da obrišem maildir fasciklu na vrhu „%1“."
+
+#: mixedmaildirresource.cpp:375
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create maildir '%1'."
+msgstr "Ne mogu da napravim maildir „%1“."
+
+#: mixedmaildirresource.cpp:387
+#, kde-format
+msgctxt "@info:status"
+msgid "No usable storage location configured."
+msgstr "Nije podešena upotrebljiva lokacija skladištenja."
+
+#. i18n: ectx: label, entry (Path), group (General)
+#: mixedmaildirresource.kcfg:10
+#, kde-format
+msgid "Path to KMail mail folder"
+msgstr "Putanja do K‑poštine poštanske fascikle"
+
+#. i18n: ectx: label, entry (TopLevelIsContainer), group (General)
+#: mixedmaildirresource.kcfg:14
+#, kde-format
+msgid ""
+"Path points to a folder containing Maildirs instead of to a maildir itself."
+msgstr ""
+"Putanja vodi do fascikle koja sadrži maildirove umesto do samog maildira."
+
+#. i18n: ectx: label, entry (ReadOnly), group (General)
+#: mixedmaildirresource.kcfg:18
+#, kde-format
+msgid "Do not change the actual backend data."
+msgstr "Ne mijenjaj zaista pozadinske podatke."
+
+#: mixedmaildirstore.cpp:571
+#, kde-format
+msgctxt "@info:status"
+msgid "Given folder name is empty"
+msgstr "Dato je prazno ime fascikle."
+
+#: mixedmaildirstore.cpp:608 mixedmaildirstore.cpp:628
+#, kde-format
+msgctxt "@info:status"
+msgid "Folder %1 does not seem to be a valid email folder"
+msgstr "Fascikla %1 ne izgleda kao dobra fascikla e‑pošte."
+
+#: mixedmaildirstore.cpp:1010
+#, kde-format
+msgctxt "@info:status"
+msgid "Unhandled operation %1"
+msgstr "Neobrađen postupak %1."
+
+#: mixedmaildirstore.cpp:1023 mixedmaildirstore.cpp:1037
+#: mixedmaildirstore.cpp:1045 mixedmaildirstore.cpp:1054
+#: mixedmaildirstore.cpp:1066
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot create folder %1 inside folder %2"
+msgstr "Ne mogu da napravim fasciklu %1 unutar fascikle %2."
+
+#: mixedmaildirstore.cpp:1095 mixedmaildirstore.cpp:1105
+#: mixedmaildirstore.cpp:1114 mixedmaildirstore.cpp:1122
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove folder %1 from folder %2"
+msgstr "Ne mogu da uklonim fasciklu %1 iz fascikle %2."
+
+#: mixedmaildirstore.cpp:1159 mixedmaildirstore.cpp:1702
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load MBox folder %1"
+msgstr "Ne mogu da učitam mbox fasciklu %1."
+
+#: mixedmaildirstore.cpp:1224 mixedmaildirstore.cpp:1241
+#: mixedmaildirstore.cpp:1277 mixedmaildirstore.cpp:1286
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot rename folder %1"
+msgstr "Ne mogu da preimenujem fasciklu %1."
+
+#: mixedmaildirstore.cpp:1347 mixedmaildirstore.cpp:1361
+#: mixedmaildirstore.cpp:1379 mixedmaildirstore.cpp:1419
+#: mixedmaildirstore.cpp:1430 mixedmaildirstore.cpp:1462
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 from folder %2 to folder %3"
+msgstr "Ne mogu da premestim fasciklu %1 iz fascikle %2 u %3."
+
+#: mixedmaildirstore.cpp:1503 mixedmaildirstore.cpp:1518
+#: mixedmaildirstore.cpp:1544 mixedmaildirstore.cpp:1575
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add emails to folder %1"
+msgstr "Ne mogu da dodam poruke u fasciklu %1."
+
+#: mixedmaildirstore.cpp:1599 mixedmaildirstore.cpp:1612
+#: mixedmaildirstore.cpp:1627 mixedmaildirstore.cpp:1660
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot remove emails from folder %1"
+msgstr "Ne mogu da uklonim poruke iz fascikle %1."
+
+#: mixedmaildirstore.cpp:1730 mixedmaildirstore.cpp:1771
+#, kde-format
+msgctxt "@info:status"
+msgid "Error while reading mails from folder %1"
+msgstr "Greška prilikom poruka iz fascikle %1."
+
+#: mixedmaildirstore.cpp:1751
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to load Maildirs folder %1"
+msgstr "Ne mogu da učitam maildir fasciklu %1."
+
+#: mixedmaildirstore.cpp:1812 mixedmaildirstore.cpp:1825
+#: mixedmaildirstore.cpp:1840 mixedmaildirstore.cpp:1878
+#: mixedmaildirstore.cpp:1903
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1"
+msgstr "Ne mogu da izmenim poruke u fascikli %1."
+
+#: mixedmaildirstore.cpp:1938
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify emails in folder %1. %2"
+msgstr "Ne mogu da izmenim poruke u fascikli %1. %2"
+
+#: mixedmaildirstore.cpp:1964 mixedmaildirstore.cpp:1997
+#: mixedmaildirstore.cpp:2023
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails from folder %1"
+msgstr "Ne mogu da premestim poruke u fasciklu %1."
+
+#: mixedmaildirstore.cpp:1979 mixedmaildirstore.cpp:2009
+#: mixedmaildirstore.cpp:2058 mixedmaildirstore.cpp:2083
+#: mixedmaildirstore.cpp:2091 mixedmaildirstore.cpp:2175
+#: mixedmaildirstore.cpp:2200
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move emails to folder %1"
+msgstr "Ne mogu da premestim poruke u fasciklu %1."
+
+#: mixedmaildirstore.cpp:2033 mixedmaildirstore.cpp:2138
+#: mixedmaildirstore.cpp:2162
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1"
+msgstr "Ne mogu da premestim e‑poštu iz fascikle %1."
+
+#: mixedmaildirstore.cpp:2115 mixedmaildirstore.cpp:2226
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move email from folder %1 to folder %2"
+msgstr "Ne mogu da premestim e‑poštu iz fascikle %1 u fasciklu %2."
+
+# rewrite-msgid: /subfolder tree/subfolders/
+#: mixedmaildirstore.cpp:2382
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move folder %1 into one of its own subfolder tree"
+msgstr "Ne mogu da premestim fasciklu %1 u jednu od njenih potfascikli."
+
+# rewrite-msgid: /add email/add message/
+#: mixedmaildirstore.cpp:2394
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot add email to folder %1 because there is no email content"
+msgstr "Ne mogu da dodam poruku u fasciklu %1 zato što nema sadržaja e‑pošte."
+
+# rewrite-msgid: /modify email/modify message/
+#: mixedmaildirstore.cpp:2402
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot modify email in folder %1 because there is no email content"
+msgstr "Ne mogu da izmenim poruku u fascikli %1 zato što nema sadržaj e‑pošte."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: settings.ui:15
+#, kde-format
+msgid "Mail Directory Settings"
+msgstr "Postavke maildir fascikle"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings.ui:21
+#, kde-format
+msgid "Select the folder containing the maildir information:"
+msgstr "Izaberite fasciklu sa podacima o maildiru:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReadOnly)
+#: settings.ui:31
+#, kde-format
+msgid "Open in read-only mode"
+msgstr "Otvori samo za čitanje"

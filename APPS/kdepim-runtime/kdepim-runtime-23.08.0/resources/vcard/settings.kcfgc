@@ -1,0 +1,9 @@
+File=vcardresource.kcfg
+ClassName=Settings
+Mutators=true
+ItemAccessors=true
+SetUserTexts=true
+Singleton=false
+GlobalEnums=true
+NameSpace=Akonadi_VCard_Resource
+TranslationSystem=kde
