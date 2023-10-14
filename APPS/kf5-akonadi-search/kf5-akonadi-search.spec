@@ -90,11 +90,12 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 %files -f %{name}.lang
 %doc README.md
 %license LICENSES/*.txt
+%{_kf5_bindir}/akonadi_html_to_text
+%{_kf5_bindir}/akonadi_indexing_agent
 %{_kf5_libdir}/libKPim5AkonadiSearchPIM.so.*
 %{_kf5_libdir}/libKPim5AkonadiSearchCore.so.*
 %{_kf5_libdir}/libKPim5AkonadiSearchXapian.so.*
 %{_kf5_libdir}/libKPim5AkonadiSearchDebug.so.*
-%{_kf5_bindir}/akonadi_indexing_agent
 %{_kf5_datadir}/akonadi/agents/akonadiindexingagent.desktop
 %{_kf5_plugindir}/krunner/krunner_pimcontacts.so
 %{_kf5_plugindir}/krunner/kcms/kcm_krunner_pimcontacts.so
