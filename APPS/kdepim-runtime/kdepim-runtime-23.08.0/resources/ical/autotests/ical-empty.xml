@@ -1,6 +1,0 @@
-<knut>
-  <collection content="text/calendar,application/x-vnd.akonadi.calendar.event,application/x-vnd.akonadi.calendar.todo,application/x-vnd.akonadi.calendar.journal,application/x-vnd.akonadi.calendar.freebusy" rid="newical.ics" name="akonadi_ical_resource_97" >
-    <attribute type="ENTITYDISPLAY" >("newical.ics" "office-calendar")</attribute>
-    <attribute type="AccessRights" >wcdW</attribute>
-  </collection>
-</knut>

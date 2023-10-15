@@ -1,9 +1,0 @@
-File=notesresource.kcfg
-ClassName=Settings
-Mutators=true
-ItemAccessors=true
-SetUserTexts=true
-Singleton=false
-GlobalEnums=true
-NameSpace=Akonadi_Aknotes_Resource
-TranslationSystem=kde

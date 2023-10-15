@@ -1,7 +1,0 @@
-Migrated to git using the following:
-
-svn2git: http://gitorious.org/svn2git version: 409d8bc4cbaade82672f251c45178c3cfed4619d
-kde-ruleset: http://projects.kde.org/projects/playground/sdk/kde-ruleset/ version: d71b11d9434d951bdaaff0f7cd3de9dcae000018
-kde svn repo synced at revision: 1208541
-
-command: time ionice -c3 nice svn-all-fast-export --identity-map ../kde-ruleset/account-map --rules ../kde-ruleset/kdepim-runtime-rules --add-metadata --debug-rules --stats --svn-branches ../svn/

@@ -1,6 +1,0 @@
-File=settingsbase.kcfg
-ClassName=SettingsBase
-Mutators=true
-ItemAccessors=true
-Singleton=false
-GlobalEnums=true

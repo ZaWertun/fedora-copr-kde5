@@ -1,6 +1,0 @@
-# Code generation options for kconfig_compiler
-File=newmailnotifieragentsettings.kcfg
-ClassName=NewMailNotifierAgentSettings
-Mutators=true
-Singleton=true
-ItemAccessors=true
