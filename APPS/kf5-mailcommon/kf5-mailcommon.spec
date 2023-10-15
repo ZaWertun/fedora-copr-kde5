@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 23.08.2
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: Mail applications support library
 
 License: GPLv2
@@ -50,7 +50,7 @@ BuildRequires:  cmake(KF5XmlGui)
 BuildRequires:  cmake(KF5SyntaxHighlighting)
 BuildRequires:  cmake(Grantlee5)
 
-BuildRequires:  cmake(KF5TextAutoCorrection)
+BuildRequires:  cmake(KF5TextAutoCorrectionCore)
 
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
@@ -117,6 +117,9 @@ Requires:       cmake(KPim5PimCommon)
 
 
 %changelog
+* Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
+- rebuilt
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

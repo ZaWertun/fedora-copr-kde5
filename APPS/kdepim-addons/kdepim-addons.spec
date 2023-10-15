@@ -2,7 +2,7 @@
 
 Name:    kdepim-addons
 Version: 23.08.2
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
 License: GPLv2 and LGPLv2+
@@ -43,7 +43,7 @@ BuildRequires:  cmake(KF5Holidays)
 BuildRequires:  cmake(KF5Prison)
 BuildRequires:  cmake(KF5XmlGui)
 
-BuildRequires:  cmake(KF5TextAutoCorrection)
+BuildRequires:  cmake(KF5TextAutoCorrectionCore)
 
 BuildRequires:  cmake(KPim5Akonadi)
 BuildRequires:  cmake(KPim5AkonadiNotes)
@@ -255,6 +255,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
+- rebuilt
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

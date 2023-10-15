@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 23.08.2
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: KDE Message libraries
 
 License: GPLv2
@@ -53,7 +53,7 @@ BuildRequires:  kf5-kxmlgui-devel >= %{kf5_ver}
 BuildRequires:  cmake(KF5SyntaxHighlighting)
 BuildRequires:  cmake(KF5NewStuff)
 
-BuildRequires:  cmake(KF5TextAutoCorrection)
+BuildRequires:  cmake(KF5TextAutoCorrectionCore)
 
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-mime-devel >= %{majmin_ver}
@@ -174,6 +174,9 @@ Requires:       cmake(Qt5WebEngine)
 
 
 %changelog
+* Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
+- rebuilt
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

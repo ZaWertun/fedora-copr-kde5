@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 23.08.2
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: Sieve support library
 
 License: GPLv2
@@ -42,7 +42,7 @@ BuildRequires:  kf5-ktextwidgets-devel >= %{kf5_ver}
 BuildRequires:  kf5-kwindowsystem-devel >= %{kf5_ver}
 BuildRequires:  kf5-syntax-highlighting-devel >= %{kf5_ver}
 
-BuildRequires:  cmake(KF5TextAutoCorrection)
+BuildRequires:  cmake(KF5TextAutoCorrectionCore)
 
 %global majmin_ver %{version}
 BuildRequires:  kf5-akonadi-contacts-devel >= %{majmin_ver}
@@ -110,6 +110,9 @@ Requires:       cmake(KF5SyntaxHighlighting)
 
 
 %changelog
+* Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
+- rebuilt
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

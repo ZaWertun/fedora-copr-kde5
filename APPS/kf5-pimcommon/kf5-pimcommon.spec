@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Version: 23.08.2
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: PIM common libraries
 
 License: GPLv2+
@@ -76,7 +76,7 @@ BuildRequires:  kf5-kldap-devel >= %{majmin_ver}
 BuildRequires:  kf5-akonadi-search-devel >= %{majmin_ver}
 BuildRequires:  kf5-grantleetheme-devel >= %{majmin_ver}
 
-BuildRequires:  cmake(KF5TextAutoCorrection)
+BuildRequires:  cmake(KF5TextAutoCorrectionCore)
 
 BuildRequires:  pkgconfig(libxslt)
 
@@ -149,6 +149,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
+- rebuilt
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

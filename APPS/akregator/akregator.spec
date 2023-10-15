@@ -8,7 +8,7 @@
 Name:    akregator
 Summary: Feed Reader
 Version: 23.08.2
-Release: 1%{?dist}
+Release: 5%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -57,7 +57,7 @@ BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5SyntaxHighlighting)
 
-BuildRequires: cmake(KF5TextAutoCorrection)
+BuildRequires: cmake(KF5TextAutoCorrectionCore)
 
 # kde-apps
 %global majmin_ver %(echo %{version} | cut -d. -f1,2)
@@ -150,6 +150,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
+- rebuilt
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

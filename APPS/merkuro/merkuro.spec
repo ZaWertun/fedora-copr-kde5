@@ -1,6 +1,6 @@
 Name:    merkuro
 Version: 23.08.2
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
 License: LGPLv2+
@@ -71,7 +71,7 @@ BuildRequires:  cmake(KPim5PimCommon)
 BuildRequires:  cmake(KPim5PimCommonAkonadi)
 BuildRequires:  cmake(KPim5AkonadiCalendar)
 
-BuildRequires:  cmake(KF5TextAutoCorrection)
+BuildRequires:  cmake(KF5TextAutoCorrectionCore)
 BuildRequires:  cmake(Grantlee5)
 
 Requires:       akonadi-calendar-tools
@@ -129,6 +129,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
+- rebuilt
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 
