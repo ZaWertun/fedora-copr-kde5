@@ -1,5 +1,5 @@
 Name:           plasma-welcome
-Version:        5.27.8
+Version:        5.27.9
 Release:        1%{?dist}
 Summary:        A friendly onboarding wizard for Plasma
 
@@ -72,6 +72,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Tue Oct 24 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-1
+- 5.27.9
+
 * Tue Sep 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-1
 - 5.27.8
 

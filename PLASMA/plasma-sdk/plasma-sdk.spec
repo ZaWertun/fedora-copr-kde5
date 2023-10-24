@@ -1,5 +1,5 @@
 Name:    plasma-sdk
-Version: 5.27.8
+Version: 5.27.9
 Release: 1%{?dist}
 Summary: Development tools for Plasma 5
 
@@ -143,6 +143,9 @@ Plasma SDK contains the following tools for Plasma-related development:
 
 
 %changelog
+* Tue Oct 24 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-1
+- 5.27.9
+
 * Tue Sep 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.8-1
 - 5.27.8
 
