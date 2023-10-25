@@ -1,5 +1,5 @@
 Name:           bup
-Version:        0.33
+Version:        0.33.2
 Release:        1%{?dist}
 Summary:        Very efficient backup system based on the git packfile format
 
@@ -80,6 +80,9 @@ providing fast incremental saves and global deduplication
 
 
 %changelog
+* Wed Oct 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.33.2-1
+- version 0.33.2
+
 * Wed Mar 29 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 0.33-1
 - version 0.33
 
