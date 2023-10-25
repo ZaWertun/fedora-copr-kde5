@@ -5,7 +5,7 @@
 
 Name:           kde-connect
 Version:        23.08.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GPLv2+
 Summary:        KDE Connect client for communication with smartphones
 
@@ -200,8 +200,8 @@ fi
 %files -n kdeconnectd
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/applications/org.kde.kdeconnect.daemon.desktop
-%caps(cap_net_admin=pe) %{_libexecdir}/kdeconnectd
- %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
+%{_libexecdir}/kdeconnectd
+%{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 # firewalld as shipped in f31+ provides it's own kdeconnect.xml
 %if 0%{?fedora} && 0%{?fedora} < 31
 %{_prefix}/lib/firewalld/services/kde-connect.xml
@@ -225,6 +225,9 @@ fi
 
 
 %changelog
+* Wed Oct 25 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-2
+- kdeconnectd: CAP_NET_ADMIN removed
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 
