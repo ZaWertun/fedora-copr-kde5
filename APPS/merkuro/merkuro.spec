@@ -1,6 +1,6 @@
 Name:    merkuro
-Version: 23.08.2
-Release: 5%{?dist}
+Version: 23.08.3
+Release: 1%{?dist}
 Summary: A calendar application using Akonadi to sync with external services
 
 License: LGPLv2+
@@ -129,6 +129,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
 - rebuilt
 

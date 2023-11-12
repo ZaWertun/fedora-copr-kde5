@@ -7,7 +7,7 @@
 
 Name:    dolphin
 Summary: KDE File Manager
-Version: 23.08.2
+Version: 23.08.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -166,6 +166,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

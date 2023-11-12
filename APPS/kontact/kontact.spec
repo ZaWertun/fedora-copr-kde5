@@ -2,8 +2,8 @@
 
 Name:    kontact
 Summary: Personal Information Manager
-Version: 23.08.2
-Release: 5%{?dist}
+Version: 23.08.3
+Release: 1%{?dist}
 
 # code (generally) GPLv2, docs GFDL
 License: GPLv2 and GFDL
@@ -128,6 +128,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
 - rebuilt
 

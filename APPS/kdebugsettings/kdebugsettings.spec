@@ -1,6 +1,6 @@
 Name:    kdebugsettings
 Summary: Configure debug output from Qt5 applications
-Version: 23.08.2
+Version: 23.08.3
 Release: 1%{?dist}
 
 License: LGPLv2+
@@ -74,6 +74,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.kdebugset
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

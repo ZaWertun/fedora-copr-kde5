@@ -1,6 +1,6 @@
 Name:    kde-dev-scripts
 Summary: KDE SDK scripts
-Version: 23.08.2
+Version: 23.08.3
 Release: 1%{?dist}
 
 License: GPLv2+ and GPLv2+ and BSD
@@ -173,6 +173,9 @@ test -n "$(grep "/usr/bin/env" %{buildroot}%{_kf5_bindir}/* 2> /dev/null )" ||:
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

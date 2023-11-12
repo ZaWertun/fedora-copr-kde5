@@ -1,6 +1,6 @@
 Name:    baloo-widgets
 Summary: Widgets for Baloo
-Version: 23.08.2
+Version: 23.08.3
 Release: 1%{?dist}
 
 # # KDE e.V. may determine that future LGPL versions are accepted
@@ -83,6 +83,9 @@ Requires: kf5-kio-devel
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

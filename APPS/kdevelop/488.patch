@@ -1,0 +1,27 @@
+From a064d4cfe5f56c75d9b0fb87982aa5d7d245ef25 Mon Sep 17 00:00:00 2001
+From: Alessandro Astone <ales.astone@gmail.com>
+Date: Sat, 16 Sep 2023 12:46:04 +0200
+Subject: [PATCH] Add another path to look for Clang builtin dir
+
+PATHS may include paths ending in "lib64/" while the includes may
+be in "lib/".
+This is the case in Fedora since LLVM17
+---
+ plugins/clang/Locate_CLANG_BUILTIN_DIR.cmake | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/plugins/clang/Locate_CLANG_BUILTIN_DIR.cmake b/plugins/clang/Locate_CLANG_BUILTIN_DIR.cmake
+index 0d9cd59e48..427fd5f2c4 100644
+--- a/plugins/clang/Locate_CLANG_BUILTIN_DIR.cmake
++++ b/plugins/clang/Locate_CLANG_BUILTIN_DIR.cmake
+@@ -20,6 +20,7 @@ find_path(CLANG_BUILTIN_DIR
+     PATHS   "${LLVM_LIBRARY_DIRS}"
+             "${CLANG_INCLUDE_DIRS}"
+     PATH_SUFFIXES   "clang/${CLANG_VERSION_SUBDIR}/include"
++                    "../lib/clang/${CLANG_VERSION_SUBDIR}/include"
+                     "../../../clang/${CLANG_VERSION_SUBDIR}/include"
+     NO_DEFAULT_PATH
+ )
+-- 
+GitLab
+

@@ -1,8 +1,8 @@
 %global framework libgravatar
 
 Name:    kf5-%{framework}
-Version: 23.08.2
-Release: 5%{?dist}
+Version: 23.08.3
+Release: 1%{?dist}
 Summary: Gravatar support library
 
 License: GPLv2
@@ -87,6 +87,9 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
 - rebuilt
 

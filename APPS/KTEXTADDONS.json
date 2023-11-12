@@ -1,0 +1,38 @@
+{
+  "0": [
+    "kf5-pimcommon"
+  ],
+  "1": [
+    "kf5-incidenceeditor"
+  ],
+  "2": [
+    "kf5-libgravatar",
+    "kf5-libksieve",
+    "kf5-mailimporter",
+    "knotes"
+  ],
+  "3": [
+    "kf5-messagelib"
+  ],
+  "4": [
+    "akonadiconsole",
+    "akregator",
+    "grantlee-editor",
+    "kf5-akonadi-calendar",
+    "kf5-mailcommon",
+    "pim-sieve-editor"
+  ],
+  "5": [
+    "akonadi-import-wizard",
+    "kaddressbook",
+    "kmail",
+    "kmail-account-wizard",
+    "kontact",
+    "korganizer",
+    "merkuro",
+    "pim-data-exporter"
+  ],
+  "6": [
+    "kdepim-addons"
+  ]
+}

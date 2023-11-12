@@ -1,5 +1,5 @@
 Name: ghostwriter
-Version: 23.08.2
+Version: 23.08.3
 Release: 1%{?dist}
 
 License: GPL-3.0-or-later AND Apache-2.0 AND CC-BY-4.0 AND CC-BY-SA-4.0 AND MPL-1.1 AND BSD AND LGPL-3.0-only AND MIT AND ISC
@@ -83,6 +83,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.%{name}.deskt
 %{_metainfodir}/org.kde.%{name}.metainfo.xml
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

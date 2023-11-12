@@ -1,6 +1,6 @@
 Name:    svgpart
 Summary: SVG KPart
-Version: 23.08.2
+Version: 23.08.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -54,6 +54,9 @@ Conflicts: kde-l10n < 17.03
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

@@ -4,7 +4,7 @@
 
 Name:    ark
 Summary: Archive manager
-Version: 23.08.2
+Version: 23.08.3
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -154,6 +154,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ark.deskt
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

@@ -1,8 +1,8 @@
 %global framework incidenceeditor
 
 Name:    kf5-%{framework}
-Version: 23.08.2
-Release: 5%{?dist}
+Version: 23.08.3
+Release: 1%{?dist}
 Summary: KDE PIM library for creating and editing calendar incidences
 
 License: LGPLv2+
@@ -110,6 +110,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
 - rebuilt
 

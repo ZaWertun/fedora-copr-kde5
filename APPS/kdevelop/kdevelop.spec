@@ -1,7 +1,7 @@
 Name:           kdevelop
 Summary:        Integrated Development Environment for C++/C
 Epoch:          9
-Version:        23.08.2
+Version:        23.08.3
 Release:        1%{?dist}
 License:        GPLv2
 URL:            http://www.kdevelop.org/
@@ -18,7 +18,9 @@ Patch0:         kdevelop-5.2.3-qmake.patch
 
 # upstreamable patches
 
-# upstream patches
+# upstream patches	
+# https://invent.kde.org/kdevelop/kdevelop/-/merge_requests/488
+Patch1:         488.patch
 
 BuildRequires:  gnupg2
 BuildRequires:  gcc-c++ gcc
@@ -146,8 +148,8 @@ Obsoletes: kdevplatform-libs < 5.1.80-1
 
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
-%setup -q -n kdevelop-%{version}
-%patch0 -p1 -b .qmake
+%autosetup -p1
+
 
 %build
 %cmake_kf5
@@ -233,6 +235,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.kde.kdevelop.desk
 %{rpm_macros_dir}/macros.kdevelop
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 9:23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 9:23.08.2-1
 - 23.08.2
 

@@ -1,7 +1,7 @@
 %global kf5_min_version 5.86.0
 
 Name:           audiotube
-Version:        23.08.2
+Version:        23.08.3
 Release:        1%{?dist}
 License:        GPLv2+
 Summary:        AudioTube can search YouTube Music, list albums and artists, play automatically generated playlists, albums and allows to put your own playlist together.
@@ -30,6 +30,8 @@ BuildRequires: cmake(Qt5QuickControls2)
 BuildRequires: cmake(Qt5QuickControls2)
 BuildRequires: cmake(Qt5Svg)
 BuildRequires: cmake(Qt5Widgets)
+
+BuildRequires: cmake(QCoro5)
 
 BuildRequires: cmake(KF5CoreAddons)   >= %{kf5_min_version}
 BuildRequires: cmake(KF5Crash)        >= %{kf5_min_version}
@@ -73,6 +75,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

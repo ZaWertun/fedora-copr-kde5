@@ -1,8 +1,8 @@
 %global with_markdown 1
 
 Name:    kdepim-addons
-Version: 23.08.2
-Release: 5%{?dist}
+Version: 23.08.3
+Release: 1%{?dist}
 Summary: Additional plugins for KDE PIM applications
 
 License: GPLv2 and LGPLv2+
@@ -255,6 +255,9 @@ Supplements:    korganizer
 
 
 %changelog
+* Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
+- 23.08.3
+
 * Sun Oct 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-5
 - rebuilt
 
