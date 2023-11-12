@@ -2,8 +2,8 @@
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 3 solution for advanced plugin and service introspection
-Version: 5.111.0
-Release: 2%{?dist}
+Version: 5.112.0
+Release: 1%{?dist}
 
 # mixture of LGPLv2 and LGPLv2+ (mostly the latter)
 License: LGPLv2
@@ -112,6 +112,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kservicetypes5
 
 
 %changelog
+* Sun Nov 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.112.0-1
+- 5.112.0
+
 * Tue Oct 31 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.111.0-2
 - added kf5-kservice-5.111.0-remove-useless-warning.patch
 

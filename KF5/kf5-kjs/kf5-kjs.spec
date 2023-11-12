@@ -1,7 +1,7 @@
 %global framework kjs
 
 Name:    kf5-%{framework}
-Version: 5.111.0
+Version: 5.112.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 functional module with JavaScript interpreter
 
@@ -82,6 +82,9 @@ chmod +x %{buildroot}%{_kf5_datadir}/kf5/kjs/create_hash_table
 
 
 %changelog
+* Sun Nov 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.112.0-1
+- 5.112.0
+
 * Thu Oct 19 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.111.0-1
 - 5.111.0
 
