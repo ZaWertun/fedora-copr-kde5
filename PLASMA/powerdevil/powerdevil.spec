@@ -2,7 +2,7 @@
 
 Name:    powerdevil
 Version: 5.27.9
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: Manages the power consumption settings of a Plasma Shell
 
 License: GPLv2+
@@ -129,6 +129,9 @@ rm %{buildroot}/%{_libdir}/libpowerdevil{configcommonprivate,core,ui}.so
 
 
 %changelog
+* Tue Nov 14 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-5
+- rebuilt
+
 * Tue Oct 24 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-1
 - 5.27.9
 
