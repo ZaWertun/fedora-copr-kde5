@@ -10,7 +10,7 @@
 
 Name:    kwin
 Version: 5.27.9
-Release: 1%{?dist}
+Release: 5%{?dist}
 Summary: KDE Window manager
 
 Conflicts: kwinft
@@ -205,6 +205,8 @@ Requires:       %{name}-common%{?_isa} = %{version}-%{release}
 BuildRequires:  xorg-x11-server-Xorg
 %endif
 Requires:       xorg-x11-server-Xorg
+# Plasma X11 is deprecated and will be removed with Plasma 6.0
+Provides:       deprecated()
 # http://bugzilla.redhat.com/605675
 Provides:       firstboot(windowmanager) = kwin_x11
 # KWinX11Platform (and others?)
@@ -380,6 +382,9 @@ make test ARGS="--output-on-failure --timeout 10" -C %{_target_platform} ||:
 
 
 %changelog
+* Tue Nov 28 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-5
+- rebuilt
+
 * Tue Oct 24 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-1
 - 5.27.9
 
