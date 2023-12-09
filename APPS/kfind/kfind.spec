@@ -1,6 +1,6 @@
 Name:    kfind
 Summary: KDE Find File Utility
-Version: 23.08.3
+Version: 23.08.4
 Release: 1%{?dist}
 
 # Documentation is GFDL, rest GPLv2+
@@ -74,6 +74,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
+- 23.08.4
+
 * Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
 - 23.08.3
 

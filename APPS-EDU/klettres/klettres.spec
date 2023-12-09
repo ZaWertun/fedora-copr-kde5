@@ -1,6 +1,6 @@
 Name:    klettres
 Summary: Learn the alphabet and read some syllables in different languages
-Version: 23.08.2
+Version: 23.08.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -94,6 +94,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Sat Dec 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
+- 23.08.4
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 

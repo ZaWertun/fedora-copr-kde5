@@ -1,5 +1,5 @@
 Name:           zanshin
-Version:        23.08.3
+Version:        23.08.4
 Release:        1%{?dist}
 Summary:        Todo/action management software
 
@@ -108,6 +108,9 @@ time \
 %{_kf5_qtplugindir}/pim5/kontact/kontact_zanshinplugin.so
 
 %changelog
+* Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
+- 23.08.4
+
 * Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
 - 23.08.3
 

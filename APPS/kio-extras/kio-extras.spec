@@ -1,7 +1,7 @@
 #global tests 1
 
 Name:    kio-extras
-Version: 23.08.3
+Version: 23.08.4
 Release: 1%{?dist}
 Summary: Additional components to increase the functionality of KIO Framework
 
@@ -216,6 +216,9 @@ time make test -C %{_vpath_builddir} ARGS="--output-on-failure --timeout 30" ||:
 
 
 %changelog
+* Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
+- 23.08.4
+
 * Fri Nov 10 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.3-1
 - 23.08.3
 

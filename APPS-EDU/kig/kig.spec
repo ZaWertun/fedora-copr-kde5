@@ -3,7 +3,7 @@
 
 Name:    kig
 Summary: Interactive Geometry
-Version: 23.08.2
+Version: 23.08.4
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -70,12 +70,7 @@ sed -ie "s|^#!/usr/bin/env python3|#!%{__python3}|" pykig/pykig.py
 
 
 %build
-%cmake_kf5 \
-  -DPYTHON_EXECUTABLE:PATH=%{__python3} \
-  -DPYTHON_INCLUDE_DIR=%{_python3_include} \
-  -DPYTHON_LIBRARY=%{_python3_lib} \
-  -DBoostPython_INCLUDE_DIRS="%{_python3_include};%{_includedir}/boost" \
-  -DBoostPython_LIBRARIES="%{_python3_lib};%{_libdir}/libboost_python%{python3_version_nodots}.so"
+%cmake_kf5
 %cmake_build
 
 
@@ -105,6 +100,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.d
 
 
 %changelog
+* Sat Dec 09 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
+- 23.08.4
+
 * Fri Oct 13 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.2-1
 - 23.08.2
 
