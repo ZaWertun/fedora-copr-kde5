@@ -2,7 +2,7 @@
 
 Name:    kf5-%{framework}
 Summary: KDE Frameworks 5 Tier 3 solution for advanced plugin and service introspection
-Version: 5.112.0
+Version: 5.113.0
 Release: 1%{?dist}
 
 # mixture of LGPLv2 and LGPLv2+ (mostly the latter)
@@ -23,8 +23,6 @@ Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 ## upstream patches
 
 ## upstreamable patches
-# https://bugs.kde.org/show_bug.cgi?id=430157
-Patch0:    kf5-kservice-5.111.0-remove-useless-warning.patch
 
 ## downstream patches
 # Fedora customizations to the menu categories
@@ -112,6 +110,9 @@ mkdir -p %{buildroot}%{_kf5_datadir}/kservicetypes5
 
 
 %changelog
+* Fri Dec 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.113.0-1
+- 5.113.0
+
 * Sun Nov 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.112.0-1
 - 5.112.0
 

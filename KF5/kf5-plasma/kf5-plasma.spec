@@ -1,7 +1,7 @@
 %global framework plasma
 
 Name:    kf5-%{framework}
-Version: 5.112.0
+Version: 5.113.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 framework is foundation to build a primary user interface
 
@@ -152,8 +152,6 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 %{_kf5_datadir}/kservicetypes5/*.desktop
 %{_kf5_mandir}/man1/plasmapkg2.1.*
 %{_kf5_datadir}/qlogging-categories5/*categories
-# can find_lang handle this too somehow? -- rex
-%lang(lt) %{_datadir}/locale/lt/LC_SCRIPTS/libplasma5/
 
 %files devel
 %{_kf5_libdir}/cmake/KF5Plasma/
@@ -169,6 +167,9 @@ sed -e "s|@@VERSION@@|%{version}|g" fedora-plasma-cache.sh.in > \
 
 
 %changelog
+* Fri Dec 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.113.0-1
+- 5.113.0
+
 * Sun Nov 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.112.0-1
 - 5.112.0
 

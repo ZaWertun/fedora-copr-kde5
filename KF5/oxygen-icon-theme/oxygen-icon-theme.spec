@@ -12,7 +12,7 @@
 Name:    oxygen-icon-theme
 Summary: Oxygen icon theme
 Epoch:   1
-Version: 5.112.0
+Version: 5.113.0
 Release: 1%{?dist}
 
 # http://techbase.kde.org/Policies/Licensing_Policy
@@ -26,8 +26,8 @@ URL:     https://techbase.kde.org/Projects/Oxygen
 %else
 %global stable stable
 %endif
-Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/oxygen-icons5-%{version}.tar.xz
-Source1: http://download.kde.org/%{stable}/frameworks/%{versiondir}/oxygen-icons5-%{version}.tar.xz.sig
+Source0: http://download.kde.org/%{stable}/frameworks/%{versiondir}/oxygen-icons-%{version}.tar.xz
+Source1: http://download.kde.org/%{stable}/frameworks/%{versiondir}/oxygen-icons-%{version}.tar.xz.sig
 Source2: gpgkey-53E6B47B45CEA3E0D5B7457758D0EE648A48B3BB.gpg
 BuildArch: noarch
 
@@ -72,7 +72,7 @@ Conflicts: kmail < 15.12.2
 
 %prep
 %{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
-%autosetup -n oxygen-icons5-%{version} -p1
+%autosetup -n oxygen-icons-%{version} -p1
 
 %if 0%{?kf5_version:1}
 sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
@@ -151,6 +151,9 @@ fi
 
 
 %changelog
+* Fri Dec 15 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.113.0-1
+- 5.113.0
+
 * Sun Nov 12 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:5.112.0-1
 - 5.112.0
 
