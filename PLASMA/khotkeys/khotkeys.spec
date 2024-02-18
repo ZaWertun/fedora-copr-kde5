@@ -1,5 +1,5 @@
 Name:    khotkeys
-Version: 5.27.9
+Version: 5.27.10
 Release: 1%{?dist}
 Summary: Application to configure hotkeys in KDE
 
@@ -105,6 +105,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Wed Dec 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.10-1
+- 5.27.10
+
 * Tue Oct 24 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-1
 - 5.27.9
 

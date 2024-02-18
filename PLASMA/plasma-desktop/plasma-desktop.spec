@@ -9,7 +9,7 @@
 
 Name:    plasma-desktop
 Summary: Plasma Desktop shell
-Version: 5.27.9
+Version: 5.27.10
 Release: 1%{?dist}
 
 License: GPLv2+ and (GPLv2 or GPLv3)
@@ -361,6 +361,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/org.kde.knetattach.d
 
 
 %changelog
+* Wed Dec 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.10-1
+- 5.27.10
+
 * Tue Oct 24 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.9-1
 - 5.27.9
 
