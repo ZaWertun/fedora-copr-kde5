@@ -1,7 +1,7 @@
 %global framework knewstuff
 
 Name:    kf5-%{framework}
-Version: 5.114.0
+Version: 5.115.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 3 module for downloading application assets
 
@@ -111,6 +111,9 @@ developing applications that use %{name}.
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.115.0-1
+- 5.115.0
+
 * Fri Jan 19 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.114.0-1
 - 5.114.0
 

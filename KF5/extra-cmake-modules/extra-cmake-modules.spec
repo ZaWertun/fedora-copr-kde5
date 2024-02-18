@@ -8,7 +8,7 @@
 
 Name:    extra-cmake-modules
 Summary: Additional modules for CMake build system
-Version: 5.114.0
+Version: 5.115.0
 Release: 1%{?dist}
 
 License: BSD
@@ -44,6 +44,7 @@ BuildRequires: python2-PyQt5-devel
 Patch2: extra-cmake-modules-5.39.0-poppler_overlinking.patch
 # https://bugzilla.redhat.com/1435525
 Patch3: extra-cmake-modules-5.93.0-qt_prefix.patch
+Patch4: extra-cmake-modules-5.115.0-ECMFeatureSummary.patch
 
 BuildRequires: gnupg2
 BuildRequires: kf5-rpm-macros
@@ -129,6 +130,9 @@ make test ARGS="--output-on-failure --timeout 300" -C %{_target_platform} ||:
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.115.0-1
+- 5.115.0
+
 * Fri Jan 19 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.114.0-1
 - 5.114.0
 

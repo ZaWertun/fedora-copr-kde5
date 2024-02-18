@@ -207,8 +207,6 @@ method framework.
 %package        emojier
 Summary:        Selection window for emoji text input
 Requires:       %{name} = %{version}-%{release}
-Recommends:     ibus
-Recommends:     ibus-uniemoji
 %description    emojier
 %{summary}.
 

@@ -1,0 +1,59 @@
+From 3b0240014e0d7acd3ecae370bc9f317cc4d1f20e Mon Sep 17 00:00:00 2001
+From: David Faure <faure@kde.org>
+Date: Fri, 15 Dec 2023 12:14:20 +0100
+Subject: [PATCH] Add ECMFeatureSummary, a wrapper for feature_summary that's
+ silent in submodules
+
+I used the same logic as in kde-modules/KDEGitCommitHooks.cmake
+---
+ modules/ECMFeatureSummary.cmake | 38 +++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+ create mode 100644 modules/ECMFeatureSummary.cmake
+
+diff --git a/modules/ECMFeatureSummary.cmake b/modules/ECMFeatureSummary.cmake
+new file mode 100644
+index 00000000..4d179473
+--- /dev/null
++++ b/modules/ECMFeatureSummary.cmake
+@@ -0,0 +1,38 @@
++# SPDX-FileCopyrightText: 2023 David Faure <faure@kde.org>
++#
++# SPDX-License-Identifier: BSD-3-Clause
++
++#[=======================================================================[.rst:
++ECMFeatureSummary
++-----------------
++
++Call feature_summary(), except when being called from a subdirectory.
++This ensures that frameworks being used as submodules by third-party applications
++do not call feature_summary(), so that it doesn't end up being called multiple
++times in the same cmake run.
++
++
++::
++
++  include(ECMFeatureSummary)
++  ecm_feature_summary([... see feature_summary documentation ...])
++
++Example:
++
++.. code-block:: cmake
++
++  find_package(ECM REQUIRED)
++  include(ECMFeatureSummary)
++  ecm_feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
++
++Since 5.247
++#]=======================================================================]
++
++include(FeatureSummary)
++function(ecm_feature_summary)
++
++    if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
++       feature_summary(${ARGV})
++    endif()
++
++endfunction()
+-- 
+GitLab
+
