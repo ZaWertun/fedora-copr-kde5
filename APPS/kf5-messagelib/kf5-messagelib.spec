@@ -1,7 +1,7 @@
 %global framework messagelib
 
 Name:    kf5-%{framework}
-Version: 23.08.4
+Version: 23.08.5
 Release: 1%{?dist}
 Summary: KDE Message libraries
 
@@ -174,6 +174,9 @@ Requires:       cmake(Qt5WebEngine)
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.5-1
+- 23.08.5
+
 * Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
 - 23.08.4
 

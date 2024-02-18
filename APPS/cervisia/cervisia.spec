@@ -1,6 +1,6 @@
 Name:    cervisia
 Summary: CVS frontend
-Version: 23.08.4
+Version: 23.08.5
 Release: 1%{?dist}
 
 License: GPLv2+ and LGPLv2+ and GFDL
@@ -91,6 +91,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.cervisia.
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.5-1
+- 23.08.5
+
 * Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
 - 23.08.4
 

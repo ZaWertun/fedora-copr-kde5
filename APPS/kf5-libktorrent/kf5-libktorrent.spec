@@ -2,7 +2,7 @@
 
 Name:    kf5-libktorrent
 Summary: Library providing torrent downloading code
-Version: 23.08.4
+Version: 23.08.5
 Release: 1%{?dist}
 
 License: GPLv2+
@@ -86,6 +86,9 @@ Requires: cmake(Qt5Network)
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.5-1
+- 23.08.5
+
 * Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
 - 23.08.4
 

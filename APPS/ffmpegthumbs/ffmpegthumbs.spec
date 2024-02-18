@@ -1,5 +1,5 @@
 Name:    ffmpegthumbs
-Version: 23.08.4
+Version: 23.08.5
 Release: 1%{?dist}
 Summary: KDE ffmpegthumbnailer service
 
@@ -64,6 +64,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.5-1
+- 23.08.5
+
 * Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
 - 23.08.4
 

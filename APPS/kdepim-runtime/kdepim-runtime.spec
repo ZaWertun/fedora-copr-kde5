@@ -4,7 +4,7 @@
 Name:    kdepim-runtime
 Summary: KDE PIM Runtime Environment
 Epoch:   1
-Version: 23.08.4
+Version: 23.08.5
 Release: 1%{?dist}
 
 License: GPLv2
@@ -193,6 +193,9 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_vpath_builddir} ||:
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.08.5-1
+- 23.08.5
+
 * Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 1:23.08.4-1
 - 23.08.4
 

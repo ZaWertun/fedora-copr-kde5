@@ -2,7 +2,7 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
 Name:    ktorrent
-Version: 23.08.4
+Version: 23.08.5
 Release: 1%{?dist}
 Summary: A BitTorrent program
 
@@ -143,6 +143,9 @@ desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.ktorrent.
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.5-1
+- 23.08.5
+
 * Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
 - 23.08.4
 

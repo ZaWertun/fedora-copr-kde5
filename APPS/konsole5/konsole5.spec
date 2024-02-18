@@ -3,7 +3,7 @@
 
 Name:    konsole5
 Summary: KDE Terminal emulator
-Version: 23.08.4
+Version: 23.08.5
 Release: 1%{?dist}
 
 # sources: MIT and LGPLv2 and LGPLv2+ and GPLv2+
@@ -166,6 +166,9 @@ xvfb-run -a bash -c "%{ctest --timeout 30}" ||:
 
 
 %changelog
+* Sun Feb 18 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.5-1
+- 23.08.5
+
 * Fri Dec 08 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 23.08.4-1
 - 23.08.4
 
