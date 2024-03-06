@@ -1,5 +1,5 @@
 Name:    kde-cli-tools
-Version: 5.27.10
+Version: 5.27.11
 Release: 1%{?dist}
 Summary: Tools based on KDE Frameworks 5 to better interact with the system
 
@@ -115,6 +115,9 @@ ln -s %{_kf5_libexecdir}/kdesu %{buildroot}%{_bindir}/kdesu
 
 
 %changelog
+* Wed Mar 06 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.11-1
+- 5.27.11
+
 * Wed Dec 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.10-1
 - 5.27.10
 

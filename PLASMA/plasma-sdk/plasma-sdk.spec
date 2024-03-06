@@ -1,5 +1,5 @@
 Name:    plasma-sdk
-Version: 5.27.10
+Version: 5.27.11
 Release: 1%{?dist}
 Summary: Development tools for Plasma 5
 
@@ -57,6 +57,7 @@ BuildRequires:  kf5-kxmlgui-devel
 BuildRequires:  kf5-kwindowsystem-devel
 BuildRequires:  kf5-kitemmodels-devel
 BuildRequires:  cmake(KF5SyntaxHighlighting)
+BuildRequires:  cmake(KF5Kirigami2)
 %if ! 0%{?bootstrap}
 # required kpackage plugins
 BuildRequires:  plasma-packagestructure
@@ -143,6 +144,9 @@ Plasma SDK contains the following tools for Plasma-related development:
 
 
 %changelog
+* Wed Mar 06 2024 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.11-1
+- 5.27.11
+
 * Wed Dec 06 2023 Yaroslav Sidlovsky <zawertun@gmail.com> - 5.27.10-1
 - 5.27.10
 
